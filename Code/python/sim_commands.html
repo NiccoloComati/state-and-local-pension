@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulation Commands</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0d0d0d;
+      min-height: 100vh;
+      padding: 28px 24px;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .header {
+      margin-bottom: 24px;
+    }
+
+    .header h1 {
+      color: #e8e8e8;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .header p {
+      color: #666;
+      font-size: 12px;
+      margin-top: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .section-title {
+      color: #888;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin: 28px 0 10px 0;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .param-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    .param-table th {
+      color: #666;
+      text-align: left;
+      padding: 5px 10px;
+      border-bottom: 1px solid #2a2a2a;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+    }
+
+    .param-table td {
+      padding: 5px 10px;
+      border-bottom: 1px solid #1e1e1e;
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .param-name { color: #7eb8f7; white-space: nowrap; }
+    .param-type { color: #888; white-space: nowrap; }
+    .param-default { color: #f7c97e; white-space: nowrap; }
+    .param-desc { color: #bbb; }
+
+    .card {
+      background: #141414;
+      border: 1px solid #2a2a2a;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-bottom: 1px solid #2a2a2a;
+      background: #1a1a1a;
+    }
+
+    .card-header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .card-title {
+      color: #e8e8e8;
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+
+    .tag-local { background: #1a3a1a; color: #7dd87d; }
+    .tag-engaging { background: #1e3a5f; color: #7eb8f7; }
+    .tag-local-fast { background: #2a3a1a; color: #b8e87d; }
+
+    .copy-btn {
+      background: #222;
+      color: #aaa;
+      border: 1px solid #333;
+      border-radius: 5px;
+      padding: 4px 12px;
+      font-size: 12px;
+      font-family: "Courier New", Courier, monospace;
+      cursor: pointer;
+      transition: all 0.15s;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .copy-btn:hover {
+      background: #2a2a2a;
+      color: #ddd;
+    }
+
+    .copy-btn.copied {
+      background: #1a3a1a;
+      color: #7dd87d;
+      border-color: #3a6a3a;
+    }
+
+    pre {
+      margin: 0;
+      padding: 12px 14px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12.5px;
+      color: #c8c8c8;
+      line-height: 1.7;
+      overflow-x: auto;
+      background: transparent;
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>SIMULATION COMMANDS</h1>
+      <p>run-tag: 062026 | plan-year: 2022 | seed: 123</p>
+      <p>For scenario runs (contribution policy, investment strategy, discount override, tier counterfactuals), prefer the notebook control panel: <b>launcher.ipynb</b> in this folder. Scenario levers are documented there and in scenarios.py.</p>
+    </div>
+    <div id="commands"></div>
+  </div>
+
+  <script>
+    const commands = [
+      {
+        title: "Dry run (preview commands)",
+        subtitle: "local only",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\run_simulation.py" \`
+  --plans AZ06,CA10,CA144 \`
+  --stage both \`
+  --parallel 3 \`
+  --run-tag 062026_py \`
+  --plan-year 2022 \`
+  --num-sim 1000 \`
+  --seed 123 \`
+  --dry-run`,
+      },
+      {
+        title: "Run deterministic A/L only",
+        subtitle: "local",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\run_simulation.py" \`
+  --plans all \`
+  --stage detal \`
+  --parallel 8 \`
+  --run-tag 062026_py \`
+  --plan-year 2022`,
+      },
+      {
+        title: "Run deterministic A/L only (fast)",
+        subtitle: "local · optimized",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\run_simulation.py" \`
+  --plans all \`
+  --stage detal \`
+  --parallel 19 \`
+  --workers 1 \`
+  --run-tag 062026_fast \`
+  --plan-year 2022 \`
+  --fast`,
+      },
+      {
+        title: "Run deterministic A/L only",
+        subtitle: "Engaging",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action upload-submit \`
+  -RemoteHost "ncomati@orcd-login.mit.edu" \`
+  -RemoteDir "~/state_pension_model_python" \`
+  -RunTag "062026_py" \`
+  -Plans all \`
+  -Stage detal \`
+  -Parallel 8 \`
+  -PlanYear 2022 \`
+  -CondaModule "miniforge/24.3.0-0"`,
+      },
+      {
+        title: "Run assets only",
+        subtitle: "local",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\run_simulation.py" \`
+  --plans all \`
+  --stage asset \`
+  --parallel 8 \`
+  --run-tag 062026_py \`
+  --num-sim 1000 \`
+  --seed 123 \`
+  --overwrite`,
+      },
+      {
+        title: "Run assets only",
+        subtitle: "Engaging",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action upload-submit \`
+  -RemoteHost "ncomati@orcd-login.mit.edu" \`
+  -RemoteDir "~/state_pension_model_python" \`
+  -RunTag "062026_py" \`
+  -Plans all \`
+  -Stage asset \`
+  -Parallel 8 \`
+  -NumSim 1000 \`
+  -Seed 123 \`
+  -Overwrite \`
+  -CondaModule "miniforge/24.3.0-0"`,
+      },
+      {
+        title: "Run deterministic then assets",
+        subtitle: "local",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\run_simulation.py" \`
+  --plans all \`
+  --stage both \`
+  --parallel 8 \`
+  --run-tag 062026_py \`
+  --plan-year 2022 \`
+  --num-sim 1000 \`
+  --seed 123 \`
+  --overwrite`,
+      },
+      {
+        title: "Run deterministic then assets (fast)",
+        subtitle: "local · optimized",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\run_simulation.py" \`
+  --plans all \`
+  --stage both \`
+  --parallel 19 \`
+  --workers 1 \`
+  --run-tag 062026_fast \`
+  --plan-year 2022 \`
+  --num-sim 1000 \`
+  --seed 123 \`
+  --overwrite \`
+  --fast`,
+      },
+      {
+        title: "Run deterministic then assets",
+        subtitle: "Engaging",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action upload-submit \`
+  -RemoteHost "ncomati@orcd-login.mit.edu" \`
+  -RemoteDir "~/state_pension_model_python" \`
+  -RunTag "062026_py" \`
+  -Plans all \`
+  -Stage both \`
+  -Parallel 8 \`
+  -PlanYear 2022 \`
+  -NumSim 1000 \`
+  -Seed 123 \`
+  -Overwrite \`
+  -CondaModule "miniforge/24.3.0-0"`,
+      },
+      {
+        title: "Upload code/data/workbooks",
+        subtitle: "Engaging only",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action upload \`
+  -RemoteHost "ncomati@orcd-login.mit.edu" \`
+  -RemoteDir "~/state_pension_model_python" \`
+  -RunTag "062026_py" \`
+  -UploadPlans all`,
+      },
+      {
+        title: "Check status",
+        subtitle: "Engaging only",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action status \`
+  -RemoteHost "ncomati@orcd-login.mit.edu"`,
+      },
+      {
+        title: "Check inventory",
+        subtitle: "Engaging only",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action inventory \`
+  -RemoteHost "ncomati@orcd-login.mit.edu" \`
+  -RemoteDir "~/state_pension_model_python" \`
+  -RunTag "062026_py"`,
+      },
+      {
+        title: "Fetch results",
+        subtitle: "Engaging only",
+        tag: "engaging",
+        cmd: `& ".\\Code\\python\\engaging\\remote_python_run.ps1" \`
+  -Action fetch \`
+  -RemoteHost "ncomati@orcd-login.mit.edu" \`
+  -RemoteDir "~/state_pension_model_python" \`
+  -RunTag "062026_py"`,
+      },
+      {
+        title: "Compare R vs Python outputs",
+        subtitle: "local only",
+        tag: "local",
+        cmd: `python ".\\Code\\python\\compare_r_python.py" \`
+  --plans all \`
+  --kind detal \`
+  --r-run-tag 062026 \`
+  --py-run-tag 062026_py \`
+  --plan-year 2022 \`
+  --output ".\\Results\\Runs\\062026_py\\_compare_detal_vs_r.csv"`,
+      },
+    ];
+
+    const container = document.getElementById("commands");
+
+    commands.forEach(({ title, subtitle, tag, cmd }) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const header = document.createElement("div");
+      header.className = "card-header";
+
+      const left = document.createElement("div");
+      left.className = "card-header-left";
+
+      const titleEl = document.createElement("span");
+      titleEl.className = "card-title";
+      titleEl.textContent = title;
+
+      const tagEl = document.createElement("span");
+      const tagClass = tag === "local · optimized" ? "local-fast" : tag;
+      tagEl.className = `tag tag-${tagClass}`;
+      tagEl.textContent = subtitle;
+
+      left.appendChild(titleEl);
+      left.appendChild(tagEl);
+
+      const btn = document.createElement("button");
+      btn.className = "copy-btn";
+      btn.textContent = "copy";
+      btn.addEventListener("click", () => {
+        navigator.clipboard.writeText(cmd).then(() => {
+          btn.textContent = "copied";
+          btn.classList.add("copied");
+          setTimeout(() => {
+            btn.textContent = "copy";
+            btn.classList.remove("copied");
+          }, 1800);
+        });
+      });
+
+      header.appendChild(left);
+      header.appendChild(btn);
+
+      const pre = document.createElement("pre");
+      pre.textContent = cmd;
+
+      card.appendChild(header);
+      card.appendChild(pre);
+      container.appendChild(card);
+    });
+  </script>
+
+  <div class="container" style="margin-top:32px;">
+    <div class="section-title">Parameter reference — run_simulation.py (local)</div>
+    <table class="param-table">
+      <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td class="param-name">--plans</td><td class="param-type">string</td><td class="param-default">all</td><td class="param-desc">"all" or comma-separated plan IDs (e.g. AZ06,CA10). MA50 always excluded.</td></tr>
+        <tr><td class="param-name">--stage</td><td class="param-type">string</td><td class="param-default">both</td><td class="param-desc">detal · asset · both. "detal" runs deterministic A/L; "asset" runs stochastic simulation (requires existing detAL pkl); "both" chains them sequentially.</td></tr>
+        <tr><td class="param-name">--parallel</td><td class="param-type">int</td><td class="param-default">4</td><td class="param-desc">Max concurrent plan processes. Acts as a ceiling — a new plan starts as soon as a slot frees up, not in rigid batches.</td></tr>
+        <tr><td class="param-name">--run-tag</td><td class="param-type">string</td><td class="param-default">062026</td><td class="param-desc">Output folder label. Results go to Results/Runs/[run-tag]/[PLAN]/.</td></tr>
+        <tr><td class="param-name">--plan-year</td><td class="param-type">int</td><td class="param-default">2022</td><td class="param-desc">Model data year passed to the A/L script via --plan-year.</td></tr>
+        <tr><td class="param-name">--num-sim</td><td class="param-type">int</td><td class="param-default">1000</td><td class="param-desc">Number of asset-return simulations per plan (asset stage only).</td></tr>
+        <tr><td class="param-name">--seed</td><td class="param-type">int</td><td class="param-default">(none)</td><td class="param-desc">Common market shock seed, shared by ALL plans (asset stage): simulation column n is the same market history for every plan. If omitted, one seed is generated and printed.</td></tr>
+        <tr><td class="param-name">--tier-file</td><td class="param-type">string</td><td class="param-default">planchanges_main_2022_clean.xlsx</td><td class="param-desc">Tier parameter file name inside Common_Data/.</td></tr>
+        <tr><td class="param-name">--plan-file</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Explicit path to a plan list file. Defaults to Pipeline/[run-tag]/plans_38.txt.</td></tr>
+        <tr><td class="param-name">--fast</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Use fast/Main_PensionModel.py (optimized loops; ~10x faster than the standard version after the 2026-06-10 core.py optimization). Results are bit-identical to the standard version.</td></tr>
+        <tr><td class="param-name">--workers</td><td class="param-type">int</td><td class="param-default">cpu_count</td><td class="param-desc">Thread-pool workers for PVNC (fast mode only). Profiling (2026-06-10) showed PVNC threads are GIL-serialized, so extra workers add overhead without speedup: use --workers 1 and put all parallelism in --parallel instead. Worker count does not affect results.</td></tr>
+        <tr><td class="param-name">--skip-existing-detal</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Skip plans that already have a detAL pkl. Use to rerun only failed plans.</td></tr>
+        <tr><td class="param-name">--skip-existing-asset</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Skip plans that already have an asset pkl.</td></tr>
+        <tr><td class="param-name">--overwrite</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Force overwrite existing outputs.</td></tr>
+        <tr><td class="param-name">--dry-run</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Print commands without executing them.</td></tr>
+        <tr><td class="param-name">--date-run</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Optional date_run label forwarded to the A/L script.</td></tr>
+        <tr><td class="param-name">--discount-override</td><td class="param-type">float</td><td class="param-default">(none)</td><td class="param-desc">Forwarded to the fast detal runner: replaces the plan GASB discount rate in AAL/PVNC (e.g. an AAA yield). Scenario lever; see launcher.ipynb. asset_simulation.py has further scenario levers (--contrib-add, --policy-start, --contrib-always, --equity-share, --derisk-to, --derisk-years, --stock-premium, --stock-vol, --detal-run-tag).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container" style="margin-top:16px;">
+    <div class="section-title">Parameter reference — remote_python_run.ps1 (Engaging)</div>
+    <table class="param-table">
+      <thead><tr><th>Parameter</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+      <tbody>
+        <tr><td class="param-name">-Action</td><td class="param-type">string</td><td class="param-default">required</td><td class="param-desc">package · upload · upload-submit · submit · status · inventory · fetch. Use <b>upload-submit</b> to bundle+upload+submit in one step (avoids missing uploaded_plans.txt error).</td></tr>
+        <tr><td class="param-name">-RemoteHost</td><td class="param-type">string</td><td class="param-default">required</td><td class="param-desc">SSH target, e.g. ncomati@orcd-login.mit.edu.</td></tr>
+        <tr><td class="param-name">-RemoteDir</td><td class="param-type">string</td><td class="param-default">~/state_pension_model_python</td><td class="param-desc">Directory on the remote server where the bundle is extracted and jobs run from.</td></tr>
+        <tr><td class="param-name">-RunTag</td><td class="param-type">string</td><td class="param-default">python_run</td><td class="param-desc">Full output label. Used as the Results/Runs/[RunTag]/ folder name. Must match across upload and submit calls.</td></tr>
+        <tr><td class="param-name">-Plans</td><td class="param-type">string[]</td><td class="param-default">all</td><td class="param-desc">Plans to run: "all" or comma-separated IDs (e.g. AZ06,CA10). MA50 is always excluded.</td></tr>
+        <tr><td class="param-name">-UploadPlans</td><td class="param-type">string[]</td><td class="param-default">all</td><td class="param-desc">Plans whose workbook data to include in the upload bundle. Defaults to all.</td></tr>
+        <tr><td class="param-name">-Stage</td><td class="param-type">string</td><td class="param-default">both</td><td class="param-desc">detal · asset · both. "detal" runs only deterministic A/L; "asset" runs only asset simulation (requires existing detAL pkl); "both" chains them with a Slurm dependency.</td></tr>
+        <tr><td class="param-name">-Parallel</td><td class="param-type">int</td><td class="param-default">8</td><td class="param-desc">Max concurrent Slurm array tasks (maps to --array=1-N%Parallel).</td></tr>
+        <tr><td class="param-name">-NumSim</td><td class="param-type">int</td><td class="param-default">1000</td><td class="param-desc">Number of asset-return simulations per plan.</td></tr>
+        <tr><td class="param-name">-PlanYear</td><td class="param-type">int</td><td class="param-default">2022</td><td class="param-desc">Model data year passed to Main_PensionModel.py via --plan-year.</td></tr>
+        <tr><td class="param-name">-TierFile</td><td class="param-type">string</td><td class="param-default">planchanges_main_2022_clean.xlsx</td><td class="param-desc">Tier parameter file name inside Common_Data/.</td></tr>
+        <tr><td class="param-name">-Seed</td><td class="param-type">int</td><td class="param-default">(none)</td><td class="param-desc">Common market shock seed, shared by ALL plans (asset stage). Always set this explicitly on Engaging: array tasks run as separate processes and must agree on the seed for common shocks.</td></tr>
+        <tr><td class="param-name">-Partition</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Slurm partition (--partition). Leave blank to use cluster default.</td></tr>
+        <tr><td class="param-name">-Account</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Slurm account (--account).</td></tr>
+        <tr><td class="param-name">-Qos</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Slurm QOS (--qos).</td></tr>
+        <tr><td class="param-name">-CondaModule</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Module to load via "module load" before activating conda. On Engaging use miniforge/24.3.0-0.</td></tr>
+        <tr><td class="param-name">-CondaEnv</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Conda environment to activate after loading the module.</td></tr>
+        <tr><td class="param-name">-PythonModule</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Module to load if Python itself is a module (not conda).</td></tr>
+        <tr><td class="param-name">-PythonBin</td><td class="param-type">string</td><td class="param-default">python</td><td class="param-desc">Python binary name. Override if the environment exposes python3 but not python.</td></tr>
+        <tr><td class="param-name">-Venv</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Path to a virtualenv to activate (sources venv/bin/activate).</td></tr>
+        <tr><td class="param-name">-SkipExistingDetal</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Skip plans that already have a detAL pkl. Use to rerun only failed plans.</td></tr>
+        <tr><td class="param-name">-SkipExistingAsset</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Skip plans that already have an asset pkl.</td></tr>
+        <tr><td class="param-name">-Overwrite</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Force overwrite existing outputs even if they exist.</td></tr>
+        <tr><td class="param-name">-DryRun</td><td class="param-type">switch</td><td class="param-default">off</td><td class="param-desc">Print sbatch commands without submitting.</td></tr>
+        <tr><td class="param-name">-JobId</td><td class="param-type">string</td><td class="param-default">(none)</td><td class="param-desc">Used with -Action status to query a specific Slurm job ID.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>

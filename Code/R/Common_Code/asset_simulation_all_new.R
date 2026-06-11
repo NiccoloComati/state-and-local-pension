@@ -1,0 +1,189 @@
+current_dir <- "/nfs/sloanlab007/projects/pension_cf_model_proj/Pension_CF_Model/"
+
+# set the proper working directory
+setwd(current_dir)
+
+library("readxl")
+
+
+plans <- c("CA10","AZ127","DC20","IL33","MA50","NY78","AZ06","CA111",
+           "IL32","LA130","CA43","CA97","CA98","FL26","GA27","GA28",
+           "IL34","IN37","LA44","LA163","ME47","MI53","CA144","MO175","ND82",
+           "NJ73","NM74","NY83","OK134","OR91","PA92",
+           "PA93","RI96","SC100","SC99","TX108")
+
+
+omitted <- c("NJ71")
+
+
+
+date_run <- "June2024"
+
+
+for (i_loop in c(1:length(plans))){
+  
+plan <- plans[[i_loop]]
+  
+  
+
+
+
+fileName <- paste0(plan,date_run,".RData")
+
+planFolder <- paste0(plan,"/")
+
+#Plan Number
+ppid <- as.numeric(gsub("[^0-9]", "", plan))
+
+#Plan Year
+plan_year <- 2017
+
+#Get plan info
+planinfo <- read_excel("../../Data/Common/states/ppd-data-latest.xlsx", sheet = "ppd-data-latest", col_names=TRUE)
+
+planinfo <- planinfo[planinfo$ppd_id==ppid & planinfo$fy == plan_year,]
+
+#Find corresponding inflation ratess
+Inflation_rate <- planinfo$InflationAssumption_GASB
+
+
+
+#Load cash-flow data
+load(file = paste0(planFolder,fileName))
+
+#Import real returns
+load(file = "Returns/correlation_matrix.RData")
+
+#Amortize payments or constant percent of wages
+Amortize <- F
+#period over which to amortize
+Amortize_Period <- 30
+
+#number of simulations to do
+num_sim <- 10000
+
+#Right now the Cash-flows can be duplicated between columns because
+#there is no stochastic elements on the liability side
+Assets <- matrix(Assets,nrow = nrow(Assets),ncol = num_sim)
+AAL <- matrix(AAL,nrow = nrow(AAL),ncol = num_sim)
+cash_inflows <- matrix(cash_inflows,nrow = nrow(cash_inflows),ncol = num_sim)
+cash_outflows <- matrix(cash_outflows,nrow = nrow(cash_outflows),ncol = num_sim)
+
+#Calculate the variance-covariance matrix using the correlation matrix and suggested volatility for each asset category
+suggested_expret <- c(Equities = 0.05, FI = 0.01, Alternatives_PE = 0.05, Cash = 0.0, RE = 0.03)
+suggested_volatility <- c(Equities = 0.15, FI = 0.0559, Alternatives_PE = 0.15, Cash = 0.0, RE = 0.08)
+
+#Names for correlation matrix
+dimnames(correlation_real) <- list(c("Equities", "FI", "Alternatives_PE", "Cash", "RE"),
+                                   c("Equities", "FI", "Alternatives_PE", "Cash", "RE"))
+
+#Calculate the variance-covariance matrix
+var_cov_matrix <- matrix(nrow = 5, ncol = 5)
+for (i in 1:5) {
+  for (j in 1:5) {
+    var_cov_matrix[i, j] <- correlation_real[i, j] * suggested_volatility[i] * suggested_volatility[j]
+  }
+}
+
+#Set row and column names
+dimnames(var_cov_matrix) <- dimnames(correlation_real)
+
+var_cov_matrix <- round(var_cov_matrix,5)
+
+#Import MASS package to simulate multivariate normal distributions
+library(MASS)
+
+set.seed(514654)
+
+r_shocks <- matrix(0,nrow=nrow(Assets),ncol = ncol(Assets))
+
+n_shocks <- matrix(0,nrow=nrow(Assets),ncol = ncol(Assets))
+
+all_shocks <- matrix(0,nrow=nrow(Assets)*ncol(Assets),ncol = 5)
+
+
+#Sum asset classes
+total_equity <- planinfo$EQTotal_Actl
+
+total_fi <- planinfo$FITotal_Actl
+
+total_cash <- planinfo$CashTotal_Actl
+
+total_alt <- planinfo$HFTotal_Actl + planinfo$COMDTotal_Actl+ planinfo$PETotal_Actl+
+  planinfo$AltMiscTotal_Actl+planinfo$OtherTotal_Actl
+
+total_re <- planinfo$RETotal_Actl
+
+AssetShare <- c(total_equity,total_fi,total_alt,total_cash,total_re)
+
+count<-1
+
+#Start of Monte Carlo Loop
+for (n in 1:num_sim) {
+  
+  for (t in 1:(Nyear-1)) {
+    
+    #real return: Generate current year's real returns for all asset categories ------------------------------
+    shocks <- mvrnorm(n=1, mu=suggested_expret, Sigma=var_cov_matrix)
+    
+    #Calculate the portfolio's annual return based on the simulated shocks and asset weights
+    AnnualRealRet <- sum(AssetShare * shocks)
+    AnnualNominalRet <- (1+AnnualRealRet)*(1+Inflation_rate) - 1
+    
+    
+    r_shocks[t,n] <- AnnualRealRet
+    
+    n_shocks[t,n] <- AnnualNominalRet
+    
+    all_shocks[count,] <- shocks
+    
+    count <- count+1
+    
+    #AAL -  actuarial accrued liabilities
+    #Funding ratio - compares the current assets to the actuarial accrued liabilities.
+    funding_ratio <- (Assets[t,n])/AAL[t,n]
+    
+    if(funding_ratio>1){
+      
+      contribution <-0  
+      
+    }else{
+      
+      if(Amortize){
+        
+        UAAL <-  AAL[t,n]-Assets[t,n]
+        
+        contribution <- NormalCost[t,1]+max(0,UAAL*(discountrate*
+                                                      (1+discountrate)^Amotorize_Period)/
+                                              (((1+discountrate)^Amotorize_Period)-1))
+        
+        
+      }else{
+        
+        contribution <- cash_inflows[t,n]
+        
+      }
+      
+    }
+    
+    Assets[t+1,n] <- Assets[t,n]*(1+AnnualNominalRet)-cash_outflows[t,n]+contribution
+    
+    if(Assets[t+1,n] <0 ){
+      
+      Assets[t+1,n] <- 0
+      next
+      
+    }
+    
+    
+  }
+  
+}
+
+
+
+save.image(file = paste0(plan,"/",plan,"_AssetSim",date_run,".RData"))
+
+
+
+}

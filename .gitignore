@@ -1,0 +1,89 @@
+# Local machine / editor state
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+~$*
+.~lock.*
+.vscode/
+.idea/
+.Rproj.user/
+
+# Local agent and environment state
+.claude/
+.codex/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+
+# Python / test caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# R runtime state
+.Rhistory
+.RData
+.Ruserdata
+*.RData
+*.rds
+
+# Jupyter generated state
+.ipynb_checkpoints/
+*.ipynb.bak
+*_executed*.ipynb
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+
+# Project runtime outputs
+Results/Runs/
+Results/Output/
+Results/**/*.pkl
+Results/**/*.pickle
+Results/**/*.parquet
+Results/**/*_parquet/
+
+# Heavy source-data binaries. Keep data provenance/text in Git; keep these
+# binaries in OneDrive, DVC, or Git LFS if versioning is needed.
+Data/**/*.pdf
+Data/**/*.PDF
+Data/**/*.xlsx
+Data/**/*.xls
+Data/**/*.xlsm
+Data/**/*.docx
+Data/**/*.numbers
+Data/**/*.zip
+Data/**/*.7z
+Data/**/*.RData
+Data/**/*.rds
+Data/**/*.parquet
+Data/**/*.pkl
+Data/**/*.pickle
+Data/**/*.jpeg
+Data/**/*.jpg
+Data/**/*.png
+
+# Heavy documentation/media binaries
+Documentation/papers/
+Documentation/media/
+
+# Backup/provenance archives and superseded trees
+Backup/
+_ARCHIVE/
+
+# Nested/external clones should be added as proper submodules if needed.
+Github/

@@ -1,0 +1,6 @@
+﻿Name,Collect tables data,Collect tiers data,Document tables,Document tiers,Collect tier variables,Document plan details,Fill with assumptions,Import into database,notes,# complete
+sd_data19_gen,checked,,checked,checked,,checked,,,a lot of tiers,4
+sf_data19_gen,checked,checked,checked,checked,,checked,,,"a lot of tiers (the data I collected in ""collect tiers data"" is only for the type of profession. Within each profession, there are also many special ordinances and sub-tiers",5
+bos_data19_gen,,,,checked,,,,,No membership information on the tiers which are crucial to filling in the rest of the tables,1
+dc_data19_ffpol,,,checked,checked,checked,checked,,,sad case where I collected all the data and then the saving messed up. The documentation is still here though! ,4
+,,,,,,,,,,0

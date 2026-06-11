@@ -1,0 +1,38 @@
+Amy Fan 3-2022
+
+Log for Phoenix, Arizona
+
+
+# PRIMARY
+
+What wasn't there: 
+* Refund rate 
+
+What was assumed: 
+* Wage Growth: just merit or longevity growth
+* Average Mortality: Used both pre-retirement and post-retirement death rates. Calculated percentages
+	* grouped in age buckets of 5
+	* only pre-retirement used from ages 20-49
+	* only post-retirement used from ages 70+
+	* for ages 50-69, used weighted average 
+* Sep_Rate: Only reported "termination rate" for ages 20-60, and for 0,1,2,3,4,5+ years of service
+	* Assumed that no one started earlier than 20 years old, so termination rate is 0 for those cells
+* Retirement_rate: reported in different age/service buckets, broken out and averaged if needed. 
+* Retirement: Few assumptions, manually calculated annual benefit, split up 90+ across multiple age buckets 
+* Age_Serv_Num: Combined and divided when needed
+* Age_Serv_Wage: Combined and took weighted averages if needed 
+* Inactive_Serv_Num: "Inactive Vested Members" 
+
+# TIERS
+
+What information was there: 
+* total number of people per tier
+* Eligibility per tier 
+	* Members who were hired before July 1, 2013, as well as members who join the City after July 1, 2013 who were members of ASRS prior to July 1, 2011 and did not withdraw their contributions are Tier 1 members.
+	* Members hired into employment with the City between July 1, 2013 and December 31, 2015 who are not 
+Tier 1 members are Tier 2 members.
+	* Members hired into employment with the City on or after January 1, 2016 who are not Tier 1 members or Tier 2 members are Tier 3 members.
+
+Assumptions: 
+* people had to be 20 or older when starting their job
+* The distribution of people followed the default assumptions if the above was met, otherwise there were 0 people
