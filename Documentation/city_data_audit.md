@@ -1,7 +1,13 @@
 # Municipal (City) Pension Data Audit
 
 **Created:** 2026-06-10
-**Scope:** Locate, characterize, and rank all municipal/local pension plan data and code under the parent folder `State and Local Pension/` and related locations. Companion to `project_context.md` (state track).
+**Updated:** 2026-06-11 — paths migrated to the reorganized tree (canonical city data is now
+`Data/Plans/Cities/{city}_modeldata/`, bridge at `Data/Plans/Cities/_migration/`, city commons at
+`Data/Common/municipal/`); §3.1 sheet-fill refreshed with a value-signature analysis (filled vs
+copied-default vs empty), and the two collection generations are now distinguished. NOTE: §3.3–§3.7
+still cite some PRE-reorg parent-folder paths (`pproject-overview_AG`, `4. Database/`, `BrookingsData/...`,
+`2. Code/`); those source folders now live under `_ARCHIVE/` (see README / project_context §2).
+**Scope:** Locate, characterize, and rank all municipal/local pension plan data and code. Companion to `project_context.md` (state track) and `data_sources_map.md`.
 
 ---
 
@@ -9,7 +15,7 @@
 
 A substantial municipal pension data-collection effort ran **Feb–Sep 2022** (data collectors: Amy Fan "AF", Alex Gant "AG", and others), covering **~16 cities, FY2019, ~30 plan workbooks**, with full provenance documentation in an **Airtable base**. A **modeling bridge to the State Pension Model input format was started in May–Jun 2023** (template + 3 city migrations: hou, chi, phx) and then stalled. **No city plan has ever been run through the simulation model.** The city-specific model code that exists is an early-2022 generation, superseded by the current `cluster_062026` (now Python) model.
 
-**Canonical data lives in `State and Local Pension/1. Pension Data/{city}_modeldata/`. Everything else is documentation, derived exports, an unfinished bridge, or stale duplicates.**
+**Canonical data now lives in `Data/Plans/Cities/{city}_modeldata/`. Everything else is documentation, derived exports, an unfinished bridge, or stale duplicates (the latter now under `_ARCHIVE/`).**
 
 ---
 
@@ -23,7 +29,7 @@ A substantial municipal pension data-collection effort ran **Feb–Sep 2022** (d
 
 ## 3. Where Everything Is (ranked)
 
-### 3.1 CANONICAL — `1. Pension Data/{city}_modeldata/`
+### 3.1 CANONICAL — `Data/Plans/Cities/{city}_modeldata/`
 The collected raw data: plan workbooks + tiervars + logs + source AV/CAFR PDFs. Newest file Sep 2022. Coverage (plan workbooks, FY2019):
 
 | City | Plans collected | Tiervars |
@@ -39,43 +45,59 @@ The collected raw data: plan workbooks + tiervars + logs + source AV/CAFR PDFs. 
 | bos, mil, sd, sf | gen | partial |
 | aus, clt, ind | (folders empty) | 0 |
 
-Also in `1. Pension Data/`: `default_assumptions.xlsx` (city analogue of the state model's default assumptions), `public pensions data/` (the Brookings state replication package), `sql_dbimport/` (empty), `testdata/`, `Archive/`.
+Also in `Data/Common/municipal/`: `default_assumptions.xlsx` (city analogue of the state model's default assumptions) + `variablesdb_v2.csv`. (The Brookings state replication package, the empty `sql_dbimport/`, `testdata/`, and old `Archive/` folders are now under `_ARCHIVE/`.)
 
-**Sheet-level fill status (verified empirically 2026-06-11** by counting numeric
-cells per expected sheet in every plan workbook**):**
+**Two folder layouts** (distinguished by file structure, not a verified timeline;
+matters for migration effort):
+- **One-workbook-per-fund:** a separate `{city}_data19_{type}.xlsx` per employee
+  group (gen/ff/pol/edu/uty/ffpol) — because each group is usually its own fund
+  with its own AV/ppd_id (e.g. chi = CTPF 11 / MEABF 145 / PABF 146 / FABF 206) —
+  each with a `_tiervars.xlsx`, usually a `_log.md`, and the source AV/CAFR PDFs
+  saved in-folder. Cities: chi(4), hou(3), lax(3), dal(2), phi, phx, sd, sf, mil
+  (bos, dc are thin stubs in this same shape).
+- **Single "primary"+"tier" workbook:** one `{city}_data*_primary.xlsx` + a
+  `{city}_data*_tier.xlsx` + `planlevel_overview.xlsx`; NO per-fund split, NO
+  `_tiervars`, usually NO `_log.md`, NO in-folder PDFs, and NO separate
+  active-matrix sheet (Age_Serv_Num absent). Consistently thinner. Cities:
+  den(fy18+fy19), fw, nsh(fy20), nyc(fy20), sea.
+- **Empty/placeholder:** clt (nothing), aus + ind (only blank `dataYY_*` template stubs).
 
-- **Genuinely extracted core** (Wage_Growth, Avg_Mort, Sep_Rate, Ret_Rate,
-  Age_Serv_Num, Age_Serv_Wage): filled with plan-specific data in ~20
-  workbooks across ~14 cities — chi (edu/ff/gen/pol), hou (ff/gen/pol),
-  lax (ffpol/gen/uty), dal (ffpol), phx (gen), phi (gen), sf, sd, mil,
-  den (fy18+fy19), fw, nsh (fy20), nyc (fy20), sea. Verified not template
-  defaults (values differ across cities; uniform cell counts reflect uniform
-  sheet layouts only).
-- **Placeholder-thin, NOT usable as-is:** bos (age-service matrices ~9 numeric
-  cells) and dc (~17) — despite bos being the one plan fully documented in
-  Airtable's "2. tables".
-- **Systematic gaps across plans (model fallbacks exist but matter):**
-  - `Retirement` (retiree age distribution → model `retdist`): EMPTY for all
-    hou and lax plans, dal, dc, bos; small (~22-cell) age-bucket vectors
-    elsewhere. The model's default-assumptions fallback covers this
-    (`availableData` flag) but retiree distributions drive `Main_Ret`, so the
-    default is quality-relevant.
-  - `Refund_Rate`: empty in most workbooks (chi_pol, den, nyc, sea have
-    content) — normal; same fallback the state model uses.
-  - `Inactv_Serv_Num`: mostly absent/~9 cells — normal; the model scales
-    inactives from PPD counts.
-  - Embedded per-tier membership sheets (`T{n}_...`): none anywhere; separate
-    tier WORKBOOKS exist only for dal (2), phx (3), phi (9). **Not blocking:**
-    the model's tier mechanism partitions the aggregate age-service matrix by
-    tier start dates (from tiervars/planchanges); per-tier membership tables
-    are not required inputs.
-- Filename quirks: `fw_dataYY_primary.xlsx` (placeholder year), nsh/nyc are
-  fy2020 not fy2019, den has both fy18 and fy19.
+**Sheet-level fill status — VALUE-SIGNATURE analysis (2026-06-11).** Method:
+hash each sheet's numeric content per plan, so a genuine extraction (unique
+signature) is separable from a COPIED DEFAULT table (identical signature reused
+across plans) — going beyond cell-counts, which only reveal layout. 25 plan
+workbooks. Verdict by sheet (→ state-model input):
 
-**Corrected effort assessment:** extraction is 70–90% complete for ~12-14
-cities (gaps concentrated in retiree distributions), essentially not started
-for bos/dc, and the 9 collected-but-empty sheets per plan are the same ones
-the state model already defaults (refunds, inactives, disability).
+| Collection sheet → state input | Verdict |
+|---|---|
+| **Age_Serv_Num → `ageservice`** | Genuinely extracted: 21/25 unique, 4 absent (den18/den19/nyc/sea), bos(9 cells)/dc(17) thin |
+| **Age_Serv_Wage → `wagerel`** | Genuinely extracted: 23/25 unique; only dc/mil thin |
+| **Sep_Rate → `withdrawal`** | Genuinely extracted: 21/25 unique |
+| **Wage_Growth → `wagegrowth`** | Genuinely extracted: 22/25 unique; bos/dal_ffpol/dc share a thin 24-cell placeholder |
+| **Avg_Mort → `mortality`** | MIXED: 13 plan-specific; **10 plans share ONE identical copied default table** (bos, all chi, dc, all lax, mil); 2 share another |
+| **Ret_Rate → `retirement`** | MIXED: 13 plan-specific; rest on shared default tables (7 share one, 3 another) |
+| **Retirement → `retdist`** | Systematically EMPTY for 10 (bos, dal_ffpol, dc, all 3 hou, all 3 lax); 15 present |
+| **Refund_Rate → `refund`** | Mostly absent: 16 empty, 5 default-copied, only 4 real (chi_ff/chi_pol/nsh/sea) |
+| **Inactv_Serv_Num** | Not extracted: 10 absent, 11 share a 9-cell placeholder, 4 real |
+
+Key reading: the bottom three rows (retdist, refund, inactives) are **exactly the
+sheets the state model already defaults** (`availableData=FALSE` →
+`default_assumptions.xlsx`; inactives scaled from PPD counts), so city extraction
+is missing precisely what the engine is built to fill. The **core four**
+(actives, wages, withdrawal, wage-growth) are genuinely present for ~20 plans.
+Mortality and retirement-RATES are the honest grey zone (about half real, half
+default-copied). **bos and dc are essentially uncollected** (thin stubs
+everywhere) despite having folders — bos is the one plan fully documented in
+Airtable, so documentation ≠ extraction.
+
+Per-tier membership sheets (`T{n}_...`): none anywhere; separate tier WORKBOOKS
+exist only for dal(2), phx(3), phi(9). Not blocking — the model partitions the
+aggregate age-service matrix by tier start dates from tiervars/planchanges.
+
+**Effort assessment:** the core distribution data is genuinely extracted for the
+~13 per-type cities; the gaps are model-defaulted sheets; bos/dc are stubs;
+aus/clt/ind are empty. The remaining cost is finishing format-migration +
+tier-params (see §6 / `data_sources_map.md`), not new extraction for most cities.
 
 ### 3.2 DOCUMENTATION — Airtable base "Pensions documentation"
 URL seen: airtable.com/appIYfZmGwsaMmRAg. ~20 plan records (matches the workbook inventory). Holds the assumptions/provenance documentation and AV/CAFR attachments. **Not exported anywhere locally — single point of failure; should be exported to CSV and archived in the repo.** Join link in guidebook.md.
@@ -125,11 +147,51 @@ Reshaped CSVs for DB import (`{city}_asy19.csv`, `{city}_asytiers19.csv`, `{city
 
 ## 6. Recommended Path To "Cities In The Model"
 
-1. **Freeze and label**: treat `1. Pension Data` as canonical raw; never work from AG/ARCHIVE copies.
-2. **Export the Airtable** (all 5 tables) to CSV into this repo for preservation.
-3. **Validate the bridge**: try loading `hou19_migration.xlsx` + `planchanges_hougen-ag.xlsx` through the current Python pipeline (a city is just another plan folder + planchanges row once in the right format; `plan_year` would be 2019).
-4. If (3) works: **complete migrations** for the remaining collected cities using `modeldata_template.xlsx`, and build a `planchanges_cities` workbook from the `_tiervars.xlsx` files (Houston is the worked example).
-5. Cities then run through the **same 062026 Python pipeline** — fast runner, common-shock asset simulation, scenario layer, and analysis notebook all apply unchanged.
+1. **Freeze and label**: treat `Data/Plans/Cities/` as canonical raw; never work from `_ARCHIVE/` copies.
+2. **Export the Airtable** (all 5 tables, from the "All" views) to CSV into this repo for preservation.
+3. **Complete migrations** for the remaining per-type cities using `_migration/modeldata_template.xlsx`, and build a `planchanges_cities` workbook from the `_tiervars.xlsx` files (Houston is the worked example).
+4. Cities then run through the **same 062026 Python pipeline** — fast runner, common-shock asset simulation, scenario layer, and analysis notebook all apply unchanged.
+
+### 6.1 Engine-integration steps (what makes a city run identically to a state)
+
+Verified against `Code/python/fast/Main_PensionModel.py` (2026-06-11). **The engine
+math is already plan-type-agnostic; everything state-specific is shallow data
+plumbing.** The barriers and the work:
+
+1. **Format conversion (the only real per-plan work).** City workbooks use
+   different sheet names/cell layouts than the state template
+   (`Age_Serv_Num` vs `ageservice`, etc.); the `_migration/` bridge reshapes them
+   into `modeldata_template.xlsx`'s state sheets (`ageservice, wagerel,
+   wagegrowth, mortality, withdrawal, retdist, retirement`). **Done: hou, chi,
+   phx only.** Per-type cities have the content to migrate; the primary-generation
+   cities (den/fw/nsh/nyc/sea) need more reshaping (no separate active-matrix
+   sheet, no tiervars).
+2. **`planchanges_cities` workbook** in the STATE schema — sheet `in`, key
+   `planid = {plan}_{plan_year}`, columns
+   `startdate{i}/benefitfactor{i}/vesting{i}/maxsal{i}/yrsal{i}/nr{i}/er{i}/cola{i}`
+   for i=1..6 — built from `_tiervars.xlsx`. Only Houston exists, and even it is
+   in the wrong schema (`planchanges_hougen-ag.xlsx` uses sheet `planchanges_main`,
+   key `HOU_Muni19`) → needs reshaping.
+3. **Plan→ppd_id registry.** The runner derives `ppid = int(digits(plan_name))`,
+   which breaks for cities (multiple plans per city). Needs an explicit
+   `{plan_code: (ppd_id, fy)}` map. ppd_ids are recoverable from source-PDF
+   filenames / `planlevel_overview.xlsx` (e.g. chi 11/145/146/206, lax
+   139/140/141, hou 204/208, phx 94, sf 98, phi 152, sd 144, mil 151, dal 201,
+   bos 148, aus 12). Layer-1 PPD coverage is confirmed (all municipal ppd_ids in
+   `ppd-data-latest`, fy 2001–2023).
+4. **Demographic ratios** `pctmale/pctmrg/reduct` — read from
+   `PPD_planlevel_main_updated.csv`, which contains the 40 STATE plans only. Add
+   city rows (from the AV) or default them.
+5. **Per-plan `availableData` flags** — set directly from the §3.1 signature
+   verdict (which sheets are real vs default per plan).
+6. **Generalize 4 hard-coded spots** in `fast/Main_PensionModel.py`:
+   `AVAILABLE_DATA` dict, `plan_folder = Data/Plans/States/{plan}` +
+   `file_name = {plan}_2017.xlsx`, the demographic-CSV lookup, and the tier-file
+   key — to accept a city via the registry. ~a day of code.
+
+Once 1–6 exist a city is "just another plan" at `plan_year=2019`: identical fast
+detal → common-shock asset sim → scenario layer → analysis notebook. **Cost is
+concentrated in 1–2 (the §2 heterogeneity problem); the code (3–6) is trivial.**
 
 ---
 

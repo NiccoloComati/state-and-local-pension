@@ -15,10 +15,10 @@ Reorganized 2026-06-11 into a single clean tree (see `Documentation/reorg_plan.m
 | `Documentation/` | project_context.md, working_context.md, audits, guidebook, lit review, media |
 | `Drafts/` | Paper drafts |
 | `Backup/` | Pre-reorg backup (file manifest + code/docs zip) |
-| `_ARCHIVE/` | Everything superseded (state R legacy, 2022 city system, snapshots). Do not work from here. |
+| `_ARCHIVE/` | Everything superseded, reshaped 2026-06-11 to mirror the PRE-reorg layout for legibility: the whole old `State Pension Model/` tree intact, the 2022 `city_2022_system/`, plus `BrookingsData/`, `Pension_Data/`, `PDFs/`, `Data_Daily/` under their original names, the `reorg_check_scratch/` validation snapshot, and snapshot zips. Do not work from here. |
 
 **For AI/code sessions:** open the session at THIS folder and read, in order: `Documentation/project_context.md` (full), `Documentation/session_handoff.md` (full — tacit knowledge, norms, quirks), and `Documentation/working_context.md` (at least the 2026-06-10/11 sections including the "*** PARKED ***" scenario plan). For the city track also read `Documentation/city_data_audit.md` and `Documentation/data_sources_map.md`. Always update contextss when working. The current tree is self-contained: everything needed for work lives in the folders above. `_ARCHIVE/` and `Backup/` exist only for provenance and disaster recovery — they never need to be read.
 
 Known post-reorg caveats:
 - `Code/python/engaging/` Slurm scripts still assume the old tree; rework before the next Engaging run.
-- The empty `State Pension Model/` shell can be moved to `_ARCHIVE/` once no session is rooted in it.
+- A leftover `Github/pensions-basecode` husk remains at the root; safe to delete once OneDrive releases its lock.

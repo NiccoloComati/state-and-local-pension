@@ -1,0 +1,29 @@
+plan,city,folder_layout,city_ppd_ids,city_AV_pdfs,city_CAFR_pdfs,city_tiervars,city_logs
+bos_data19_gen,bos,per-fund,148,1,1,0,1
+chi_data19_edu,chi,per-fund,11|145|146|206,5,5,4,4
+chi_data19_ff,chi,per-fund,11|145|146|206,5,5,4,4
+chi_data19_gen,chi,per-fund,11|145|146|206,5,5,4,4
+chi_data19_pol,chi,per-fund,11|145|146|206,5,5,4,4
+dal_data19_ffpol,dal,per-fund,201,1,1,2,1
+dal_data19_primary_AF,dal,per-fund,201,1,1,2,1
+dc_data19_ffpol,dc,per-fund,,0,0,1,0
+den_data18_primary,den,primary+tier,,0,0,1,0
+den_data19_primary,den,primary+tier,,0,0,1,0
+fw_dataYY_primary,fw,primary+tier,,0,0,0,1
+hou_data19_ff,hou,per-fund,204|208,2,2,3,1
+hou_data19_gen,hou,per-fund,204|208,2,2,3,1
+hou_data19_pol,hou,per-fund,204|208,2,2,3,1
+lax_data19_ffpol,lax,per-fund,139|140|141,3,3,3,3
+lax_data19_gen,lax,per-fund,139|140|141,3,3,3,3
+lax_data19_uty,lax,per-fund,139|140|141,3,3,3,3
+mil_data19_gen,mil,per-fund,151,1,1,1,0
+nsh_data20_primary,nsh,primary+tier,,0,0,0,0
+nyc_data20_primary,nyc,primary+tier,,0,0,0,1
+phi_data19_gen,phi,per-fund,152,1,0,1,1
+phx_data19_gen,phx,per-fund,94,1,1,1,1
+sd_data19_gen,sd,per-fund,144,1,1,1,1
+sea_data19_primary,sea,primary+tier,,0,0,0,1
+sf_data19_gen,sf,per-fund,98,1,1,1,0
+(none: aus),aus,empty,12,1,1,0,0
+(none: clt),clt,empty,,0,0,0,0
+(none: ind),ind,empty,,0,0,0,0

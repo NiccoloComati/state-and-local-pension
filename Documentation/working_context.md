@@ -1839,3 +1839,153 @@ Next candidates if more speed is wanted (in expected impact order):
 - Remove the PVNC `ThreadPoolExecutor` (profiling showed effective parallelism
   â‰ˆ 1.1, so it only adds overhead and oversubscription; removal also makes
   NormalCost summation order deterministic vs orig).
+
+## 2026-06-11 `_ARCHIVE/` reshaped by user; docs synced
+
+User manually reshaped `_ARCHIVE/` to mirror the PRE-reorg layout so archived
+material stays recognizable (the renamed/moved archive names from the reorg
+made it unfindable). Verified current `_ARCHIVE/` contents:
+- `State Pension Model/` (488M) â€” the entire old SPM subtree intact
+  (Cluster_Code/{cluster_062026,cluster_082024,cluster_code}, Common_Code,
+  Common_Data/{AV,AV_documentation}, Documentation, Pipeline, Results, testing,
+  Brookings_Data, Data_Daily).
+- `city_2022_system/` (12M), `BrookingsData/` (307M), `Pension_Data/`, `PDFs/`,
+  `Data_Daily/`, `Github/` â€” pre-reorg folders under their original names.
+- `reorg_check_scratch/OK134` â€” bit-identity validation scratch.
+- `OneDrive_2023-12-07.zip` (843M), `_premove_backup_code_docs.zip` (8M),
+  `context_pointer_superseded_by_README.md` at `_ARCHIVE/` top level (NOT a
+  `snapshots/` subfolder anymore).
+- The old archive names `state_R_legacy/`, `snapshots/`, `returns_daily/` are
+  gone; the empty root `State Pension Model/` tombstone is gone (its archived
+  copy is the one under `_ARCHIVE/`).
+
+User also confirmed paper-draft locations and that the Brookings data is intact
+(NOT removed): active copy at `Data/Sources/brookings_package/` (+ a sibling
+`brookings_package_csv_matrices/`); `Drafts/PensionSustainabilityV5.docx`
+present. No active-tree work folders were affected.
+
+Synced docs to match: README.md (`_ARCHIVE/` table row + caveats), and
+project_context.md Â§2 directory map (`_ARCHIVE/` subtree + removed the stale
+root-tombstone line; added the leftover root `Github/pensions-basecode` husk).
+Also re-saved the thesis memory at the new memory root
+(`lenney-paper-is-the-foil`, type=project) since the dir was empty (keyed to
+the dissolved SPM path), per the session_handoff instruction.
+
+## 2026-06-11 City-data landscape audit (empirical, from the actual files)
+
+User steered OFF the "Houston bridge validation" handoff to-do (a stale
+execution item) toward understanding the city DATA landscape. Four threads,
+all scanned live from `Data/Plans/Cities/`. Durable findings written into
+`city_data_audit.md` (§3.1 refreshed with a value-signature analysis + the two
+collection generations; new §6.1 engine-integration steps; paths migrated to
+the new tree). Headlines:
+
+1. **Sheet fill (value-signature method — hash each sheet's numbers per plan to
+   separate real extraction from copied-default tables, 25 workbooks):** core
+   four genuinely extracted for ~20 plans — Age_Serv_Num (21/25 unique, 4
+   absent), Age_Serv_Wage (23/25), Sep_Rate (21/25), Wage_Growth (22/25).
+   MIXED: Avg_Mort (13 real, 10 share ONE copied default table) and Ret_Rate
+   (13 real, rest on shared defaults). Systematically thin — and these are the
+   sheets the STATE model already defaults: Retirement/retdist (10 EMPTY: bos,
+   dal_ffpol, dc, all hou, all lax), Refund_Rate (mostly empty/default),
+   Inactv_Serv_Num (placeholder). bos & dc are stubs (~9-17 cells) despite
+   folders; aus/clt/ind empty.
+2. **Supply chain:** Layer-1 PPD solved (all ppd_ids in ppd-data-latest fy01-23,
+   ids recoverable from PDF filenames). Layer-2 AV+CAFR PDFs in-folder for ~11
+   cities, MISSING for the primary-generation (den/fw/nsh/nyc/sea/dc). Hetero-
+   geneity is at the actuarial-FIRM/document level (logs show: bucket-combining,
+   DROP in/out, mortality split by sex/status or pre-retirement-only, retiree
+   dist by age OR amount not joint, prose/ambiguous tiers) → standardization is
+   judgment-heavy (~hours/plan with AI-assisted extraction + human review on the
+   assumption calls), same problem the state side had (Brookings already paid it,
+   undocumented).
+3. **Integration:** engine math already type-agnostic; 6 shallow plumbing items
+   (format-migration, planchanges_cities schema, plan→ppd_id registry,
+   pctmale/pctmrg/reduct city rows, per-plan availableData, generalize 4
+   hard-coded spots in fast/Main_PensionModel.py). Cost is in items 1-2 (the
+   heterogeneity/extraction), not the ~1 day of code. Full list in
+   city_data_audit.md §6.1.
+4. **Folder inventory:** 19 folders, two file LAYOUTS — one-workbook-per-fund
+   (chi/hou/lax/dal/phi/phx/sd/sf/mil/bos/dc: a `{city}_data19_{type}.xlsx` per
+   fund + _tiervars + logs + in-folder PDFs) and single-"primary"+"tier"
+   (den/fw/nsh/nyc/sea: _primary + _tier + overview, no tiervars/PDFs/active-
+   matrix sheet); empty: aus/clt/ind.
+
+Process note (user feedback): do NOT treat handoff "next step = run X" items as
+marching orders — user wanted the data-landscape ANALYSIS, not jumping to wiring/
+executing Houston. Validate proportionally; match the user's actual framing.
+
+### 2026-06-11 follow-up: source definitions annotated + nickname labels fixed
+
+User pushed back that (a) the three layers were given as a cryptic ppd_id
+lookup, not an explanation of what the sources ARE, and (b) I coined opaque
+labels ("per-type"/"primary-tier generation") for things that are just folder
+structures. Fixes (durable):
+- `data_sources_map.md` new §1.1 "What each source actually IS": PPD = secondary
+  digest of summary scalars (totals/assumptions, never distributions; ppd_id =
+  fund key, and a city = several separate funds e.g. chi CTPF/MEABF/PABF/FABF);
+  AV = actuary's report carrying the assumption rate tables + member census (the
+  model workhorse); CAFR/ACFR = audited GASB financials (money/balances, a
+  cross-check); websites = experience studies + SPD/ordinance for tier rules.
+- Relabeled the two folder layouts by file STRUCTURE (not a claimed timeline):
+  "one-workbook-per-fund" vs "single primary+tier workbook". Updated
+  city_data_audit.md §3.1, renamed the CSV column `generation` → `folder_layout`
+  (values per-fund / primary+tier / empty), regenerated both CSVs via
+  `Documentation/city_data_scan.py`.
+
+Feedback memory: don't coin opaque nicknames for concrete artifacts; name things
+by what they literally are in the repo. (Also: explain, don't just key-lookup.)
+
+## 2026-06-11 Provenance catalogue built (steps 1-4 of the agreed plan)
+
+User asked whether we can check/catalogue/record what piece of data is taken
+from where, across both tracks, including the Brookings "ghost layer". Agreed
+plan: (1) input dictionary, (2) provenance register, (3) notes/csv_matrices
+harvest, (4) state value-signature scan, (5 deferred) AV reverse-matching.
+Steps 1-4 executed. Artifacts (all in Documentation/):
+
+- `model_input_dictionary.md` — schema side: every engine input, source channel,
+  read ranges, fallback chains, constants. Derived from CODE (fast runner +
+  helpers + asset_simulation), not prior docs. Notable: `wagegrowth` and
+  `disability` workbook sheets are GHOST SHEETS (never read — engine uses the
+  PPD scalar chain / the 0.025 constant); `eecont/ercont` in planchanges unused;
+  `pctmale/pctmrg/reduct/inactive_adj` come ONLY from the legacy csv (no city rows).
+- `provenance_scan.py` → `provenance_register.csv` (804 rows: 40 states × 9
+  sheets + 38×3 scalar resolutions + 40 demographics + 40 tier rules + 225 city
+  sheet rows + 25 city tier rows), `state_sheet_fill_audit.csv`,
+  `state_notes_harvest.md` (verbatim notes: 5 with source URLs incl. NY78's
+  exact AV/CAFR links + author Jeffrey Cheng/Brookings, 2 rich, 32 thin, 1 none).
+
+Key findings (now durable in the register):
+1. **State core sheets are genuinely plan-specific 40/40** (ageservice, retdist,
+   wagerel, withdrawal, retirement, wagegrowth) — no copied defaults, unlike
+   cities. mortality: 37 specific, 3 identical (IN37/ME47/OR91 — all flagged
+   True; plausibly the same published standard table, NOT necessarily
+   copy-paste). refund/disability: shared default content in 36/35 workbooks
+   (consistent with availableData=False / ghost status).
+2. **Flag-content consistency check passed**: zero cases of availableData=True
+   with an empty/absent sheet.
+3. **DISCOVERY — 33 unused-real-data cases**: sheets with PLAN-SPECIFIC content
+   but availableData=False, so the engine substitutes generic defaults. Heaviest:
+   retirement (17 plans incl. GA28 1249 cells, LA44 856, FL26 741), mortality
+   (9 plans), withdrawal (GA27/IL32/OH88), refund (FL26/IL34). CAVEAT before
+   "fixing": content may not conform to the fixed read ranges (Q:AA etc.), and
+   flags came from the original R scripts — verify layout per plan before
+   flipping any flag. Potential data-quality upside catalogued, not actioned.
+4. **Scalar-resolution reproduction**: Python re-derivation matches the
+   documented R-track audit exactly (WageGrowth 27 PayrollGrowthAssumption /
+   7 WageInflation / 4 legacy wage_inf; Inflation 37+1 legacy (NJ71); inactive
+   26 current / 2 legacy (NY78, PA92) / 10 actives×inactive_adj).
+5. **csv_matrices**: original name `corresponding CSV matrices` (subfolder of
+   the Brookings package); the standalone ASCII-renamed
+   `brookings_package_csv_matrices` is an UNDOCUMENTED rename but the FULLER
+   copy (521 vs 260 files; the in-package copy is missing ~24 plan folders).
+   User decision: keep both as-is; standalone = authoritative for provenance.
+   Full story in data_sources_map.md.
+
+Step 5 (deferred, per-plan, expensive): reverse-match workbook tables against
+the in-folder AV PDFs to recover page-level provenance + extraction assumptions
+for the 33 thin-notes plans (locate table via guidebook keywords → compare
+numbers → infer transformation (bucket splits, sex weights, DROP) → record
+page/title/assumption). ~1h/plan AI-assisted; sample 2-3 plans first to
+calibrate. Upgrades Tier-C register cells from "undocumented" to evidenced.

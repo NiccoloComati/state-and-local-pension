@@ -92,10 +92,18 @@ State and Local Pension/          <- PROJECT ROOT
 +-- Documentation/                # this file + working_context, audits, guidebook copy, lit_review/, media/
 +-- Drafts/                       # paper drafts (PensionSustainabilityV5.docx)
 +-- Backup/                       # pre-reorg backup (file manifest + code/docs zip)
-+-- _ARCHIVE/                     # everything superseded: state_R_legacy/, city_2022_system/, snapshots/, returns_daily/
-+-- State Pension Model/          # empty tombstone shell (.claude/.venv only); safe to archive after current session
++-- Github/                       # leftover pensions-basecode husk at root (safe to delete when OneDrive unlocks it)
++-- _ARCHIVE/                     # everything superseded, reshaped 2026-06-11 to MIRROR the pre-reorg layout for legibility:
+|   +-- State Pension Model/      #   the entire old SPM subtree intact (Cluster_Code/{cluster_062026,cluster_082024,cluster_code}, Common_Code/, Common_Data/{AV,AV_documentation}, Documentation/, Pipeline/, Results/, testing/, Brookings_Data/, Data_Daily/)
+|   +-- city_2022_system/         #   2022 municipal collection system (Code/, Database/, Github_pensions-basecode/, old_ARCHIVE/)
+|   +-- BrookingsData/ Pension_Data/ PDFs/ Data_Daily/ Github/   # pre-reorg source/data folders under their ORIGINAL names
+|   +-- reorg_check_scratch/      #   bit-identity validation scratch (OK134)
+|   +-- OneDrive_2023-12-07.zip, _premove_backup_code_docs.zip   # snapshot zips (no longer under a snapshots/ subfolder)
 ```
+The former empty `State Pension Model/` root tombstone is gone; the pre-reorg SPM tree now lives only at `_ARCHIVE/State Pension Model/`. The old archive names `state_R_legacy/`, `snapshots/`, and `returns_daily/` no longer exist.
 ## 3. Data Sources
+
+**Provenance catalogue (2026-06-11):** what each input IS and where every piece comes from is catalogued in `Documentation/model_input_dictionary.md` (schema: input → source channel → fallback chain → constants) and `Documentation/provenance_register.csv` (instance: 804 rows, plan × element, both tracks, with specificity/evidence/confidence; regenerate via `Documentation/provenance_scan.py`). Source-document landscape: `Documentation/data_sources_map.md`. Notable engine facts recorded there: the `wagegrowth` and `disability` workbook sheets are never read (wage growth comes from a PPD scalar fallback chain; disability is a constant), and 33 plan-sheets contain plan-specific data that `availableData=False` causes the engine to ignore (verify layout before flipping flags).
 
 ### Plan-Level Data (Common_Data/)
 - **Public Plans Database (PPD):** `ppd-data-latest.xlsx` Ã¢â‚¬â€ comprehensive annual data on ~200 U.S. S&L plans, covering assets, liabilities, demographics, contribution rates, and benefit parameters. The model uses only the 40 selected plans.
