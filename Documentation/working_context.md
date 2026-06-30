@@ -1989,3 +1989,33 @@ for the 33 thin-notes plans (locate table via guidebook keywords → compare
 numbers → infer transformation (bucket splits, sex weights, DROP) → record
 page/title/assumption). ~1h/plan AI-assisted; sample 2-3 plans first to
 calibrate. Upgrades Tier-C register cells from "undocumented" to evidenced.
+
+## 2026-06-16 City extraction catalogue (for the USER to extract, not me)
+
+User clarified the city plan: they want to do the extraction THEMSELVES (AI
+hand-extraction from PDFs is non-reproducible — only the WIRING is). They asked
+for a precise per-plan/per-sheet record of what is extracted + where it's
+documented, to (a) review/check the done plans and learn the method and (b) work
+the gaps themselves. Built `Documentation/city_extraction_catalogue.md` (via
+`build_city_extraction_catalogue.py`, regenerable): per plan = fund/ppd_id +
+specific source AV/CAFR PDFs + per-sheet status (DONE/copied-default/empty/absent,
+with model-role) + the VERBATIM collector logs (.md/.txt/.docx harvested, incl.
+the assumptions: bucket splits, sex-weighting, DROP, "90+ split evenly", etc.) +
+the Airtable table-doc export. Master matrix at the top covers the 6
+model-relevant sheets only (Wage_Growth/disability are ghost; Refund/Inactives
+model-defaulted).
+
+Provenance availability per plan (the "from where" / method docs):
+- Per-plan `_log.md` (richest): chi×4, hou_pol, lax×3, sd.
+- `.docx`/`.txt` logs: dal (detailed AG assumptions), fw, nyc, phi, sea, phx.
+- In-workbook `AF_Scratch_Work` sheets (actual calcs): chi, hou, others.
+- Airtable: only Boston exported (needs "All"-views re-export).
+- NO written method doc (scratch only / Airtable only): bos, hou_gen, hou_ff,
+  dc, den, mil, nsh, sf.
+- Missing in-folder SOURCE PDFs: hou_ff (HFRRF id 30) + all primary-layout
+  cities (dc/den/fw/nsh/nyc/sea) — must be fetched from publicplansdata.org.
+
+Reminder discovered earlier: the hou/chi/phx MIGRATION workbooks already contain
+gap-fills the collection workbooks lack (AG sourced retdist etc. in 2023) — so
+the collection-format catalogue OVERSTATES gaps for those three; check the
+migration file before re-extracting them.

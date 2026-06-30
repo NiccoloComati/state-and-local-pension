@@ -145,6 +145,12 @@ Reshaped CSVs for DB import (`{city}_asy19.csv`, `{city}_asytiers19.csv`, `{city
 5. den CSVs never imported; aus/clt/ind folders empty; the SQL database leg of the original design was abandoned.
 6. Heavy duplication across AG archival folder, ARCHIVE, and the live folders — easy to grab a stale copy by accident.
 
+**To actually work the extraction:** `Documentation/city_extraction_catalogue.md`
+(regenerable via `build_city_extraction_catalogue.py`) gives, per plan, the
+per-sheet status + specific source AV/CAFR PDFs + the verbatim collector logs
+(method + assumptions) + Airtable docs — the working document for reviewing the
+done plans and extracting the remaining gaps by hand.
+
 ## 6. Recommended Path To "Cities In The Model"
 
 1. **Freeze and label**: treat `Data/Plans/Cities/` as canonical raw; never work from `_ARCHIVE/` copies.
