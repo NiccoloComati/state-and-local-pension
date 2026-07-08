@@ -78,7 +78,7 @@ Data/**/*.jpg
 Data/**/*.png
 
 # Heavy documentation/media binaries
-Documentation/papers/
+Papers/
 Documentation/media/
 
 # Backup/provenance archives and superseded trees

@@ -3,22 +3,22 @@
 **Created:** 2026-06-11
 **Purpose:** Where the model's input data actually comes from, for both the implemented state track and the planned municipal track: which source documents, how heterogeneous, who did the extraction, what this implies for adding plans, updating over time, and documentation standards. Companion to `city_data_audit.md`.
 
-**Reproducible evidence (2026-06-11):** the empirical scans behind this doc and
-`city_data_audit.md` §3.1 are saved as data, regenerable via
-`Documentation/city_data_scan.py` and `Documentation/provenance_scan.py`:
-- `Documentation/city_sheet_fill_audit.csv` — per plan-workbook × canonical sheet:
+**Reproducible evidence (2026-06-11; machinery moved to `Documentation/provenance/` 2026-07-07):**
+the empirical scans behind this doc and `city_data_audit.md` §3.1 are saved as data, regenerable via
+`Documentation/provenance/city_data_scan.py` and `Documentation/provenance/provenance_scan.py`:
+- `Documentation/provenance/city_sheet_fill_audit.csv` — per plan-workbook × canonical sheet:
   numeric cell count, value-signature, and status (`plan_specific` /
   `shared_default` = copied default table / `empty` / `absent`). 25 plans × 9 sheets.
-- `Documentation/city_source_inventory.csv` — per plan: city, folder layout,
+- `Documentation/provenance/city_source_inventory.csv` — per plan: city, folder layout,
   city-level ppd_ids, and AV/CAFR/tiervars/log presence.
 - `Documentation/model_input_dictionary.md` — the SCHEMA side of provenance: every
   input element the engine consumes, its source channel, fallback chain, constants.
-- `Documentation/provenance_register.csv` — the INSTANCE side: 804 rows, one per
+- `Documentation/provenance/provenance_register.csv` — the INSTANCE side: 804 rows, one per
   plan × input element across BOTH tracks (40 states + 25 city workbooks), with
   source channel, vintage, specificity, extractor, evidence, confidence.
-- `Documentation/state_sheet_fill_audit.csv` — the value-signature audit run on the
+- `Documentation/provenance/state_sheet_fill_audit.csv` — the value-signature audit run on the
   40 STATE workbooks (same method as cities).
-- `Documentation/state_notes_harvest.md` — verbatim dump of every state workbook's
+- `Documentation/provenance/state_notes_harvest.md` — verbatim dump of every state workbook's
   `notes` sheet (the only in-repo Brookings provenance: 5 with exact source URLs,
   2 rich, 32 thin, 1 none).
 
@@ -115,7 +115,7 @@ financial PDFs don't fully state.
 |---|---|---|---|
 | **States, FY2017 (the 40 plans)** | **Brookings / Lenney et al.** — we inherited their replication package (`Data/Sources/brookings_package/`: `[PLAN]_2017.xlsx` + source AV/CAFR PDFs + sibling `brookings_package_csv_matrices/`). The live model copies are at `Data/Plans/States/[PLAN]/`; pre-reorg duplicates (`BrookingsData/`, `1. Pension Data/`) are now under `_ARCHIVE/`. | ~2019–2021 | **Essentially none in our repo.** Brookings' assumptions are not documented beyond what is visible in the workbooks; `planchanges` carries their COLA fields (`our_cola`). |
 | **Cities, FY2019 (~16 cities)** | **In-house (Amy Fan, Alex Gant)**, explicitly replicating Brookings' method/template | Feb–Sep 2022 | Per-plan `_log.md` files + Airtable base (availability, source doc, page, keywords, assumptions per table) + in-workbook screenshots/scratch sheets ("AF_Scratch_Work"). |
-| **State FY2022 update (current canonical run)** | **Nobody re-extracted.** The 2022 scripts still read the 2017 distribution workbooks; only plan-level drivers were refreshed (updated PPD + `planchanges_main_2022_clean.xlsx` + 2022-specific common data). | 2024 | See `year_version_audit.md` (the "hybrid" finding). |
+| **State FY2022 update (current canonical run)** | **Nobody re-extracted.** The 2022 scripts still read the 2017 distribution workbooks; only plan-level drivers were refreshed (updated PPD + `planchanges_main_2022_clean.xlsx` + 2022-specific common data). | 2024 | The "hybrid" finding (2022 scripts read the 2017 workbooks) — recorded in `working_context.md`, 2026-06-01 "Deep 2017 vs 2022 Version Audit" entry (the standalone `year_version_audit.md` was later deleted). |
 
 That last row is the project's existing answer to "how do you update over time": **distributions are treated as slow-moving; annual updates refresh levels and assumptions from PPD (cheap, automatic); re-extraction from PDFs is reserved for when distributions genuinely change** (major reforms, big demographic shifts) — or never, accepting staleness as an assumption.
 
@@ -163,4 +163,4 @@ The Airtable "2. tables" schema is the right unit of provenance — per plan-tab
 
 ---
 
-*Verified facts behind this document: Brookings replication package contents (3 locations); state plan folder contents (workbook + AV/CAFR PDFs per plan); migration template lineage note ("TEMPLATE FROM BROOKINGS DATASET, TX-2017"); guidebook.md data-source instructions; 87/87 PPD coverage of municipal ppd_ids at fy 2001–2023; Airtable export row counts; year_version_audit.md hybrid finding (2022 scripts read `[PLAN]_2017.xlsx`).*
+*Verified facts behind this document: Brookings replication package contents (3 locations); state plan folder contents (workbook + AV/CAFR PDFs per plan); migration template lineage note ("TEMPLATE FROM BROOKINGS DATASET, TX-2017"); guidebook.md data-source instructions; 87/87 PPD coverage of municipal ppd_ids at fy 2001–2023; Airtable export row counts; the 2017-vs-2022 hybrid finding (2022 scripts read `[PLAN]_2017.xlsx` — working_context.md, 2026-06-01 version-audit entry).*

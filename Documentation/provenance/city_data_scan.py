@@ -2,7 +2,7 @@
 City-data audit scan (2026-06-11). Reproducible evidence behind
 `city_data_audit.md` §3.1 and `data_sources_map.md`.
 
-Emits two CSVs into Documentation/:
+Emits two CSVs into Documentation/provenance/:
   - city_sheet_fill_audit.csv : per plan-workbook x canonical sheet, the numeric
     cell count + value-signature + status (plan_specific / shared_default /
     empty / absent). "shared_default" = the sheet's numeric content is byte-for-
@@ -12,15 +12,15 @@ Emits two CSVs into Documentation/:
     (city, collection generation, city-level ppd_ids, AV/CAFR/tiervars/log
     presence).
 
-Run:  python Documentation/city_data_scan.py
+Run:  python "Documentation/provenance/city_data_scan.py"
 (from the project root). Read-only; writes only the two CSVs.
 """
 import os, re, glob, csv, hashlib
 from collections import defaultdict
 
-ROOT   = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROV   = os.path.dirname(os.path.abspath(__file__))       # Documentation/provenance/
+ROOT   = os.path.dirname(os.path.dirname(PROV))           # project root
 CITIES = os.path.join(ROOT, "Data", "Plans", "Cities")
-DOCS   = os.path.join(ROOT, "Documentation")
 
 import openpyxl
 
@@ -79,7 +79,7 @@ def status_for(canon, sig):
         return "empty"
     return "shared_default" if len(bysheet[canon][sig]) > 1 else "plan_specific"
 
-with open(os.path.join(DOCS, "city_sheet_fill_audit.csv"), "w", newline="", encoding="utf-8") as fh:
+with open(os.path.join(PROV, "city_sheet_fill_audit.csv"), "w", newline="", encoding="utf-8") as fh:
     w = csv.writer(fh)
     w.writerow(["plan", "city", "sheet", "n_numeric_cells", "signature",
                 "status", "n_plans_sharing_signature"])
@@ -118,7 +118,7 @@ for d in sorted(os.listdir(CITIES)):
     if os.path.isdir(full) and d != "_migration":
         city_meta[d.split("_")[0]] = folder_meta(full)
 
-with open(os.path.join(DOCS, "city_source_inventory.csv"), "w", newline="", encoding="utf-8") as fh:
+with open(os.path.join(PROV, "city_source_inventory.csv"), "w", newline="", encoding="utf-8") as fh:
     w = csv.writer(fh)
     w.writerow(["plan", "city", "folder_layout", "city_ppd_ids", "city_AV_pdfs",
                 "city_CAFR_pdfs", "city_tiervars", "city_logs"])
@@ -135,4 +135,4 @@ with open(os.path.join(DOCS, "city_source_inventory.csv"), "w", newline="", enco
             w.writerow([f"(none: {city})", city, "empty", "|".join(ppds),
                         av, cafr, tv, log])
 
-print("wrote city_sheet_fill_audit.csv and city_source_inventory.csv to Documentation/")
+print("wrote city_sheet_fill_audit.csv and city_source_inventory.csv to Documentation/provenance/")

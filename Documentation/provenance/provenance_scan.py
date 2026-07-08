@@ -2,7 +2,7 @@
 Provenance catalogue generator (2026-06-11). Companion to
 `Documentation/model_input_dictionary.md` (the schema side).
 
-Outputs (all into Documentation/):
+Outputs (all into Documentation/provenance/):
   - state_sheet_fill_audit.csv : value-signature audit of the 40 state plan
     workbooks ([PLAN]_2017.xlsx, 9 sheets) — same method as the city scan:
     plan_specific / shared_default (identical numeric content across >1 plan)
@@ -23,10 +23,10 @@ Inputs it reads (read-only):
   - Data/Common/states/PPD_planlevel_main_updated.csv   (pctmale/pctmrg/reduct/inactive_adj)
   - Data/Common/states/planchanges_main_2022_clean.xlsx (tier-rule coverage)
   - Data/Sources/brookings_package_csv_matrices/        (granular extraction layer; the FULLER copy)
-  - Documentation/city_sheet_fill_audit.csv + city_source_inventory.csv
-    (run Documentation/city_data_scan.py first if missing)
+  - Documentation/provenance/city_sheet_fill_audit.csv + city_source_inventory.csv
+    (run Documentation/provenance/city_data_scan.py first if missing)
 
-Run:  python Documentation/provenance_scan.py   (from the project root)
+Run:  python "Documentation/provenance/provenance_scan.py"   (from the project root)
 """
 import os, re, csv, glob, hashlib
 from collections import defaultdict
@@ -35,8 +35,8 @@ import openpyxl
 import pandas as pd
 import numpy as np
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DOCS = os.path.join(ROOT, "Documentation")
+PROV = os.path.dirname(os.path.abspath(__file__))        # Documentation/provenance/
+ROOT = os.path.dirname(os.path.dirname(PROV))             # project root
 STATES = os.path.join(ROOT, "Data", "Plans", "States")
 COMMON = os.path.join(ROOT, "Data", "Common", "states")
 MATRICES = os.path.join(ROOT, "Data", "Sources", "brookings_package_csv_matrices")
@@ -162,7 +162,7 @@ def main():
         return "shared_default" if len(bysheet[sheet][sig]) > 1 else "plan_specific"
 
     # ---- output 1: state sheet fill audit ----
-    with open(os.path.join(DOCS, "state_sheet_fill_audit.csv"), "w", newline="", encoding="utf-8") as fh:
+    with open(os.path.join(PROV, "state_sheet_fill_audit.csv"), "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["plan", "sheet", "n_numeric_cells", "signature", "status",
                     "n_plans_sharing_signature", "availableData_flag"])
@@ -177,7 +177,7 @@ def main():
                             st, share, flag])
 
     # ---- output 2: notes harvest ----
-    with open(os.path.join(DOCS, "state_notes_harvest.md"), "w", encoding="utf-8") as fh:
+    with open(os.path.join(PROV, "state_notes_harvest.md"), "w", encoding="utf-8") as fh:
         fh.write("# State Workbook Notes Harvest\n\n")
         fh.write("Verbatim contents of every `notes`-type sheet in the 40 state plan "
                  "workbooks — the only in-repo trace of Brookings' extraction provenance. "
@@ -239,7 +239,7 @@ def main():
         return out
 
     # ---- output 3: the combined register ----
-    reg_path = os.path.join(DOCS, "provenance_register.csv")
+    reg_path = os.path.join(PROV, "provenance_register.csv")
     with open(reg_path, "w", newline="", encoding="utf-8") as fh:
         w = csv.writer(fh)
         w.writerow(["track", "plan", "element", "element_kind", "consumed_by_engine",
@@ -307,8 +307,8 @@ def main():
                         "underlying derivation undocumented (Tier C)"])
 
         # ----- CITY rows (from the city scan CSVs) -----
-        fill = pd.read_csv(os.path.join(DOCS, "city_sheet_fill_audit.csv"))
-        inv = pd.read_csv(os.path.join(DOCS, "city_source_inventory.csv")).set_index("plan")
+        fill = pd.read_csv(os.path.join(PROV, "city_sheet_fill_audit.csv"))
+        inv = pd.read_csv(os.path.join(PROV, "city_source_inventory.csv")).set_index("plan")
         for _, r in fill.iterrows():
             plan = r["plan"]
             meta = inv.loc[plan] if plan in inv.index else None

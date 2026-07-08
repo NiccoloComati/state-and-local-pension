@@ -2019,3 +2019,120 @@ Reminder discovered earlier: the hou/chi/phx MIGRATION workbooks already contain
 gap-fills the collection workbooks lack (AG sourced retdist etc. in 2023) — so
 the collection-format catalogue OVERSTATES gaps for those three; check the
 migration file before re-extracting them.
+
+## 2026-07-07 Documentation folder cleanup
+
+User flagged that `Documentation/` had become confusing: interim scripts and raw
+scan outputs interleaved with the narrative docs, plus references to files that
+no longer exist. Full cross-reference audit run (every doc file checked against
+project_context.md / README.md / all other docs), then cleanup executed:
+
+**Confirmed-deleted files (user deleted them; references were stale, not the
+files misplaced — searched `_ARCHIVE/` too, they are gone everywhere):**
+`062026_run_pipeline.md`, `year_version_audit.md`, `script_year_inventory.csv`,
+`model_script_year_settings.csv`, `data_artifact_inventory.csv`,
+`rdata_inventory.csv`. Their content survives where it matters: the hybrid
+2017/2022 finding is in this file's 2026-06-01 "Deep 2017 vs 2022 Version
+Audit" entry; the pipeline usage lives in the (archived) script headers.
+References in project_context.md / data_sources_map.md /
+model_input_dictionary.md were corrected to point there. Historical entries in
+THIS file keep their original wording (log, not rewritten).
+
+**`Documentation/provenance/` created** — the generator scripts and their
+machine outputs moved out of the top level: `provenance_scan.py`,
+`city_data_scan.py`, `build_city_extraction_catalogue.py`,
+`provenance_register.csv`, `state_sheet_fill_audit.csv`,
+`state_notes_harvest.md`, `city_sheet_fill_audit.csv`,
+`city_source_inventory.csv`. Scripts patched (ROOT one level deeper; new PROV
+dir for generated CSVs; `build_city_extraction_catalogue.py` still writes the
+narrative catalogue to `Documentation/` top level and now reads the CSVs from
+`provenance/`). **Validation: all three scripts rerun from the new location;
+every output byte-identical (md5) to the pre-move files.** Top level of
+`Documentation/` is now narrative docs only.
+
+**`Documentation/papers/` moved to root `Papers/`** (reference literature:
+Brookings papers + Dan_Papers) — it is a library, not project documentation.
+README table + project_context §2 tree updated (also fixed the stale
+`lit_review/` naming there).
+
+**`media/Zoom_Videos/Meeting_10042023.mp4` stays** — user: it is a recorded
+call explaining the code, i.e. real documentation. The two overview xlsx files
+(`PensionProject_Overview.xlsx`, `pproject-overview_AG(Working).xlsx`) were
+left untouched (no user decision yet).
+
+**`variable_glossary.md` refreshed** (was orphaned + stale: keyed to the
+dissolved SPM tree, R-only, NMonte=10 era). Restructured into Part I "Model
+Inputs (source data)" / Part II "Simulation Variables (code)" per user's
+tangling concern; updated to the Python-fast production reality (num_sim=10000,
+market seed 123 common shocks, scenario levers, PlanParams mechanism, MA50
+exclusion, last-tier Main_Ret quirk, OH88 tier-rounding case). Key fact
+simplifying maintenance: PlanParams keeps the R variable names VERBATIM, so
+one glossary serves both tracks. Linked into the README reading order (it was
+referenced by nothing before).
+
+Also stale-fixed in project_context.md: the `Pipeline/062026/` bullet (folder
+was archived in the reorg to `_ARCHIVE/State Pension Model/Pipeline/062026/`;
+remote-status command now points at the Python engaging wrapper, with the
+known-stale caveat).
+
+## 2026-07-07 ML-extraction handoff package (city track)
+
+User is engaging an external ML expert (U. Miami, ex-Booth) to help automate
+the AV-PDF -> collection-workbook extraction; the guidebook was already sent.
+Pain point: for the DONE plans the PDF <-> extracted-data correspondence was
+never written down, so no "worked example" could be given.
+
+Built `Documentation/ml_extraction_handoff.md`:
+- **phx_data19_gen chosen as flagship example** and its page<->sheet map
+  VERIFIED cell-by-cell against `AZ_PHOENIXCITY-COPERS_AV_2019_94.pdf`:
+  p38 F.3 -> Age_Serv_Num, p39 F.4 -> Age_Serv_Wage, p40 F.5 ->
+  Inactv_Serv_Num, p48 B.1 -> Avg_Mort, p49 B.4 -> Sep_Rate, p50 B.5 ->
+  Ret_Rate. Verified transformations: exact transcription where buckets align;
+  <25 row = weighted-average combine of Under-20 + 20-24 (44580.22 reproduced
+  exactly); "Over 30" column split evenly (5 -> 2.5/2.5); `*` suppressed cells
+  carried through. All match phx_log.txt's stated assumptions.
+- Second example chi_data19_pol (different actuary; has Refund_Rate +
+  Retirement DONE which phx lacks; page map not yet built). Hard case
+  hou_data19_pol (DROP, non-joint retiree distribution).
+- Eval design suggested: calibrate on phx+chi_pol, hold out sd or phi
+  (score vs human extraction), production targets = retdist gaps, bos/dc
+  stubs, aus/clt/ind, `copy?` mortality sheets.
+- Blockers listed: missing PDFs (hou_ff + dc/den/fw/nsh/nyc/sea -> fetch from
+  publicplansdata.org); Airtable "All"-views export pending; hou/chi/phx gaps
+  overstated vs their _migration workbooks.
+
+Tooling note: pypdf was reinstalled (missing on this machine).
+
+### 2026-07-07 follow-up: difficulty ladder for the ML-expert examples
+
+User reframed: no file package needed, just HIGHLIGHTED examples in escalating
+difficulty (easy -> intermediate -> dramatic). Verified all three rungs within
+the single phx pair (AV pdf + phx_data19_gen.xlsx), now in
+`ml_extraction_handoff.md` §1:
+- Rung 1 (transcription + bin boundaries): p38 F.3 -> Age_Serv_Num, p39 F.4 ->
+  Age_Serv_Wage (already verified earlier).
+- Rung 2 (re-gridding, no strong assumptions): p49 B.4 -> Sep_Rate (drop svc-0
+  col, extend 5+ flat, zero impossible age/service cells); p50 B.5 -> Ret_Rate
+  (transpose + proportional re-bucketing: "12-19" = 3/8x0 + 5/8x0.225 =
+  0.140625 exact).
+- Rung 3 (data not in the PDF as extracted): p48 B.1 -> Avg_Mort — unisex
+  column CONSTRUCTED from sex-split sample rates of two populations; 50-69
+  blend weights are the extracted headcounts themselves (age 50:
+  (1312xpre + 168xpost)/1480 reproduces workbook exactly; implied retiree
+  count solved from the blend = 168.0 = the Retirement sheet value).
+  Retirement sheet: avg benefit = dollars/count (49,628.10 ✓), "90 & Up" 116
+  split evenly (38.6667x3 ✓). AF_Scratch_Work holds the visible intermediates.
+Note: phx workbook was OneDrive/Excel-locked; verification ran on a temp copy
+(deleted after).
+
+### 2026-07-07 follow-up 2: pin comments + marked workbook
+
+Wrote the PDF pin-comment texts for the 6 ladder locations (p38/p39 rung 1,
+p49/p50 rung 2, p48 + pp41-43 rung 3) — delivered in chat for the user to
+paste as PDF annotations. Verified the phx T1/T2/T3 sheets are NOT extractions
+but modeled tier allocations (fractional member counts; AV gives only per-tier
+totals + prose eligibility; T3 only 0-4 svc col, T2 only 5-9, per hire-date
+cutoffs) — keep in the workbook as context, not marked. Produced
+`Desktop/phx_data19_gen_marked.xlsx`: green tabs = the 6 ladder sheets, orange
+= AF_Scratch_Work, cleared the collector's pre-existing T-sheet tab colors
+(original workbook untouched).

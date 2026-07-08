@@ -5,15 +5,16 @@ verbatim collector logs + Airtable table docs). For reviewing the already-done
 plans (and learning the method) and doing the remaining ones by hand.
 
 Read-only inputs; writes one markdown file (UTF-8). Run from project root:
-    python Documentation/build_city_extraction_catalogue.py
+    python "Documentation/provenance/build_city_extraction_catalogue.py"
 """
 import os, re, glob, zipfile
 import pandas as pd
 import openpyxl
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PROV = os.path.dirname(os.path.abspath(__file__))         # Documentation/provenance/
+ROOT = os.path.dirname(os.path.dirname(PROV))             # project root
 CIT = os.path.join(ROOT, "Data", "Plans", "Cities")
-DOCS = os.path.join(ROOT, "Documentation")
+DOCS = os.path.join(ROOT, "Documentation")                # catalogue (narrative) stays top-level
 OUT = os.path.join(DOCS, "city_extraction_catalogue.md")
 
 MODEL_SHEETS = ["Age_Serv_Num", "Age_Serv_Wage", "Sep_Rate", "Avg_Mort", "Ret_Rate", "Retirement"]
@@ -133,8 +134,8 @@ def scratch_sheets(plan, folder):
         return []
 
 def main():
-    fill = pd.read_csv(os.path.join(DOCS, "city_sheet_fill_audit.csv"))
-    inv = pd.read_csv(os.path.join(DOCS, "city_source_inventory.csv")).set_index("plan")
+    fill = pd.read_csv(os.path.join(PROV, "city_sheet_fill_audit.csv"))
+    inv = pd.read_csv(os.path.join(PROV, "city_source_inventory.csv")).set_index("plan")
     plans = sorted(fill["plan"].unique())
 
     L = []
