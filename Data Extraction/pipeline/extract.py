@@ -88,18 +88,37 @@ RESULT_SCHEMA = {
                 "properties": {
                     "target": {"type": "string"},
                     "sources": {"type": "array", "items": {"type": "string"}},
-                    "op": {"type": "string", "enum": ["copy", "sum", "share_even"]},
+                    "op": {"type": "string",
+                           "enum": ["copy", "sum", "share_even", "weighted_avg"]},
+                    "weights_table": {"anyOf": [{"type": "integer"}, {"type": "null"}],
+                                      "description": "index into source_tables providing count weights (weighted_avg only, else null). Column weighted_avg merges source COLUMNS of an averages table."},
                 },
                 "required": ["target", "sources", "op"],
                 "additionalProperties": False,
             },
+        },
+        "derive": {
+            "anyOf": [
+                {"type": "null"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "op": {"type": "string", "enum": ["ratio"]},
+                        "numerator_table": {"type": "integer"},
+                        "denominator_table": {"type": "integer"},
+                    },
+                    "required": ["op", "numerator_table", "denominator_table"],
+                    "additionalProperties": False,
+                },
+            ],
+            "description": "null normally. Use {op:'ratio',...} when the document publishes TOTALS instead of the averages the target wants (e.g. total salary dollars + member counts): both tables are aggregated with the same maps (additive ops only) and divided cell-wise by code.",
         },
         "notes": {
             "type": "string",
             "description": "every judgment call: why these tables, ambiguities, anything the maps cannot express",
         },
     },
-    "required": ["source_tables", "row_map", "col_map", "notes"],
+    "required": ["source_tables", "row_map", "col_map", "derive", "notes"],
     "additionalProperties": False,
 }
 
@@ -118,10 +137,16 @@ format them differently - judge by content) and transcribe them EXACTLY as print
 original bin labels, original values, null for empty cells, '*' for suppressed cells. \
 Never compute, round, merge, or invent anything at this step. Exclude total rows/columns.
 2. DECLARE: describe how the source bins map onto the target grid as row_map/col_map \
-operations (copy, sum, weighted_avg for rows; copy, sum, share_even for columns). \
+operations (copy, sum, weighted_avg for rows; copy, sum, share_even, weighted_avg for \
+columns). \
 Deterministic code will execute these - you do NO arithmetic. If a weighted average is \
 needed (e.g. merging salary bins), also transcribe the table that provides the weights \
-(e.g. member counts) as an additional source table and reference it by index.
+(e.g. member counts) as an additional source table and reference it by index. \
+If the document publishes TOTALS instead of the averages the target wants (e.g. total \
+salary dollars per cell plus member counts, but no average-salary exhibit), transcribe \
+BOTH tables and declare derive = {"op": "ratio", "numerator_table": <totals>, \
+"denominator_table": <counts>}: code aggregates both tables with your maps (additive \
+ops only - sum/copy, NOT weighted_avg) and divides cell-wise. Otherwise derive is null.
 
 Every target row/column must appear exactly once in the maps, in target-grid order. \
 If data for a target bin does not exist anywhere in the document, give it an empty \
@@ -145,6 +170,7 @@ FORMAT_SPEC = """OUTPUT FORMAT - return ONLY a JSON object with EXACTLY this str
   "col_map": [
     {"target": "4", "sources": ["0-4"], "op": "copy"}
   ],
+  "derive": null,
   "notes": "one plain string, not a list"
 }
 Constraints:
@@ -153,7 +179,17 @@ Constraints:
 - row_map/col_map "sources" are PLAIN STRINGS (row/col labels of
   source_tables[0]). NOT objects. Auxiliary tables are referenced only via
   "weights_table" (an integer index into source_tables, or null).
-- row ops: "copy" | "sum" | "weighted_avg"; col ops: "copy" | "sum" | "share_even".
+- row ops: "copy" | "sum" | "weighted_avg"; col ops: "copy" | "sum" |
+  "share_even" | "weighted_avg". "copy" and "share_even" take EXACTLY ONE
+  source. Merging bins of an AVERAGES table (rows or columns) is ALWAYS
+  "weighted_avg" with "weights_table" pointing at the transcribed counts
+  table - never sum or share_even (averages are not additive).
+- "derive" is null UNLESS the document publishes totals instead of the target's
+  averages: then transcribe BOTH tables (same bin labels) and set
+  {"op": "ratio", "numerator_table": <index of the totals table>,
+  "denominator_table": <index of the counts table>}. In ratio mode all row ops
+  must be additive (sum/copy, never weighted_avg) - code aggregates both
+  tables with the same maps, then divides cell-wise (average = total/count).
 - If the source table PRINTS totals (a Total column and/or Total row),
   transcribe them into printed_row_totals / printed_col_totals (aligned with
   row_labels / col_labels; null where not printed). They are checked in code
@@ -250,7 +286,7 @@ def validate(result):
                         break
 
     row_ops = {"copy", "sum", "weighted_avg"}
-    col_ops = {"copy", "sum", "share_even"}
+    col_ops = {"copy", "sum", "share_even", "weighted_avg"}
     for name, ops_allowed in (("row_map", row_ops), ("col_map", col_ops)):
         entries = result[name]
         if not isinstance(entries, list) or not entries:
@@ -266,12 +302,40 @@ def validate(result):
             if not isinstance(srcs, list) or any(not isinstance(s, str) for s in srcs):
                 p.append(f"{name}[{i}].sources must be a list of PLAIN STRINGS "
                          "(source row/col labels), not objects")
-            if e.get("op") not in ops_allowed:
-                p.append(f"{name}[{i}].op {e.get('op')!r} not in {sorted(ops_allowed)}")
-            if name == "row_map":
-                wt = e.get("weights_table", "MISSING")
-                if wt is not None and not isinstance(wt, int):
-                    p.append(f"row_map[{i}].weights_table must be an integer index or null")
+                srcs = None
+            op = e.get("op")
+            if op not in ops_allowed:
+                p.append(f"{name}[{i}].op {op!r} not in {sorted(ops_allowed)}")
+            if srcs is not None and op in ("copy", "share_even") and len(srcs) > 1:
+                p.append(f"{name}[{i}] ({e.get('target')!r}): {op!r} takes exactly one "
+                         "source. To MERGE bins use 'sum' (additive quantities) or "
+                         "'weighted_avg' with weights_table = the counts table "
+                         "(averages - never sum/share_even them)")
+            wt = e.get("weights_table")
+            if wt is not None and not isinstance(wt, int):
+                p.append(f"{name}[{i}].weights_table must be an integer index or null")
+            if op == "weighted_avg" and not isinstance(wt, int):
+                p.append(f"{name}[{i}] ({e.get('target')!r}): weighted_avg requires an "
+                         "integer weights_table (transcribe the counts table and "
+                         "reference its index)")
+
+    derive = result.setdefault("derive", None)   # tolerated if absent
+    if derive is not None:
+        if not isinstance(derive, dict):
+            p.append("derive must be null or an object")
+        else:
+            if derive.get("op") != "ratio":
+                p.append(f"derive.op {derive.get('op')!r} must be 'ratio'")
+            for key in ("numerator_table", "denominator_table"):
+                v = derive.get(key)
+                if not isinstance(v, int) or not (0 <= v < len(tables)):
+                    p.append(f"derive.{key} must be a valid index into source_tables")
+            for name in ("row_map", "col_map"):
+                for i, e in enumerate(result.get(name, [])):
+                    if isinstance(e, dict) and e.get("op") == "weighted_avg":
+                        p.append(f"{name}[{i}]: weighted_avg is not allowed in ratio "
+                                 "mode - use additive ops (sum/copy); code divides the "
+                                 "aggregated tables")
 
     if not isinstance(result["notes"], str):
         p.append("notes must be a single string (not a list)")

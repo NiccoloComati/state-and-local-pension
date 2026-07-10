@@ -83,8 +83,9 @@
       "cols_meaning": "service-year buckets as in Age_Serv_Num"
     },
     "rules": [
-      "Averages are NOT additive: when source bins are finer than a target bin, declare op 'weighted_avg' over those source rows, and ALSO transcribe the corresponding member-COUNTS table as an additional source table (reference its index in 'weights_table') - the counts are the weights.",
+      "Averages are NOT additive: when source bins are finer than a target bin, declare op 'weighted_avg' over those source rows OR columns, and ALSO transcribe the corresponding member-COUNTS table as an additional source table (reference its index in 'weights_table') - the counts are the weights. This applies to column merges too (e.g. source 'Under 1' + '1 to 4' columns into target '4'): col op 'weighted_avg', never 'sum' or 'share_even'.",
       "When a source bin is coarser than the target bins, declare op 'copy' from that source column into EACH covered target column (an average does not split).",
+      "SOME AVs PUBLISH NO AVERAGE-SALARY EXHIBIT, only TOTAL salary dollars by age and service (usually alongside or interleaved with the counts). Then transcribe BOTH tables (totals + counts) and declare derive = {\"op\": \"ratio\", \"numerator_table\": <totals>, \"denominator_table\": <counts>} with ADDITIVE maps only (sum/copy, no weighted_avg): code computes average = total/count after aggregation.",
       "Suppressed cells (e.g. '*' for fewer than N members) are transcribed as the string '*'.",
       "Empty source cells stay null.",
       "Transcribe the source table without its total row/column and without overall-average rows."

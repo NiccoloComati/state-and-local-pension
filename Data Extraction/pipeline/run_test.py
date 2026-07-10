@@ -129,11 +129,13 @@ def main():
     print(f"[stage A] notes: {result.get('notes', '')[:400]}")
 
     # ---- stage B: execute the declared operations (deterministic) ----
-    derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"])
+    derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
+                          derive=result.get("derive"))
     with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
         json.dump(derived, fh, indent=2)
     print("[stage B] declared operations:")
-    for line in ops.summarize(result["row_map"], result["col_map"]):
+    for line in ops.summarize(result["row_map"], result["col_map"],
+                              derive=result.get("derive")):
         print(f"    {line}")
 
     # ---- score the derived grid against the human workbook ----

@@ -292,3 +292,102 @@ show Pietro.
 Next candidates (in order): Age_Serv_Wage on chi_pol/sd (completes the rung-1
 matrix); Ret_Rate (first rung-2 target - needs transpose + proportional
 re-grid ops in the vocabulary + executor); then rung-3 (Avg_Mort blend).
+
+### 2026-07-10 - chi_pol Age_Serv_Wage: vocabulary gap found and fixed (ratio op)
+Live run (other machine synced; this machine needed pdfplumber + anthropic
+installed) scored 0.0 - but adjudication shows a PIPELINE gap, not a model
+failure, and the two-stage architecture is what made that diagnosable:
+
+- Chicago Police's AV publishes NO average-salary exhibit. Exhibit C Part III
+  (p.46) prints total LIVES and total annual SALARY DOLLARS by age x service.
+  The model found both, transcribed both tables correctly (verified below),
+  and its notes said exactly the right thing: "Average salary per cell =
+  total salary / count, which deterministic code must compute". But ops.py
+  v0.1 had no division operation (op #6 of the conceptual 8-op vocabulary,
+  "average = total$/count", was never implemented), so the model declared the
+  closest legal thing (weighted_avg) and the executor produced aggregated
+  COUNTS -> wrong=38.
+- The "totals check failed" warnings were a second, separate bug: the AV's own
+  printed totals are rounded (sum of printed cells off by +-1 dollar on
+  hundreds of millions). totals_check now uses max(0.5, 1e-5*|printed|)
+  tolerance - still razor-sharp for real column shifts (which move an entire
+  cell value) - and prints full-precision diffs instead of %g.
+
+Fix (contract + executor, committed with this entry):
+- ops.execute(..., derive=) - new optional declared op
+  {"op":"ratio","numerator_table":i,"denominator_table":j}: both tables are
+  aggregated with the SAME row/col maps (additive ops only; weighted_avg
+  rejected in ratio mode), then divided cell-wise. Merged-bin averages are
+  exact by construction (sum both, then divide).
+- extract.py: derive added to RESULT_SCHEMA/FORMAT_SPEC/SYSTEM; validate()
+  checks it (op, table indices, no weighted_avg rows) and tolerates its
+  absence (old-shape responses stay valid).
+- targets.json Age_Serv_Wage: new rule telling the model about the
+  totals-instead-of-averages case.
+
+Validation (ZERO new API cost - this is why we archive source-native
+transcriptions): pipeline/test_ops_chipol_wage.py re-executes the ARCHIVED
+run-121937 transcription under the corrected declaration -> **38/38 EXACT
+(1.0)** vs the human workbook, bit-exact incl. non-round cells like
+70959.51336898396 (proving the human collector also computed total$/count).
+Totals check passes with the tolerance. phx regression (test_ops_phx.py)
+unchanged: counts 59/59, wages 0.9661 with only the known workbook-typo
+cells.
+
+LIVE RERUN CONFIRMED (run chi_pol_Age_Serv_Wage_20260710_123312): the model
+declared derive: ratio = t0/t1 UNPROMPTED, transcribed both Part III tables
+(salary$ + counts, printed-totals OK), single attempt -> **38/38 EXACT
+(1.0)**. Note for the writeup: Segal titles both panels near-identically; the
+model assigned numerator/denominator by CONTENT, not title.
+
+### 2026-07-10 - sd Age_Serv_Wage: second vocabulary gap (COLUMN weighted_avg); rung-1 matrix complete
+Live run sd_Age_Serv_Wage_20260710_124156 crashed in ops.execute - again a
+vocabulary gap the model itself flagged: Cheiron's Table A-8 publishes
+averages directly (phx-style) but with FINER service columns than the target
+('Under 1'+'1 to 4' -> '4'; '35 to 39'+'40 and up' -> '40'). Merging averages
+across COLUMNS needs a count-weighted average, but col_map ops were only
+copy/sum/share_even. The model's notes: "col ops are limited to
+copy/sum/share_even, so share_even is used, though these are averages -
+noted" - it declared the least-bad illegal thing; validate() missed the
+share_even arity violation; the executor crashed (after archiving the
+transcription, so diagnosis + fix validation cost zero API).
+
+Fix: ops.py col op "weighted_avg" (weights = counts table, row-aggregated
+first with weighted_avg degraded to sum - counts are additive; the two-stage
+row-then-column weighting is exactly the full count-weighted mean of the
+merged cells). Stage-1 refactored into _stage1() to reuse on the weights
+table. validate() now enforces arity (copy/share_even take exactly one
+source; weighted_avg requires integer weights_table; both maps additive in
+ratio mode) so bad declarations are caught in the RETRY LOOP, not the
+executor. Schema/FORMAT_SPEC/SYSTEM/targets.json updated symmetrically.
+
+Zero-cost validation (pipeline/test_ops_sd_wage.py, archived transcription +
+corrected col ops): 52 exact + 1 close of 57; ALL 5 mismatches are the age-70
+row, adjudicated as GROUND-TRUTH ERROR #2 AGAIN (the workbook's row 70 equals
+A-8's '65 to 69' row VERBATIM - the collector ignored '70 and up' on the wage
+sheet too; our blend is correct per template semantics '70' = 65-and-over).
+Regressions clean: chi_pol ratio test 38/38, phx counts 59/59 / wages 0.9661
+(known typo cells only).
+
+FINAL RUNG-1 SCOREBOARD (3 plans x 2 targets, three firms, adjudicated):
+| plan/target | raw | adjudicated |
+|---|---|---|
+| phx Age_Serv_Num (GRS) | 1.0 | 1.0 |
+| phx Age_Serv_Wage (GRS) | 0.966 | 1.0 (workbook typo) |
+| chi_pol Age_Serv_Num (Segal) | 1.0 (after layout fix) | 1.0 |
+| chi_pol Age_Serv_Wage (Segal) | 1.0 (after ratio op) | 1.0 |
+| sd Age_Serv_Num (Cheiron) | 0.65 | ~1.0 (human dropped 70+) |
+| sd Age_Serv_Wage (Cheiron) | 0.912 (local re-exec) | ~1.0 (same human error) |
+
+LIVE RERUN CONFIRMED (run sd_Age_Serv_Wage_20260710_125005): the model
+declared col weighted_avg (weights=t1) UNPROMPTED for both column merges and
+row weighted_avg for '70'; score identical to the local re-execution
+(52 exact + 1 close of 57, mismatches = the known age-70 human error only).
+The format-retry fired once on attempt 1 (Parley drops output_config; the
+guard corrected it) - expected behavior.
+Running tally: 2 human ground-truth errors (in 3 sheets!) vs 1 model error
+(chi_pol shift, fixed by layout text) vs 2 pipeline vocabulary gaps (ratio,
+col weighted_avg - both flagged by the model itself in notes).
+
+Next: Ret_Rate (rung 2 - transpose + proportional re-grid ops), then rung 3
+(Avg_Mort blend).

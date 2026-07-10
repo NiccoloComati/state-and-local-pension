@@ -11,8 +11,17 @@ Contract executed:
   row_map       : [{target, sources: [source row labels], op, weights_table}]
                   op: "copy" | "sum" | "weighted_avg"
                   weights_table: index into source_tables (weighted_avg only)
-  col_map       : [{target, sources: [source col labels], op}]
-                  op: "copy" | "sum" | "share_even"
+  col_map       : [{target, sources: [source col labels], op, weights_table}]
+                  op: "copy" | "sum" | "share_even" | "weighted_avg"
+                  weighted_avg merges source COLUMNS of an averages table
+                  (weights = the counts table, row-aggregated first)
+  derive        : null | {op: "ratio", numerator_table, denominator_table}
+                  ratio mode: some AVs publish TOTALS (e.g. total salary
+                  dollars + member counts) instead of the averages the target
+                  wants. Both tables are aggregated with the SAME row/col maps
+                  (additive ops only), then divided cell-wise:
+                  average = total$/count. The merged-bin average is exact by
+                  construction (sum both, then divide).
 
 Execution: rows first (source grid -> target_rows x source_cols), then
 columns. "share_even" divides a source column's value evenly across all
@@ -38,19 +47,42 @@ def _num(v):
     return isinstance(v, (int, float)) and not isinstance(v, bool)
 
 
-def execute(source_tables, row_map, col_map):
-    """Return the derived canonical grid. Raises ValueError on bad specs."""
-    main = source_tables[0]
-    m_ridx, m_cidx = _index(main["row_labels"]), _index(main["col_labels"])
+def execute(source_tables, row_map, col_map, derive=None):
+    """Return the derived canonical grid. Raises ValueError on bad specs.
 
-    # how many share_even targets reference each source column
-    share_n = {}
-    for cm in col_map:
-        if cm["op"] == "share_even":
-            for s in cm["sources"]:
-                share_n[s] = share_n.get(s, 0) + 1
+    derive={"op": "ratio", "numerator_table": i, "denominator_table": j}
+    aggregates BOTH tables with the same maps (additive ops only) and divides
+    cell-wise (average = total$/count)."""
+    if derive:
+        if derive.get("op") != "ratio":
+            raise ValueError(f"unknown derive op {derive.get('op')!r}")
+        for m, kind in ((row_map, "row"), (col_map, "col")):
+            for e in m:
+                if e["op"] == "weighted_avg":
+                    raise ValueError(
+                        f"{kind} {e['target']}: weighted_avg is not allowed in ratio "
+                        "mode (both tables aggregate additively, then divide)")
+        num = _grid(source_tables, derive["numerator_table"], row_map, col_map)
+        den = _grid(source_tables, derive["denominator_table"], row_map, col_map)
+        cells = []
+        for nrow, drow in zip(num["cells"], den["cells"]):
+            out_row = []
+            for nv, dv in zip(nrow, drow):
+                if nv == "*" or dv == "*":
+                    out_row.append("*")
+                elif _num(nv) and _num(dv) and dv != 0:
+                    out_row.append(nv / dv)
+                else:
+                    out_row.append(None)
+            cells.append(out_row)
+        return {"row_labels": num["row_labels"],
+                "col_labels": num["col_labels"], "cells": cells}
+    return _grid(source_tables, 0, row_map, col_map)
 
-    # ---- stage 1: row combination -> intermediate[target_row][source_col]
+
+def _stage1(source_tables, table, row_map):
+    """Row combination for one table -> {(target_row, source_col): value}."""
+    ridx, cidx = _index(table["row_labels"]), _index(table["col_labels"])
     inter = {}
     for rm in row_map:
         op = rm["op"]
@@ -62,8 +94,8 @@ def execute(source_tables, row_map, col_map):
             weights = source_tables[wt_i]
             w_ridx, w_cidx = _index(weights["row_labels"]), _index(weights["col_labels"])
 
-        for c_label in main["col_labels"]:
-            vals = [_get(main, m_ridx, m_cidx, s, c_label) for s in rm["sources"]]
+        for c_label in table["col_labels"]:
+            vals = [_get(table, ridx, cidx, s, c_label) for s in rm["sources"]]
             if op == "copy":
                 if len(rm["sources"]) > 1:
                     raise ValueError(f"row {rm['target']}: copy with multiple sources")
@@ -84,6 +116,37 @@ def execute(source_tables, row_map, col_map):
             else:
                 raise ValueError(f"unknown row op {op!r}")
             inter[(rm["target"], str(c_label).strip())] = out
+    return inter
+
+
+def _grid(source_tables, main_index, row_map, col_map):
+    """Aggregate one source table through the row/col maps."""
+    main = source_tables[main_index]
+
+    # how many share_even targets reference each source column
+    share_n = {}
+    for cm in col_map:
+        if cm["op"] == "share_even":
+            for s in cm["sources"]:
+                share_n[s] = share_n.get(s, 0) + 1
+
+    # ---- stage 1: row combination -> intermediate[target_row][source_col]
+    inter = _stage1(source_tables, main, row_map)
+
+    # row-aggregated weights grids for column weighted_avg. Weights are
+    # counts, which are ADDITIVE: any weighted_avg row op degrades to sum
+    # when applied to the weights table itself.
+    w_inter = {}
+    for cm in col_map:
+        if cm["op"] == "weighted_avg":
+            wt_i = cm.get("weights_table")
+            if wt_i is None:
+                raise ValueError(f"col {cm['target']}: weighted_avg needs weights_table")
+            if wt_i not in w_inter:
+                additive = [dict(rm, op=("sum" if rm["op"] == "weighted_avg"
+                                         else rm["op"]), weights_table=None)
+                            for rm in row_map]
+                w_inter[wt_i] = _stage1(source_tables, source_tables[wt_i], additive)
 
     # ---- stage 2: column combination -> derived[target_row][target_col]
     row_labels = [rm["target"] for rm in row_map]
@@ -106,6 +169,17 @@ def execute(source_tables, row_map, col_map):
                     raise ValueError(f"col {cm['target']}: share_even takes one source")
                 v = vals[0]
                 out = v / share_n[cm["sources"][0]] if _num(v) else v
+            elif op == "weighted_avg":
+                wgrid = w_inter[cm["weights_table"]]
+                num, den = 0.0, 0.0
+                for s, v in zip(cm["sources"], vals):
+                    if not _num(v):
+                        continue
+                    w = wgrid.get((r, str(s).strip()))
+                    if _num(w):
+                        num += v * w
+                        den += w
+                out = (num / den) if den else ("*" if "*" in vals else None)
             else:
                 raise ValueError(f"unknown col op {op!r}")
             row_out.append(out)
@@ -114,16 +188,25 @@ def execute(source_tables, row_map, col_map):
     return {"row_labels": row_labels, "col_labels": col_labels, "cells": cells}
 
 
-def totals_check(table, tol=0.5):
+def totals_check(table, tol=0.5, rel_tol=1e-5):
     """Verify the transcription against the table's PRINTED totals (if any).
 
     A value placed one column off leaves row sums intact but breaks column
     sums - this is the automatic tripwire for the text-layer column-alignment
     failure mode. Returns a list of discrepancy strings (empty = consistent
     or no totals printed).
+
+    Tolerance: max(tol, rel_tol*|printed|). The relative term absorbs the
+    source's own rounding (AVs print integer dollars per cell but total the
+    unrounded values, so printed totals can be off by a few dollars on
+    hundreds of millions); a real column shift moves an entire cell value,
+    orders of magnitude above it.
     """
     problems = []
     cells = table["cells"]
+
+    def _bad(s, printed):
+        return abs(s - printed) > max(tol, rel_tol * abs(printed))
 
     prt = table.get("printed_row_totals")
     if prt:
@@ -131,8 +214,9 @@ def totals_check(table, tol=0.5):
             if printed is None:
                 continue
             s = sum(v for v in row if _num(v))
-            if abs(s - printed) > tol:
-                problems.append(f"row {lab!r}: cells sum to {s:g} but printed total is {printed:g}")
+            if _bad(s, printed):
+                problems.append(f"row {lab!r}: cells sum to {s!r} but printed total "
+                                f"is {printed!r} (diff {s - printed!r})")
 
     pct = table.get("printed_col_totals")
     if pct:
@@ -140,20 +224,25 @@ def totals_check(table, tol=0.5):
             if printed is None:
                 continue
             s = sum(row[j] for row in cells if j < len(row) and _num(row[j]))
-            if abs(s - printed) > tol:
-                problems.append(f"col {lab!r}: cells sum to {s:g} but printed total is {printed:g}")
+            if _bad(s, printed):
+                problems.append(f"col {lab!r}: cells sum to {s!r} but printed total "
+                                f"is {printed!r} (diff {s - printed!r})")
 
     return problems
 
 
-def summarize(row_map, col_map):
+def summarize(row_map, col_map, derive=None):
     """Human-readable one-liners for the declared operations."""
     lines = []
+    if derive:
+        lines.append(f"derive: ratio = t{derive.get('numerator_table')} / "
+                     f"t{derive.get('denominator_table')} (cell-wise, after mapping)")
     for rm in row_map:
         if rm["op"] != "copy" or len(rm["sources"]) != 1 or rm["sources"][0] != rm["target"]:
             w = f" weights=t{rm.get('weights_table')}" if rm["op"] == "weighted_avg" else ""
             lines.append(f"row {rm['target']!r} <- {rm['op']}({', '.join(rm['sources'])}){w}")
     for cm in col_map:
         if cm["op"] != "copy" or len(cm["sources"]) != 1 or cm["sources"][0] != cm["target"]:
-            lines.append(f"col {cm['target']!r} <- {cm['op']}({', '.join(cm['sources'])})")
+            w = f" weights=t{cm.get('weights_table')}" if cm["op"] == "weighted_avg" else ""
+            lines.append(f"col {cm['target']!r} <- {cm['op']}({', '.join(cm['sources'])}){w}")
     return lines or ["(pure relabeling, no transformations)"]
