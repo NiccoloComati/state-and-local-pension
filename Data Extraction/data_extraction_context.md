@@ -391,3 +391,47 @@ col weighted_avg - both flagged by the model itself in notes).
 
 Next: Ret_Rate (rung 2 - transpose + proportional re-grid ops), then rung 3
 (Avg_Mort blend).
+
+### 2026-07-10 - rung-2 machinery built: transpose + overlap_weighted + percent conversion (Ret_Rate live-ready)
+Contract/executor extensions (v0.3), all keeping the model at ZERO arithmetic:
+- transpose (top-level bool): table transcribed AS PRINTED; code transposes
+  before mapping; row_map then maps the printed COLUMNS onto target rows.
+- op "overlap_weighted" (rows and cols): re-grids RATES across non-aligned
+  bins. The model declares each source bin's numeric span ("source_spans",
+  null = open end: '<15' -> [null,14]); the TARGET bins' spans are fixed
+  template semantics in targets.json (target_row_spans/target_col_spans),
+  passed to ops.execute by run_test - never model-declared. Code computes
+  integer-year overlap weights: value = sum(w_s*v_s)/sum(w_s). Rates are
+  intensive: inside-one-bin targets copy; spanning targets blend (the
+  verified 12-19 = 3/8x0 + 5/8x0.225 = 0.140625 case).
+- values_unit: "percent" per table -> code DIVIDES by 100 (division, not
+  *0.01: 35.00/100 == the double a human typing 0.35 produces - bit-exact
+  scoring; *0.01 gives 0.35000000000000003).
+- validate() checks all of it (transpose bool, spans aligned/integer/null,
+  spans only on overlap_weighted); old-shape responses stay valid.
+- targets.json Ret_Rate spec completed (spans, convert_percent_to_decimal,
+  rewritten rules); no run_test.py plan changes needed beyond passing the
+  new fields through.
+
+DISCOVERY - two UNDOCUMENTED human judgment calls in the phx Ret_Rate ground
+truth (phx_log.txt says only "broken out and averaged if needed"):
+- J1: the AV's printed age-70 row (100% retirement everywhere) is IGNORED;
+  the workbook's col 70 carries the 66-69 rates instead.
+- J2: service bins 31+ all copy the '>31' column - consistent with reading
+  '25-31' as [25,30] / '>31' as [31,inf), NOT the literal labels
+  ([25,31]/[32,inf) would 50/50-blend row 31-32).
+The span-declaration design makes exactly this auditable: the ambiguity is
+IN the declared spans, not hidden in arithmetic.
+
+Zero-cost verification (pipeline/test_ops_phx_retrate.py, hand-transcribed
+ACTUAL p.50 B.5 table): literal spans -> 163/189 with ALL 26 mismatches
+confined to row 31-32 + col 70 (J1/J2), every blend cell bit-exact
+(0.140625, 0.178125, 0.204375, 0.25125, 0.22, 0.315625, 0.296875);
+human-implied spans -> 180/189, ONLY the 9 col-70 cells differ (J1).
+Regressions: phx counts/wages, chi_pol ratio, sd col-weighted_avg all pass;
+old-shape contract responses still validate.
+
+Expected live phx Ret_Rate raw score: ~0.95 if the model reads the bins like
+the human, ~0.86 literal - either way the col-70 mismatches are J1, NOT
+model error. Adjudicate against the PDF as always. Cross-firm chi_pol/sd
+Ret_Rate after phx.

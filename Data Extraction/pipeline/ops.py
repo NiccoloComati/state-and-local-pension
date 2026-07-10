@@ -22,6 +22,24 @@ Contract executed:
                   (additive ops only), then divided cell-wise:
                   average = total$/count. The merged-bin average is exact by
                   construction (sum both, then divide).
+  transpose     : bool (default false). The table is TRANSCRIBED as printed;
+                  code transposes it before mapping. With transpose=true,
+                  row_map maps the printed COLUMNS onto target rows and
+                  col_map maps the printed ROWS onto target columns.
+  overlap_weighted (rung-2 op, rows and cols): re-grid RATES across
+                  non-aligned bins. The map entry carries "source_spans"
+                  (numeric [lo, hi] per source label, null = open end); the
+                  target bins' spans are fixed template semantics passed in
+                  by the caller (targets.json). weight_s = integer-year
+                  overlap of the target span with source span s; value =
+                  sum(w_s * v_s) / sum(w_s). Rates are intensive: bins fully
+                  inside one source bin copy it; spanning bins blend
+                  proportionally by years (e.g. target 12-19 across <15 and
+                  15-24: 3/8, 5/8). Model judgment about ambiguous printed
+                  bin boundaries is DECLARED in the spans - auditable.
+  values_unit   : per-table, "percent" -> cells are scaled by 0.01 before
+                  mapping when the caller requests decimal output
+                  (unit semantics declared by the model; scaling done here).
 
 Execution: rows first (source grid -> target_rows x source_cols), then
 columns. "share_even" divides a source column's value evenly across all
@@ -47,12 +65,66 @@ def _num(v):
     return isinstance(v, (int, float)) and not isinstance(v, bool)
 
 
-def execute(source_tables, row_map, col_map, derive=None):
+# open span ends (null) are clipped here before overlap arithmetic; only
+# open-open overlaps are cap-sensitive, and 120 exceeds any age/service year
+SPAN_MAX = 120
+
+
+def _transpose_table(table):
+    """Swap rows and columns of a transcribed table (labels, cells, totals)."""
+    cells = table["cells"]
+    ncols = len(table["col_labels"])
+    t = dict(table)
+    t["row_labels"], t["col_labels"] = table["col_labels"], table["row_labels"]
+    t["cells"] = [[row[j] if j < len(row) else None for row in cells]
+                  for j in range(ncols)]
+    t["printed_row_totals"] = table.get("printed_col_totals")
+    t["printed_col_totals"] = table.get("printed_row_totals")
+    return t
+
+
+def _percent_to_decimal(table):
+    """Copy of the table with numeric cells (and totals) divided by 100.
+
+    Division (not *0.01) so that e.g. 35.00 -> exactly the double 0.35 a
+    human typing '0.35' produces."""
+    t = dict(table)
+    t["cells"] = [[v / 100 if _num(v) else v for v in row] for row in table["cells"]]
+    for key in ("printed_row_totals", "printed_col_totals"):
+        tv = table.get(key)
+        t[key] = [v / 100 if _num(v) else v for v in tv] if tv else tv
+    return t
+
+
+def _overlap_years(t_span, s_span):
+    """Integer-year overlap of two [lo, hi] spans (null = open end)."""
+    t_lo = 0 if t_span[0] is None else t_span[0]
+    t_hi = SPAN_MAX if t_span[1] is None else t_span[1]
+    s_lo = 0 if s_span[0] is None else s_span[0]
+    s_hi = SPAN_MAX if s_span[1] is None else s_span[1]
+    return max(0, min(t_hi, s_hi) - max(t_lo, s_lo) + 1)
+
+
+def execute(source_tables, row_map, col_map, derive=None, transpose=False,
+            target_row_spans=None, target_col_spans=None, to_decimal=False):
     """Return the derived canonical grid. Raises ValueError on bad specs.
 
     derive={"op": "ratio", "numerator_table": i, "denominator_table": j}
     aggregates BOTH tables with the same maps (additive ops only) and divides
-    cell-wise (average = total$/count)."""
+    cell-wise (average = total$/count).
+    transpose: transpose every source table before mapping (see module doc).
+    target_*_spans: {target_label: [lo, hi]} template bin semantics, required
+    by overlap_weighted entries (from targets.json, NOT model-declared).
+    to_decimal: scale tables declaring values_unit=="percent" by 0.01."""
+    prepped = []
+    for t in source_tables:
+        if to_decimal and t.get("values_unit") == "percent":
+            t = _percent_to_decimal(t)
+        if transpose:
+            t = _transpose_table(t)
+        prepped.append(t)
+    source_tables = prepped
+
     if derive:
         if derive.get("op") != "ratio":
             raise ValueError(f"unknown derive op {derive.get('op')!r}")
@@ -62,8 +134,10 @@ def execute(source_tables, row_map, col_map, derive=None):
                     raise ValueError(
                         f"{kind} {e['target']}: weighted_avg is not allowed in ratio "
                         "mode (both tables aggregate additively, then divide)")
-        num = _grid(source_tables, derive["numerator_table"], row_map, col_map)
-        den = _grid(source_tables, derive["denominator_table"], row_map, col_map)
+        num = _grid(source_tables, derive["numerator_table"], row_map, col_map,
+                    target_row_spans, target_col_spans)
+        den = _grid(source_tables, derive["denominator_table"], row_map, col_map,
+                    target_row_spans, target_col_spans)
         cells = []
         for nrow, drow in zip(num["cells"], den["cells"]):
             out_row = []
@@ -77,10 +151,32 @@ def execute(source_tables, row_map, col_map, derive=None):
             cells.append(out_row)
         return {"row_labels": num["row_labels"],
                 "col_labels": num["col_labels"], "cells": cells}
-    return _grid(source_tables, 0, row_map, col_map)
+    return _grid(source_tables, 0, row_map, col_map,
+                 target_row_spans, target_col_spans)
 
 
-def _stage1(source_tables, table, row_map):
+def _overlap_combine(entry, vals, target_spans):
+    """overlap_weighted: proportional-by-years blend of source bin values."""
+    spans = entry.get("source_spans")
+    if not spans or len(spans) != len(entry["sources"]):
+        raise ValueError(f"{entry['target']}: overlap_weighted needs source_spans "
+                         "aligned with sources")
+    if not target_spans or entry["target"] not in target_spans:
+        raise ValueError(f"{entry['target']}: no target span provided for "
+                         "overlap_weighted (targets.json target_*_spans)")
+    t_span = target_spans[entry["target"]]
+    num, den = 0.0, 0.0
+    for v, s_span in zip(vals, spans):
+        if not _num(v):
+            continue
+        w = _overlap_years(t_span, s_span)
+        if w > 0:
+            num += v * w
+            den += w
+    return (num / den) if den else ("*" if "*" in vals else None)
+
+
+def _stage1(source_tables, table, row_map, target_spans=None):
     """Row combination for one table -> {(target_row, source_col): value}."""
     ridx, cidx = _index(table["row_labels"]), _index(table["col_labels"])
     inter = {}
@@ -113,13 +209,16 @@ def _stage1(source_tables, table, row_map):
                         num += v * w
                         den += w
                 out = (num / den) if den else ("*" if "*" in vals else None)
+            elif op == "overlap_weighted":
+                out = _overlap_combine(rm, vals, target_spans)
             else:
                 raise ValueError(f"unknown row op {op!r}")
             inter[(rm["target"], str(c_label).strip())] = out
     return inter
 
 
-def _grid(source_tables, main_index, row_map, col_map):
+def _grid(source_tables, main_index, row_map, col_map,
+          target_row_spans=None, target_col_spans=None):
     """Aggregate one source table through the row/col maps."""
     main = source_tables[main_index]
 
@@ -131,7 +230,7 @@ def _grid(source_tables, main_index, row_map, col_map):
                 share_n[s] = share_n.get(s, 0) + 1
 
     # ---- stage 1: row combination -> intermediate[target_row][source_col]
-    inter = _stage1(source_tables, main, row_map)
+    inter = _stage1(source_tables, main, row_map, target_row_spans)
 
     # row-aggregated weights grids for column weighted_avg. Weights are
     # counts, which are ADDITIVE: any weighted_avg row op degrades to sum
@@ -180,6 +279,8 @@ def _grid(source_tables, main_index, row_map, col_map):
                         num += v * w
                         den += w
                 out = (num / den) if den else ("*" if "*" in vals else None)
+            elif op == "overlap_weighted":
+                out = _overlap_combine(cm, vals, target_col_spans)
             else:
                 raise ValueError(f"unknown col op {op!r}")
             row_out.append(out)
@@ -231,18 +332,28 @@ def totals_check(table, tol=0.5, rel_tol=1e-5):
     return problems
 
 
-def summarize(row_map, col_map, derive=None):
+def summarize(row_map, col_map, derive=None, transpose=False):
     """Human-readable one-liners for the declared operations."""
     lines = []
+    if transpose:
+        lines.append("transpose: source rows/cols swapped before mapping")
     if derive:
         lines.append(f"derive: ratio = t{derive.get('numerator_table')} / "
                      f"t{derive.get('denominator_table')} (cell-wise, after mapping)")
+
+    def _entry(kind, e):
+        if e["op"] == "copy" and len(e["sources"]) == 1 and e["sources"][0] == e["target"]:
+            return
+        extra = ""
+        if e["op"] == "weighted_avg":
+            extra = f" weights=t{e.get('weights_table')}"
+        elif e["op"] == "overlap_weighted":
+            spans = e.get("source_spans") or []
+            extra = " spans=" + ",".join(f"[{s[0]},{s[1]}]" for s in spans)
+        lines.append(f"{kind} {e['target']!r} <- {e['op']}({', '.join(e['sources'])}){extra}")
+
     for rm in row_map:
-        if rm["op"] != "copy" or len(rm["sources"]) != 1 or rm["sources"][0] != rm["target"]:
-            w = f" weights=t{rm.get('weights_table')}" if rm["op"] == "weighted_avg" else ""
-            lines.append(f"row {rm['target']!r} <- {rm['op']}({', '.join(rm['sources'])}){w}")
+        _entry("row", rm)
     for cm in col_map:
-        if cm["op"] != "copy" or len(cm["sources"]) != 1 or cm["sources"][0] != cm["target"]:
-            w = f" weights=t{cm.get('weights_table')}" if cm["op"] == "weighted_avg" else ""
-            lines.append(f"col {cm['target']!r} <- {cm['op']}({', '.join(cm['sources'])}){w}")
+        _entry("col", cm)
     return lines or ["(pure relabeling, no transformations)"]

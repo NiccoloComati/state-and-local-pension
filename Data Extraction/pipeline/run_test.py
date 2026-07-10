@@ -130,12 +130,17 @@ def main():
 
     # ---- stage B: execute the declared operations (deterministic) ----
     derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
-                          derive=result.get("derive"))
+                          derive=result.get("derive"),
+                          transpose=result.get("transpose", False),
+                          target_row_spans=spec.get("target_row_spans"),
+                          target_col_spans=spec.get("target_col_spans"),
+                          to_decimal=spec.get("convert_percent_to_decimal", False))
     with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
         json.dump(derived, fh, indent=2)
     print("[stage B] declared operations:")
     for line in ops.summarize(result["row_map"], result["col_map"],
-                              derive=result.get("derive")):
+                              derive=result.get("derive"),
+                              transpose=result.get("transpose", False)):
         print(f"    {line}")
 
     # ---- score the derived grid against the human workbook ----

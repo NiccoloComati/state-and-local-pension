@@ -1,6 +1,6 @@
-﻿# State and Local Pension â€” Project Root
+﻿# State and Local Pension — Project Root
 
-Reorganized 2026-06-11 into a single clean tree (see `Documentation/reorg_plan.md` for the executed manifest, `Documentation/project_context.md` Â§2 for the directory map).
+Reorganized 2026-06-11 into a single clean tree (see `Documentation/reorg_plan.md` for the executed manifest, `Documentation/project_context.md` §2 for the directory map).
 
 | Folder | Contents |
 |---|---|
