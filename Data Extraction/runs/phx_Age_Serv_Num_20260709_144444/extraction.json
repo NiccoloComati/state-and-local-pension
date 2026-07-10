@@ -1,0 +1,394 @@
+{
+  "source_tables": [
+    {
+      "index": 0,
+      "title": "Active Member Counts by Age and Service (Exhibit F.3, as of June 30, 2019)",
+      "page": 38,
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "Over 65"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "Over 30"
+      ],
+      "rows": [
+        {
+          "label": "Under 20",
+          "values": [
+            4,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "label": "20-24",
+          "values": [
+            150,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "label": "25-29",
+          "values": [
+            414,
+            26,
+            2,
+            null,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "label": "30-34",
+          "values": [
+            429,
+            90,
+            117,
+            6,
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          "label": "35-39",
+          "values": [
+            389,
+            105,
+            265,
+            111,
+            6,
+            null,
+            null
+          ]
+        },
+        {
+          "label": "40-44",
+          "values": [
+            347,
+            116,
+            252,
+            251,
+            108,
+            1,
+            null
+          ]
+        },
+        {
+          "label": "45-49",
+          "values": [
+            320,
+            104,
+            271,
+            331,
+            228,
+            75,
+            5
+          ]
+        },
+        {
+          "label": "50-54",
+          "values": [
+            240,
+            90,
+            229,
+            285,
+            257,
+            170,
+            41
+          ]
+        },
+        {
+          "label": "55-59",
+          "values": [
+            202,
+            87,
+            217,
+            250,
+            234,
+            110,
+            87
+          ]
+        },
+        {
+          "label": "60-64",
+          "values": [
+            112,
+            48,
+            127,
+            155,
+            100,
+            58,
+            65
+          ]
+        },
+        {
+          "label": "Over 65",
+          "values": [
+            32,
+            10,
+            59,
+            49,
+            42,
+            28,
+            34
+          ]
+        }
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "op": "sum",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "Under 20",
+            "20-24"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "29",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "25-29"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "34",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "30-34"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "39",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "35-39"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "44",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "40-44"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "49",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "45-49"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "54",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "50-54"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "59",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "55-59"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "64",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "60-64"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "70",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "Over 65"
+          ]
+        }
+      ]
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "0-4"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "9",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "5-9"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "14",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "10-14"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "19",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "15-19"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "24",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "20-24"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "29",
+      "op": "copy",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "25-29"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "34",
+      "op": "share_even",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "Over 30"
+          ]
+        }
+      ]
+    },
+    {
+      "target": "40",
+      "op": "share_even",
+      "sources": [
+        {
+          "table": 0,
+          "labels": [
+            "Over 30"
+          ]
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Source is Exhibit F.3 'Active Member Counts by Age and Service' as of June 30, 2019 (page 38).",
+    "Total row and Total column excluded from transcription as instructed.",
+    "Age rows: 'Under 20' and '20-24' summed into target '<25'. 'Over 65' maps to target '70' (65 and over open end).",
+    "Service columns 0-4 through 25-29 map one-to-one to targets 4 through 29.",
+    "Source has a single 'Over 30' service column covering target buckets '34' (30-34) and '40' (35-40); declared share_even across both.",
+    "Empty cells transcribed as null (no members), not zero."
+  ]
+}

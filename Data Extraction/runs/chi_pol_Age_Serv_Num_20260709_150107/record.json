@@ -1,0 +1,30 @@
+{
+  "attempts": [
+    {
+      "response": {
+        "id": "msg_853c8be3-39bf-45ff-a889-cf52c1fa010c",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019\",\n      \"row_labels\": [\"Under 20\", \"20 to 24\", \"25 to 29\", \"30 to 34\", \"35 to 39\", \"40 to 44\", \"45 to 49\", \"50 to 54\", \"55 to 59\", \"60 to 63\"],\n      \"col_labels\": [\"Under 1 year\", \"1 to 4\", \"5 to 9\", \"10 to 14\", \"15 to 19\", \"20 to 24\", \"25 to 29\", \"30 to 34\", \"35 and over\"],\n      \"cells\": [\n        [null, null, null, null, null, null, null, null, null],\n        [168, 342, null, null, null, null, null, null, null],\n        [151, 1345, 48, null, null, null, null, null, null],\n        [86, 980, 515, 8, null, null, null, null, null],\n        [48, 458, 528, 731, 181, null, null, null, null],\n        [7, 134, 233, 513, 976, 191, null, null, null],\n        [null, 2, 71, 263, 643, 1211, 187, null, null],\n        [null, 2, 104, 355, 809, 914, 36, null, null],\n        [null, null, 1, 123, 297, 346, 99, 1, null],\n        [null, null, null, 22, 81, 87, 47, 9, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"Under 20\", \"20 to 24\"], \"op\": \"sum\", \"weights_table\": null},\n    {\"target\": \"29\", \"sources\": [\"25 to 29\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"34\", \"sources\": [\"30 to 34\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"39\", \"sources\": [\"35 to 39\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"44\", \"sources\": [\"40 to 44\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"49\", \"sources\": [\"45 to 49\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"54\", \"sources\": [\"50 to 54\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"59\", \"sources\": [\"55 to 59\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"64\", \"sources\": [\"60 to 63\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"Under 1 year\", \"1 to 4\"], \"op\": \"sum\"},\n    {\"target\": \"9\", \"sources\": [\"5 to 9\"], \"op\": \"copy\"},\n    {\"target\": \"14\", \"sources\": [\"10 to 14\"], \"op\": \"copy\"},\n    {\"target\": \"19\", \"sources\": [\"15 to 19\"], \"op\": \"copy\"},\n    {\"target\": \"24\", \"sources\": [\"20 to 24\"], \"op\": \"copy\"},\n    {\"target\": \"29\", \"sources\": [\"25 to 29\"], \"op\": \"copy\"},\n    {\"target\": \"34\", \"sources\": [\"30 to 34\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"35 and over\"], \"op\": \"copy\"}\n  ],\n  \"notes\": \"Used Exhibit C \u2013 Part III (All Active Participants) on page 35 (labeled page 46 in PDF sequence), which is the combined male+female age/service distribution. Transcribed only the count (No.) rows, excluding the salary rows and the Total row/column. Source age bins top out at '60 to 63' with no bin for age 65 and over, so target row '70' has no source data (empty). Source col 'Under 1 year' and '1 to 4' are summed into target '4' (0-4). The source '35 and over' column maps to target '40' (35-40) directly as a copy since there is no separate 30-34 vs 35+ split issue; source '30 to 34' maps to target '34'.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1376
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1376
+      }
+    }
+  ],
+  "model": "claude-opus-4-8"
+}

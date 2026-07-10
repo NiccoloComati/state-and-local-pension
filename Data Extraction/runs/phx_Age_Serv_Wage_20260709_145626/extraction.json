@@ -1,0 +1,400 @@
+{
+  "source_tables": [
+    {
+      "page": 39,
+      "title": "Active Member Average Salary by Age and Service as of June 30, 2019 (Exhibit F.4)",
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "Over 65"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "Over 30"
+      ],
+      "cells": [
+        [
+          41626,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          44659,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          50934,
+          59850,
+          "*",
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          54748,
+          70411,
+          65420,
+          70566,
+          null,
+          null,
+          null
+        ],
+        [
+          56924,
+          71314,
+          72895,
+          75875,
+          77420,
+          null,
+          null
+        ],
+        [
+          60351,
+          73938,
+          75698,
+          79693,
+          80315,
+          "*",
+          null
+        ],
+        [
+          61347,
+          72990,
+          72905,
+          83080,
+          87018,
+          93221,
+          92618
+        ],
+        [
+          62285,
+          70283,
+          72092,
+          74958,
+          85475,
+          89765,
+          92565
+        ],
+        [
+          61225,
+          73067,
+          68401,
+          75562,
+          80684,
+          83048,
+          81690
+        ],
+        [
+          72472,
+          83369,
+          71729,
+          74615,
+          77256,
+          88544,
+          85362
+        ],
+        [
+          62261,
+          88125,
+          71923,
+          72105,
+          77163,
+          80139,
+          86309
+        ]
+      ]
+    },
+    {
+      "page": 38,
+      "title": "Active Member Counts by Age and Service as of June 30, 2019 (Exhibit F.3)",
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "Over 65"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "Over 30"
+      ],
+      "cells": [
+        [
+          4,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          150,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          414,
+          26,
+          2,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          429,
+          90,
+          117,
+          6,
+          null,
+          null,
+          null
+        ],
+        [
+          389,
+          105,
+          265,
+          111,
+          6,
+          null,
+          null
+        ],
+        [
+          347,
+          116,
+          252,
+          251,
+          108,
+          1,
+          null
+        ],
+        [
+          320,
+          104,
+          271,
+          331,
+          228,
+          75,
+          5
+        ],
+        [
+          240,
+          90,
+          229,
+          285,
+          257,
+          170,
+          41
+        ],
+        [
+          202,
+          87,
+          217,
+          250,
+          234,
+          110,
+          87
+        ],
+        [
+          112,
+          48,
+          127,
+          155,
+          100,
+          58,
+          65
+        ],
+        [
+          32,
+          10,
+          59,
+          49,
+          42,
+          28,
+          34
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 20",
+        "20-24"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "Over 65"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "Over 30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "Over 30"
+      ],
+      "op": "copy"
+    }
+  ],
+  "notes": "Source salary table is Exhibit F.4 (page F-4). Counts table Exhibit F.3 (page F-3) transcribed as weights table (index 1) for the <25 target row which merges 'Under 20' and '20-24' age bins. Suppressed cells marked '*' (fewer than four members). Empty cells are null. Total row and Total column excluded. The source service bins top out at 'Over 30' which is coarser than target's separate '34' and '40' buckets; since averages do not split, 'Over 30' is copied into both target columns 34 and 40. All other age and service bins map directly."
+}

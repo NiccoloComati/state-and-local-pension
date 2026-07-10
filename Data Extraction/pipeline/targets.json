@@ -1,0 +1,144 @@
+{
+  "_comment": "Target schema for the extraction pipeline. Each target = one sheet of the city collection workbook format. 'grid' is the canonical output grid (matches the collection template); 'keywords' drive the page locator; 'rules' are the transformation instructions given to the extractor (the rung-1 operations: merge/split bins).",
+  "Age_Serv_Num": {
+    "description": "Active member COUNTS by age (rows) x years of credited service (columns). Source: the AV's active-members-by-age-and-service exhibit (often titled 'Active Member Counts by Age and Service', 'Distribution of Active Members', or 'Schedule of Active Member Valuation Data').",
+    "unit": "member count (people; may be fractional after splits)",
+    "keywords": [
+      "years of service",
+      "credited service",
+      "active member",
+      "age and service",
+      "counts by age",
+      "distribution of active"
+    ],
+    "grid": {
+      "row_labels": [
+        "<25",
+        "29",
+        "34",
+        "39",
+        "44",
+        "49",
+        "54",
+        "59",
+        "64",
+        "70"
+      ],
+      "rows_meaning": "age buckets: under 25, 25-29, 30-34, 35-39, 40-44, 45-49, 50-54, 55-59, 60-64, 65 and over (label = upper bound, '<25' and '70' are the open ends)",
+      "col_labels": [
+        "4",
+        "9",
+        "14",
+        "19",
+        "24",
+        "29",
+        "34",
+        "40"
+      ],
+      "cols_meaning": "service-year buckets: 0-4, 5-9, 10-14, 15-19, 20-24, 25-29, 30-34, 35-40 (label = upper bound)"
+    },
+    "rules": [
+      "Counts are ADDITIVE: when source bins are finer than a target bin (e.g. separate 'Under 20' and '20-24' rows for target '<25'), declare op 'sum' over those source rows.",
+      "When a source bin is coarser than the target bins (e.g. a single 'Over 30' service column covering targets '34' and '40'), declare op 'share_even' from that source column in EACH covered target column.",
+      "Empty source cells stay null (no members), not 0.",
+      "Transcribe the source table without its total row/column."
+    ],
+    "zero_equals_empty": true
+  },
+  "Age_Serv_Wage": {
+    "description": "Active member AVERAGE SALARY by age (rows) x years of credited service (columns). Source: the AV's average-salary-by-age-and-service exhibit (often adjacent to the counts table, titled 'Active Member Average Salary/Compensation by Age and Service').",
+    "unit": "average annual salary in dollars",
+    "keywords": [
+      "average salary",
+      "average annual compensation",
+      "average compensation",
+      "salary by age",
+      "compensation by age",
+      "years of service"
+    ],
+    "grid": {
+      "row_labels": [
+        "<25",
+        "29",
+        "34",
+        "39",
+        "44",
+        "49",
+        "54",
+        "59",
+        "64",
+        "70"
+      ],
+      "rows_meaning": "age buckets as in Age_Serv_Num",
+      "col_labels": [
+        "4",
+        "9",
+        "14",
+        "19",
+        "24",
+        "29",
+        "34",
+        "40"
+      ],
+      "cols_meaning": "service-year buckets as in Age_Serv_Num"
+    },
+    "rules": [
+      "Averages are NOT additive: when source bins are finer than a target bin, declare op 'weighted_avg' over those source rows, and ALSO transcribe the corresponding member-COUNTS table as an additional source table (reference its index in 'weights_table') - the counts are the weights.",
+      "When a source bin is coarser than the target bins, declare op 'copy' from that source column into EACH covered target column (an average does not split).",
+      "Suppressed cells (e.g. '*' for fewer than N members) are transcribed as the string '*'.",
+      "Empty source cells stay null.",
+      "Transcribe the source table without its total row/column and without overall-average rows."
+    ]
+  },
+  "Ret_Rate": {
+    "_status": "STUB - rung-2 target, not yet wired into run_test.py",
+    "description": "Probability of retirement by service-year bucket (rows) x age (columns). Source: the AV's demographic-assumptions section ('Retirement rates', 'Probability of Retirement'). Requires transpose + proportional re-bucketing.",
+    "unit": "annual probability (decimal, e.g. 0.225 for 22.5%)",
+    "keywords": [
+      "retirement rates",
+      "probability of retirement",
+      "rates of retirement"
+    ],
+    "grid": {
+      "row_labels": [
+        "5-11",
+        "12-19",
+        "20-24",
+        "25-29",
+        "30",
+        "31-32",
+        "33-34",
+        "35-39",
+        "40"
+      ],
+      "col_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ]
+    },
+    "rules": [
+      "The source table usually has age ROWS and service COLUMNS: transpose it.",
+      "Where a target service row spans two source service buckets, take the PROPORTIONAL weighted average by the number of service years falling in each source bucket.",
+      "Convert percentages to decimals."
+    ]
+  }
+}

@@ -1,8 +1,41 @@
-# Session Handoff Notes (from the 2026-06 sessions)
+# Session Handoff Notes
 
-Written 2026-06-11 by the outgoing assistant session for the incoming one.
-This is the tacit-knowledge layer that the technical docs don't carry. Read it
-after `project_context.md` and the recent `working_context.md` sections.
+Written 2026-06-11, updated 2026-07-10. This is the tacit-knowledge layer the
+technical docs don't carry. Read it after `project_context.md` and the recent
+`working_context.md` sections.
+
+## ACTIVE WORKSTREAM (2026-07): the extraction pipeline
+
+The current focus is the AV-PDF -> workbook extraction pipeline in
+`Data Extraction/pipeline/`. **Read `Data Extraction/data_extraction_context.md`
+FIRST for this workstream** - it is the living methodology + dated dev log with
+every attempt, failure, diagnosis, and fix (v0 keyword-locator mistake; v0.1
+two-stage transcribe+declare/execute contract; Parley output_config drop +
+format guard; the ground-truth errors found; the chi_pol column-shift failure
+and the layout-preserved-text fix that solved it). Run evidence with full API
+records is in `Data Extraction/runs/` (committed - small JSONs).
+
+State as of 2026-07-10: rung-1 scoreboard 4/4 effectively perfect across three
+actuarial firms (phx GRS, sd Cheiron, chi_pol Segal); 2 human ground-truth
+errors found (phx wage typo; sd dropped '70 and up' row); 0 unresolved model
+errors. Next: complete the rung-1 matrix (Age_Serv_Wage on chi_pol/sd), then
+Ret_Rate (rung 2: needs transpose + proportional re-grid ops added to
+ops.py's vocabulary).
+
+Environment specifics for this workstream:
+- API goes through MIT Parley: `$env:ANTHROPIC_BASE_URL =
+  "https://parley.api.mit.edu"` + `$env:ANTHROPIC_API_KEY = "sk-parley-v1-..."`
+  (PowerShell `$env:`, NOT bash `export`). Parley SILENTLY drops newer API
+  params (verified: output_config) - the pipeline validates client-side and
+  self-corrects; assume any new param may be dropped and verify.
+- Key rules learned: adjudicate every workbook mismatch against the PDF before
+  calling it a model error (label noise is real); the model does ZERO
+  arithmetic (ops.py executes declared maps); document text must be
+  layout-preserved (pdfplumber layout=True; pypdf plain as per-page fallback).
+- Deps beyond the June list: anthropic, pdfplumber (pypdf already there).
+- External thread: Pietro Ramella (U. Miami) advises on the ML approach;
+  materials sent = the pin-annotated phx AV + marked workbook + the
+  3-rung difficulty ladder (`Documentation/ml_extraction_handoff.md`).
 
 ## The thesis (never lose this)
 

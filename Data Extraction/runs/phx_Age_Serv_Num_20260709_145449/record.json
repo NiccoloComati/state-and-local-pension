@@ -1,0 +1,30 @@
+{
+  "attempts": [
+    {
+      "response": {
+        "id": "msg_6a8798ef-2fec-4572-a4dd-4d0a64a8719c",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\n      \"page\": 38,\n      \"title\": \"Active Member Counts by Age and Service (Exhibit F.3)\",\n      \"row_labels\": [\"Under 20\", \"20-24\", \"25-29\", \"30-34\", \"35-39\", \"40-44\", \"45-49\", \"50-54\", \"55-59\", \"60-64\", \"Over 65\"],\n      \"col_labels\": [\"0-4\", \"5-9\", \"10-14\", \"15-19\", \"20-24\", \"25-29\", \"Over 30\"],\n      \"cells\": [\n        [4, null, null, null, null, null, null],\n        [150, null, null, null, null, null, null],\n        [414, 26, 2, null, null, null, null],\n        [429, 90, 117, 6, null, null, null],\n        [389, 105, 265, 111, 6, null, null],\n        [347, 116, 252, 251, 108, 1, null],\n        [320, 104, 271, 331, 228, 75, 5],\n        [240, 90, 229, 285, 257, 170, 41],\n        [202, 87, 217, 250, 234, 110, 87],\n        [112, 48, 127, 155, 100, 58, 65],\n        [32, 10, 59, 49, 42, 28, 34]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"Under 20\", \"20-24\"], \"op\": \"sum\", \"weights_table\": null},\n    {\"target\": \"29\", \"sources\": [\"25-29\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"34\", \"sources\": [\"30-34\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"39\", \"sources\": [\"35-39\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"44\", \"sources\": [\"40-44\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"49\", \"sources\": [\"45-49\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"54\", \"sources\": [\"50-54\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"59\", \"sources\": [\"55-59\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"64\", \"sources\": [\"60-64\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"Over 65\"], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"0-4\"], \"op\": \"copy\"},\n    {\"target\": \"9\", \"sources\": [\"5-9\"], \"op\": \"copy\"},\n    {\"target\": \"14\", \"sources\": [\"10-14\"], \"op\": \"copy\"},\n    {\"target\": \"19\", \"sources\": [\"15-19\"], \"op\": \"copy\"},\n    {\"target\": \"24\", \"sources\": [\"20-24\"], \"op\": \"copy\"},\n    {\"target\": \"29\", \"sources\": [\"25-29\"], \"op\": \"copy\"},\n    {\"target\": \"34\", \"sources\": [\"Over 30\"], \"op\": \"share_even\"},\n    {\"target\": \"40\", \"sources\": [\"Over 30\"], \"op\": \"share_even\"}\n  ],\n  \"notes\": \"Source table Exhibit F.3 (page 38, F-3) provides active member counts by age and service. Total row and column excluded. Empty cells transcribed as null. Age rows 'Under 20' and '20-24' summed for target '<25'. Age row 'Over 65' maps to target '70'. The source's coarsest service column 'Over 30' covers target bins '34' (30-34) and '40' (35-40), so share_even is declared for both.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1179
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1179
+      }
+    }
+  ],
+  "model": "claude-opus-4-8"
+}

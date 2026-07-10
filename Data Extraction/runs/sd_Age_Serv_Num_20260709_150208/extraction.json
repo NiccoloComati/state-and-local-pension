@@ -1,0 +1,311 @@
+{
+  "source_tables": [
+    {
+      "page": 44,
+      "title": "Table A-7 Distribution of Active Members as of June 30, 2019 - Total City",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 and up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 and up"
+      ],
+      "cells": [
+        [
+          45,
+          15,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          79,
+          221,
+          67,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          25,
+          164,
+          231,
+          123,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          10,
+          84,
+          203,
+          362,
+          84,
+          2,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          2,
+          36,
+          135,
+          313,
+          284,
+          82,
+          3,
+          null,
+          null,
+          null
+        ],
+        [
+          4,
+          31,
+          98,
+          160,
+          315,
+          331,
+          89,
+          6,
+          null,
+          null
+        ],
+        [
+          1,
+          30,
+          83,
+          119,
+          261,
+          313,
+          240,
+          123,
+          12,
+          1
+        ],
+        [
+          4,
+          17,
+          53,
+          101,
+          159,
+          122,
+          82,
+          58,
+          6,
+          null
+        ],
+        [
+          null,
+          11,
+          35,
+          72,
+          81,
+          42,
+          22,
+          15,
+          2,
+          null
+        ],
+        [
+          null,
+          7,
+          17,
+          22,
+          10,
+          9,
+          2,
+          1,
+          1,
+          null
+        ],
+        [
+          1,
+          null,
+          6,
+          8,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 to 69",
+        "70 and up"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 to 39",
+        "40 and up"
+      ],
+      "op": "sum"
+    }
+  ],
+  "notes": "Source is Table A-7 (Total City active member counts by age and service). Age target '<25' maps to 'Under 25'; target '70' sums '65 to 69' and '70 and up'. Service target '4' sums source 'Under 1' and '1 to 4'; target '40' sums source '35 to 39' and '40 and up'. Empty cells (printed as '-') recorded as null. Total row and Total Count column excluded."
+}

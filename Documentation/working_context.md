@@ -2136,3 +2136,68 @@ cutoffs) — keep in the workbook as context, not marked. Produced
 `Desktop/phx_data19_gen_marked.xlsx`: green tabs = the 6 ladder sheets, orange
 = AF_Scratch_Work, cleared the collector's pre-existing T-sheet tab colors
 (original workbook untouched).
+
+## 2026-07-08 Extraction pipeline v0 built (Data Extraction/pipeline/)
+
+User called time on theory: build and test a rudimentary version TODAY, on
+already-extracted plans (ground truth). Strategic call: test on CITIES not
+states (state workbooks = Brookings extractions with undocumented provenance,
+so mismatches are undiagnosable; phx is verified to the cell).
+
+Built `Data Extraction/pipeline/` (v0, locate -> extract -> score):
+- `targets.json` - canonical grid + locator keywords + transformation rules
+  per target (Age_Serv_Num, Age_Serv_Wage live; Ret_Rate stub).
+- `harness.py` - ground-truth loader (workbook -> canonical grid, copies to
+  temp for OneDrive locks) + deterministic cell scorer (exact/close/wrong/
+  missing/extra, * respected).
+- `locate.py` - keyword page ranking (pypdf text layer).
+- `extract.py` - claude-opus-4-8 via structured outputs (output_config.format,
+  guaranteed-parse JSON); archives full request+response per call (machine
+  AF_Scratch_Work). NEEDS ANTHROPIC_API_KEY (left for user). NOTE: temperature
+  is REMOVED on current models (400) - no sampling params.
+- `run_test.py` - CLI orchestrator; plans registry phx/chi_pol/sd; artifacts
+  to `Data Extraction/runs/<plan>_<target>_<stamp>/` (candidate/record/report).
+
+Verified without key: harness self-score 1.0 on phx Age_Serv_Num +
+Age_Serv_Wage (10x8 grids match schema labels); locator ranks phx p.38 #1;
+dry-run prompt carries the real Exhibit F.3 text; anthropic SDK 0.116.0
+installed. No live extraction yet.
+
+New living doc: `Data Extraction/data_extraction_context.md` (methodology -
+two stages + refined router, 8-op transformation vocabulary, text-first,
+eval-first, cities-then-states - plus pipeline usage and a dated dev log).
+Keep updating it as the pipeline evolves.
+
+### 2026-07-08 follow-up: pipeline corrected twice on user review (v0 -> v0.1)
+1. Keyword page-locator + human-specified pages removed: the model now gets
+   the FULL document text (AVs are only ~18-47K tokens) and locates the table
+   itself, reporting source pages/titles (free page-level provenance).
+   Keyword ranking demoted to --keyword-scan diagnostic.
+2. Two-stage architecture properly enforced: Stage A transcribes SOURCE-NATIVE
+   tables exactly as printed + DECLARES bin-map operations (copy/sum/
+   weighted_avg rows; copy/sum/share_even cols); new pipeline/ops.py executes
+   them deterministically - the model does zero arithmetic. Executor verified
+   100% on both phx targets from the actual pp.38-39 tables
+   (pipeline/test_ops_phx.py), weighted average bit-exact.
+Methodology + dev log updated in Data Extraction/data_extraction_context.md.
+Still no live API run (key with user).
+
+### 2026-07-09 live extraction results (see Data Extraction/data_extraction_context.md)
+phx both targets effectively perfect (and found a workbook TYPO: 86,306 vs
+PDF's 86,309). Cross-firm: sd correct after adjudication (human collector
+DROPPED the '70 and up' actives row - ground truth error #2); chi_pol real
+model failure (one-column shift on 3 rows, Segal text layout) - added
+printed-totals self-check to the contract + retry loop (verified it catches
+the bad run retroactively). Scorer: dashes->null, zero_equals_empty for
+counts. chi_pol rerun pending (user runs; Parley key).
+
+### 2026-07-10 chi_pol SOLVED by layout fix; docs synced; committed
+The post-layout-fix chi_pol run (runs/chi_pol_Age_Serv_Num_20260709_161002)
+scored 38/38 EXACT, totals check OK, single attempt - the Segal column-shift
+failure is fixed by pdfplumber layout-preserved text. Rung-1 scoreboard 4/4
+across three firms (full table + next steps in
+Data Extraction/data_extraction_context.md). session_handoff.md updated with
+an ACTIVE WORKSTREAM section (pipeline state, Parley env specifics, key
+rules); README reading order now points at data_extraction_context.md.
+Committed: pipeline/, runs/ (small JSON evidence), context docs. Heavy stuff
+stays gitignored (Data/, Papers/, media/, Results/Runs/).
