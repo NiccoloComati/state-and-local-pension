@@ -1,0 +1,350 @@
+{
+  "source_tables": [
+    {
+      "page": 36,
+      "title": "Table 13A - Distribution of All Active Participants by Age and Length of Service",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35+"
+      ],
+      "cells": [
+        [
+          90,
+          48,
+          27,
+          16,
+          5,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          187,
+          182,
+          101,
+          102,
+          53,
+          89,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          203,
+          176,
+          155,
+          147,
+          108,
+          327,
+          73,
+          3,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          144,
+          135,
+          151,
+          145,
+          93,
+          421,
+          271,
+          64,
+          5,
+          0,
+          0,
+          0
+        ],
+        [
+          119,
+          96,
+          92,
+          74,
+          83,
+          359,
+          319,
+          203,
+          72,
+          0,
+          0,
+          0
+        ],
+        [
+          83,
+          89,
+          87,
+          83,
+          54,
+          329,
+          302,
+          275,
+          189,
+          26,
+          2,
+          0
+        ],
+        [
+          84,
+          84,
+          49,
+          56,
+          37,
+          248,
+          287,
+          235,
+          177,
+          90,
+          16,
+          0
+        ],
+        [
+          60,
+          57,
+          45,
+          37,
+          33,
+          212,
+          231,
+          209,
+          180,
+          83,
+          26,
+          2
+        ],
+        [
+          36,
+          22,
+          25,
+          29,
+          27,
+          163,
+          167,
+          174,
+          120,
+          47,
+          22,
+          3
+        ],
+        [
+          7,
+          9,
+          8,
+          9,
+          12,
+          68,
+          73,
+          53,
+          35,
+          21,
+          14,
+          8
+        ]
+      ],
+      "printed_row_totals": [
+        188,
+        714,
+        1192,
+        1429,
+        1417,
+        1519,
+        1363,
+        1175,
+        835,
+        317
+      ],
+      "printed_col_totals": [
+        1013,
+        898,
+        740,
+        698,
+        505,
+        2218,
+        1723,
+        1216,
+        778,
+        267,
+        80,
+        13
+      ],
+      "values_unit": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & Over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35+"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Used Table 13A (All Active Participants), which already covers the whole plan; Tables 13B and 13C are the Group A and Group B subsets whose cells sum to 13A, so no derive-sum is needed. Source has single-year service columns 0,1,2,3,4 that are summed into target column '4' (0-4). The source '35+' column maps to target '40' (35-40). Age row labels map directly to target upper bounds. Excluded 'All Ages' row and 'All' service total column; retained them as printed_row_totals/printed_col_totals."
+}

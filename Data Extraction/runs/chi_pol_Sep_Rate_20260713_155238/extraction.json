@@ -1,0 +1,318 @@
+{
+  "source_tables": [
+    {
+      "page": 72,
+      "title": "Rate of Termination (by Years of Service)",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14 +"
+      ],
+      "col_labels": [
+        "Rate"
+      ],
+      "cells": [
+        [
+          0.03
+        ],
+        [
+          0.025
+        ],
+        [
+          0.017
+        ],
+        [
+          0.015
+        ],
+        [
+          0.014
+        ],
+        [
+          0.014
+        ],
+        [
+          0.013
+        ],
+        [
+          0.01
+        ],
+        [
+          0.009
+        ],
+        [
+          0.009
+        ],
+        [
+          0.009
+        ],
+        [
+          0.008
+        ],
+        [
+          0.007
+        ],
+        [
+          0.006
+        ],
+        [
+          0.006
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "Rate"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          2
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          4,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5",
+        "6"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7",
+        "8"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9",
+        "10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          11,
+          11
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          12,
+          12
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "13",
+        "14 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "14 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          14,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The AV publishes termination/withdrawal rates only by Years of Service (page 72, 'Rate of Termination' table) with no age dimension - rates are age-invariant, so every target age row copies the single service-based rate column. Transcribed as printed (service rows x one rate column); transpose=true so the printed service rows become target service columns. Rates are already decimals (not percentages). Col_map uses overlap_weighted with per-year spans; the source uses single-year buckets 0-13 plus an open '14 +' bucket. Target col '6' (label = upper bound of 5-6) blends service years 5 and 6; '8' blends 7-8; '10' blends 9-10. Target '30' (13-30) is blended from source year 13 and the open '14 +' bucket; target '40' (31-40) falls entirely in the open '14 +' bucket. Service year 0 (rate 0.030) is not part of the target template and is excluded. Turnover decrements do not operate after retirement eligibility per document, but that adjustment is applied elsewhere."
+}

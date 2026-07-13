@@ -1,0 +1,63 @@
+{
+  "attempts": [
+    {
+      "response": {
+        "id": "msg_5d0343fa-6bf7-445e-8557-dbf79a0d3a9c",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\"page\": 56, \"title\": \"Table B-2 SDCERS - City of San Diego Rates of Termination (General & Safety)\",\n     \"row_labels\": [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\", \"12\", \"13\", \"14\", \"15\", \"16\", \"17\", \"18\", \"19\", \"20+\"],\n     \"col_labels\": [\"General\", \"Safety\"],\n     \"cells\": [[10.00, 10.00], [9.00, 8.00], [8.50, 6.00], [7.50, 5.00], [6.50, 4.00], [5.50, 3.00], [4.50, 2.75], [4.25, 2.50], [4.00, 2.25], [3.25, 2.00], [2.75, 1.80], [2.75, 1.80], [2.75, 1.80], [2.75, 1.80], [2.75, 1.80], [2.75, 1.60], [2.75, 1.60], [2.75, 1.60], [2.75, 1.60], [2.75, 1.60], [2.75, 1.50]],\n     \"printed_row_totals\": null,\n     \"printed_col_totals\": null}\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"30\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"35\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"40\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"45\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"50\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"55\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"60\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"65\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"1\"], \"op\": \"copy\", \"source_spans\": [[1, 1]]},\n    {\"target\": \"2\", \"sources\": [\"2\"], \"op\": \"copy\", \"source_spans\": [[2, 2]]},\n    {\"target\": \"3\", \"sources\": [\"3\"], \"op\": \"copy\", \"source_spans\": [[3, 3]]},\n    {\"target\": \"4\", \"sources\": [\"4\"], \"op\": \"copy\", \"source_spans\": [[4, 4]]},\n    {\"target\": \"6\", \"sources\": [\"5\", \"6\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, 5], [6, 6]]},\n    {\"target\": \"8\", \"sources\": [\"7\", \"8\"], \"op\": \"overlap_weighted\", \"source_spans\": [[7, 7], [8, 8]]},\n    {\"target\": \"10\", \"sources\": [\"9\", \"10\"], \"op\": \"overlap_weighted\", \"source_spans\": [[9, 9], [10, 10]]},\n    {\"target\": \"11\", \"sources\": [\"11\"], \"op\": \"copy\", \"source_spans\": [[11, 11]]},\n    {\"target\": \"12\", \"sources\": [\"12\"], \"op\": \"copy\", \"source_spans\": [[12, 12]]},\n    {\"target\": \"30\", \"sources\": [\"13\", \"14\", \"15\", \"16\", \"17\", \"18\", \"19\", \"20+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[13, 13], [14, 14], [15, 15], [16, 16], [17, 17], [18, 18], [19, 19], [20, null]]},\n    {\"target\": \"40\", \"sources\": [\"20+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[20, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source is Table B-2 (page 56), which lists termination/withdrawal rates by years of SERVICE only (no age dimension) for two groups: General and Safety. Rates are age-invariant in the source, so every target age row maps to the single service-based rate list. Transpose=true: printed rows are service years, which become target columns; printed columns (General/Safety) become the age dimension via copy. The document publishes separate General and Safety termination tables; the group-blend operation is not implemented, so mapping references the General group (the larger active headcount group, 3,608 vs 2,149 per Table A-4). Safety rates are transcribed but unblended - flag: Safety group rates are unused in mapping. Values are printed as percentages (values_unit implied percent), but I transcribed the numeric values exactly as printed (e.g. 10.00). Note per the assumption text, service year 0 rate exists (10.00%) but the target template excludes service year 0. Target column '6' = service years 5-6, '8' = 7-8, '10' = 9-10, '30' = 13-30, '40' = 31-40. Since rates are intensive and beyond service 20 the source has a flat '20+' rate of 2.75% (General), target bins 30 (13-30) and 40 (31-40) use overlap_weighted with the flat tail rate for years beyond 20. Note: transcribed values are in percent - set values_unit='percent' handling; I have left the raw printed numbers.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1808
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1808
+      },
+      "format_problems": [
+        "col_map[0] ('1'): source_spans only belongs on overlap_weighted entries",
+        "col_map[1] ('2'): source_spans only belongs on overlap_weighted entries",
+        "col_map[2] ('3'): source_spans only belongs on overlap_weighted entries",
+        "col_map[3] ('4'): source_spans only belongs on overlap_weighted entries",
+        "col_map[7] ('11'): source_spans only belongs on overlap_weighted entries",
+        "col_map[8] ('12'): source_spans only belongs on overlap_weighted entries"
+      ]
+    },
+    {
+      "response": {
+        "id": "msg_fcf8e581-d405-4d59-a78e-c112152b5b24",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\"page\": 56, \"title\": \"Table B-2 SDCERS - City of San Diego Rates of Termination (General & Safety)\",\n     \"row_labels\": [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\", \"12\", \"13\", \"14\", \"15\", \"16\", \"17\", \"18\", \"19\", \"20+\"],\n     \"col_labels\": [\"General\", \"Safety\"],\n     \"cells\": [[10.00, 10.00], [9.00, 8.00], [8.50, 6.00], [7.50, 5.00], [6.50, 4.00], [5.50, 3.00], [4.50, 2.75], [4.25, 2.50], [4.00, 2.25], [3.25, 2.00], [2.75, 1.80], [2.75, 1.80], [2.75, 1.80], [2.75, 1.80], [2.75, 1.80], [2.75, 1.60], [2.75, 1.60], [2.75, 1.60], [2.75, 1.60], [2.75, 1.60], [2.75, 1.50]],\n     \"printed_row_totals\": null,\n     \"printed_col_totals\": null,\n     \"values_unit\": \"percent\"}\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"30\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"35\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"40\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"45\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"50\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"55\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"60\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"65\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"General\"], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"1\"], \"op\": \"copy\"},\n    {\"target\": \"2\", \"sources\": [\"2\"], \"op\": \"copy\"},\n    {\"target\": \"3\", \"sources\": [\"3\"], \"op\": \"copy\"},\n    {\"target\": \"4\", \"sources\": [\"4\"], \"op\": \"copy\"},\n    {\"target\": \"6\", \"sources\": [\"5\", \"6\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, 5], [6, 6]]},\n    {\"target\": \"8\", \"sources\": [\"7\", \"8\"], \"op\": \"overlap_weighted\", \"source_spans\": [[7, 7], [8, 8]]},\n    {\"target\": \"10\", \"sources\": [\"9\", \"10\"], \"op\": \"overlap_weighted\", \"source_spans\": [[9, 9], [10, 10]]},\n    {\"target\": \"11\", \"sources\": [\"11\"], \"op\": \"copy\"},\n    {\"target\": \"12\", \"sources\": [\"12\"], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [\"13\", \"14\", \"15\", \"16\", \"17\", \"18\", \"19\", \"20+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[13, 13], [14, 14], [15, 15], [16, 16], [17, 17], [18, 18], [19, 19], [20, null]]},\n    {\"target\": \"40\", \"sources\": [\"20+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[20, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source is Table B-2 (page 56), which lists termination/withdrawal rates by years of SERVICE only (no age dimension) for two groups: General and Safety. Rates are age-invariant in the source, so every target age row maps to the single service-based rate list. Transpose=true: printed rows are service years, which become target columns; printed columns (General/Safety) become the age dimension via copy. The document publishes separate General and Safety termination tables; the group-blend operation is not implemented, so mapping references the General group (the larger active headcount group, 3,608 vs 2,149 per Table A-4). Safety rates are transcribed but unblended - flag: Safety group rates are unused in mapping. Values are printed as percentages (values_unit=percent); numbers transcribed exactly as printed. Note: source service year 0 rate exists (10.00%/10.00%) but the target template excludes service year 0. Target column '6' = service years 5-6, '8' = 7-8, '10' = 9-10, '30' = 13-30, '40' = 31-40. Beyond service 20 the source has a flat '20+' rate (2.75% General), so target bins 30 (13-30) and 40 (31-40) use overlap_weighted with the flat tail rate for years beyond 20.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1677
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1677
+      }
+    }
+  ],
+  "model": "claude-opus-4-8"
+}

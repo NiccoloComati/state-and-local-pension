@@ -1,0 +1,368 @@
+{
+  "source_tables": [
+    {
+      "page": 56,
+      "title": "Table B-2 SDCERS - City of San Diego Rates of Termination (General & Safety)",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20+"
+      ],
+      "col_labels": [
+        "General",
+        "Safety"
+      ],
+      "cells": [
+        [
+          10.0,
+          10.0
+        ],
+        [
+          9.0,
+          8.0
+        ],
+        [
+          8.5,
+          6.0
+        ],
+        [
+          7.5,
+          5.0
+        ],
+        [
+          6.5,
+          4.0
+        ],
+        [
+          5.5,
+          3.0
+        ],
+        [
+          4.5,
+          2.75
+        ],
+        [
+          4.25,
+          2.5
+        ],
+        [
+          4.0,
+          2.25
+        ],
+        [
+          3.25,
+          2.0
+        ],
+        [
+          2.75,
+          1.8
+        ],
+        [
+          2.75,
+          1.8
+        ],
+        [
+          2.75,
+          1.8
+        ],
+        [
+          2.75,
+          1.8
+        ],
+        [
+          2.75,
+          1.8
+        ],
+        [
+          2.75,
+          1.6
+        ],
+        [
+          2.75,
+          1.6
+        ],
+        [
+          2.75,
+          1.6
+        ],
+        [
+          2.75,
+          1.6
+        ],
+        [
+          2.75,
+          1.6
+        ],
+        [
+          2.75,
+          1.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent"
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "30",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "35",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "45",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "50",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "55",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "60",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "65",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "General"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5",
+        "6"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7",
+        "8"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9",
+        "10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "20+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          20,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source is Table B-2 (page 56), which lists termination/withdrawal rates by years of SERVICE only (no age dimension) for two groups: General and Safety. Rates are age-invariant in the source, so every target age row maps to the single service-based rate list. Transpose=true: printed rows are service years, which become target columns; printed columns (General/Safety) become the age dimension via copy. The document publishes separate General and Safety termination tables; the group-blend operation is not implemented, so mapping references the General group (the larger active headcount group, 3,608 vs 2,149 per Table A-4). Safety rates are transcribed but unblended - flag: Safety group rates are unused in mapping. Values are printed as percentages (values_unit=percent); numbers transcribed exactly as printed. Note: source service year 0 rate exists (10.00%/10.00%) but the target template excludes service year 0. Target column '6' = service years 5-6, '8' = 7-8, '10' = 9-10, '30' = 13-30, '40' = 31-40. Beyond service 20 the source has a flat '20+' rate (2.75% General), so target bins 30 (13-30) and 40 (31-40) use overlap_weighted with the flat tail rate for years beyond 20."
+}

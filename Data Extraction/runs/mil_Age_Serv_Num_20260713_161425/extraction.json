@@ -1,0 +1,600 @@
+{
+  "source_tables": [
+    {
+      "page": 66,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS as of January 1, 2020 - General Employees \u2013 Total",
+      "row_labels": [
+        "24 & Under",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Up"
+      ],
+      "col_labels": [
+        "Under 5",
+        "5-10",
+        "10-15",
+        "15-20",
+        "20-25",
+        "25-30",
+        "30-35",
+        "35-40"
+      ],
+      "cells": [
+        [
+          196,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          633,
+          37,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          619,
+          165,
+          19,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          594,
+          209,
+          90,
+          36,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          473,
+          204,
+          157,
+          87,
+          38,
+          0,
+          0,
+          0
+        ],
+        [
+          441,
+          158,
+          158,
+          141,
+          131,
+          27,
+          0,
+          0
+        ],
+        [
+          333,
+          189,
+          171,
+          184,
+          208,
+          146,
+          51,
+          2
+        ],
+        [
+          281,
+          164,
+          143,
+          151,
+          223,
+          217,
+          105,
+          25
+        ],
+        [
+          195,
+          113,
+          99,
+          97,
+          132,
+          124,
+          77,
+          39
+        ],
+        [
+          84,
+          52,
+          48,
+          59,
+          39,
+          31,
+          21,
+          25
+        ]
+      ],
+      "printed_row_totals": [
+        196,
+        670,
+        803,
+        930,
+        959,
+        1056,
+        1284,
+        1309,
+        876,
+        359
+      ],
+      "printed_col_totals": [
+        3849,
+        1291,
+        885,
+        755,
+        772,
+        545,
+        254,
+        91
+      ],
+      "values_unit": null
+    },
+    {
+      "page": 69,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS as of January 1, 2020 - Policemen",
+      "row_labels": [
+        "24 & Under",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Up"
+      ],
+      "col_labels": [
+        "Under 5",
+        "5-10",
+        "10-15",
+        "15-20",
+        "20-25",
+        "25-30",
+        "30-35",
+        "35-40"
+      ],
+      "cells": [
+        [
+          61,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          164,
+          40,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          115,
+          79,
+          72,
+          5,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          61,
+          67,
+          123,
+          59,
+          9,
+          0,
+          0,
+          0
+        ],
+        [
+          30,
+          17,
+          83,
+          117,
+          44,
+          3,
+          0,
+          0
+        ],
+        [
+          8,
+          8,
+          44,
+          111,
+          149,
+          18,
+          1,
+          0
+        ],
+        [
+          1,
+          2,
+          16,
+          59,
+          123,
+          39,
+          0,
+          0
+        ],
+        [
+          2,
+          1,
+          4,
+          23,
+          26,
+          10,
+          5,
+          1
+        ],
+        [
+          0,
+          0,
+          2,
+          5,
+          2,
+          3,
+          3,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0
+        ]
+      ],
+      "printed_row_totals": [
+        61,
+        214,
+        271,
+        319,
+        294,
+        339,
+        240,
+        72,
+        15,
+        2
+      ],
+      "printed_col_totals": [
+        442,
+        214,
+        354,
+        379,
+        354,
+        73,
+        10,
+        1
+      ],
+      "values_unit": null
+    },
+    {
+      "page": 70,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS as of January 1, 2020 - Firemen",
+      "row_labels": [
+        "24 & Under",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Up"
+      ],
+      "col_labels": [
+        "Under 5",
+        "5-10",
+        "10-15",
+        "15-20",
+        "20-25",
+        "25-30",
+        "30-35",
+        "35-40"
+      ],
+      "cells": [
+        [
+          63,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          44,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          18,
+          24,
+          11,
+          11,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          10,
+          45,
+          28,
+          36,
+          7,
+          0,
+          0,
+          0
+        ],
+        [
+          6,
+          23,
+          23,
+          21,
+          44,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          9,
+          13,
+          40,
+          46,
+          23,
+          0,
+          0
+        ],
+        [
+          1,
+          3,
+          7,
+          16,
+          28,
+          43,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          5,
+          11,
+          21,
+          4,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          2,
+          0,
+          1,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "printed_row_totals": [
+        63,
+        54,
+        64,
+        126,
+        117,
+        133,
+        99,
+        43,
+        5,
+        1
+      ],
+      "printed_col_totals": [
+        144,
+        115,
+        83,
+        131,
+        136,
+        88,
+        5,
+        3
+      ],
+      "values_unit": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "24 & Under"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & Up"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 5"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-15"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-20"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35-40"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document presents active member distributions by age and service per agency/group. To capture ALL active members (10,974 total), I transcribed the three group-level tables that together cover the whole system: 'General Employees \u2013 Total' (p66, 8,442), 'Policemen' (p69, 1,827), and 'Firemen' (p70, 705). Code should sum the three source tables cell-wise (they share identical row/col labels). Note: only source_tables[0] labels are referenced in the maps per the format; the additional tables (indices 1 and 2) carry identical bins and are meant to be added. Source service columns are labeled Under 5, 5-10, 10-15, 15-20, 20-25, 25-30, 30-35, 35-40 which are treated as 0-4, 5-9, 10-14, 15-19, 20-24, 25-29, 30-34, 35-40 (upper-bound convention matches target). Age bins align exactly with target rows (24 & Under=<25, 65 & Up=70/65+). Total rows and columns were excluded from cells and recorded in printed totals for validation."
+}

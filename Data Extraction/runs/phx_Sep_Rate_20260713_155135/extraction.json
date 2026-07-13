@@ -1,0 +1,310 @@
+{
+  "source_tables": [
+    {
+      "page": 49,
+      "title": "Probability of Termination (by Age and Years of Service)",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5+"
+      ],
+      "cells": [
+        [
+          17.0,
+          15.0,
+          9.0,
+          8.0,
+          6.25,
+          5.5
+        ],
+        [
+          17.0,
+          15.0,
+          9.0,
+          8.0,
+          6.25,
+          5.5
+        ],
+        [
+          15.0,
+          11.25,
+          8.0,
+          6.75,
+          5.25,
+          4.5
+        ],
+        [
+          15.0,
+          8.75,
+          7.0,
+          5.5,
+          4.5,
+          3.5
+        ],
+        [
+          15.0,
+          7.5,
+          6.25,
+          4.5,
+          4.0,
+          2.75
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.25
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.0
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.0
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent"
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "65",
+      "sources": [
+        "60"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "60"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source is Exhibit G.5 (page 49) 'Probability of Termination' by age (rows) x years of service (columns). Values are printed as percentages, so values_unit='percent'. Column 0 (service year 0) is excluded per target spec (service year 0 not part of template). Columns 1-4 are single service years mapping copy. The '5+' source column is an open-ended bin covering all service >=5, so every target service bucket at or above 5 (6,8,10,11,12,30,40) copies the '5+' rate via overlap_weighted (single span [5,null]). Age rows only go to 60 in the source; target ages 65 and 70 have no printed source beyond age 60, so they copy the age-60 row (rates flatten at ages >=45). Target age 25 copies the age-25 source row exactly. Rates are intensive - never summed."
+}

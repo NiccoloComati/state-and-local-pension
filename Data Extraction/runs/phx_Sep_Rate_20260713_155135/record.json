@@ -1,0 +1,30 @@
+{
+  "attempts": [
+    {
+      "response": {
+        "id": "msg_9d4c9691-b957-4904-9ad6-55ce661ee1d5",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\"page\": 49, \"title\": \"Probability of Termination (by Age and Years of Service)\",\n     \"row_labels\": [\"20\", \"25\", \"30\", \"35\", \"40\", \"45\", \"50\", \"55\", \"60\"],\n     \"col_labels\": [\"0\", \"1\", \"2\", \"3\", \"4\", \"5+\"],\n     \"cells\": [\n       [17.00, 15.00, 9.00, 8.00, 6.25, 5.50],\n       [17.00, 15.00, 9.00, 8.00, 6.25, 5.50],\n       [15.00, 11.25, 8.00, 6.75, 5.25, 4.50],\n       [15.00, 8.75, 7.00, 5.50, 4.50, 3.50],\n       [15.00, 7.50, 6.25, 4.50, 4.00, 2.75],\n       [15.00, 6.50, 5.50, 4.50, 4.00, 2.25],\n       [15.00, 6.50, 5.50, 4.50, 4.00, 2.00],\n       [15.00, 6.50, 5.50, 4.50, 4.00, 2.00],\n       [15.00, 6.50, 5.50, 4.50, 4.00, 2.00]\n     ],\n     \"printed_row_totals\": null,\n     \"printed_col_totals\": null,\n     \"values_unit\": \"percent\"}\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [\"25\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"30\", \"sources\": [\"30\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"35\", \"sources\": [\"35\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"40\", \"sources\": [\"40\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"45\", \"sources\": [\"45\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"50\", \"sources\": [\"50\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"55\", \"sources\": [\"55\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"60\", \"sources\": [\"60\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"65\", \"sources\": [\"60\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"60\"], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"1\"], \"op\": \"copy\"},\n    {\"target\": \"2\", \"sources\": [\"2\"], \"op\": \"copy\"},\n    {\"target\": \"3\", \"sources\": [\"3\"], \"op\": \"copy\"},\n    {\"target\": \"4\", \"sources\": [\"4\"], \"op\": \"copy\"},\n    {\"target\": \"6\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]},\n    {\"target\": \"8\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]},\n    {\"target\": \"10\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]},\n    {\"target\": \"11\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]},\n    {\"target\": \"12\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]},\n    {\"target\": \"30\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]},\n    {\"target\": \"40\", \"sources\": [\"5+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source is Exhibit G.5 (page 49) 'Probability of Termination' by age (rows) x years of service (columns). Values are printed as percentages, so values_unit='percent'. Column 0 (service year 0) is excluded per target spec (service year 0 not part of template). Columns 1-4 are single service years mapping copy. The '5+' source column is an open-ended bin covering all service >=5, so every target service bucket at or above 5 (6,8,10,11,12,30,40) copies the '5+' rate via overlap_weighted (single span [5,null]). Age rows only go to 60 in the source; target ages 65 and 70 have no printed source beyond age 60, so they copy the age-60 row (rates flatten at ages >=45). Target age 25 copies the age-25 source row exactly. Rates are intensive - never summed.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1527
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1527
+      }
+    }
+  ],
+  "model": "claude-opus-4-8"
+}

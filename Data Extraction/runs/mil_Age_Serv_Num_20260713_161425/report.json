@@ -1,0 +1,56 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [
+    "row_labels[0]: truth='24' cand='<25'",
+    "row_labels[9]: truth='65+' cand='70'",
+    "col_labels[0]: truth='5' cand='4'",
+    "col_labels[1]: truth='10' cand='9'",
+    "col_labels[2]: truth='15' cand='14'",
+    "col_labels[3]: truth='20' cand='19'",
+    "col_labels[4]: truth='25' cand='24'",
+    "col_labels[5]: truth='30' cand='29'",
+    "col_labels[6]: truth='35' cand='34'"
+  ],
+  "exact": 29,
+  "close": 4,
+  "wrong": 47,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 24 x svc 5] truth=320.0 cand=196",
+    "[age 29 x svc 5] truth=841.0 cand=633",
+    "[age 29 x svc 10] truth=87.0 cand=37",
+    "[age 29 x svc 15] truth=10.0 cand=0",
+    "[age 34 x svc 5] truth=752.0 cand=619",
+    "[age 34 x svc 10] truth=268.0 cand=165",
+    "[age 34 x svc 15] truth=102.0 cand=19",
+    "[age 34 x svc 20] truth=16.0 cand=0",
+    "[age 39 x svc 5] truth=665.0 cand=594",
+    "[age 39 x svc 10] truth=321.0 cand=209",
+    "[age 39 x svc 15] truth=241.0 cand=90",
+    "[age 39 x svc 20] truth=131.0 cand=36",
+    "[age 39 x svc 25] truth=17.0 cand=1",
+    "[age 44 x svc 5] truth=509.0 cand=473",
+    "[age 44 x svc 10] truth=244.0 cand=204",
+    "[age 44 x svc 15] truth=263.0 cand=157",
+    "[age 44 x svc 20] truth=225.0 cand=87",
+    "[age 44 x svc 25] truth=126.0 cand=38",
+    "[age 44 x svc 30] truth=3.0 cand=0",
+    "[age 49 x svc 5] truth=451.0 cand=441",
+    "[age 49 x svc 10] truth=175.0 cand=158",
+    "[age 49 x svc 15] truth=215.0 cand=158",
+    "[age 49 x svc 20] truth=292.0 cand=141",
+    "[age 49 x svc 25] truth=326.0 cand=131",
+    "[age 49 x svc 30] truth=68.0 cand=27"
+  ],
+  "truth_filled_cells": 80,
+  "accuracy": 0.3625
+}

@@ -1,0 +1,262 @@
+{
+  "source_tables": [
+    {
+      "page": 66,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS - General Employees \u2013 Total",
+      "row_labels": [
+        "24 & Under",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Up"
+      ],
+      "col_labels": [
+        "Under 5",
+        "5-10",
+        "10-15",
+        "15-20",
+        "20-25",
+        "25-30",
+        "30-35",
+        "35-40"
+      ],
+      "cells": [
+        [
+          196,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          633,
+          37,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          619,
+          165,
+          19,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          594,
+          209,
+          90,
+          36,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          473,
+          204,
+          157,
+          87,
+          38,
+          0,
+          0,
+          0
+        ],
+        [
+          441,
+          158,
+          158,
+          141,
+          131,
+          27,
+          0,
+          0
+        ],
+        [
+          333,
+          189,
+          171,
+          184,
+          208,
+          146,
+          51,
+          2
+        ],
+        [
+          281,
+          164,
+          143,
+          151,
+          223,
+          217,
+          105,
+          25
+        ],
+        [
+          195,
+          113,
+          99,
+          97,
+          132,
+          124,
+          77,
+          39
+        ],
+        [
+          84,
+          52,
+          48,
+          59,
+          39,
+          31,
+          21,
+          25
+        ]
+      ],
+      "printed_row_totals": [
+        196,
+        670,
+        803,
+        930,
+        959,
+        1056,
+        1284,
+        1309,
+        876,
+        359
+      ],
+      "printed_col_totals": [
+        3849,
+        1291,
+        885,
+        755,
+        772,
+        545,
+        254,
+        91
+      ],
+      "values_unit": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "This CMERS January 1, 2020 valuation does NOT publish an average-salary-by-age-and-service exhibit, nor total salary dollars broken down by both age and service. Appendix A provides active member COUNTS by age x service (DISTRIBUTION OF ACTIVE MEMBERS, pages 65-76, transcribed here as the General Employees Total table) and separately salary/earnings by age ONLY (SUMMARY OF ACTIVE MEMBERS, pages 60-64), but no cross-tabulation of salary by both dimensions. Therefore average salary by age x service cannot be derived, and all target bins are given empty sources. The transcribed table is included only to satisfy the non-empty source_tables requirement and is not used in any mapping."
+}

@@ -1,0 +1,201 @@
+{
+  "source_tables": [
+    {
+      "page": 36,
+      "title": "Table 13A - Distribution of All Active Participants by Age and Length of Service (Average Annual Salary column only)",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "Average Annual Salary"
+      ],
+      "cells": [
+        [
+          40914
+        ],
+        [
+          49285
+        ],
+        [
+          57241
+        ],
+        [
+          65861
+        ],
+        [
+          73333
+        ],
+        [
+          75230
+        ],
+        [
+          77712
+        ],
+        [
+          76769
+        ],
+        [
+          75478
+        ],
+        [
+          78767
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & Over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "Average Annual Salary"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not publish an average-salary-by-age-AND-service exhibit. Table 13A (page 36, All Active Participants by Age and Length of Service) provides only a single 'Average Annual Salary' column per age band (an age-only average, not broken out by service). No per-service-bin average salary or per-cell total salary exists in the document, so the service dimension cannot be resolved. I transcribed the age-band average salary column and mapped it by copying each age band's overall average into every target service column (an average cannot be split across service bins). Age band 65 & Over is mapped to target row '70'. If service detail is truly required and unavailable, these columns all carry the same age-band average. Only Table 13A (All participants) is used; Group A (13B) and Group B (13C) also print single average columns but summing/averaging them would require count weighting - the All-participants table already gives the combined average by age."
+}

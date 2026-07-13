@@ -1,0 +1,30 @@
+{
+  "attempts": [
+    {
+      "response": {
+        "id": "msg_61f913a9-c940-4094-be89-61e42505970c",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\"page\": 72, \"title\": \"Rate of Termination (by Years of Service)\",\n     \"row_labels\": [\"0\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\", \"8\", \"9\", \"10\", \"11\", \"12\", \"13\", \"14 +\"],\n     \"col_labels\": [\"Rate\"],\n     \"cells\": [[0.030], [0.025], [0.017], [0.015], [0.014], [0.014], [0.013], [0.010], [0.009], [0.009], [0.009], [0.008], [0.007], [0.006], [0.006]],\n     \"printed_row_totals\": null,\n     \"printed_col_totals\": null}\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [\"Rate\"], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [\"Rate\"], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"1\"], \"op\": \"overlap_weighted\", \"source_spans\": [[1, 1]]},\n    {\"target\": \"2\", \"sources\": [\"2\"], \"op\": \"overlap_weighted\", \"source_spans\": [[2, 2]]},\n    {\"target\": \"3\", \"sources\": [\"3\"], \"op\": \"overlap_weighted\", \"source_spans\": [[3, 3]]},\n    {\"target\": \"4\", \"sources\": [\"4\"], \"op\": \"overlap_weighted\", \"source_spans\": [[4, 4]]},\n    {\"target\": \"6\", \"sources\": [\"5\", \"6\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, 5], [6, 6]]},\n    {\"target\": \"8\", \"sources\": [\"7\", \"8\"], \"op\": \"overlap_weighted\", \"source_spans\": [[7, 7], [8, 8]]},\n    {\"target\": \"10\", \"sources\": [\"9\", \"10\"], \"op\": \"overlap_weighted\", \"source_spans\": [[9, 9], [10, 10]]},\n    {\"target\": \"11\", \"sources\": [\"11\"], \"op\": \"overlap_weighted\", \"source_spans\": [[11, 11]]},\n    {\"target\": \"12\", \"sources\": [\"12\"], \"op\": \"overlap_weighted\", \"source_spans\": [[12, 12]]},\n    {\"target\": \"30\", \"sources\": [\"13\", \"14 +\"], \"op\": \"overlap_weighted\", \"source_spans\": [[13, 13], [14, null]]},\n    {\"target\": \"40\", \"sources\": [\"14 +\"], \"op\": \"overlap_weighted\", \"source_spans\": [[14, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The AV publishes termination/withdrawal rates only by Years of Service (page 72, 'Rate of Termination' table) with no age dimension - rates are age-invariant, so every target age row copies the single service-based rate column. Transcribed as printed (service rows x one rate column); transpose=true so the printed service rows become target service columns. Rates are already decimals (not percentages). Col_map uses overlap_weighted with per-year spans; the source uses single-year buckets 0-13 plus an open '14 +' bucket. Target col '6' (label = upper bound of 5-6) blends service years 5 and 6; '8' blends 7-8; '10' blends 9-10. Target '30' (13-30) is blended from source year 13 and the open '14 +' bucket; target '40' (31-40) falls entirely in the open '14 +' bucket. Service year 0 (rate 0.030) is not part of the target template and is excluded. Turnover decrements do not operate after retirement eligibility per document, but that adjustment is applied elsewhere.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1430
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1430
+      }
+    }
+  ],
+  "model": "claude-opus-4-8"
+}
