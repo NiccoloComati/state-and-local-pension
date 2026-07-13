@@ -36,8 +36,9 @@ State as of 2026-07-10 (second session, commits 15cb813 + 0219dca, PUSHED):
   B.5 table. DISCOVERY: two undocumented workbook-vs-PDF
   discrepancies in phx Ret_Rate truth (choice or error unknown) - the AV
   prints 100% retirement at age 70 but the workbook ignores it (carries
-  66-69 rates); and the workbook treats '>31' as 31-and-over, not literal
-  32+. Full details in data_extraction_context.md dev log.
+  66-69 rates); and the workbook treats '>31' as 31-and-over even though the printed
+  bins are unambiguous ('25-31' includes 31, so '>31' = 32+) - the workbook
+  contradicts the printed table. Full details in data_extraction_context.md dev log.
 - GitHub housekeeping: repo renamed to lowercase
   `state-and-local-pension`; remote URL updated; README mojibake fixed.
   This machine (the second one) now has pdfplumber + anthropic installed.
@@ -55,8 +56,8 @@ reads the bins like the human) or **0.86** (literal reading) - either way the
 col-70 "wrong" cells are the workbook ignoring the AV's printed
 100%-at-70 row), NOT model error. What to look for in the output:
 `transpose: source rows/cols swapped` in the stage-B printout,
-`overlap_weighted` declarations with spans, and where the model lands on the
-'>31' ambiguity (its notes should say). Adjudicate mismatches against the
+`overlap_weighted` declarations with spans, and that the model reads
+'>31' as [32,null] (the printed bins are unambiguous: '25-31' includes 31). Adjudicate mismatches against the
 PDF as always. After phx: cross-firm `chi_pol` / `sd` Ret_Rate (zero prompt
 changes), then rung 3 (Avg_Mort cross-table blend - needs the
 population-weighted blend op, weights = headcounts from OTHER extracted

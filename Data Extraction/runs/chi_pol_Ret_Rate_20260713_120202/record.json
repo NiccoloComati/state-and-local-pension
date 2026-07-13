@@ -1,0 +1,30 @@
+{
+  "attempts": [
+    {
+      "response": {
+        "id": "msg_10abd843-926c-49fa-9177-0af39e05e365",
+        "content": [
+          {
+            "citations": null,
+            "text": "{\n  \"source_tables\": [\n    {\"page\": 72, \"title\": \"Rate of Retirement\",\n     \"row_labels\": [\"50\", \"51\", \"52\", \"53\", \"54\", \"55\", \"56\", \"57\", \"58\", \"59\", \"60\", \"61\", \"62\", \"63\", \"64\", \"65\"],\n     \"col_labels\": [\"Tier 1\", \"Tier 2\"],\n     \"cells\": [[0.05, 0.02], [0.05, 0.02], [0.05, 0.02], [0.05, 0.02], [0.05, 0.03], [0.22, 0.24], [0.22, 0.24], [0.22, 0.24], [0.22, 0.24], [0.22, 0.24], [0.22, 0.22], [0.27, 0.27], [0.27, 0.27], [1.00, 1.00], [1.00, 1.00], [1.00, 1.00]],\n     \"printed_row_totals\": null,\n     \"printed_col_totals\": null}\n  ],\n  \"row_map\": [\n    {\"target\": \"5-11\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"12-19\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"20-24\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"25-29\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"31-32\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"33-34\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"35-39\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"Tier 1\"], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"50\", \"sources\": [\"50\"], \"op\": \"copy\"},\n    {\"target\": \"51\", \"sources\": [\"51\"], \"op\": \"copy\"},\n    {\"target\": \"52\", \"sources\": [\"52\"], \"op\": \"copy\"},\n    {\"target\": \"53\", \"sources\": [\"53\"], \"op\": \"copy\"},\n    {\"target\": \"54\", \"sources\": [\"54\"], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [\"55\"], \"op\": \"copy\"},\n    {\"target\": \"56\", \"sources\": [\"56\"], \"op\": \"copy\"},\n    {\"target\": \"57\", \"sources\": [\"57\"], \"op\": \"copy\"},\n    {\"target\": \"58\", \"sources\": [\"58\"], \"op\": \"copy\"},\n    {\"target\": \"59\", \"sources\": [\"59\"], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [\"60\"], \"op\": \"copy\"},\n    {\"target\": \"61\", \"sources\": [\"61\"], \"op\": \"copy\"},\n    {\"target\": \"62\", \"sources\": [\"62\"], \"op\": \"copy\"},\n    {\"target\": \"63\", \"sources\": [\"63\"], \"op\": \"copy\"},\n    {\"target\": \"64\", \"sources\": [\"64\"], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [\"65\"], \"op\": \"copy\"},\n    {\"target\": \"66\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"67\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"68\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"69\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The retirement rate table (page 72) is printed with attained-age rows (50-65) and Tier columns (Tier 1, Tier 2). It is NOT structured by service-year buckets at all - the rates depend only on age and tier, not on years of service. Since the target grid rows are service buckets, I mapped every service bucket to the Tier 1 column (Tier 1 is the primary/default assumption for members hired before 2011). transpose=true converts the printed age-rows into target age-columns; row_map then maps the printed Tier columns onto target rows. Because the same Tier 1 rate applies regardless of service, each service-bucket row copies the Tier 1 rate. Values are already decimals (not percent), so no values_unit set. Source ages only run 50-65; the table shows rate 1.00 at ages 63-65 (mandatory retirement at 63). Ages 66-70 are not published (all members retire by 63), so target columns 66-70 have empty sources lists. Tier 2 rates were transcribed but not used in the map since the target does not distinguish tiers; Tier 1 chosen as the representative assumption.\"\n}",
+            "type": "text"
+          }
+        ],
+        "model": "claude-opus-4-8",
+        "role": "assistant",
+        "stop_reason": "end_turn",
+        "stop_sequence": null,
+        "type": "message",
+        "usage": {
+          "input_tokens": 0,
+          "output_tokens": 1545
+        }
+      },
+      "usage": {
+        "input_tokens": 0,
+        "output_tokens": 1545
+      }
+    }
+  ],
+  "model": "claude-opus-4-8"
+}

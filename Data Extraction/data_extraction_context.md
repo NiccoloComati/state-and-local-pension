@@ -419,9 +419,11 @@ cannot tell whether these are deliberate collector choices or errors):
 - the age-70-row discrepancy: the AV's printed age-70 row (100% retirement
   everywhere) is IGNORED; the workbook's col 70 carries the 66-69 rates.
 - the '>31'-boundary discrepancy: the workbook copies the '>31' column into
-  all service bins 31+ - consistent with reading '25-31' as [25,30] /
-  '>31' as [31,inf), NOT the literal labels ([25,31]/[32,inf) would
-  50/50-blend row 31-32).
+  all service bins 31+, i.e. treats '>31' as 31-and-over. But the printed
+  labels are internally consistent and unambiguous: '25-31' includes 31, so
+  '>31' can only mean 32+ (correct handling 50/50-blends row 31-32). The
+  workbook CONTRADICTS the printed table here - deliberate unrecorded
+  override or error, unknown.
 The span-declaration design makes exactly this auditable: the ambiguity is
 IN the declared spans, not hidden in arithmetic.
 
@@ -444,10 +446,11 @@ Live run phx_Ret_Rate_20260713_093322 (this machine; format guard corrected
 
 1. **Transcription: PERFECT.** The 14x4 p.50 B.5 table matches the PDF
    exactly; transpose, values_unit=percent, and all span declarations correct
-   (notes state '>31' -> [32,null] explicitly - the literal boundary reading).
+   (notes state '>31' -> [32,null] explicitly - the correct reading: '25-31'
+   includes 31, so '>31' is 32+).
 2. **col 70 (9 cells): the age-70-row discrepancy, as pre-registered** - model faithfully uses the
    AV's printed 100%-at-70 row; the workbook ignores it.
-3. **row 31-32 (17 cells): the '>31'-boundary discrepancy, as pre-registered** - literal '>31' span
+3. **row 31-32 (17 cells): the '>31'-boundary discrepancy, as pre-registered** - correct '>31'=[32,null] span
    blends 25-31/>31 50-50; the workbook copies '>31'.
 4. **row 12-19 (16 cells): NEW model error class** - the model declared all
    spans correctly but mapped 12-19 to '<15' ONLY, missing its 15-24 overlap
@@ -459,7 +462,7 @@ ops.resolve_overlap_sources() pools the declared (bin -> span) pairs per
 axis and derives each target's source set from span arithmetic; the model's
 own set is only an audited hint (run_test prints "[stage B] overlap audit"
 lines when they differ). The model's genuine judgment stays exactly where it
-belongs: what each printed bin MEANS (the span; boundary-reading ambiguity remains
+belongs: what each printed bin MEANS (the span; any genuinely ambiguous label remains
 visible and auditable). validate() now also rejects a bin declared with two
 different spans (caught in the retry loop, not the executor).
 
@@ -475,3 +478,44 @@ found is now structurally eliminated (same pattern as rung 1: model
 transcribes + declares meaning; code does ALL derivation). Next: cross-firm
 Ret_Rate (chi_pol, sd - zero prompt changes), then rung 3 (Avg_Mort
 cross-table blend op).
+
+### 2026-07-13 (later) - '>31' adjudicated by Niccolo; chi_pol Ret_Rate adjudicated; tier + carry-forward rules added
+**'>31' boundary re-adjudicated (Niccolo):** the printed labels are NOT
+ambiguous - mathematically '>31' excludes 31, and the adjacent '25-31' column
+already contains it. So the model's literal spans are simply CORRECT, and the
+phx workbook's treatment (copying '>31' into bins 31+) is a deviation from
+the labels, not an alternative reading. Both residual classes of the phx
+Ret_Rate run are therefore workbook deviations from the PDF.
+
+**chi_pol Ret_Rate live run (raw 0.709) adjudicated:**
+- Transcription PERFECT: the p.72 table is age(50-65) x Tier1/Tier2 - not
+  service-structured at all; both tier columns transcribed exactly (verified
+  against the PDF), values already decimals (correctly no percent flag).
+- 10 wrong (row 5-11, ages 50-59): the human mapped service 5-11 -> Tier 2,
+  rest -> Tier 1 (her log documents it; rationale: Tier 2 = hired >= 2011 ->
+  at most ~9 years of service at end-2019, so low-service buckets ARE Tier 2
+  members). The model mapped everything -> Tier 1 (stated in notes). REAL
+  model-judgment gap - the human's tier->service translation is better.
+- 45 missing (ages 66-70): the printed table ends at 65 with rates 1.00
+  (mandatory retirement); the human carried 1.00 forward to the template's
+  66-70 columns; the model faithfully left unprinted ages empty.
+
+**Engine reality (answer to "extract per-tier?"):** the simulation engine
+consumes ONE retirement-rate matrix per plan (tiers differ by benefit rules,
+not rate tables). Tier-published rates are folded into the template's
+SERVICE dimension via hire-date arithmetic - service at valuation date
+determines tier membership. Both of the human's moves are already
+expressible with the existing 'copy' op; what was missing was GUIDANCE.
+
+**Fix (guidance-only, no code):** two rules added to targets.json Ret_Rate:
+(1) tier-published tables -> transcribe all tier columns, map each target
+service row to its tier via the hire-cutoff/valuation-date arithmetic, state
+it in notes; (2) if the printed ages end below the target's last column AND
+the final printed rates are 1.00, carry 1.00 forward by copying the last
+printed age's column. chi_pol rerun pending to test both.
+
+**sd Ret_Rate: NO GROUND TRUTH** - the workbook sheet exists but has 0 filled
+cells (the collector's log said "unclear best way to aggregate" and she never
+did it). sd cannot be scored on this target; rung-2 scoring corpus = phx +
+chi_pol. (A future sd run would be a PRODUCTION-style extraction - output
+with no answer key, reviewable via the audit artifacts.)

@@ -139,30 +139,137 @@
       "cols_meaning": "single attained ages 50 through 69; '70' = age 70 and over"
     },
     "target_row_spans": {
-      "5-11": [5, 11],
-      "12-19": [12, 19],
-      "20-24": [20, 24],
-      "25-29": [25, 29],
-      "30": [30, 30],
-      "31-32": [31, 32],
-      "33-34": [33, 34],
-      "35-39": [35, 39],
-      "40": [40, null]
+      "5-11": [
+        5,
+        11
+      ],
+      "12-19": [
+        12,
+        19
+      ],
+      "20-24": [
+        20,
+        24
+      ],
+      "25-29": [
+        25,
+        29
+      ],
+      "30": [
+        30,
+        30
+      ],
+      "31-32": [
+        31,
+        32
+      ],
+      "33-34": [
+        33,
+        34
+      ],
+      "35-39": [
+        35,
+        39
+      ],
+      "40": [
+        40,
+        null
+      ]
     },
     "target_col_spans": {
-      "50": [50, 50], "51": [51, 51], "52": [52, 52], "53": [53, 53],
-      "54": [54, 54], "55": [55, 55], "56": [56, 56], "57": [57, 57],
-      "58": [58, 58], "59": [59, 59], "60": [60, 60], "61": [61, 61],
-      "62": [62, 62], "63": [63, 63], "64": [64, 64], "65": [65, 65],
-      "66": [66, 66], "67": [67, 67], "68": [68, 68], "69": [69, 69],
-      "70": [70, null]
+      "50": [
+        50,
+        50
+      ],
+      "51": [
+        51,
+        51
+      ],
+      "52": [
+        52,
+        52
+      ],
+      "53": [
+        53,
+        53
+      ],
+      "54": [
+        54,
+        54
+      ],
+      "55": [
+        55,
+        55
+      ],
+      "56": [
+        56,
+        56
+      ],
+      "57": [
+        57,
+        57
+      ],
+      "58": [
+        58,
+        58
+      ],
+      "59": [
+        59,
+        59
+      ],
+      "60": [
+        60,
+        60
+      ],
+      "61": [
+        61,
+        61
+      ],
+      "62": [
+        62,
+        62
+      ],
+      "63": [
+        63,
+        63
+      ],
+      "64": [
+        64,
+        64
+      ],
+      "65": [
+        65,
+        65
+      ],
+      "66": [
+        66,
+        66
+      ],
+      "67": [
+        67,
+        67
+      ],
+      "68": [
+        68,
+        68
+      ],
+      "69": [
+        69,
+        69
+      ],
+      "70": [
+        70,
+        null
+      ]
     },
     "rules": [
       "The source table is usually printed with age ROWS and service COLUMNS - the reverse of the target: transcribe it as printed and set transpose=true.",
       "Rates are INTENSIVE (probabilities): never sum them. A target bin lying inside one source bin copies its rate; a target bin spanning several source bins uses op 'overlap_weighted' with the source bins' numeric spans declared in 'source_spans' - code blends proportionally by years.",
       "Declare every source bin's span from its printed label ('<15' -> [null, 14], '15-24' -> [15, 24], '>31' -> [32, null]); if a boundary is ambiguous, state your reading in notes.",
       "Source tables print percentages: transcribe the numbers as printed and set values_unit='percent'; code converts to decimals.",
-      "Use overlap_weighted with the printed age-bin spans for target age columns too when the source groups ages (e.g. '50-51', '66-69'); single-age targets inside a bin then copy its rate."
+      "Use overlap_weighted with the printed age-bin spans for target age columns too when the source groups ages (e.g. '50-51', '66-69'); single-age targets inside a bin then copy its rate.",
+      "If rates are published by TIER (hire-date groups) instead of service: transcribe ALL tier columns, then map each target service row to the tier its members belong to - tier membership is set by hire date, so service at the valuation date determines it (e.g. a tier for hires on/after 2011, valued end-2019, holds members with under ~9 years of service -> the low-service target rows copy that tier's column; higher-service rows copy the older tier's column). State the cutoff arithmetic in notes.",
+      "If the printed table's ages end below the target's last age column AND the final printed rates are 1.00 (mandatory/certain retirement), carry 1.00 forward by copying the last printed age's column into the remaining target age columns; otherwise leave the extra ages empty and explain in notes."
     ]
   }
 }

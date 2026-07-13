@@ -2261,3 +2261,15 @@ set). v0.4: overlap sets now computed from pooled span declarations
 inconsistent spans). Archived-run re-exec: 0.8624, all 26 residuals = the two known workbook-vs-PDF discrepancies (age-70 row; '>31' boundary)
 human judgment calls, zero unexplained. Full details in
 Data Extraction/data_extraction_context.md dev log.
+
+### 2026-07-13 (later) chi_pol Ret_Rate adjudicated; tier/carry-forward rules; '>31' resolved
+Niccolo adjudicated the '>31' question: labels are unambiguous (25-31
+includes 31), so the phx workbook deviates from the labels - the model's
+literal spans are correct. chi_pol Ret_Rate raw 0.709: transcription perfect
+(age x Tier1/Tier2 table); 10 wrong = model mapped all service rows to
+Tier 1 while the human correctly used Tier 2 for 5-11 (hire-date arithmetic
+- a real model-judgment gap); 45 missing = printed ages end at 65 @ 1.00,
+human carried 1.00 to 66-70. Fixed via two guidance rules in targets.json
+(tier->service mapping; carry-1.00-forward). sd Ret_Rate has NO ground truth
+(0 filled cells). chi_pol rerun pending. All in
+Data Extraction/data_extraction_context.md.

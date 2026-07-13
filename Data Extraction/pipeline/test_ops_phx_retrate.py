@@ -7,7 +7,8 @@ diffing the verified source against the workbook; phx_log.txt only says
 "broken out and averaged if needed"):
   age-70 row - the printed age-70 row (100% everywhere) is IGNORED: the workbook's
        col 70 carries the 66-69 rates instead.
-  '>31' boundary - service bins 31+ all copy the '>31' column (consistent with reading
+  '>31' boundary - service bins 31+ all copy the '>31' column, contradicting
+  the printed labels ('25-31' includes 31, so '>31' can only be 32+) (i.e. reading
        '25-31' as [25,30] / '>31' as [31, inf)), not the literal-label
        blend ('25-31'=[25,31], '>31'=[32, inf) would 50/50-blend row 31-32).
 
