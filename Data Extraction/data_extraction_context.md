@@ -413,26 +413,28 @@ Contract/executor extensions (v0.3), all keeping the model at ZERO arithmetic:
   rewritten rules); no run_test.py plan changes needed beyond passing the
   new fields through.
 
-DISCOVERY - two UNDOCUMENTED human judgment calls in the phx Ret_Rate ground
-truth (phx_log.txt says only "broken out and averaged if needed"):
-- J1: the AV's printed age-70 row (100% retirement everywhere) is IGNORED;
-  the workbook's col 70 carries the 66-69 rates instead.
-- J2: service bins 31+ all copy the '>31' column - consistent with reading
-  '25-31' as [25,30] / '>31' as [31,inf), NOT the literal labels
-  ([25,31]/[32,inf) would 50/50-blend row 31-32).
+DISCOVERY - two UNDOCUMENTED discrepancies between the phx Ret_Rate workbook
+and the PDF (phx_log.txt says only "broken out and averaged if needed"; we
+cannot tell whether these are deliberate collector choices or errors):
+- the age-70-row discrepancy: the AV's printed age-70 row (100% retirement
+  everywhere) is IGNORED; the workbook's col 70 carries the 66-69 rates.
+- the '>31'-boundary discrepancy: the workbook copies the '>31' column into
+  all service bins 31+ - consistent with reading '25-31' as [25,30] /
+  '>31' as [31,inf), NOT the literal labels ([25,31]/[32,inf) would
+  50/50-blend row 31-32).
 The span-declaration design makes exactly this auditable: the ambiguity is
 IN the declared spans, not hidden in arithmetic.
 
 Zero-cost verification (pipeline/test_ops_phx_retrate.py, hand-transcribed
 ACTUAL p.50 B.5 table): literal spans -> 163/189 with ALL 26 mismatches
-confined to row 31-32 + col 70 (J1/J2), every blend cell bit-exact
+confined to row 31-32 + col 70 (the two discrepancies above), every blend cell bit-exact
 (0.140625, 0.178125, 0.204375, 0.25125, 0.22, 0.315625, 0.296875);
-human-implied spans -> 180/189, ONLY the 9 col-70 cells differ (J1).
+human-implied spans -> 180/189, ONLY the 9 col-70 cells differ (the age-70-row discrepancy).
 Regressions: phx counts/wages, chi_pol ratio, sd col-weighted_avg all pass;
 old-shape contract responses still validate.
 
 Expected live phx Ret_Rate raw score: ~0.95 if the model reads the bins like
-the human, ~0.86 literal - either way the col-70 mismatches are J1, NOT
+the human, ~0.86 literal - either way the col-70 mismatches are the age-70-row discrepancy, NOT
 model error. Adjudicate against the PDF as always. Cross-firm chi_pol/sd
 Ret_Rate after phx.
 
@@ -442,10 +444,10 @@ Live run phx_Ret_Rate_20260713_093322 (this machine; format guard corrected
 
 1. **Transcription: PERFECT.** The 14x4 p.50 B.5 table matches the PDF
    exactly; transpose, values_unit=percent, and all span declarations correct
-   (notes state '>31' -> [32,null] explicitly - the literal J2 reading).
-2. **col 70 (9 cells): J1 as pre-registered** - model faithfully uses the
+   (notes state '>31' -> [32,null] explicitly - the literal boundary reading).
+2. **col 70 (9 cells): the age-70-row discrepancy, as pre-registered** - model faithfully uses the
    AV's printed 100%-at-70 row; the workbook ignores it.
-3. **row 31-32 (17 cells): J2 as pre-registered** - literal '>31' span
+3. **row 31-32 (17 cells): the '>31'-boundary discrepancy, as pre-registered** - literal '>31' span
    blends 25-31/>31 50-50; the workbook copies '>31'.
 4. **row 12-19 (16 cells): NEW model error class** - the model declared all
    spans correctly but mapped 12-19 to '<15' ONLY, missing its 15-24 overlap
@@ -457,14 +459,14 @@ ops.resolve_overlap_sources() pools the declared (bin -> span) pairs per
 axis and derives each target's source set from span arithmetic; the model's
 own set is only an audited hint (run_test prints "[stage B] overlap audit"
 lines when they differ). The model's genuine judgment stays exactly where it
-belongs: what each printed bin MEANS (the span; J2-type ambiguity remains
+belongs: what each printed bin MEANS (the span; boundary-reading ambiguity remains
 visible and auditable). validate() now also rejects a bin declared with two
 different spans (caught in the retry loop, not the executor).
 
 Zero-cost validation: archived run re-executed -> **0.8624 (163/189), the
 exact pre-registered "literal reading" scenario**; audit line fires:
 "12-19: model declared ['<15'] but spans imply ['15-24','<15']". ALL 26
-remaining mismatches = J1 (9) + J2 (17); zero unexplained. Full regression
+remaining mismatches = the age-70 row (9) + the '>31' boundary (17); zero unexplained. Full regression
 suite green (phx counts/wages, chi_pol ratio, sd col-weighted_avg, retrate
 executor test).
 

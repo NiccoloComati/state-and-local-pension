@@ -2238,9 +2238,9 @@ vars are NOT shared with the assistant's shells - by design).
    human-typed decimals). Ret_Rate spec complete in targets.json.
    test_ops_phx_retrate.py verifies both span readings on the actual p.50
    B.5 table. DISCOVERED two undocumented judgment calls in phx Ret_Rate
-   truth (J1: printed 100%-at-70 row ignored, 66-69 rates carried; J2:
+   truth (the printed 100%-at-70 row ignored, 66-69 rates carried; and
    '>31' read as 31-and-over, not literal 32+). With human-implied spans
-   180/189 (only J1 cells differ); literal spans 163/189 (J1+J2 only).
+   180/189 (only the age-70 cells differ); literal spans 163/189 (the two known discrepancies only).
 3. Housekeeping: GitHub repo renamed lowercase `state-and-local-pension`
    (remote URL updated), README mojibake fixed (em dash, section sign), the
    previously-unpushed 7ae7e68 pushed.
@@ -2258,6 +2258,6 @@ adjudicated exactly to the pre-registered literal scenario after fixing a NEW
 error class (model declared correct spans but mis-derived the 12-19 overlap
 set). v0.4: overlap sets now computed from pooled span declarations
 (ops.resolve_overlap_sources; model set = audited hint; validate() rejects
-inconsistent spans). Archived-run re-exec: 0.8624, all 26 residuals = J1+J2
+inconsistent spans). Archived-run re-exec: 0.8624, all 26 residuals = the two known workbook-vs-PDF discrepancies (age-70 row; '>31' boundary)
 human judgment calls, zero unexplained. Full details in
 Data Extraction/data_extraction_context.md dev log.

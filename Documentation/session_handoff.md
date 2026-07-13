@@ -33,10 +33,11 @@ State as of 2026-07-10 (second session, commits 15cb813 + 0219dca, PUSHED):
   weights - the verified 12-19 = 3/8x0+5/8x0.225 = 0.140625 bit-exact),
   values_unit=percent (code DIVIDES by 100). Ret_Rate target spec complete.
   test_ops_phx_retrate.py verifies on the hand-transcribed actual phx p.50
-  B.5 table. DISCOVERY: two undocumented human judgment calls in phx
-  Ret_Rate truth - J1: AV prints 100% retirement at age 70, workbook ignores
-  it (carries 66-69 rates); J2: workbook treats '>31' as 31-and-over, not
-  literal 32+. Full details in data_extraction_context.md dev log.
+  B.5 table. DISCOVERY: two undocumented workbook-vs-PDF
+  discrepancies in phx Ret_Rate truth (choice or error unknown) - the AV
+  prints 100% retirement at age 70 but the workbook ignores it (carries
+  66-69 rates); and the workbook treats '>31' as 31-and-over, not literal
+  32+. Full details in data_extraction_context.md dev log.
 - GitHub housekeeping: repo renamed to lowercase
   `state-and-local-pension`; remote URL updated; README mojibake fixed.
   This machine (the second one) now has pdfplumber + anthropic installed.
@@ -51,7 +52,7 @@ python pipeline/run_test.py --plan phx --target Ret_Rate
 
 Expectations so you're not alarmed: raw score around **0.95** (if the model
 reads the bins like the human) or **0.86** (literal reading) - either way the
-col-70 "wrong" cells are J1 (the workbook ignoring the AV's printed
+col-70 "wrong" cells are the workbook ignoring the AV's printed
 100%-at-70 row), NOT model error. What to look for in the output:
 `transpose: source rows/cols swapped` in the stage-B printout,
 `overlap_weighted` declarations with spans, and where the model lands on the

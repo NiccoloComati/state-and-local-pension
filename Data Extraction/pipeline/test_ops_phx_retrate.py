@@ -5,9 +5,9 @@ section B.5), hand-transcribed source-native.
 Two undocumented human judgment calls live in this sheet (found 2026-07-10 by
 diffing the verified source against the workbook; phx_log.txt only says
 "broken out and averaged if needed"):
-  J1 - the printed age-70 row (100% everywhere) is IGNORED: the workbook's
+  age-70 row - the printed age-70 row (100% everywhere) is IGNORED: the workbook's
        col 70 carries the 66-69 rates instead.
-  J2 - service bins 31+ all copy the '>31' column (consistent with reading
+  '>31' boundary - service bins 31+ all copy the '>31' column (consistent with reading
        '25-31' as [25,30] / '>31' as [31, inf)), not the literal-label
        blend ('25-31'=[25,31], '>31'=[32, inf) would 50/50-blend row 31-32).
 
@@ -16,7 +16,7 @@ This test runs BOTH span readings:
                     weights -> 0.140625 at 54, 0.178125 at 60, 0.22 at 63...)
                     and that ALL mismatches vs the workbook are confined to
                     row '31-32' + col '70' (the two judgment calls).
-  human spans    -> reproduces the workbook everywhere except col 70 (J1).
+  human spans    -> reproduces the workbook everywhere except col 70 (the age-70 row).
 
 Run: python pipeline/test_ops_phx_retrate.py
 """
@@ -121,7 +121,7 @@ def main():
     # all mismatches vs the workbook must be the two judgment calls
     for m in report["mismatches"]:
         assert "[age 31-32 x" in m or "x svc 70]" in m, f"unexpected mismatch: {m}"
-    print("mechanics verified: blends exact; mismatches confined to row 31-32 + col 70 (J1/J2)")
+    print("mechanics verified: blends exact; mismatches confined to row 31-32 + col 70 (the two known workbook-vs-PDF discrepancies)")
     print()
 
     # 2) the human collector's implied reading
@@ -131,7 +131,7 @@ def main():
         assert "x svc 70]" in m, f"unexpected mismatch: {m}"
     n70 = sum(1 for m in report["mismatches"] if "x svc 70]" in m)
     assert report["wrong"] == n70 == 9, report["wrong"]
-    print("human-implied spans reproduce the workbook everywhere except col 70 (J1: the")
+    print("human-implied spans reproduce the workbook everywhere except col 70 (the")
     print("workbook ignores the AV's printed 100%-at-70 row and carries the 66-69 rates)")
     print()
     print("PASS: transpose + overlap_weighted + percent conversion verified on phx B.5")
