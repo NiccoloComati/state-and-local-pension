@@ -40,6 +40,7 @@
     "rules": [
       "Counts are ADDITIVE: when source bins are finer than a target bin (e.g. separate 'Under 20' and '20-24' rows for target '<25'), declare op 'sum' over those source rows.",
       "When a source bin is coarser than the target bins (e.g. a single 'Over 30' service column covering targets '34' and '40'), declare op 'share_even' from that source column in EACH covered target column.",
+      "If the document publishes the active count distribution in multiple same-shaped employee-group tables that together cover the plan (e.g. General + Police + Fire), transcribe ALL group tables and declare derive = {\"op\": \"sum\", \"tables\": [<indices>]}; code sums them cell-wise before mapping.",
       "Empty source cells stay null (no members), not 0.",
       "Transcribe the source table without its total row/column."
     ],
@@ -267,9 +268,152 @@
       "Rates are INTENSIVE (probabilities): never sum them. A target bin lying inside one source bin copies its rate; a target bin spanning several source bins uses op 'overlap_weighted' with the source bins' numeric spans declared in 'source_spans' - code blends proportionally by years.",
       "Declare every source bin's span from its printed label ('<15' -> [null, 14], '15-24' -> [15, 24], '>31' -> [32, null]); if a boundary is ambiguous, state your reading in notes.",
       "Source tables print percentages: transcribe the numbers as printed and set values_unit='percent'; code converts to decimals.",
-      "Use overlap_weighted with the printed age-bin spans for target age columns too when the source groups ages (e.g. '50-51', '66-69'); single-age targets inside a bin then copy its rate.",
-      "If rates are published by TIER (hire-date groups) instead of service: transcribe ALL tier columns, then map each target service row to the tier its members belong to - tier membership is set by hire date, so service at the valuation date determines it (e.g. a tier for hires on/after 2011, valued end-2019, holds members with under ~9 years of service -> the low-service target rows copy that tier's column; higher-service rows copy the older tier's column). State the cutoff arithmetic in notes.",
-      "If the printed table's ages end below the target's last age column AND the final printed rates are 1.00 (mandatory/certain retirement), carry 1.00 forward by copying the last printed age's column into the remaining target age columns; otherwise leave the extra ages empty and explain in notes."
+      "Use overlap_weighted with the printed age-bin spans for target age columns too when the source groups ages (e.g. '50-51', '66-69'); single-age targets inside a bin then copy its rate."
+    ]
+  },
+  "Sep_Rate": {
+    "description": "Annual separation/termination (withdrawal) rates by attained age (rows) x years of service (columns). Source: the AV's demographic-assumptions section ('Termination rates', 'Rates of Termination/Withdrawal', 'Separation'). Printed shapes vary: age x service grid, service-only list, age-only list, or separate tables per employee group.",
+    "unit": "annual probability (decimal)",
+    "convert_percent_to_decimal": true,
+    "zero_equals_empty": true,
+    "zero_impossible_cells": {
+      "age_axis": "rows",
+      "service_axis": "cols",
+      "min_entry_age": 20,
+      "mode": "upper"
+    },
+    "keywords": [
+      "termination",
+      "withdrawal",
+      "separation",
+      "rates of termination"
+    ],
+    "grid": {
+      "row_labels": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "rows_meaning": "single attained ages 25, 30, ... 70 (5-year points)",
+      "col_labels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6",
+        "8",
+        "10",
+        "11",
+        "12",
+        "30",
+        "40"
+      ],
+      "cols_meaning": "service-year buckets 1, 2, 3, 4, 5-6, 7-8, 9-10, 11, 12, 13-30, 31-40 (label = upper bound; service year 0 is NOT part of the template)"
+    },
+    "target_row_spans": {
+      "25": [
+        25,
+        25
+      ],
+      "30": [
+        30,
+        30
+      ],
+      "35": [
+        35,
+        35
+      ],
+      "40": [
+        40,
+        40
+      ],
+      "45": [
+        45,
+        45
+      ],
+      "50": [
+        50,
+        50
+      ],
+      "55": [
+        55,
+        55
+      ],
+      "60": [
+        60,
+        60
+      ],
+      "65": [
+        65,
+        65
+      ],
+      "70": [
+        70,
+        70
+      ]
+    },
+    "target_col_spans": {
+      "1": [
+        1,
+        1
+      ],
+      "2": [
+        2,
+        2
+      ],
+      "3": [
+        3,
+        3
+      ],
+      "4": [
+        4,
+        4
+      ],
+      "6": [
+        5,
+        6
+      ],
+      "8": [
+        7,
+        8
+      ],
+      "10": [
+        9,
+        10
+      ],
+      "11": [
+        11,
+        11
+      ],
+      "12": [
+        12,
+        12
+      ],
+      "30": [
+        13,
+        30
+      ],
+      "40": [
+        31,
+        40
+      ]
+    },
+    "rules": [
+      "Target rows are AGES, columns are SERVICE - usually the SAME orientation as printed (age rows x service columns): transcribe as printed with transpose=false.",
+      "If the source has NO age dimension (rates listed by service only), transcribe as printed (service rows x one rate column) and set transpose=true; every target age row then maps to that single rate row; state in notes that rates are age-invariant in the source.",
+      "Rates are INTENSIVE: never sum. Use overlap_weighted with declared source spans wherever source bins and target bins are not identical (both axes); single-point targets inside a source bin copy its rate.",
+      "Declare every source bin's span from its printed label ('5+' or '14 +' -> [5, null] / [14, null]; single years -> [n, n]).",
+      "If values are printed as percentages set values_unit='percent'; if already decimals, do not.",
+      "If separation is published in SEPARATE TABLES per employee group (e.g. General vs Safety, Police vs Fire), transcribe ALL group tables (and the headcount tables that would weight them) and say so in notes - the group-blend operation is not yet implemented, so mapping should reference the largest/primary group's table and notes must flag the unblended groups.",
+      "Do not extrapolate beyond the printed table: target ages or service bins with no printed source get empty sources and an explanation in notes.",
+      "Cells impossible under an entry-age floor (service > age - 20) are zeroed by code, not by you."
     ]
   }
 }

@@ -1,6 +1,6 @@
 # Session Handoff Notes
 
-Written 2026-06-11, updated 2026-07-10. This is the tacit-knowledge layer the
+Written 2026-06-11, updated 2026-07-13. This is the tacit-knowledge layer the
 technical docs don't carry. Read it after `project_context.md` and the recent
 `working_context.md` sections.
 
@@ -8,7 +8,8 @@ technical docs don't carry. Read it after `project_context.md` and the recent
 
 The current focus is the AV-PDF -> workbook extraction pipeline in
 `Data Extraction/pipeline/`. **Read `Data Extraction/data_extraction_context.md`
-FIRST for this workstream** - it is the living methodology + dated dev log with
+FIRST for this workstream** (and `Data Extraction/assumption_register.md` - the
+record of embedded modeling assumptions awaiting decisions) - it is the living methodology + dated dev log with
 every attempt, failure, diagnosis, and fix (v0 keyword-locator mistake; v0.1
 two-stage transcribe+declare/execute contract; Parley output_config drop +
 format guard; the ground-truth errors found; the chi_pol column-shift failure
@@ -43,25 +44,35 @@ State as of 2026-07-10 (second session, commits 15cb813 + 0219dca, PUSHED):
   `state-and-local-pension`; remote URL updated; README mojibake fixed.
   This machine (the second one) now has pdfplumber + anthropic installed.
 
-**NEXT ACTION (verbatim closing instructions of the 2026-07-10 session, for
-whoever continues - the ONE live call to run, ~$1.5-2, phx is the small doc):**
+Current 2026-07-13 delta (details in `data_extraction_context.md`):
+- Ret_Rate phx/chi_pol adjudicated; tier-specific retirement-rate handling
+  and ages-beyond-table are now OPEN decisions in `assumption_register.md`.
+- Sep_Rate target built and live-run on phx/chi_pol/sd; machinery works, sd
+  pins the missing rung-3 group-blend op.
+- Production-mode cold plans added (`aus`, `mil`, `bos`). Milwaukee
+  Age_Serv_Num exposed and fixed a pure executor vocabulary gap:
+  `derive={"op":"sum","tables":[...]}` for same-shaped additive subgroup
+  tables; archived run now re-executes 80/80 exact.
+- Latest production review: `aus_Age_Serv_Num_20260713_164723` looks solid
+  (Table 13A all-active total 10,149). `mil_Age_Serv_Wage_20260713_164600`
+  and `aus_Age_Serv_Wage_20260713_164833` are NOT accepted as final wage
+  grids: they only have age-level wage evidence, not age x service wages.
+  The Austin wage grid copied each age average across service buckets; that
+  is now an OPEN assumption/contract issue in `assumption_register.md`.
+
+**NEXT ACTION:** before accepting production `Age_Serv_Wage` grids with a
+missing service dimension, decide/implement the representation for
+unavailable or underdetermined targets. The likely code/design fix is an
+explicit unavailable status and/or stricter `Age_Serv_Wage` guidance so
+age-only salaries cannot be silently copied across service without a named
+modeling decision. After that, continue out-of-sample review; `derive=sum` is
+ready for additive subgroup counts, while group-weighted rates/Avg_Mort still
+need the rung-3 population-weighted blend op.
 
 ```powershell
 cd "Data Extraction"
-python pipeline/run_test.py --plan phx --target Ret_Rate
+# paste/review the new run folders first; do not spend another API call unless needed
 ```
-
-Expectations so you're not alarmed: raw score around **0.95** (if the model
-reads the bins like the human) or **0.86** (literal reading) - either way the
-col-70 "wrong" cells are the workbook ignoring the AV's printed
-100%-at-70 row), NOT model error. What to look for in the output:
-`transpose: source rows/cols swapped` in the stage-B printout,
-`overlap_weighted` declarations with spans, and that the model reads
-'>31' as [32,null] (the printed bins are unambiguous: '25-31' includes 31). Adjudicate mismatches against the
-PDF as always. After phx: cross-firm `chi_pol` / `sd` Ret_Rate (zero prompt
-changes), then rung 3 (Avg_Mort cross-table blend - needs the
-population-weighted blend op, weights = headcounts from OTHER extracted
-tables).
 
 Environment specifics for this workstream:
 - API goes through MIT Parley: `$env:ANTHROPIC_BASE_URL =

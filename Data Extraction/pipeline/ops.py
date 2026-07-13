@@ -16,12 +16,16 @@ Contract executed:
                   weighted_avg merges source COLUMNS of an averages table
                   (weights = the counts table, row-aggregated first)
   derive        : null | {op: "ratio", numerator_table, denominator_table}
+                       | {op: "sum", tables: [i, j, ...]}
                   ratio mode: some AVs publish TOTALS (e.g. total salary
                   dollars + member counts) instead of the averages the target
                   wants. Both tables are aggregated with the SAME row/col maps
                   (additive ops only), then divided cell-wise:
                   average = total$/count. The merged-bin average is exact by
                   construction (sum both, then divide).
+                  sum mode: some AVs publish the ADDITIVE target separately
+                  by employee group. Same-shaped source tables are summed
+                  cell-wise first, then the normal maps run once.
   transpose     : bool (default false). The table is TRANSCRIBED as printed;
                   code transposes it before mapping. With transpose=true,
                   row_map maps the printed COLUMNS onto target rows and
@@ -105,13 +109,80 @@ def _overlap_years(t_span, s_span):
     return max(0, min(t_hi, s_hi) - max(t_lo, s_lo) + 1)
 
 
+def zero_impossible(grid, row_spans, col_spans, cfg):
+    """Zero the cells that cannot contain members under an entry-age floor:
+    service low bound > age high bound - min_entry_age. Template convention
+    adopted from the collectors' documented practice ('no one starts before
+    20') - see assumption_register.md. cfg = {"age_axis": "rows"|"cols",
+    "service_axis": ..., "min_entry_age": N}; spans keyed by target label."""
+    min_age = cfg["min_entry_age"]
+    age_on_rows = cfg["age_axis"] == "rows"
+    # mode "upper" (collectors' convention): zero unless the WHOLE service
+    # bucket is attainable at that age (svc upper bound > age - min_entry).
+    # mode "lower": zero only if NO part is attainable (svc lower bound >).
+    mode = cfg.get("mode", "upper")
+    for i, r_lab in enumerate(grid["row_labels"]):
+        for j, c_lab in enumerate(grid["col_labels"]):
+            age_span = (row_spans or {}).get(r_lab) if age_on_rows else (col_spans or {}).get(c_lab)
+            svc_span = (col_spans or {}).get(c_lab) if age_on_rows else (row_spans or {}).get(r_lab)
+            if not age_span or not svc_span:
+                continue
+            age_hi = age_span[1]
+            svc_bound = svc_span[1] if mode == "upper" else svc_span[0]
+            if age_hi is None:
+                continue
+            if svc_bound is None:      # open service bin
+                if mode == "upper":
+                    continue           # open end never "fully attainable"-zeroed
+                else:
+                    svc_bound = svc_span[0]
+            if svc_bound is not None and svc_bound > age_hi - min_age:
+                grid["cells"][i][j] = 0.0
+    return grid
+
+
+def _sum_tables(source_tables, indices):
+    """Cell-wise sum of same-shaped additive source tables."""
+    if not indices:
+        raise ValueError("derive=sum needs at least one source table index")
+    base = source_tables[indices[0]]
+    row_labels = base["row_labels"]
+    col_labels = base["col_labels"]
+    for i in indices[1:]:
+        t = source_tables[i]
+        if t["row_labels"] != row_labels or t["col_labels"] != col_labels:
+            raise ValueError("derive=sum tables must have identical row/col labels")
+
+    cells = []
+    for r in range(len(row_labels)):
+        out_row = []
+        for c in range(len(col_labels)):
+            vals = []
+            for i in indices:
+                row = source_tables[i]["cells"][r]
+                vals.append(row[c] if c < len(row) else None)
+            nums = [v for v in vals if _num(v)]
+            out_row.append(sum(nums) if nums else ("*" if "*" in vals else None))
+        cells.append(out_row)
+
+    out = dict(base)
+    out["title"] = " + ".join(source_tables[i].get("title", f"table {i}")
+                              for i in indices)
+    out["cells"] = cells
+    out["printed_row_totals"] = None
+    out["printed_col_totals"] = None
+    return out
+
+
 def execute(source_tables, row_map, col_map, derive=None, transpose=False,
-            target_row_spans=None, target_col_spans=None, to_decimal=False):
+            target_row_spans=None, target_col_spans=None, to_decimal=False,
+            zero_impossible_cfg=None):
     """Return the derived canonical grid. Raises ValueError on bad specs.
 
     derive={"op": "ratio", "numerator_table": i, "denominator_table": j}
     aggregates BOTH tables with the same maps (additive ops only) and divides
-    cell-wise (average = total$/count).
+    cell-wise (average = total$/count). derive={"op": "sum", "tables": [...]}
+    sums same-shaped additive tables cell-wise before mapping.
     transpose: transpose every source table before mapping (see module doc).
     target_*_spans: {target_label: [lo, hi]} template bin semantics, required
     by overlap_weighted entries (from targets.json, NOT model-declared).
@@ -131,33 +202,50 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
     col_map, _ = resolve_overlap_sources(col_map, target_col_spans)
 
     if derive:
-        if derive.get("op") != "ratio":
-            raise ValueError(f"unknown derive op {derive.get('op')!r}")
-        for m, kind in ((row_map, "row"), (col_map, "col")):
-            for e in m:
-                if e["op"] == "weighted_avg":
-                    raise ValueError(
-                        f"{kind} {e['target']}: weighted_avg is not allowed in ratio "
-                        "mode (both tables aggregate additively, then divide)")
-        num = _grid(source_tables, derive["numerator_table"], row_map, col_map,
+        op = derive.get("op")
+        if op not in ("ratio", "sum"):
+            raise ValueError(f"unknown derive op {op!r}")
+        if op == "ratio":
+            for m, kind in ((row_map, "row"), (col_map, "col")):
+                for e in m:
+                    if e["op"] == "weighted_avg":
+                        raise ValueError(
+                            f"{kind} {e['target']}: weighted_avg is not allowed in ratio "
+                            "mode (both tables aggregate additively, then divide)")
+            num = _grid(source_tables, derive["numerator_table"], row_map, col_map,
+                        target_row_spans, target_col_spans)
+            den = _grid(source_tables, derive["denominator_table"], row_map, col_map,
+                        target_row_spans, target_col_spans)
+            cells = []
+            for nrow, drow in zip(num["cells"], den["cells"]):
+                out_row = []
+                for nv, dv in zip(nrow, drow):
+                    if nv == "*" or dv == "*":
+                        out_row.append("*")
+                    elif _num(nv) and _num(dv) and dv != 0:
+                        out_row.append(nv / dv)
+                    else:
+                        out_row.append(None)
+                cells.append(out_row)
+            out = {"row_labels": num["row_labels"],
+                   "col_labels": num["col_labels"], "cells": cells}
+        else:
+            for m, kind in ((row_map, "row"), (col_map, "col")):
+                for e in m:
+                    if e["op"] == "weighted_avg":
+                        raise ValueError(
+                            f"{kind} {e['target']}: weighted_avg is not allowed in sum "
+                            "mode (sum mode is for additive tables)")
+            summed = _sum_tables(source_tables, derive["tables"])
+            out = _grid([summed], 0, row_map, col_map,
+                        target_row_spans, target_col_spans)
+    else:
+        out = _grid(source_tables, 0, row_map, col_map,
                     target_row_spans, target_col_spans)
-        den = _grid(source_tables, derive["denominator_table"], row_map, col_map,
-                    target_row_spans, target_col_spans)
-        cells = []
-        for nrow, drow in zip(num["cells"], den["cells"]):
-            out_row = []
-            for nv, dv in zip(nrow, drow):
-                if nv == "*" or dv == "*":
-                    out_row.append("*")
-                elif _num(nv) and _num(dv) and dv != 0:
-                    out_row.append(nv / dv)
-                else:
-                    out_row.append(None)
-            cells.append(out_row)
-        return {"row_labels": num["row_labels"],
-                "col_labels": num["col_labels"], "cells": cells}
-    return _grid(source_tables, 0, row_map, col_map,
-                 target_row_spans, target_col_spans)
+    if zero_impossible_cfg:
+        out = zero_impossible(out, target_row_spans, target_col_spans,
+                              zero_impossible_cfg)
+    return out
 
 
 def resolve_overlap_sources(map_entries, target_spans):
@@ -384,8 +472,13 @@ def summarize(row_map, col_map, derive=None, transpose=False):
     if transpose:
         lines.append("transpose: source rows/cols swapped before mapping")
     if derive:
-        lines.append(f"derive: ratio = t{derive.get('numerator_table')} / "
-                     f"t{derive.get('denominator_table')} (cell-wise, after mapping)")
+        if derive.get("op") == "ratio":
+            lines.append(f"derive: ratio = t{derive.get('numerator_table')} / "
+                         f"t{derive.get('denominator_table')} (cell-wise, after mapping)")
+        elif derive.get("op") == "sum":
+            lines.append("derive: sum = " +
+                         " + ".join(f"t{i}" for i in derive.get("tables", [])) +
+                         " (cell-wise, before mapping)")
 
     def _entry(kind, e):
         if e["op"] == "copy" and len(e["sources"]) == 1 and e["sources"][0] == e["target"]:

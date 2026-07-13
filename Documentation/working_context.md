@@ -2273,3 +2273,40 @@ human carried 1.00 to 66-70. Fixed via two guidance rules in targets.json
 (tier->service mapping; carry-1.00-forward). sd Ret_Rate has NO ground truth
 (0 filled cells). chi_pol rerun pending. All in
 Data Extraction/data_extraction_context.md.
+
+### 2026-07-13 (later) assumption register created; Ret_Rate rules retracted
+Created Data Extraction/assumption_register.md - the single record of
+modeling assumptions embedded in extracted data (tier folding for chi_pol
+ret rates, ages-beyond-table, the two phx Ret_Rate workbook deviations, sd
+blank Ret_Rate, the two known workbook defects) with options per item; the
+tier decision explicitly deferred (both tier columns are archived, so any
+convention is re-derivable at zero cost). The two prematurely-added
+targets.json rules were retracted. Commit policy clarified: milestones only,
+plain repo-change messages, no Co-Authored-By trailer ever.
+
+### 2026-07-13 Milwaukee cold-count run diagnosed; derive=sum added
+First out-of-sample scored anchor (`mil_Age_Serv_Num_20260713_161425`) found
+three group count tables (General 8,442 + Police 1,827 + Fire 705 = 10,974),
+all printed totals OK. Raw score 0.3625 only because the executor mapped
+table 0 (General) alone; archived source tables summed cell-wise reproduce
+the workbook 80/80 exact. Added document-level `derive={"op":"sum","tables":[...]}`
+for same-shaped additive subgroup tables, Age_Serv_Num guidance, and
+`pipeline/test_ops_mil_counts.py` regression. No assumption-register entry:
+this is pure addition of published subgroup counts.
+
+### 2026-07-13 production review: age-only wage evidence is flagged, not accepted
+Reviewed the next out-of-sample runs:
+- `mil_Age_Serv_Wage_20260713_164600`: no joint age x service wage evidence;
+  model left the derived grid all null after the validator forced a placeholder
+  source table. Treat as unavailable, not an accepted extraction.
+- `aus_Age_Serv_Num_20260713_164723`: high-confidence production extraction
+  from Table 13A ("All Active Participants"), total 10,149.
+- `aus_Age_Serv_Wage_20260713_164833`: the 10 age-level average salaries are
+  transcribed correctly and count-weight to the printed all-ages average
+  ($69,715), but the derived grid copies each age average across all service
+  buckets. Niccolo ruled this should NOT be accepted at the moment; it is now
+  an OPEN assumption/contract issue in `Data Extraction/assumption_register.md`.
+
+Next extraction-design issue: add a clean unavailable/underdetermined status
+or tighten `Age_Serv_Wage` guidance so an entirely missing service dimension
+cannot become a neat-looking filled grid without an explicit modeling decision.

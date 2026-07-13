@@ -59,6 +59,20 @@ PLANS = {
         "pdf": os.path.join(CITIES, "sd_modeldata", "CA_SANDIEGOCITY-SDCERS_AV_2019_144.pdf"),
         "workbook": os.path.join(CITIES, "sd_modeldata", "sd_data19_gen.xlsx"),
     },
+    # ---- production-style plans (little or no ground truth; extraction is
+    # reviewed via the audit artifacts, not a score) ----
+    "aus": {   # Austin COAERS - workbook never filled; fully cold (GRS)
+        "pdf": os.path.join(CITIES, "aus_modeldata", "TX_AUSTINCITY-COAERS_AV_2019_12.pdf"),
+        "workbook": None,
+    },
+    "mil": {   # Milwaukee ERS - novel actuarial firm; only Age_Serv_Num has truth
+        "pdf": os.path.join(CITIES, "mil_modeldata", "WI_MILWAUKEECITY-ERS_AV_2019_151.pdf"),
+        "workbook": os.path.join(CITIES, "mil_modeldata", "mil_data19_gen.xlsx"),
+    },
+    "bos": {   # Boston SBRS - stub workbook (Segal)
+        "pdf": os.path.join(CITIES, "bos_modeldata", "MA_BOSTONCITY-SBRS_AV_2019_148.pdf"),
+        "workbook": os.path.join(CITIES, "bos_modeldata", "bos_data19_gen.xlsx"),
+    },
 }
 
 
@@ -140,7 +154,8 @@ def main():
                           transpose=result.get("transpose", False),
                           target_row_spans=spec.get("target_row_spans"),
                           target_col_spans=spec.get("target_col_spans"),
-                          to_decimal=spec.get("convert_percent_to_decimal", False))
+                          to_decimal=spec.get("convert_percent_to_decimal", False),
+                          zero_impossible_cfg=spec.get("zero_impossible_cells"))
     with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
         json.dump(derived, fh, indent=2)
     print("[stage B] declared operations:")
@@ -149,8 +164,21 @@ def main():
                               transpose=result.get("transpose", False)):
         print(f"    {line}")
 
-    # ---- score the derived grid against the human workbook ----
-    truth = harness.load_truth(plan["workbook"], args.target)
+    # ---- score the derived grid against the human workbook (if one exists) ----
+    truth = None
+    if plan["workbook"]:
+        try:
+            truth = harness.load_truth(plan["workbook"], args.target)
+            if not any(v is not None for row in truth["cells"] for v in row):
+                truth = None      # sheet exists but is blank
+        except (KeyError, ValueError):
+            truth = None          # sheet absent
+    if truth is None:
+        print(f"[score] no ground truth for {args.plan}/{args.target} - PRODUCTION MODE:")
+        print( "        review extraction.json (source-native tables + declared ops)")
+        print( "        and derived.json against the PDF; no score computed")
+        print(f"[artifacts] {run_dir}")
+        return
     report = harness.score(truth, derived,
                            zero_equals_empty=spec.get("zero_equals_empty", False))
     with open(os.path.join(run_dir, "report.json"), "w", encoding="utf-8") as fh:

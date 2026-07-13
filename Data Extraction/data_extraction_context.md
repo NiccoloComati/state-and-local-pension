@@ -1,7 +1,7 @@
 # Data Extraction Context
 
 **Created:** 2026-07-08
-**Purpose:** The living document for the AV-PDF -> model-workbook extraction pipeline: the methodology we currently believe in (update it when we change our mind) and the chronological development log. Companion documents: `Documentation/ml_extraction_handoff.md` (the worked examples / difficulty ladder shared with Pietro Ramella), `Documentation/city_extraction_catalogue.md` (per-plan extraction status + human collector logs), `Documentation/model_input_dictionary.md` (what each extracted sheet feeds in the model).
+**Purpose:** The living document for the AV-PDF -> model-workbook extraction pipeline: the methodology we currently believe in (update it when we change our mind) and the chronological development log. Companion documents: `assumption_register.md` (THE record of embedded modeling assumptions/decisions awaiting Niccolo's ruling - add to it whenever an extraction embeds a choice), `Documentation/ml_extraction_handoff.md` (the worked examples / difficulty ladder shared with Pietro Ramella), `Documentation/city_extraction_catalogue.md` (per-plan extraction status + human collector logs), `Documentation/model_input_dictionary.md` (what each extracted sheet feeds in the model).
 
 ---
 
@@ -519,3 +519,155 @@ cells (the collector's log said "unclear best way to aggregate" and she never
 did it). sd cannot be scored on this target; rung-2 scoring corpus = phx +
 chi_pol. (A future sd run would be a PRODUCTION-style extraction - output
 with no answer key, reviewable via the audit artifacts.)
+
+### 2026-07-13 (correction) - the two Ret_Rate rules RETRACTED; tier handling is an OPEN DECISION
+I (the assistant) added the tier->service and carry-1.00-forward rules by
+adopting the human collector's approach as template convention - while
+Niccolo was explicitly questioning whether that approach is even right. Both
+rules are removed from targets.json. Correction to the engine claim as well:
+the engine's tier loop swaps COLA/WageYears/BenefitCap/BenefitFactor/
+RetirementStart/NyearFullBenefit per tier, and RetirementRate is a single
+plan-level matrix - so tiers DO get per-tier retirement AGES, but per-tier
+retirement-rate MATRICES have no input slot today. The real world (chi_pol
+p.72) does publish per-tier rate assumptions.
+
+THE OPEN DECISION (Niccolo's):
+A. Keep the engine as-is -> tier-published rates must be folded into ONE
+   service x age matrix -> then choose the folding convention (the human's
+   service-bucket mapping is one candidate; it is only exact near the
+   valuation date - as simulated Tier-2 members accumulate service they
+   would drift into buckets carrying Tier-1 rates).
+B. Extend the engine: swap RetirementRate per tier in the tier loop (like
+   COLA), extraction target becomes per-tier grids. More faithful; touches
+   the verified engine and the template format.
+C. Defer: the archive ALREADY stores both tier columns source-native (the
+   chi_pol run transcribed both), so any folding convention can be
+   re-executed later from the archived transcriptions at zero API cost. Only
+   the derived grid depends on the decision.
+Also open, same question smaller: ages beyond the printed table (chi prints
+50-65 ending at 1.00; the template grid runs to 70) - carry 1.00 forward
+(the human's move), leave empty, or shrink the template's age range.
+
+### 2026-07-13 - Sep_Rate target built (offline-verified); assumption register created
+`assumption_register.md` created (per Niccolo): the single record of embedded
+modeling assumptions/decisions with options, seeded with the tier question
+(deferred - both tier columns archived), ages-beyond-table, the phx Ret_Rate
+deviations, sd's blank Ret_Rate, and the two known workbook defects. The two
+prematurely-added Ret_Rate rules were retracted the same day.
+
+Sep_Rate target (offline work, no live run yet):
+- Template grid confirmed IDENTICAL across phx/chi_pol/sd: ages 25..70 x
+  service cols 1,2,3,4,6,8,10,11,12,30,40. Reverse-engineered the col
+  semantics from BOTH collectors' numbers: spans [1],[2],[3],[4],[5-6],
+  [7-8],[9-10],[11],[12],[13-30],[31-40] - chi's age-70 row proves the
+  averaging (col '6' = mean of source years 5,6) and both collectors dropped
+  source year 0 (register entry 4).
+- targets.json spec written: same declaration machinery as Ret_Rate (spans +
+  overlap_weighted; percent flag; zero_equals_empty because collectors were
+  inconsistent about 0-vs-empty in filler cells) + one new executor step:
+  ops.zero_impossible() (entry-age-20 floor, mode=upper per the phx
+  collector's convention; register entry 4). Rules cover the known source
+  shapes: age x service (phx), service-only -> transpose + copy to all age
+  rows (chi), per-group tables -> transcribe all, flag unblended (sd; the
+  group blend is the rung-3 op).
+- Offline proof (test_ops_phx_seprate.py, hand-transcribed actual p.49
+  table): 87 exact, 1 wrong (the collector's own age-25/col-6 inconsistency),
+  22 missing (her rows 65/70 carried beyond the printed table) - i.e. every
+  cell inside the printed data reproduces exactly and every residual is a
+  known register item. Full regression suite green.
+
+Live runs pending (user): phx, chi_pol, sd Sep_Rate.
+
+### 2026-07-13 - Sep_Rate live runs (all three plans) adjudicated
+- **phx 0.9909:** 109/110 exact; single wrong = the known collector
+  inconsistency (age-25/col-6). CAVEAT: the model declared rows 65/70 <-
+  copy(60) - carrying rates beyond the printed table DESPITE the spec's
+  no-extrapolation rule (instruction miss, but fully visible in the ops
+  audit; matches the collector's move). The derived grid embeds the OPEN
+  carry-forward assumption (register entry 2) - flagged in the register.
+- **chi_pol 0.9767:** transpose + per-year spans + blends all correct; ALL 9
+  residuals are impossibility-convention noise, and they prove the
+  collectors had NO consistent rule (chi's collector emptied attainable
+  cells at ages 30-40 but filled an unattainable one at age 50/svc 31-40).
+  Register entry 4 updated: the convention needs a ruling.
+- **sd 0.2545, as pre-registered:** the model transcribed BOTH group columns
+  (General/Safety), mapped from General, flagged the unblended state. The
+  truth's blend weights VARY BY AGE (age-specific group headcounts) - which
+  pins the spec of the missing rung-3 op: cross-table blend with an
+  age x group headcount weights table; same op shape Avg_Mort needs.
+Sep_Rate verdict: pipeline machinery correct on all three shapes (age x
+service grid / service-only / per-group); remaining gaps are the open
+conventions (register) and the rung-3 blend op.
+
+NEXT: the rung-3 op (cross-table population-weighted blend, weights from a
+headcount table, age-aligned) -> unlocks sd Sep_Rate AND Avg_Mort (the last
+sheet class). Then Retirement (retdist; ops already exist).
+
+### 2026-07-13 - production-mode plans added (cold extraction test)
+Niccolo's call: run the extractor on documents NOBODY pre-extracted, then
+review. Added to the plans registry: aus (Austin COAERS - workbook empty,
+fully cold, GRS), mil (Milwaukee ERS - NOVEL actuarial firm, only
+Age_Serv_Num has truth), bos (Boston SBRS stub, Segal) - all with in-folder
+AVs and healthy text layers (aus 89K / mil 161K / bos ~ tokens).
+run_test.py now handles absent/blank truth: PRODUCTION MODE - artifacts
+saved, no score, review = adjudicate extraction.json + derived.json against
+the PDF; external sanity check available vs PPD actives_tot. Runs pending.
+
+### 2026-07-13 - Milwaukee cold run: cross-table additive sum op built
+First cold-corpus scored anchor: `mil_Age_Serv_Num_20260713_161425` (novel
+AV format, only Age_Serv_Num has truth). Raw score 0.3625 looked bad, but
+adjudication shows a PIPELINE vocabulary gap, not a model failure:
+
+- Stage A found and transcribed the three group-level active-count tables
+  that together cover the whole plan: General Employees (8,442), Policemen
+  (1,827), Firemen (705). All three printed-totals checks passed; total =
+  10,974, matching the workbook.
+- The model's notes said the right deterministic operation: "Code should sum
+  the three source tables cell-wise." But the contract had only
+  `derive=ratio`; `ops.execute()` therefore mapped table 0 only (General),
+  producing total 8,442 and the systematic undercount.
+
+Fix: document-level `derive={"op":"sum","tables":[...]}` added. In sum mode,
+same-shaped additive source tables are summed cell-wise first, then the
+normal row/col maps run once; weighted_avg maps are rejected because this op
+is for additive quantities. `targets.json` Age_Serv_Num now tells the model
+to use derive=sum when a plan-wide count distribution is split across
+same-shaped employee-group tables.
+
+Zero-cost validation: `pipeline/test_ops_mil_counts.py` re-executes the
+archived Milwaukee transcription with `derive=sum(t0,t1,t2)` -> **80/80
+exact (1.0)** vs the human workbook. Printed totals OK on all three group
+tables. This creates no new modeling assumption; it is pure addition of
+published subgroup counts.
+
+### 2026-07-13 - production review: Austin/Milwaukee wage grids flagged, not accepted
+Reviewed the next three out-of-sample artifacts (no new edits during the
+review):
+
+- `mil_Age_Serv_Wage_20260713_164600`: the report does not publish average
+  salary by age x service, nor total salary dollars by age x service. It has
+  age-only earnings/salary summaries and separate age x service count tables.
+  The model first returned the clean "no source table" answer, but the current
+  validator requires a non-empty `source_tables` list, so the retry included a
+  count table as a placeholder and left all mappings empty. `derived.json` is
+  80 null cells. This is a flagged unavailable target, not an accepted wage
+  extraction.
+- `aus_Age_Serv_Num_20260713_164723`: strong production extraction. Table
+  13A is already "All Active Participants" (Groups A/B are subsets), printed
+  totals check out, source service years 0-4 are summed into target col `4`,
+  and the derived active total is 10,149.
+- `aus_Age_Serv_Wage_20260713_164833`: transcription is right but the output
+  is not accepted as final. Table 13A prints one `Average Annual Salary` per
+  age band only; the model copied each age average across every service
+  bucket because the target rule permits copying coarser averages. The 10 age
+  values are internally consistent (count-weighting by the Austin age totals
+  reproduces the printed all-ages salary of $69,715), but the service
+  dimension is not observed.
+
+Niccolo ruling for now: age-only salary evidence must NOT be silently accepted
+as an `Age_Serv_Wage` grid. It should be flagged as an unresolved
+assumption/contract issue until a decision is made. The assumption register
+now has an OPEN entry for this class. Likely future fix: add an explicit
+`unavailable` / `underdetermined` representation, and/or tighten
+Age_Serv_Wage guidance so copying an average across an entirely missing
+dimension is not treated as a valid extraction by default.

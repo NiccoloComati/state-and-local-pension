@@ -78,7 +78,7 @@ RESULT_SCHEMA = {
         "source_tables": {
             "type": "array",
             "items": _TABLE,
-            "description": "index 0 = the main source table; add auxiliary tables (e.g. the counts table when it supplies weights) after it",
+            "description": "index 0 = the main source table; add auxiliary tables (e.g. counts used as weights, or same-shaped subgroup tables to be summed) after it",
         },
         "row_map": {
             "type": "array",
@@ -130,8 +130,18 @@ RESULT_SCHEMA = {
                     "required": ["op", "numerator_table", "denominator_table"],
                     "additionalProperties": False,
                 },
+                {
+                    "type": "object",
+                    "properties": {
+                        "op": {"type": "string", "enum": ["sum"]},
+                        "tables": {"type": "array", "items": {"type": "integer"},
+                                   "minItems": 2},
+                    },
+                    "required": ["op", "tables"],
+                    "additionalProperties": False,
+                },
             ],
-            "description": "null normally. Use {op:'ratio',...} when the document publishes TOTALS instead of the averages the target wants (e.g. total salary dollars + member counts): both tables are aggregated with the same maps (additive ops only) and divided cell-wise by code.",
+            "description": "null normally. Use {op:'ratio',...} when the document publishes TOTALS instead of target averages. Use {op:'sum', tables:[...]} when the additive target is split across same-shaped subgroup tables; code sums them cell-wise before mapping.",
         },
         "transpose": {
             "type": "boolean",
@@ -170,7 +180,10 @@ If the document publishes TOTALS instead of the averages the target wants (e.g. 
 salary dollars per cell plus member counts, but no average-salary exhibit), transcribe \
 BOTH tables and declare derive = {"op": "ratio", "numerator_table": <totals>, \
 "denominator_table": <counts>}: code aggregates both tables with your maps (additive \
-ops only - sum/copy, NOT weighted_avg) and divides cell-wise. Otherwise derive is null. \
+ops only - sum/copy, NOT weighted_avg) and divides cell-wise. If the document publishes \
+an ADDITIVE target (e.g. active member counts) separately by employee group, transcribe \
+all same-shaped group tables and declare derive = {"op": "sum", "tables": [<indices>]}: \
+code sums those tables cell-wise before applying your maps. Otherwise derive is null. \
 If the printed orientation is the reverse of the target's, set transpose=true \
 (transcribe as printed; code transposes; row_map then maps the printed COLUMNS onto \
 target rows). For RATE tables whose bins do not align with the target bins, use op \
@@ -226,12 +239,17 @@ Constraints:
   target's; transcribe as printed, code transposes before mapping.
 - a source table printing percentages gets "values_unit": "percent"
   (numbers still transcribed exactly as printed).
-- "derive" is null UNLESS the document publishes totals instead of the target's
-  averages: then transcribe BOTH tables (same bin labels) and set
+- "derive" is null UNLESS one of these document-level computations is needed:
+  (a) the document publishes totals instead of the target's averages: transcribe
+  BOTH tables (same bin labels) and set
   {"op": "ratio", "numerator_table": <index of the totals table>,
   "denominator_table": <index of the counts table>}. In ratio mode all row ops
   must be additive (sum/copy, never weighted_avg) - code aggregates both
   tables with the same maps, then divides cell-wise (average = total/count).
+  (b) the document publishes an ADDITIVE target split across same-shaped
+  subgroup tables (e.g. General + Police + Fire member counts): transcribe all
+  subgroup tables and set {"op": "sum", "tables": [<indices>]}. In sum mode,
+  table labels must match and all maps must be additive (sum/copy/share_even).
 - If the source table PRINTS totals (a Total column and/or Total row),
   transcribe them into printed_row_totals / printed_col_totals (aligned with
   row_labels / col_labels; null where not printed). They are checked in code
@@ -408,18 +426,36 @@ def validate(result):
         if not isinstance(derive, dict):
             p.append("derive must be null or an object")
         else:
-            if derive.get("op") != "ratio":
-                p.append(f"derive.op {derive.get('op')!r} must be 'ratio'")
-            for key in ("numerator_table", "denominator_table"):
-                v = derive.get(key)
-                if not isinstance(v, int) or not (0 <= v < len(tables)):
-                    p.append(f"derive.{key} must be a valid index into source_tables")
+            dop = derive.get("op")
+            if dop not in ("ratio", "sum"):
+                p.append(f"derive.op {dop!r} must be 'ratio' or 'sum'")
+            if dop == "ratio":
+                for key in ("numerator_table", "denominator_table"):
+                    v = derive.get(key)
+                    if not isinstance(v, int) or not (0 <= v < len(tables)):
+                        p.append(f"derive.{key} must be a valid index into source_tables")
+            elif dop == "sum":
+                table_idxs = derive.get("tables")
+                if (not isinstance(table_idxs, list) or len(table_idxs) < 2
+                        or any(not isinstance(v, int) or not (0 <= v < len(tables))
+                               for v in table_idxs)):
+                    p.append("derive.tables must be a list of at least two valid "
+                             "source_tables indices")
+                elif len(set(table_idxs)) != len(table_idxs):
+                    p.append("derive.tables must not repeat table indices")
+                elif tables:
+                    base = tables[table_idxs[0]]
+                    for v in table_idxs[1:]:
+                        t = tables[v]
+                        if (t.get("row_labels") != base.get("row_labels")
+                                or t.get("col_labels") != base.get("col_labels")):
+                            p.append("derive=sum tables must have identical row_labels "
+                                     "and col_labels")
             for name in ("row_map", "col_map"):
                 for i, e in enumerate(result.get(name, [])):
                     if isinstance(e, dict) and e.get("op") == "weighted_avg":
-                        p.append(f"{name}[{i}]: weighted_avg is not allowed in ratio "
-                                 "mode - use additive ops (sum/copy); code divides the "
-                                 "aggregated tables")
+                        p.append(f"{name}[{i}]: weighted_avg is not allowed in "
+                                 f"{dop} mode - use additive maps")
 
     if not isinstance(result["notes"], str):
         p.append("notes must be a single string (not a list)")
