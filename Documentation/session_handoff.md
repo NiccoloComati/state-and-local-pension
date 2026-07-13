@@ -15,12 +15,51 @@ format guard; the ground-truth errors found; the chi_pol column-shift failure
 and the layout-preserved-text fix that solved it). Run evidence with full API
 records is in `Data Extraction/runs/` (committed - small JSONs).
 
-State as of 2026-07-10: rung-1 scoreboard 4/4 effectively perfect across three
-actuarial firms (phx GRS, sd Cheiron, chi_pol Segal); 2 human ground-truth
-errors found (phx wage typo; sd dropped '70 and up' row); 0 unresolved model
-errors. Next: complete the rung-1 matrix (Age_Serv_Wage on chi_pol/sd), then
-Ret_Rate (rung 2: needs transpose + proportional re-grid ops added to
-ops.py's vocabulary).
+State as of 2026-07-10 (second session, commits 15cb813 + 0219dca, PUSHED):
+- **Rung-1 matrix COMPLETE: 6/6** (phx/chi_pol/sd x Age_Serv_Num/Age_Serv_Wage,
+  three firms), all effectively perfect after adjudication. The two wage runs
+  exposed two PIPELINE VOCABULARY GAPS - both times the model transcribed
+  correctly and flagged the gap itself in notes, and both were fixed +
+  validated at zero API cost from the archived transcriptions:
+  v0.2 = derive:ratio (chi publishes salary TOTALS+counts, no averages;
+  avg = total$/count computed by ops.py) and column weighted_avg (sd merges
+  average columns; count-weighted) + validate() arity enforcement.
+- Ground-truth-error tally: sd's collector dropped '70 and up' on the WAGE
+  sheet too (same error #2); running score 2 human errors vs 1 model error
+  (fixed) vs 2 vocabulary gaps (fixed).
+- **v0.3 = rung-2 machinery BUILT AND EXECUTOR-VERIFIED, live run pending**:
+  transpose, overlap_weighted (model declares source bin SPANS, null=open
+  end; target spans fixed in targets.json; code computes year-overlap
+  weights - the verified 12-19 = 3/8x0+5/8x0.225 = 0.140625 bit-exact),
+  values_unit=percent (code DIVIDES by 100). Ret_Rate target spec complete.
+  test_ops_phx_retrate.py verifies on the hand-transcribed actual phx p.50
+  B.5 table. DISCOVERY: two undocumented human judgment calls in phx
+  Ret_Rate truth - J1: AV prints 100% retirement at age 70, workbook ignores
+  it (carries 66-69 rates); J2: workbook treats '>31' as 31-and-over, not
+  literal 32+. Full details in data_extraction_context.md dev log.
+- GitHub housekeeping: repo renamed to lowercase
+  `state-and-local-pension`; remote URL updated; README mojibake fixed.
+  This machine (the second one) now has pdfplumber + anthropic installed.
+
+**NEXT ACTION (verbatim closing instructions of the 2026-07-10 session, for
+whoever continues - the ONE live call to run, ~$1.5-2, phx is the small doc):**
+
+```powershell
+cd "Data Extraction"
+python pipeline/run_test.py --plan phx --target Ret_Rate
+```
+
+Expectations so you're not alarmed: raw score around **0.95** (if the model
+reads the bins like the human) or **0.86** (literal reading) - either way the
+col-70 "wrong" cells are J1 (the workbook ignoring the AV's printed
+100%-at-70 row), NOT model error. What to look for in the output:
+`transpose: source rows/cols swapped` in the stage-B printout,
+`overlap_weighted` declarations with spans, and where the model lands on the
+'>31' ambiguity (its notes should say). Adjudicate mismatches against the
+PDF as always. After phx: cross-firm `chi_pol` / `sd` Ret_Rate (zero prompt
+changes), then rung 3 (Avg_Mort cross-table blend - needs the
+population-weighted blend op, weights = headcounts from OTHER extracted
+tables).
 
 Environment specifics for this workstream:
 - API goes through MIT Parley: `$env:ANTHROPIC_BASE_URL =

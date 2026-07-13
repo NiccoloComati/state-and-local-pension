@@ -2201,3 +2201,52 @@ an ACTIVE WORKSTREAM section (pipeline state, Parley env specifics, key
 rules); README reading order now points at data_extraction_context.md.
 Committed: pipeline/, runs/ (small JSON evidence), context docs. Heavy stuff
 stays gitignored (Data/, Papers/, media/, Results/Runs/).
+
+## 2026-07-10 (second session, other machine): rung-1 COMPLETE + rung-2 built
+
+Full technical narrative is in `Data Extraction/data_extraction_context.md`
+(dev log entries dated 2026-07-10); this is the session summary. Commits
+`15cb813` (v0.2) and `0219dca` (v0.3), both PUSHED to GitHub.
+
+Machine note: this session ran on the OTHER machine (OneDrive-synced,
+including .git); it needed `pdfplumber` and `anthropic` pip-installed. The
+user runs all live API calls themselves in their own terminal (Parley env
+vars are NOT shared with the assistant's shells - by design).
+
+1. **Rung-1 matrix completed 6/6** (Age_Serv_Wage on chi_pol and sd, live):
+   - chi_pol wages: first run scored 0.0 -> adjudicated as a PIPELINE
+     vocabulary gap, not model error: Segal publishes salary TOTALS + counts
+     (no averages); the model transcribed both correctly and its notes said
+     code must compute total/count, but ops.py had no division op. Fixed:
+     derive={op:ratio,...}. Zero-cost re-execution of the archived
+     transcription: 38/38. Live rerun: model declares ratio UNPROMPTED,
+     38/38 (run chi_pol_Age_Serv_Wage_20260710_123312).
+   - sd wages: crashed the executor -> second vocabulary gap: merging
+     average-salary COLUMNS needs count-weighted column merge; col_map had
+     no weighted_avg. Fixed symmetrically + validate() now enforces arity so
+     illegal declarations are caught in the retry loop. Zero-cost
+     re-execution 52+1/57; live rerun declares col weighted_avg unprompted,
+     same score (run sd_Age_Serv_Wage_20260710_125005). ALL mismatches =
+     ground-truth error #2 again (collector dropped '70 and up' on the wage
+     sheet too; workbook row 70 = source '65 to 69' row verbatim).
+   - totals_check got a relative tolerance (AV printed totals are rounded
+     +-$1 on hundreds of millions) + full-precision diff output.
+2. **Rung-2 machinery (v0.3), executor-verified, live run PENDING**:
+   transpose + overlap_weighted (declared source bin spans; target spans in
+   targets.json; year-overlap weights; the verified 12-19 blend = 0.140625
+   bit-exact) + values_unit=percent (divide by 100, bit-exact vs
+   human-typed decimals). Ret_Rate spec complete in targets.json.
+   test_ops_phx_retrate.py verifies both span readings on the actual p.50
+   B.5 table. DISCOVERED two undocumented judgment calls in phx Ret_Rate
+   truth (J1: printed 100%-at-70 row ignored, 66-69 rates carried; J2:
+   '>31' read as 31-and-over, not literal 32+). With human-implied spans
+   180/189 (only J1 cells differ); literal spans 163/189 (J1+J2 only).
+3. Housekeeping: GitHub repo renamed lowercase `state-and-local-pension`
+   (remote URL updated), README mojibake fixed (em dash, section sign), the
+   previously-unpushed 7ae7e68 pushed.
+
+**NEXT STEP = run live phx Ret_Rate** - the exact command, expected scores,
+and what to check are in session_handoff.md's ACTIVE WORKSTREAM section
+(copied verbatim from the session's closing message, since the user could
+not read it on this machine). Then chi_pol/sd Ret_Rate cross-firm, then
+rung 3 (Avg_Mort blend).
