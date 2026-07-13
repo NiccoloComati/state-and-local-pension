@@ -435,3 +435,41 @@ Expected live phx Ret_Rate raw score: ~0.95 if the model reads the bins like
 the human, ~0.86 literal - either way the col-70 mismatches are J1, NOT
 model error. Adjudicate against the PDF as always. Cross-firm chi_pol/sd
 Ret_Rate after phx.
+
+### 2026-07-13 - FIRST LIVE RUNG-2 RUN (phx Ret_Rate) + overlap-resolution fix (v0.4)
+Live run phx_Ret_Rate_20260713_093322 (this machine; format guard corrected
+19 contract problems on attempt 1 - Parley as usual). Raw 0.778, decomposed:
+
+1. **Transcription: PERFECT.** The 14x4 p.50 B.5 table matches the PDF
+   exactly; transpose, values_unit=percent, and all span declarations correct
+   (notes state '>31' -> [32,null] explicitly - the literal J2 reading).
+2. **col 70 (9 cells): J1 as pre-registered** - model faithfully uses the
+   AV's printed 100%-at-70 row; the workbook ignores it.
+3. **row 31-32 (17 cells): J2 as pre-registered** - literal '>31' span
+   blends 25-31/>31 50-50; the workbook copies '>31'.
+4. **row 12-19 (16 cells): NEW model error class** - the model declared all
+   spans correctly but mapped 12-19 to '<15' ONLY, missing its 15-24 overlap
+   (its own notes say "5-11 and 12-19 fall entirely within '<15'" - a
+   reasoning slip the spans themselves contradict).
+
+Fix (v0.4): **overlap_weighted source sets are now COMPUTED, not trusted.**
+ops.resolve_overlap_sources() pools the declared (bin -> span) pairs per
+axis and derives each target's source set from span arithmetic; the model's
+own set is only an audited hint (run_test prints "[stage B] overlap audit"
+lines when they differ). The model's genuine judgment stays exactly where it
+belongs: what each printed bin MEANS (the span; J2-type ambiguity remains
+visible and auditable). validate() now also rejects a bin declared with two
+different spans (caught in the retry loop, not the executor).
+
+Zero-cost validation: archived run re-executed -> **0.8624 (163/189), the
+exact pre-registered "literal reading" scenario**; audit line fires:
+"12-19: model declared ['<15'] but spans imply ['15-24','<15']". ALL 26
+remaining mismatches = J1 (9) + J2 (17); zero unexplained. Full regression
+suite green (phx counts/wages, chi_pol ratio, sd col-weighted_avg, retrate
+executor test).
+
+Rung-2 verdict: the machinery works end to end live; the one new error class
+found is now structurally eliminated (same pattern as rung 1: model
+transcribes + declares meaning; code does ALL derivation). Next: cross-firm
+Ret_Rate (chi_pol, sd - zero prompt changes), then rung 3 (Avg_Mort
+cross-table blend op).

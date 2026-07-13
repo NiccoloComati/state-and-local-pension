@@ -125,6 +125,11 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
         prepped.append(t)
     source_tables = prepped
 
+    # overlap_weighted source sets are COMPUTED from the declared spans, not
+    # trusted from the model (audit notes available via resolve_overlap_sources)
+    row_map, _ = resolve_overlap_sources(row_map, target_row_spans)
+    col_map, _ = resolve_overlap_sources(col_map, target_col_spans)
+
     if derive:
         if derive.get("op") != "ratio":
             raise ValueError(f"unknown derive op {derive.get('op')!r}")
@@ -153,6 +158,47 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
                 "col_labels": num["col_labels"], "cells": cells}
     return _grid(source_tables, 0, row_map, col_map,
                  target_row_spans, target_col_spans)
+
+
+def resolve_overlap_sources(map_entries, target_spans):
+    """Recompute each overlap_weighted entry's source set from the POOLED span
+    declarations. The model's genuine judgment is what each printed bin MEANS
+    (its span); WHICH bins overlap which target is then pure arithmetic, so it
+    is computed here rather than trusted from the model (live phx Ret_Rate
+    run 2026-07-13: the model declared all spans correctly but mapped target
+    '12-19' to '<15' only, missing its 15-24 overlap - a whole error class
+    this removes). Returns (resolved_entries, audit_notes). Idempotent."""
+    pool = {}
+    for e in map_entries:
+        if e.get("op") == "overlap_weighted":
+            for s, sp in zip(e["sources"], e.get("source_spans") or []):
+                key = str(s).strip()
+                if key in pool and list(pool[key]) != list(sp):
+                    raise ValueError(f"inconsistent spans declared for source bin "
+                                     f"{s!r}: {pool[key]} vs {sp}")
+                pool[key] = list(sp)
+    if not pool or not target_spans:
+        return map_entries, []
+
+    out, notes = [], []
+    for e in map_entries:
+        if e.get("op") != "overlap_weighted" or e["target"] not in target_spans:
+            out.append(e)
+            continue
+        t_span = target_spans[e["target"]]
+        comp = [(lab, sp) for lab, sp in pool.items() if _overlap_years(t_span, sp) > 0]
+        if not comp:
+            notes.append(f"{e['target']}: pooled spans do not cover it; "
+                         "keeping model-declared sources")
+            out.append(e)
+            continue
+        declared = sorted(str(s).strip() for s in e["sources"])
+        if declared != sorted(lab for lab, _ in comp):
+            notes.append(f"{e['target']}: model declared sources {declared} but "
+                         f"spans imply {sorted(l for l, _ in comp)}; using span-computed")
+        out.append(dict(e, sources=[lab for lab, _ in comp],
+                        source_spans=[sp for _, sp in comp]))
+    return out, notes
 
 
 def _overlap_combine(entry, vals, target_spans):

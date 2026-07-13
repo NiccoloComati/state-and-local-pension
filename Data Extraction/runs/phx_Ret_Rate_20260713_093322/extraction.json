@@ -1,0 +1,464 @@
+{
+  "source_tables": [
+    {
+      "page": 50,
+      "title": "Retirement rates - Probability of Retirement (Years of Service)",
+      "row_labels": [
+        "50-51",
+        "52",
+        "53",
+        "54",
+        "55-58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66-69",
+        "70"
+      ],
+      "col_labels": [
+        "<15",
+        "15-24",
+        "25-31",
+        ">31"
+      ],
+      "cells": [
+        [
+          0.0,
+          0.0,
+          40.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          35.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          32.5,
+          32.5
+        ],
+        [
+          0.0,
+          22.5,
+          27.5,
+          32.5
+        ],
+        [
+          0.0,
+          22.5,
+          22.5,
+          32.5
+        ],
+        [
+          0.0,
+          22.5,
+          22.5,
+          42.5
+        ],
+        [
+          10.0,
+          22.5,
+          27.5,
+          42.5
+        ],
+        [
+          17.0,
+          22.5,
+          32.5,
+          42.5
+        ],
+        [
+          17.0,
+          30.0,
+          32.5,
+          42.5
+        ],
+        [
+          17.0,
+          25.0,
+          32.5,
+          42.5
+        ],
+        [
+          17.0,
+          25.0,
+          37.5,
+          42.5
+        ],
+        [
+          30.0,
+          32.5,
+          40.0,
+          42.5
+        ],
+        [
+          25.0,
+          32.5,
+          40.0,
+          42.5
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent"
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [
+        "<15"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          14
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "12-19",
+      "sources": [
+        "<15"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          14
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "20-24",
+      "sources": [
+        "15-24"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          15,
+          24
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "25-29",
+      "sources": [
+        "25-31"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          25,
+          31
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "30",
+      "sources": [
+        "25-31"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          25,
+          31
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "31-32",
+      "sources": [
+        "25-31",
+        ">31"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          25,
+          31
+        ],
+        [
+          32,
+          null
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "33-34",
+      "sources": [
+        ">31"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          32,
+          null
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "35-39",
+      "sources": [
+        ">31"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          32,
+          null
+        ]
+      ],
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        ">31"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          32,
+          null
+        ]
+      ],
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50-51"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          51
+        ]
+      ]
+    },
+    {
+      "target": "51",
+      "sources": [
+        "50-51"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          51
+        ]
+      ]
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55-58"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          58
+        ]
+      ]
+    },
+    {
+      "target": "56",
+      "sources": [
+        "55-58"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          58
+        ]
+      ]
+    },
+    {
+      "target": "57",
+      "sources": [
+        "55-58"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          58
+        ]
+      ]
+    },
+    {
+      "target": "58",
+      "sources": [
+        "55-58"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          58
+        ]
+      ]
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66-69"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          66,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "67",
+      "sources": [
+        "66-69"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          66,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "68",
+      "sources": [
+        "66-69"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          66,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "69",
+      "sources": [
+        "66-69"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          66,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source is the Exhibit on page 50 'Probability of Retirement' printed as Age rows x Years-of-Service columns, the reverse of the target orientation, so transpose=true. After transpose, printed columns (<15, 15-24, 25-31, >31) become rows mapped to target service buckets, and printed age rows become target age columns. Values are percentages (values_unit=percent). Service bin spans: '<15' -> [null,14], '15-24' -> [15,24], '25-31' -> [25,31], '>31' -> [32,null]. Target buckets 5-11 and 12-19 fall entirely within '<15'; 20-24 within '15-24'; 25-29 and 30 within '25-31'; 31-32 spans 25-31 (year 31) and >31 (year 32) so uses overlap_weighted with both spans; 33-34, 35-39, 40 within '>31'. Age columns: single ages inside a printed age group copy that group's rate; ages inside grouped bins (50-51, 55-58, 66-69) use overlap_weighted with the group's span. Table prints no totals."
+}

@@ -2250,3 +2250,14 @@ and what to check are in session_handoff.md's ACTIVE WORKSTREAM section
 (copied verbatim from the session's closing message, since the user could
 not read it on this machine). Then chi_pol/sd Ret_Rate cross-firm, then
 rung 3 (Avg_Mort blend).
+
+### 2026-07-13 rung-2 live run adjudicated; v0.4 overlap-resolution fix; committed
+Continued on the original machine after the 07-10 cross-machine session (all
+offline tests re-verified here first). Live phx Ret_Rate: raw 0.778 ->
+adjudicated exactly to the pre-registered literal scenario after fixing a NEW
+error class (model declared correct spans but mis-derived the 12-19 overlap
+set). v0.4: overlap sets now computed from pooled span declarations
+(ops.resolve_overlap_sources; model set = audited hint; validate() rejects
+inconsistent spans). Archived-run re-exec: 0.8624, all 26 residuals = J1+J2
+human judgment calls, zero unexplained. Full details in
+Data Extraction/data_extraction_context.md dev log.

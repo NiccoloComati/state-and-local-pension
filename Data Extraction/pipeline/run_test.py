@@ -129,6 +129,12 @@ def main():
     print(f"[stage A] notes: {result.get('notes', '')[:400]}")
 
     # ---- stage B: execute the declared operations (deterministic) ----
+    # audit: where the span-computed overlap sets differ from the model's own
+    for kind, m, spans in (("rows", result["row_map"], spec.get("target_row_spans")),
+                           ("cols", result["col_map"], spec.get("target_col_spans"))):
+        _, audit = ops.resolve_overlap_sources(m, spans)
+        for msg in audit:
+            print(f"[stage B] overlap audit ({kind}): {msg}")
     derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
                           derive=result.get("derive"),
                           transpose=result.get("transpose", False),

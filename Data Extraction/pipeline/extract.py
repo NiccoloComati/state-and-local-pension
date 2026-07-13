@@ -378,6 +378,27 @@ def validate(result):
                 p.append(f"{name}[{i}] ({e.get('target')!r}): source_spans only "
                          "belongs on overlap_weighted entries")
 
+    # span consistency: the same source bin must mean the same span everywhere
+    # (the executor pools spans across entries to compute overlap sets)
+    for name in ("row_map", "col_map"):
+        entries = result.get(name)
+        if not isinstance(entries, list):
+            continue
+        pool = {}
+        for e in entries:
+            if not isinstance(e, dict) or e.get("op") != "overlap_weighted":
+                continue
+            srcs, spans = e.get("sources"), e.get("source_spans")
+            if not isinstance(srcs, list) or not isinstance(spans, list):
+                continue
+            for s, sp in zip(srcs, spans):
+                key = str(s).strip()
+                if key in pool and pool[key] != sp:
+                    p.append(f"{name}: source bin {s!r} declared with two different "
+                             f"spans ({pool[key]} vs {sp}) - a printed bin has ONE "
+                             "meaning; declare the same span everywhere")
+                pool[key] = sp
+
     transpose = result.setdefault("transpose", False)   # tolerated if absent
     if not isinstance(transpose, bool):
         p.append("transpose must be a boolean")
