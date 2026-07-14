@@ -2310,3 +2310,18 @@ Reviewed the next out-of-sample runs:
 Next extraction-design issue: add a clean unavailable/underdetermined status
 or tighten `Age_Serv_Wage` guidance so an entirely missing service dimension
 cannot become a neat-looking filled grid without an explicit modeling decision.
+
+### 2026-07-14 second-reviewer adjudication + v0.5 unavailable contract
+Independent re-check of the 2026-07-13 production review confirmed all of its
+claims; new external evidence: PPD fy2019 `actives_tot` matches the extracted
+totals exactly (Milwaukee 10,974; Austin 10,149). Then the extraction-design
+issue flagged above was implemented (offline, zero API cost): Stage A can now
+declare `"unavailable": true` (empty maps, all-null derived grid, notes must
+state what the document publishes instead, related tables archived as
+evidence), and the prompt forbids approximating a missing dimension - the aus
+wage broadcast can no longer happen silently. Validated by
+`Data Extraction/pipeline/test_unavailable.py`, including replaying the
+archived mil wage first attempt; full suite 7/7. The modeling decision (what
+to DO about age-only wage evidence) remains OPEN in the assumption register
+for the coauthor session, applicable later from the archive at zero cost.
+Details: `Data Extraction/data_extraction_context.md` dev log.

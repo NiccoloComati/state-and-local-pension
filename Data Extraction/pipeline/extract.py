@@ -147,6 +147,10 @@ RESULT_SCHEMA = {
             "type": "boolean",
             "description": "true when the printed table's orientation is the REVERSE of the target's (e.g. printed age rows x service cols, target service rows x age cols). Transcribe as printed; code transposes before mapping. When true, row_map maps the printed COLUMNS onto target rows and col_map maps the printed ROWS onto target columns.",
         },
+        "unavailable": {
+            "type": "boolean",
+            "description": "true ONLY when the target quantity does not exist in the document in any derivable form; then row_map/col_map are empty lists and notes explain what the document publishes instead",
+        },
         "notes": {
             "type": "string",
             "description": "every judgment call: why these tables, ambiguities, anything the maps cannot express",
@@ -196,7 +200,13 @@ and set the table's values_unit to "percent" - code does the scaling.
 
 Every target row/column must appear exactly once in the maps, in target-grid order. \
 If data for a target bin does not exist anywhere in the document, give it an empty \
-sources list. Record every judgment call in notes."""
+sources list. If the ENTIRE target (or a whole dimension of its grid) is not published \
+in any derivable form, set "unavailable": true, leave row_map and col_map as EMPTY \
+lists, and use notes to state exactly what the document publishes instead; you may \
+transcribe the closest related tables into source_tables as archived evidence. Never \
+approximate a missing dimension (e.g. copying an age-only average across every service \
+column) - that is a modeling assumption for humans to decide, not an extraction. \
+Record every judgment call in notes."""
 
 
 FORMAT_SPEC = """OUTPUT FORMAT - return ONLY a JSON object with EXACTLY this structure
@@ -257,6 +267,13 @@ Constraints:
   layout interleaves rows or collapses whitespace make it easy to place a
   value one column off, so align each value carefully by its column position.
   Set them to null if the table prints no totals.
+- "unavailable": false normally (may be omitted). Set true ONLY when the
+  target does not exist in the document in any derivable form: then row_map
+  and col_map MUST be EMPTY lists, derive must be null, notes must state what
+  the document publishes instead, and source_tables may hold the closest
+  related tables (transcribed exactly as printed, archived as evidence) or be
+  empty. Never fill a target grid by approximating a dimension the document
+  does not publish.
 - "notes" is a single string."""
 
 
@@ -310,10 +327,21 @@ def validate(result):
     if p:
         return p
 
+    unavailable = result.setdefault("unavailable", False)   # tolerated if absent
+    if not isinstance(unavailable, bool):
+        p.append("unavailable must be a boolean")
+        unavailable = False
+
     tables = result["source_tables"]
-    if not isinstance(tables, list) or not tables:
-        p.append("source_tables must be a non-empty list")
+    if not isinstance(tables, list):
+        p.append("source_tables must be a list")
         tables = []
+    elif not tables and not unavailable:
+        p.append('source_tables is empty - if the target data does not exist in '
+                 'this document in any derivable form, set "unavailable": true '
+                 'with EMPTY row_map/col_map and notes explaining what the '
+                 'document publishes instead; otherwise transcribe the source '
+                 'table(s)')
     for k, t in enumerate(tables):
         if not isinstance(t, dict):
             p.append(f"source_tables[{k}] is not an object")
@@ -352,6 +380,12 @@ def validate(result):
     col_ops = {"copy", "sum", "share_even", "weighted_avg", "overlap_weighted"}
     for name, ops_allowed in (("row_map", row_ops), ("col_map", col_ops)):
         entries = result[name]
+        if unavailable:
+            if entries != []:
+                p.append(f"unavailable=true requires {name} to be an EMPTY list - "
+                         "either the target is derivable (then map it fully) or it "
+                         "is not (then declare no mappings)")
+            continue
         if not isinstance(entries, list) or not entries:
             p.append(f"{name} must be a non-empty list")
             continue
@@ -422,7 +456,9 @@ def validate(result):
         p.append("transpose must be a boolean")
 
     derive = result.setdefault("derive", None)   # tolerated if absent
-    if derive is not None:
+    if unavailable and derive is not None:
+        p.append("unavailable=true requires derive to be null")
+    elif derive is not None:
         if not isinstance(derive, dict):
             p.append("derive must be null or an object")
         else:
@@ -459,6 +495,9 @@ def validate(result):
 
     if not isinstance(result["notes"], str):
         p.append("notes must be a single string (not a list)")
+    elif unavailable and not result["notes"].strip():
+        p.append("unavailable=true requires notes stating what the document "
+                 "publishes instead of the target")
     return p
 
 

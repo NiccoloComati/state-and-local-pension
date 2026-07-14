@@ -671,3 +671,55 @@ now has an OPEN entry for this class. Likely future fix: add an explicit
 `unavailable` / `underdetermined` representation, and/or tighten
 Age_Serv_Wage guidance so copying an average across an entirely missing
 dimension is not treated as a valid extraction by default.
+
+### 2026-07-14 - second-reviewer adjudication of the 2026-07-13 production runs
+Independent re-check of the review above (all claims verified against the
+artifacts and the PDFs, no disagreement with the conclusions):
+- aus Age_Serv_Num: transcription compared cell-for-cell against the printed
+  Table 13A (p.36) - all 120 cells, row totals, and column totals match.
+- External PPD cross-check (ppd-data-latest.xlsx, fy2019 `actives_tot`):
+  Milwaukee 10,974 and Austin 10,149 - both equal the extracted totals
+  exactly. Two fully independent confirmations of the cold count runs.
+- mil Age_Serv_Wage record.json confirms the sequence as described: attempt 0
+  answered honestly with `source_tables: []` ("no data exists to derive
+  average salary by age and service"); the validator's non-empty rule forced
+  the placeholder retry. The contract penalizes the honest answer - the
+  `unavailable` fix in register entry 6 is the right target.
+- One executor consistency note (no current data hits it): in
+  `_sum_tables`, a "*" summed with numbers is silently dropped (5 + "*" = 5),
+  while ratio mode propagates "*". Whether a masked group count should yield
+  "*" or a partial sum is a small open convention; flagged, not changed.
+
+### 2026-07-14 - v0.5: the 'unavailable' contract (the mil wage fix)
+The mil Age_Serv_Wage run exposed a contract defect: the model's FIRST answer
+was the honest one (`source_tables: []`, "no data exists to derive average
+salary by age and service"), but the validator's non-empty rule rejected it
+and the retry was forced to stuff in a placeholder counts table. The contract
+penalized honesty.
+
+Fix (mechanism only - no modeling decision taken):
+- Stage A may now declare `"unavailable": true` when the target (or a whole
+  dimension of its grid) is not published in any derivable form. Requirements
+  enforced by validate(): row_map/col_map EMPTY, derive null, notes must state
+  what the document publishes instead. source_tables MAY carry the closest
+  related tables (transcribed as printed) as archived evidence - so whatever
+  is later decided with the coauthor (broadcast age-only averages, leave
+  blank, other source) can be applied from the archive at zero API cost.
+- The prompt now explicitly forbids approximating a missing dimension (e.g.
+  copying an age-only average across every service column, as the aus wage
+  run did) - per the standing ruling in register entry 6 these outputs are
+  flagged, not accepted.
+- The old failure's validator message now routes the retry to the fix: an
+  empty source_tables without the flag tells the model to declare
+  unavailable properly.
+- Stage B (`run_test.py`) skips execution and derives `ops.empty_grid()` -
+  the all-null template grid - and says loudly that the missing data is an
+  assumption-register item. Scoring still runs where truth exists, so a lazy
+  unavailable is punished: vs the filled mil counts sheet an empty grid
+  scores 0.275 (only the literal-zero cells match under the 0-equals-empty
+  counts convention; all 58 data cells score missing).
+
+Zero-cost validation: `pipeline/test_unavailable.py` - clean declarations
+accepted (with and without evidence tables), half-states rejected (maps/
+derive/blank notes), and the ARCHIVED mil attempt-0 response now receives the
+unavailable guidance. Full regression suite still green (6/6 executor tests).

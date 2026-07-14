@@ -60,18 +60,27 @@ Current 2026-07-13 delta (details in `data_extraction_context.md`):
   The Austin wage grid copied each age average across service buckets; that
   is now an OPEN assumption/contract issue in `assumption_register.md`.
 
-**NEXT ACTION:** before accepting production `Age_Serv_Wage` grids with a
-missing service dimension, decide/implement the representation for
-unavailable or underdetermined targets. The likely code/design fix is an
-explicit unavailable status and/or stricter `Age_Serv_Wage` guidance so
-age-only salaries cannot be silently copied across service without a named
-modeling decision. After that, continue out-of-sample review; `derive=sum` is
-ready for additive subgroup counts, while group-weighted rates/Avg_Mort still
-need the rung-3 population-weighted blend op.
+2026-07-14 delta: the `unavailable` contract landed (v0.5, offline, zero API
+cost): Stage A can now declare a target not derivable (empty maps, all-null
+grid, notes stating what the document publishes instead, evidence tables
+archived), the prompt forbids approximating a missing dimension (the aus
+wage broadcast can no longer happen), and the old mil-wage failure is a
+regression test (`pipeline/test_unavailable.py`; suite 7/7). Assumption
+decisions stay parked in `assumption_register.md` for the coauthor session -
+the register is the agenda, nothing is blocked by deferral.
+
+**NEXT ACTION (agreed order, one item at a time to spare the API budget):**
+1. Build the rung-3 op: cross-table population-weighted blend (age-varying
+   headcount weights). Spec pinned by sd Sep_Rate; same shape needed by
+   Avg_Mort. Validate at zero API cost against the archived sd transcription.
+2. Remaining cold runs when Niccolo runs them: bos counts/wage, then
+   Ret_Rate/Sep_Rate on aus/mil (stresses rung-2 machinery out-of-sample).
+3. New targets after the blend op: Avg_Mort, then Retirement (retdist).
 
 ```powershell
 cd "Data Extraction"
-# paste/review the new run folders first; do not spend another API call unless needed
+python pipeline/run_test.py --plan bos --target Age_Serv_Num
+python pipeline/run_test.py --plan bos --target Age_Serv_Wage
 ```
 
 Environment specifics for this workstream:

@@ -423,6 +423,14 @@ def _grid(source_tables, main_index, row_map, col_map,
     return {"row_labels": row_labels, "col_labels": col_labels, "cells": cells}
 
 
+def empty_grid(row_labels, col_labels):
+    """All-null grid in the template shape - the honest derived result when
+    Stage A declares the target unavailable in the document. Any transcribed
+    evidence tables stay archived in extraction.json for later decisions."""
+    return {"row_labels": list(row_labels), "col_labels": list(col_labels),
+            "cells": [[None] * len(col_labels) for _ in row_labels]}
+
+
 def totals_check(table, tol=0.5, rel_tol=1e-5):
     """Verify the transcription against the table's PRINTED totals (if any).
 

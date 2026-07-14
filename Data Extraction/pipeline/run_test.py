@@ -143,26 +143,34 @@ def main():
     print(f"[stage A] notes: {result.get('notes', '')[:400]}")
 
     # ---- stage B: execute the declared operations (deterministic) ----
-    # audit: where the span-computed overlap sets differ from the model's own
-    for kind, m, spans in (("rows", result["row_map"], spec.get("target_row_spans")),
-                           ("cols", result["col_map"], spec.get("target_col_spans"))):
-        _, audit = ops.resolve_overlap_sources(m, spans)
-        for msg in audit:
-            print(f"[stage B] overlap audit ({kind}): {msg}")
-    derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
-                          derive=result.get("derive"),
-                          transpose=result.get("transpose", False),
-                          target_row_spans=spec.get("target_row_spans"),
-                          target_col_spans=spec.get("target_col_spans"),
-                          to_decimal=spec.get("convert_percent_to_decimal", False),
-                          zero_impossible_cfg=spec.get("zero_impossible_cells"))
+    if result.get("unavailable"):
+        print("[stage B] TARGET DECLARED UNAVAILABLE in this document - no mapping")
+        print("          exists; derived.json is the empty template grid. Any tables")
+        print("          above are archived evidence only (extraction.json). What to")
+        print("          do about the missing data is an assumption_register.md item.")
+        derived = ops.empty_grid(spec["grid"]["row_labels"], spec["grid"]["col_labels"])
+    else:
+        # audit: where the span-computed overlap sets differ from the model's own
+        for kind, m, spans in (("rows", result["row_map"], spec.get("target_row_spans")),
+                               ("cols", result["col_map"], spec.get("target_col_spans"))):
+            _, audit = ops.resolve_overlap_sources(m, spans)
+            for msg in audit:
+                print(f"[stage B] overlap audit ({kind}): {msg}")
+        derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
+                              derive=result.get("derive"),
+                              transpose=result.get("transpose", False),
+                              target_row_spans=spec.get("target_row_spans"),
+                              target_col_spans=spec.get("target_col_spans"),
+                              to_decimal=spec.get("convert_percent_to_decimal", False),
+                              zero_impossible_cfg=spec.get("zero_impossible_cells"))
     with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
         json.dump(derived, fh, indent=2)
-    print("[stage B] declared operations:")
-    for line in ops.summarize(result["row_map"], result["col_map"],
-                              derive=result.get("derive"),
-                              transpose=result.get("transpose", False)):
-        print(f"    {line}")
+    if not result.get("unavailable"):
+        print("[stage B] declared operations:")
+        for line in ops.summarize(result["row_map"], result["col_map"],
+                                  derive=result.get("derive"),
+                                  transpose=result.get("transpose", False)):
+            print(f"    {line}")
 
     # ---- score the derived grid against the human workbook (if one exists) ----
     truth = None
