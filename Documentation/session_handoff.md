@@ -69,16 +69,30 @@ regression test (`pipeline/test_unavailable.py`; suite 7/7). Assumption
 decisions stay parked in `assumption_register.md` for the coauthor session -
 the register is the agenda, nothing is blocked by deferral.
 
+2026-07-14 delta (second session): **the rung-3 op is DONE (v0.6, offline,
+zero API cost)**: `group_weighted` population blend (sources = group
+rows/cols; per-source transcribed headcount weight tables; span-matched
+weight lookup via new per-table row_spans/col_spans; single-axis weight
+tables broadcast). Verified: sd Sep_Rate re-derivation 98/110 with ALL
+residuals one register-4 convention (weight bucket for aggregate service
+cols) - the sd collector's recipe was reverse-engineered exactly (JOINT
+age x service-bucket counts from A-9/A-11, single-year col semantics); phx
+mortality ladder value reproduced to the last digit
+(0.0014591621621621621). transpose is now main-table-only (aux tables keep
+printed orientation). Suite 9/9.
+
 **NEXT ACTION (agreed order, one item at a time to spare the API budget):**
-1. Build the rung-3 op: cross-table population-weighted blend (age-varying
-   headcount weights). Spec pinned by sd Sep_Rate; same shape needed by
-   Avg_Mort. Validate at zero API cost against the archived sd transcription.
-2. Remaining cold runs when Niccolo runs them: bos counts/wage, then
+1. LIVE sd Sep_Rate rerun (~$1.5-2) - does the model declare group_weighted
+   + weight tables + spans unprompted? Adjudicate vs register entry 4.
+2. Avg_Mort target spec (offline: template grid semantics + rules; blend op
+   ready) - then live phx Avg_Mort (the rung-3 ladder case end to end).
+3. Remaining cold runs when Niccolo runs them: bos counts/wage, then
    Ret_Rate/Sep_Rate on aus/mil (stresses rung-2 machinery out-of-sample).
-3. New targets after the blend op: Avg_Mort, then Retirement (retdist).
+4. Then Retirement (retdist) - ops already exist.
 
 ```powershell
 cd "Data Extraction"
+python pipeline/run_test.py --plan sd --target Sep_Rate
 python pipeline/run_test.py --plan bos --target Age_Serv_Num
 python pipeline/run_test.py --plan bos --target Age_Serv_Wage
 ```

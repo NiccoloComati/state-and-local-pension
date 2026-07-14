@@ -26,10 +26,28 @@ Contract executed:
                   sum mode: some AVs publish the ADDITIVE target separately
                   by employee group. Same-shaped source tables are summed
                   cell-wise first, then the normal maps run once.
-  transpose     : bool (default false). The table is TRANSCRIBED as printed;
-                  code transposes it before mapping. With transpose=true,
-                  row_map maps the printed COLUMNS onto target rows and
-                  col_map maps the printed ROWS onto target columns.
+  transpose     : bool (default false). The MAIN table (source_tables[0]) is
+                  TRANSCRIBED as printed; code transposes it before mapping.
+                  With transpose=true, row_map maps the printed COLUMNS onto
+                  target rows and col_map maps the printed ROWS onto target
+                  columns. Auxiliary tables (weights etc.) are NOT transposed
+                  - they are used in their printed orientation.
+  group_weighted (rung-3 op, rows and cols): population-weighted blend of
+                  group rows/columns (e.g. General/Safety termination rates;
+                  pre/post-retirement mortality). Each source gets its own
+                  weights table ("weights_tables", aligned with sources) - a
+                  transcribed headcount table. The weight for output cell
+                  (row r, col c) is looked up in that table at the bin
+                  containing (r, c): exact label match, or span containment
+                  via the table's declared row_spans/col_spans and the target
+                  spans; a partial overlap contributes proportionally
+                  (|bin ∩ target| / |bin| of the bin's count). Single-row or
+                  single-column weight tables broadcast along the missing
+                  axis. value = sum(w_s * v_s) / sum(w_s).
+  row_spans / col_spans (per table, optional): numeric [lo, hi] semantics of
+                  the table's printed bin labels (null = open end), aligned
+                  with row_labels/col_labels. Needed when a weights table's
+                  bins must be matched against target coordinates.
   overlap_weighted (rung-2 op, rows and cols): re-grid RATES across
                   non-aligned bins. The map entry carries "source_spans"
                   (numeric [lo, hi] per source label, null = open end); the
@@ -84,7 +102,57 @@ def _transpose_table(table):
                   for j in range(ncols)]
     t["printed_row_totals"] = table.get("printed_col_totals")
     t["printed_col_totals"] = table.get("printed_row_totals")
+    t["row_spans"], t["col_spans"] = table.get("col_spans"), table.get("row_spans")
     return t
+
+
+def _span_frac(bin_span, q_span):
+    """Fraction of a bin's population attributable to the query span,
+    assuming uniform distribution within the bin: |bin ∩ query| / |bin|."""
+    b_lo = 0 if bin_span[0] is None else bin_span[0]
+    b_hi = SPAN_MAX if bin_span[1] is None else bin_span[1]
+    q_lo = 0 if q_span[0] is None else q_span[0]
+    q_hi = SPAN_MAX if q_span[1] is None else q_span[1]
+    overlap = max(0, min(b_hi, q_hi) - max(b_lo, q_lo) + 1)
+    width = b_hi - b_lo + 1
+    return overlap / width if width > 0 else 0.0
+
+
+def _axis_match(labels, spans, q_label, q_span, table_title, axis):
+    """Match a query coordinate against a table axis.
+
+    Returns [(index, fraction)]. Single-entry axes broadcast (fraction 1).
+    Exact label match wins; otherwise spans on both sides are required."""
+    if len(labels) == 1:
+        return [(0, 1.0)]
+    ql = str(q_label).strip()
+    for i, lab in enumerate(labels):
+        if str(lab).strip() == ql:
+            return [(i, 1.0)]
+    if not spans or q_span is None:
+        raise ValueError(
+            f"group_weighted: cannot match {axis} {q_label!r} in weights table "
+            f"{table_title!r} - no exact label match and no spans declared "
+            f"(the weights table needs {axis}_spans, and the target needs spans)")
+    out = [(i, _span_frac(s, q_span)) for i, s in enumerate(spans) if s is not None]
+    return [(i, f) for i, f in out if f > 0]
+
+
+def _group_weight(wt, q_row_label, q_row_span, q_col_label, q_col_span):
+    """Population weight for one output coordinate from one weights table:
+    sum of the table's counts, proportionally attributed to the query cell."""
+    rows = _axis_match(wt["row_labels"], wt.get("row_spans"), q_row_label,
+                       q_row_span, wt.get("title", "?"), "row")
+    cols = _axis_match(wt["col_labels"], wt.get("col_spans"), q_col_label,
+                       q_col_span, wt.get("title", "?"), "col")
+    w = 0.0
+    for i, fr in rows:
+        row = wt["cells"][i]
+        for j, fc in cols:
+            v = row[j] if j < len(row) else None
+            if _num(v):
+                w += v * fr * fc
+    return w
 
 
 def _percent_to_decimal(table):
@@ -183,15 +251,16 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
     aggregates BOTH tables with the same maps (additive ops only) and divides
     cell-wise (average = total$/count). derive={"op": "sum", "tables": [...]}
     sums same-shaped additive tables cell-wise before mapping.
-    transpose: transpose every source table before mapping (see module doc).
+    transpose: transpose the MAIN table before mapping (aux tables stay as
+    printed; see module doc).
     target_*_spans: {target_label: [lo, hi]} template bin semantics, required
     by overlap_weighted entries (from targets.json, NOT model-declared).
     to_decimal: scale tables declaring values_unit=="percent" by 0.01."""
     prepped = []
-    for t in source_tables:
+    for k, t in enumerate(source_tables):
         if to_decimal and t.get("values_unit") == "percent":
             t = _percent_to_decimal(t)
-        if transpose:
+        if transpose and k == 0:   # main table only; aux tables stay as printed
             t = _transpose_table(t)
         prepped.append(t)
     source_tables = prepped
@@ -208,9 +277,9 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
         if op == "ratio":
             for m, kind in ((row_map, "row"), (col_map, "col")):
                 for e in m:
-                    if e["op"] == "weighted_avg":
+                    if e["op"] in ("weighted_avg", "group_weighted"):
                         raise ValueError(
-                            f"{kind} {e['target']}: weighted_avg is not allowed in ratio "
+                            f"{kind} {e['target']}: {e['op']} is not allowed in ratio "
                             "mode (both tables aggregate additively, then divide)")
             num = _grid(source_tables, derive["numerator_table"], row_map, col_map,
                         target_row_spans, target_col_spans)
@@ -232,9 +301,9 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
         else:
             for m, kind in ((row_map, "row"), (col_map, "col")):
                 for e in m:
-                    if e["op"] == "weighted_avg":
+                    if e["op"] in ("weighted_avg", "group_weighted"):
                         raise ValueError(
-                            f"{kind} {e['target']}: weighted_avg is not allowed in sum "
+                            f"{kind} {e['target']}: {e['op']} is not allowed in sum "
                             "mode (sum mode is for additive tables)")
             summed = _sum_tables(source_tables, derive["tables"])
             out = _grid([summed], 0, row_map, col_map,
@@ -310,6 +379,34 @@ def _overlap_combine(entry, vals, target_spans):
     return (num / den) if den else ("*" if "*" in vals else None)
 
 
+def _col_span(table, c_label):
+    """The declared span of one of a table's columns, if any."""
+    spans = table.get("col_spans")
+    if not spans:
+        return None
+    cl = str(c_label).strip()
+    for lab, s in zip(table["col_labels"], spans):
+        if str(lab).strip() == cl:
+            return s
+    return None
+
+
+def _blend(entry, vals, weight_of):
+    """Population-weighted blend: sum(w_s*v_s)/sum(w_s) over numeric sources."""
+    wts = entry.get("weights_tables")
+    if not isinstance(wts, list) or len(wts) != len(entry["sources"]):
+        raise ValueError(f"{entry['target']}: group_weighted needs weights_tables "
+                         "aligned with sources")
+    num, den = 0.0, 0.0
+    for s, v, k in zip(entry["sources"], vals, wts):
+        if not _num(v):
+            continue
+        w = weight_of(s, k)
+        num += v * w
+        den += w
+    return (num / den) if den else ("*" if "*" in vals else None)
+
+
 def _stage1(source_tables, table, row_map, target_spans=None):
     """Row combination for one table -> {(target_row, source_col): value}."""
     ridx, cidx = _index(table["row_labels"]), _index(table["col_labels"])
@@ -345,6 +442,11 @@ def _stage1(source_tables, table, row_map, target_spans=None):
                 out = (num / den) if den else ("*" if "*" in vals else None)
             elif op == "overlap_weighted":
                 out = _overlap_combine(rm, vals, target_spans)
+            elif op == "group_weighted":
+                q_row_span = (target_spans or {}).get(rm["target"])
+                c_span = _col_span(table, c_label)
+                out = _blend(rm, vals, lambda s, k: _group_weight(
+                    source_tables[k], rm["target"], q_row_span, c_label, c_span))
             else:
                 raise ValueError(f"unknown row op {op!r}")
             inter[(rm["target"], str(c_label).strip())] = out
@@ -415,6 +517,10 @@ def _grid(source_tables, main_index, row_map, col_map,
                 out = (num / den) if den else ("*" if "*" in vals else None)
             elif op == "overlap_weighted":
                 out = _overlap_combine(cm, vals, target_col_spans)
+            elif op == "group_weighted":
+                q_row_span = (target_row_spans or {}).get(r)
+                out = _blend(cm, vals, lambda s, k: _group_weight(
+                    source_tables[k], r, q_row_span, s, _col_span(main, s)))
             else:
                 raise ValueError(f"unknown col op {op!r}")
             row_out.append(out)
@@ -497,6 +603,8 @@ def summarize(row_map, col_map, derive=None, transpose=False):
         elif e["op"] == "overlap_weighted":
             spans = e.get("source_spans") or []
             extra = " spans=" + ",".join(f"[{s[0]},{s[1]}]" for s in spans)
+        elif e["op"] == "group_weighted":
+            extra = " weights=" + ",".join(f"t{k}" for k in e.get("weights_tables", []))
         lines.append(f"{kind} {e['target']!r} <- {e['op']}({', '.join(e['sources'])}){extra}")
 
     for rm in row_map:

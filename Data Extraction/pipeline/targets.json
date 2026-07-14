@@ -411,7 +411,7 @@
       "Rates are INTENSIVE: never sum. Use overlap_weighted with declared source spans wherever source bins and target bins are not identical (both axes); single-point targets inside a source bin copy its rate.",
       "Declare every source bin's span from its printed label ('5+' or '14 +' -> [5, null] / [14, null]; single years -> [n, n]).",
       "If values are printed as percentages set values_unit='percent'; if already decimals, do not.",
-      "If separation is published in SEPARATE TABLES per employee group (e.g. General vs Safety, Police vs Fire), transcribe ALL group tables (and the headcount tables that would weight them) and say so in notes - the group-blend operation is not yet implemented, so mapping should reference the largest/primary group's table and notes must flag the unblended groups.",
+      "If separation is published PER EMPLOYEE GROUP (e.g. General vs Safety columns or separate Police/Fire tables), transcribe the rate table(s) AND each group's headcount distribution table (with row_spans/col_spans declaring its printed bins), then blend with op 'group_weighted': sources = the group rows/columns, weights_tables = one headcount-table index per source. Code looks each group's population up at the output cell's coordinates and computes the population-weighted rate.",
       "Do not extrapolate beyond the printed table: target ages or service bins with no printed source get empty sources and an explanation in notes.",
       "Cells impossible under an entry-age floor (service > age - 20) are zeroed by code, not by you."
     ]

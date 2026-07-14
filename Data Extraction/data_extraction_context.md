@@ -723,3 +723,61 @@ Zero-cost validation: `pipeline/test_unavailable.py` - clean declarations
 accepted (with and without evidence tables), half-states rejected (maps/
 derive/blank notes), and the ARCHIVED mil attempt-0 response now receives the
 unavailable guidance. Full regression suite still green (6/6 executor tests).
+
+### 2026-07-14 - v0.6: the rung-3 op (group_weighted population blend), offline-verified
+The cross-table population-weighted blend - the op sd Sep_Rate pinned and
+Avg_Mort needs - is built and verified at zero API cost.
+
+**First, the sd truth's recipe was reverse-engineered exactly** (solve
+a = (truth - rS)/(rG - rS) per cell from the archived B-2 transcription):
+the collector blended General/Safety rates with JOINT (age-bin x
+service-bin) headcounts from Tables A-9/A-11 (p.45/46) - a(25, svc 1-4) =
+27/(27+194) = 0.1222, a(30, 10-14) = 38/(38+85) = 0.3089, confirmed against
+the printed tables - and mapped each template service col from a SINGLE
+source year (col '6' <- year 6, more evidence on register entry 4's
+col-semantics question).
+
+**The op (v0.6), zero model arithmetic as always:**
+- `group_weighted` (row_map AND col_map): sources = the group rows/columns;
+  `weights_tables` = one source_tables index PER source, each a transcribed
+  headcount table. The weight for output cell (r, c) is the group's
+  population at that cell's coordinates: exact label match, or span
+  containment via the weight table's declared `row_spans`/`col_spans` (NEW
+  optional per-table fields - the model declares printed bin semantics, code
+  does the matching) against the target spans; partial bins contribute
+  |bin ∩ query|/|bin| of their count (common factors cancel in the blend).
+  Single-row/column weight tables broadcast along the missing axis.
+  value = sum(w_s*v_s)/sum(w_s).
+- `transpose` semantics FIXED to main-table-only: aux tables (weights) keep
+  their printed orientation (transposing them would flip the axes under the
+  weight lookup). No archived case relied on aux transposition.
+- Rejected in ratio/sum modes (additive-only, like weighted_avg); validate()
+  enforces weights_tables alignment/indices and per-table span shape;
+  old-shape responses stay valid.
+
+**Zero-cost verification:**
+- `test_ops_sd_seprate_blend.py` (hand-transcribed ACTUAL B-2 + A-9 + A-11):
+  97 exact + 1 close of 110 vs the sd workbook, joint-count shares
+  reproduced exactly; ALL 12 remaining mismatches are cols '30'/'40' - the
+  collector weighted those by the single count bucket containing year 30/40
+  while the op uses the value's source-bin span ('20+'); a weight-bucket
+  convention within register entry 4, both variants re-derivable.
+  (Baseline before the op: 0.2545 unblended.)
+- `test_ops_phx_mort_blend.py`: the rung-3 LADDER case - one group_weighted
+  entry with sources [Pre-M, Pre-F, Post-M, Post-F] and weights
+  [actives, actives, retirees, retirees] reproduces the verified phx
+  unisex mortality blend to the last digit (age 50:
+  0.0014591621621621621; the M/F simple average is absorbed by weight
+  scale invariance: [n,n,m,m] weights ≡ (M+F)/2 then n:m blend).
+- Full suite green: 9/9 executor tests (incl. all pre-existing).
+
+Register updated (entry 4): the sd recipe evidence + the cols-30/40
+weight-bucket convention question. targets.json Sep_Rate per-group rule now
+declares the blend instead of flagging unblended output.
+
+NEXT: (a) live sd Sep_Rate rerun - tests whether the model declares
+group_weighted + weight tables + spans unprompted (the derived grid embeds
+whichever conventions - adjudicate per register); (b) the Avg_Mort target
+spec (grid semantics from the template workbook + rules; the blend op and
+the percent/spans machinery are ready); (c) the remaining cold runs (bos,
+aus/mil rung-2 targets).

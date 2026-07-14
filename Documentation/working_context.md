@@ -2325,3 +2325,32 @@ archived mil wage first attempt; full suite 7/7. The modeling decision (what
 to DO about age-only wage evidence) remains OPEN in the assumption register
 for the coauthor session, applicable later from the archive at zero cost.
 Details: `Data Extraction/data_extraction_context.md` dev log.
+
+## 2026-07-14 (second session, first machine): rung-3 op built (v0.6)
+
+Context recovery first: the previous session ended at a usage limit; verified
+nothing was lost (all docs current through v0.5, working tree clean) - the
+only gap was 3 unpushed commits, pushed at session start. Also fixed the
+README title mojibake and updated the git remote to the renamed lowercase
+GitHub URL (repo rename redirected pushes; both now clean).
+
+Then executed next-action #1, entirely offline (zero API cost):
+- Reverse-engineered the sd Sep_Rate truth: the collector blended
+  General/Safety B-2 rates with JOINT (age-bin x service-bin) headcounts
+  from Tables A-9/A-11, single-source-year column semantics. Confirmed
+  exactly (a(25, svc1-4) = 27/221 etc.).
+- Built `group_weighted` (v0.6): population-weighted blend of group
+  rows/columns; per-source transcribed headcount weight tables; weight
+  looked up at the output cell's coordinates via new per-table
+  row_spans/col_spans declarations (span containment, proportional partial
+  bins, single-axis broadcast). transpose fixed to main-table-only so weight
+  tables keep their printed orientation. Contract + validate() extended;
+  old-shape responses stay valid.
+- Verified offline: sd Sep_Rate re-derivation 97 exact + 1 close of 110
+  (was 0.2545 unblended) with ALL residuals = one register-4 convention
+  (weight bucket for aggregate service cols '30'/'40'); phx mortality
+  ladder value reproduced to the last digit. Full suite 9/9.
+- Register entry 4 updated with the recipe evidence; targets.json Sep_Rate
+  now declares the blend; dev log has the full entry; session_handoff
+  NEXT ACTION updated (1: live sd Sep_Rate rerun, 2: Avg_Mort target spec,
+  3: bos/aus/mil cold runs, 4: Retirement).
