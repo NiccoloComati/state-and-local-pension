@@ -9,12 +9,21 @@ Contract executed:
                   the main table; others are auxiliaries, e.g. counts used as
                   weights for a wage table)
   row_map       : [{target, sources: [source row labels], op, weights_table}]
-                  op: "copy" | "sum" | "weighted_avg"
-                  weights_table: index into source_tables (weighted_avg only)
-  col_map       : [{target, sources: [source col labels], op, weights_table}]
                   op: "copy" | "sum" | "share_even" | "weighted_avg"
+                  weights_table: index into source_tables (weighted_avg only)
+                  share_even splits a printed row bucket evenly across every
+                  row_map entry that references it (e.g. '90 & Up' counts
+                  split across 90-94/95-99/100+ - the collectors' documented
+                  "split the age buckets evenly" convention)
+  col_map       : [{target, sources: [source col labels], op, weights_table}]
+                  op: "copy" | "sum" | "share_even" | "weighted_avg" | "ratio"
                   weighted_avg merges source COLUMNS of an averages table
                   (weights = the counts table, row-aggregated first)
+                  ratio takes exactly two sources [numerator, denominator]:
+                  value = numerator/denominator per row (average = total
+                  dollars / member count when the source prints totals beside
+                  counts). Row share_even divides BOTH columns by the split
+                  count, so the ratio reproduces the bucket average exactly.
   derive        : null | {op: "ratio", numerator_table, denominator_table}
                        | {op: "sum", tables: [i, j, ...]}
                   ratio mode: some AVs publish TOTALS (e.g. total salary
@@ -277,7 +286,7 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
         if op == "ratio":
             for m, kind in ((row_map, "row"), (col_map, "col")):
                 for e in m:
-                    if e["op"] in ("weighted_avg", "group_weighted"):
+                    if e["op"] in ("weighted_avg", "group_weighted", "ratio"):
                         raise ValueError(
                             f"{kind} {e['target']}: {e['op']} is not allowed in ratio "
                             "mode (both tables aggregate additively, then divide)")
@@ -412,6 +421,15 @@ def _blend(entry, vals, weight_of):
 def _stage1(source_tables, table, row_map, target_spans=None):
     """Row combination for one table -> {(target_row, source_col): value}."""
     ridx, cidx = _index(table["row_labels"]), _index(table["col_labels"])
+
+    # how many share_even targets reference each source row (the split-open-
+    # bucket rule, e.g. a printed '90 & Up' row split across 90-94/95-99/100+)
+    share_n = {}
+    for rm in row_map:
+        if rm["op"] == "share_even":
+            for s in rm["sources"]:
+                share_n[s] = share_n.get(s, 0) + 1
+
     inter = {}
     for rm in row_map:
         op = rm["op"]
@@ -429,6 +447,11 @@ def _stage1(source_tables, table, row_map, target_spans=None):
                 if len(rm["sources"]) > 1:
                     raise ValueError(f"row {rm['target']}: copy with multiple sources")
                 out = vals[0] if vals else None
+            elif op == "share_even":
+                if len(rm["sources"]) != 1:
+                    raise ValueError(f"row {rm['target']}: share_even takes one source")
+                v = vals[0]
+                out = v / share_n[rm["sources"][0]] if _num(v) else v
             elif op == "sum":
                 nums = [v for v in vals if _num(v)]
                 out = sum(nums) if nums else ("*" if "*" in vals else None)
@@ -506,6 +529,17 @@ def _grid(source_tables, main_index, row_map, col_map,
                     raise ValueError(f"col {cm['target']}: share_even takes one source")
                 v = vals[0]
                 out = v / share_n[cm["sources"][0]] if _num(v) else v
+            elif op == "ratio":
+                if len(cm["sources"]) != 2:
+                    raise ValueError(f"col {cm['target']}: ratio takes exactly two "
+                                     "sources [numerator, denominator]")
+                nv, dv = vals
+                if nv == "*" or dv == "*":
+                    out = "*"
+                elif _num(nv) and _num(dv) and dv != 0:
+                    out = nv / dv
+                else:
+                    out = None
             elif op == "weighted_avg":
                 wgrid = w_inter[cm["weights_table"]]
                 num, den = 0.0, 0.0
@@ -525,6 +559,11 @@ def _grid(source_tables, main_index, row_map, col_map,
                     source_tables[k], r, q_row_span, s, _col_span(main, s)))
             else:
                 raise ValueError(f"unknown col op {op!r}")
+            # declared monthly -> annual conversion (source prints monthly
+            # benefit dollars, target wants annual): x12, adopted collector
+            # convention - see assumption_register.md
+            if cm.get("annualize_monthly") and _num(out):
+                out = out * 12
             row_out.append(out)
         cells.append(row_out)
 

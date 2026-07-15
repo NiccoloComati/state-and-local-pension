@@ -879,3 +879,45 @@ All three rungs of the difficulty ladder are now live-proven. Remaining
 live items: bos counts/wage cold runs; aus/mil rung-2/3 targets; sd
 Sep_Rate confirm rerun. Remaining build item: Retirement (retdist) target
 spec - ops all exist.
+
+### 2026-07-15 - v0.8: Retirement (retdist) target spec - the LAST sheet class, executor-proven on TWO truths
+The last model-relevant sheet. Template confirmed from the workbooks: 11 age
+bands (50-54 ... 100 & over) x [Number, AverageBenefit]; ground truth exists
+in FOUR workbooks (phx, chi_pol, sd, mil - bos blank -> production mode), the
+richest scoring base of any target.
+
+**Recipes recovered from the truths (all dollar products integer-exact):**
+- phx: Exhibit F.6 (p.41) SERVICE-RETIREE columns only (same population
+  convention as the Avg_Mort weights); AverageBenefit = printed total annual
+  dollars / count; '<55' -> '50-54'; '90 & Up' split evenly across the three
+  90+ rows with the bucket average on each.
+- mil: three GROUP tables (General/Police/Fire, pp.80-82), counts and MONTHLY
+  dollars M/F/Total; the workbook = groups summed, x12, avg = dollars/count,
+  '59 & Under' split across 50-54/55-59 AND '90 & Over' split across the
+  three 90+ rows - the collector's inline note documents the convention:
+  "split the age buckets evenly when needed".
+
+**Vocabulary additions (v0.8) - two symmetric ops + one declared unit:**
+- row op `share_even` (mirror of the column op): a printed row bucket is
+  split evenly across every target row referencing it. Splitting BOTH the
+  count and dollar columns means the ratio column automatically reproduces
+  the bucket average on each split row - no new average machinery.
+- col op `ratio` (exactly two sources [numerator, denominator]): per-row
+  quotient, average benefit = total dollars / count. Forbidden inside
+  derive=ratio (ratio-of-ratios); ALLOWED after derive=sum (sum groups, then
+  divide - exactly the mil composition).
+- `annualize_monthly: true` on a copy/ratio column: code multiplies by 12
+  when the source prints monthly dollars (adopted collector convention;
+  escalator caveat -> register entry 6c).
+
+Executor proofs (hand-transcribed actual source tables):
+- `test_ops_phx_retdist.py`: F.6 -> **22/22 exact** vs the phx sheet.
+- `test_ops_mil_retdist.py`: derive=sum over three groups + share_even on
+  two buckets + ratio + annualize_monthly -> **22/22 exact** vs the mil
+  sheet (printed totals check OK on all three transcriptions).
+Full suite 12/12. Register entry 6c records the adopted conventions
+(population definition, even splits, x12, bottom-bucket clip).
+
+All SIX target classes are now specced and executor-proven. Remaining live
+work is corpus coverage, not machinery: bos counts/wage cold runs, the
+rung-2/3 targets on aus/mil, optional sd/phx confirm re-runs.

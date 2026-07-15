@@ -2354,3 +2354,18 @@ Then executed next-action #1, entirely offline (zero API cost):
   now declares the blend; dev log has the full entry; session_handoff
   NEXT ACTION updated (1: live sd Sep_Rate rerun, 2: Avg_Mort target spec,
   3: bos/aus/mil cold runs, 4: Retirement).
+
+## 2026-07-15 (first machine): Retirement spec (v0.8) - all six target classes done
+
+Built the last target class offline, zero API cost. Two truths reverse-
+engineered and both reproduced 22/22 exact by the executor: phx F.6
+(service-retiree columns, avg = total$/count, 90+ bucket split /3) and mil
+pp.80-82 (General/Police/Fire tables summed via derive=sum, MONTHLY dollars
+annualized x12, '59 & Under' split /2 and '90 & Over' /3 - the mil
+collector's own note documents the even-split convention). New declared
+vocabulary: row share_even, col ratio, annualize_monthly. Conventions
+recorded as register entry 6c; suite 12/12. Retirement has ground truth in
+phx/chi_pol/sd/mil - four scoreable live runs waiting. Next per handoff:
+live Retirement runs, bos/aus/mil cold runs, and the multi-target-per-call
+efficiency discussion (prompt caching preferred, pending Parley
+verification).

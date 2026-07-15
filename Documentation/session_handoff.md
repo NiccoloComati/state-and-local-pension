@@ -110,19 +110,43 @@ with the collector's choices: 75/75 exact. Rules strengthened
 (weight-population consistency; clip both open ends); beneficiaries in/out
 = register entry 6b (the one genuinely open piece).
 
+2026-07-15 delta: **Retirement (retdist) spec DONE (v0.8, offline) - ALL SIX
+target classes are now specced and executor-proven.** Recipes recovered from
+two truths and reproduced 22/22 exact on each: phx (F.6 service-retiree
+columns; avg = total$/count; '90 & Up' split /3) and mil (three group tables
+summed via derive=sum; MONTHLY dollars x12; '59 & Under' /2 AND '90 & Over'
+/3 - the collector's own note: "split the age buckets evenly when needed").
+New vocabulary: row `share_even`, col `ratio` [numerator, denominator],
+`annualize_monthly` (declared x12). Conventions -> register entry 6c
+(population definition, even splits, x12 escalator caveat, bottom clip).
+Suite 12/12. Retirement truth exists in FOUR workbooks (phx/chi_pol/sd/mil);
+bos is blank -> production mode.
+
 **NEXT ACTION (agreed order, one item at a time to spare the API budget):**
-1. Retirement (retdist) target spec - the LAST target class; ops all exist
-   (ratio for avg benefit = dollars/count, share_even for open-bin splits).
-   Offline build + phx executor test, then live.
+1. Live Retirement runs - four scoreable plans, richest target yet
+   (phx expect ~1.0; mil tests derive=sum + share_even + x12 live).
 2. Cold runs when Niccolo runs them: bos counts/wage, then
-   Ret_Rate/Sep_Rate/Avg_Mort on aus/mil (out-of-sample).
+   Ret_Rate/Sep_Rate/Avg_Mort/Retirement on aus/mil (out-of-sample).
 3. Optional ~$2 confirmations: sd Sep_Rate re-rerun; phx Avg_Mort re-rerun
    under the strengthened rules.
+4. DISCUSS (no build yet): multi-target extraction per API call. Today each
+   target re-sends the same ~70-160K-token document (6 targets = 6x the
+   input cost). Options analyzed in the 2026-07-15 conversation: (a) one
+   call, all six targets in one response - saves ~5x input cost but couples
+   failures (one malformed target forces a full retry), lengthens output
+   past comfortable token budgets, and dilutes per-target rules; (b) prompt
+   caching (`cache_control` on the document block) - same per-target calls,
+   cached input billed at ~10% after the first call, zero coupling, BUT
+   depends on Parley passing cache_control through (unverified - the
+   output_config precedent says assume dropped until proven); (c) batch two
+   related targets per call (counts+wage share source tables). Preferred
+   path: verify (b) on Parley first - it keeps the architecture untouched.
 
 ```powershell
 cd "Data Extraction"
+python pipeline/run_test.py --plan phx --target Retirement   # expect ~1.0
+python pipeline/run_test.py --plan mil --target Retirement   # sum+split+x12 live
 python pipeline/run_test.py --plan bos --target Age_Serv_Num
-python pipeline/run_test.py --plan sd --target Sep_Rate      # optional confirm
 ```
 
 Environment specifics for this workstream:

@@ -948,5 +948,95 @@
       "Sample rates are usually printed as percentages (e.g. 0.024 meaning 0.024%): set values_unit='percent'. If the document prints adjustment factors for published base tables, transcribe the SAMPLE rates as printed and record the factors in notes.",
       "If mortality is given only as life expectancy or only by reference to a published table with no sample rates, declare the target unavailable and state what the document publishes."
     ]
+  },
+  "Retirement": {
+    "description": "Distribution of members RECEIVING benefits: retiree headcount and average ANNUAL benefit by 5-year age band. Source: the AV's membership/pay-status exhibit ('Members in Pay Status', 'Retired Members by Age', 'Annuitants', 'Benefit Recipients') - counts by age with annual benefit dollars (totals or averages) beside them.",
+    "unit": "Number = member count; AverageBenefit = average ANNUAL benefit in dollars",
+    "convert_percent_to_decimal": false,
+    "keywords": [
+      "pay status",
+      "retirees",
+      "annuitants",
+      "benefit recipients",
+      "annual benefit"
+    ],
+    "grid": {
+      "row_labels": [
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90-94",
+        "95-99",
+        "100 & over"
+      ],
+      "rows_meaning": "attained age bands of members in pay status; '100 & over' is open-ended",
+      "col_labels": [
+        "Number",
+        "AverageBenefit"
+      ],
+      "cols_meaning": "Number = headcount in the band; AverageBenefit = average annual benefit dollars in the band"
+    },
+    "target_row_spans": {
+      "50-54": [
+        50,
+        54
+      ],
+      "55-59": [
+        55,
+        59
+      ],
+      "60-64": [
+        60,
+        64
+      ],
+      "65-69": [
+        65,
+        69
+      ],
+      "70-74": [
+        70,
+        74
+      ],
+      "75-79": [
+        75,
+        79
+      ],
+      "80-84": [
+        80,
+        84
+      ],
+      "85-89": [
+        85,
+        89
+      ],
+      "90-94": [
+        90,
+        94
+      ],
+      "95-99": [
+        95,
+        99
+      ],
+      "100 & over": [
+        100,
+        null
+      ]
+    },
+    "zero_equals_empty": true,
+    "rules": [
+      "Population: SERVICE retirees only when the exhibit splits pay statuses (exclude disabled retirees and beneficiaries/survivors/QDROs - transcribe their columns too as archived evidence, but do not map them). This mirrors the Avg_Mort weight convention. If the document publishes only one combined annuitant population, use it and say so in notes.",
+      "'Number' <- copy of the count column. 'AverageBenefit': if the source prints TOTAL benefit dollars beside the counts, declare col op 'ratio' with sources [total-dollars column, count column] - code divides row by row. If it prints the AVERAGE directly, copy it. Never compute the division yourself.",
+      "The template wants ANNUAL dollars. If the source prints MONTHLY benefit amounts (say so in notes), set \"annualize_monthly\": true on the AverageBenefit column entry - code multiplies by 12 (adopted collector convention). Never convert units yourself.",
+      "A printed age bucket covering several template rows (e.g. '90 & Up' across 90-94/95-99/100 & over, or 'Under 60' across 50-54/55-59) maps to EACH covered row with op 'share_even' on BOTH columns' row entries: code splits counts and dollars evenly, so the ratio column reproduces the bucket average on every split row (the collectors' documented 'split the age buckets evenly' convention).",
+      "If retirees are published in separate same-shaped tables per employee group (e.g. General + Police + Fire), transcribe ALL group tables and declare derive = {\"op\": \"sum\", \"tables\": [<indices>]} - counts and dollar totals are additive; the ratio column divides after summing. If counts/dollars are printed split by SEX with a printed Total column, transcribe all printed columns and map the Total columns.",
+      "A bottom bucket like '<55' maps to template row '50-54' (clip to plausible retirement ages, as with Avg_Mort weight bins); if it may contain younger members, say so in notes.",
+      "Do not extrapolate: template rows beyond the printed range get empty sources and a note.",
+      "Values are counts and dollars - values_unit stays null (no percent scaling)."
+    ]
   }
 }

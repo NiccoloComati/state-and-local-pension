@@ -114,8 +114,8 @@ RESULT_SCHEMA = {
                     "sources": {"type": "array", "items": {"type": "string"},
                                 "description": "source row labels of source_tables[0] combined into this target row (empty if no data exists). If transpose=true these are the PRINTED COLUMN labels."},
                     "op": {"type": "string",
-                           "enum": ["copy", "sum", "weighted_avg", "overlap_weighted",
-                                    "group_weighted"]},
+                           "enum": ["copy", "sum", "share_even", "weighted_avg",
+                                    "overlap_weighted", "group_weighted"]},
                     "weights_table": {"anyOf": [{"type": "integer"}, {"type": "null"}],
                                       "description": "index into source_tables providing weights (weighted_avg only, else null)"},
                     "source_spans": _SPANS,
@@ -135,11 +135,15 @@ RESULT_SCHEMA = {
                                 "description": "source col labels combined into this target col. If transpose=true these are the PRINTED ROW labels."},
                     "op": {"type": "string",
                            "enum": ["copy", "sum", "share_even", "weighted_avg",
-                                    "overlap_weighted", "group_weighted"]},
+                                    "overlap_weighted", "group_weighted", "ratio"]},
                     "weights_table": {"anyOf": [{"type": "integer"}, {"type": "null"}],
                                       "description": "index into source_tables providing count weights (weighted_avg only, else null). Column weighted_avg merges source COLUMNS of an averages table."},
                     "source_spans": _SPANS,
                     "weights_tables": _WEIGHTS_TABLES,
+                    "annualize_monthly": {
+                        "type": "boolean",
+                        "description": "true ONLY on a copy/ratio column whose source dollars are printed MONTHLY while the target wants ANNUAL - code multiplies the column by 12",
+                    },
                 },
                 "required": ["target", "sources", "op"],
                 "additionalProperties": False,
@@ -203,11 +207,20 @@ format them differently - judge by content) and transcribe them EXACTLY as print
 original bin labels, original values, null for empty cells, '*' for suppressed cells. \
 Never compute, round, merge, or invent anything at this step. Exclude total rows/columns.
 2. DECLARE: describe how the source bins map onto the target grid as row_map/col_map \
-operations (copy, sum, weighted_avg for rows; copy, sum, share_even, weighted_avg for \
-columns). \
+operations (copy, sum, share_even, weighted_avg for rows; copy, sum, share_even, \
+weighted_avg, ratio for columns). \
 Deterministic code will execute these - you do NO arithmetic. If a weighted average is \
 needed (e.g. merging salary bins), also transcribe the table that provides the weights \
 (e.g. member counts) as an additional source table and reference it by index. \
+If a target COLUMN is a per-row quotient of two source columns (e.g. average benefit = \
+total annual dollars / member count printed side by side), use col op "ratio" with \
+exactly two sources [numerator, denominator] - code divides row by row; if the source \
+dollars are printed MONTHLY and the target wants ANNUAL, add "annualize_monthly": true \
+to that column entry (code multiplies by 12 - never convert units yourself). \
+If one printed ROW bucket covers several target rows (e.g. '90 & Up' across \
+90-94/95-99/100+), map EACH covered target row to it with op "share_even": code splits \
+the bucket's values evenly across those rows (additive columns split; a ratio column \
+then reproduces the bucket average automatically). \
 If the document publishes TOTALS instead of the averages the target wants (e.g. total \
 salary dollars per cell plus member counts, but no average-salary exhibit), transcribe \
 BOTH tables and declare derive = {"op": "ratio", "numerator_table": <totals>, \
@@ -272,13 +285,22 @@ Constraints:
 - row_map/col_map "sources" are PLAIN STRINGS (row/col labels of
   source_tables[0]). NOT objects. Auxiliary tables are referenced only via
   "weights_table" (an integer index into source_tables, or null).
-- row ops: "copy" | "sum" | "weighted_avg" | "overlap_weighted" |
+- row ops: "copy" | "sum" | "share_even" | "weighted_avg" | "overlap_weighted" |
   "group_weighted"; col ops: "copy" | "sum" | "share_even" | "weighted_avg" |
-  "overlap_weighted" | "group_weighted".
+  "overlap_weighted" | "group_weighted" | "ratio".
   "copy" and "share_even" take EXACTLY ONE source. Merging bins of an
   AVERAGES table (rows or columns) is ALWAYS "weighted_avg" with
   "weights_table" pointing at the transcribed counts table - never sum or
   share_even (averages are not additive).
+- col op "ratio" takes EXACTLY TWO sources [numerator, denominator]: the
+  target column is their per-row quotient (e.g. average benefit = total
+  dollars column / count column). Row "share_even" splits one printed row
+  bucket evenly across every target row that references it - additive
+  columns are divided by the split count; a ratio column then equals the
+  bucket's own average on each split row.
+- "annualize_monthly": true only on a copy/ratio COLUMN whose source dollars
+  are printed MONTHLY while the target wants ANNUAL - code multiplies that
+  column by 12. Never convert units yourself.
 - "overlap_weighted" (RATE tables with non-aligned bins) requires
   "source_spans": one [lo, hi] integer span per source (null = open end).
   Code blends rates proportionally by year overlap with the target bin.
@@ -437,9 +459,10 @@ def validate(result, target_spec=None):
                         p.append(f"source_tables[{k}].cells[{i}] has invalid value {v!r}")
                         break
 
-    row_ops = {"copy", "sum", "weighted_avg", "overlap_weighted", "group_weighted"}
-    col_ops = {"copy", "sum", "share_even", "weighted_avg", "overlap_weighted",
+    row_ops = {"copy", "sum", "share_even", "weighted_avg", "overlap_weighted",
                "group_weighted"}
+    col_ops = {"copy", "sum", "share_even", "weighted_avg", "overlap_weighted",
+               "group_weighted", "ratio"}
     gw_weight_tables, gw_used = set(), False
     for name, ops_allowed in (("row_map", row_ops), ("col_map", col_ops)):
         entries = result[name]
@@ -471,6 +494,18 @@ def validate(result, target_spec=None):
                          "source. To MERGE bins use 'sum' (additive quantities) or "
                          "'weighted_avg' with weights_table = the counts table "
                          "(averages - never sum/share_even them)")
+            if op == "ratio" and srcs is not None and len(srcs) != 2:
+                p.append(f"{name}[{i}] ({e.get('target')!r}): ratio takes exactly TWO "
+                         "sources [numerator, denominator] (e.g. the total-dollars "
+                         "column then the count column)")
+            am = e.get("annualize_monthly")
+            if am is not None:
+                if not isinstance(am, bool):
+                    p.append(f"{name}[{i}].annualize_monthly must be a boolean")
+                elif am and (name != "col_map" or op not in ("copy", "ratio")):
+                    p.append(f"{name}[{i}] ({e.get('target')!r}): annualize_monthly "
+                             "only belongs on col_map copy/ratio entries (a dollar "
+                             "column printed monthly)")
             wt = e.get("weights_table")
             if wt is not None and not isinstance(wt, int):
                 p.append(f"{name}[{i}].weights_table must be an integer index or null")
@@ -598,10 +633,12 @@ def validate(result, target_spec=None):
                                 or t.get("col_labels") != base.get("col_labels")):
                             p.append("derive=sum tables must have identical row_labels "
                                      "and col_labels")
+            banned = ({"weighted_avg", "ratio"} if dop == "ratio"
+                      else {"weighted_avg"})   # col ratio after derive=sum is fine
             for name in ("row_map", "col_map"):
                 for i, e in enumerate(result.get(name, [])):
-                    if isinstance(e, dict) and e.get("op") == "weighted_avg":
-                        p.append(f"{name}[{i}]: weighted_avg is not allowed in "
+                    if isinstance(e, dict) and e.get("op") in banned:
+                        p.append(f"{name}[{i}]: {e.get('op')} is not allowed in "
                                  f"{dop} mode - use additive maps")
 
     if not isinstance(result["notes"], str):
