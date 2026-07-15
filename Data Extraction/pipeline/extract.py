@@ -16,9 +16,22 @@ Note: temperature/top_p are NOT sent - they are removed on current models
 (the API returns 400 if present).
 """
 import json
+import os
 
 MODEL = "claude-opus-4-8"
 MAX_TOKENS = 32000
+
+# ---- open-weights backend (beta; see engaging_beta/runbook.md) ----
+# Set EXTRACT_OPENAI_BASE_URL (e.g. http://localhost:8000/v1) to route Stage A
+# to an OpenAI-compatible server (vLLM on Engaging) instead of the Anthropic
+# API; EXTRACT_MODEL names the served model. The contract, the client-side
+# validator, the retry loop, and Stage B are IDENTICAL on both backends. The
+# local backend puts the document FIRST in the prompt (byte-identical prefix
+# across the 6 targets -> vLLM automatic prefix caching); the Anthropic
+# prompt layout is unchanged.
+OPENAI_BASE_URL = os.environ.get("EXTRACT_OPENAI_BASE_URL")
+OPENAI_MODEL = os.environ.get("EXTRACT_MODEL", "")
+OPENAI_TIMEOUT = int(os.environ.get("EXTRACT_TIMEOUT_S", "3600"))
 
 _TABLE = {
     "type": "object",
@@ -347,10 +360,10 @@ Constraints:
 - "notes" is a single string."""
 
 
-def build_prompt(target_name, target_spec, source_text):
+def build_prompt(target_name, target_spec, source_text, doc_first=False):
     g = target_spec["grid"]
     rules = "\n".join(f"- {r}" for r in target_spec["rules"])
-    return f"""TARGET: {target_name}
+    head = f"""TARGET: {target_name}
 WHAT IT IS: {target_spec['description']}
 UNIT: {target_spec['unit']}
 
@@ -363,13 +376,13 @@ TARGET GRID (row_map/col_map targets must be exactly these, in this order):
 MAPPING GUIDANCE FOR THIS TARGET:
 {rules}
 
-{FORMAT_SPEC}
-
-FULL DOCUMENT TEXT:
-{source_text}
-
-Transcribe the source table(s) exactly as printed, then declare the bin mappings.
-Return ONLY the JSON object."""
+{FORMAT_SPEC}"""
+    tail = ("Transcribe the source table(s) exactly as printed, then declare "
+            "the bin mappings.\nReturn ONLY the JSON object.")
+    if doc_first:
+        # document first = byte-identical prefix across targets (prefix cache)
+        return f"FULL DOCUMENT TEXT:\n{source_text}\n\n{head}\n\n{tail}"
+    return f"{head}\n\nFULL DOCUMENT TEXT:\n{source_text}\n\n{tail}"
 
 
 def _parse(text):
@@ -666,46 +679,87 @@ def validate(result, target_spec=None):
     return p
 
 
+def _call_openai(messages):
+    """One chat-completions call to an OpenAI-compatible server (vLLM).
+    Dependency-free (urllib). Greedy decoding; thinking disabled via
+    chat_template_kwargs (honored by vLLM for Qwen-family templates,
+    harmlessly ignored elsewhere). Returns (text, raw_response_dict)."""
+    import urllib.request
+    payload = {
+        "model": OPENAI_MODEL,
+        "messages": [{"role": "system", "content": SYSTEM}] + messages,
+        "max_tokens": MAX_TOKENS,
+        "temperature": 0,
+        "chat_template_kwargs": {"enable_thinking": False},
+    }
+    req = urllib.request.Request(
+        OPENAI_BASE_URL.rstrip("/") + "/chat/completions",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json",
+                 "Authorization": "Bearer " + os.environ.get("OPENAI_API_KEY", "none")},
+    )
+    with urllib.request.urlopen(req, timeout=OPENAI_TIMEOUT) as resp:
+        raw = json.loads(resp.read().decode("utf-8"))
+    choice = raw["choices"][0]
+    if choice.get("finish_reason") == "length":
+        raise RuntimeError(f"local model hit the {MAX_TOKENS}-token output limit "
+                           "(response truncated) - raise EXTRACT_MAX_TOKENS/server "
+                           "limits or check that thinking mode is actually off")
+    return choice["message"]["content"], raw
+
+
 def extract(target_name, target_spec, source_text, record_path=None, dry_run=False):
     """Run one extraction (with one format-correction retry if the response
     does not conform to the contract). Returns (result_dict, record_dict)."""
-    prompt = build_prompt(target_name, target_spec, source_text)
+    use_openai = bool(OPENAI_BASE_URL)
+    model_name = OPENAI_MODEL if use_openai else MODEL
+    prompt = build_prompt(target_name, target_spec, source_text,
+                          doc_first=use_openai)
 
     if dry_run:
+        backend = f"openai-compatible @ {OPENAI_BASE_URL}" if use_openai else "anthropic"
         print("--- DRY RUN: prompt that would be sent ---")
         print(prompt[:3000])
-        print(f"--- ({len(prompt)} chars total; model={MODEL}) ---")
+        print(f"--- ({len(prompt)} chars total; model={model_name}; backend={backend}) ---")
         return None, None
 
-    import anthropic  # deferred so dry runs work without the package/key
-    client = anthropic.Anthropic()
+    if not use_openai:
+        import anthropic  # deferred so dry runs work without the package/key
+        client = anthropic.Anthropic()
 
     messages = [{"role": "user", "content": prompt}]
-    record = {"attempts": [], "model": MODEL}
+    record = {"attempts": [], "model": model_name,
+              "backend": "openai-compatible" if use_openai else "anthropic"}
+    if use_openai:
+        record["base_url"] = OPENAI_BASE_URL
     result = None
 
     for attempt in (1, 2):
-        params = {
-            "model": MODEL,
-            "max_tokens": MAX_TOKENS,
-            "system": SYSTEM,
-            "messages": messages,
-            # kept for endpoints that honor it; proxies may drop it, which is
-            # why we validate client-side below
-            "output_config": {"format": {"type": "json_schema", "schema": RESULT_SCHEMA}},
-        }
-        with client.messages.stream(**params) as stream:
-            response = stream.get_final_message()
+        if use_openai:
+            text, raw = _call_openai(messages)
+            record["attempts"].append({"response": raw, "usage": raw.get("usage")})
+        else:
+            params = {
+                "model": MODEL,
+                "max_tokens": MAX_TOKENS,
+                "system": SYSTEM,
+                "messages": messages,
+                # kept for endpoints that honor it; proxies may drop it, which is
+                # why we validate client-side below
+                "output_config": {"format": {"type": "json_schema", "schema": RESULT_SCHEMA}},
+            }
+            with client.messages.stream(**params) as stream:
+                response = stream.get_final_message()
 
-        if response.stop_reason == "refusal":
-            raise RuntimeError(f"model refused: {response.stop_details}")
+            if response.stop_reason == "refusal":
+                raise RuntimeError(f"model refused: {response.stop_details}")
 
-        text = next(b.text for b in response.content if b.type == "text")
-        record["attempts"].append({
-            "response": response.to_dict(),
-            "usage": {"input_tokens": response.usage.input_tokens,
-                      "output_tokens": response.usage.output_tokens},
-        })
+            text = next(b.text for b in response.content if b.type == "text")
+            record["attempts"].append({
+                "response": response.to_dict(),
+                "usage": {"input_tokens": response.usage.input_tokens,
+                          "output_tokens": response.usage.output_tokens},
+            })
 
         try:
             result = _parse(text)

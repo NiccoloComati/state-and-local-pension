@@ -2369,3 +2369,25 @@ phx/chi_pol/sd/mil - four scoreable live runs waiting. Next per handoff:
 live Retirement runs, bos/aus/mil cold runs, and the multi-target-per-call
 efficiency discussion (prompt caching preferred, pending Parley
 verification).
+
+## 2026-07-15 (later): open-weights migration beta - groundwork done from this machine
+
+Evaluated migrating Stage A off Anthropic/Parley onto a pinned open-weights
+model on MIT Engaging (drivers: dependency independence + permanently
+pinnable weights for the paper; two external research reports - Claude and
+ChatGPT with web search - converged on Qwen3.5-122B-A10B-FP8 on 2x H200,
+free mit_normal_gpu partition). Done today, zero GPU needed:
+- Kill test #1 (tokenizer inflation) PASSED decisively: worst document (mil)
+  = 90,179 Qwen tokens, not the predicted 200-260K - layout whitespace
+  compresses; whole corpus fits any candidate's window. Measured with the
+  real HF tokenizers on all six documents.
+- Flag-gated backend adapter in extract.py: EXTRACT_OPENAI_BASE_URL routes
+  Stage A to any OpenAI-compatible server (vLLM), document-first prompt for
+  prefix caching (also answers the resend-the-doc-6-times efficiency
+  question), thinking off, loud truncation. Anthropic prompt byte-identical;
+  suite 12/12.
+- `Data Extraction/engaging_beta/`: runbook (kill-test ladder + decision
+  bar: digit fidelity gates, bit-determinism is bonus), sbatch scripts,
+  health poller. Next steps need Niccolo's Kerberos: ORCD account, queue
+  probes, one salloc bring-up, then the scored fidelity battery
+  (run_test.py against localhost scores vs archived truth automatically).

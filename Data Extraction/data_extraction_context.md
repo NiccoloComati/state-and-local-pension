@@ -921,3 +921,44 @@ Full suite 12/12. Register entry 6c records the adopted conventions
 All SIX target classes are now specced and executor-proven. Remaining live
 work is corpus coverage, not machinery: bos counts/wage cold runs, the
 rung-2/3 targets on aus/mil, optional sd/phx confirm re-runs.
+
+### 2026-07-15 - open-weights beta groundwork: kill test #1 PASSED, backend adapter built
+Decision context: migrating Stage A to a pinned open-weights model on MIT
+Engaging is under evaluation (drivers: no Parley/Anthropic dependency, and
+permanently pinnable weights for the paper). Decision bar set: DIGIT-EXACT
+transcription at full context gates; bit-reproducible decoding is a bonus,
+not a gate - the reproducibility claim rests on archived transcriptions +
+the deterministic executor, which hold on any backend.
+
+**Kill test #1 (tokenizer inflation): PASS, decisively.** Measured with the
+actual Qwen3.5-122B-A10B and Qwen3-Next-80B tokenizers on all six documents:
+worst case (mil) = 90,179 tokens vs the 200-260K both external research
+reports predicted. Their per-digit-inflation reasoning missed that LAYOUT
+WHITESPACE dominates our text and Qwen compresses it into multi-space
+tokens. Whole corpus fits inside even the conservative ~128K characterized
+zone (262K advertised window); no locate-stage two-pass needed. Per-digit
+number tokenization is retained - if anything favorable for transcription.
+
+**Backend adapter (flag-gated, Anthropic path byte-identical - dry-run
+292,173 chars unchanged):** setting EXTRACT_OPENAI_BASE_URL (+EXTRACT_MODEL)
+routes Stage A to any OpenAI-compatible server (vLLM); contract, validator,
+retry loop, scoring all unchanged. The local path orders the prompt
+document-FIRST (byte-identical prefix across the six targets -> vLLM
+automatic prefix caching = the multi-target efficiency answer, free),
+decodes greedily, disables Qwen thinking mode, aborts loudly on truncation.
+Grammar-constrained decoding deliberately NOT used: the retry loop depends
+on loud failures; schema enforcement can convert them into silent
+wrong-content successes.
+
+**Engaging facts verified against orcd-docs.mit.edu:** account = any MIT
+Kerberos via OnDemand; mit_normal_gpu = 2 GPUs/32 cores/6h (H200 140GB via
+-G h200:2); mit_preemptable = 4 GPUs/48h killable. The 6h wall fits our
+shape (one artifact dir per run = preemption-safe).
+
+**Beta kit** in `engaging_beta/`: runbook.md (kill-test ladder, #1 recorded
+as done, bring-up commands, decision bar, paper pin-list), serve_and_run
+.sbatch (serve vLLM -> health -> scored fidelity battery: mil counts first,
+then phx/chi/sd), wait_health.py, queue_probe.sbatch (kill test #2).
+Remaining kill tests need Niccolo's Kerberos: queue probes (#2), boot (#3),
+the fidelity gate (#4 - run_test.py scores it against archived truth
+automatically), optional determinism probe (#5).
