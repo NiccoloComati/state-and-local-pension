@@ -363,7 +363,7 @@ def _parse(text):
     return json.loads(s)
 
 
-def validate(result):
+def validate(result, target_spec=None):
     """Client-side contract validation (the API may not enforce our schema,
     e.g. behind proxies that drop output_config). Returns list of problems."""
     p = []
@@ -440,6 +440,7 @@ def validate(result):
     row_ops = {"copy", "sum", "weighted_avg", "overlap_weighted", "group_weighted"}
     col_ops = {"copy", "sum", "share_even", "weighted_avg", "overlap_weighted",
                "group_weighted"}
+    gw_weight_tables, gw_used = set(), False
     for name, ops_allowed in (("row_map", row_ops), ("col_map", col_ops)):
         entries = result[name]
         if unavailable:
@@ -502,6 +503,9 @@ def validate(result):
                     p.append(f"{name}[{i}] ({e.get('target')!r}): group_weighted "
                              "requires weights_tables - one valid source_tables index "
                              "per source (the group's transcribed headcount table)")
+                else:
+                    gw_weight_tables.update(wts)
+                    gw_used = True
             elif wts is not None:
                 p.append(f"{name}[{i}] ({e.get('target')!r}): weights_tables only "
                          "belongs on group_weighted entries")
@@ -530,6 +534,37 @@ def validate(result):
     transpose = result.setdefault("transpose", False)   # tolerated if absent
     if not isinstance(transpose, bool):
         p.append("transpose must be a boolean")
+
+    # group_weighted declarations must be executable: weight tables need their
+    # bin spans, and the main table needs spans on the axis whose labels form
+    # the weight lookup's second coordinate (live sd Sep_Rate run 2026-07-14:
+    # the model declared a correct blend but omitted every span, crashing the
+    # executor - this check moves that failure into the retry loop)
+    if gw_used:
+        for k in sorted(gw_weight_tables):
+            t = tables[k] if k < len(tables) else None
+            if not isinstance(t, dict):
+                continue
+            for key, labels_key in (("row_spans", "row_labels"),
+                                    ("col_spans", "col_labels")):
+                labels = t.get(labels_key) or []
+                if len(labels) > 1 and not t.get(key):
+                    p.append(f"source_tables[{k}] is used as group_weighted weights "
+                             f"and has {len(labels)} {labels_key} but no {key}: "
+                             "declare the numeric [lo, hi] span of every printed "
+                             "bin label (null = open end)")
+        multi_col_weights = any(
+            isinstance(tables[k], dict) and len(tables[k].get("col_labels") or []) > 1
+            for k in gw_weight_tables if k < len(tables))
+        if multi_col_weights and tables and isinstance(tables[0], dict):
+            key, labels_key = (("row_spans", "row_labels") if transpose
+                               else ("col_spans", "col_labels"))
+            main = tables[0]
+            if len(main.get(labels_key) or []) > 1 and not main.get(key):
+                p.append(f"source_tables[0] needs {key} declared: group_weighted "
+                         "weights are looked up by the main table's bin "
+                         "coordinates (with transpose=true the printed ROW "
+                         "labels are that lookup axis)")
 
     derive = result.setdefault("derive", None)   # tolerated if absent
     if unavailable and derive is not None:
@@ -574,6 +609,23 @@ def validate(result):
     elif unavailable and not result["notes"].strip():
         p.append("unavailable=true requires notes stating what the document "
                  "publishes instead of the target")
+
+    # unit plausibility for probability targets: a probability cannot exceed 1,
+    # so a main table with values > 1.5 and no percent flag is almost certainly
+    # a percentage table missing its values_unit declaration (live sd Sep_Rate
+    # run 2026-07-14 embedded rates 100x too large this way)
+    if (target_spec and target_spec.get("convert_percent_to_decimal")
+            and tables and isinstance(tables[0], dict)
+            and tables[0].get("values_unit") is None):
+        cells = tables[0].get("cells") or []
+        mx = max((v for row in cells if isinstance(row, list)
+                  for v in row if isinstance(v, (int, float))
+                  and not isinstance(v, bool)), default=None)
+        if mx is not None and mx > 1.5:
+            p.append(f"source_tables[0] holds values up to {mx} for a target whose "
+                     "unit is a probability (max 1): if the table prints "
+                     "percentages, set its values_unit to 'percent' (transcribe "
+                     "the numbers as printed either way)")
     return p
 
 
@@ -620,7 +672,7 @@ def extract(target_name, target_spec, source_text, record_path=None, dry_run=Fal
 
         try:
             result = _parse(text)
-            problems = validate(result)
+            problems = validate(result, target_spec)
             if not problems:
                 # transcription self-check against the tables' printed totals
                 import ops

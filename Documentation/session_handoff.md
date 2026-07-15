@@ -81,18 +81,27 @@ mortality ladder value reproduced to the last digit
 (0.0014591621621621621). transpose is now main-table-only (aux tables keep
 printed orientation). Suite 9/9.
 
+LIVE sd Sep_Rate RAN 2026-07-14 (run ..._195442): the model declared the
+blend UNPROMPTED (B-2 + both A-9/A-11 weight tables transcribed, totals OK,
+group_weighted on every age row, template-faithful col maps) but omitted the
+span + percent declarations; executor errored by design. Salvaged at zero
+cost: 0.6455 with EVERY mismatch = pre-registered register-4 convention
+noise (blend arithmetic confirmed live; cols 1-4 exact). v0.6.1 moves both
+gaps into the retry loop (validate() span requirements + unit-plausibility
+check). The register-4 rulings decide sd's final grid; re-derivable anytime.
+
 **NEXT ACTION (agreed order, one item at a time to spare the API budget):**
-1. LIVE sd Sep_Rate rerun (~$1.5-2) - does the model declare group_weighted
-   + weight tables + spans unprompted? Adjudicate vs register entry 4.
-2. Avg_Mort target spec (offline: template grid semantics + rules; blend op
+1. Avg_Mort target spec (offline: template grid semantics + rules; blend op
    ready) - then live phx Avg_Mort (the rung-3 ladder case end to end).
+2. Optional ~$2 confirmation: live sd Sep_Rate re-rerun to watch the retry
+   loop close the declaration gaps end to end.
 3. Remaining cold runs when Niccolo runs them: bos counts/wage, then
    Ret_Rate/Sep_Rate on aus/mil (stresses rung-2 machinery out-of-sample).
 4. Then Retirement (retdist) - ops already exist.
 
 ```powershell
 cd "Data Extraction"
-python pipeline/run_test.py --plan sd --target Sep_Rate
+python pipeline/run_test.py --plan sd --target Sep_Rate      # optional confirm
 python pipeline/run_test.py --plan bos --target Age_Serv_Num
 python pipeline/run_test.py --plan bos --target Age_Serv_Wage
 ```

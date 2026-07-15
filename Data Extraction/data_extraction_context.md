@@ -781,3 +781,39 @@ whichever conventions - adjudicate per register); (b) the Avg_Mort target
 spec (grid semantics from the template workbook + rules; the blend op and
 the percent/spans machinery are ready); (c) the remaining cold runs (bos,
 aus/mil rung-2 targets).
+
+### 2026-07-14 - LIVE sd Sep_Rate: blend declared UNPROMPTED; two declaration
+gaps moved into the retry loop (v0.6.1)
+Live run sd_Sep_Rate_20260714_195442. The headline: the model transcribed
+B-2 AND both A-9/A-11 headcount tables (printed-totals OK on both), declared
+group_weighted with weights_tables=[1,2] on every age row, and used
+TEMPLATE-faithful col maps (overlap_weighted 5+6 -> col '6', 13..20+ -> col
+'30' - more faithful than the collector's single-year convention). It missed
+two DECLARATIONS: no row_spans/col_spans on any table, and no
+values_unit=percent on B-2 - the executor raised its clear errors (by
+design), crashing after archiving.
+
+Zero-cost salvage: patching the spans + unit mechanically and re-executing
+the archived declaration scores 0.6455, and EVERY mismatch is pre-registered
+convention noise: (i) impossibility-cell zeroing (our strict mode=upper vs
+her fills - register 4), (ii) merged-col semantics (template [5,6] average
+vs her single-year - register 4), (iii) her joint-bucket weights on cols
+30/40. Cols 1-4 exact across all ages: the blend arithmetic is confirmed
+live. Verdict: model right, contract under-enforced.
+
+Fix (v0.6.1) - both gaps now caught in the RETRY loop, not the executor:
+- validate() requires row_spans/col_spans on every multi-row/col weights
+  table referenced by group_weighted, and spans on the main table's
+  weight-lookup axis (row_spans when transpose=true).
+- validate() gained a unit-plausibility check (needs the target spec, now
+  passed in): a main table with values > 1.5 for a probability target and no
+  percent flag is flagged with the exact correction.
+- Retro-test: the archived live run yields exactly 6 problems (the 5 span
+  gaps + the unit); the fully-declared version validates clean. Full suite
+  9/9 unchanged.
+
+The register-4 convention rulings (impossibility mode, merged-col semantics,
+aggregate-col weight bucket) remain THE open item deciding what sd Sep_Rate's
+final derived grid should be; all variants re-derivable from this run's
+archived transcription. A live re-rerun would only confirm the retry loop
+closes the declaration gaps end to end (~$2, optional).
