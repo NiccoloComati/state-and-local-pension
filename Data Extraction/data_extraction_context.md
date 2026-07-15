@@ -817,3 +817,35 @@ aggregate-col weight bucket) remain THE open item deciding what sd Sep_Rate's
 final derived grid should be; all variants re-derivable from this run's
 archived transcription. A live re-rerun would only confirm the retry loop
 closes the declaration gaps end to end (~$2, optional).
+
+### 2026-07-14 - Avg_Mort target spec built and executor-proven (offline)
+The last sheet class. Template confirmed from the workbooks: 100 single-age
+rows (20-119) x one 'Death_Prob' column; phx is the ONLY ground truth
+(chi_pol and sd Avg_Mort sheets are EMPTY - both become production-mode
+targets; chi publishes life expectancy, covered by the unavailable rule).
+
+The verified phx recipe reduces to ONE group_weighted column entry:
+Death_Prob <- group_weighted(Pre-M, Pre-W, Post-M, Post-W) with
+weights_tables [actives, actives, retirees, retirees]:
+- M/F simple average = sharing one weight table per population;
+- the 20-49 pre-only / 50-69 blend / 70+ post-only segmentation EMERGES from
+  the weight tables' coverage: retirees have no bins below 50, and the
+  actives 'Over 65' bin is declared CLIPPED to [65,69] (the collector's
+  implicit judgment, now a stated-in-notes rule + adopted convention in the
+  register). No hard-coded segments anywhere.
+- each 5-year sample age's declared span ([50,54]...) maps it onto its
+  band's single-age rows; no extrapolation past age 94 (the workbook's
+  95-119 carry-forward = register entry 2's question, 25 known residuals).
+- retiree weights confirmed against the workbook: 55-59 = 594 matches the
+  value back-solved from truth at age 55 exactly.
+
+targets.json Avg_Mort spec written (rules incl. the unavailable path for
+life-expectancy-only documents). Executor fix: overlap_weighted entries with
+EMPTY sources now return None (the legitimate no-data declaration) instead
+of raising. Offline proof (test_ops_phx_avgmort.py, hand-transcribed actual
+p.48 panels + F.3 age totals + retiree counts): **75/75 printed-range cells
+EXACT, zero wrong**, only residual = the 25 carry-forward cells. Suite 10/10.
+
+NEXT: live phx Avg_Mort (~$1.5-2) - the full rung-3 ladder case end to end;
+expect ~0.75 raw with all mismatches being the 95+ carry-forward. Then bos
+counts/wage cold runs; then Retirement (retdist).

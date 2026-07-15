@@ -360,6 +360,8 @@ def resolve_overlap_sources(map_entries, target_spans):
 
 def _overlap_combine(entry, vals, target_spans):
     """overlap_weighted: proportional-by-years blend of source bin values."""
+    if not entry["sources"]:          # declared empty = no data for this target
+        return None
     spans = entry.get("source_spans")
     if not spans or len(spans) != len(entry["sources"]):
         raise ValueError(f"{entry['target']}: overlap_weighted needs source_spans "

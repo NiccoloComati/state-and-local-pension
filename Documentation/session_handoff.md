@@ -90,20 +90,32 @@ noise (blend arithmetic confirmed live; cols 1-4 exact). v0.6.1 moves both
 gaps into the retry loop (validate() span requirements + unit-plausibility
 check). The register-4 rulings decide sd's final grid; re-derivable anytime.
 
+Avg_Mort target spec DONE 2026-07-14 (offline): 100-age x Death_Prob grid;
+the whole verified phx recipe = ONE group_weighted column (M/F average via
+shared weight tables; the pre/blend/post segmentation emerges from weight
+coverage incl. the declared [65,69] clip of the actives open bin); executor
+proof 75/75 printed-range cells exact, only residual = the 95+ carry-forward
+(register entry 2). phx is the only Avg_Mort ground truth (chi_pol/sd sheets
+empty -> production mode; chi publishes life expectancy -> unavailable path).
+Suite 10/10.
+
 **NEXT ACTION (agreed order, one item at a time to spare the API budget):**
-1. Avg_Mort target spec (offline: template grid semantics + rules; blend op
-   ready) - then live phx Avg_Mort (the rung-3 ladder case end to end).
-2. Optional ~$2 confirmation: live sd Sep_Rate re-rerun to watch the retry
-   loop close the declaration gaps end to end.
+1. LIVE phx Avg_Mort (~$1.5-2) - the full rung-3 ladder case end to end.
+   Expect raw ~0.75 with ALL mismatches at ages 95+ (cand=None vs the
+   workbook's carried-forward 0.12685) - that is register entry 2, not model
+   error. Watch for: one group_weighted col entry with weights t[actives]
+   x2 + t[retirees] x2, the [65,69] clip stated in notes, values_unit
+   percent, and the retry loop catching any missing declarations (v0.6.1).
+2. Optional ~$2 confirmation: live sd Sep_Rate re-rerun (retry-loop check).
 3. Remaining cold runs when Niccolo runs them: bos counts/wage, then
-   Ret_Rate/Sep_Rate on aus/mil (stresses rung-2 machinery out-of-sample).
+   Ret_Rate/Sep_Rate/Avg_Mort on aus/mil (out-of-sample).
 4. Then Retirement (retdist) - ops already exist.
 
 ```powershell
 cd "Data Extraction"
+python pipeline/run_test.py --plan phx --target Avg_Mort
 python pipeline/run_test.py --plan sd --target Sep_Rate      # optional confirm
 python pipeline/run_test.py --plan bos --target Age_Serv_Num
-python pipeline/run_test.py --plan bos --target Age_Serv_Wage
 ```
 
 Environment specifics for this workstream:
