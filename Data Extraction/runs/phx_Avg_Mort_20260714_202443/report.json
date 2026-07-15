@@ -1,0 +1,46 @@
+{
+  "shape_truth": [
+    100,
+    1
+  ],
+  "shape_cand": [
+    100,
+    1
+  ],
+  "label_mismatches": [],
+  "exact": 25,
+  "close": 15,
+  "wrong": 35,
+  "missing_in_cand": 25,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 20 x svc Death_Prob] truth=0.0002 cand=0.00019419689119170983",
+    "[age 21 x svc Death_Prob] truth=0.0002 cand=0.00019419689119170983",
+    "[age 22 x svc Death_Prob] truth=0.0002 cand=0.00019419689119170983",
+    "[age 23 x svc Death_Prob] truth=0.0002 cand=0.00019419689119170983",
+    "[age 24 x svc Death_Prob] truth=0.0002 cand=0.00019419689119170983",
+    "[age 25 x svc Death_Prob] truth=0.00026000000000000003 cand=0.00025700505639828864",
+    "[age 26 x svc Death_Prob] truth=0.00026000000000000003 cand=0.00025700505639828864",
+    "[age 27 x svc Death_Prob] truth=0.00026000000000000003 cand=0.00025700505639828864",
+    "[age 28 x svc Death_Prob] truth=0.00026000000000000003 cand=0.00025700505639828864",
+    "[age 29 x svc Death_Prob] truth=0.00026000000000000003 cand=0.00025700505639828864",
+    "[age 30 x svc Death_Prob] truth=0.00031999999999999997 cand=0.0003188558975755925",
+    "[age 31 x svc Death_Prob] truth=0.00031999999999999997 cand=0.0003188558975755925",
+    "[age 32 x svc Death_Prob] truth=0.00031999999999999997 cand=0.0003188558975755925",
+    "[age 33 x svc Death_Prob] truth=0.00031999999999999997 cand=0.0003188558975755925",
+    "[age 34 x svc Death_Prob] truth=0.00031999999999999997 cand=0.0003188558975755925",
+    "[age 35 x svc Death_Prob] truth=0.00043000000000000004 cand=0.00043197660346914085",
+    "[age 36 x svc Death_Prob] truth=0.00043000000000000004 cand=0.00043197660346914085",
+    "[age 37 x svc Death_Prob] truth=0.00043000000000000004 cand=0.00043197660346914085",
+    "[age 38 x svc Death_Prob] truth=0.00043000000000000004 cand=0.00043197660346914085",
+    "[age 39 x svc Death_Prob] truth=0.00043000000000000004 cand=0.00043197660346914085",
+    "[age 40 x svc Death_Prob] truth=0.00057 cand=0.000578211482858323",
+    "[age 41 x svc Death_Prob] truth=0.00057 cand=0.000578211482858323",
+    "[age 42 x svc Death_Prob] truth=0.00057 cand=0.000578211482858323",
+    "[age 43 x svc Death_Prob] truth=0.00057 cand=0.000578211482858323",
+    "[age 44 x svc Death_Prob] truth=0.00057 cand=0.000578211482858323"
+  ],
+  "truth_filled_cells": 100,
+  "accuracy": 0.25
+}

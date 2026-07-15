@@ -1,0 +1,1666 @@
+{
+  "source_tables": [
+    {
+      "page": 48,
+      "title": "Sample Probability of Death (Pre-Retirement / Post-Retirement / Post-Disability), projected to 2019, not including adjustment factors",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85",
+        "90"
+      ],
+      "col_labels": [
+        "Pre-Retirement Men",
+        "Pre-Retirement Women",
+        "Post-Retirement Men",
+        "Post-Retirement Women",
+        "Post-Disability Men",
+        "Post-Disability Women"
+      ],
+      "cells": [
+        [
+          0.024,
+          0.016,
+          0.019,
+          0.013,
+          0.58,
+          0.19
+        ],
+        [
+          0.032,
+          0.02,
+          0.023,
+          0.018,
+          0.663,
+          0.192
+        ],
+        [
+          0.041,
+          0.023,
+          0.032,
+          0.026,
+          0.599,
+          0.237
+        ],
+        [
+          0.05,
+          0.036,
+          0.053,
+          0.047,
+          0.76,
+          0.394
+        ],
+        [
+          0.065,
+          0.049,
+          0.096,
+          0.089,
+          1.011,
+          0.58
+        ],
+        [
+          0.09,
+          0.065,
+          0.193,
+          0.184,
+          1.581,
+          0.869
+        ],
+        [
+          0.13,
+          0.091,
+          0.42,
+          0.425,
+          1.762,
+          1.021
+        ],
+        [
+          0.206,
+          0.14,
+          0.54,
+          0.423,
+          2.011,
+          1.345
+        ],
+        [
+          0.322,
+          0.207,
+          0.742,
+          0.496,
+          2.48,
+          1.769
+        ],
+        [
+          0.468,
+          0.295,
+          0.97,
+          0.674,
+          3.25,
+          2.211
+        ],
+        [
+          0.631,
+          0.405,
+          1.573,
+          1.098,
+          4.2,
+          2.848
+        ],
+        [
+          0.843,
+          0.581,
+          2.607,
+          1.903,
+          5.623,
+          4.084
+        ],
+        [
+          1.175,
+          0.918,
+          4.629,
+          3.271,
+          7.952,
+          6.196
+        ],
+        [
+          8.34,
+          5.952,
+          8.34,
+          5.952,
+          11.688,
+          9.347
+        ],
+        [
+          14.36,
+          11.01,
+          14.36,
+          11.01,
+          17.508,
+          13.685
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          89
+        ],
+        [
+          90,
+          94
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 38,
+      "title": "Exhibit F.3 Active Member Counts by Age (Total column)",
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "Over 65"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          4
+        ],
+        [
+          150
+        ],
+        [
+          442
+        ],
+        [
+          642
+        ],
+        [
+          876
+        ],
+        [
+          1075
+        ],
+        [
+          1334
+        ],
+        [
+          1312
+        ],
+        [
+          1187
+        ],
+        [
+          665
+        ],
+        [
+          254
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        7941
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 41,
+      "title": "Exhibit F.6 Summary of Members in Pay Status (Service Retirees + Disabled Retirees + Beneficiaries counts by age)",
+      "row_labels": [
+        "<55",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90 & Up"
+      ],
+      "col_labels": [
+        "Members"
+      ],
+      "cells": [
+        [
+          280
+        ],
+        [
+          677
+        ],
+        [
+          1289
+        ],
+        [
+          1674
+        ],
+        [
+          1351
+        ],
+        [
+          851
+        ],
+        [
+          544
+        ],
+        [
+          334
+        ],
+        [
+          195
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          89
+        ],
+        [
+          90,
+          null
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "20",
+      "sources": [
+        "20"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          20,
+          24
+        ]
+      ]
+    },
+    {
+      "target": "21",
+      "sources": [
+        "20"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          20,
+          24
+        ]
+      ]
+    },
+    {
+      "target": "22",
+      "sources": [
+        "20"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          20,
+          24
+        ]
+      ]
+    },
+    {
+      "target": "23",
+      "sources": [
+        "20"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          20,
+          24
+        ]
+      ]
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          20,
+          24
+        ]
+      ]
+    },
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "26",
+      "sources": [
+        "25"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "27",
+      "sources": [
+        "25"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "28",
+      "sources": [
+        "25"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          30,
+          34
+        ]
+      ]
+    },
+    {
+      "target": "31",
+      "sources": [
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          30,
+          34
+        ]
+      ]
+    },
+    {
+      "target": "32",
+      "sources": [
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          30,
+          34
+        ]
+      ]
+    },
+    {
+      "target": "33",
+      "sources": [
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          30,
+          34
+        ]
+      ]
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          30,
+          34
+        ]
+      ]
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          35,
+          39
+        ]
+      ]
+    },
+    {
+      "target": "36",
+      "sources": [
+        "35"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          35,
+          39
+        ]
+      ]
+    },
+    {
+      "target": "37",
+      "sources": [
+        "35"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          35,
+          39
+        ]
+      ]
+    },
+    {
+      "target": "38",
+      "sources": [
+        "35"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          35,
+          39
+        ]
+      ]
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          35,
+          39
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "41",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "42",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "43",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "46",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "47",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "48",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "51",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "52",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "53",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "56",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "57",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "58",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "61",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "62",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "63",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "66",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "67",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "68",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "69",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "71",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "72",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "73",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "74",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "75",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "76",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "77",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "78",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "79",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "80",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "81",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "82",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "83",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "84",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "85",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "86",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "87",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "88",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "89",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "90",
+      "sources": [
+        "90"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          90,
+          94
+        ]
+      ]
+    },
+    {
+      "target": "91",
+      "sources": [
+        "90"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          90,
+          94
+        ]
+      ]
+    },
+    {
+      "target": "92",
+      "sources": [
+        "90"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          90,
+          94
+        ]
+      ]
+    },
+    {
+      "target": "93",
+      "sources": [
+        "90"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          90,
+          94
+        ]
+      ]
+    },
+    {
+      "target": "94",
+      "sources": [
+        "90"
+      ],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": [
+        [
+          90,
+          94
+        ]
+      ]
+    },
+    {
+      "target": "95",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "96",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "97",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "98",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "99",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "100",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "101",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "102",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "103",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "104",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "105",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "106",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "107",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "108",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "109",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "110",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "111",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "112",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "113",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "114",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "115",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "116",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "117",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "118",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    },
+    {
+      "target": "119",
+      "sources": [],
+      "op": "overlap_weighted",
+      "weights_table": null,
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Death_Prob",
+      "sources": [
+        "Pre-Retirement Men",
+        "Pre-Retirement Women",
+        "Post-Retirement Men",
+        "Post-Retirement Women"
+      ],
+      "op": "group_weighted",
+      "weights_tables": [
+        1,
+        1,
+        2,
+        2
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Sample mortality rates from Exhibit page G-4 (page 48), projected to 2019, printed as percentages (values_unit=percent). Rates are printed sex-split at 5-year sample ages for three populations; each sample age stands for its 5-year band (row_spans). Post-Disability columns transcribed as archived evidence but EXCLUDED from the blend (disability handled separately). The blend is population-weighted between pre-retirement (weighted by active-member counts, source_table 1) and post-retirement (weighted by retiree+disabled+beneficiary counts, source_table 2). Using the same headcount table for a population's Men and Women columns yields their simple average, then actives-vs-retirees headcounts weight the two populations by age. Active counts (Exhibit F.3, Total column) use row_spans; 'Under 20' clipped to [null,19] and 'Over 65' clipped to [65,69] since active membership beyond 69 is negligible and leaving the bin open would smear its weight. Retiree weight table built by summing the three count columns of Exhibit F.6 (Service Retirees 168/594/1178/1499/1193/689/390/186/116 + Disabled 39/39/53/53/24/14/15/7/1 + Beneficiaries 73/44/58/122/134/148/139/141/78) per age band; '<55' clipped to [null,54] and '90 & Up' clipped to [90,null]. Below age 55 retirees exist (168 in <55 band per F.6) so the blend at ages 20-54 uses both populations where actives dominate. Adjustment factors (Non-Annuitant Male 1.054/Female 1.112; Healthy Annuitant Male 1.019/Female 1.061; Disabled Male 0.984/Female 1.038) and generational MP-2015 improvement are NOT included in the printed sample rates and are recorded here only as context. Target ages 95-119 exceed the last printed sample band (90-94) so they get empty sources - no extrapolation.",
+  "unavailable": false
+}

@@ -40,6 +40,12 @@
 - The sd workbook Ret_Rate has 0 filled cells; the collector's log: rates are "reported by service years and by age separately, unclear best way to aggregate."
 - When extracted (a production-style run — no answer key), an aggregation assumption must be chosen and recorded here.
 
+### 6b. Avg_Mort post-retirement weight population: are beneficiaries in?
+- **The choice:** the post-retirement mortality blend needs retiree headcounts as weights. phx F.6 splits payees into Service Retirees / Disabled / Beneficiaries by age. The 2022 collector weighted by SERVICE RETIREES only; the live model run (phx_Avg_Mort_20260714_202443) summed all three.
+- **Partially ruled by consistency (rule now in targets.json):** disabled members are EXCLUDED whenever the post-disability rates are excluded from the blend (weights must match the populations whose rates are used). That leaves the real open question: beneficiaries — they receive healthy-annuitant mortality, so including them is defensible; the collector's convention excludes them.
+- **Magnitude:** small (beneficiaries are ~10% of payees at most ages); re-derivable either way from the archived F.6 transcription (all three columns recorded in the run's notes).
+- Related span judgment now ruled by rule: retiree bottom bin '<55' is clipped to [50, 54] (literal [null, 54] smears weight across young ages — the live run's 20-49 contamination).
+
 ### 6. Age_Serv_Wage with only age-level salary evidence is NOT accepted as a final grid
 - **Ruling for now (Niccolo 2026-07-13):** do not accept copied age-only average salaries as an `Age_Serv_Wage` grid. Flag these outputs as unresolved assumptions / cases needing a contract fix before use.
 - **aus run 20260713_164833:** Table 13A prints service-count columns plus one `Average Annual Salary` per age band. The model transcribed those 10 salary values correctly, and they count-weight back to the printed all-ages average ($69,715), but then copied each age average across all service buckets. That is an assumption that salary varies by age only, not an extraction of age x service wages.

@@ -99,23 +99,30 @@ proof 75/75 printed-range cells exact, only residual = the 95+ carry-forward
 empty -> production mode; chi publishes life expectancy -> unavailable path).
 Suite 10/10.
 
+LIVE phx Avg_Mort RAN 2026-07-14 (run ..._202443): ALL THREE RUNGS OF THE
+LADDER ARE NOW LIVE-PROVEN. Zero mechanical errors - perfect transcription
+of all three tables, blend declared unprompted with the [65,69] clip. Raw
+0.25 decomposed into two WEIGHT JUDGMENTS (model summed retirees+disabled+
+beneficiaries vs the collector's service-retirees-only - her source
+recovered as F.6's service-retiree column; and '<55' read literally
+[null,54] vs clipped [50,54]) + the register-2 carry-forward. Re-derivation
+with the collector's choices: 75/75 exact. Rules strengthened
+(weight-population consistency; clip both open ends); beneficiaries in/out
+= register entry 6b (the one genuinely open piece).
+
 **NEXT ACTION (agreed order, one item at a time to spare the API budget):**
-1. LIVE phx Avg_Mort (~$1.5-2) - the full rung-3 ladder case end to end.
-   Expect raw ~0.75 with ALL mismatches at ages 95+ (cand=None vs the
-   workbook's carried-forward 0.12685) - that is register entry 2, not model
-   error. Watch for: one group_weighted col entry with weights t[actives]
-   x2 + t[retirees] x2, the [65,69] clip stated in notes, values_unit
-   percent, and the retry loop catching any missing declarations (v0.6.1).
-2. Optional ~$2 confirmation: live sd Sep_Rate re-rerun (retry-loop check).
-3. Remaining cold runs when Niccolo runs them: bos counts/wage, then
+1. Retirement (retdist) target spec - the LAST target class; ops all exist
+   (ratio for avg benefit = dollars/count, share_even for open-bin splits).
+   Offline build + phx executor test, then live.
+2. Cold runs when Niccolo runs them: bos counts/wage, then
    Ret_Rate/Sep_Rate/Avg_Mort on aus/mil (out-of-sample).
-4. Then Retirement (retdist) - ops already exist.
+3. Optional ~$2 confirmations: sd Sep_Rate re-rerun; phx Avg_Mort re-rerun
+   under the strengthened rules.
 
 ```powershell
 cd "Data Extraction"
-python pipeline/run_test.py --plan phx --target Avg_Mort
-python pipeline/run_test.py --plan sd --target Sep_Rate      # optional confirm
 python pipeline/run_test.py --plan bos --target Age_Serv_Num
+python pipeline/run_test.py --plan sd --target Sep_Rate      # optional confirm
 ```
 
 Environment specifics for this workstream:

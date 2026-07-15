@@ -849,3 +849,33 @@ EXACT, zero wrong**, only residual = the 25 carry-forward cells. Suite 10/10.
 NEXT: live phx Avg_Mort (~$1.5-2) - the full rung-3 ladder case end to end;
 expect ~0.75 raw with all mismatches being the 95+ carry-forward. Then bos
 counts/wage cold runs; then Retirement (retdist).
+
+### 2026-07-14 - LIVE phx Avg_Mort: rung-3 ladder case ran end to end; two weight judgments adjudicated
+Live run phx_Avg_Mort_20260714_202443, raw 0.25. Adjudication: ZERO
+mechanical errors - the model transcribed all three tables perfectly (the
+p.48 panels as one 15x6 table; F.3 age totals WITH the [65,69] clip declared
+per the rule; F.6 pay-status counts), declared the single group_weighted
+column with weights t1,t1,t2,t2, per-band row maps, values_unit=percent,
+no extrapolation past 94, and excluded the disability rates - all
+unprompted, single attempt. The whole score gap is two WEIGHT JUDGMENTS
+plus the known 95+ carry-forward:
+1. Weight population: the model summed F.6's Service Retirees + Disabled +
+   Beneficiaries; the collector used Service Retirees only (her counts ARE
+   F.6's service-retiree column: 168/594/1178/1499/... - source recovered).
+   The model's choice is self-inconsistent (it excluded the post-disability
+   RATES but included disabled members in the weights) - now a rule:
+   weights must match the populations whose rates are blended. Beneficiaries
+   in/out remains genuinely open -> register entry 6b.
+2. '<55' bottom bin read literally as [null,54], smearing 280 payees across
+   ages 0-54 (the small 20-49 contamination, 15 cells 'close'). Now ruled:
+   clip retiree bottom bins to plausible retirement ages ([50,54]).
+Zero-cost re-derivation of the ARCHIVED transcription with the collector's
+two choices: **75/75 printed-range cells EXACT** - identical to the offline
+proof; only the 25 register-2 carry-forward cells remain. targets.json
+Avg_Mort rules 2-3 strengthened (weight-population consistency; clip BOTH
+open ends incl. retiree bottom bins).
+
+All three rungs of the difficulty ladder are now live-proven. Remaining
+live items: bos counts/wage cold runs; aus/mil rung-2/3 targets; sd
+Sep_Rate confirm rerun. Remaining build item: Retirement (retdist) target
+spec - ops all exist.
