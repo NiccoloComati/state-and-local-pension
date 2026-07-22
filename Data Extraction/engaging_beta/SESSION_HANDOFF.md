@@ -79,9 +79,21 @@ into a real fix for the Segal shift.
    (fixes chi_pol's source choice), phantom-index retry message, better table
    extraction for shift-prone Segal docs, etc. Re-run, iterate.
 
-Quick re-confirmation available now (server still up, code pulled):
-`python pipeline/run_batch.py --plans mil,chi_pol --targets Age_Serv_Num`
-— tests whether best-of-N flips mil (crash->score) and chi_pol (shift->clean).
+**Best-of-N validated live (2026-07-22):** `run_batch.py --plans mil,chi_pol
+--targets Age_Serv_Num` ->
+- mil: CRASH -> **1.0** (sample4 clean; phantom-index slip fixed by sampling).
+- chi_pol: 0.71 -> **0.868, flagged SUSPECT** — sampling made it pick the
+  correct combined Part III table, but the Segal 60-63-row column shift
+  persists across all 6 samples; the totals-check CAUGHT it (didn't silently
+  pass). This is the trust property: hard layouts get auto-flagged, not
+  corrupted. Segal needs TOOLING (pdfplumber table-mode / vision) or
+  Opus-fallback-on-suspect, not more sampling.
+
+**Op note:** the interactive salloc + backgrounded server DIE on SSH
+disconnect (the allocation is torn down with the login shell). Run the server
+under **tmux** (or as an sbatch job) so a dropped connection doesn't kill it.
+After a disconnect, re-`salloc` and re-boot per §6 Step B (with the CC=gcc +
+262144 fixes).
 
 ---
 

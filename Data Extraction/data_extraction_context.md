@@ -1008,3 +1008,36 @@ verifier.
 Full suite still 12/12. NEXT (the approved 4-point plan): git pull on the
 cluster, upload the rest of the corpus + extend PLANS, run_batch, then a
 bulk instruction/tooling fix pass from the aggregate failure map.
+
+### 2026-07-22 (later) - best-of-N validated live on the cluster (mil flipped; chi_pol = the safety property)
+First run of `run_batch.py` with best-of-N on `mil,chi_pol x Age_Serv_Num`:
+- **mil: CRASH -> 1.0.** greedy+retry still had the phantom `derive.tables`
+  index (1 contract violation); `sample4` (temperature 0.6) came out clean;
+  80/80 exact. Best-of-N fixes the ops slip end to end. (9 cosmetic label
+  mismatches only - template labels vs the workbook's bucket labels.)
+- **chi_pol: 0.71 -> 0.868, still SUSPECT (correctly).** Sampling made the
+  model pick the CORRECT combined Part III table (not the Male/Female split) -
+  source-selection improved for free. But the interleaved-Segal column shift
+  on the 60-63 age row PERSISTS across all 6 samples even on Part III, and the
+  printed-totals check caught it (6 col inconsistencies, net zero = classic
+  shift) -> flagged SUSPECT, NOT silently passed. The attention list surfaced
+  it as [SUSPECT+SCORED] automatically.
+
+Findings that sharpen the plan:
+1. best-of-N + the totals verifier is the right design: it fixes ops slips and
+   improves table selection, and - the key trust property - when the model
+   CANNOT transcribe a hard layout, the verifier flags it rather than emitting
+   a silently-wrong grid. Corpus runs that reconcile can be trusted; SUSPECT
+   ones route to Opus / better tooling / human review.
+2. temperature sampling alone does NOT fix the Segal interleaved-layout column
+   shift (Opus resolves it with the same layout text; Qwen doesn't). A
+   "prefer combined table" hint would only fix SOURCE SELECTION, not the shift.
+   The real Segal levers are TOOLING (pdfplumber table-mode with explicit
+   column boundaries, or vision on the page image) or Opus-fallback-on-suspect.
+3. run_batch matrix + attention list work as intended - this is the
+   breadth-first workflow proven in miniature.
+
+Refined verdict: **GO.** Standard layouts digit-exact; best-of-N recovers ops
+slips; hard layouts are auto-flagged SUSPECT (never silently wrong) and routed
+out. Op note: the interactive salloc/server dies on SSH disconnect - run the
+server under tmux (or sbatch) so a dropped connection doesn't kill it.
