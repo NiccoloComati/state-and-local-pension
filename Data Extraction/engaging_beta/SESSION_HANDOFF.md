@@ -9,6 +9,82 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0. LATEST STATE — 2026-07-22 session 2 (READ THIS FIRST; supersedes §6)
+
+**The server booted and the digit-fidelity gate (kill-test #4) PASSED.** We ran
+the battery live on 2x H200 and adjudicated it. Verdict: **GO with Opus as a
+targeted fallback on interleaved (Segal) layouts.**
+
+### Boot fixes discovered (needed to re-boot from scratch)
+- The apptainer image's vLLM (0.25.1) DOES support Qwen3.5 — the predicted
+  "too old, rebuild" branch did NOT happen. The real boot blocker was Triton
+  JIT (Qwen3.5's GDN attention compiles kernels at load) picking up a **host
+  spack `CC`** that isn't inside the container. **Fix: add
+  `--env CC=gcc --env CXX=g++`** to the `apptainer exec`.
+- Booted at **`--max-model-len 262144`** (NOT 131072): the retry conversation
+  (90K-token doc + first response + correction + output) overflows 131072 and
+  vLLM 400s. 262144 fits VRAM fine (hybrid-attention KV is cheap). The exact
+  working boot command is in §6 Step B with those two changes.
+- Queue (kill-test #2): the H200 alloc was **near-instant** — non-issue.
+
+### Fidelity battery (kill-test #4) — 5/6 digit-exact, 1 miss
+| plan/target (firm) | result | note |
+|---|---|---|
+| mil Age_Serv_Num (novel) | PASS | found 9 employer tables, all digits reconcile to 10,974 (= workbook = PPD actives_tot). Crashed on a phantom `derive.tables` index (ops slip, not digits). |
+| phx Age_Serv_Num (GRS) | PASS | 59/59 = 1.0 |
+| phx Age_Serv_Wage (GRS) | PASS | 57/59; the 2 "misses" are the KNOWN workbook typo (86306 vs PDF 86309) — model right |
+| phx Retirement (GRS) | PASS | 22/22 = 1.0; chose Service-Retirees population + ratio + share_even unprompted |
+| sd Age_Serv_Num (Cheiron) | PASS | totals-check clean; 5 "misses" = KNOWN human error (collector dropped 70+) — model right |
+| chi_pol Age_Serv_Num (Segal) | **MISS** | one-column-LEFT shift on the interleaved Male/Female split tables; its own col-totals don't reconcile; retry didn't fix. Also skipped the cleaner combined **Part III (p.46)**. |
+
+Headline: **three passes reproduced known human ground-truth errors** — Qwen
+transcribes the PDFs more faithfully than the workbooks in those spots. The one
+miss is the hardest layout in the corpus AND partly self-inflicted (wrong
+source table).
+
+### The strategy shift (Niccolo's call — endorsed)
+Local inference is $0 and seconds/run, so the Opus-era caution (surgical,
+one-at-a-time, each run costs money) is obsolete. Go **breadth-first**: run the
+whole corpus rough, collect the failure map, then fix instructions/tools in
+BULK. Free/fast retries make ops-sloppiness a non-issue. The key technical
+point: greedy decoding is DETERMINISTIC, so re-running can't escape a mistake —
+**best-of-N with a verifier** (sample at temperature, keep the candidate whose
+cells reconcile with the printed totals) is what turns "many free attempts"
+into a real fix for the Segal shift.
+
+### New machinery built this session (committed; `git pull` on the cluster)
+- **Best-of-N in `pipeline/extract.py`** (local backend only): greedy baseline
+  -> one greedy correction retry -> up to `EXTRACT_SAMPLES` (default 6)
+  independent draws at `EXTRACT_TEMPERATURE` (default 0.6), keeping the best by
+  (fewest contract violations, then fewest totals violations). Per-sample seeds
+  keep it reproducible. `EXTRACT_SAMPLES=0` disables it (pure greedy A/B).
+- **`pipeline/run_batch.py`**: runs every plan x target, writes
+  `runs/_batch_<stamp>/summary.{json,csv}`, prints a plans x targets matrix +
+  a ranked "attention list" (crashes, suspect-but-scored, imperfect, no-truth+
+  suspect). `run_test.run_one()` was factored out as the shared unit.
+- **`ops.totals_check` hardened**: a transcribed `Total` column/row is excluded
+  from the reconciliation, killing the false "2x" TRANSCRIPTION-SUSPECT alarm
+  (phx/chi) so the best-of-N verifier isn't polluted. Genuine shifts still fire.
+- Co-author trailer disabled in commits per Niccolo (`.claude/settings.local.json`).
+
+### NEXT ACTION (the 4-point plan, approved)
+1. On the cluster: `cd .../state-and-local-pension && git pull` to get the
+   above. (Server can stay up; only the client code changed.)
+2. **Upload the rest of the corpus** PDFs (only 6 plans are staged). See §5 for
+   how the 6 got there (scp tarball). Then extend `PLANS` in `run_test.py` with
+   the new plan keys + PDF paths (+ workbook if truth exists).
+3. **Run the sweep**: `python pipeline/run_batch.py` (env vars set per §6 Step
+   C). Read the matrix + attention list.
+4. **Bulk-fix pass** from the aggregate failures: prefer-combined-table hint
+   (fixes chi_pol's source choice), phantom-index retry message, better table
+   extraction for shift-prone Segal docs, etc. Re-run, iterate.
+
+Quick re-confirmation available now (server still up, code pulled):
+`python pipeline/run_batch.py --plans mil,chi_pol --targets Age_Serv_Num`
+— tests whether best-of-N flips mil (crash->score) and chi_pol (shift->clean).
+
+---
+
 ## 1. WHY we are doing this (the goal and the decision bar)
 
 We are testing whether a **pinned open-weights model** can replace

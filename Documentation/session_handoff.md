@@ -6,15 +6,23 @@ technical docs don't carry. Read it after `project_context.md` and the recent
 
 ## ACTIVE WORKSTREAM (2026-07): the extraction pipeline
 
-**Open-weights beta in progress (2026-07-20+):** we are testing whether a
-pinned open-weights model on MIT Engaging (Qwen3.5-122B-A10B-FP8 via vLLM) can
-replace claude-opus-4-8 for Stage A. **The complete, self-contained handoff for
-that effort is `Data Extraction/engaging_beta/SESSION_HANDOFF.md`** — read it to
-continue on another machine (cluster state, exact commands, every error+fix,
-the next action = boot the GPU server). Weights/container/data are all already
-staged on Engaging scratch; the next step is the H200 `salloc` + vLLM boot +
-the scored fidelity battery. Backend adapter is committed in `extract.py`
-(env-var gated; Anthropic path unchanged).
+**Open-weights beta (2026-07-22): the gate PASSED — now in a breadth-first
+corpus sweep.** Qwen3.5-122B-A10B-FP8 on MIT Engaging (vLLM on 2x H200) was
+tested for Stage A. Digit-fidelity battery = **5/6 digit-exact** (three passes
+even reproduced known human workbook errors — more faithful than the
+collectors); the one miss is chi_pol's interleaved Segal layout (column shift +
+a suboptimal source-table choice). **Verdict: GO with Opus as a targeted
+fallback on Segal-style layouts.** **The complete, self-contained handoff is
+`Data Extraction/engaging_beta/SESSION_HANDOFF.md` — read its §0 first**
+(supersedes the older sections): boot fixes (`--env CC=gcc`, `--max-model-len
+262144`), the battery results, and the current NEXT ACTION. Strategy shifted
+(Niccolo): local inference is $0/seconds, so we go breadth-first — run the whole
+corpus rough, then bulk-fix. Machinery built for it: best-of-N temperature
+sampling verified by the printed-totals check (`extract.py`), a `run_batch.py`
+sweep with an aggregate matrix + attention list, and a hardened `totals_check`.
+Next: `git pull` on the cluster, upload the rest of the corpus, `run_batch.py`,
+read the failure map, bulk-fix. (Commits no longer add a Claude co-author
+trailer, per Niccolo.)
 
 The current focus is the AV-PDF -> workbook extraction pipeline in
 `Data Extraction/pipeline/`. **Read `Data Extraction/data_extraction_context.md`

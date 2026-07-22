@@ -578,6 +578,18 @@ def empty_grid(row_labels, col_labels):
             "cells": [[None] * len(col_labels) for _ in row_labels]}
 
 
+def _is_total_label(label):
+    """True for a row/column label that denotes a printed TOTAL (grand total,
+    all-participants total, etc.). Models sometimes transcribe the source's
+    Total column/row INTO the cells instead of excluding it; when they do, a
+    row's cell-sum comes out exactly double its printed total. We exclude such
+    columns/rows from the reconciliation so that inclusion is not mistaken for
+    a real transcription error (it is harmless - no target maps the Total)."""
+    s = str(label).strip().lower().replace(".", "").replace("_", " ")
+    return s in ("total", "totals", "total count", "grand total", "all",
+                 "total lives", "total number", "sum") or s.startswith("total ")
+
+
 def totals_check(table, tol=0.5, rel_tol=1e-5):
     """Verify the transcription against the table's PRINTED totals (if any).
 
@@ -591,29 +603,37 @@ def totals_check(table, tol=0.5, rel_tol=1e-5):
     unrounded values, so printed totals can be off by a few dollars on
     hundreds of millions); a real column shift moves an entire cell value,
     orders of magnitude above it.
+
+    A transcribed Total column/row is excluded from the sums (and not itself
+    checked) - see _is_total_label - so its harmless inclusion does not fire a
+    false 2x alarm that would pollute the best-of-N verifier.
     """
     problems = []
     cells = table["cells"]
+    row_labels, col_labels = table["row_labels"], table["col_labels"]
+    total_cols = {j for j, c in enumerate(col_labels) if _is_total_label(c)}
+    total_rows = {i for i, r in enumerate(row_labels) if _is_total_label(r)}
 
     def _bad(s, printed):
         return abs(s - printed) > max(tol, rel_tol * abs(printed))
 
     prt = table.get("printed_row_totals")
     if prt:
-        for lab, row, printed in zip(table["row_labels"], cells, prt):
-            if printed is None:
+        for i, (lab, row, printed) in enumerate(zip(row_labels, cells, prt)):
+            if printed is None or i in total_rows:
                 continue
-            s = sum(v for v in row if _num(v))
+            s = sum(v for j, v in enumerate(row) if _num(v) and j not in total_cols)
             if _bad(s, printed):
                 problems.append(f"row {lab!r}: cells sum to {s!r} but printed total "
                                 f"is {printed!r} (diff {s - printed!r})")
 
     pct = table.get("printed_col_totals")
     if pct:
-        for j, (lab, printed) in enumerate(zip(table["col_labels"], pct)):
-            if printed is None:
+        for j, (lab, printed) in enumerate(zip(col_labels, pct)):
+            if printed is None or j in total_cols:
                 continue
-            s = sum(row[j] for row in cells if j < len(row) and _num(row[j]))
+            s = sum(row[j] for i, row in enumerate(cells)
+                    if i not in total_rows and j < len(row) and _num(row[j]))
             if _bad(s, printed):
                 problems.append(f"col {lab!r}: cells sum to {s!r} but printed total "
                                 f"is {printed!r} (diff {s - printed!r})")

@@ -962,3 +962,49 @@ then phx/chi/sd), wait_health.py, queue_probe.sbatch (kill test #2).
 Remaining kill tests need Niccolo's Kerberos: queue probes (#2), boot (#3),
 the fidelity gate (#4 - run_test.py scores it against archived truth
 automatically), optional determinism probe (#5).
+
+### 2026-07-22 - open-weights beta: server booted, fidelity gate PASSED, breadth-first machinery built
+Full self-contained account: `engaging_beta/SESSION_HANDOFF.md` §0. Summary:
+
+**Boot (kill-tests #2/#3 PASS).** 2x H200 alloc near-instant. Two fixes vs the
+staged plan: (a) Triton JIT for Qwen3.5's GDN attention needs a compiler in the
+container -> `apptainer exec --env CC=gcc --env CXX=g++`; (b) boot at
+`--max-model-len 262144` not 131072 (the retry conversation, ~90K doc + first
+response + correction + output, overflows 131072 and vLLM 400s). vLLM 0.25.1
+in the image supports Qwen3.5 fine (the predicted "too old" branch didn't fire).
+
+**Fidelity battery (kill-test #4) - the GATE - 5/6 digit-exact:** mil
+Age_Serv_Num (9 employer tables, digits reconcile to 10,974 = PPD actives_tot;
+crashed only on a phantom `derive.tables` index), phx Age_Serv_Num 59/59, phx
+Age_Serv_Wage 57/59 (2 = the known 86306/86309 workbook typo, model right), phx
+Retirement 22/22 (Service-Retiree population + ratio + share_even unprompted),
+sd Age_Serv_Num (totals clean; 5 = the known dropped-70+ human error, model
+right). The ONE miss: chi_pol Age_Serv_Num (Segal) - a one-column-left shift on
+the interleaved Male/Female split tables (col-totals don't reconcile; retry
+didn't fix), and it skipped the cleaner combined Part III. Three passes
+REPRODUCED known human ground-truth errors - the model is more faithful than
+the workbooks there. Verdict: **GO with Opus fallback on interleaved layouts.**
+
+**Strategy shift (Niccolo, endorsed):** local inference is $0/seconds, so the
+Opus-era one-at-a-time caution is obsolete -> breadth-first: run the corpus
+rough, collect the failure map, bulk-fix instructions/tools. Free retries make
+ops-sloppiness a non-issue. Key point: greedy decoding is deterministic, so
+best-of-N needs TEMPERATURE + a verifier; the printed-totals check is that
+verifier.
+
+**Machinery built (v0.9 groundwork, this commit):**
+- `extract.py` best-of-N (local backend): greedy -> greedy correction retry ->
+  up to EXTRACT_SAMPLES (6) temperature (0.6) draws, keep best by (contract
+  violations, then totals violations); per-sample seeds reproducible;
+  EXTRACT_SAMPLES=0 disables. Anthropic path unchanged.
+- `run_batch.py`: sweep every plan x target -> `runs/_batch_<stamp>/summary.
+  {json,csv}` + plans x targets matrix + ranked attention list. `run_one()`
+  factored out of run_test as the shared unit.
+- `ops.totals_check` excludes a transcribed `Total` column/row from the
+  reconciliation (kills the false 2x "SUSPECT" alarm on phx/chi so best-of-N
+  isn't polluted; genuine shifts still caught - unit-verified).
+- Co-author trailer disabled in commits (`.claude/settings.local.json`).
+
+Full suite still 12/12. NEXT (the approved 4-point plan): git pull on the
+cluster, upload the rest of the corpus + extend PLANS, run_batch, then a
+bulk instruction/tooling fix pass from the aggregate failure map.

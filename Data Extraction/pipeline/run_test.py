@@ -12,6 +12,9 @@ Usage (from the "Data Extraction" folder or anywhere):
     python pipeline/run_test.py --plan chi_pol --target Age_Serv_Num
     python pipeline/run_test.py --plan phx --target Age_Serv_Num --dry-run
 
+The breadth-first sweep over every plan x target is run_batch.py, which calls
+run_one() below and writes an aggregate report.
+
 Debug/diagnostic options:
     --pages 38 39     restrict the document text to specific pages (cost/debug
                       lever only - NOT the normal flow)
@@ -76,6 +79,154 @@ PLANS = {
 }
 
 
+def load_targets():
+    with open(os.path.join(HERE, "targets.json"), encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def target_names(targets):
+    return [k for k in targets if not k.startswith("_")]
+
+
+def _totals_status(result):
+    """Worst printed-totals status across the transcribed source tables:
+    'suspect' if any table fails reconciliation, 'clean' if some table has
+    printed totals and all reconcile, 'none' if no table prints totals."""
+    tables = result.get("source_tables", [])
+    any_printed = any(t.get("printed_row_totals") or t.get("printed_col_totals")
+                      for t in tables)
+    any_suspect = any(ops.totals_check(t) for t in tables)
+    return "suspect" if any_suspect else ("clean" if any_printed else "none")
+
+
+def run_one(plan_key, target, targets, pages=None, verbose=True):
+    """Run one plan x target end to end. Writes artifacts to a fresh run dir
+    and returns a structured outcome dict (never raises - a Stage A crash is
+    captured as status='crash'). This is the unit the batch harness iterates."""
+    plan = PLANS[plan_key]
+    spec = targets[target]
+    out = {"plan": plan_key, "target": target, "status": None, "score": None,
+           "exact": None, "close": None, "wrong": None, "missing": None,
+           "extra": None, "totals": None, "n_tables": None, "n_attempts": None,
+           "crash": None, "run_dir": None}
+
+    def log(*a):
+        if verbose:
+            print(*a)
+
+    if pages:
+        source_text = locate.page_text(plan["pdf"], pages)
+    else:
+        source_text = locate.full_text(plan["pdf"])
+        log(f"[doc] full document: {os.path.basename(plan['pdf'])} "
+            f"({len(source_text):,} chars, ~{len(source_text) // 4:,} tokens)")
+        if len(source_text.strip()) < 1000:
+            out["status"] = "crash"
+            out["crash"] = "document text layer is (near-)empty - vision fallback needed"
+            log("[doc] " + out["crash"])
+            return out
+
+    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    run_dir = os.path.join(DATA_EXTRACTION, "runs", f"{plan_key}_{target}_{stamp}")
+    os.makedirs(run_dir, exist_ok=True)
+    out["run_dir"] = run_dir
+
+    try:
+        result, record = extract.extract(
+            target, spec, source_text,
+            record_path=os.path.join(run_dir, "record.json"))
+    except Exception as e:                          # noqa: BLE001 - report, don't crash the sweep
+        out["status"] = "crash"
+        out["crash"] = str(e).replace("\n", " | ")[:300]
+        try:
+            with open(os.path.join(run_dir, "record.json"), encoding="utf-8") as fh:
+                out["n_attempts"] = len(json.load(fh).get("attempts", []))
+        except (OSError, ValueError):
+            pass
+        log(f"[CRASH] {plan_key}/{target}: {out['crash']}")
+        return out
+
+    out["n_attempts"] = len(record.get("attempts", []))
+    with open(os.path.join(run_dir, "extraction.json"), "w", encoding="utf-8") as fh:
+        json.dump(result, fh, indent=2)
+
+    for k, t in enumerate(result["source_tables"]):
+        log(f"[stage A] source_tables[{k}]: p.{t['page']} {t['title']!r} "
+            f"({len(t['row_labels'])}x{len(t['col_labels'])})")
+        issues = ops.totals_check(t)
+        if issues:
+            log("[stage A] !! TRANSCRIPTION SUSPECT (printed-totals check failed):")
+            for msg in issues:
+                log(f"      {msg}")
+        elif t.get("printed_row_totals") or t.get("printed_col_totals"):
+            log("[stage A]    printed-totals check: OK")
+        else:
+            log("[stage A]    (no printed totals to check against)")
+    log(f"[stage A] notes: {result.get('notes', '')[:400]}")
+    out["n_tables"] = len(result["source_tables"])
+    out["totals"] = _totals_status(result)
+
+    # ---- stage B: execute the declared operations (deterministic) ----
+    if result.get("unavailable"):
+        log("[stage B] TARGET DECLARED UNAVAILABLE in this document - derived.json")
+        log("          is the empty template grid; tables above are archived evidence.")
+        derived = ops.empty_grid(spec["grid"]["row_labels"], spec["grid"]["col_labels"])
+    else:
+        for kind, m, spans in (("rows", result["row_map"], spec.get("target_row_spans")),
+                               ("cols", result["col_map"], spec.get("target_col_spans"))):
+            _, audit = ops.resolve_overlap_sources(m, spans)
+            for msg in audit:
+                log(f"[stage B] overlap audit ({kind}): {msg}")
+        derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
+                              derive=result.get("derive"),
+                              transpose=result.get("transpose", False),
+                              target_row_spans=spec.get("target_row_spans"),
+                              target_col_spans=spec.get("target_col_spans"),
+                              to_decimal=spec.get("convert_percent_to_decimal", False),
+                              zero_impossible_cfg=spec.get("zero_impossible_cells"))
+    with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
+        json.dump(derived, fh, indent=2)
+    if not result.get("unavailable"):
+        log("[stage B] declared operations:")
+        for line in ops.summarize(result["row_map"], result["col_map"],
+                                  derive=result.get("derive"),
+                                  transpose=result.get("transpose", False)):
+            log(f"    {line}")
+
+    # ---- score against the human workbook (if one exists and is filled) ----
+    truth = None
+    if plan["workbook"]:
+        try:
+            truth = harness.load_truth(plan["workbook"], target)
+            if not any(v is not None for row in truth["cells"] for v in row):
+                truth = None
+        except (KeyError, ValueError):
+            truth = None
+    if truth is None:
+        out["status"] = "unavailable" if result.get("unavailable") else "production"
+        log(f"[score] no ground truth for {plan_key}/{target} - PRODUCTION MODE "
+            "(review artifacts vs the PDF; no score)")
+        log(f"[artifacts] {run_dir}")
+        return out
+
+    report = harness.score(truth, derived,
+                           zero_equals_empty=spec.get("zero_equals_empty", False))
+    with open(os.path.join(run_dir, "report.json"), "w", encoding="utf-8") as fh:
+        json.dump(report, fh, indent=2)
+    out["status"] = "scored"
+    out["score"] = report.get("accuracy")
+    out["exact"] = report.get("exact")
+    out["close"] = report.get("close")
+    out["wrong"] = report.get("wrong")
+    out["missing"] = report.get("missing_in_cand")
+    out["extra"] = report.get("extra_in_cand")
+    log(f"[score] {plan_key} / {target}")
+    if verbose:
+        harness.print_report(report)
+    log(f"[artifacts] {run_dir}")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plan", required=True, choices=sorted(PLANS))
@@ -88,12 +239,10 @@ def main():
                     help="DIAGNOSTIC: show the naive keyword page ranking and exit")
     args = ap.parse_args()
 
-    plan = PLANS[args.plan]
-    with open(os.path.join(HERE, "targets.json"), encoding="utf-8") as fh:
-        targets = json.load(fh)
+    targets = load_targets()
     if args.target not in targets:
-        sys.exit(f"unknown target {args.target}; known: "
-                 f"{[k for k in targets if not k.startswith('_')]}")
+        sys.exit(f"unknown target {args.target}; known: {target_names(targets)}")
+    plan = PLANS[args.plan]
     spec = targets[args.target]
 
     if args.keyword_scan:
@@ -101,100 +250,13 @@ def main():
             print(f"  p.{p:>3}  score={score_}  {matched}")
         return
 
-    # ---- document text (whole document unless debugging with --pages) ----
-    if args.pages:
-        print(f"[doc] DEBUG mode: restricting to pages {args.pages}")
-        source_text = locate.page_text(plan["pdf"], args.pages)
-    else:
-        source_text = locate.full_text(plan["pdf"])
-        print(f"[doc] full document: {os.path.basename(plan['pdf'])} "
-              f"({len(source_text):,} chars, ~{len(source_text) // 4:,} tokens)")
-        if len(source_text.strip()) < 1000:
-            sys.exit("document text layer is (near-)empty - vision fallback needed")
-
-    # ---- extract ----
-    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = os.path.join(DATA_EXTRACTION, "runs", f"{args.plan}_{args.target}_{stamp}")
-    if not args.dry_run:
-        os.makedirs(run_dir, exist_ok=True)
-
-    result, _ = extract.extract(
-        args.target, spec, source_text,
-        record_path=None if args.dry_run else os.path.join(run_dir, "record.json"),
-        dry_run=args.dry_run,
-    )
     if args.dry_run:
+        src = (locate.page_text(plan["pdf"], args.pages) if args.pages
+               else locate.full_text(plan["pdf"]))
+        extract.extract(args.target, spec, src, dry_run=True)
         return
 
-    with open(os.path.join(run_dir, "extraction.json"), "w", encoding="utf-8") as fh:
-        json.dump(result, fh, indent=2)
-    for k, t in enumerate(result["source_tables"]):
-        print(f"[stage A] source_tables[{k}]: p.{t['page']} {t['title']!r} "
-              f"({len(t['row_labels'])}x{len(t['col_labels'])})")
-        issues = ops.totals_check(t)
-        if issues:
-            print(f"[stage A] !! TRANSCRIPTION SUSPECT (printed-totals check failed):")
-            for msg in issues:
-                print(f"      {msg}")
-        elif t.get("printed_row_totals") or t.get("printed_col_totals"):
-            print(f"[stage A]    printed-totals check: OK")
-        else:
-            print(f"[stage A]    (no printed totals to check against)")
-    print(f"[stage A] notes: {result.get('notes', '')[:400]}")
-
-    # ---- stage B: execute the declared operations (deterministic) ----
-    if result.get("unavailable"):
-        print("[stage B] TARGET DECLARED UNAVAILABLE in this document - no mapping")
-        print("          exists; derived.json is the empty template grid. Any tables")
-        print("          above are archived evidence only (extraction.json). What to")
-        print("          do about the missing data is an assumption_register.md item.")
-        derived = ops.empty_grid(spec["grid"]["row_labels"], spec["grid"]["col_labels"])
-    else:
-        # audit: where the span-computed overlap sets differ from the model's own
-        for kind, m, spans in (("rows", result["row_map"], spec.get("target_row_spans")),
-                               ("cols", result["col_map"], spec.get("target_col_spans"))):
-            _, audit = ops.resolve_overlap_sources(m, spans)
-            for msg in audit:
-                print(f"[stage B] overlap audit ({kind}): {msg}")
-        derived = ops.execute(result["source_tables"], result["row_map"], result["col_map"],
-                              derive=result.get("derive"),
-                              transpose=result.get("transpose", False),
-                              target_row_spans=spec.get("target_row_spans"),
-                              target_col_spans=spec.get("target_col_spans"),
-                              to_decimal=spec.get("convert_percent_to_decimal", False),
-                              zero_impossible_cfg=spec.get("zero_impossible_cells"))
-    with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
-        json.dump(derived, fh, indent=2)
-    if not result.get("unavailable"):
-        print("[stage B] declared operations:")
-        for line in ops.summarize(result["row_map"], result["col_map"],
-                                  derive=result.get("derive"),
-                                  transpose=result.get("transpose", False)):
-            print(f"    {line}")
-
-    # ---- score the derived grid against the human workbook (if one exists) ----
-    truth = None
-    if plan["workbook"]:
-        try:
-            truth = harness.load_truth(plan["workbook"], args.target)
-            if not any(v is not None for row in truth["cells"] for v in row):
-                truth = None      # sheet exists but is blank
-        except (KeyError, ValueError):
-            truth = None          # sheet absent
-    if truth is None:
-        print(f"[score] no ground truth for {args.plan}/{args.target} - PRODUCTION MODE:")
-        print( "        review extraction.json (source-native tables + declared ops)")
-        print( "        and derived.json against the PDF; no score computed")
-        print(f"[artifacts] {run_dir}")
-        return
-    report = harness.score(truth, derived,
-                           zero_equals_empty=spec.get("zero_equals_empty", False))
-    with open(os.path.join(run_dir, "report.json"), "w", encoding="utf-8") as fh:
-        json.dump(report, fh, indent=2)
-
-    print(f"[score] {args.plan} / {args.target}")
-    harness.print_report(report)
-    print(f"[artifacts] {run_dir}")
+    run_one(args.plan, args.target, targets, pages=args.pages, verbose=True)
 
 
 if __name__ == "__main__":

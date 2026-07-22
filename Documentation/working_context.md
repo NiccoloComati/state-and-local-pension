@@ -2407,3 +2407,28 @@ lessons captured in the handoff: SSH orcd-login.mit.edu (old login deprecated);
 ALWAYS pass --mem on salloc (default OOM-kills builds); use apptainer/1.4.2 +
 sandbox not .sif; $SCRATCH unset, path is hardcoded. Resume at
 SESSION_HANDOFF.md Section 6.
+
+## 2026-07-22 (session 2): open-weights beta — gate PASSED, breadth-first machinery built
+
+Booted Qwen3.5-122B-A10B-FP8 on 2x H200 (Engaging) and ran the digit-fidelity
+gate live. Full account in `Data Extraction/engaging_beta/SESSION_HANDOFF.md`
+§0 and the `data_extraction_context.md` 2026-07-22 dev-log entry. Headlines:
+
+- Boot fixes: `apptainer exec --env CC=gcc --env CXX=g++` (Triton JIT for
+  Qwen3.5 GDN attention needs a compiler in-container); `--max-model-len
+  262144` (131072 overflows on the retry conversation). Queue near-instant.
+- Fidelity battery = 5/6 digit-exact; the one miss is chi_pol's interleaved
+  Segal layout (column shift + it skipped the cleaner combined Part III).
+  THREE passes reproduced known human workbook errors (dropped-70+, the
+  86306/86309 typo) — the model is more faithful than the collectors there.
+  Verdict: GO with Opus fallback on Segal-style layouts.
+- Strategy shift (Niccolo, endorsed): local inference is $0/seconds, so go
+  breadth-first — run the corpus rough, collect the failure map, bulk-fix.
+  Greedy is deterministic, so best-of-N needs temperature + a verifier (the
+  printed-totals check).
+- Built (committed, no co-author trailer per Niccolo's new setting): best-of-N
+  in extract.py (EXTRACT_SAMPLES/EXTRACT_TEMPERATURE), run_batch.py sweep +
+  aggregate report, hardened ops.totals_check (drops transcribed Total
+  columns). Suite 12/12.
+- NEXT: git pull on cluster, upload rest of corpus + extend PLANS, run_batch,
+  read matrix/attention list, bulk instruction/tooling fixes.

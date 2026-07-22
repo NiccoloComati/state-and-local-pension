@@ -32,6 +32,15 @@ MAX_TOKENS = 32000
 OPENAI_BASE_URL = os.environ.get("EXTRACT_OPENAI_BASE_URL")
 OPENAI_MODEL = os.environ.get("EXTRACT_MODEL", "")
 OPENAI_TIMEOUT = int(os.environ.get("EXTRACT_TIMEOUT_S", "3600"))
+# best-of-N (local backend only): after the greedy attempt + one greedy
+# correction retry, draw up to EXTRACT_SAMPLES independent samples at
+# EXTRACT_TEMPERATURE and keep the one that best reconciles with the printed
+# totals (the free verifier). Greedy decoding is deterministic, so re-running
+# it cannot escape a column-shift; temperature diversity + the totals-check
+# can. Set EXTRACT_SAMPLES=0 to disable (pure greedy + retry, e.g. for an A/B
+# against the deterministic baseline). Per-sample seeds keep it reproducible.
+OPENAI_SAMPLES = int(os.environ.get("EXTRACT_SAMPLES", "6"))
+OPENAI_TEMPERATURE = float(os.environ.get("EXTRACT_TEMPERATURE", "0.6"))
 
 _TABLE = {
     "type": "object",
@@ -679,17 +688,20 @@ def validate(result, target_spec=None):
     return p
 
 
-def _call_openai(messages):
+def _call_openai(messages, temperature=0, seed=0):
     """One chat-completions call to an OpenAI-compatible server (vLLM).
-    Dependency-free (urllib). Greedy decoding; thinking disabled via
-    chat_template_kwargs (honored by vLLM for Qwen-family templates,
-    harmlessly ignored elsewhere). Returns (text, raw_response_dict)."""
+    Dependency-free (urllib). temperature=0 is greedy (deterministic); a
+    positive temperature with a fixed seed gives a reproducible sample.
+    Thinking disabled via chat_template_kwargs (honored by vLLM for
+    Qwen-family templates, harmlessly ignored elsewhere). Returns
+    (text, raw_response_dict)."""
     import urllib.request
     payload = {
         "model": OPENAI_MODEL,
         "messages": [{"role": "system", "content": SYSTEM}] + messages,
         "max_tokens": MAX_TOKENS,
-        "temperature": 0,
+        "temperature": temperature,
+        "seed": seed,
         "chat_template_kwargs": {"enable_thinking": False},
     }
     req = urllib.request.Request(
@@ -708,6 +720,99 @@ def _call_openai(messages):
     return choice["message"]["content"], raw
 
 
+def _evaluate(text, target_spec):
+    """Score one candidate response. Returns
+    (result|None, fatal_problems, totals_violations, all_problems).
+    fatal = contract violations (validate); totals_violations = count of
+    printed-totals reconciliation failures (non-fatal, used only to rank
+    candidates in best-of-N). A clean candidate has fatal==[] and
+    totals_violations==0."""
+    import ops
+    try:
+        result = _parse(text)
+    except (ValueError, json.JSONDecodeError) as e:
+        return None, [f"response is not parseable JSON: {e}"], 0, \
+               [f"response is not parseable JSON: {e}"]
+    fatal = validate(result, target_spec)
+    totals = 0
+    if not fatal:
+        for k, t in enumerate(result["source_tables"]):
+            for msg in ops.totals_check(t):
+                totals += 1
+    return result, fatal, totals, list(fatal)
+
+
+def _correction_message(problems):
+    return ("Your response does not conform to the required output format. "
+            "Problems:\n" + "\n".join(f"- {pb}" for pb in problems) +
+            "\n\nReturn the SAME data, corrected to EXACTLY the required "
+            "structure.\n\n" + FORMAT_SPEC +
+            "\n\nReturn ONLY the corrected JSON object.")
+
+
+def _extract_openai(target_name, target_spec, prompt, record, record_path):
+    """Local-backend Stage A: greedy baseline -> one greedy correction retry
+    -> best-of-N temperature sampling verified against the printed totals.
+    Keeps the best candidate seen (fewest contract violations, then fewest
+    totals violations). Raises only if no candidate is contract-valid."""
+    base = [{"role": "user", "content": prompt}]
+    best = {"key": (10 ** 9, 10 ** 9), "result": None, "text": None, "fatal": None}
+
+    def consider(text, raw, tag):
+        result, fatal, totals, allp = _evaluate(text, target_spec)
+        att = {"tag": tag, "response": raw, "usage": raw.get("usage"),
+               "n_fatal": len(fatal), "n_totals": totals}
+        if fatal:
+            att["format_problems"] = fatal
+        record["attempts"].append(att)
+        key = (len(fatal), totals)
+        if key < best["key"]:
+            best.update(key=key, result=result, text=text, fatal=fatal)
+        return key
+
+    # 1. greedy baseline (reproducible)
+    text, raw = _call_openai(base, temperature=0, seed=0)
+    if consider(text, raw, "greedy") == (0, 0):
+        return _finalize_openai(best, record, record_path)
+
+    # 2. one greedy correction retry with the specific problems fed back
+    if best["fatal"]:
+        msgs = base + [{"role": "assistant", "content": best["text"]},
+                       {"role": "user", "content": _correction_message(best["fatal"])}]
+        text, raw = _call_openai(msgs, temperature=0, seed=0)
+        if consider(text, raw, "retry") == (0, 0):
+            return _finalize_openai(best, record, record_path)
+
+    # 3. best-of-N: independent temperature draws to escape a deterministic
+    #    mistake (column shift, phantom index...), each verified by the totals
+    if OPENAI_SAMPLES > 0 and best["key"] != (0, 0):
+        print(f"[stage A] not clean after greedy+retry (best: {best['key'][0]} contract, "
+              f"{best['key'][1]} totals); sampling up to {OPENAI_SAMPLES} at "
+              f"temperature {OPENAI_TEMPERATURE}...")
+        for i in range(OPENAI_SAMPLES):
+            text, raw = _call_openai(base, temperature=OPENAI_TEMPERATURE, seed=1000 + i)
+            if consider(text, raw, f"sample{i}") == (0, 0):
+                print(f"[stage A] clean sample found (sample{i})")
+                break
+
+    return _finalize_openai(best, record, record_path)
+
+
+def _finalize_openai(best, record, record_path):
+    if record_path:
+        with open(record_path, "w", encoding="utf-8") as fh:
+            json.dump(record, fh, indent=2, default=str)
+    if best["result"] is None or best["fatal"]:
+        raise RuntimeError("response still violates the contract after "
+                           f"{len(record['attempts'])} attempts:\n"
+                           + "\n".join(best["fatal"] or ["unparseable JSON"]))
+    if best["key"][1] > 0:
+        print(f"[stage A] WARNING: best candidate still has {best['key'][1]} "
+              "printed-totals inconsistencies; transcription is suspect but "
+              "proceeding (best of all attempts)")
+    return best["result"], record
+
+
 def extract(target_name, target_spec, source_text, record_path=None, dry_run=False):
     """Run one extraction (with one format-correction retry if the response
     does not conform to the contract). Returns (result_dict, record_dict)."""
@@ -723,43 +828,42 @@ def extract(target_name, target_spec, source_text, record_path=None, dry_run=Fal
         print(f"--- ({len(prompt)} chars total; model={model_name}; backend={backend}) ---")
         return None, None
 
-    if not use_openai:
-        import anthropic  # deferred so dry runs work without the package/key
-        client = anthropic.Anthropic()
-
-    messages = [{"role": "user", "content": prompt}]
     record = {"attempts": [], "model": model_name,
               "backend": "openai-compatible" if use_openai else "anthropic"}
     if use_openai:
         record["base_url"] = OPENAI_BASE_URL
+        record["samples"] = OPENAI_SAMPLES
+        record["temperature"] = OPENAI_TEMPERATURE
+        return _extract_openai(target_name, target_spec, prompt, record, record_path)
+
+    import anthropic  # deferred so dry runs work without the package/key
+    client = anthropic.Anthropic()
+
+    messages = [{"role": "user", "content": prompt}]
     result = None
 
     for attempt in (1, 2):
-        if use_openai:
-            text, raw = _call_openai(messages)
-            record["attempts"].append({"response": raw, "usage": raw.get("usage")})
-        else:
-            params = {
-                "model": MODEL,
-                "max_tokens": MAX_TOKENS,
-                "system": SYSTEM,
-                "messages": messages,
-                # kept for endpoints that honor it; proxies may drop it, which is
-                # why we validate client-side below
-                "output_config": {"format": {"type": "json_schema", "schema": RESULT_SCHEMA}},
-            }
-            with client.messages.stream(**params) as stream:
-                response = stream.get_final_message()
+        params = {
+            "model": MODEL,
+            "max_tokens": MAX_TOKENS,
+            "system": SYSTEM,
+            "messages": messages,
+            # kept for endpoints that honor it; proxies may drop it, which is
+            # why we validate client-side below
+            "output_config": {"format": {"type": "json_schema", "schema": RESULT_SCHEMA}},
+        }
+        with client.messages.stream(**params) as stream:
+            response = stream.get_final_message()
 
-            if response.stop_reason == "refusal":
-                raise RuntimeError(f"model refused: {response.stop_details}")
+        if response.stop_reason == "refusal":
+            raise RuntimeError(f"model refused: {response.stop_details}")
 
-            text = next(b.text for b in response.content if b.type == "text")
-            record["attempts"].append({
-                "response": response.to_dict(),
-                "usage": {"input_tokens": response.usage.input_tokens,
-                          "output_tokens": response.usage.output_tokens},
-            })
+        text = next(b.text for b in response.content if b.type == "text")
+        record["attempts"].append({
+            "response": response.to_dict(),
+            "usage": {"input_tokens": response.usage.input_tokens,
+                      "output_tokens": response.usage.output_tokens},
+        })
 
         try:
             result = _parse(text)
