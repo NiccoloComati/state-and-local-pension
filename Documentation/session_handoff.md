@@ -6,6 +6,16 @@ technical docs don't carry. Read it after `project_context.md` and the recent
 
 ## ACTIVE WORKSTREAM (2026-07): the extraction pipeline
 
+**Open-weights beta in progress (2026-07-20+):** we are testing whether a
+pinned open-weights model on MIT Engaging (Qwen3.5-122B-A10B-FP8 via vLLM) can
+replace claude-opus-4-8 for Stage A. **The complete, self-contained handoff for
+that effort is `Data Extraction/engaging_beta/SESSION_HANDOFF.md`** — read it to
+continue on another machine (cluster state, exact commands, every error+fix,
+the next action = boot the GPU server). Weights/container/data are all already
+staged on Engaging scratch; the next step is the H200 `salloc` + vLLM boot +
+the scored fidelity battery. Backend adapter is committed in `extract.py`
+(env-var gated; Anthropic path unchanged).
+
 The current focus is the AV-PDF -> workbook extraction pipeline in
 `Data Extraction/pipeline/`. **Read `Data Extraction/data_extraction_context.md`
 FIRST for this workstream** (and `Data Extraction/assumption_register.md` - the

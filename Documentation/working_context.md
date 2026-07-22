@@ -2391,3 +2391,19 @@ free mit_normal_gpu partition). Done today, zero GPU needed:
   health poller. Next steps need Niccolo's Kerberos: ORCD account, queue
   probes, one salloc bring-up, then the scored fidelity battery
   (run_test.py against localhost scores vs archived truth automatically).
+
+## 2026-07-20/22: Engaging open-weights beta - cluster setup complete, boot pending
+
+Started the open-weights migration beta on MIT Engaging (Qwen3.5-122B-A10B-FP8
+via vLLM). Full detailed handoff written to
+`Data Extraction/engaging_beta/SESSION_HANDOFF.md` (goal, decision bar, cluster
+facts, exact state, next action, complete error log). State: weights (119G,
+39 shards), vLLM container (apptainer SANDBOX at containers/vllm_dir - .sif
+squashfs kept OOM-dying), repo (cloned, made public), and the 6 test docs are
+ALL staged on Engaging scratch (/orcd/scratch/orcd/011/ncomati). Kill test #1
+(tokenizer inflation) passed: worst doc 90K Qwen tokens. NOT yet done: the
+H200 salloc + vLLM boot + scored fidelity battery (mil/phx/chi/sd). Key
+lessons captured in the handoff: SSH orcd-login.mit.edu (old login deprecated);
+ALWAYS pass --mem on salloc (default OOM-kills builds); use apptainer/1.4.2 +
+sandbox not .sif; $SCRATCH unset, path is hardcoded. Resume at
+SESSION_HANDOFF.md Section 6.
