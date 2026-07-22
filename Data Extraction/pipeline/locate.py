@@ -9,7 +9,35 @@ it is not part of the extraction flow.
 Text-layer only (pypdf). Documents whose content lives in images will come
 out empty and need the vision fallback (later).
 """
+import os
+
 from pypdf import PdfReader
+
+# OPT-IN (default off): also append pdfplumber-DETECTED tables to each page as
+# clean pipe-delimited grids, giving the model an unambiguous column structure
+# alongside the layout text. Aimed at interleaved Segal exhibits where the text
+# layout collapses columns and Qwen column-shifts (chi_pol). Kept opt-in so the
+# proven default path is unchanged for the corpus sweep; A/B it on shift-prone
+# docs with EXTRACT_APPEND_TABLES=1. If pdfplumber detects nothing, this is a
+# no-op for that page.
+APPEND_TABLES = os.environ.get("EXTRACT_APPEND_TABLES") == "1"
+
+
+def _detected_tables_text(pl_page):
+    try:
+        tables = pl_page.extract_tables() or []
+    except Exception:
+        return ""
+    blocks = []
+    for t in tables:
+        rows = [r for r in t if r and any(c not in (None, "") for c in r)]
+        if len(rows) < 2:
+            continue
+        rendered = "\n".join(" | ".join("" if c is None else str(c) for c in r)
+                             for r in rows)
+        blocks.append("--- DETECTED TABLE (pipe-delimited; use to confirm column "
+                      "boundaries) ---\n" + rendered)
+    return ("\n\n" + "\n\n".join(blocks)) if blocks else ""
 
 
 def _layout_page_text(pl_page, py_page):
@@ -36,7 +64,10 @@ def full_text(pdf_path):
     parts = []
     with pdfplumber.open(pdf_path) as pdf:
         for i, (pl, py) in enumerate(zip(pdf.pages, reader.pages)):
-            parts.append(f"=== PDF PAGE {i + 1} ===\n{_layout_page_text(pl, py)}")
+            body = _layout_page_text(pl, py)
+            if APPEND_TABLES:
+                body += _detected_tables_text(pl)
+            parts.append(f"=== PDF PAGE {i + 1} ===\n{body}")
     return "\n\n".join(parts)
 
 

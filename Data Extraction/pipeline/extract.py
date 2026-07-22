@@ -227,7 +227,13 @@ Your job has two strictly separated parts:
 1. TRANSCRIBE: locate the source table(s) containing the target data (firms title and \
 format them differently - judge by content) and transcribe them EXACTLY as printed: \
 original bin labels, original values, null for empty cells, '*' for suppressed cells. \
-Never compute, round, merge, or invent anything at this step. Exclude total rows/columns.
+Never compute, round, merge, or invent anything at this step. Exclude total rows/columns. \
+PREFER A SINGLE COMBINED TABLE when the document publishes the same distribution both \
+split (by sex - Male/Female; or by group/tier) AND combined ('Total', 'All Participants', \
+'All Active Members', 'Total City'): transcribe the ONE combined table rather than \
+transcribing several split tables and summing them - fewer tables means fewer places to \
+misread a column. Only fall back to the split tables (with derive=sum) if no combined \
+table is printed.
 2. DECLARE: describe how the source bins map onto the target grid as row_map/col_map \
 operations (copy, sum, share_even, weighted_avg for rows; copy, sum, share_even, \
 weighted_avg, ratio for columns). \

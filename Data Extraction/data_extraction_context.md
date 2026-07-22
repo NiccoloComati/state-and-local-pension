@@ -1041,3 +1041,37 @@ Refined verdict: **GO.** Standard layouts digit-exact; best-of-N recovers ops
 slips; hard layouts are auto-flagged SUSPECT (never silently wrong) and routed
 out. Op note: the interactive salloc/server dies on SSH disconnect - run the
 server under tmux (or sbatch) so a dropped connection doesn't kill it.
+
+### 2026-07-22 (later) - breadth-first sweep readied: full corpus registry, PPD verifier, Segal levers (NO Opus fallback)
+Niccolo: no Opus fallback (operationally messy) - lean on better extraction +
+cheap redundant verifiers (free, so add them liberally) + go wide. Built:
+
+- **PLANS extended to the full 16-plan corpus** (every city fund with an
+  in-folder AV): phx/chi_pol/sd/mil/aus/bos + chi_edu(CTPF 11)/chi_ff(FABF
+  206)/chi_gen(MEABF 145)/dal(ERF 201)/hou_pol(HPOPS 208)/lax_gen(LACERS
+  139)/lax_uty(DWP 141)/lax_ffpol(LAFPP 140)/phi(MPERS 152)/sf(SFERS 98). Each
+  carries its ppd_id (trailing number in the AV filename). AVs still MISSING
+  in-folder for dc/den/fw/nsh/nyc/sea + hou gen/ff -> not sweepable until
+  fetched from publicplansdata.org.
+- **PPD cross-check** (`pipeline/ppd_check.py`): redundant AV-INDEPENDENT
+  verifier - sum of a derived count grid vs PPD actives_tot (fy2019). Catches
+  whole tables dropped/double-counted (a within-table totals-check can't - a
+  shift conserves the total) and works with NO workbook. Verified exact on phx
+  (7941), mil (10974); wired into run_one for Age_Serv_Num, graceful if the
+  PPD file isn't present. Complements the totals-check: totals catches
+  intra-table shifts, PPD catches missing/extra whole tables.
+- **prefer-combined-table hint** (SYSTEM prompt): transcribe the ONE combined
+  'All Participants'/'Total' table rather than summing split Male/Female or
+  group tables when both are printed - fixes chi_pol's source SELECTION
+  deterministically (it already found Part III via sampling). NB this fixes
+  selection, not the shift itself.
+- **opt-in table-extraction appendix** (`EXTRACT_APPEND_TABLES=1`, default
+  OFF): appends pdfplumber-DETECTED tables as clean pipe grids alongside the
+  layout text - the real Segal lever (unambiguous columns). Opt-in so the
+  proven default path is unchanged; A/B it on chi_pol.
+- run_batch matrix/attention list now show the PPD flag ('~' = count off).
+
+Suite 12/12; all six pipeline modules parse. NEXT: upload the corpus + PPD
+file to the cluster (git only carries code), re-boot the server under tmux,
+`run_batch.py` over all 16 x 6, read the matrix + attention list, then the
+bulk instruction/tooling fix pass (incl. the EXTRACT_APPEND_TABLES A/B).

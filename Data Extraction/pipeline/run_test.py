@@ -42,40 +42,47 @@ ROOT = os.path.dirname(DATA_EXTRACTION)                  # project root
 CITIES = os.path.join(ROOT, "Data", "Plans", "Cities")
 
 sys.path.insert(0, HERE)
-import harness   # noqa: E402
-import locate    # noqa: E402
-import extract   # noqa: E402
-import ops       # noqa: E402
+import harness     # noqa: E402
+import locate      # noqa: E402
+import extract     # noqa: E402
+import ops         # noqa: E402
+import ppd_check   # noqa: E402
 
-# Test plans: ground truth exists for all of these (verified for phx;
-# chi_pol and sd have logged human extractions).
+# targets whose derived grid is a COUNT distribution -> summable and
+# cross-checkable against PPD actives_tot
+COUNT_TARGETS = {"Age_Serv_Num"}
+
+# The extraction corpus: every city fund with an in-folder AV PDF (the ppd_id
+# is the trailing number in the AV filename; it drives the PPD cross-check).
+# workbook=None or a blank/stub sheet -> production mode (reviewed via the
+# audit artifacts + PPD cross-check, not a score). AVs are missing in-folder
+# for the primary-layout cities (dc/den/fw/nsh/nyc/sea) and hou gen/ff -> those
+# are not sweepable until the PDFs are fetched from publicplansdata.org.
+def _plan(folder, pdf, workbook, ppd_id):
+    return {"pdf": os.path.join(CITIES, folder, pdf),
+            "workbook": os.path.join(CITIES, folder, workbook) if workbook else None,
+            "ppd_id": ppd_id}
+
+
 PLANS = {
-    "phx": {
-        "pdf": os.path.join(CITIES, "phx_modeldata", "AZ_PHOENIXCITY-COPERS_AV_2019_94.pdf"),
-        "workbook": os.path.join(CITIES, "phx_modeldata", "phx_data19_gen.xlsx"),
-    },
-    "chi_pol": {
-        "pdf": os.path.join(CITIES, "chi_modeldata", "IL_CHICAGOCITY-PABF_AV_2019_146.pdf"),
-        "workbook": os.path.join(CITIES, "chi_modeldata", "chi_data19_pol.xlsx"),
-    },
-    "sd": {
-        "pdf": os.path.join(CITIES, "sd_modeldata", "CA_SANDIEGOCITY-SDCERS_AV_2019_144.pdf"),
-        "workbook": os.path.join(CITIES, "sd_modeldata", "sd_data19_gen.xlsx"),
-    },
-    # ---- production-style plans (little or no ground truth; extraction is
-    # reviewed via the audit artifacts, not a score) ----
-    "aus": {   # Austin COAERS - workbook never filled; fully cold (GRS)
-        "pdf": os.path.join(CITIES, "aus_modeldata", "TX_AUSTINCITY-COAERS_AV_2019_12.pdf"),
-        "workbook": None,
-    },
-    "mil": {   # Milwaukee ERS - novel actuarial firm; only Age_Serv_Num has truth
-        "pdf": os.path.join(CITIES, "mil_modeldata", "WI_MILWAUKEECITY-ERS_AV_2019_151.pdf"),
-        "workbook": os.path.join(CITIES, "mil_modeldata", "mil_data19_gen.xlsx"),
-    },
-    "bos": {   # Boston SBRS - stub workbook (Segal)
-        "pdf": os.path.join(CITIES, "bos_modeldata", "MA_BOSTONCITY-SBRS_AV_2019_148.pdf"),
-        "workbook": os.path.join(CITIES, "bos_modeldata", "bos_data19_gen.xlsx"),
-    },
+    # ---- validated fidelity battery (2026-07-22) ----
+    "phx":     _plan("phx_modeldata", "AZ_PHOENIXCITY-COPERS_AV_2019_94.pdf", "phx_data19_gen.xlsx", 94),
+    "chi_pol": _plan("chi_modeldata", "IL_CHICAGOCITY-PABF_AV_2019_146.pdf", "chi_data19_pol.xlsx", 146),
+    "sd":      _plan("sd_modeldata", "CA_SANDIEGOCITY-SDCERS_AV_2019_144.pdf", "sd_data19_gen.xlsx", 144),
+    "mil":     _plan("mil_modeldata", "WI_MILWAUKEECITY-ERS_AV_2019_151.pdf", "mil_data19_gen.xlsx", 151),
+    "aus":     _plan("aus_modeldata", "TX_AUSTINCITY-COAERS_AV_2019_12.pdf", None, 12),
+    "bos":     _plan("bos_modeldata", "MA_BOSTONCITY-SBRS_AV_2019_148.pdf", "bos_data19_gen.xlsx", 148),
+    # ---- rest of the corpus (in-folder AV + workbook) ----
+    "chi_edu": _plan("chi_modeldata", "IL_CHICAGOCITY-CTPF_AV_2019_11.pdf", "chi_data19_edu.xlsx", 11),
+    "chi_ff":  _plan("chi_modeldata", "IL_CHICAGOCITY-FABF_AV_2019_206.pdf", "chi_data19_ff.xlsx", 206),
+    "chi_gen": _plan("chi_modeldata", "IL_CHICAGOCITY-MEABF_AV_2019_145.pdf", "chi_data19_gen.xlsx", 145),
+    "dal":     _plan("dal_modeldata", "Tx_Dallas_ERF_AV_2019_201.pdf", "dal_data19_primary_AF.xlsx", 201),
+    "hou_pol": _plan("hou_modeldata", "TX_HOUSTONCITY-HPOPS_AV_2019_208.pdf", "hou_data19_pol.xlsx", 208),
+    "lax_gen": _plan("lax_modeldata", "CA_LACITY-LACERS_AV_2019_139.pdf", "lax_data19_gen.xlsx", 139),
+    "lax_uty": _plan("lax_modeldata", "CA_LACITY-DWP_AV_2019_141.pdf", "lax_data19_uty.xlsx", 141),
+    "lax_ffpol": _plan("lax_modeldata", "CA_LACITY-LAFPP_AV_2019_140.pdf", "lax_data19_ffpol.xlsx", 140),
+    "phi":     _plan("phi_modeldata", "PA_PHILADELPHIACITY-MPERS_AV_2019_152.pdf", "phi_data19_gen.xlsx", 152),
+    "sf":      _plan("sf_modeldata", "CA_SANFRANCITYCOUNTY-SFERS_AV_2019_98.pdf", "sf_data19_gen.xlsx", 98),
 }
 
 
@@ -108,7 +115,7 @@ def run_one(plan_key, target, targets, pages=None, verbose=True):
     out = {"plan": plan_key, "target": target, "status": None, "score": None,
            "exact": None, "close": None, "wrong": None, "missing": None,
            "extra": None, "totals": None, "n_tables": None, "n_attempts": None,
-           "crash": None, "run_dir": None}
+           "crash": None, "run_dir": None, "ppd": None}
 
     def log(*a):
         if verbose:
@@ -192,6 +199,18 @@ def run_one(plan_key, target, targets, pages=None, verbose=True):
                                   derive=result.get("derive"),
                                   transpose=result.get("transpose", False)):
             log(f"    {line}")
+
+    # ---- redundant safety verifier: PPD cross-check (count targets) ----
+    # AV-independent second opinion: catches whole tables dropped/double-counted
+    # (which a within-table totals-check cannot, since a shift conserves the
+    # total) and works even with no human workbook.
+    if target in COUNT_TARGETS and not result.get("unavailable"):
+        ppd = ppd_check.cross_check(derived, plan.get("ppd_id"))
+        if ppd:
+            out["ppd"] = ppd["status"]
+            mark = "OK" if ppd["status"] == "ok" else "!! OFF"
+            log(f"[verify] PPD actives_tot cross-check: extracted {ppd['extracted']} "
+                f"vs PPD {ppd['expected']} (ratio {ppd['ratio']}) -> {mark}")
 
     # ---- score against the human workbook (if one exists and is filled) ----
     truth = None

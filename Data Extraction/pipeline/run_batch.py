@@ -31,19 +31,19 @@ import run_test   # noqa: E402  (PLANS, run_one, load_targets, target_names, DAT
 
 
 def _fmt(o):
-    """One compact status token per cell for the printed matrix."""
+    """One compact status token per cell for the printed matrix.
+    Suffix flags: '!' transcription suspect (totals), '~' PPD cross-check off."""
     st = o["status"]
     if st == "crash":
         return "CRASH"
     if st == "unavailable":
         return "unavail"
+    flags = ("!" if o.get("totals") == "suspect" else "") + \
+            ("~" if o.get("ppd") == "off" else "")
     if st == "production":
-        return f"prod/{o['totals']}"          # no score; totals status is the signal
+        return f"prod/{o['totals']}{flags}"   # no score; verifier flags are the signal
     sc = o["score"]
-    tag = f"{sc:.3f}" if sc is not None else "?"
-    if o["totals"] == "suspect":
-        tag += "!"                            # score exists but transcription suspect
-    return tag
+    return (f"{sc:.3f}" if sc is not None else "?") + flags
 
 
 def main():
@@ -83,7 +83,7 @@ def main():
                      "crash": f"harness error: {str(e)[:200]}", "score": None,
                      "totals": None, "n_tables": None, "n_attempts": None,
                      "run_dir": None, "exact": None, "close": None, "wrong": None,
-                     "missing": None, "extra": None}
+                     "missing": None, "extra": None, "ppd": None}
             outcomes.append(o)
             # persist incrementally so a preemption/kill still leaves a summary
             with open(os.path.join(batch_dir, "summary.json"), "w", encoding="utf-8") as fh:
@@ -107,19 +107,21 @@ def main():
             o = grid.get((plan, target))
             cells.append((_fmt(o) if o else "-").rjust(w_col))
         print(plan.ljust(w_plan) + "  " + "  ".join(cells))
-    print("\nlegend: 0.xxx=score  '!'=score but transcription suspect  "
-          "prod/<totals>=no truth  unavail=declared unavailable  CRASH=failed")
+    print("\nlegend: 0.xxx=score  '!'=transcription suspect (totals)  "
+          "'~'=PPD count off  prod/<totals>=no truth  unavail=declared unavailable  "
+          "CRASH=failed")
 
     # ---- ranked attention list (what a human should look at first) ----
     def needs_eyes(o):
+        suspect = o.get("totals") == "suspect" or o.get("ppd") == "off"
         if o["status"] == "crash":
             return (0, o)                      # hard failures first
-        if o["status"] == "scored" and o["totals"] == "suspect":
+        if o["status"] == "scored" and suspect:
             return (1, o)                      # a score we can't trust
         if o["status"] == "scored" and (o["score"] or 0) < 0.98:
             return (2, o)                      # imperfect score - adjudicate
-        if o["status"] in ("production", "unavailable") and o["totals"] == "suspect":
-            return (3, o)                      # no truth AND internally inconsistent
+        if o["status"] in ("production", "unavailable") and suspect:
+            return (3, o)                      # no truth AND a verifier disagrees
         return None
 
     flagged = sorted((r for r in (needs_eyes(o) for o in outcomes) if r),
@@ -128,7 +130,8 @@ def main():
     labels = {0: "CRASH", 1: "SUSPECT+SCORED", 2: "IMPERFECT", 3: "NO-TRUTH+SUSPECT"}
     for rank, o in flagged:
         extra = o["crash"] if o["status"] == "crash" else \
-            (f"score={o['score']} wrong={o['wrong']} totals={o['totals']}")
+            (f"score={o['score']} wrong={o['wrong']} totals={o['totals']} "
+             f"ppd={o.get('ppd')}")
         print(f"  [{labels[rank]}] {o['plan']}/{o['target']}: {extra}")
     if not flagged:
         print("  (nothing flagged - every run scored clean or reconciled)")
