@@ -1132,3 +1132,38 @@ docs, and diagnostic pulls are allocation-independent.
 on the Anthropic path = Opus output cap). 64000 output + a 90K-token doc +
 the retry conversation still fits the 262144 served context. Re-running the 6
 truncation crashes should clear them (mil/Age_Serv_Num back to its battery 1.0).
+
+### 2026-07-23 (cont.) - bulk-fix pass, findings from the diag pull
+Adjudicated the pulled diagnostics (phx/chi_pol Age_Serv_Wage + mil records):
+
+**Bucket A (truncation) is NOT a token-budget issue - it is RUNAWAY.** Raising
+MAX_TOKENS 32000->64000 did NOT help (mil/Age_Serv_Num still truncates at
+64000). The archived 2026-07-22 mil records prove a HEALTHY response is only
+~6,855 output tokens (finish=stop, zero reasoning, thinking cleanly off) - so
+64000 is ~10x runaway. Crashes don't archive the truncated output, so the
+mechanism is unconfirmed; prime suspect is the `prefer-combined-table` SYSTEM
+hint (added c2b5a9d) tipping mil (9 employer tables + a combined) into a loop
+or over-transcription, OR thinking leaking on this boot. A live curl
+thinking-probe was requested to decide. FIX pending that result; the
+MAX_TOKENS knob stays useful (now env-overridable) but is not the cure.
+
+**Bucket B (Age_Serv_Wage) - ROOT CAUSE FOUND + FIXED (fix #2).** phx wage
+went 0.966 (battery) -> 0.0 because the model placed the COUNTS table at
+source_tables[0] and the average-SALARY table at [1], with weights_table=0.
+The executor maps source_tables[0] as the grid VALUES, so it computed
+weighted-average-of-counts-by-counts instead of salary-by-counts. Proof: the
+derived value 146.21 shares its exact fractional part (.2077922) with the
+truth 44580.2077922 - same counts denominator, wrong (counts) numerator. The
+battery version had salary at [0]. Likely also explains lax_uty/chi_ff wage
+0.0. FIX #2 (committed): (a) validate() now REJECTS weighted_avg with
+weights_table==0 ("weighting the main values table by itself"), turning the
+bad ordering into a contract violation so best-of-N/retry corrects it; (b)
+Age_Serv_Wage spec rule pins "source_tables[0] = the average-salary VALUES
+table; counts table at a later index; never weights_table 0". Suite green
+(sd_wage weights_table=1 and chipol ratio unaffected).
+
+**chi_pol Age_Serv_Wage (secondary, Segal):** correctly chose derive=ratio
+(total$/count) but the derived grid is all-null -> its row/col maps don't
+align with the transcribed labels (the interleaved-layout hard case, same
+family as the chi_pol Age_Serv_Num shift). Lower priority; part of the Segal
+tooling bucket.

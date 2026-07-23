@@ -548,6 +548,18 @@ def validate(result, target_spec=None):
                 p.append(f"{name}[{i}] ({e.get('target')!r}): weighted_avg requires an "
                          "integer weights_table (transcribe the counts table and "
                          "reference its index)")
+            # weights_table 0 = the MAIN values table itself. Weighting a table
+            # by itself is never meaningful: for an averages grid the values
+            # (e.g. average salary) live in source_tables[0] and the SEPARATE
+            # counts table must be a later index. This exact slip made phx
+            # Age_Serv_Wage compute weighted-avg-of-counts (0.0) in the
+            # 2026-07-23 sweep - see data_extraction_context.md.
+            if op == "weighted_avg" and wt == 0:
+                p.append(f"{name}[{i}] ({e.get('target')!r}): weighted_avg weights_table "
+                         "is 0 (the MAIN values table) - you are weighting the values by "
+                         "themselves. Put the AVERAGES/values table at source_tables[0] "
+                         "and the member-COUNTS table at a later index, then set "
+                         "weights_table to that counts index.")
             spans = e.get("source_spans")
             if op == "overlap_weighted":
                 bad = (not isinstance(spans, list)
