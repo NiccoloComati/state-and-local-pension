@@ -1191,3 +1191,33 @@ added a truncation DIAGNOSTIC (fix, committed 0d05642): the output-limit error
 now reports content size + source_tables count + head/tail, turning opaque
 crashes into readable failures. Verify on the next mil run (expect ~3 tables,
 ~7K tokens, back to 1.0).
+
+### 2026-07-23 (cont.) - live verification of fixes #2/#3 + fix #4 (averages false-suspect)
+Re-ran on the server after fixes #2/#3:
+- **phx/Age_Serv_Wage: FIX #2 CONFIRMED, 0.0 -> 0.932.** Model now puts the
+  SALARY table at source_tables[0], counts at [1]; residuals = the known
+  workbook typo (86306 vs PDF 86309) + 2 '*' cells. Effectively perfect.
+- **mil/Age_Serv_Num: fix #3 (instruction) did NOT change behavior.** Model
+  still transcribed all 12 tables and summed t0..t11 -> triple-counts General
+  (per-employer + General-Total + Tier1/Tier2 all summed): 27,858 vs 10,974.
+  The PPD cross-check CAUGHT it (ratio 2.54 -> OFF); flagged, not silent. The
+  minimal-partition instruction alone doesn't move Qwen here. REAL fix (TODO):
+  wire the printed grand-total / PPD reconciliation into best-of-N SELECTION
+  so the sample whose count total matches the plan total wins - purely
+  instruction won't reliably pick 3-of-12 tables.
+- **chi_ff/Age_Serv_Wage: wrong OP.** totals+counts table (no printed
+  averages) needs derive=ratio; model used weighted_avg on the dollar totals
+  -> ~$1M "averages". Needs ratio-detection guidance (bucket C).
+- **lax_uty/Age_Serv_Wage: Segal COLUMN SHIFT** (every value one service col
+  right: svc9 has svc4's value, etc.). Same interleaved-layout class as
+  chi_pol; needs the EXTRACT_APPEND_TABLES tooling lever, not a logic fix.
+
+**FIX #4 (committed): false 'transcription suspect' on AVERAGES tables.** The
+totals-check summed average-salary cells and compared to the printed column
+AVERAGE (628832 vs 58073) -> bogus mismatch that mislabeled correct wage runs
+suspect and polluted best-of-N ranking. Two-part fix: (a) FORMAT_SPEC now
+says printed_row/col_totals are for ADDITIVE sums only - set null for a
+printed 'Average' row/col; (b) ops.totals_check skips any printed total
+smaller than the line's max cell (a real non-negative sum is always >= its
+max element, so a smaller 'total' can't be a sum - it's an average). Genuine
+shifts still fire; counts/retdist tests unaffected.

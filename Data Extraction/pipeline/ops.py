@@ -617,12 +617,24 @@ def totals_check(table, tol=0.5, rel_tol=1e-5):
     def _bad(s, printed):
         return abs(s - printed) > max(tol, rel_tol * abs(printed))
 
+    # A real additive SUM total is always >= the largest element it sums (all
+    # our values are non-negative). A printed "total" SMALLER than the line's
+    # max cell therefore cannot be a sum - it is an AVERAGE row/col the model
+    # wrongly put in printed_*_totals (common on average-salary exhibits).
+    # Skip those instead of firing a bogus mismatch that pollutes best-of-N.
+    def _not_a_sum(printed, values):
+        mx = max((v for v in values if _num(v)), default=None)
+        return mx is not None and printed + max(tol, rel_tol * abs(printed)) < mx
+
     prt = table.get("printed_row_totals")
     if prt:
         for i, (lab, row, printed) in enumerate(zip(row_labels, cells, prt)):
             if printed is None or i in total_rows:
                 continue
-            s = sum(v for j, v in enumerate(row) if _num(v) and j not in total_cols)
+            vals = [v for j, v in enumerate(row) if j not in total_cols]
+            if _not_a_sum(printed, vals):
+                continue
+            s = sum(v for v in vals if _num(v))
             if _bad(s, printed):
                 problems.append(f"row {lab!r}: cells sum to {s!r} but printed total "
                                 f"is {printed!r} (diff {s - printed!r})")
@@ -632,8 +644,11 @@ def totals_check(table, tol=0.5, rel_tol=1e-5):
         for j, (lab, printed) in enumerate(zip(col_labels, pct)):
             if printed is None or j in total_cols:
                 continue
-            s = sum(row[j] for i, row in enumerate(cells)
-                    if i not in total_rows and j < len(row) and _num(row[j]))
+            vals = [row[j] for i, row in enumerate(cells)
+                    if i not in total_rows and j < len(row)]
+            if _not_a_sum(printed, vals):
+                continue
+            s = sum(v for v in vals if _num(v))
             if _bad(s, printed):
                 problems.append(f"col {lab!r}: cells sum to {s!r} but printed total "
                                 f"is {printed!r} (diff {s - printed!r})")

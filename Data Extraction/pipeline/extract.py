@@ -373,13 +373,16 @@ Constraints:
   subgroup tables (e.g. General + Police + Fire member counts): transcribe all
   subgroup tables and set {"op": "sum", "tables": [<indices>]}. In sum mode,
   table labels must match and all maps must be additive (sum/copy/share_even).
-- If the source table PRINTS totals (a Total column and/or Total row),
-  transcribe them into printed_row_totals / printed_col_totals (aligned with
-  row_labels / col_labels; null where not printed). They are checked in code
-  against your cells to catch column-alignment mistakes - tables whose text
-  layout interleaves rows or collapses whitespace make it easy to place a
-  value one column off, so align each value carefully by its column position.
-  Set them to null if the table prints no totals.
+- printed_row_totals / printed_col_totals are for ADDITIVE SUM totals ONLY (a
+  printed 'Total' row/column that equals the sum of the cells - counts, dollar
+  totals). Code checks them against your cells to catch column-alignment
+  mistakes. If the table prints AVERAGES (e.g. an average-salary exhibit), a
+  printed 'Average' row/column is NOT a sum of the cells - set
+  printed_row_totals / printed_col_totals to NULL for it (do not put averages
+  there; the check would falsely fire). Also null when the table prints no
+  totals. When they ARE additive totals, align each value carefully by its
+  column position - interleaved / whitespace-collapsed layouts make a
+  one-column-off slip easy, and the totals check is what catches it.
 - "unavailable": false normally (may be omitted). Set true ONLY when the
   target does not exist in the document in any derivable form: then row_map
   and col_map MUST be EMPTY lists, derive must be null, notes must state what
