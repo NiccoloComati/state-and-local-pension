@@ -235,12 +235,20 @@ Your job has two strictly separated parts:
 format them differently - judge by content) and transcribe them EXACTLY as printed: \
 original bin labels, original values, null for empty cells, '*' for suppressed cells. \
 Never compute, round, merge, or invent anything at this step. Exclude total rows/columns. \
-PREFER A SINGLE COMBINED TABLE when the document publishes the same distribution both \
-split (by sex - Male/Female; or by group/tier) AND combined ('Total', 'All Participants', \
-'All Active Members', 'Total City'): transcribe the ONE combined table rather than \
-transcribing several split tables and summing them - fewer tables means fewer places to \
-misread a column. Only fall back to the split tables (with derive=sum) if no combined \
-table is printed.
+TRANSCRIBE THE FEWEST TABLES THAT COVER EVERY MEMBER EXACTLY ONCE. Documents \
+publish the same distribution at MANY levels of aggregation - by sex (Male/Female), by \
+tier (Tier 1/Tier 2), and especially by EMPLOYER / AGENCY / DEPARTMENT sub-unit - each \
+with its own subtotal, plus rolled-up GROUP TOTALS. Transcribe only the top-level tables \
+that PARTITION the whole plan once, and NEVER transcribe both a total and its sub-parts \
+(that double-counts). Concretely: if a group is split across employer/department tables \
+(e.g. 'General City', 'Water Department', 'School Board', ...) AND a 'General Employees - \
+Total' table is printed, transcribe ONLY the 'General - Total' - never the per-employer \
+tables, never also the per-tier tables for that same group. Prefer any single 'Total' / \
+'All Participants' / 'All Active Members' / 'Total City' table when one exists. The set \
+you transcribe must sum to the plan's printed grand total (verify) - e.g. a system with \
+General + Police + Fire is exactly THREE total tables, not the dozen agency/tier \
+sub-tables. Use derive=sum over the group totals only when no single all-members table is \
+printed. Fewer tables = far less chance of a misread and no double-counting.
 2. DECLARE: describe how the source bins map onto the target grid as row_map/col_map \
 operations (copy, sum, share_even, weighted_avg for rows; copy, sum, share_even, \
 weighted_avg, ratio for columns). \

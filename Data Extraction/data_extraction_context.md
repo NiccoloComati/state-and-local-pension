@@ -1167,3 +1167,27 @@ table; counts table at a later index; never weights_table 0". Suite green
 align with the transcribed labels (the interleaved-layout hard case, same
 family as the chi_pol Age_Serv_Num shift). Lower priority; part of the Segal
 tooling bucket.
+
+### 2026-07-23 (cont.) - Bucket A ROOT CAUSE = over-transcription (fix #3)
+The truncation diagnostic settled it: mil/Age_Serv_Num runaway =
+content 224,623 chars, **started 10 source_tables**, HEAD normal JSON, no
+repetition -> NOT a loop, NOT thinking (curl probe returned clean 'OK'). The
+model transcribed 10 of mil's 12 active-member tables. mil's real structure
+(pp.65-76): General split by EMPLOYER (General City/Water Dept/School Board/
+Sewerage/Veolia/Wisconsin District Center/Housing Authority, pp.65-71) ->
+'General Employees - Total' p.72 = 8,442; General also split by TIER (pp.73-74);
+Policemen p.75 = 1,827; Firemen p.76 = 705. The correct minimal partition is
+THREE tables (p.72 + p.75 + p.76 = 10,974); the model grabbed the per-employer
+and per-tier sub-tables too, double-counting into a 64K-token overflow.
+
+The `prefer-combined-table` hint (c2b5a9d) failed because it named only
+sex/tier splits and 'Total/All Participants', never EMPLOYER/AGENCY/DEPARTMENT
+sub-breakdowns - mil's actual split dimension. FIX #3: rewrote the hint as
+"transcribe the FEWEST tables that cover every member exactly once; never a
+total AND its sub-parts (double-counts); employer/department sub-tables ->
+use the group TOTAL only; the set must sum to the plan grand total (verify)."
+This is general (helps any multi-agency plan), not a mil special-case. Also
+added a truncation DIAGNOSTIC (fix, committed 0d05642): the output-limit error
+now reports content size + source_tables count + head/tail, turning opaque
+crashes into readable failures. Verify on the next mil run (expect ~3 tables,
+~7K tokens, back to 1.0).
