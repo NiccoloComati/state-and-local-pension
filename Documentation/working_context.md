@@ -2463,3 +2463,15 @@ truncation (6 crashes, FIXED - MAX_TOKENS now env-overridable, local default
 not declared; D) contract-arity crashes; E) hard rate/blend targets (partly
 register-convention, not bugs). Only re-run verification needs the GPU alloc;
 edits/pulls are allocation-independent.
+
+## 2026-07-23 (cont.): bulk-fix pass on sweep #1 (fixes #2/#4/#5/C/D committed)
+
+After sweep #1 (16x6, GO reconfirmed), cleared the failure map by root cause,
+all offline except the live check of #2. Committed + pushed: #2 wage
+table-order (CONFIRMED live phx 0.0->0.932), #4 averages false-suspect, #5
+plan-total reconciliation in best-of-N (PPD flag -> selector; catches mil
+12-table over-sum), C per_1000 unit + ratio detection, D derive=sum
+position-align. Suite 13/13. Remaining need a GPU alloc: Segal A/B
+(EXTRACT_APPEND_TABLES) + the full re-sweep to verify all fixes. The
+step-by-step NEXT-ALLOCATION CHECKLIST is in
+`Data Extraction/engaging_beta/SESSION_HANDOFF.md` section 0b (read first).

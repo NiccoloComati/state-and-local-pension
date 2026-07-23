@@ -9,6 +9,93 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0b. LATEST — 2026-07-23 session 3: first full sweep + bulk-fix pass (READ FIRST)
+
+The full **16-plan x 6-target sweep RAN** (batch `_batch_20260723_114421`;
+detail in the 2026-07-23 dev-log entries of `data_extraction_context.md`).
+**GATE HELD, GO reconfirmed:** Age_Serv_Num >=0.95 for 10 plans; several
+sub-1.0 scores are the model faithfully matching the PDF where the human
+WORKBOOK is wrong. Aggregate: 54 scored / 12 crash / 15 prod / 15 unavail /
+11 clean-reconciled. We then did a bulk-fix pass BY ROOT CAUSE (all committed +
+pushed; suite 13/13):
+- **#2 wage table-ordering** (counts-at-index-0 -> weighted-avg-of-counts):
+  guard + spec rule. **CONFIRMED LIVE: phx wage 0.0 -> 0.932.**
+- **#4 averages false-suspect**: totals-check no longer fires on average tables
+  (a sum can't be < its max element).
+- **#5 plan-total reconciliation in best-of-N** (the big one): for count
+  targets, best-of-N now runs the executor on each candidate and prefers the
+  one whose derived total matches PPD actives_tot - catches mil's 12-table
+  over-sum (27,858 vs 10,974) that per-table totals-checks can't see. Turns
+  the PPD flag into a SELECTOR.
+- **C: per_1000 values_unit** (rate-per-1,000 tables, e.g. dal Ret_Rate) +
+  **totals-vs-averages ratio detection** (chi_ff used weighted_avg on a
+  dollar-totals table).
+- **D: derive=sum aligns by POSITION** (shape check, not identical labels) ->
+  fixes bos; other arity crashes triaged (units->C, interleaved->Segal, a
+  couple one-off hard tables left on the attention list).
+NONE of these fixes are verified live except #2. **They need a re-sweep.**
+
+### NEXT-ALLOCATION CHECKLIST (do these next session, in order)
+
+**1. Boot the server** (cluster; the queue was ~2h on 2026-07-23 - start early):
+```bash
+ssh ncomati@orcd-login.mit.edu
+salloc -p mit_normal_gpu -G h200:2 -c 16 --mem=200G -t 6:00:00
+tmux new -s vllm
+module load apptainer/1.4.2
+cd /orcd/scratch/orcd/011/ncomati
+apptainer exec --nv -B /orcd/scratch/orcd/011/ncomati --env CC=gcc --env CXX=g++ \
+  containers/vllm_dir \
+  vllm serve /orcd/scratch/orcd/011/ncomati/models/qwen35-122b-fp8 \
+    --served-model-name qwen35-122b-fp8 --tensor-parallel-size 2 \
+    --max-model-len 262144 --gpu-memory-utilization 0.90 --port 8000 \
+  > /orcd/scratch/orcd/011/ncomati/vllm.log 2>&1 &
+tail -f /orcd/scratch/orcd/011/ncomati/vllm.log   # wait 'Application startup complete', Ctrl+C, then Ctrl+b d
+```
+
+**2. Pull the fixes** (cluster):
+```bash
+cd /orcd/scratch/orcd/011/ncomati/state-and-local-pension && git pull
+cd "Data Extraction"
+export EXTRACT_OPENAI_BASE_URL=http://127.0.0.1:8000/v1 EXTRACT_MODEL=qwen35-122b-fp8 OPENAI_API_KEY=dummy
+```
+
+**3. Segal A/B FIRST** (cheap, decides whether to enable the lever for the sweep).
+Run the two interleaved-layout plans with the table-append lever OFF then ON:
+```bash
+python pipeline/run_batch.py --plans chi_pol,lax_uty --targets Age_Serv_Num,Age_Serv_Wage
+EXTRACT_APPEND_TABLES=1 python pipeline/run_batch.py --plans chi_pol,lax_uty --targets Age_Serv_Num,Age_Serv_Wage
+```
+Compare the two summaries: if APPEND_TABLES=1 clears the column shift (chi_pol
+Age_Serv_Num up from 0.868, lax_uty wage off its shift) without hurting, enable
+it for the full sweep in step 4; if it doesn't help, leave it off and the Segal
+plans stay flagged (acceptable).
+
+**4. Full re-sweep** (cluster; ~1h). Add `EXTRACT_APPEND_TABLES=1` in front only
+if step 3 favored it:
+```bash
+python pipeline/run_batch.py --quiet | tee /orcd/scratch/orcd/011/ncomati/sweep2.log
+```
+Expected improvements vs sweep 1: mil/Age_Serv_Num reconciles (#5) or is
+correctly flagged; wage 0.0s recover (#2/#3 ratio); the 6 truncation crashes
+gone (mil now completes, over-transcription flagged not crashed); dal Ret_Rate
++ chi Avg_Mort scale via per_1000 (#C); bos counts no longer crash (#D).
+
+**5. Pull the summary back for adjudication** (cluster then LAPTOP):
+```bash
+# cluster:
+B=$(ls -dt runs/_batch_* | head -1); tar -czf /orcd/scratch/orcd/011/ncomati/sweep2_out.tgz "$B" -C /orcd/scratch/orcd/011/ncomati sweep2.log
+# laptop PowerShell:
+scp ncomati@orcd-login.mit.edu:/orcd/scratch/orcd/011/ncomati/sweep2_out.tgz "$env:TEMP\"
+```
+Then Claude reads it (extract to a temp dir, read summary.json + the log) and
+we adjudicate sweep-2 vs sweep-1 by root cause + plan the next bulk-fix round.
+
+**6. Release the alloc** when done: `tmux attach -t vllm` -> Ctrl+C the server,
+`exit`; or `pkill -u ncomati -f "vllm serve"; exit`.
+
+---
+
 ## 0. LATEST STATE — 2026-07-22 session 2 (READ THIS FIRST; supersedes §6)
 
 **The server booted and the digit-fidelity gate (kill-test #4) PASSED.** We ran
