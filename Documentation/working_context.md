@@ -2432,3 +2432,21 @@ gate live. Full account in `Data Extraction/engaging_beta/SESSION_HANDOFF.md`
   columns). Suite 12/12.
 - NEXT: git pull on cluster, upload rest of corpus + extend PLANS, run_batch,
   read matrix/attention list, bulk instruction/tooling fixes.
+
+## 2026-07-23: mass-test READY, blocked on the Engaging queue; machine switch
+
+Tried to run the full 16-plan x 6-target sweep but the Engaging GPU queue was
+slow and no alloc came before a machine switch was needed. Nothing is
+half-done — the whole breadth-first mass test is committed (c2b5a9d) and ready:
+16-plan registry + ppd_id, best-of-N, hardened totals_check, PPD cross-check
+(ppd_check.py), prefer-combined-table hint, opt-in table-extraction appendix
+(EXTRACT_APPEND_TABLES=1). Opus fallback ruled out (Niccolo). Suite 12/12.
+
+**To continue on the new machine:** read `Data Extraction/engaging_beta/
+SESSION_HANDOFF.md` §0 in full — it now carries the EXACT A-D command sequence
+to run the mass test (re-boot vLLM under tmux with CC=gcc + max-model-len
+262144; git pull; scp the corpus+PPD tarball; run_batch --quiet over all 96),
+plus the whole plan/reasoning (breadth-first, the verifiers, the Segal levers)
+and the validated results so far (best-of-N flips mil crash->1.0; chi_pol
+auto-flags SUSPECT = the trust property). Get a GPU alloc, run A-D, paste the
+BATCH SUMMARY back, then the bulk instruction/tooling fix pass.

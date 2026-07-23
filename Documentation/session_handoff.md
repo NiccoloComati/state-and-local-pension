@@ -11,18 +11,23 @@ corpus sweep.** Qwen3.5-122B-A10B-FP8 on MIT Engaging (vLLM on 2x H200) was
 tested for Stage A. Digit-fidelity battery = **5/6 digit-exact** (three passes
 even reproduced known human workbook errors — more faithful than the
 collectors); the one miss is chi_pol's interleaved Segal layout (column shift +
-a suboptimal source-table choice). **Verdict: GO with Opus as a targeted
-fallback on Segal-style layouts.** **The complete, self-contained handoff is
+a suboptimal source-table choice). **Verdict: GO** (Opus fallback RULED OUT by
+Niccolo as too messy; instead: better extraction + cheap redundant verifiers +
+go wide). **The complete, self-contained handoff is
 `Data Extraction/engaging_beta/SESSION_HANDOFF.md` — read its §0 first**
 (supersedes the older sections): boot fixes (`--env CC=gcc`, `--max-model-len
-262144`), the battery results, and the current NEXT ACTION. Strategy shifted
-(Niccolo): local inference is $0/seconds, so we go breadth-first — run the whole
-corpus rough, then bulk-fix. Machinery built for it: best-of-N temperature
-sampling verified by the printed-totals check (`extract.py`), a `run_batch.py`
-sweep with an aggregate matrix + attention list, and a hardened `totals_check`.
-Next: `git pull` on the cluster, upload the rest of the corpus, `run_batch.py`,
-read the failure map, bulk-fix. (Commits no longer add a Claude co-author
-trailer, per Niccolo.)
+262144`), the battery results, and the exact A-D command sequence to run the
+mass test. Strategy (Niccolo): local inference is $0/seconds, so go
+breadth-first — run the whole corpus rough, then bulk-fix. Machinery built:
+best-of-N temperature sampling verified by the printed-totals check, a
+`run_batch.py` sweep (matrix + attention list), a hardened `totals_check`, a
+redundant **PPD count cross-check** (`ppd_check.py`), a prefer-combined-table
+hint, and an opt-in table-extraction path (`EXTRACT_APPEND_TABLES=1`, the Segal
+lever). **The full 16-plan sweep is BUILT AND READY (commit c2b5a9d); it is
+blocked ONLY on the Engaging GPU queue** (slow 2026-07-22/23, forced a machine
+switch before an alloc came). Next session: get a GPU alloc, run the A-D
+sequence in the beta handoff §0, paste the summary back for the bulk-fix pass.
+(Commits no longer add a Claude co-author trailer, per Niccolo.)
 
 The current focus is the AV-PDF -> workbook extraction pipeline in
 `Data Extraction/pipeline/`. **Read `Data Extraction/data_extraction_context.md`

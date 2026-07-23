@@ -67,18 +67,6 @@ into a real fix for the Segal shift.
   (phx/chi) so the best-of-N verifier isn't polluted. Genuine shifts still fire.
 - Co-author trailer disabled in commits per Niccolo (`.claude/settings.local.json`).
 
-### NEXT ACTION (the 4-point plan, approved)
-1. On the cluster: `cd .../state-and-local-pension && git pull` to get the
-   above. (Server can stay up; only the client code changed.)
-2. **Upload the rest of the corpus** PDFs (only 6 plans are staged). See §5 for
-   how the 6 got there (scp tarball). Then extend `PLANS` in `run_test.py` with
-   the new plan keys + PDF paths (+ workbook if truth exists).
-3. **Run the sweep**: `python pipeline/run_batch.py` (env vars set per §6 Step
-   C). Read the matrix + attention list.
-4. **Bulk-fix pass** from the aggregate failures: prefer-combined-table hint
-   (fixes chi_pol's source choice), phantom-index retry message, better table
-   extraction for shift-prone Segal docs, etc. Re-run, iterate.
-
 **Best-of-N validated live (2026-07-22):** `run_batch.py --plans mil,chi_pol
 --targets Age_Serv_Num` ->
 - mil: CRASH -> **1.0** (sample4 clean; phantom-index slip fixed by sampling).
@@ -86,14 +74,98 @@ into a real fix for the Segal shift.
   correct combined Part III table, but the Segal 60-63-row column shift
   persists across all 6 samples; the totals-check CAUGHT it (didn't silently
   pass). This is the trust property: hard layouts get auto-flagged, not
-  corrupted. Segal needs TOOLING (pdfplumber table-mode / vision) or
-  Opus-fallback-on-suspect, not more sampling.
+  corrupted. Segal needs TOOLING or more sampling, NOT Opus fallback (Niccolo:
+  Opus fallback is operationally too messy - ruled out).
 
-**Op note:** the interactive salloc + backgrounded server DIE on SSH
-disconnect (the allocation is torn down with the login shell). Run the server
-under **tmux** (or as an sbatch job) so a dropped connection doesn't kill it.
-After a disconnect, re-`salloc` and re-boot per §6 Step B (with the CC=gcc +
-262144 fixes).
+### THE FULL SWEEP IS BUILT AND READY — blocked only on the cloud queue
+
+As of commit **c2b5a9d** (pushed), everything for the breadth-first mass test
+is committed. Niccolo tried to run it on 2026-07-22/23 but **the Engaging GPU
+queue was slow** and he had to switch machines before an alloc came through.
+Nothing is half-done; the next session just needs a GPU alloc to run the sweep.
+What's built (see the 2026-07-22 dev-log entries in `data_extraction_context.md`
+for detail):
+- **16-plan corpus registry** in `pipeline/run_test.py` (`PLANS`), each with its
+  `ppd_id`: phx, chi_pol, sd, mil, aus, bos (validated 6) + chi_edu(11),
+  chi_ff(206), chi_gen(145), dal(201), hou_pol(208), lax_gen(139), lax_uty(141),
+  lax_ffpol(140), phi(152), sf(98). (AVs still missing in-folder for
+  dc/den/fw/nsh/nyc/sea + hou gen/ff -> not sweepable yet.)
+- **best-of-N** in `extract.py` (greedy -> greedy retry -> up to
+  EXTRACT_SAMPLES=6 temperature-0.6 draws, keep best by contract-then-totals
+  violations; per-sample seeds reproducible).
+- **`ops.totals_check`** hardened (drops a transcribed Total column -> no false
+  2x SUSPECT alarm; genuine shifts still caught).
+- **`ppd_check.py`** redundant verifier (derived count total vs PPD
+  actives_tot; catches whole tables dropped/doubled that a shift-conserving
+  totals-check can't; works with no workbook; graceful if the PPD file is
+  absent). Wired into Age_Serv_Num runs.
+- **prefer-combined-table hint** (SYSTEM prompt) - fixes chi_pol source
+  selection deterministically.
+- **opt-in table appendix** `EXTRACT_APPEND_TABLES=1` (default OFF) - the real
+  Segal lever (pdfplumber-detected tables as clean pipe grids); A/B it on
+  chi_pol without touching the default path.
+- `run_batch.py` writes `runs/_batch_<stamp>/summary.{json,csv}` (incremental)
+  + prints a plans x targets matrix and a ranked attention list; flags '!' =
+  totals-suspect, '~' = PPD count off.
+- Suite 12/12 green; commits no longer add a Claude co-author trailer.
+
+### NEXT ACTION — the exact sequence to RUN THE MASS TEST (re-propose this verbatim)
+
+Distinguish **LAPTOP** vs **cluster** shells. The prior session's server died on
+the SSH drop, so re-boot under **tmux** so a disconnect can't kill it.
+
+**A. Re-boot the server (cluster), inside tmux:**
+```bash
+ssh ncomati@orcd-login.mit.edu
+salloc -p mit_normal_gpu -G h200:2 -c 16 --mem=200G -t 6:00:00
+tmux new -s vllm
+module load apptainer/1.4.2
+cd /orcd/scratch/orcd/011/ncomati
+apptainer exec --nv -B /orcd/scratch/orcd/011/ncomati --env CC=gcc --env CXX=g++ \
+  containers/vllm_dir \
+  vllm serve /orcd/scratch/orcd/011/ncomati/models/qwen35-122b-fp8 \
+    --served-model-name qwen35-122b-fp8 --tensor-parallel-size 2 \
+    --max-model-len 262144 --gpu-memory-utilization 0.90 --port 8000 \
+  > /orcd/scratch/orcd/011/ncomati/vllm.log 2>&1 &
+tail -f /orcd/scratch/orcd/011/ncomati/vllm.log
+```
+Wait for `Application startup complete`, Ctrl+C the tail, then **detach**:
+`Ctrl+b` then `d`. (Reattach: `tmux attach -t vllm`. If the queue is slow,
+that's the current blocker - note the wait.)
+
+**B. Pull the code (cluster):**
+```bash
+cd /orcd/scratch/orcd/011/ncomati/state-and-local-pension && git pull
+```
+
+**C. Upload the corpus + PPD file (LAPTOP - PowerShell; git carries only code,
+the data is gitignored):**
+```powershell
+cd "C:\Users\nicco\Massachusetts Institute of Technology\MIT Golub Center for Finance and Policy - Documents (1)\Research and Education\Projects\State and Local Pension"
+tar --exclude='*_CAFR_*' --exclude='*_ACFR_*' --exclude='*Financial*' -czf "$env:TEMP\corpus.tgz" "Data\Plans\Cities" "Data\Common\states\ppd-data-latest.xlsx"
+scp "$env:TEMP\corpus.tgz" ncomati@orcd-login.mit.edu:/orcd/scratch/orcd/011/ncomati/
+```
+Then unpack (**cluster**), into the repo root:
+```bash
+cd /orcd/scratch/orcd/011/ncomati/state-and-local-pension && tar xzf /orcd/scratch/orcd/011/ncomati/corpus.tgz && ls Data/Common/states/ppd-data-latest.xlsx
+```
+
+**D. Run the full sweep (cluster):**
+```bash
+cd "Data Extraction"
+export EXTRACT_OPENAI_BASE_URL=http://127.0.0.1:8000/v1 EXTRACT_MODEL=qwen35-122b-fp8 OPENAI_API_KEY=dummy
+python pipeline/run_batch.py --quiet | tee /orcd/scratch/orcd/011/ncomati/sweep1.log
+```
+96 runs (16 plans x 6 targets); best-of-N escalates only on hard ones, ~1h.
+Smoke-test the plumbing first if wanted:
+`python pipeline/run_batch.py --plans sf,phi --targets Age_Serv_Num`.
+Expect several new-plan sheets to be blank -> `prod/*` (production mode, no
+score); the PPD cross-check still sanity-checks those.
+
+**Then paste the BATCH SUMMARY matrix + attention list back** -> read the
+aggregate failure map together -> bulk instruction/tooling fix pass (incl. the
+`EXTRACT_APPEND_TABLES=1` A/B on the Segal-shift docs). That bulk-fix loop is
+step 4 of the 4-point plan and the whole point of going breadth-first.
 
 ---
 
