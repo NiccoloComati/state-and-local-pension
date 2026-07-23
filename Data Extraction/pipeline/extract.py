@@ -739,9 +739,18 @@ def _call_openai(messages, temperature=0, seed=0):
         raw = json.loads(resp.read().decode("utf-8"))
     choice = raw["choices"][0]
     if choice.get("finish_reason") == "length":
-        raise RuntimeError(f"local model hit the {MAX_TOKENS}-token output limit "
-                           "(response truncated) - raise EXTRACT_MAX_TOKENS/server "
-                           "limits or check that thinking mode is actually off")
+        # Diagnostic: expose WHAT ran away so we can tell a repetition loop from
+        # over-transcription (many tables) without re-plumbing the record path.
+        # n_tables = how many source_tables it had started; head/tail show
+        # whether the end is a stuck repeat of the start.
+        c = choice.get("message", {}).get("content") or ""
+        n_tables = c.count('"page"')
+        head = c[:180].replace("\n", " ")
+        tail = c[-180:].replace("\n", " ")
+        raise RuntimeError(
+            f"local model hit the {MAX_TOKENS}-token output limit (runaway; thinking "
+            f"is OFF). content={len(c)} chars, started {n_tables} source_tables. "
+            f"HEAD: {head!r} ... TAIL: {tail!r}")
     return choice["message"]["content"], raw
 
 
