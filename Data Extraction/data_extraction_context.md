@@ -1075,3 +1075,60 @@ Suite 12/12; all six pipeline modules parse. NEXT: upload the corpus + PPD
 file to the cluster (git only carries code), re-boot the server under tmux,
 `run_batch.py` over all 16 x 6, read the matrix + attention list, then the
 bulk instruction/tooling fix pass (incl. the EXTRACT_APPEND_TABLES A/B).
+
+### 2026-07-23 - FIRST FULL CORPUS SWEEP (open-weights, breadth-first) + failure map + bulk-fix plan
+The whole 16-plan x 6-target matrix ran on Qwen3.5-122B-A10B-FP8 (vLLM, 2x
+H200) via `run_batch.py` (best-of-N on). Batch: `runs/_batch_20260723_114421`.
+Aggregate: **54 scored / 12 crash / 15 production(no truth) / 15 unavailable;
+11 clean-reconciled (>=0.98)**.
+
+**HEADLINE: the digit-fidelity GATE holds corpus-wide -> GO reconfirmed.**
+Age_Serv_Num (the pure-transcription target) is >=0.95 for 10 plans
+(phx/phi/chi_edu/lax_ffpol=1.0, sf 0.988, chi_gen/dal 0.983, chi_ff 0.979,
+lax_gen 0.966, hou_pol 0.955), with the only real transcription weak spots
+being chi_pol 0.868 (known Segal interleaved layout) and lax_uty 0.725; the
+two blanks (bos, mil) are CRASHES not digit failures. Several sub-1.0 scores
+are the model faithfully matching the PDF where the human WORKBOOK is wrong
+(needs adjudication, not blame).
+
+**Scoring semantics (recorded):** numeric scores exist ONLY where a 2022
+human-collector workbook exists (positional cell compare; most of the 16
+plans have one -> 54 scored runs). No-workbook plan/targets show `prod/*`
+(no score; only the printed-totals self-check + the PPD headcount
+cross-check). `unavail` = model declared the target absent from the doc.
+
+**Failure map by ROOT CAUSE (the bulk-fix agenda):**
+- **A. Output truncation @32000 tokens - 6 crashes, trivial:** mil/Age_Serv_Num,
+  bos/Age_Serv_Wage, dal/Sep_Rate, dal/Avg_Mort, hou_pol/Ret_Rate,
+  hou_pol/Sep_Rate. Big multi-table docs overflow the output budget (mil
+  PASSED in the battery - crashed only on length). FIX (done, this entry).
+- **B. Age_Serv_Wage regression - diagnose before fixing:** phx wage was
+  0.966 in the battery, now 0.0 with all 59 cells populated-but-WRONG (not
+  missing) -> scaling/table-selection or best-of-N ranking noise (totals-check
+  is meaningless on an AVERAGES table, so best-of-N may pick a bad sample).
+  chi_pol wage = 38 missing (empty derivation, different failure). Others fine
+  (sd 0.91/sf 0.93/phi 0.97/chi_edu 0.92/chi_gen 0.98/dal 0.98). Pull
+  extractions to diagnose.
+- **C. Percent/unit not declared - 2 crashes + drags rate targets:**
+  chi_edu/Avg_Mort (invalid values_unit), chi_pol/Avg_Mort (values to 53.31,
+  percent unflagged). Instruction hardening.
+- **D. Contract-arity crashes - 4 targeted fixes:** bos/Age_Serv_Num
+  (derive=sum label mismatch), chi_gen/Retirement (ratio arity),
+  chi_gen/Sep_Rate (spans/empty maps), lax_gen/Age_Serv_Wage (24 rows vs 11
+  labels).
+- **E. Rate/blend targets (Sep_Rate/Ret_Rate/Avg_Mort) broadly low -
+  EXPECTED, partly NOT-a-bug:** many `0.0 wrong=0` = empty derivation from
+  tier/percent/span/blend complexity; several are assumption-register
+  CONVENTION decisions, not model errors. Slowest bucket; overlaps the
+  coauthor-decision backlog; lowest priority.
+
+**Bulk-fix priority:** 1) MAX_TOKENS (done); 2) diagnose wage regression;
+3) percent-declaration; 4) arity robustness; 5) rate/blend (triage vs
+register). Only step-verification RE-RUNS need the live GPU server; all edits,
+docs, and diagnostic pulls are allocation-independent.
+
+**FIX #1 (done):** `extract.py` MAX_TOKENS is now env-overridable
+(`EXTRACT_MAX_TOKENS`) and defaults to 64000 on the local backend (32000 stays
+on the Anthropic path = Opus output cap). 64000 output + a 90K-token doc +
+the retry conversation still fits the 262144 served context. Re-running the 6
+truncation crashes should clear them (mil/Age_Serv_Num back to its battery 1.0).

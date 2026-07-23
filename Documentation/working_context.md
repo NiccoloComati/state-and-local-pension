@@ -2450,3 +2450,16 @@ plus the whole plan/reasoning (breadth-first, the verifiers, the Segal levers)
 and the validated results so far (best-of-N flips mil crash->1.0; chi_pol
 auto-flags SUSPECT = the trust property). Get a GPU alloc, run A-D, paste the
 BATCH SUMMARY back, then the bulk instruction/tooling fix pass.
+
+## 2026-07-23: first full corpus sweep on the open-weights backend + bulk-fix pass started
+
+Ran the whole 16-plan x 6-target matrix on Qwen3.5-122B-A10B-FP8 (vLLM, 2x
+H200). Aggregate: 54 scored / 12 crash / 15 prod / 15 unavail / 11 clean-
+reconciled. GATE HOLDS: Age_Serv_Num >=0.95 for 10 plans; GO reconfirmed.
+Full failure map + bulk-fix plan in the 2026-07-23 dev-log entry of
+data_extraction_context.md. Root-cause buckets: A) 32000-token output
+truncation (6 crashes, FIXED - MAX_TOKENS now env-overridable, local default
+64000); B) Age_Serv_Wage regression (phx 0.966->0.0, diagnosing); C) percent
+not declared; D) contract-arity crashes; E) hard rate/blend targets (partly
+register-convention, not bugs). Only re-run verification needs the GPU alloc;
+edits/pulls are allocation-independent.

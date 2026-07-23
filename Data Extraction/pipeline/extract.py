@@ -19,7 +19,14 @@ import json
 import os
 
 MODEL = "claude-opus-4-8"
-MAX_TOKENS = 32000
+# Output-token budget. The Anthropic path keeps 32000 (Opus output cap); the
+# local vLLM backend defaults higher because big multi-table docs (e.g. mil's
+# 9 employer count tables) need >32000 tokens of JSON and were TRUNCATING mid-
+# response in the 2026-07-23 sweep (6 crashes). 64000 output + a 90K-token doc
+# + the retry conversation still fits the 262144 served context window.
+# Override either backend with EXTRACT_MAX_TOKENS.
+_DEFAULT_MAX_TOKENS = "64000" if os.environ.get("EXTRACT_OPENAI_BASE_URL") else "32000"
+MAX_TOKENS = int(os.environ.get("EXTRACT_MAX_TOKENS", _DEFAULT_MAX_TOKENS))
 
 # ---- open-weights backend (beta; see engaging_beta/runbook.md) ----
 # Set EXTRACT_OPENAI_BASE_URL (e.g. http://localhost:8000/v1) to route Stage A
