@@ -1221,3 +1221,31 @@ printed 'Average' row/col; (b) ops.totals_check skips any printed total
 smaller than the line's max cell (a real non-negative sum is always >= its
 max element, so a smaller 'total' can't be a sum - it's an average). Genuine
 shifts still fire; counts/retdist tests unaffected.
+
+### 2026-07-23 (cont.) - FIX #5: plan-total reconciliation in best-of-N selection
+The real fix for mil's over-sum (instruction alone failed). best-of-N ranked
+candidates by (contract violations, printed-totals violations) - but mil's
+12-table over-sum scores (0, 0): each employer/tier table is internally
+consistent, so the per-table totals-check is blind to summing the WRONG SET.
+Only reconciling the DERIVED grid total against the known plan total exposes
+it (27,858 vs PPD 10,974).
+
+Fix #5: best-of-N now ranks on (contract, RECONCILE, totals). New
+`extract._reconcile_penalty` runs the executor on each contract-valid
+candidate, sums the derived grid, and returns the relative error vs a
+`reconcile_total` (0.0 when no reference or within 2%, so it never reorders
+already-correct candidates; capped 9.999 for an unexecutable candidate).
+run_test passes `reconcile_total = ppd_check.actives_tot(ppd_id)` for
+Age_Serv_Num. For every other target there is no reference, so the penalty is
+inert and ranking is unchanged. Effect: a candidate that actually sums to the
+plan total now beats a clean-looking over-sum; if NO sample reconciles (the
+over-sum is systematic) the post-hoc PPD flag still fires - no worse than
+before. This turns the PPD signal from a post-hoc FLAG into a SELECTION
+criterion (the "cheap redundant verifier" strategy, realised).
+`pipeline/test_reconcile.py` protects it; full suite 13/13.
+
+NOTE on key ordering: reconcile is ranked ABOVE totals. This only matters for
+Age_Serv_Num (the only target with a reference); there, "did we get the right
+member count" is exactly the primary signal, and a column shift (which the
+totals-check catches) conserves the grand total so the two signals are
+complementary, not competing.

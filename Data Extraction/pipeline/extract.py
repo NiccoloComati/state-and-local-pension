@@ -787,6 +787,35 @@ def _evaluate(text, target_spec):
     return result, fatal, totals, list(fatal)
 
 
+def _reconcile_penalty(result, target_spec, reconcile_total):
+    """Best-of-N selection signal that the per-table totals-check CANNOT give:
+    run the executor on this candidate and compare the DERIVED grid's total to
+    a known plan total (e.g. PPD actives_tot). A candidate that transcribes
+    every table cleanly but sums the WRONG SET of tables (mil summed all 12
+    employer/tier tables -> 2.5x the plan) is internally consistent yet wrong;
+    only reconciliation against the external total catches it. Returns the
+    relative error (0.0 when no reference, or within 2% - so it never reorders
+    already-correct candidates), capped so an unexecutable candidate is
+    deprioritised without being treated as fatal."""
+    if not reconcile_total:
+        return 0.0
+    import ops
+    try:
+        derived = ops.execute(
+            result["source_tables"], result["row_map"], result["col_map"],
+            derive=result.get("derive"), transpose=result.get("transpose", False),
+            target_row_spans=target_spec.get("target_row_spans"),
+            target_col_spans=target_spec.get("target_col_spans"),
+            to_decimal=target_spec.get("convert_percent_to_decimal", False),
+            zero_impossible_cfg=target_spec.get("zero_impossible_cells"))
+    except Exception:
+        return 9.999
+    total = sum(v for row in derived["cells"] for v in row
+                if isinstance(v, (int, float)) and not isinstance(v, bool))
+    rel = abs(total - reconcile_total) / reconcile_total
+    return 0.0 if rel <= 0.02 else round(min(rel, 9.999), 4)
+
+
 def _correction_message(problems):
     return ("Your response does not conform to the required output format. "
             "Problems:\n" + "\n".join(f"- {pb}" for pb in problems) +
@@ -795,29 +824,33 @@ def _correction_message(problems):
             "\n\nReturn ONLY the corrected JSON object.")
 
 
-def _extract_openai(target_name, target_spec, prompt, record, record_path):
+def _extract_openai(target_name, target_spec, prompt, record, record_path,
+                    reconcile_total=None):
     """Local-backend Stage A: greedy baseline -> one greedy correction retry
-    -> best-of-N temperature sampling verified against the printed totals.
-    Keeps the best candidate seen (fewest contract violations, then fewest
-    totals violations). Raises only if no candidate is contract-valid."""
+    -> best-of-N temperature sampling verified against the printed totals AND
+    (when a plan total is known) the derived-grid reconciliation. Ranking key:
+    (contract violations, reconciliation error, totals violations) - fewest
+    first. Raises only if no candidate is contract-valid."""
     base = [{"role": "user", "content": prompt}]
-    best = {"key": (10 ** 9, 10 ** 9), "result": None, "text": None, "fatal": None}
+    best = {"key": (10 ** 9, 10.0, 10 ** 9), "result": None, "text": None, "fatal": None}
+    clean = (0, 0.0, 0)
 
     def consider(text, raw, tag):
         result, fatal, totals, allp = _evaluate(text, target_spec)
+        recon = _reconcile_penalty(result, target_spec, reconcile_total) if not fatal else 10.0
         att = {"tag": tag, "response": raw, "usage": raw.get("usage"),
-               "n_fatal": len(fatal), "n_totals": totals}
+               "n_fatal": len(fatal), "n_totals": totals, "reconcile_err": recon}
         if fatal:
             att["format_problems"] = fatal
         record["attempts"].append(att)
-        key = (len(fatal), totals)
+        key = (len(fatal), recon, totals)
         if key < best["key"]:
             best.update(key=key, result=result, text=text, fatal=fatal)
         return key
 
     # 1. greedy baseline (reproducible)
     text, raw = _call_openai(base, temperature=0, seed=0)
-    if consider(text, raw, "greedy") == (0, 0):
+    if consider(text, raw, "greedy") == clean:
         return _finalize_openai(best, record, record_path)
 
     # 2. one greedy correction retry with the specific problems fed back
@@ -825,18 +858,19 @@ def _extract_openai(target_name, target_spec, prompt, record, record_path):
         msgs = base + [{"role": "assistant", "content": best["text"]},
                        {"role": "user", "content": _correction_message(best["fatal"])}]
         text, raw = _call_openai(msgs, temperature=0, seed=0)
-        if consider(text, raw, "retry") == (0, 0):
+        if consider(text, raw, "retry") == clean:
             return _finalize_openai(best, record, record_path)
 
     # 3. best-of-N: independent temperature draws to escape a deterministic
-    #    mistake (column shift, phantom index...), each verified by the totals
-    if OPENAI_SAMPLES > 0 and best["key"] != (0, 0):
+    #    mistake (column shift, phantom index, wrong table set...), each
+    #    verified by the printed totals and the plan-total reconciliation
+    if OPENAI_SAMPLES > 0 and best["key"] != clean:
         print(f"[stage A] not clean after greedy+retry (best: {best['key'][0]} contract, "
-              f"{best['key'][1]} totals); sampling up to {OPENAI_SAMPLES} at "
-              f"temperature {OPENAI_TEMPERATURE}...")
+              f"{best['key'][1]} reconcile, {best['key'][2]} totals); sampling up to "
+              f"{OPENAI_SAMPLES} at temperature {OPENAI_TEMPERATURE}...")
         for i in range(OPENAI_SAMPLES):
             text, raw = _call_openai(base, temperature=OPENAI_TEMPERATURE, seed=1000 + i)
-            if consider(text, raw, f"sample{i}") == (0, 0):
+            if consider(text, raw, f"sample{i}") == clean:
                 print(f"[stage A] clean sample found (sample{i})")
                 break
 
@@ -852,15 +886,25 @@ def _finalize_openai(best, record, record_path):
                            f"{len(record['attempts'])} attempts:\n"
                            + "\n".join(best["fatal"] or ["unparseable JSON"]))
     if best["key"][1] > 0:
-        print(f"[stage A] WARNING: best candidate still has {best['key'][1]} "
+        print(f"[stage A] WARNING: best candidate's derived total is off by "
+              f"{best['key'][1]:.1%} vs the known plan total (wrong table set / "
+              "double-count?); proceeding (best of all attempts)")
+    if best["key"][2] > 0:
+        print(f"[stage A] WARNING: best candidate still has {best['key'][2]} "
               "printed-totals inconsistencies; transcription is suspect but "
               "proceeding (best of all attempts)")
     return best["result"], record
 
 
-def extract(target_name, target_spec, source_text, record_path=None, dry_run=False):
+def extract(target_name, target_spec, source_text, record_path=None, dry_run=False,
+            reconcile_total=None):
     """Run one extraction (with one format-correction retry if the response
-    does not conform to the contract). Returns (result_dict, record_dict)."""
+    does not conform to the contract). Returns (result_dict, record_dict).
+
+    reconcile_total: a known plan-wide total for the derived grid (e.g. PPD
+    actives_tot for a count target). When given, best-of-N prefers the
+    candidate whose derived total matches it - catches wrong-table-set
+    double-counts the per-table totals-check cannot see. Local backend only."""
     use_openai = bool(OPENAI_BASE_URL)
     model_name = OPENAI_MODEL if use_openai else MODEL
     prompt = build_prompt(target_name, target_spec, source_text,
@@ -879,7 +923,8 @@ def extract(target_name, target_spec, source_text, record_path=None, dry_run=Fal
         record["base_url"] = OPENAI_BASE_URL
         record["samples"] = OPENAI_SAMPLES
         record["temperature"] = OPENAI_TEMPERATURE
-        return _extract_openai(target_name, target_spec, prompt, record, record_path)
+        return _extract_openai(target_name, target_spec, prompt, record, record_path,
+                               reconcile_total=reconcile_total)
 
     import anthropic  # deferred so dry runs work without the package/key
     client = anthropic.Anthropic()

@@ -138,10 +138,18 @@ def run_one(plan_key, target, targets, pages=None, verbose=True):
     os.makedirs(run_dir, exist_ok=True)
     out["run_dir"] = run_dir
 
+    # for active-count targets, hand best-of-N the PPD plan total so it can
+    # prefer a candidate that reconciles (catches wrong-table-set double-counts
+    # like mil's 12-table over-sum that per-table totals-checks cannot see)
+    reconcile_total = None
+    if target == "Age_Serv_Num":
+        reconcile_total = ppd_check.actives_tot(plan.get("ppd_id"))
+
     try:
         result, record = extract.extract(
             target, spec, source_text,
-            record_path=os.path.join(run_dir, "record.json"))
+            record_path=os.path.join(run_dir, "record.json"),
+            reconcile_total=reconcile_total)
     except Exception as e:                          # noqa: BLE001 - report, don't crash the sweep
         out["status"] = "crash"
         out["crash"] = str(e).replace("\n", " | ")[:300]
