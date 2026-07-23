@@ -692,10 +692,12 @@ def validate(result, target_spec=None):
                     base = tables[table_idxs[0]]
                     for v in table_idxs[1:]:
                         t = tables[v]
-                        if (t.get("row_labels") != base.get("row_labels")
-                                or t.get("col_labels") != base.get("col_labels")):
-                            p.append("derive=sum tables must have identical row_labels "
-                                     "and col_labels")
+                        if (len(t.get("row_labels") or []) != len(base.get("row_labels") or [])
+                                or len(t.get("col_labels") or []) != len(base.get("col_labels") or [])):
+                            p.append("derive=sum tables must have the same SHAPE (same "
+                                     "number of rows and columns) - they are summed by "
+                                     "position; transcribe the same distribution grid in "
+                                     "each group table")
             banned = ({"weighted_avg", "ratio"} if dop == "ratio"
                       else {"weighted_avg"})   # col ratio after derive=sum is fine
             for name in ("row_map", "col_map"):

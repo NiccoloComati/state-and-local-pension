@@ -1266,3 +1266,23 @@ Two sweep failure classes, both offline:
   thousands, similar across cells; total cell = a sum that grows with headcount
   and whose printed 'Total' is the SUM) and a hard prohibition: NEVER
   weighted_avg a totals table; use derive=ratio. Suite 13/13.
+
+### 2026-07-23 (cont.) - FIX D: derive=sum position-alignment; other arity crashes triaged
+The 4 contract-arity sweep crashes, handled by root cause:
+- **bos/Age_Serv_Num (derive=sum identical-labels) - FIXED.** Employer/sex
+  sub-tables of one distribution always share the grid SHAPE, but the model
+  sometimes transcribes a bin label two ways across them ('24 & Under' vs
+  'Under 25'), which the identical-labels requirement rejected. ops._sum_tables
+  and validate() now require identical DIMENSIONS only and sum by POSITION (the
+  row/col maps run on the base labels afterwards). Shape MISMATCH still errors.
+  Verified: labels-differ/shape-same sums by position; shape-differ rejected.
+- **chi_edu/chi_pol Avg_Mort (values_unit) - addressed by FIX C** (per_1000
+  now accepted; the plausibility hint routes large values to it).
+- **lax_gen/Age_Serv_Wage ('cells has 24 rows but 11 row_labels') - DEFERRED
+  to Segal A/B.** An interleaved salary+count Segal exhibit the model flattened
+  wrong; the EXTRACT_APPEND_TABLES lever (clean pdfplumber pipe-grids) is the
+  right tool, tested next allocation.
+- **chi_gen/Retirement (ratio arity), chi_gen/Sep_Rate (complex rate table) -
+  one-off model-conformance on hard tables**, not a systematic bug. They re-run
+  with the other fixes; any remainder stays on the attention list for targeted
+  handling (acceptable under breadth-first). Suite 13/13.

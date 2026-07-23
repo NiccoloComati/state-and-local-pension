@@ -225,7 +225,12 @@ def zero_impossible(grid, row_spans, col_spans, cfg):
 
 
 def _sum_tables(source_tables, indices):
-    """Cell-wise sum of same-shaped additive source tables."""
+    """Cell-wise sum of same-SHAPED additive source tables (aligned by
+    position). Employer/group sub-tables of one distribution always share the
+    grid shape, but a model sometimes transcribes a bin label two ways across
+    them ('24 & Under' vs 'Under 25') - a bos Age_Serv_Num sweep crash. We
+    require identical DIMENSIONS and sum by position; exact-label identity is
+    not required (the row/col MAPS operate on the base labels afterwards)."""
     if not indices:
         raise ValueError("derive=sum needs at least one source table index")
     base = source_tables[indices[0]]
@@ -233,8 +238,13 @@ def _sum_tables(source_tables, indices):
     col_labels = base["col_labels"]
     for i in indices[1:]:
         t = source_tables[i]
-        if t["row_labels"] != row_labels or t["col_labels"] != col_labels:
-            raise ValueError("derive=sum tables must have identical row/col labels")
+        if (len(t["row_labels"]) != len(row_labels)
+                or len(t["col_labels"]) != len(col_labels)):
+            raise ValueError(
+                "derive=sum tables must have the same SHAPE (same number of "
+                f"rows and columns): table {indices[0]} is "
+                f"{len(row_labels)}x{len(col_labels)}, table {i} is "
+                f"{len(t['row_labels'])}x{len(t['col_labels'])}")
 
     cells = []
     for r in range(len(row_labels)):
