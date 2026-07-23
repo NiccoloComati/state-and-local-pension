@@ -1249,3 +1249,20 @@ Age_Serv_Num (the only target with a reference); there, "did we get the right
 member count" is exactly the primary signal, and a column shift (which the
 totals-check catches) conserves the grand total so the two signals are
 complementary, not competing.
+
+### 2026-07-23 (cont.) - FIX C: per_1000 unit + totals-vs-averages ratio detection
+Two sweep failure classes, both offline:
+- **`per_1000` values_unit added.** The contract only supported 'percent'
+  (/100), but AVs also print rates PER 1,000 members (dal Ret_Rate 'rate per
+  1,000'; likely the chi_edu/chi_pol Avg_Mort unit crashes where values reached
+  53.31). Generalised ops `_percent_to_decimal` -> `_scale_to_decimal` with a
+  `_UNIT_DIVISOR` map ({percent:100, per_100:100, per_1000:1000}); schema enum,
+  validator, instruction, and the unit-plausibility hint (now suggests
+  per_1000 when values exceed 100) all updated. 53.31 per_1000 -> 0.05331,
+  verified; percent path unchanged.
+- **Age_Serv_Wage ratio detection.** chi_ff KNEW source_tables[0] was total
+  salary dollars yet used weighted_avg (-> nonsense $1M "averages"). Rule 3
+  now gives an explicit DISCRIMINATOR (average cell = per-person tens-of-
+  thousands, similar across cells; total cell = a sum that grows with headcount
+  and whose printed 'Total' is the SUM) and a hard prohibition: NEVER
+  weighted_avg a totals table; use derive=ratio. Suite 13/13.

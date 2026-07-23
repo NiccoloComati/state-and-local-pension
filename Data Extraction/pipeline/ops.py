@@ -164,16 +164,22 @@ def _group_weight(wt, q_row_label, q_row_span, q_col_label, q_col_span):
     return w
 
 
-def _percent_to_decimal(table):
-    """Copy of the table with numeric cells (and totals) divided by 100.
+# scale factors for the per-table values_unit -> decimal conversion. AVs print
+# rate tables in several scales: "22.50" meaning 22.5% (/100), or "per 1,000
+# members" (/1000, common for retirement/mortality rates, e.g. dal Ret_Rate).
+_UNIT_DIVISOR = {"percent": 100, "per_100": 100, "per_1000": 1000}
 
-    Division (not *0.01) so that e.g. 35.00 -> exactly the double 0.35 a
-    human typing '0.35' produces."""
+
+def _scale_to_decimal(table, divisor):
+    """Copy of the table with numeric cells (and totals) divided by `divisor`.
+
+    Division (not multiply by a reciprocal) so that e.g. 35.00 / 100 -> exactly
+    the double 0.35 a human typing '0.35' produces."""
     t = dict(table)
-    t["cells"] = [[v / 100 if _num(v) else v for v in row] for row in table["cells"]]
+    t["cells"] = [[v / divisor if _num(v) else v for v in row] for row in table["cells"]]
     for key in ("printed_row_totals", "printed_col_totals"):
         tv = table.get(key)
-        t[key] = [v / 100 if _num(v) else v for v in tv] if tv else tv
+        t[key] = [v / divisor if _num(v) else v for v in tv] if tv else tv
     return t
 
 
@@ -267,8 +273,8 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
     to_decimal: scale tables declaring values_unit=="percent" by 0.01."""
     prepped = []
     for k, t in enumerate(source_tables):
-        if to_decimal and t.get("values_unit") == "percent":
-            t = _percent_to_decimal(t)
+        if to_decimal and t.get("values_unit") in _UNIT_DIVISOR:
+            t = _scale_to_decimal(t, _UNIT_DIVISOR[t["values_unit"]])
         if transpose and k == 0:   # main table only; aux tables stay as printed
             t = _transpose_table(t)
         prepped.append(t)

@@ -81,8 +81,8 @@ _TABLE = {
             "description": "the table's printed per-column totals (one per col_label, aligned) if the table prints a Total row; else null.",
         },
         "values_unit": {
-            "anyOf": [{"type": "string", "enum": ["percent"]}, {"type": "null"}],
-            "description": "'percent' if the table prints percentages (e.g. 22.50 meaning 22.5%) while the target wants decimals - code scales by 0.01. Else null. Transcribe the numbers AS PRINTED either way.",
+            "anyOf": [{"type": "string", "enum": ["percent", "per_1000"]}, {"type": "null"}],
+            "description": "the SCALE the table prints a RATE in, when the target wants a decimal probability. 'percent' = printed as percentages (22.50 meaning 22.5%; code /100). 'per_1000' = printed as a rate PER 1,000 members (e.g. a 'rate per 1,000' retirement/mortality table, 53.31 meaning 0.05331; code /1000). null = already a decimal, or not a rate. Transcribe the numbers AS PRINTED either way.",
         },
         "row_spans": {
             "anyOf": [{"type": "array",
@@ -279,8 +279,11 @@ target rows). For RATE tables whose bins do not align with the target bins, use 
 ([lo, hi], null = open end, e.g. "<15" -> [null, 14]): code blends the rates \
 proportionally to how many years of the target bin fall in each source bin. Rates are \
 intensive - never sum them; a target bin inside one source bin just copies its rate. \
-If a table prints percentages while the target wants decimals, transcribe as printed \
-and set the table's values_unit to "percent" - code does the scaling. \
+If a rate table is printed on a SCALE while the target wants a decimal probability, \
+transcribe the numbers as printed and declare the scale in values_unit: "percent" for \
+percentages (22.50 -> 0.225), "per_1000" for a 'rate per 1,000 members' table (53.31 -> \
+0.05331) - code does the division. (A rate whose printed values exceed ~1 but the target \
+is a probability is always one of these scales - never leave values_unit null then.) \
 If the document publishes the target separately per POPULATION GROUP (e.g. General vs \
 Safety termination rates; pre- vs post-retirement mortality) and the target wants one \
 blended value, use op "group_weighted": sources = the group rows/columns, and \
@@ -360,8 +363,9 @@ Constraints:
   the printed bin labels, aligned with row_labels/col_labels (null = open end
   or non-numeric label). Required on group_weighted weights tables whose bins
   are coarser than the target grid.
-- a source table printing percentages gets "values_unit": "percent"
-  (numbers still transcribed exactly as printed).
+- a source rate table on a scale gets "values_unit": "percent" (printed as %)
+  or "per_1000" (printed as a rate per 1,000 members) - numbers still
+  transcribed exactly as printed; code divides by 100 or 1,000.
 - "derive" is null UNLESS one of these document-level computations is needed:
   (a) the document publishes totals instead of the target's averages: transcribe
   BOTH tables (same bin labels) and set
@@ -473,8 +477,9 @@ def validate(result, target_spec=None):
                         v is not None and not isinstance(v, (int, float)) for v in tv):
                     p.append(f"source_tables[{k}].{key} must be a list of numbers/nulls or null")
         vu = t.setdefault("values_unit", None)   # tolerated if absent
-        if vu is not None and vu != "percent":
-            p.append(f"source_tables[{k}].values_unit must be 'percent' or null")
+        if vu is not None and vu not in ("percent", "per_1000"):
+            p.append(f"source_tables[{k}].values_unit must be 'percent', 'per_1000', "
+                     "or null (a printed rate scaled as % or per-1,000; else null)")
         for key, labels_key in (("row_spans", "row_labels"), ("col_spans", "col_labels")):
             sp = t.setdefault(key, None)   # tolerated if absent
             if sp is None:
@@ -717,9 +722,10 @@ def validate(result, target_spec=None):
                   for v in row if isinstance(v, (int, float))
                   and not isinstance(v, bool)), default=None)
         if mx is not None and mx > 1.5:
+            scale = "'per_1000' (per 1,000 members)" if mx > 100 else "'percent'"
             p.append(f"source_tables[0] holds values up to {mx} for a target whose "
-                     "unit is a probability (max 1): if the table prints "
-                     "percentages, set its values_unit to 'percent' (transcribe "
+                     f"unit is a probability (max 1): the table prints a scaled rate - "
+                     f"set its values_unit to {scale} so code rescales it (transcribe "
                      "the numbers as printed either way)")
     return p
 
