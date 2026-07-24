@@ -35,12 +35,37 @@ pushed; suite 13/13):
   couple one-off hard tables left on the attention list).
 NONE of these fixes are verified live except #2. **They need a re-sweep.**
 
+### GOTCHAS — bake these into every session (learned the hard way 2026-07-23/24)
+1. **`module load miniforge/24.3.0-0` before ANY `python`** (and `module load
+   apptainer/1.4.2` before any `apptainer`). The login default python is 3.6 /
+   absent -> "python: command not found". EVERY fresh shell needs it, and a
+   **new tmux window does NOT inherit modules OR your `export`s** - re-run the
+   module load + the EXTRACT_* exports in each new window. This bit us ~4x.
+2. **Allocate co-located GPUs:** `salloc ... -N 1 --gres=gpu:h200:2` — NOT
+   `-G h200:2`. `-G` lets the scheduler scatter the 2 GPUs across 2 NODES
+   (1 each), and TP=2 then sees only 1 GPU per node -> "World size (2) is
+   larger than available GPUs (1)". `-N 1 --gres` forces both onto one node.
+3. **Single-GPU fallback (no re-queue needed if you only got 1 GPU):** the MoE
+   + hybrid-attention model fits on ONE H200. Boot with `--tensor-parallel-size
+   1 --max-model-len 131072 --gpu-memory-utilization 0.97 --enforce-eager`, and
+   set `EXTRACT_MAX_TOKENS=16000` (131072 ctx can't hold a 90K doc + 64K output
+   + a retry; 16K output >> the ~7K a healthy response needs). Confirmed working
+   2026-07-24. Slower (no TP) but runs the whole sweep.
+4. **Launch the vLLM boot block ONCE.** A second launch hits `OSError [Errno 98]
+   Address already in use` (vLLM binds the port before loading). If the `tail`
+   looks stuck, Ctrl+C the TAIL only and read the log - do not relaunch.
+5. **Verify the GPU count before booting:** `nvidia-smi -L` must show the number
+   of H200s you need (2 for TP=2). `SLURM_GPUS_ON_NODE` / `scontrol show job`
+   confirm placement.
+
 ### NEXT-ALLOCATION CHECKLIST (do these next session, in order)
 
-**1. Boot the server** (cluster; the queue was ~2h on 2026-07-23 - start early):
+**1. Boot the server** (cluster; queue was ~2h on 2026-07-23, ~3h on 2026-07-24
+- start early). `-N 1 --gres` per gotcha #2:
 ```bash
 ssh ncomati@orcd-login.mit.edu
-salloc -p mit_normal_gpu -G h200:2 -c 16 --mem=200G -t 6:00:00
+salloc -p mit_normal_gpu -N 1 --gres=gpu:h200:2 -c 16 --mem=200G -t 6:00:00
+nvidia-smi -L                         # MUST show 2 H200 (gotcha #2/#5)
 tmux new -s vllm
 module load apptainer/1.4.2
 cd /orcd/scratch/orcd/011/ncomati
@@ -52,27 +77,34 @@ apptainer exec --nv -B /orcd/scratch/orcd/011/ncomati --env CC=gcc --env CXX=g++
   > /orcd/scratch/orcd/011/ncomati/vllm.log 2>&1 &
 tail -f /orcd/scratch/orcd/011/ncomati/vllm.log   # wait 'Application startup complete', Ctrl+C, then Ctrl+b d
 ```
+If you only got 1 GPU and don't want to re-queue, use the single-GPU boot from
+gotcha #3 instead (TP=1, 131072, and add EXTRACT_MAX_TOKENS=16000 in step 2).
 
-**2. Pull the fixes** (cluster):
+**2. Pull the fixes + set the env** (cluster). `module load miniforge` per
+gotcha #1 - REQUIRED before python, and again in every new tmux window:
 ```bash
+module load miniforge/24.3.0-0
 cd /orcd/scratch/orcd/011/ncomati/state-and-local-pension && git pull
 cd "Data Extraction"
+python -c "import pdfplumber, pypdf, openpyxl; print('deps ok')" || pip install --user -q pdfplumber pypdf openpyxl
 export EXTRACT_OPENAI_BASE_URL=http://127.0.0.1:8000/v1 EXTRACT_MODEL=qwen35-122b-fp8 OPENAI_API_KEY=dummy
+# on a SINGLE-GPU (131072) boot also: export EXTRACT_MAX_TOKENS=16000
 ```
 
-**3. Segal A/B FIRST** (cheap, decides whether to enable the lever for the sweep).
-Run the two interleaved-layout plans with the table-append lever OFF then ON:
+**3. Segal A/B** (2-GPU/262144 boots ONLY - the APPEND_TABLES lever inflates the
+prompt and overflows a single-GPU 131072 window; skip it on TP=1). Table-append
+lever OFF then ON on the two interleaved-layout plans:
 ```bash
 python pipeline/run_batch.py --plans chi_pol,lax_uty --targets Age_Serv_Num,Age_Serv_Wage
 EXTRACT_APPEND_TABLES=1 python pipeline/run_batch.py --plans chi_pol,lax_uty --targets Age_Serv_Num,Age_Serv_Wage
 ```
-Compare the two summaries: if APPEND_TABLES=1 clears the column shift (chi_pol
-Age_Serv_Num up from 0.868, lax_uty wage off its shift) without hurting, enable
-it for the full sweep in step 4; if it doesn't help, leave it off and the Segal
-plans stay flagged (acceptable).
+Compare: if APPEND_TABLES=1 clears the column shift (chi_pol Age_Serv_Num up
+from 0.868, lax_uty wage off its shift) without hurting, enable it for step 4;
+else leave it off and the Segal plans stay flagged (acceptable).
 
-**4. Full re-sweep** (cluster; ~1h). Add `EXTRACT_APPEND_TABLES=1` in front only
-if step 3 favored it:
+**4. Full re-sweep** (cluster; ~1h on 2 GPUs, ~2-3h on 1). Run it inside a tmux
+window (re-load miniforge + re-export env there per gotcha #1). Add
+`EXTRACT_APPEND_TABLES=1` in front only if step 3 favored it:
 ```bash
 python pipeline/run_batch.py --quiet | tee /orcd/scratch/orcd/011/ncomati/sweep2.log
 ```
