@@ -62,10 +62,13 @@ NONE of these fixes are verified live except #2. **They need a re-sweep.**
    hardest thing to schedule: waited **5h and never granted** on 2026-07-25.
    The fix that granted in **~minutes**:
    `salloc -p mit_preemptable -N 1 --gres=gpu:h200:2 -c 8 --mem=96G -t 3:00:00`.
-   Why: (a) `mit_preemptable` backfills idle capacity; (b) a short wall
-   (3h >> the 1-2h sweep) fits many more backfill windows than 6h; (c) lean
-   `-c 8 --mem=96G` (the sweep needs little host cpu/RAM - the model lives in
-   GPU memory) schedules easier. **Preemption is SAFE for us:** `run_batch`
+   Why: (a) `mit_preemptable` backfills idle capacity (the decisive lever);
+   (b) lean `-c 8 --mem=96G` (the sweep needs little host cpu/RAM - the model
+   lives in GPU memory) schedules easier; (c) a modest wall helps backfill but
+   is NOT the main lever - preemptable allows up to 48h, so if a session needs
+   more runtime, `-t 6:00:00`+ on the same lean preemptable request still grants
+   fast. 3h comfortably covers one full sweep (~8min boot + 1-2h). Wall expiry
+   is as safe as preemption (summary.json is per-run; resume the rest). **Preemption is SAFE for us:** `run_batch`
    writes `summary.json` after every run, so a kill just means re-boot +
    finish the remaining plans, nothing completed is lost. Fallback if H200s
    are scarce: `--gres=gpu:h100:2` (2x H100 80GB = 160GB, still fits the 127GB
