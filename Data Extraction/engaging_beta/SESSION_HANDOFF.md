@@ -57,14 +57,30 @@ NONE of these fixes are verified live except #2. **They need a re-sweep.**
 5. **Verify the GPU count before booting:** `nvidia-smi -L` must show the number
    of H200s you need (2 for TP=2). `SLURM_GPUS_ON_NODE` / `scontrol show job`
    confirm placement.
+6. **ALLOCATION STRATEGY - use preemptable + lean (the fast lane).** A
+   co-located H200 pair on `mit_normal_gpu` with a 6h wall is the single
+   hardest thing to schedule: waited **5h and never granted** on 2026-07-25.
+   The fix that granted in **~minutes**:
+   `salloc -p mit_preemptable -N 1 --gres=gpu:h200:2 -c 8 --mem=96G -t 3:00:00`.
+   Why: (a) `mit_preemptable` backfills idle capacity; (b) a short wall
+   (3h >> the 1-2h sweep) fits many more backfill windows than 6h; (c) lean
+   `-c 8 --mem=96G` (the sweep needs little host cpu/RAM - the model lives in
+   GPU memory) schedules easier. **Preemption is SAFE for us:** `run_batch`
+   writes `summary.json` after every run, so a kill just means re-boot +
+   finish the remaining plans, nothing completed is lost. Fallback if H200s
+   are scarce: `--gres=gpu:h100:2` (2x H100 80GB = 160GB, still fits the 127GB
+   model at TP=2; drop `--max-model-len` to 131072 if the tighter KV OOMs).
+   HEDGE without losing a queued job: leave it pending, open a 2nd SSH,
+   submit the preemptable one there, take whichever grants first.
 
 ### NEXT-ALLOCATION CHECKLIST (do these next session, in order)
 
-**1. Boot the server** (cluster; queue was ~2h on 2026-07-23, ~3h on 2026-07-24
-- start early). `-N 1 --gres` per gotcha #2:
+**1. Boot the server** (cluster). Use the PREEMPTABLE + LEAN request per gotcha
+#6 - it granted in minutes on 2026-07-25 after 5h of nothing on mit_normal_gpu:
 ```bash
 ssh ncomati@orcd-login.mit.edu
-salloc -p mit_normal_gpu -N 1 --gres=gpu:h200:2 -c 16 --mem=200G -t 6:00:00
+salloc -p mit_preemptable -N 1 --gres=gpu:h200:2 -c 8 --mem=96G -t 3:00:00
+# (fallback if H200s scarce: --gres=gpu:h100:2 ; last resort: mit_normal_gpu -t 6:00:00)
 nvidia-smi -L                         # MUST show 2 H200 (gotcha #2/#5)
 tmux new -s vllm
 module load apptainer/1.4.2
