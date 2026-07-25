@@ -46,6 +46,25 @@ def _fmt(o):
     return (f"{sc:.3f}" if sc is not None else "?") + flags
 
 
+def _preflight_backend():
+    """Fail fast (before iterating the whole grid) if the local vLLM backend
+    isn't configured and the Anthropic fallback isn't installed - otherwise
+    EVERY run crashes with 'No module named anthropic'. Recurring footgun:
+    a fresh shell/tmux window doesn't inherit the EXTRACT_* exports."""
+    if os.environ.get("EXTRACT_OPENAI_BASE_URL"):
+        return
+    try:
+        import anthropic  # noqa: F401
+    except ImportError:
+        sys.exit(
+            "EXTRACT_OPENAI_BASE_URL is not set and the 'anthropic' package is not\n"
+            "installed -> every run would route to the Anthropic backend and crash.\n"
+            "For the local vLLM server, set the backend env FIRST (a fresh shell or\n"
+            "tmux window does NOT inherit them):\n"
+            "  export EXTRACT_OPENAI_BASE_URL=http://127.0.0.1:8000/v1 "
+            "EXTRACT_MODEL=qwen35-122b-fp8 OPENAI_API_KEY=dummy")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--plans", help="comma-separated subset (default: all)")
@@ -53,6 +72,7 @@ def main():
     ap.add_argument("--quiet", action="store_true", help="suppress per-run logs")
     args = ap.parse_args()
 
+    _preflight_backend()
     targets = run_test.load_targets()
     all_targets = run_test.target_names(targets)
     plans = args.plans.split(",") if args.plans else sorted(run_test.PLANS)
