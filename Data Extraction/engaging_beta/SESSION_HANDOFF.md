@@ -9,6 +9,78 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0c. LATEST — 2026-07-25 session 4: sweep-2 partial (32 runs) + a vLLM BOOT BLOCKER (READ FIRST)
+
+Ran a re-sweep after the 6 bulk-fixes on a 2-GPU node (node5200). Got **32 of
+96 runs** before the 3h wall killed the alloc; the partial `summary.json` is
+saved on scratch at `runs/_batch_20260725_143259/` (survives). Then spent hours
+fighting infrastructure and hit a hard boot blocker (below). **No code is
+broken; this is a cluster/hardware problem.**
+
+### What the 32 runs already tell us (fix-verification, adjudicated)
+- **GATE (Age_Serv_Num) is SOLID and a headline win landed:** chi_edu 1.0,
+  chi_ff 1.0, chi_gen 0.983, **chi_pol 1.0** — chi_pol is the Segal interleaved
+  layout that was stuck at 0.868 on 2026-07-22. best-of-N + the hardened
+  totals-check (fix #4) now SELECT the un-shifted sample (n_att=6). **The Segal
+  count shift is fixed.** PPD reconcile `ok` on all counts.
+- **STILL BROKEN — Age_Serv_Wage on Segal chi plans (all 0.0):** chi_edu 0.02,
+  chi_ff/chi_gen/chi_pol 0.0. The interleaved total$+count layout breaks the
+  ratio mapping (all-null derivation). This is the Segal-tooling bucket
+  (EXTRACT_APPEND_TABLES A/B, still not run). #2 fixed GRS wage (phx 0.93) but
+  not this layout.
+- **STILL CRASHING — truncation at 64000 on some plans** (bos ASW/Sep,
+  chi_edu/chi_gen Avg_Mort/Retirement): over-transcription runaway; fix #3
+  (instruction) did NOT stop it. Needs a hard table-count/output cap.
+- **Rate/blend (Ret/Sep/Avg_Mort): mostly 0.0 or crash** — bucket E, expected,
+  register-decision territory, low priority.
+- NOT yet re-tested (were in the unfinished 64): **mil Age_Serv_Num (#5
+  reconcile — the critical one)**, dal Ret_Rate (#C per_1000), phx/sd
+  regression. Next session must get these.
+
+### THE BOOT BLOCKER (2026-07-25 evening) — for next session
+2-GPU (TP=2) boot crashes at startup with **`torch.AcceleratorError: CUDA
+error: an illegal memory access`** in
+`vllm/model_executor/layers/mamba/gdn/qwen_gdn_linear_attn.py:1138
+_warmup_prefill_kernels`, during `profile_run`. The visible
+`CUDASymmetricMemory`/`CUDAPeerAllocInfo` wall is just the teardown.
+- **node5200 booted TP=2 fine** (ran the 32 runs) with the STANDARD config.
+- **node5201 AND node4002 both crash identically** at that GDN kernel — so it
+  is NOT one bad GPU. Tried, all still crashed: `--enforce-eager` (skips
+  torch.compile but not the Triton GDN kernel), `--disable-custom-all-reduce`.
+- The **preemptable+lean allocation flags are NOT the cause** — node5200 used
+  the identical `-p mit_preemptable -N1 --gres=gpu:h200:2 -c 8 --mem=96G`
+  request and worked. (Niccolo suspected the alloc method; ruled out by
+  node5200.)
+- **Leading untested hypothesis: a poisoned Triton/compile cache** in `~`
+  (home follows every node). "Worked once (node5200 wrote the cache), then
+  every node after crashes" fits this. **First thing to try next session:**
+  wipe caches then boot:
+  `rm -rf ~/.cache/vllm ~/.cache/torch ~/.triton ~/.cache/flashinfer` then the
+  standard TP=2 boot (no --enforce-eager).
+- **Reliable fallback that DOES boot:** TP=1 single GPU
+  (`--tensor-parallel-size 1 --max-model-len 131072 --gpu-memory-utilization
+  0.97 --enforce-eager` + `EXTRACT_MAX_TOKENS=16000`) — it physically can't hit
+  the cross-GPU peer bug. Slower (no prefix-cache room -> re-prefills each doc,
+  best-of-N amplifies it), so only worth it for a SMALL targeted run
+  (mil/dal/phx/sd ASN+Ret_Rate), not the full 96.
+- If cache-wipe doesn't fix TP=2 and the pool keeps handing crash-y nodes,
+  it may be a vLLM/kernel version issue on those nodes worth raising with
+  Engaging support, or pin a different container tag.
+
+### Next-session order (short)
+1. Fresh preemptable alloc (gotcha #6). **Wipe the caches** (above) BEFORE the
+   first boot - likely fixes TP=2.
+2. If TP=2 boots: finish the sweep (or at least mil/dal/phx/sd/lax_uty ASN +
+   Age_Serv_Wage + Ret_Rate) to close #5/#C/regression + the Segal wage picture.
+3. If TP=2 won't boot after a cache wipe: TP=1 for the small targeted set,
+   defer the full sweep.
+4. Then the next bulk-fix round: Segal wage mapping (EXTRACT_APPEND_TABLES A/B)
+   + a hard truncation cap.
+
+Everything below (§0b, §0, §1-9) is still valid background.
+
+---
+
 ## 0b. LATEST — 2026-07-23 session 3: first full sweep + bulk-fix pass (READ FIRST)
 
 The full **16-plan x 6-target sweep RAN** (batch `_batch_20260723_114421`;
