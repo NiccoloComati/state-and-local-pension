@@ -1,0 +1,569 @@
+{
+  "source_tables": [
+    {
+      "page": 55,
+      "title": "Table 13 \u2014 Total Lives and Annual Salaries of Active Members Classified by Age and Years of Service as of June 30, 2019",
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70 & Over"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          2272208,
+          33287968,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          4761166,
+          145504054,
+          46732744,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          3012984,
+          96455717,
+          154608262,
+          33659422,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          2407981,
+          53437005,
+          106823525,
+          147890284,
+          45941730,
+          99102,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          1895693,
+          29134798,
+          50296115,
+          100197447,
+          132024310,
+          26678337,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          1788202,
+          22426253,
+          35598382,
+          52965272,
+          95611867,
+          107254686,
+          23397466,
+          101907,
+          null
+        ],
+        [
+          null,
+          1321504,
+          13764842,
+          21057252,
+          31147021,
+          51460276,
+          65857402,
+          73289876,
+          10488226,
+          101579
+        ],
+        [
+          null,
+          913415,
+          11021930,
+          12184947,
+          21570273,
+          34912590,
+          42587832,
+          44067970,
+          26608059,
+          3732730
+        ],
+        [
+          null,
+          527269,
+          5943308,
+          8025798,
+          11641840,
+          23401674,
+          22967785,
+          21422518,
+          11161600,
+          5727548
+        ],
+        [
+          null,
+          314607,
+          1846272,
+          2803116,
+          4398636,
+          7193898,
+          6005581,
+          6554992,
+          3315175,
+          2591002
+        ],
+        [
+          null,
+          205836,
+          844554,
+          795191,
+          1254802,
+          1969111,
+          1546443,
+          1780536,
+          479719,
+          1983426
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "printed_col_totals": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 55,
+      "title": "Table 13 \u2014 Total Lives and Annual Salaries of Active Members Classified by Age and Years of Service as of June 30, 2019 (Counts)",
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70 & Over"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          182,
+          627,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          388,
+          2625,
+          717,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          235,
+          1690,
+          2204,
+          389,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          206,
+          952,
+          1476,
+          1633,
+          467,
+          1,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          160,
+          544,
+          702,
+          1096,
+          1338,
+          252,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          165,
+          421,
+          491,
+          586,
+          977,
+          1034,
+          214,
+          1,
+          null
+        ],
+        [
+          null,
+          115,
+          286,
+          293,
+          364,
+          539,
+          654,
+          690,
+          99,
+          1
+        ],
+        [
+          null,
+          102,
+          251,
+          190,
+          254,
+          377,
+          435,
+          429,
+          246,
+          32
+        ],
+        [
+          null,
+          87,
+          159,
+          131,
+          159,
+          258,
+          233,
+          212,
+          107,
+          51
+        ],
+        [
+          null,
+          48,
+          75,
+          67,
+          68,
+          82,
+          63,
+          64,
+          33,
+          25
+        ],
+        [
+          null,
+          37,
+          54,
+          34,
+          29,
+          28,
+          19,
+          21,
+          5,
+          16
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "printed_col_totals": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 20",
+        "20-24"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65-69",
+        "70 & Over"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1-4"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 & Over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source Table 13 on page 55 provides Total Lives (counts) and Annual Salaries (totals) by Age and Service. Average salary is derived by dividing Total Salaries by Total Lives. Source table 0 contains the salary totals, source table 1 contains the member counts used as weights for weighted_avg operations where bins are merged (e.g., <25, 70, and service <4). Target row '29' maps to source '25-29', '34' to '30-34', etc. Target col '4' merges 'Under 1' and '1-4'. Target col '40' maps to '35 & Over'.",
+  "unavailable": false
+}

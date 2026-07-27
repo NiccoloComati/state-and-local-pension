@@ -1,0 +1,46 @@
+{
+  "source_tables": [
+    {
+      "page": 50,
+      "title": "EXHIBIT A \u2013 TABLE OF PLAN COVERAGE",
+      "row_labels": [
+        "Retired members",
+        "Disabled members",
+        "Beneficiaries"
+      ],
+      "col_labels": [
+        "Category",
+        "Number in pay status",
+        "Average monthly benefit (includes July COLA)"
+      ],
+      "cells": [
+        [
+          "Retired members",
+          8811,
+          6758
+        ],
+        [
+          "Disabled members",
+          1821,
+          5141
+        ],
+        [
+          "Beneficiaries",
+          2465,
+          4646
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish the distribution of retired members by 5-year age band. It only provides aggregate counts and average monthly benefits for the entire population of Service Retirees, Disabled Retirees, and Beneficiaries. The target grid requires age-specific bins (50-54, 55-59, etc.) which are not available in any table in this report. The closest available data is the aggregate summary found on page 50."
+}

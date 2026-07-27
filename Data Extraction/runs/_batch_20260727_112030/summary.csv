@@ -1,0 +1,9 @@
+plan,target,status,score,exact,close,wrong,missing,extra,totals,n_tables,n_attempts,crash,run_dir,ppd
+phx,Age_Serv_Num,scored,1.0,59,0,0,0,0,clean,1,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/phx_Age_Serv_Num_20260727_112036,ok
+phx,Age_Serv_Wage,scored,0.9661,55,2,0,0,0,clean,2,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/phx_Age_Serv_Wage_20260727_112101,
+chi_pol,Age_Serv_Num,scored,0.5526,21,0,12,5,5,suspect,1,7,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_pol_Age_Serv_Num_20260727_112134,ok
+chi_pol,Age_Serv_Wage,scored,0.3947,15,0,13,10,6,suspect,2,8,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_pol_Age_Serv_Wage_20260727_112354,
+chi_ff,Age_Serv_Num,scored,0.9787,46,0,1,0,1,suspect,1,7,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_ff_Age_Serv_Num_20260727_112753,ok
+chi_ff,Age_Serv_Wage,crash,,,,,,,,,8,response still violates the contract after 8 attempts: | source_tables[0].cells has 14 rows but 12 row_labels | source_tables[1].cells has 14 rows but 12 row_labels,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_ff_Age_Serv_Wage_20260727_113022,
+lax_uty,Age_Serv_Num,scored,0.725,58,0,0,22,0,suspect,1,7,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/lax_uty_Age_Serv_Num_20260727_113409,ok
+lax_uty,Age_Serv_Wage,scored,0.0,0,0,57,2,0,none,3,5,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/lax_uty_Age_Serv_Wage_20260727_113614,

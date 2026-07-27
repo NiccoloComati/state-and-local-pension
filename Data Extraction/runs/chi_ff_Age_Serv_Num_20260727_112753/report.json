@@ -1,0 +1,23 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [],
+  "exact": 46,
+  "close": 0,
+  "wrong": 1,
+  "missing_in_cand": 0,
+  "extra_in_cand": 1,
+  "star_ok": 0,
+  "mismatches": [
+    "[age <25 x svc 4] truth=40.0 cand=20",
+    "[age <25 x svc 9] truth=None cand=20"
+  ],
+  "truth_filled_cells": 47,
+  "accuracy": 0.9787
+}

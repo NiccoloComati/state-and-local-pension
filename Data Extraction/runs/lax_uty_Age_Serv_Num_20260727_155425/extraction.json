@@ -1,0 +1,341 @@
+{
+  "source_tables": [
+    {
+      "page": 45,
+      "title": "EXHIBIT B \u2013 MEMBERS IN ACTIVE SERVICE AS OF JULY 1, 2019",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "Total",
+        "0 - 4",
+        "5 - 9",
+        "10 - 14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          141,
+          140,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          641,
+          590,
+          50,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          981,
+          723,
+          151,
+          106,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1249,
+          642,
+          135,
+          349,
+          120,
+          3,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1324,
+          486,
+          103,
+          318,
+          334,
+          82,
+          1,
+          null,
+          null,
+          null
+        ],
+        [
+          1413,
+          397,
+          76,
+          257,
+          365,
+          221,
+          88,
+          9,
+          null,
+          null
+        ],
+        [
+          1712,
+          269,
+          64,
+          195,
+          322,
+          180,
+          366,
+          305,
+          11,
+          null
+        ],
+        [
+          1582,
+          153,
+          56,
+          156,
+          237,
+          136,
+          290,
+          417,
+          135,
+          2
+        ],
+        [
+          879,
+          60,
+          22,
+          91,
+          121,
+          80,
+          181,
+          184,
+          122,
+          18
+        ],
+        [
+          333,
+          12,
+          13,
+          33,
+          73,
+          36,
+          50,
+          56,
+          35,
+          25
+        ],
+        [
+          107,
+          3,
+          2,
+          5,
+          16,
+          10,
+          20,
+          18,
+          13,
+          20
+        ]
+      ],
+      "printed_row_totals": [
+        141,
+        641,
+        981,
+        1249,
+        1324,
+        1413,
+        1712,
+        1582,
+        879,
+        333,
+        107
+      ],
+      "printed_col_totals": [
+        10362,
+        3475,
+        673,
+        1511,
+        1589,
+        748,
+        996,
+        989,
+        316,
+        65
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & over"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0 - 4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 - 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 - 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 - 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 - 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 - 39",
+        "40 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is Exhibit B on page 45 for the Total Plan. Row '70' is derived by summing '65 - 69' and '70 & over' rows. Column '40' is derived by summing '35 - 39' and '40 & over' columns. All other rows and columns map directly via copy.",
+  "unavailable": false
+}

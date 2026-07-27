@@ -1,0 +1,46 @@
+{
+  "shape_truth": [
+    10,
+    11
+  ],
+  "shape_cand": [
+    10,
+    11
+  ],
+  "label_mismatches": [],
+  "exact": 35,
+  "close": 7,
+  "wrong": 68,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 25 x svc 1] truth=0.1417256289308176 cand=0.19",
+    "[age 25 x svc 2] truth=0.0754756289308176 cand=0.1",
+    "[age 25 x svc 3] truth=0.06725235849056604 cand=0.09",
+    "[age 25 x svc 4] truth=0.0524685534591195 cand=0.07",
+    "[age 30 x svc 1] truth=0.12055303717135085 cand=0.14",
+    "[age 30 x svc 2] truth=0.07776065276518586 cand=0.09",
+    "[age 30 x svc 3] truth=0.07728467815049864 cand=0.09",
+    "[age 30 x svc 4] truth=0.0603105167724388 cand=0.07",
+    "[age 30 x svc 6] truth=0.04307633196721311 cand=0.055",
+    "[age 30 x svc 8] truth=0.04307633196721311 cand=0.055",
+    "[age 30 x svc 10] truth=0.037232824427480916 cand=0.055",
+    "[age 35 x svc 1] truth=0.08303726391015825 cand=0.09",
+    "[age 35 x svc 2] truth=0.08257274119448699 cand=0.09",
+    "[age 35 x svc 3] truth=0.8751939765186321 cand=0.07",
+    "[age 35 x svc 4] truth=0.05970010209290454 cand=0.065",
+    "[age 35 x svc 6] truth=0.03665300546448087 cand=0.0425",
+    "[age 35 x svc 8] truth=0.03665300546448087 cand=0.0425",
+    "[age 35 x svc 10] truth=0.03091313269493844 cand=0.0425",
+    "[age 35 x svc 11] truth=0.030085499316005473 cand=0.0425",
+    "[age 35 x svc 12] truth=0.030085499316005473 cand=0.0425",
+    "[age 40 x svc 1] truth=0.0864822848879248 cand=0.09",
+    "[age 40 x svc 2] truth=0.07675704989154014 cand=0.08",
+    "[age 40 x svc 3] truth=0.05764280549530008 cand=0.06",
+    "[age 40 x svc 4] truth=0.043335140997830805 cand=0.045",
+    "[age 40 x svc 6] truth=0.02771709323583181 cand=0.03"
+  ],
+  "truth_filled_cells": 110,
+  "accuracy": 0.3182
+}

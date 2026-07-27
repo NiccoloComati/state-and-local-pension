@@ -1,0 +1,498 @@
+{
+  "source_tables": [
+    {
+      "page": 73,
+      "title": "Rates of Retirement by Age and Service",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "Police",
+        "Fire",
+        "Drivers",
+        "Craft",
+        "Misc"
+      ],
+      "cells": [
+        [
+          0.015,
+          0.02,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.015,
+          0.01,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.015,
+          0.01,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.03,
+          0.01,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.05,
+          0.0425,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.07,
+          0.075,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.09,
+          0.075,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.09,
+          0.15,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.09,
+          0.15,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.09,
+          0.15,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.09,
+          0.2,
+          0.1,
+          0.1,
+          0.105
+        ],
+        [
+          0.09,
+          0.2,
+          0.125,
+          0.1,
+          0.1325
+        ],
+        [
+          0.09,
+          0.2,
+          0.25,
+          0.2,
+          0.2
+        ],
+        [
+          0.09,
+          0.2,
+          0.2,
+          0.15,
+          0.1625
+        ],
+        [
+          0.09,
+          0.2,
+          0.2,
+          0.15,
+          0.15
+        ],
+        [
+          1.0,
+          1.0,
+          0.275,
+          0.15,
+          0.2375
+        ],
+        [
+          1.0,
+          1.0,
+          0.275,
+          0.25,
+          0.2375
+        ],
+        [
+          1.0,
+          1.0,
+          0.275,
+          0.25,
+          0.225
+        ],
+        [
+          1.0,
+          1.0,
+          0.275,
+          0.15,
+          0.225
+        ],
+        [
+          1.0,
+          1.0,
+          0.275,
+          0.15,
+          0.225
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70 & over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The document provides retirement rates for '19 Years of Service or less' (Table B-13, page 73). The target grid requires service buckets starting at 5 years (5-11, 12-19, etc.) and extending to 40+. The source table only covers service < 20 years (specifically 0-19). There is no data in the document for service years 20 and above (20-24, 25-29, 30, 31-32, 33-34, 35-39, 40). Consequently, the row_map for these target rows has empty sources. The source table columns are groups (Police, Fire, Drivers, Craft, Misc) while the target columns are single ages. The target grid asks for 'Probability of retirement by service-year bucket (rows) x single age (columns)'. The source table is Age (Rows) x Group (Columns). The target requires Age (Columns) x Service (Rows). The source table does not have single-age columns; it has single-age rows. The target requires single-age columns. The source table does not have service buckets as columns; it has groups. The target requires service buckets as rows. The source table is Age x Group. The target is Service x Age. The source table does not contain the required Service dimension in the columns or rows in a way that maps to the target's Service buckets. The source table rows are Ages. The target columns are Ages. This matches if transposed. The source table columns are Groups. The target rows are Service Buckets. There is no mapping from Groups to Service Buckets. The document does not publish retirement rates by Service Bucket x Age. It publishes by Age x Group. The target grid is Service Bucket x Age. The source table is Age x Group. The dimensions do not align. The source table has Age as rows, Group as columns. The target has Service as rows, Age as columns. The source table does not have Service as a dimension. The target requires Service buckets. The source table only has '19 Years of Service or less' as a header for the whole table, not as a column or row variable. The table B-13 is specifically for '19 Years of Service or less'. There are other tables (B-14, B-15, B-16, B-17, B-18) for other service levels. The target asks for a single grid of Service x Age. The document splits this by Service level into multiple tables. The target grid rows are '5-11', '12-19', '20-24', etc. The source tables are: B-13 (<=19), B-14 (20-29), B-15 (>=30), B-16 (<=19 Prop C), B-17 (20-29 Prop C), B-18 (>=30 Prop C). The target does not specify Prop C vs Non-Prop C. The target rows '5-11' and '12-19' fall into the <=19 bucket. '20-24' and '25-29' fall into 20-29. '30', '31-32', '33-34', '35-39', '40' fall into >=30. The target columns are single ages. The source tables have single ages as rows. So transposing the source tables would give Age as columns. The source tables have Groups as columns. The target has Service as rows. The source tables are split by Service level. The target wants a single grid. The source tables are: B-13 (<=19), B-14 (20-29), B-15 (>=30). The target rows '5-11' and '12-19' are subsets of <=19. The source table B-13 is for '19 Years of Service or less'. It does not break down by service bucket within that range. It gives a single rate for all ages for the whole group '19 Years of Service or less'. The target requires rates for '5-11' and '12-19' separately. The document does not provide this breakdown. The document provides rates for '19 Years of Service or less' as a whole, not split by 5-11 and 12-19. Similarly for 20-29, it provides a single table for the whole range, not split into 20-24 and 25-29. Similarly for >=30, it provides a single table for the whole range, not split into 30, 31-32, etc. The target grid requires a breakdown by service bucket that the document does not provide. The document provides rates for broad service categories (<=19, 20-29, >=30) but not the specific buckets requested (5-11, 12-19, 20-24, 25-29, 30, 31-32, 33-34, 35-39, 40). Therefore, the target grid cannot be fully populated from the document. The 'notes' field must state this. The source tables transcribed are the ones that cover the broad categories, but the mapping to the specific target rows is impossible without further assumptions. The target rows '5-11' and '12-19' would both map to the '19 Years of Service or less' table, but the document does not distinguish between them. The same applies to the other buckets. The target is unavailable in the specific format requested. The document publishes rates by broad service bands, not the specific buckets. The target grid is unavailable.",
+  "unavailable": false
+}

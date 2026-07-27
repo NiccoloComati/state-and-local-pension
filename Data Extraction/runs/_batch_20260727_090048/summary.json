@@ -1,0 +1,19 @@
+[
+  {
+    "plan": "mil",
+    "target": "Age_Serv_Num",
+    "status": "scored",
+    "score": 1.0,
+    "exact": 80,
+    "close": 0,
+    "wrong": 0,
+    "missing": 0,
+    "extra": 0,
+    "totals": "clean",
+    "n_tables": 9,
+    "n_attempts": 7,
+    "crash": null,
+    "run_dir": "/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/mil_Age_Serv_Num_20260727_090101",
+    "ppd": "ok"
+  }
+]

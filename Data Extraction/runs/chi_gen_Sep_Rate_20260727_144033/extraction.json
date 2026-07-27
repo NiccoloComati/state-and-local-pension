@@ -1,0 +1,372 @@
+{
+  "source_tables": [
+    {
+      "page": 71,
+      "title": "Termination Rates",
+      "row_labels": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 2.99",
+        "3 - 3.99",
+        "4 - 4.99",
+        "5 \u2013 5.99",
+        "6 \u2013 6.99",
+        "7 \u2013 7.99",
+        "8 \u2013 8.99",
+        "9 \u2013 10.99",
+        "11 \u2013 11.99",
+        "12 - 12.99",
+        "13 - 13.99",
+        "14 - 14.99",
+        "15 - 15.99",
+        "16 - 16.99",
+        "17 - 17.99",
+        "18 - 18.99",
+        "19 - 19.99",
+        "20 - 20.99",
+        "21+"
+      ],
+      "col_labels": [
+        "Rate (%)"
+      ],
+      "cells": [
+        [
+          17.0
+        ],
+        [
+          16.0
+        ],
+        [
+          14.0
+        ],
+        [
+          12.0
+        ],
+        [
+          10.0
+        ],
+        [
+          8.0
+        ],
+        [
+          7.0
+        ],
+        [
+          6.5
+        ],
+        [
+          6.0
+        ],
+        [
+          5.0
+        ],
+        [
+          4.5
+        ],
+        [
+          4.25
+        ],
+        [
+          4.0
+        ],
+        [
+          3.75
+        ],
+        [
+          3.5
+        ],
+        [
+          3.25
+        ],
+        [
+          3.0
+        ],
+        [
+          2.75
+        ],
+        [
+          2.5
+        ],
+        [
+          2.25
+        ],
+        [
+          2.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          null
+        ]
+      ],
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "0 - 0.99"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1 - 1.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2 - 2.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3 - 3.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4 - 4.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5 \u2013 5.99",
+        "6 \u2013 6.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7 \u2013 7.99",
+        "8 \u2013 8.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9 \u2013 10.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11 \u2013 11.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12 - 12.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "21+"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "21+"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source table on page 71 lists termination rates by years of service only, with no age dimension. Rates are age-invariant in the source. Target rows (ages) are not present in the source; code will map every target age row to the single service-based rate row (using the first service bin '0 - 0.99' as a placeholder for the age-invariant rate, as the rate depends only on service). Source values are percentages; code will convert to decimal. Target service bins 6, 8, 10 use overlap_weighted to blend adjacent source bins where target bin spans multiple source bins or falls within a source bin. Target bins 30 and 40 map to the '21+' source bin.",
+  "unavailable": false
+}

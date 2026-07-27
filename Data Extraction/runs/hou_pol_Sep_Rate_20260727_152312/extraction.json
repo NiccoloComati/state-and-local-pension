@@ -1,0 +1,252 @@
+{
+  "source_tables": [
+    {
+      "page": 56,
+      "title": "Service Based Rates of Termination",
+      "row_labels": [
+        "1",
+        "3",
+        "5",
+        "7",
+        "9",
+        "11",
+        "13",
+        "15",
+        "17",
+        "19",
+        "20 +"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          2.71,
+          2.71
+        ],
+        [
+          1.95,
+          1.95
+        ],
+        [
+          1.4,
+          1.4
+        ],
+        [
+          1.01,
+          1.01
+        ],
+        [
+          0.72,
+          0.72
+        ],
+        [
+          0.52,
+          0.52
+        ],
+        [
+          0.37,
+          0.37
+        ],
+        [
+          0.27,
+          0.27
+        ],
+        [
+          0.19,
+          0.19
+        ],
+        [
+          0.14,
+          0.14
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          null
+        ]
+      ],
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "13"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "20 +"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "20 +"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document provides termination rates based solely on years of service (Service Based Rates of Termination) and explicitly states that rates are 'not applied after a member becomes eligible for a retirement benefit' (which varies by age/tier). The source table has no age dimension. Consequently, the target grid's age rows (25-70) cannot be populated with specific age-dependent rates from this document; the mapping for all age rows is empty. The column mapping uses the available service bins: Service 1 maps to target 1; Service 3 maps to target 3; Service 5 maps to target 6 (assuming 5-6 bin); Service 7 maps to target 8 (assuming 7-8 bin); Service 9 maps to target 10 (assuming 9-10 bin); Service 11 maps to target 11; Service 13 maps to target 12 (assuming 11-12 bin, though 13 is the closest available); Service 20+ maps to targets 30 and 40. Note: The source table does not provide rates for service years 2, 4, 12, or 13-19 explicitly, so those target columns are empty. The rates are printed as percentages.",
+  "unavailable": false
+}

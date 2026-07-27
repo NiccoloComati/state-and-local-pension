@@ -1,0 +1,329 @@
+{
+  "source_tables": [
+    {
+      "page": 69,
+      "title": "Exhibit XI.1 \u2013 Actuarial Assumptions and Actuarial Cost Method",
+      "row_labels": [
+        "20 - 24",
+        "25 \u2013 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 63"
+      ],
+      "col_labels": [
+        "Disability Rate (%)"
+      ],
+      "cells": [
+        [
+          0.09
+        ],
+        [
+          0.09
+        ],
+        [
+          0.1
+        ],
+        [
+          0.1
+        ],
+        [
+          0.18
+        ],
+        [
+          0.38
+        ],
+        [
+          1.066
+        ],
+        [
+          2.08
+        ],
+        [
+          2.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          63
+        ]
+      ],
+      "col_spans": null
+    },
+    {
+      "page": 25,
+      "title": "Exhibit B.1 \u2013 All Members in Active Service as of December 31, 2019",
+      "row_labels": [
+        "Under 20",
+        "20 \u2013 24",
+        "25 \u2013 29",
+        "30 \u2013 34",
+        "35 \u2013 39",
+        "40 \u2013 44",
+        "45 \u2013 49",
+        "50 \u2013 54",
+        "55 \u2013 59",
+        "60 \u2013 64",
+        "65 \u2013 69",
+        "70 & Over"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          null
+        ],
+        [
+          40
+        ],
+        [
+          296
+        ],
+        [
+          568
+        ],
+        [
+          729
+        ],
+        [
+          552
+        ],
+        [
+          856
+        ],
+        [
+          755
+        ],
+        [
+          641
+        ],
+        [
+          182
+        ],
+        [
+          10
+        ],
+        [
+          1
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        4630
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 30,
+      "title": "Exhibit D.1 \u2013 Service Retirement Annuitants as of December 31, 2019",
+      "row_labels": [
+        "Under 50",
+        "50 \u2013 54",
+        "55 \u2013 59",
+        "60 \u2013 64",
+        "65 \u2013 69",
+        "70 \u2013 74",
+        "75 \u2013 79",
+        "80 \u2013 84",
+        "85 \u2013 89",
+        "90 \u2013 94",
+        "95 \u2013 99",
+        "100 & over"
+      ],
+      "col_labels": [
+        "Number"
+      ],
+      "cells": [
+        [
+          0
+        ],
+        [
+          36
+        ],
+        [
+          469
+        ],
+        [
+          923
+        ],
+        [
+          789
+        ],
+        [
+          408
+        ],
+        [
+          413
+        ],
+        [
+          234
+        ],
+        [
+          175
+        ],
+        [
+          82
+        ],
+        [
+          6
+        ],
+        [
+          2
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        3537
+      ],
+      "row_spans": [
+        [
+          null,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          89
+        ],
+        [
+          90,
+          94
+        ],
+        [
+          95,
+          99
+        ],
+        [
+          100,
+          null
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The target 'Avg_Mort' (average annual probability of death) is unavailable. The document does not publish a mortality table (q_x) or sample mortality rates. Exhibit XI.1 (Page 69) publishes 'Disability Rates' (probability of becoming disabled), which are distinct from mortality rates. The text references RP-2014 mortality tables with scaling factors but does not provide the underlying sample rates or a table of probabilities of death. The transcribed tables (Exhibit B.1 and D.1) provide member counts by age for active and service-retired members, which could serve as weights, but there is no mortality rate data to blend. The document also does not publish pre-retirement or post-retirement mortality rates by age. Therefore, the target cannot be constructed."
+}

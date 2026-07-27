@@ -1,0 +1,30 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [
+    "row_labels[0]: truth='24' cand='<25'",
+    "row_labels[9]: truth='65+' cand='70'",
+    "col_labels[0]: truth='5' cand='4'",
+    "col_labels[1]: truth='10' cand='9'",
+    "col_labels[2]: truth='15' cand='14'",
+    "col_labels[3]: truth='20' cand='19'",
+    "col_labels[4]: truth='25' cand='24'",
+    "col_labels[5]: truth='30' cand='29'",
+    "col_labels[6]: truth='35' cand='34'"
+  ],
+  "exact": 80,
+  "close": 0,
+  "wrong": 0,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [],
+  "truth_filled_cells": 80,
+  "accuracy": 1.0
+}

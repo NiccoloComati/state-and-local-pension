@@ -1,0 +1,556 @@
+{
+  "source_tables": [
+    {
+      "page": 64,
+      "title": "Termination Rates before Retirement: Groups 1 and 2 Rate (%) \u2013 BRS excluding Teachers",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Mortality Male",
+        "Mortality Female",
+        "Mortality Male (Previous)",
+        "Mortality Female (Previous)",
+        "Disability",
+        "Withdrawal"
+      ],
+      "cells": [
+        [
+          0.04,
+          0.01,
+          0.05,
+          0.02,
+          0.03,
+          6.58
+        ],
+        [
+          0.03,
+          0.01,
+          0.06,
+          0.02,
+          0.04,
+          5.27
+        ],
+        [
+          0.04,
+          0.02,
+          0.06,
+          0.03,
+          0.06,
+          4.83
+        ],
+        [
+          0.05,
+          0.03,
+          0.07,
+          0.03,
+          0.07,
+          4.47
+        ],
+        [
+          0.07,
+          0.04,
+          0.08,
+          0.05,
+          0.11,
+          3.84
+        ],
+        [
+          0.11,
+          0.06,
+          0.13,
+          0.08,
+          0.18,
+          3.21
+        ],
+        [
+          0.16,
+          0.09,
+          0.22,
+          0.14,
+          0.3,
+          1.52
+        ],
+        [
+          0.24,
+          0.13,
+          0.36,
+          0.2,
+          0.5,
+          0.33
+        ],
+        [
+          0.34,
+          0.2,
+          0.61,
+          0.3,
+          0.81,
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 65,
+      "title": "Termination Rates before Retirement: Group 4 Rate (%) \u2013 BRS excluding Teachers",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Mortality Male",
+        "Mortality Female",
+        "Mortality Male (Previous)",
+        "Mortality Female (Previous)",
+        "Disability",
+        "Withdrawal"
+      ],
+      "cells": [
+        [
+          0.04,
+          0.02,
+          0.05,
+          0.02,
+          0.15,
+          0.0
+        ],
+        [
+          0.04,
+          0.02,
+          0.06,
+          0.02,
+          0.21,
+          0.0
+        ],
+        [
+          0.04,
+          0.03,
+          0.06,
+          0.03,
+          0.28,
+          0.0
+        ],
+        [
+          0.05,
+          0.04,
+          0.07,
+          0.03,
+          0.37,
+          0.0
+        ],
+        [
+          0.06,
+          0.05,
+          0.08,
+          0.05,
+          0.55,
+          0.0
+        ],
+        [
+          0.08,
+          0.07,
+          0.13,
+          0.08,
+          0.9,
+          0.0
+        ],
+        [
+          0.12,
+          0.09,
+          0.22,
+          0.14,
+          1.51,
+          0.0
+        ],
+        [
+          0.18,
+          0.12,
+          0.36,
+          0.2,
+          2.52,
+          0.0
+        ],
+        [
+          0.26,
+          0.17,
+          0.61,
+          0.3,
+          0.0,
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 66,
+      "title": "Termination Rates before Retirement: Rate (%) \u2013 Teachers",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Mortality Male",
+        "Mortality Female",
+        "Mortality Male (Previous)",
+        "Mortality Female (Previous)",
+        "Disability"
+      ],
+      "cells": [
+        [
+          0.04,
+          0.01,
+          0.03,
+          0.01,
+          0.04
+        ],
+        [
+          0.02,
+          0.01,
+          0.03,
+          0.01,
+          0.05
+        ],
+        [
+          0.03,
+          0.02,
+          0.03,
+          0.02,
+          0.06
+        ],
+        [
+          0.04,
+          0.02,
+          0.04,
+          0.02,
+          0.06
+        ],
+        [
+          0.05,
+          0.03,
+          0.04,
+          0.03,
+          0.1
+        ],
+        [
+          0.08,
+          0.05,
+          0.07,
+          0.06,
+          0.3
+        ],
+        [
+          0.13,
+          0.08,
+          0.12,
+          0.09,
+          0.5
+        ],
+        [
+          0.19,
+          0.12,
+          0.2,
+          0.14,
+          0.7
+        ],
+        [
+          0.29,
+          0.18,
+          0.33,
+          0.21,
+          0.7
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 67,
+      "title": "Withdrawal Rates: Rate (%) \u2013 Teachers",
+      "row_labels": [
+        "20",
+        "30",
+        "40",
+        "50"
+      ],
+      "col_labels": [
+        "0-1 Male",
+        "0-1 Female",
+        "2 Male",
+        "2 Female",
+        "3 Male",
+        "3 Female",
+        "4 Male",
+        "4 Female",
+        "5 Male",
+        "5 Female",
+        "6 Male",
+        "6 Female",
+        "7 Male",
+        "7 Female",
+        "8 Male",
+        "8 Female",
+        "9 Male",
+        "9 Female",
+        "10+ Male",
+        "10+ Female"
+      ],
+      "cells": [
+        [
+          13.0,
+          10.0,
+          11.5,
+          10.5,
+          8.3,
+          7.5,
+          6.6,
+          7.3,
+          5.5,
+          7.0,
+          4.0,
+          5.0,
+          4.0,
+          6.0,
+          3.3,
+          7.0,
+          1.5,
+          7.0,
+          1.5,
+          5.0
+        ],
+        [
+          15.0,
+          15.0,
+          11.0,
+          11.5,
+          8.9,
+          10.0,
+          7.0,
+          10.0,
+          5.4,
+          8.8,
+          4.5,
+          7.3,
+          4.0,
+          6.0,
+          3.3,
+          7.0,
+          1.5,
+          6.0,
+          1.5,
+          4.5
+        ],
+        [
+          13.3,
+          10.5,
+          13.0,
+          8.5,
+          7.1,
+          6.6,
+          7.5,
+          5.2,
+          5.2,
+          5.0,
+          5.5,
+          5.0,
+          3.0,
+          4.5,
+          3.4,
+          3.5,
+          2.5,
+          3.0,
+          1.7,
+          2.2
+        ],
+        [
+          16.2,
+          9.8,
+          12.2,
+          12.0,
+          8.8,
+          7.0,
+          9.0,
+          6.6,
+          7.0,
+          5.0,
+          6.5,
+          3.0,
+          5.0,
+          4.0,
+          2.2,
+          2.4,
+          2.5,
+          3.0,
+          2.3,
+          2.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document provides withdrawal rates for Teachers by age and years of service (Table on page 67), but only for specific ages (20, 30, 40, 50) and service buckets (0-1, 2, 3, 4, 5, 6, 7, 8, 9, 10+). The document provides withdrawal rates for BRS excluding Teachers (Groups 1, 2, 4) by age only (Tables on pages 64-65), with no service dimension (rates are constant across service years for a given age). The target grid requires a full age x service matrix. For BRS excluding Teachers, the service dimension is missing in the source, so rates cannot be mapped to specific service bins (1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40) without assuming they are constant or using the Teachers table as a proxy, which is not supported. For Teachers, the age dimension is sparse (missing 25, 35, 45, 55, 65, 70) and service bins do not align perfectly (missing 11, 12, 30, 40 specific bins, only 10+). Consequently, the target grid cannot be fully populated from the provided tables. The row_map and col_map reflect the available data points where exact matches exist (e.g., Age 30, Service 10+ for Teachers). For BRS excluding Teachers, since the source has no service dimension, the 'group_weighted' operation on service columns is not applicable as the source rates are not split by service. The mapping for BRS groups is effectively unavailable for the service-specific target columns. The Teachers table (source 3) is the only one with service bins, but it lacks the full age range and specific service bins (11, 12, 30, 40). The mapping attempts to use the Teachers table for the service columns where data exists (1, 2, 3, 4, 6, 8, 10) but notes that 11, 12, 30, 40 are missing. The BRS tables (0, 1, 2) are age-only, so they cannot fill the service-specific target columns. The 'group_weighted' op in col_map for Teachers is not used because no separate headcount table by age/service is provided to serve as weights. The mapping is thus limited to copying the available rates where exact age/service matches exist, and leaving others empty. The notes indicate that the document does not provide the full matrix required. All rate tables are marked with values_unit='percent' as the printed values (e.g., 6.58) exceed 1 and represent percentages.",
+  "unavailable": false
+}

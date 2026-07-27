@@ -1,0 +1,220 @@
+{
+  "source_tables": [
+    {
+      "page": 72,
+      "title": "Retirement Rates",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & Over"
+      ],
+      "col_labels": [
+        "Tier 1 Non-55/30",
+        "Tier 1 55/30",
+        "Tier 1 Enhanced Non-55/30",
+        "Tier 1 Enhanced 55/30",
+        "Tier 3 Non-55/30",
+        "Tier 3 55/30"
+      ],
+      "cells": [
+        [
+          6.0,
+          0.0,
+          7.0,
+          0.0,
+          6.0,
+          0.0
+        ],
+        [
+          3.0,
+          0.0,
+          4.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        [
+          3.0,
+          0.0,
+          4.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        [
+          3.0,
+          0.0,
+          4.0,
+          0.0,
+          3.0,
+          0.0
+        ],
+        [
+          17.0,
+          0.0,
+          18.0,
+          0.0,
+          16.0,
+          0.0
+        ],
+        [
+          6.0,
+          24.0,
+          7.0,
+          25.0,
+          0.0,
+          23.0
+        ],
+        [
+          6.0,
+          16.0,
+          7.0,
+          17.0,
+          0.0,
+          15.0
+        ],
+        [
+          6.0,
+          16.0,
+          7.0,
+          17.0,
+          0.0,
+          15.0
+        ],
+        [
+          6.0,
+          16.0,
+          7.0,
+          17.0,
+          0.0,
+          15.0
+        ],
+        [
+          6.0,
+          16.0,
+          7.0,
+          17.0,
+          0.0,
+          15.0
+        ],
+        [
+          7.0,
+          16.0,
+          8.0,
+          17.0,
+          6.0,
+          15.0
+        ],
+        [
+          7.0,
+          16.0,
+          8.0,
+          17.0,
+          6.0,
+          15.0
+        ],
+        [
+          7.0,
+          16.0,
+          8.0,
+          17.0,
+          6.0,
+          15.0
+        ],
+        [
+          7.0,
+          16.0,
+          8.0,
+          17.0,
+          6.0,
+          15.0
+        ],
+        [
+          7.0,
+          16.0,
+          8.0,
+          17.0,
+          6.0,
+          15.0
+        ],
+        [
+          13.0,
+          20.0,
+          14.0,
+          21.0,
+          12.0,
+          19.0
+        ],
+        [
+          13.0,
+          20.0,
+          14.0,
+          21.0,
+          12.0,
+          19.0
+        ],
+        [
+          13.0,
+          20.0,
+          14.0,
+          21.0,
+          12.0,
+          19.0
+        ],
+        [
+          13.0,
+          20.0,
+          14.0,
+          21.0,
+          12.0,
+          19.0
+        ],
+        [
+          13.0,
+          20.0,
+          14.0,
+          21.0,
+          12.0,
+          19.0
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The target requires retirement rates by service-year bucket (rows) and single age (columns). The document provides a table of retirement rates by single age (rows) and Tier/Condition (columns). The document does not contain retirement rates broken down by years of service. Therefore, the target grid cannot be derived from the available data. The source table is transcribed as evidence of the available data (Age x Tier), but it lacks the service dimension required for the target rows.",
+  "unavailable": true
+}

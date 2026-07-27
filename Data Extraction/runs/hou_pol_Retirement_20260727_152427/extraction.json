@@ -1,0 +1,100 @@
+{
+  "source_tables": [
+    {
+      "page": 46,
+      "title": "MEMBERSHIP DATA",
+      "row_labels": [
+        "3. Service retirees",
+        "a. Number",
+        "b. Total annual benefits",
+        "c. Average annual benefit",
+        "4. Disabled retirees",
+        "a. Number",
+        "b. Total annual benefits",
+        "c. Average annual benefit",
+        "5. Beneficiaries and spouses",
+        "a. Number",
+        "b. Total annual benefits",
+        "c. Average annual benefit"
+      ],
+      "col_labels": [
+        "July 1, 2019",
+        "July 1, 2018",
+        "July 1, 2017"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          3512,
+          3425,
+          3322
+        ],
+        [
+          190276099,
+          184074752,
+          175653532
+        ],
+        [
+          54179,
+          53744,
+          52876
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          175,
+          169,
+          166
+        ],
+        [
+          8123143,
+          7858761,
+          7509663
+        ],
+        [
+          46418,
+          46502,
+          45239
+        ],
+        [
+          null,
+          null,
+          null
+        ],
+        [
+          807,
+          773,
+          759
+        ],
+        [
+          35727748,
+          33580922,
+          32628199
+        ],
+        [
+          44272,
+          43442,
+          42988
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a distribution of Service Retirees by 5-year age band. It only provides aggregate totals for 'Service retirees' (3,512 members, $190,276,099 total annual benefits, $54,179 average annual benefit) on page 46. No age-specific breakdown exists for retirees in this report. The target grid rows (50-54 through 100 & over) cannot be populated. Source table transcribed as archived evidence of the aggregate population."
+}

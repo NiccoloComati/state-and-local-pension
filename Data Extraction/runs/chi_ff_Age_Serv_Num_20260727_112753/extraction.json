@@ -1,0 +1,364 @@
+{
+  "source_tables": [
+    {
+      "page": 32,
+      "title": "Exhibit B.1 \u2013 All Members in Active Service as of December 31, 2019",
+      "row_labels": [
+        "Under 20",
+        "20 \u2013 24",
+        "25 \u2013 29",
+        "30 \u2013 34",
+        "35 \u2013 39",
+        "40 \u2013 44",
+        "45 \u2013 49",
+        "50 \u2013 54",
+        "55 \u2013 59",
+        "60 \u2013 64",
+        "65 \u2013 69",
+        "70 & Over"
+      ],
+      "col_labels": [
+        "Total",
+        "Under 1",
+        "1 \u2013 4",
+        "5 \u2013 9",
+        "10 \u2013 14",
+        "15 \u2013 19",
+        "20 \u2013 24",
+        "25 \u2013 29",
+        "30 \u2013 34",
+        "35 & Over"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          40,
+          null,
+          20,
+          20,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          296,
+          121,
+          170,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          568,
+          149,
+          194,
+          155,
+          70,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          729,
+          77,
+          139,
+          255,
+          254,
+          4,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          552,
+          9,
+          28,
+          103,
+          244,
+          116,
+          52,
+          null,
+          null,
+          null
+        ],
+        [
+          856,
+          3,
+          5,
+          15,
+          217,
+          247,
+          363,
+          6,
+          null,
+          null
+        ],
+        [
+          755,
+          2,
+          2,
+          4,
+          133,
+          181,
+          275,
+          83,
+          75,
+          null
+        ],
+        [
+          641,
+          1,
+          1,
+          null,
+          66,
+          89,
+          167,
+          185,
+          125,
+          7
+        ],
+        [
+          182,
+          null,
+          null,
+          null,
+          9,
+          22,
+          35,
+          58,
+          25,
+          33
+        ],
+        [
+          10,
+          null,
+          null,
+          null,
+          2,
+          null,
+          null,
+          3,
+          null,
+          5
+        ],
+        [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          null
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        40,
+        296,
+        568,
+        729,
+        552,
+        856,
+        755,
+        641,
+        182,
+        10,
+        1
+      ],
+      "printed_col_totals": [
+        4630,
+        382,
+        559,
+        537,
+        995,
+        659,
+        892,
+        335,
+        226,
+        45
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 20",
+        "20 \u2013 24"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 \u2013 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 \u2013 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 \u2013 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 \u2013 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 \u2013 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 \u2013 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 \u2013 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 \u2013 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 \u2013 69",
+        "70 & Over"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 \u2013 4"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 \u2013 9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 \u2013 14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 \u2013 19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 \u2013 24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 \u2013 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 \u2013 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 & Over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table Exhibit B.1 on page 32 provides active member counts by age and years of service. Row 'Under 20' is empty and summed with '20-24' for target '<25'. Row '65-69' and '70 & Over' are summed for target '70'. Column 'Under 1' and '1-4' are summed for target '4'. Column '35 & Over' maps directly to target '40' as the open-ended upper bin.",
+  "unavailable": false
+}

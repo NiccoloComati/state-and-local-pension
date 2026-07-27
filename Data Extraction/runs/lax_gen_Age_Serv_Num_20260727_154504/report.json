@@ -1,0 +1,23 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [],
+  "exact": 56,
+  "close": 0,
+  "wrong": 2,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 59 x svc 40] truth=140.0 cand=137",
+    "[age 64 x svc 40] truth=187.0 cand=158"
+  ],
+  "truth_filled_cells": 58,
+  "accuracy": 0.9655
+}

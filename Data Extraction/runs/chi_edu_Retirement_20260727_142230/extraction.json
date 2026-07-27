@@ -1,0 +1,262 @@
+{
+  "source_tables": [
+    {
+      "page": 46,
+      "title": "Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019",
+      "row_labels": [
+        "$ 1 - 500",
+        "501 - 1000",
+        "1,001-1,500",
+        "1,501-2,000",
+        "2,001-2,500",
+        "2,501-3,000",
+        "3,001-3,500",
+        "3,501-4,000",
+        "4,001-4,500",
+        "4,501-5,000",
+        "5,001-5,500",
+        "5,501-6,000",
+        "6,001-6,500",
+        "6,501-7,000",
+        "7,001-7,500",
+        "7,501-8,000",
+        "8,001-8,500",
+        "8,501-9,000",
+        "9,001-9,500",
+        "Over $9,500"
+      ],
+      "col_labels": [
+        "Retirees Male",
+        "Retirees Female",
+        "Disabled Retirees Male",
+        "Disabled Retirees Female",
+        "Beneficiaries Male",
+        "Beneficiaries Female",
+        "Total Male",
+        "Total Female"
+      ],
+      "cells": [
+        [
+          374,
+          985,
+          1,
+          1,
+          156,
+          244,
+          531,
+          1230
+        ],
+        [
+          367,
+          851,
+          4,
+          10,
+          189,
+          339,
+          560,
+          1200
+        ],
+        [
+          307,
+          679,
+          12,
+          29,
+          149,
+          176,
+          468,
+          884
+        ],
+        [
+          225,
+          588,
+          7,
+          39,
+          156,
+          208,
+          388,
+          835
+        ],
+        [
+          220,
+          639,
+          13,
+          45,
+          149,
+          241,
+          382,
+          925
+        ],
+        [
+          248,
+          802,
+          8,
+          53,
+          210,
+          325,
+          466,
+          1180
+        ],
+        [
+          262,
+          946,
+          14,
+          44,
+          108,
+          252,
+          384,
+          1242
+        ],
+        [
+          301,
+          1171,
+          11,
+          35,
+          25,
+          96,
+          337,
+          1302
+        ],
+        [
+          302,
+          1280,
+          12,
+          37,
+          13,
+          64,
+          327,
+          1381
+        ],
+        [
+          328,
+          1232,
+          8,
+          37,
+          11,
+          47,
+          347,
+          1316
+        ],
+        [
+          513,
+          1609,
+          5,
+          19,
+          7,
+          23,
+          525,
+          1651
+        ],
+        [
+          764,
+          2481,
+          4,
+          5,
+          5,
+          15,
+          773,
+          2501
+        ],
+        [
+          728,
+          2269,
+          1,
+          6,
+          2,
+          5,
+          731,
+          2280
+        ],
+        [
+          307,
+          1123,
+          1,
+          1,
+          0,
+          1,
+          308,
+          1125
+        ],
+        [
+          206,
+          487,
+          1,
+          1,
+          0,
+          0,
+          207,
+          488
+        ],
+        [
+          174,
+          257,
+          2,
+          1,
+          0,
+          0,
+          176,
+          258
+        ],
+        [
+          95,
+          209,
+          0,
+          1,
+          0,
+          0,
+          95,
+          210
+        ],
+        [
+          95,
+          207,
+          1,
+          0,
+          0,
+          0,
+          96,
+          207
+        ],
+        [
+          75,
+          149,
+          0,
+          0,
+          0,
+          0,
+          75,
+          149
+        ],
+        [
+          265,
+          511,
+          0,
+          0,
+          0,
+          1,
+          265,
+          512
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        6156,
+        18475,
+        105,
+        364,
+        1180,
+        2037,
+        7441,
+        20876
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a distribution of retirees by attained age (5-year bands) with headcounts and average benefits. Table 16 (Page 46) classifies annuitants by monthly benefit amount, not age. Table 11 (Page 41) provides aggregate counts and average benefits for the entire retiree population but no age breakdown. Table 15 (Page 45) provides historical totals and averages but no age distribution. Consequently, the target grid cannot be populated. The closest available data (Table 16) is archived as evidence but cannot be mapped to the required age rows."
+}

@@ -1,0 +1,9 @@
+{
+  "source_tables": [],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not contain a table of retirement rates (probability of retirement) by age and service years. Appendix C (pages 105-112) lists 'Illustrative Rates of Early and Normal Retirement' (page 108) as percentages of members retiring at specific ages, but these are not conditioned on service years (the columns are not service buckets, and the rows are not service buckets). The table on page 108 provides the percentage of members retiring at a given age (e.g., 35% of General Employees retire at age 54), but does not provide the joint distribution by service years required for the target grid. No other table in the document provides retirement probabilities by service and age.",
+  "unavailable": true
+}

@@ -1,0 +1,107 @@
+{
+  "source_tables": [
+    {
+      "page": 72,
+      "title": "Rate of Retirement",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65"
+      ],
+      "col_labels": [
+        "Tier 1",
+        "Tier 2"
+      ],
+      "cells": [
+        [
+          0.05,
+          0.02
+        ],
+        [
+          0.05,
+          0.02
+        ],
+        [
+          0.05,
+          0.02
+        ],
+        [
+          0.05,
+          0.02
+        ],
+        [
+          0.05,
+          0.03
+        ],
+        [
+          0.22,
+          0.24
+        ],
+        [
+          0.22,
+          0.24
+        ],
+        [
+          0.22,
+          0.24
+        ],
+        [
+          0.22,
+          0.24
+        ],
+        [
+          0.22,
+          0.24
+        ],
+        [
+          0.22,
+          0.22
+        ],
+        [
+          0.27,
+          0.27
+        ],
+        [
+          0.27,
+          0.27
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The target requires retirement rates by Service Year (rows) and Age (columns). The document (Page 72) only provides retirement rates by Attained Age (rows) and Tier (columns). There is no table in the document that provides retirement rates by years of service. Therefore, the target grid cannot be populated."
+}

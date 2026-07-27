@@ -1,0 +1,499 @@
+{
+  "source_tables": [
+    {
+      "page": 54,
+      "title": "Retirement Rates",
+      "row_labels": [
+        "40-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 +"
+      ],
+      "col_labels": [
+        "<25",
+        "25 - 29",
+        "30+"
+      ],
+      "cells": [
+        [
+          3.0,
+          3.0,
+          9.0
+        ],
+        [
+          4.0,
+          6.0,
+          10.0
+        ],
+        [
+          6.8,
+          10.2,
+          17.0
+        ],
+        [
+          9.6,
+          14.4,
+          24.0
+        ],
+        [
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          40,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          null
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [
+        "<25"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          24
+        ]
+      ]
+    },
+    {
+      "target": "12-19",
+      "sources": [
+        "<25",
+        "25 - 29"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          24
+        ],
+        [
+          25,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "20-24",
+      "sources": [
+        "25 - 29",
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "25-29",
+      "sources": [
+        "25 - 29",
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "31-32",
+      "sources": [
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "33-34",
+      "sources": [
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "35-39",
+      "sources": [
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "51",
+      "sources": [
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "52",
+      "sources": [
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "53",
+      "sources": [
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55-59"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "56",
+      "sources": [
+        "55-59"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "57",
+      "sources": [
+        "55-59"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "58",
+      "sources": [
+        "55-59"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60-64"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "61",
+      "sources": [
+        "60-64"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "62",
+      "sources": [
+        "60-64"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "63",
+      "sources": [
+        "60-64"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "66",
+      "sources": [
+        "65 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "67",
+      "sources": [
+        "65 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "68",
+      "sources": [
+        "65 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "69",
+      "sources": [
+        "65 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 +"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source table on page 54 provides retirement rates by Age (rows) and Service (columns). Target requires Service (rows) x Age (columns), so transpose=true. Source rates are in percent; values_unit='percent' ensures conversion to decimal. Source age bins (e.g., 50-54) are mapped to single-age targets using overlap_weighted (copying the rate since the target bin is fully contained). Source service bins (<25, 25-29, 30+) are mapped to target service buckets using overlap_weighted to blend rates where target buckets span multiple source bins (e.g., 12-19 spans <25 and 25-29). Note: The source table only covers ages 40+; target ages 50-70 are fully covered. The source table only covers service <25, 25-29, 30+; target service buckets 5-11, 12-19, 20-24, 25-29, 30, 31-32, 33-34, 35-39, 40 are mapped accordingly. For service buckets 30 and above, the source '30+' column is used. For service buckets 20-24 and 25-29, the source '25-29' and '30+' columns are blended. For 12-19, '<25' and '25-29' are blended. For 5-11, '<25' is used.",
+  "unavailable": false
+}

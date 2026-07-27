@@ -1,0 +1,218 @@
+{
+  "source_tables": [
+    {
+      "page": 38,
+      "title": "Employee Annuitants as of December 31, 2019 By Age and Annual Benefit",
+      "row_labels": [
+        "Under 55",
+        "55 \u2013 59",
+        "60 \u2013 64",
+        "65 \u2013 69",
+        "70 \u2013 74",
+        "75 \u2013 79",
+        "80 \u2013 84",
+        "85 \u2013 89",
+        "90 \u2013 94",
+        "95 \u2013 99",
+        "100 & over"
+      ],
+      "col_labels": [
+        "Male Number",
+        "Male Annual Payments",
+        "Female Number",
+        "Female Annual Payments"
+      ],
+      "cells": [
+        [
+          81,
+          5042771,
+          77,
+          4084147
+        ],
+        [
+          594,
+          35258880,
+          620,
+          26243200
+        ],
+        [
+          1357,
+          75975087,
+          1668,
+          57927951
+        ],
+        [
+          1818,
+          99572385,
+          2690,
+          89249037
+        ],
+        [
+          1605,
+          84624310,
+          2566,
+          84496446
+        ],
+        [
+          1183,
+          59923675,
+          2090,
+          67148680
+        ],
+        [
+          817,
+          41058965,
+          1699,
+          52743873
+        ],
+        [
+          516,
+          25638909,
+          983,
+          29599052
+        ],
+        [
+          236,
+          12107807,
+          551,
+          15436912
+        ],
+        [
+          67,
+          3021519,
+          175,
+          4568859
+        ],
+        [
+          2,
+          69635,
+          28,
+          670987
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "printed_col_totals": [
+        8276,
+        442293943,
+        13147,
+        432169144
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "Under 55"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55 \u2013 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 \u2013 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 \u2013 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 \u2013 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 \u2013 79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80 \u2013 84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85 \u2013 89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 \u2013 94"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "95 \u2013 99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "100 & over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Male Number",
+        "Female Number"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Male Annual Payments",
+        "Female Annual Payments"
+      ],
+      "op": "ratio"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table 'Employee Annuitants' (Page 38) provides counts and total annual payments split by sex. The 'Number' target is the sum of Male and Female counts. The 'AverageBenefit' target is derived as the ratio of the sum of Male and Female Annual Payments to the sum of counts. The 'Under 55' bucket is mapped to the '50-54' target row using 'share_even' as per guidance for buckets covering multiple target rows, assuming the distribution is split evenly between the implied 50-54 and <50 portions, though the bucket technically starts below 50. The document does not explicitly publish disabled retirees or beneficiaries in this specific exhibit, so the data represents the general employee annuitant population.",
+  "unavailable": false
+}

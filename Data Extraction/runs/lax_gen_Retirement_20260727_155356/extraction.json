@@ -1,0 +1,9 @@
+{
+  "source_tables": [],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not contain a table with the distribution of retired members by 5-year age bands (e.g., 50-54, 55-59) with corresponding headcounts and average benefits. Page 24 contains a chart titled 'Distribution of Retired Members and Beneficiaries as of June 30, 2019' which visualizes the data but does not provide the numerical values required for the target grid. Page 50 (Exhibit A) provides average monthly benefits by member type (Retired, Disabled, Beneficiary) but not by age. Page 53 (Exhibit B) provides active member data by age. Therefore, the target data is unavailable in the provided document.",
+  "unavailable": true
+}

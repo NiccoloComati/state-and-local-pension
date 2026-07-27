@@ -1,0 +1,518 @@
+{
+  "source_tables": [
+    {
+      "page": 68,
+      "title": "Misc. Rates of Termination by Age and Service Years",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5 or more"
+      ],
+      "cells": [
+        [
+          37.5,
+          19.0,
+          15.0,
+          12.0,
+          9.0,
+          6.5
+        ],
+        [
+          27.5,
+          19.0,
+          10.0,
+          9.0,
+          7.0,
+          6.5
+        ],
+        [
+          24.0,
+          14.0,
+          9.0,
+          9.0,
+          7.0,
+          5.5
+        ],
+        [
+          20.0,
+          9.0,
+          9.0,
+          7.0,
+          6.5,
+          4.25
+        ],
+        [
+          17.5,
+          9.0,
+          8.0,
+          6.0,
+          4.5,
+          3.0
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          2.5
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          2.6
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          3.15
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          5.0
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          12.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 69,
+      "title": "Rates of Termination",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26"
+      ],
+      "col_labels": [
+        "Police",
+        "Fire",
+        "Muni Drivers",
+        "Craft"
+      ],
+      "cells": [
+        [
+          10.0,
+          4.0,
+          12.0,
+          10.0
+        ],
+        [
+          2.5,
+          1.5,
+          6.0,
+          7.0
+        ],
+        [
+          1.5,
+          1.5,
+          5.0,
+          6.0
+        ],
+        [
+          1.0,
+          1.5,
+          4.0,
+          5.0
+        ],
+        [
+          0.75,
+          1.5,
+          3.5,
+          4.0
+        ],
+        [
+          0.75,
+          1.5,
+          3.25,
+          3.25
+        ],
+        [
+          0.75,
+          0.75,
+          3.0,
+          2.75
+        ],
+        [
+          0.75,
+          0.75,
+          3.0,
+          2.5
+        ],
+        [
+          0.75,
+          0.75,
+          3.0,
+          2.25
+        ],
+        [
+          0.75,
+          0.75,
+          3.0,
+          2.0
+        ],
+        [
+          0.75,
+          0.75,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.5,
+          0.5,
+          3.0,
+          1.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.75
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source data for termination rates is split by employee group. Table 1 (Page 68) provides rates for Miscellaneous members by Age and Service (0-4, 5+). Table 2 (Page 69) provides rates for Police, Fire, Muni Drivers, and Craft by Service only (0-26+), with no age dimension. The target grid requires rates by Age and Service. For Miscellaneous, rates are mapped directly from Table 1. For Police, Fire, Muni Drivers, and Craft, the rates from Table 2 are assumed to be age-invariant (constant across all ages for a given service year) as no age dimension is provided in the source. The final target rates would require a population-weighted average of these groups, but the specific headcount tables for each group by age and service are not transcribed here (only the rate tables are). Therefore, derive is null and the mapping reflects the direct source availability. Target age 70 has no source data in Table 1 (max age 65) and is mapped to empty sources. Target service bins 6, 8, 10, 11, 12, 30, 40 map to the '5 or more' source bin using overlap_weighted, assuming the rate is constant for all service years >= 5. Target service bins 1, 2, 3, 4 map directly. The '5 or more' bin in Table 1 is treated as [5, null]. The service bins in Table 2 are treated as single years [n, n] for n=0..26, and [26, null] for the last row if needed, but the target only goes up to 40, so '5 or more' covers all target service bins >= 5. The notes state that the rates for Police, Fire, etc., are age-invariant in the source.",
+  "unavailable": false
+}

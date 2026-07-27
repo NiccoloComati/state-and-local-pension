@@ -1,0 +1,269 @@
+{
+  "source_tables": [
+    {
+      "page": 69,
+      "title": "Exhibit XI.1 \u2013 Actuarial Assumptions and Actuarial Cost Method",
+      "row_labels": [
+        "Service",
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "col_labels": [
+        "Rate (%)"
+      ],
+      "cells": [
+        [
+          null
+        ],
+        [
+          2.0
+        ],
+        [
+          0.8
+        ],
+        [
+          0.6
+        ],
+        [
+          0.5
+        ],
+        [
+          0.4
+        ],
+        [
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        null,
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1 - 1.99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2 - 8.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "2 - 8.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "2 - 8.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "2 - 8.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "2 - 8.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9 - 13.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          13
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "9 - 13.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          13
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "9 - 13.99"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          13
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The source document (Exhibit XI.1, page 69) provides termination rates based solely on years of service, with no age dimension. The rates are constant across all ages for a given service duration. The target grid requires rates by age and service; since the source rates are age-invariant, the same service-based rate applies to every target age row. The source rates are printed as percentages (e.g., 2.00), so the 'values_unit': 'percent' flag is set to ensure the code rescales them to decimals (0.02). The 'overlap_weighted' operation is used for service bins where the target single year falls within a source range (e.g., target service 2 falls in source 2-8). For target service 1, it maps directly to source 1-1.99. For target service 30 and 40, they map to the '30 and over' bin which has a rate of 0.00. The target rows (ages) are irrelevant as the source has no age dimension; the same rate applies to all ages.",
+  "unavailable": false
+}

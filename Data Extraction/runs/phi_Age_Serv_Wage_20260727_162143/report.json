@@ -1,0 +1,41 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [],
+  "exact": 60,
+  "close": 0,
+  "wrong": 0,
+  "missing_in_cand": 0,
+  "extra_in_cand": 20,
+  "star_ok": 0,
+  "mismatches": [
+    "[age <25 x svc 14] truth=None cand=0",
+    "[age <25 x svc 19] truth=None cand=0",
+    "[age <25 x svc 24] truth=None cand=0",
+    "[age <25 x svc 29] truth=None cand=0",
+    "[age <25 x svc 34] truth=None cand=0",
+    "[age <25 x svc 40] truth=None cand=0",
+    "[age 29 x svc 19] truth=None cand=0",
+    "[age 29 x svc 24] truth=None cand=0",
+    "[age 29 x svc 29] truth=None cand=0",
+    "[age 29 x svc 34] truth=None cand=0",
+    "[age 29 x svc 40] truth=None cand=0",
+    "[age 34 x svc 24] truth=None cand=0",
+    "[age 34 x svc 29] truth=None cand=0",
+    "[age 34 x svc 34] truth=None cand=0",
+    "[age 34 x svc 40] truth=None cand=0",
+    "[age 39 x svc 29] truth=None cand=0",
+    "[age 39 x svc 34] truth=None cand=0",
+    "[age 39 x svc 40] truth=None cand=0",
+    "[age 44 x svc 34] truth=None cand=0",
+    "[age 44 x svc 40] truth=None cand=0"
+  ],
+  "truth_filled_cells": 60,
+  "accuracy": 1.0
+}

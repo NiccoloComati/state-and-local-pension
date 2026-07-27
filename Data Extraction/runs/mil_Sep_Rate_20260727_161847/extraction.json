@@ -1,0 +1,351 @@
+{
+  "source_tables": [
+    {
+      "page": 113,
+      "title": "Illustrative Rates of Termination",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Less than 5 Years of Service Males",
+        "Less than 5 Years of Service Females",
+        "At least 5 Years of Service Males",
+        "At least 5 Years of Service Females"
+      ],
+      "cells": [
+        [
+          17.62,
+          24.05,
+          13.0,
+          14.3
+        ],
+        [
+          15.93,
+          24.12,
+          12.68,
+          14.3
+        ],
+        [
+          11.31,
+          16.77,
+          6.92,
+          8.45
+        ],
+        [
+          10.66,
+          15.6,
+          7.19,
+          7.27
+        ],
+        [
+          8.78,
+          10.4,
+          4.51,
+          8.45
+        ],
+        [
+          9.1,
+          9.23,
+          2.99,
+          4.67
+        ],
+        [
+          8.32,
+          8.58,
+          2.38,
+          3.38
+        ],
+        [
+          6.83,
+          7.8,
+          1.99,
+          3.64
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          25,
+          25
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          30
+        ]
+      ]
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          35,
+          35
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          40,
+          40
+        ]
+      ]
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          45
+        ]
+      ]
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          50
+        ]
+      ]
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          55
+        ]
+      ]
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          60
+        ]
+      ]
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "Less than 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "2",
+      "sources": [
+        "Less than 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "Less than 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "Less than 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "At least 5 Years of Service Males"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table provides termination rates for General Employees only, split by gender and two service buckets (<5 years and >=5 years). Rates are in percent. Target grid requires specific ages (25-70) and service years (1-40). Source has no data for ages 65+ or 70. Source service buckets are coarse (<5 and >=5) and do not align with target service years; overlap_weighted is used to map the single source rate to all target service years within the source span. The target grid implies a single rate per cell, but the source has separate Male/Female rates. The mapping above uses the Male rate for the 'At least 5 Years' column as a representative for the 'General Employees' group, as the target does not specify gender. A more precise extraction would require a group_weighted blend of Male and Female rates using headcount data, but no headcount table by age/service/gender is provided in the document. The target grid also includes service years 1-4 which map to the '<5' bucket, and 6-40 which map to the '>=5' bucket. The source table has no data for age 60+ (row 60 is null in the source for >=5 years, and no row for 65/70). The source table lists '60' with null values for >=5 years, implying 0% or not applicable. The target grid asks for 60, 65, 70. Since the source has no data for 65/70, those rows are empty. The source has a row for 60 but it is null for the >=5 years column, so the mapped values for service >=5 at age 60 will be null/0. The source table is for 'General Employees' only; no separate table for Police/Fire is provided for termination rates in this section.",
+  "unavailable": false
+}

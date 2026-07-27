@@ -1,0 +1,400 @@
+{
+  "source_tables": [
+    {
+      "page": 54,
+      "title": "General Turnover",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26 & Over"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          228,
+          200
+        ],
+        [
+          180,
+          165
+        ],
+        [
+          144,
+          150
+        ],
+        [
+          110,
+          120
+        ],
+        [
+          90,
+          95
+        ],
+        [
+          75,
+          90
+        ],
+        [
+          67,
+          80
+        ],
+        [
+          60,
+          65
+        ],
+        [
+          51,
+          48
+        ],
+        [
+          43,
+          48
+        ],
+        [
+          33,
+          45
+        ],
+        [
+          33,
+          32
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          22,
+          20
+        ],
+        [
+          22,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "per_1000",
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ],
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "8"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "26 & Over"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "26 & Over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document provides termination rates by Years of Service only (Table 17, page 54), with no age dimension. The target grid requires rates by Attained Age x Years of Service. Since the source lacks the age dimension, the target rows (ages) cannot be populated from the source. The source rates are per 1,000 (values_unit: per_1000). The col_map maps target service bins to the closest source service bins (e.g., target 30 and 40 map to source '26 & Over'). All target rows have empty sources because the source table does not vary by age.",
+  "unavailable": false
+}

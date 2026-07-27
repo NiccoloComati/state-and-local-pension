@@ -1,0 +1,9 @@
+{
+  "source_tables": [],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not contain a table of retirement rates (probability of retirement) by age and service. Appendix C (pages 108-109) describes the 'Rates of Retirement' assumption textually, stating that rates are based on Division and age, and that 'sample rates shown below' exist, but the actual table of rates is not included in the provided text. The document provides membership counts by age and service (Tables A-5 through A-24) and average salaries, but not the specific retirement probability rates required for the target grid.",
+  "unavailable": true
+}

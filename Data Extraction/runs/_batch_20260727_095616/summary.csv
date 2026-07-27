@@ -1,0 +1,13 @@
+plan,target,status,score,exact,close,wrong,missing,extra,totals,n_tables,n_attempts,crash,run_dir,ppd
+dal,Age_Serv_Num,scored,0.9828,57,0,1,0,1,clean,1,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/dal_Age_Serv_Num_20260727_095623,ok
+dal,Age_Serv_Wage,scored,0.0175,1,0,56,0,17,clean,2,3,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/dal_Age_Serv_Wage_20260727_095657,
+dal,Ret_Rate,scored,0.0,0,0,0,189,0,none,2,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/dal_Ret_Rate_20260727_095826,
+phx,Age_Serv_Num,scored,1.0,59,0,0,0,0,clean,1,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/phx_Age_Serv_Num_20260727_095851,ok
+phx,Age_Serv_Wage,scored,0.9661,55,2,0,0,0,clean,2,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/phx_Age_Serv_Wage_20260727_095916,
+phx,Ret_Rate,scored,0.8624,163,0,26,0,0,none,1,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/phx_Ret_Rate_20260727_095940,
+sd,Age_Serv_Num,scored,0.9206,58,0,5,0,0,clean,1,1,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/sd_Age_Serv_Num_20260727_100045,ok
+sd,Age_Serv_Wage,scored,0.9123,52,1,4,0,0,none,2,4,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/sd_Age_Serv_Wage_20260727_100114,
+sd,Ret_Rate,crash,,,,,,,,,,"local model hit the 64000-token output limit (runaway; thinking is OFF). content=293948 chars, started 2 source_tables. HEAD: '{   ""source_tables"": [     {       ""page"": 61,       ""title"": ""Rates of Retirement by Age and Service"",       ""row_labels"": [         ""10"",         ""11"",         ""12"",      ",/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/sd_Ret_Rate_20260727_100258,
+lax_uty,Age_Serv_Num,scored,0.725,58,0,0,22,0,suspect,1,7,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/lax_uty_Age_Serv_Num_20260727_101028,ok
+lax_uty,Age_Serv_Wage,crash,,,,,,,,,,"harness error: could not convert string to float: '$91,130'",,
+lax_uty,Ret_Rate,crash,,,,,,,,,,"local model hit the 64000-token output limit (runaway; thinking is OFF). content=205339 chars, started 1 source_tables. HEAD: '{   ""source_tables"": [     {       ""page"": 64,       ""title"": ""Retirement Rates"",       ""row_labels"": [         ""50"",         ""51"",         ""52"",         ""53"",         ""54"",",/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/lax_uty_Ret_Rate_20260727_101553,

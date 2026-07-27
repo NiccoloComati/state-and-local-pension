@@ -1,0 +1,336 @@
+{
+  "source_tables": [
+    {
+      "page": 37,
+      "title": "Distribution of Active Members and Payroll by Age and Years of Service",
+      "row_labels": [
+        "Under 20",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65&Over"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30 & Over",
+        "Totals"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        [
+          86,
+          73,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          161
+        ],
+        [
+          165,
+          353,
+          65,
+          0,
+          null,
+          null,
+          null,
+          null,
+          583
+        ],
+        [
+          166,
+          369,
+          201,
+          50,
+          null,
+          null,
+          null,
+          null,
+          786
+        ],
+        [
+          124,
+          296,
+          210,
+          157,
+          30,
+          4,
+          null,
+          null,
+          821
+        ],
+        [
+          118,
+          278,
+          197,
+          171,
+          90,
+          59,
+          1,
+          null,
+          914
+        ],
+        [
+          93,
+          243,
+          173,
+          158,
+          128,
+          168,
+          54,
+          1,
+          1018
+        ],
+        [
+          88,
+          233,
+          167,
+          183,
+          147,
+          186,
+          88,
+          20,
+          1112
+        ],
+        [
+          58,
+          197,
+          154,
+          220,
+          162,
+          169,
+          39,
+          46,
+          1045
+        ],
+        [
+          33,
+          109,
+          111,
+          140,
+          89,
+          97,
+          44,
+          42,
+          665
+        ],
+        [
+          8,
+          35,
+          51,
+          71,
+          47,
+          56,
+          18,
+          36,
+          322
+        ]
+      ],
+      "printed_row_totals": [
+        0,
+        161,
+        583,
+        786,
+        821,
+        914,
+        1018,
+        1112,
+        1045,
+        665,
+        322
+      ],
+      "printed_col_totals": [
+        939,
+        2186,
+        1331,
+        1150,
+        693,
+        739,
+        244,
+        145,
+        7427
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 20",
+        "20-24"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65&Over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1-4"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 & Over"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30 & Over"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is 'Distribution of Active Members and Payroll by Age and Years of Service' on page 37. Row 'Under 20' has 0 members. Row '20-24' has 161 members. Target '<25' sums these. Target '70' maps to source '65&Over'. Source column '30 & Over' covers target bins '34' and '40' (30-34 and 35-40), so 'share_even' is used to split the count equally between the two target columns. Source columns 'Under 1' and '1-4' are summed to form target '4' (0-4). All other mappings are direct copies.",
+  "unavailable": false
+}

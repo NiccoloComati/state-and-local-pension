@@ -1,0 +1,1080 @@
+{
+  "source_tables": [
+    {
+      "page": 68,
+      "title": "Retirement Rates: Rate (%) \u2013 BRS excluding Teachers",
+      "row_labels": [
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Groups 1 & 2",
+        "Group 4"
+      ],
+      "cells": [
+        [
+          3.0,
+          1.0
+        ],
+        [
+          3.0,
+          1.0
+        ],
+        [
+          3.0,
+          1.0
+        ],
+        [
+          3.0,
+          1.0
+        ],
+        [
+          3.0,
+          1.0
+        ],
+        [
+          8.0,
+          10.0
+        ],
+        [
+          8.0,
+          5.0
+        ],
+        [
+          15.0,
+          5.0
+        ],
+        [
+          10.0,
+          5.0
+        ],
+        [
+          10.0,
+          5.0
+        ],
+        [
+          35.0,
+          10.0
+        ],
+        [
+          20.0,
+          15.0
+        ],
+        [
+          20.0,
+          15.0
+        ],
+        [
+          20.0,
+          15.0
+        ],
+        [
+          20.0,
+          25.0
+        ],
+        [
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ]
+    },
+    {
+      "page": 69,
+      "title": "Rate (%) \u2013 Non-TARP Teachers",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Less than 20 Male",
+        "Less than 20 Female",
+        "20 or more Male",
+        "20 or more Female"
+      ],
+      "cells": [
+        [
+          0.0,
+          0.0,
+          2.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          2.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          2.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          2.0,
+          2.0
+        ],
+        [
+          0.0,
+          0.0,
+          3.0,
+          2.0
+        ],
+        [
+          3.5,
+          3.5,
+          3.0,
+          4.0
+        ],
+        [
+          3.5,
+          3.5,
+          3.5,
+          4.0
+        ],
+        [
+          5.0,
+          3.5,
+          4.0,
+          4.0
+        ],
+        [
+          5.5,
+          5.0,
+          5.0,
+          6.0
+        ],
+        [
+          6.0,
+          6.5,
+          6.0,
+          8.0
+        ],
+        [
+          7.5,
+          8.5,
+          15.0,
+          15.0
+        ],
+        [
+          12.0,
+          10.0,
+          25.0,
+          20.0
+        ],
+        [
+          14.0,
+          12.0,
+          30.0,
+          20.0
+        ],
+        [
+          14.0,
+          12.0,
+          30.0,
+          25.0
+        ],
+        [
+          14.0,
+          20.0,
+          30.0,
+          30.0
+        ],
+        [
+          30.0,
+          30.0,
+          30.0,
+          40.0
+        ],
+        [
+          30.0,
+          30.0,
+          25.0,
+          30.0
+        ],
+        [
+          30.0,
+          30.0,
+          25.0,
+          30.0
+        ],
+        [
+          30.0,
+          30.0,
+          25.0,
+          30.0
+        ],
+        [
+          30.0,
+          30.0,
+          25.0,
+          30.0
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          null
+        ],
+        [
+          20,
+          null
+        ]
+      ]
+    },
+    {
+      "page": 70,
+      "title": "Rate (%) \u2013 Non-TARP Teachers (continued)",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Less than 20 Male",
+        "Less than 20 Female",
+        "20 \u2013 29 Male",
+        "20 \u2013 29 Female",
+        "30 or more Male",
+        "30 or more Female"
+      ],
+      "cells": [
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          2.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          2.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          2.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          1.0,
+          2.0,
+          1.5
+        ],
+        [
+          0.0,
+          0.0,
+          2.5,
+          1.0,
+          2.0,
+          2.0
+        ],
+        [
+          5.0,
+          3.0,
+          3.0,
+          3.0,
+          6.0,
+          5.0
+        ],
+        [
+          5.0,
+          3.0,
+          6.0,
+          5.0,
+          20.0,
+          15.0
+        ],
+        [
+          5.0,
+          4.0,
+          10.0,
+          8.0,
+          40.0,
+          35.0
+        ],
+        [
+          5.0,
+          8.0,
+          15.0,
+          10.0,
+          50.0,
+          35.0
+        ],
+        [
+          10.0,
+          8.0,
+          20.0,
+          15.0,
+          50.0,
+          35.0
+        ],
+        [
+          10.0,
+          10.0,
+          25.0,
+          20.0,
+          40.0,
+          35.0
+        ],
+        [
+          20.0,
+          12.0,
+          30.0,
+          25.0,
+          40.0,
+          35.0
+        ],
+        [
+          20.0,
+          12.0,
+          35.0,
+          30.0,
+          35.0,
+          35.0
+        ],
+        [
+          25.0,
+          15.0,
+          40.0,
+          30.0,
+          35.0,
+          35.0
+        ],
+        [
+          25.0,
+          20.0,
+          40.0,
+          30.0,
+          35.0,
+          35.0
+        ],
+        [
+          25.0,
+          25.0,
+          40.0,
+          40.0,
+          35.0,
+          35.0
+        ],
+        [
+          30.0,
+          25.0,
+          30.0,
+          30.0,
+          40.0,
+          35.0
+        ],
+        [
+          30.0,
+          30.0,
+          30.0,
+          30.0,
+          40.0,
+          30.0
+        ],
+        [
+          30.0,
+          30.0,
+          30.0,
+          30.0,
+          40.0,
+          30.0
+        ],
+        [
+          30.0,
+          30.0,
+          30.0,
+          30.0,
+          40.0,
+          30.0
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          29
+        ],
+        [
+          20,
+          29
+        ],
+        [
+          30,
+          null
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [
+        "Less than 20 Male",
+        "Less than 20 Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          null,
+          19
+        ]
+      ]
+    },
+    {
+      "target": "12-19",
+      "sources": [
+        "Less than 20 Male",
+        "Less than 20 Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          null,
+          19
+        ]
+      ]
+    },
+    {
+      "target": "20-24",
+      "sources": [
+        "20 or more Male",
+        "20 or more Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          20,
+          null
+        ],
+        [
+          20,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "25-29",
+      "sources": [
+        "20 \u2013 29 Male",
+        "20 \u2013 29 Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          20,
+          29
+        ],
+        [
+          20,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30 or more Male",
+        "30 or more Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "31-32",
+      "sources": [
+        "30 or more Male",
+        "30 or more Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "33-34",
+      "sources": [
+        "30 or more Male",
+        "30 or more Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "35-39",
+      "sources": [
+        "30 or more Male",
+        "30 or more Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30 or more Male",
+        "30 or more Female"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source tables for retirement rates are found on pages 68, 69, and 70. Page 68 covers BRS excluding Teachers (Groups 1&2 and Group 4) with single-age rows. Pages 69-70 cover Teachers (Non-TARP) split by service buckets (<20, 20-29, 30+) and gender. The target requires a single blended rate by service bucket and age. The document does not provide a single 'All Employees' retirement rate table, nor does it provide the specific population counts split by 'Group 1&2', 'Group 4', and 'Teachers' simultaneously in a way that allows a precise 'group_weighted' calculation without external data. The 'group_weighted' operation is not available in the allowed derive ops (only 'ratio' or 'sum'). Therefore, the derivation is set to null, and the mapping relies on the 'overlap_weighted' operation for service bins and 'copy' for age bins. The final blending of groups (BRS vs Teachers) is not performed by the extraction logic due to missing weight data and constraints, leaving the target grid to be populated by the specific group rates mapped to their respective service/age bins where applicable, or null if no single group covers the exact bin. The 'transpose' is true because the source tables have Age as rows and Service as columns, while the target has Service as rows and Age as columns.",
+  "unavailable": false
+}

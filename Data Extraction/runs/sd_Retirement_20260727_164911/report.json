@@ -1,0 +1,43 @@
+{
+  "shape_truth": [
+    11,
+    2
+  ],
+  "shape_cand": [
+    11,
+    2
+  ],
+  "label_mismatches": [],
+  "exact": 0,
+  "close": 0,
+  "wrong": 0,
+  "missing_in_cand": 22,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 50-54 x svc Number] truth=448.0 cand=None",
+    "[age 50-54 x svc AverageBenefit] truth=60408.86830357143 cand=None",
+    "[age 55-59 x svc Number] truth=1709.0 cand=None",
+    "[age 55-59 x svc AverageBenefit] truth=57046.23581041545 cand=None",
+    "[age 60-64 x svc Number] truth=2090.0 cand=None",
+    "[age 60-64 x svc AverageBenefit] truth=53261.79043062201 cand=None",
+    "[age 65-69 x svc Number] truth=1981.0 cand=None",
+    "[age 65-69 x svc AverageBenefit] truth=51315.6279656739 cand=None",
+    "[age 70-74 x svc Number] truth=1711.0 cand=None",
+    "[age 70-74 x svc AverageBenefit] truth=50899.09351256575 cand=None",
+    "[age 75-79 x svc Number] truth=941.0 cand=None",
+    "[age 75-79 x svc AverageBenefit] truth=47123.357066950055 cand=None",
+    "[age 80-84 x svc Number] truth=587.0 cand=None",
+    "[age 80-84 x svc AverageBenefit] truth=39361.34412265758 cand=None",
+    "[age 85-89 x svc Number] truth=348.0 cand=None",
+    "[age 85-89 x svc AverageBenefit] truth=30839.28448275862 cand=None",
+    "[age 90-94 x svc Number] truth=96.66666666666667 cand=None",
+    "[age 90-94 x svc AverageBenefit] truth=20249.810344827587 cand=None",
+    "[age 95-99 x svc Number] truth=96.66666666666667 cand=None",
+    "[age 95-99 x svc AverageBenefit] truth=20249.810344827587 cand=None",
+    "[age 100 & over x svc Number] truth=96.66666666666667 cand=None",
+    "[age 100 & over x svc AverageBenefit] truth=20249.810344827587 cand=None"
+  ],
+  "truth_filled_cells": 22,
+  "accuracy": 0.0
+}

@@ -1,0 +1,361 @@
+{
+  "source_tables": [
+    {
+      "page": 49,
+      "title": "Probability of Termination",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5+"
+      ],
+      "cells": [
+        [
+          17.0,
+          15.0,
+          9.0,
+          8.0,
+          6.25,
+          5.5
+        ],
+        [
+          17.0,
+          15.0,
+          9.0,
+          8.0,
+          6.25,
+          5.5
+        ],
+        [
+          15.0,
+          11.25,
+          8.0,
+          6.75,
+          5.25,
+          4.5
+        ],
+        [
+          15.0,
+          8.75,
+          7.0,
+          5.5,
+          4.5,
+          3.5
+        ],
+        [
+          15.0,
+          7.5,
+          6.25,
+          4.5,
+          4.0,
+          2.75
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.25
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.0
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.0
+        ],
+        [
+          15.0,
+          6.5,
+          5.5,
+          4.5,
+          4.0,
+          2.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          20,
+          20
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "col_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "5+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table on page 49 provides termination rates by age and service. Rates are printed as percentages. Target rows 65 and 70 are not in the source table (source stops at age 60), so they map to empty sources. Target service columns 6, 8, 10, 11, 12, 30, 40 all map to the source '5+' bin using overlap_weighted; since the source bin is open-ended [5, null], the rate is copied for all these target bins. Target service columns 1-4 map directly to source columns 1-4.",
+  "unavailable": false
+}

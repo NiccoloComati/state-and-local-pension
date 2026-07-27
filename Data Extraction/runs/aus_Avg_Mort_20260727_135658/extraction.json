@@ -1,0 +1,198 @@
+{
+  "source_tables": [
+    {
+      "page": 49,
+      "title": "Rates of Decrement Due to Disability",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Males and Females"
+      ],
+      "cells": [
+        [
+          4e-06
+        ],
+        [
+          2.5e-05
+        ],
+        [
+          9.9e-05
+        ],
+        [
+          0.000259
+        ],
+        [
+          0.000494
+        ],
+        [
+          0.000804
+        ],
+        [
+          0.001188
+        ],
+        [
+          0.001647
+        ],
+        [
+          0.00218
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ]
+      ],
+      "col_spans": null
+    },
+    {
+      "page": 36,
+      "title": "Distribution of All Active Participants by Age and Length of Service",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "Number of Employees"
+      ],
+      "cells": [
+        [
+          188
+        ],
+        [
+          714
+        ],
+        [
+          1192
+        ],
+        [
+          1429
+        ],
+        [
+          1417
+        ],
+        [
+          1519
+        ],
+        [
+          1363
+        ],
+        [
+          1175
+        ],
+        [
+          835
+        ],
+        [
+          317
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        10149
+      ],
+      "row_spans": [
+        [
+          null,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          119
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "Target unavailable. The document does not publish sample mortality rates (probability of death) by age. Section E (Statement of Actuarial Methods and Assumptions) on pages 46-47 states that the plan uses the 'PubG-2010 Healthy Retiree Mortality Table' and 'PubG-2010 Employee Mortality Table' with generational projection (MP-2018), but it does not print the actual rate values or a sample table of probabilities. The only rates printed are 'Rates of Decrement Due to Disability' (Table on page 49), which are not mortality rates. The document also does not provide a table of member counts by single age required to construct a weighted average from external tables. Therefore, the target grid cannot be constructed from the provided text."
+}

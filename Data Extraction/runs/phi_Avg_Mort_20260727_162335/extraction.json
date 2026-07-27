@@ -1,0 +1,82 @@
+{
+  "source_tables": [
+    {
+      "page": 106,
+      "title": "Rates of Pre-Retirement Mortality",
+      "row_labels": [
+        "Municipal and Elected Officials",
+        "Uniformed"
+      ],
+      "col_labels": [
+        "Description"
+      ],
+      "cells": [
+        [
+          "110% and 115%, for males and females, respectively, of the RP-2014 Employee Table projected from base year of 2006 to 2021 using mortality improvement scale MP-2017."
+        ],
+        [
+          "85% of the RP-2014 Blue Collar Employee Table projected from base year of 2006 to 2021 using mortality improvement scale MP-2017."
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 107,
+      "title": "Rates of Post-Retirement Mortality",
+      "row_labels": [
+        "Municipal and Elected Officials",
+        "Uniformed"
+      ],
+      "col_labels": [
+        "Description"
+      ],
+      "cells": [
+        [
+          "127% and 119% for males and females, respectively, of the RP-2014 Healthy Annuitant Table projected from base year 2006 to 2021 using mortality improvement scale MP-2017."
+        ],
+        [
+          "115% of the RP-2014 Blue Collar Healthy Annuitant Table projected from base year of 2006 to 2021 using mortality improvement scale MP-2017."
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 107,
+      "title": "Rates of Post-Disability Mortality",
+      "row_labels": [
+        "Municipal and Elected Officials",
+        "Uniformed"
+      ],
+      "col_labels": [
+        "Description"
+      ],
+      "cells": [
+        [
+          "95% of the RP-2014 Disabled Retiree Table projected from base year 2006 to 2021 using mortality improvement scale MP-2017."
+        ],
+        [
+          "80% of the RP-2014 Disabled Retiree Table projected from base year of 2006 to 2021 using mortality improvement scale MP-2017."
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a table of sample mortality rates (e.g., 'Sample Probability of Death' by age). Instead, it defines mortality assumptions as percentages of published base tables (RP-2014 Employee, RP-2014 Blue Collar Employee, RP-2014 Healthy Annuitant, RP-2014 Blue Collar Healthy Annuitant, RP-2014 Disabled Retiree) projected with the MP-2017 scale. Specifically: Pre-retirement Municipal/Elected is 110% (M)/115% (F) of RP-2014 Employee; Pre-retirement Uniformed is 85% of RP-2014 Blue Collar Employee. Post-retirement Municipal/Elected is 127% (M)/119% (F) of RP-2014 Healthy Annuitant; Post-retirement Uniformed is 115% of RP-2014 Blue Collar Healthy Annuitant. Post-disability Municipal/Elected is 95% of RP-2014 Disabled Retiree; Post-disability Uniformed is 80% of RP-2014 Disabled Retiree. Since the specific rate values by age are not printed, the target grid cannot be constructed from the document text alone."
+}

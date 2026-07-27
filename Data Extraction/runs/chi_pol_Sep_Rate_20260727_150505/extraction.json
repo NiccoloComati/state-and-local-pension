@@ -1,0 +1,276 @@
+{
+  "source_tables": [
+    {
+      "page": 72,
+      "title": "Rate of Termination",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14 +"
+      ],
+      "col_labels": [
+        "Rate"
+      ],
+      "cells": [
+        [
+          0.03
+        ],
+        [
+          0.025
+        ],
+        [
+          0.017
+        ],
+        [
+          0.015
+        ],
+        [
+          0.014
+        ],
+        [
+          0.014
+        ],
+        [
+          0.013
+        ],
+        [
+          0.01
+        ],
+        [
+          0.009
+        ],
+        [
+          0.009
+        ],
+        [
+          0.009
+        ],
+        [
+          0.008
+        ],
+        [
+          0.007
+        ],
+        [
+          0.006
+        ],
+        [
+          0.006
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          null
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "8"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "14 +"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "14 +"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The document provides termination rates solely by years of service (Table on page 72), with no age dimension. The target grid requires rates by attained age and service. Since the source rates are age-invariant (constant across all ages for a given service year), the target age rows are mapped to the single service-based rate row via transpose=true. The source table lists service years 0-13 and '14+'. Target service bins 1, 2, 3, 4, 6, 8, 10, 11, 12 map directly to the corresponding single-year source rows. Target bins 30 and 40 map to the '14+' source row (service >= 14). Target rows (ages 25-70) have no corresponding source age dimension, so they are empty in the row_map sources list, relying on the transpose operation to apply the single service rate to all target age rows. No values are summed or averaged; rates are copied directly from the service column.",
+  "unavailable": false
+}

@@ -1,0 +1,504 @@
+{
+  "source_tables": [
+    {
+      "page": 94,
+      "title": "Retirement Rates",
+      "row_labels": [
+        "41",
+        "42",
+        "43",
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & Over"
+      ],
+      "col_labels": [
+        "Fire Tier 2 & 4",
+        "Fire Tier 3 & 5",
+        "Fire Tier 6",
+        "Police Tier 2 & 4",
+        "Police Tier 3 & 5",
+        "Police Tier 6"
+      ],
+      "cells": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          10.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          7.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          7.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          0.0,
+          0.0,
+          7.0,
+          0.0,
+          0.0
+        ],
+        [
+          2.0,
+          0.0,
+          0.0,
+          7.0,
+          0.0,
+          0.0
+        ],
+        [
+          3.0,
+          2.0,
+          3.0,
+          12.0,
+          7.0,
+          8.0
+        ],
+        [
+          5.0,
+          2.0,
+          3.0,
+          12.0,
+          5.0,
+          10.0
+        ],
+        [
+          8.0,
+          2.0,
+          4.0,
+          12.0,
+          5.0,
+          10.0
+        ],
+        [
+          10.0,
+          2.0,
+          5.0,
+          20.0,
+          5.0,
+          15.0
+        ],
+        [
+          20.0,
+          7.0,
+          5.0,
+          25.0,
+          12.0,
+          20.0
+        ],
+        [
+          25.0,
+          14.0,
+          10.0,
+          30.0,
+          20.0,
+          20.0
+        ],
+        [
+          25.0,
+          16.0,
+          12.0,
+          30.0,
+          20.0,
+          20.0
+        ],
+        [
+          25.0,
+          18.0,
+          15.0,
+          30.0,
+          20.0,
+          20.0
+        ],
+        [
+          25.0,
+          25.0,
+          18.0,
+          30.0,
+          22.0,
+          22.0
+        ],
+        [
+          25.0,
+          25.0,
+          20.0,
+          30.0,
+          22.0,
+          22.0
+        ],
+        [
+          25.0,
+          30.0,
+          25.0,
+          30.0,
+          25.0,
+          25.0
+        ],
+        [
+          25.0,
+          30.0,
+          30.0,
+          30.0,
+          25.0,
+          25.0
+        ],
+        [
+          25.0,
+          35.0,
+          30.0,
+          30.0,
+          25.0,
+          25.0
+        ],
+        [
+          25.0,
+          40.0,
+          35.0,
+          30.0,
+          25.0,
+          25.0
+        ],
+        [
+          30.0,
+          40.0,
+          40.0,
+          40.0,
+          30.0,
+          30.0
+        ],
+        [
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        [
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        [
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        [
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        [
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0,
+          60.0
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70 & Over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The source table on page 94 provides retirement rates by Age (rows) and Tier (columns), not by Service Years (rows) and Age (columns) as required by the target grid. The target requires a probability of retirement by service-year bucket, but the document only provides rates by attained age. Therefore, the target grid cannot be populated. The row_map sources are empty because no service-year dimension exists in the source. The col_map maps the source age rows to target age columns (with transpose=true to align the printed rows with target columns), but since the row dimension (service) is missing, the resulting table is empty/unavailable for the target definition.",
+  "unavailable": false
+}

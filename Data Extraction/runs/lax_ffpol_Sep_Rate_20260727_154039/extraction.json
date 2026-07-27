@@ -1,0 +1,383 @@
+{
+  "source_tables": [
+    {
+      "page": 93,
+      "title": "Termination (< 5 Years of Service)",
+      "row_labels": [
+        "Less than 1",
+        "1 \u2013 2",
+        "2 \u2013 3",
+        "3 \u2013 4",
+        "4 \u2013 5"
+      ],
+      "col_labels": [
+        "Fire",
+        "Police"
+      ],
+      "cells": [
+        [
+          8.0,
+          9.0
+        ],
+        [
+          2.5,
+          3.5
+        ],
+        [
+          1.5,
+          3.0
+        ],
+        [
+          0.75,
+          2.75
+        ],
+        [
+          0.5,
+          2.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "col_spans": null
+    },
+    {
+      "page": 93,
+      "title": "Termination (5+ Years of Service)",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Fire",
+        "Police"
+      ],
+      "cells": [
+        [
+          0.8,
+          1.8
+        ],
+        [
+          0.8,
+          1.8
+        ],
+        [
+          0.65,
+          1.5
+        ],
+        [
+          0.4,
+          1.03
+        ],
+        [
+          0.27,
+          0.73
+        ],
+        [
+          0.13,
+          0.59
+        ],
+        [
+          0.02,
+          0.22
+        ],
+        [
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          20,
+          20
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          35,
+          35
+        ],
+        [
+          40,
+          40
+        ],
+        [
+          45,
+          45
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          60,
+          60
+        ]
+      ],
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1 \u2013 2"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "target": "2",
+      "sources": [
+        "1 \u2013 2"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "2 \u2013 3"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "3 \u2013 4"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "5+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables provide termination rates by service years for Fire and Police groups separately. Target grid requires a single blended rate by age and service. The document does not provide a headcount distribution by age and service to perform a group_weighted blend. Therefore, the rates are transcribed as printed but cannot be blended into a single target value without external data. The mapping assumes the target user will handle the blending or that the Fire/Police distinction is not required for the specific target use case, but strictly speaking, the target 'Sep_Rate' (single value) is not derivable as a single number from the provided text without weights. The col_map uses overlap_weighted to map service bins (e.g., '1-2' to target '1' and '2'). Target ages 65 and 70 have no source data (rates are 0.00 at 60 and no termination assumed after retirement eligibility, which is 55 for Fire/Police in some tiers, but the table stops at 60 with 0.00). The source table for 5+ years lists specific ages (20, 25, 30, 35, 40, 45, 50, 55, 60). Target ages 65 and 70 are not in the source; rates are assumed 0.00 based on the 60 rate and the note 'No termination is assumed after a member is eligible for retirement' (eligibility is often 50 or 55). The source table for <5 years covers service 0-5. Target service 1, 2, 3, 4 are mapped from the <5 table. Target service 6, 8, 10, 11, 12, 30, 40 are mapped from the 5+ table. Since the source has two columns (Fire, Police) and the target has one, and no weights are available, the extraction cannot produce a single numeric value for the target grid. The row_map and col_map are defined to map the source structure to the target structure, but the 'derive' step to blend Fire/Police is impossible without weights. The output reflects the source data structure. Note: The target grid asks for a single rate. The source provides two rates (Fire, Police). Without headcount weights, a single rate cannot be calculated. The JSON reflects the source tables and the mapping logic, but the final values in the target grid would require a weighted average of the Fire and Police columns which is not possible here. The 'notes' field explains this limitation.",
+  "unavailable": false
+}

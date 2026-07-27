@@ -1,0 +1,46 @@
+{
+  "shape_truth": [
+    100,
+    1
+  ],
+  "shape_cand": [
+    100,
+    1
+  ],
+  "label_mismatches": [],
+  "exact": 0,
+  "close": 0,
+  "wrong": 60,
+  "missing_in_cand": 40,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 20 x svc Death_Prob] truth=0.0005319999999999999 cand=None",
+    "[age 21 x svc Death_Prob] truth=0.0005319999999999999 cand=None",
+    "[age 22 x svc Death_Prob] truth=0.0005319999999999999 cand=None",
+    "[age 23 x svc Death_Prob] truth=0.0005319999999999999 cand=None",
+    "[age 24 x svc Death_Prob] truth=0.0005319999999999999 cand=None",
+    "[age 25 x svc Death_Prob] truth=0.0005319999999999999 cand=0.000475",
+    "[age 26 x svc Death_Prob] truth=0.0005319999999999999 cand=0.000475",
+    "[age 27 x svc Death_Prob] truth=0.0005319999999999999 cand=0.000475",
+    "[age 28 x svc Death_Prob] truth=0.0005319999999999999 cand=0.000475",
+    "[age 29 x svc Death_Prob] truth=0.0005319999999999999 cand=0.000475",
+    "[age 30 x svc Death_Prob] truth=0.0005319999999999999 cand=0.0006500000000000001",
+    "[age 31 x svc Death_Prob] truth=0.000549 cand=0.0006500000000000001",
+    "[age 32 x svc Death_Prob] truth=0.000549 cand=0.0006500000000000001",
+    "[age 33 x svc Death_Prob] truth=0.000549 cand=0.0006500000000000001",
+    "[age 34 x svc Death_Prob] truth=0.000549 cand=0.0006500000000000001",
+    "[age 35 x svc Death_Prob] truth=0.000549 cand=0.0009",
+    "[age 36 x svc Death_Prob] truth=0.000732 cand=0.0009",
+    "[age 37 x svc Death_Prob] truth=0.000732 cand=0.0009",
+    "[age 38 x svc Death_Prob] truth=0.000732 cand=0.0009",
+    "[age 39 x svc Death_Prob] truth=0.000732 cand=0.0009",
+    "[age 40 x svc Death_Prob] truth=0.000732 cand=0.00125",
+    "[age 41 x svc Death_Prob] truth=0.001115 cand=0.00125",
+    "[age 42 x svc Death_Prob] truth=0.001115 cand=0.00125",
+    "[age 43 x svc Death_Prob] truth=0.001115 cand=0.00125",
+    "[age 44 x svc Death_Prob] truth=0.001115 cand=0.00125"
+  ],
+  "truth_filled_cells": 100,
+  "accuracy": 0.0
+}

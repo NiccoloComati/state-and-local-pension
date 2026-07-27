@@ -1,0 +1,306 @@
+{
+  "source_tables": [
+    {
+      "page": 69,
+      "title": "Pre-Retirement Mortality Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          0.05,
+          0.02
+        ],
+        [
+          0.06,
+          0.02
+        ],
+        [
+          0.05,
+          0.02
+        ],
+        [
+          0.06,
+          0.03
+        ],
+        [
+          0.07,
+          0.04
+        ],
+        [
+          0.11,
+          0.07
+        ],
+        [
+          0.19,
+          0.12
+        ],
+        [
+          0.31,
+          0.19
+        ],
+        [
+          0.51,
+          0.27
+        ],
+        [
+          0.88,
+          0.4
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 71,
+      "title": "Termination Rates",
+      "row_labels": [
+        "Less than 1",
+        "1 - 2",
+        "2 - 3",
+        "3 - 4",
+        "4 - 5",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Termination (< 5 Years of Service)",
+        "Termination (5+ Years of Service)"
+      ],
+      "cells": [
+        [
+          12.0,
+          null
+        ],
+        [
+          10.0,
+          null
+        ],
+        [
+          9.0,
+          null
+        ],
+        [
+          8.25,
+          null
+        ],
+        [
+          7.75,
+          null
+        ],
+        [
+          7.0,
+          7.0
+        ],
+        [
+          7.0,
+          7.0
+        ],
+        [
+          5.5,
+          5.5
+        ],
+        [
+          3.9,
+          3.9
+        ],
+        [
+          3.2,
+          3.2
+        ],
+        [
+          2.7,
+          2.7
+        ],
+        [
+          2.5,
+          2.5
+        ],
+        [
+          2.5,
+          2.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1 - 2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2 - 3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3 - 4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4 - 5"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "Termination (5+ Years of Service)"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source data for termination rates is split into two tables: one for service < 5 years (page 71) and one for service >= 5 years (page 71). The < 5 years table is by service only (no age dimension), so rates are assumed age-invariant for those service bins. The >= 5 years table is by age only (no service dimension), so rates are assumed service-invariant for those age bins. Target rows 25-65 map to printed age rows. Target row 70 has no source data (document stops at age 60 for >=5yrs service, and <5yrs service is impossible at age 70 with typical entry age). Target columns 1-4 map to service bins 1-2, 2-3, 3-4, 4-5 from the <5yrs table. Target columns 6, 8, 10, 11, 12, 30, 40 map to the single '5+ Years' column from the >=5yrs table. Values are percentages in source (e.g., 12.00), but the target unit is decimal probability. The code will handle the unit conversion if 'values_unit' is set, but here we transcribe as printed. Note: The target grid asks for specific service bins (1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40). The source provides ranges (1-2, 2-3, 3-4, 4-5) and a single '5+' bucket. For the '5+' bucket, the rate is constant across all target service bins >= 5. For the <5 buckets, the rate is constant across all target ages. No overlap_weighted is used for the service bins 1-4 as the target bins (single years) are fully contained within the source bins (2-year ranges) and the source rates are assumed constant over the range. The '5+' bucket is treated as a single source for all target service columns >= 5.",
+  "unavailable": false
+}

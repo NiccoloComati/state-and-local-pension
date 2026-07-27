@@ -1,0 +1,331 @@
+{
+  "source_tables": [
+    {
+      "page": 53,
+      "title": "EXHIBIT B \u2013 MEMBERS IN ACTIVE SERVICE AS OF JUNE 30, 2019",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "Total",
+        "0 - 4",
+        "5 - 9",
+        "10 - 14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          829,
+          829,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          2245,
+          2125,
+          116,
+          4,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          2425,
+          1730,
+          363,
+          327,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          2843,
+          1225,
+          346,
+          973,
+          290,
+          9,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          3085,
+          892,
+          214,
+          936,
+          859,
+          169,
+          15,
+          null,
+          null,
+          null
+        ],
+        [
+          3337,
+          702,
+          186,
+          786,
+          916,
+          545,
+          183,
+          19,
+          null,
+          null
+        ],
+        [
+          3970,
+          560,
+          156,
+          696,
+          811,
+          576,
+          608,
+          540,
+          23,
+          null
+        ],
+        [
+          3683,
+          434,
+          134,
+          600,
+          723,
+          492,
+          534,
+          629,
+          134,
+          3
+        ],
+        [
+          2452,
+          252,
+          97,
+          496,
+          532,
+          242,
+          311,
+          364,
+          129,
+          29
+        ],
+        [
+          1181,
+          68,
+          46,
+          251,
+          296,
+          139,
+          123,
+          173,
+          50,
+          35
+        ],
+        [
+          582,
+          32,
+          33,
+          112,
+          169,
+          81,
+          41,
+          68,
+          18,
+          28
+        ]
+      ],
+      "printed_row_totals": [
+        829,
+        2245,
+        2425,
+        2843,
+        3085,
+        3337,
+        3970,
+        3683,
+        2452,
+        1181,
+        582
+      ],
+      "printed_col_totals": [
+        26632,
+        8849,
+        1691,
+        5181,
+        4601,
+        2253,
+        1815,
+        1793,
+        354,
+        95
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0 - 4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 - 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 - 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 - 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 - 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 - 39",
+        "40 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is Exhibit B on page 53. Target row '70' sums source rows '65 - 69' and '70 & over'. Target column '40' sums source columns '35 - 39' and '40 & over'. All other mappings are direct copies.",
+  "unavailable": false
+}

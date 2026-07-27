@@ -1,0 +1,473 @@
+{
+  "source_tables": [
+    {
+      "page": 52,
+      "title": "Retirement: Upon eligibility, active members are assumed to retire as follows (rate per 1,000): Tier A",
+      "row_labels": [
+        "48-49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58-59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "First Year Eligible (Male)",
+        "Thereafter (Male)",
+        "First Year Eligible (Female)",
+        "Thereafter (Female)"
+      ],
+      "cells": [
+        [
+          100,
+          100,
+          100,
+          100
+        ],
+        [
+          550,
+          550,
+          450,
+          350
+        ],
+        [
+          500,
+          450,
+          400,
+          350
+        ],
+        [
+          500,
+          300,
+          400,
+          300
+        ],
+        [
+          400,
+          300,
+          350,
+          300
+        ],
+        [
+          350,
+          250,
+          350,
+          200
+        ],
+        [
+          300,
+          250,
+          350,
+          250
+        ],
+        [
+          300,
+          250,
+          350,
+          250
+        ],
+        [
+          300,
+          250,
+          350,
+          250
+        ],
+        [
+          300,
+          250,
+          250,
+          200
+        ],
+        [
+          80,
+          230,
+          90,
+          200
+        ],
+        [
+          90,
+          230,
+          90,
+          180
+        ],
+        [
+          100,
+          230,
+          90,
+          200
+        ],
+        [
+          100,
+          230,
+          150,
+          150
+        ],
+        [
+          150,
+          230,
+          120,
+          130
+        ],
+        [
+          150,
+          230,
+          120,
+          300
+        ],
+        [
+          200,
+          230,
+          150,
+          300
+        ],
+        [
+          200,
+          230,
+          250,
+          300
+        ],
+        [
+          200,
+          230,
+          150,
+          300
+        ],
+        [
+          200,
+          230,
+          150,
+          300
+        ],
+        [
+          1000,
+          1000,
+          1000,
+          300
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "per_1000",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 53,
+      "title": "Retirement, Continued: Upon eligibility, active members are assumed to retire as follows (rate per 1,000): Tier B",
+      "row_labels": [
+        "<55",
+        "55-56",
+        "57-58",
+        "59-60",
+        "61-62",
+        "63-64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Service < 40 yrs. (Male)",
+        "Service 40 yrs. + (Male)",
+        "Service < 40 yrs. (Female)",
+        "Service 40 yrs. + (Female)"
+      ],
+      "cells": [
+        [
+          10,
+          350,
+          10,
+          350
+        ],
+        [
+          20,
+          350,
+          20,
+          350
+        ],
+        [
+          30,
+          350,
+          30,
+          350
+        ],
+        [
+          40,
+          350,
+          40,
+          350
+        ],
+        [
+          50,
+          350,
+          50,
+          350
+        ],
+        [
+          60,
+          350,
+          60,
+          350
+        ],
+        [
+          180,
+          600,
+          200,
+          450
+        ],
+        [
+          200,
+          250,
+          250,
+          250
+        ],
+        [
+          200,
+          250,
+          250,
+          250
+        ],
+        [
+          200,
+          250,
+          150,
+          250
+        ],
+        [
+          200,
+          250,
+          150,
+          250
+        ],
+        [
+          1000,
+          1000,
+          1000,
+          1000
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "per_1000",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "58-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The target requires retirement rates by service-year bucket (rows) and single age (columns). The document provides retirement rates by single age (rows) and service conditions (columns) for Tier A and Tier B separately. The document does not provide a single table with service buckets as columns and ages as rows, nor does it provide a combined rate for all members. The target rows (5-11, 12-19, etc.) do not align with the specific service conditions in the source tables (e.g., 'First Year Eligible', 'Thereafter', 'Service < 40 yrs', 'Service 40 yrs +'). Furthermore, the target asks for a single probability per cell, but the source distinguishes between Tier A and Tier B and between 'First Year Eligible' and 'Thereafter' (or service length). Without a population distribution by tier and service to weight these rates, a single blended rate cannot be derived. Additionally, the target rows (service buckets) do not map to the source columns (eligibility/service conditions) in a way that allows a direct 'copy' or 'overlap_weighted' operation for the entire grid. The source tables are transposed in the mapping to match the target's orientation (Age as columns, Service as rows), but the data content (eligibility/service conditions) does not match the target's service buckets. Therefore, the target grid is unavailable in the document in a derivable form. The source tables are transcribed as evidence of the available data.",
+  "unavailable": false
+}

@@ -1,0 +1,337 @@
+{
+  "source_tables": [
+    {
+      "page": 48,
+      "title": "Rates of Decrement Due to Withdrawal",
+      "row_labels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15+"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          0.11,
+          0.16
+        ],
+        [
+          0.105,
+          0.15
+        ],
+        [
+          0.0925,
+          0.1275
+        ],
+        [
+          0.0675,
+          0.1
+        ],
+        [
+          0.06,
+          0.085
+        ],
+        [
+          0.012,
+          0.008
+        ],
+        [
+          0.012,
+          0.0175
+        ],
+        [
+          0.012,
+          0.0175
+        ],
+        [
+          0.012,
+          0.02
+        ],
+        [
+          0.015,
+          0.02
+        ],
+        [
+          0.02,
+          0.02
+        ],
+        [
+          0.02,
+          0.025
+        ],
+        [
+          0.02,
+          0.025
+        ],
+        [
+          0.02,
+          0.025
+        ],
+        [
+          0.025,
+          0.03
+        ],
+        [
+          0.03,
+          0.035
+        ],
+        [
+          0.035,
+          0.0375
+        ],
+        [
+          0.04,
+          0.04
+        ],
+        [
+          0.045,
+          0.07
+        ],
+        [
+          0.056,
+          0.0825
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          null
+        ]
+      ],
+      "col_spans": null,
+      "values_unit": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "8"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "15+"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "15+"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document provides withdrawal rates by years of service only, with no age dimension (rates are assumed constant across ages after the select period). The source table has two sections: a select period (Years 1-5) and ultimate rates (Years 1+ from retirement eligibility). The target grid requires rates by attained age, which are not published. The row_map is empty for all target ages because the source lacks age bins. The col_map maps service bins to the source service labels. For service 30 and 40, the source '15+' bin is used. The rates are intensive probabilities (decimals). No age-specific data exists to populate the target rows.",
+  "unavailable": false
+}

@@ -1,0 +1,294 @@
+{
+  "source_tables": [
+    {
+      "page": 55,
+      "title": "Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019",
+      "row_labels": [
+        "Under 50",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 to 74",
+        "75 to 79",
+        "80 to 84",
+        "85 to 89",
+        "90 and up"
+      ],
+      "col_labels": [
+        "Police",
+        "Fire",
+        "Misc",
+        "Total"
+      ],
+      "cells": [
+        [
+          46,
+          18,
+          111,
+          175
+        ],
+        [
+          97,
+          60,
+          562,
+          719
+        ],
+        [
+          295,
+          187,
+          1616,
+          2098
+        ],
+        [
+          500,
+          270,
+          3765,
+          4535
+        ],
+        [
+          503,
+          395,
+          5649,
+          6547
+        ],
+        [
+          438,
+          412,
+          5304,
+          6154
+        ],
+        [
+          299,
+          324,
+          3571,
+          4194
+        ],
+        [
+          225,
+          184,
+          2503,
+          2912
+        ],
+        [
+          164,
+          131,
+          1622,
+          1917
+        ],
+        [
+          139,
+          153,
+          1235,
+          1527
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        2706,
+        2134,
+        25938,
+        30778
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 56,
+      "title": "Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit",
+      "row_labels": [
+        "Under 50",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 to 74",
+        "75 to 79",
+        "80 to 84",
+        "85 to 89",
+        "90 and up"
+      ],
+      "col_labels": [
+        "Police",
+        "Fire",
+        "Misc",
+        "Total"
+      ],
+      "cells": [
+        [
+          2898758,
+          1164202,
+          2438986,
+          6501947
+        ],
+        [
+          6502205,
+          4433733,
+          10286466,
+          21222404
+        ],
+        [
+          32042140,
+          19003659,
+          36644144,
+          87689944
+        ],
+        [
+          59768325,
+          30771340,
+          143112386,
+          233652051
+        ],
+        [
+          57204108,
+          49729262,
+          243185439,
+          350118809
+        ],
+        [
+          43956377,
+          46569388,
+          243737941,
+          334263706
+        ],
+        [
+          25932356,
+          34167862,
+          155763951,
+          215864170
+        ],
+        [
+          17416874,
+          16855804,
+          95948660,
+          130221338
+        ],
+        [
+          12359989,
+          12399014,
+          53679778,
+          78438782
+        ],
+        [
+          9244710,
+          13198386,
+          33019836,
+          55462932
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        267325842,
+        228292650,
+        1017817589,
+        1513436081
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 to 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 to 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 to 79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80 to 84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85 to 89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 and up"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "90 and up"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "90 and up"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Total"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Total",
+        "Total"
+      ],
+      "op": "ratio",
+      "numerator_table": 1,
+      "denominator_table": 0
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables A-16 and A-17 include Retirees, Disabled Members, and Beneficiaries combined. The target requires Service Retirees only, but the document does not provide a separate breakdown for Service Retirees by age; thus, the combined 'Total' column is used as the best available proxy. The '90 and up' bucket is split evenly across the target rows 90-94, 95-99, and 100 & over. The source benefit amounts in Table A-17 are Annual (confirmed by the 'Total Annual Benefit' label and magnitude), so no annualization is needed. The 'Under 50' row is excluded as it falls outside the target grid (starts at 50-54).",
+  "unavailable": false
+}

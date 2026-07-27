@@ -1,0 +1,141 @@
+{
+  "source_tables": [
+    {
+      "page": 70,
+      "title": "Retirement Rates",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65"
+      ],
+      "col_labels": [
+        "Hired before January 1, 2011 - Firefighters",
+        "Hired before January 1, 2011 - Paramedics",
+        "Hired on or after January 1, 2011 - Firefighters",
+        "Hired on or after January 1, 2011 - Paramedics"
+      ],
+      "cells": [
+        [
+          2,
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          3,
+          1,
+          1
+        ],
+        [
+          2,
+          4,
+          1,
+          1
+        ],
+        [
+          4,
+          8,
+          1,
+          1
+        ],
+        [
+          12,
+          8,
+          13,
+          8
+        ],
+        [
+          12,
+          10,
+          13,
+          10
+        ],
+        [
+          13,
+          10,
+          14,
+          10
+        ],
+        [
+          13,
+          12,
+          14,
+          12
+        ],
+        [
+          16,
+          12,
+          16,
+          12
+        ],
+        [
+          20,
+          15,
+          20,
+          15
+        ],
+        [
+          25,
+          15,
+          25,
+          15
+        ],
+        [
+          60,
+          20,
+          60,
+          20
+        ],
+        [
+          100,
+          30,
+          100,
+          30
+        ],
+        [
+          null,
+          40,
+          null,
+          40
+        ],
+        [
+          null,
+          100,
+          null,
+          100
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The target requires retirement rates by Years of Service (rows) and Attained Age (columns). The source table on page 70 provides rates by Attained Age (rows) and Hire Date/Role (columns). The document does not contain a table with retirement rates cross-classified by Years of Service. Therefore, the target grid cannot be populated."
+}

@@ -1,0 +1,92 @@
+{
+  "source_tables": [
+    {
+      "page": 17,
+      "title": "Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age",
+      "row_labels": [
+        "Superannuation",
+        "Accidental Disability",
+        "Beneficiaries",
+        "Ordinary Disability"
+      ],
+      "col_labels": [
+        "Age 50-54",
+        "Age 55-59",
+        "Age 60-64",
+        "Age 65-69",
+        "Age 70-74",
+        "Age 75-79",
+        "Age 80-84",
+        "Age 85-89",
+        "Age 90-94",
+        "Age 95-99",
+        "Age 100 & over"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not contain a table with the distribution of retired members by 5-year age band. Page 17 contains a bar chart titled 'Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age' which lacks numerical data values or specific age bins. Page 15 and 33 provide summary statistics (average age, total counts) but not the required age-band distribution. Page 14 and 32 show population trends by year but not by age. Therefore, the target data is unavailable."
+}
