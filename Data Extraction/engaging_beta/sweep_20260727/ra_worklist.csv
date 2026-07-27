@@ -1,97 +1,97 @@
 plan,sheet,status,score,totals,ppd,owner,note,run_dir
-aus,Age_Serv_Num,production,,clean,ok,RA,no workbook - check extracted vs PDF directly,aus_Age_Serv_Num_20260727_135417
-aus,Age_Serv_Wage,production,,clean,,RA,no workbook - check extracted vs PDF directly,aus_Age_Serv_Wage_20260727_135446
-aus,Avg_Mort,unavailable,,clean,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,aus_Avg_Mort_20260727_135658
-aus,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,aus_Ret_Rate_20260727_135538
-aus,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,aus_Retirement_20260727_135725
-aus,Sep_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,aus_Sep_Rate_20260727_135638
-bos,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,bos_Avg_Mort_20260727_141556
-bos,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,bos_Ret_Rate_20260727_141332
-bos,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,bos_Retirement_20260727_141647
-bos,Sep_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,bos_Sep_Rate_20260727_141453
-chi_edu,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,chi_edu_Age_Serv_Num_20260727_141709
-chi_edu,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,chi_edu_Avg_Mort_20260727_142030
-chi_edu,Retirement,unavailable,,clean,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,chi_edu_Retirement_20260727_142230
-chi_ff,Age_Serv_Num,scored,0.9787,suspect,ok,RA,imperfect - adjudicate vs PDF,chi_ff_Age_Serv_Num_20260727_142320
-chi_ff,Avg_Mort,unavailable,,clean,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,chi_ff_Avg_Mort_20260727_142821
-chi_ff,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,chi_ff_Ret_Rate_20260727_142634
-chi_ff,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,chi_ff_Retirement_20260727_142929
-chi_gen,Age_Serv_Num,scored,0.9831,clean,ok,RA,near-perfect - light spot-check vs PDF,chi_gen_Age_Serv_Num_20260727_143004
-chi_gen,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,chi_gen_Retirement_20260727_145242
-chi_pol,Age_Serv_Num,scored,0.8684,suspect,ok,RA,one-row column shift on age-64 row; source stops at 63 so age-70 empty,chi_pol_Age_Serv_Num_20260727_145339
-chi_pol,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,chi_pol_Avg_Mort_20260727_150530
-chi_pol,Retirement,scored,1.0,clean,,RA,near-perfect - light spot-check vs PDF,chi_pol_Retirement_20260727_150703
-dal,Age_Serv_Num,scored,0.9828,clean,ok,RA,near-perfect - light spot-check vs PDF,dal_Age_Serv_Num_20260727_150733
-dal,Age_Serv_Wage,scored,0.0175,clean,,RA,0.02 - adjudicate vs PDF (likely also a totals/ratio issue),dal_Age_Serv_Wage_20260727_150752
-dal,Retirement,scored,1.0,clean,,RA,near-perfect - light spot-check vs PDF,dal_Retirement_20260727_151109
-hou_pol,Age_Serv_Num,scored,1.0,suspect,ok,RA,imperfect - adjudicate vs PDF,hou_pol_Age_Serv_Num_20260727_151130
-hou_pol,Age_Serv_Wage,scored,0.9773,none,,RA,imperfect - adjudicate vs PDF,hou_pol_Age_Serv_Wage_20260727_151305
-hou_pol,Ret_Rate,scored,1.0,none,,RA,near-perfect - light spot-check vs PDF,hou_pol_Ret_Rate_20260727_152241
-hou_pol,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,hou_pol_Retirement_20260727_152427
-lax_ffpol,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,lax_ffpol_Age_Serv_Num_20260727_152502
-lax_ffpol,Age_Serv_Wage,scored,0.9167,none,,RA,imperfect - adjudicate vs PDF,lax_ffpol_Age_Serv_Wage_20260727_152550
-lax_ffpol,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,lax_ffpol_Avg_Mort_20260727_154125
-lax_ffpol,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,lax_ffpol_Ret_Rate_20260727_152714
-lax_ffpol,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,lax_ffpol_Retirement_20260727_154419
-lax_gen,Age_Serv_Num,scored,0.9655,clean,ok,RA,imperfect - adjudicate vs PDF,lax_gen_Age_Serv_Num_20260727_154504
-lax_gen,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,lax_gen_Avg_Mort_20260727_155221
-lax_gen,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,lax_gen_Ret_Rate_20260727_155010
-lax_gen,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,lax_gen_Retirement_20260727_155356
-lax_uty,Age_Serv_Num,scored,1.0,suspect,ok,RA,imperfect - adjudicate vs PDF,lax_uty_Age_Serv_Num_20260727_155425
-lax_uty,Age_Serv_Wage,scored,1.0,suspect,,RA,imperfect - adjudicate vs PDF,lax_uty_Age_Serv_Wage_20260727_155609
-lax_uty,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,lax_uty_Avg_Mort_20260727_160846
-lax_uty,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,lax_uty_Retirement_20260727_160927
-mil,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,mil_Age_Serv_Num_20260727_160946
-mil,Age_Serv_Wage,production,,clean,,RA,no workbook - check extracted vs PDF directly,mil_Age_Serv_Wage_20260727_161347
-mil,Avg_Mort,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,mil_Avg_Mort_20260727_161917
-mil,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,mil_Ret_Rate_20260727_161831
-phi,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,phi_Age_Serv_Num_20260727_162106
-phi,Age_Serv_Wage,scored,1.0,clean,,RA,near-perfect - light spot-check vs PDF,phi_Age_Serv_Wage_20260727_162143
-phi,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,phi_Ret_Rate_20260727_162226
-phx,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,phx_Age_Serv_Num_20260727_162651
-phx,Age_Serv_Wage,scored,0.9661,clean,,RA,imperfect - adjudicate vs PDF,phx_Age_Serv_Wage_20260727_162709
-phx,Retirement,scored,1.0,none,,RA,near-perfect - light spot-check vs PDF,phx_Retirement_20260727_162937
-sd,Age_Serv_Num,scored,0.9206,clean,ok,RA,known: workbook dropped '70 & up' row (register #8) - model likely right vs PDF,sd_Age_Serv_Num_20260727_162958
-sd,Age_Serv_Wage,scored,0.9123,none,,RA,imperfect - adjudicate vs PDF,sd_Age_Serv_Wage_20260727_163021
-sf,Age_Serv_Num,scored,0.9875,clean,ok,RA,near-perfect - light spot-check vs PDF,sf_Age_Serv_Num_20260727_165010
-sf,Age_Serv_Wage,scored,0.925,clean,,RA,imperfect - adjudicate vs PDF,sf_Age_Serv_Wage_20260727_165038
-sf,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sf_Ret_Rate_20260727_165116
-sf,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,sf_Retirement_20260727_165445
-chi_edu,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_edu_Ret_Rate_20260727_141906
-chi_edu,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_edu_Sep_Rate_20260727_141945
-chi_ff,Sep_Rate,scored,0.0879,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_ff_Sep_Rate_20260727_142733
-chi_gen,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_gen_Ret_Rate_20260727_143207
-chi_gen,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_gen_Sep_Rate_20260727_144033
-chi_pol,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_pol_Ret_Rate_20260727_150427
-chi_pol,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,chi_pol_Sep_Rate_20260727_150505
-dal,Avg_Mort,scored,0.0,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,dal_Avg_Mort_20260727_150944
-dal,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,dal_Ret_Rate_20260727_150901
-dal,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,dal_Sep_Rate_20260727_150925
-hou_pol,Avg_Mort,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,hou_pol_Avg_Mort_20260727_152335
-hou_pol,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,hou_pol_Sep_Rate_20260727_152312
-lax_ffpol,Sep_Rate,scored,0.3909,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,lax_ffpol_Sep_Rate_20260727_154039
-lax_gen,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,lax_gen_Sep_Rate_20260727_155119
-lax_uty,Ret_Rate,scored,0.6561,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,lax_uty_Ret_Rate_20260727_155942
-lax_uty,Sep_Rate,scored,0.1727,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,lax_uty_Sep_Rate_20260727_160824
-mil,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,mil_Sep_Rate_20260727_161847
-phi,Avg_Mort,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,phi_Avg_Mort_20260727_162335
-phi,Sep_Rate,scored,0.1727,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,phi_Sep_Rate_20260727_162252
-phx,Avg_Mort,scored,0.55,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,phx_Avg_Mort_20260727_162855
-phx,Ret_Rate,scored,0.8624,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,phx_Ret_Rate_20260727_162731
-phx,Sep_Rate,scored,0.7909,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,phx_Sep_Rate_20260727_162816
-sd,Retirement,scored,0.0,clean,,assumption,source combines retirees+disabled+beneficiaries; cannot isolate service retirees -> register 6c,sd_Retirement_20260727_164911
-sd,Sep_Rate,scored,0.1818,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sd_Sep_Rate_20260727_164254
-sf,Avg_Mort,scored,0.0,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sf_Avg_Mort_20260727_165308
-sf,Sep_Rate,scored,0.3182,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sf_Sep_Rate_20260727_165155
-bos,Age_Serv_Num,crash,,,,me,diagnose crash (loop/large/contract),bos_Age_Serv_Num_20260727_135753
-bos,Age_Serv_Wage,crash,,,,me,diagnose crash (loop/large/contract),bos_Age_Serv_Wage_20260727_140815
-chi_edu,Age_Serv_Wage,scored,0.0,clean,,me,transcribed salary-TOTALS+counts OK but dropped derive=ratio -> raw totals; instruction/validator fix,chi_edu_Age_Serv_Wage_20260727_141736
-chi_ff,Age_Serv_Wage,scored,0.0,none,,me,same as chi_edu: forgot derive=ratio on totals+counts,chi_ff_Age_Serv_Wage_20260727_142532
-chi_gen,Age_Serv_Wage,scored,0.0,clean,,me,same: forgot derive=ratio,chi_gen_Age_Serv_Wage_20260727_143044
-chi_gen,Avg_Mort,crash,,,,me,diagnose crash (loop/large/contract),chi_gen_Avg_Mort_20260727_144128
-chi_pol,Age_Serv_Wage,scored,0.0,none,,me,same: forgot derive=ratio (interleaved Exhibit C Part III),chi_pol_Age_Serv_Wage_20260727_150333
-lax_gen,Age_Serv_Wage,crash,,,,me,diagnose crash (loop/large/contract),lax_gen_Age_Serv_Wage_20260727_154540
-mil,Retirement,scored,0.0,clean,,me,"right approach (sum 3 groups, x12) but MIS-MAPPED columns (Number<-benefit total)",mil_Retirement_20260727_162026
-phi,Retirement,crash,,,,me,diagnose crash (loop/large/contract),phi_Retirement_20260727_162420
-sd,Avg_Mort,crash,,,,me,diagnose crash (loop/large/contract),sd_Avg_Mort_20260727_164318
-sd,Ret_Rate,crash,,,,me,diagnose crash (loop/large/contract),sd_Ret_Rate_20260727_163205
+aus,Age_Serv_Num,production,,clean,ok,RA,no workbook - check extracted vs PDF directly,sweep_20260727/aus_Age_Serv_Num_20260727_135417
+aus,Age_Serv_Wage,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/aus_Age_Serv_Wage_20260727_135446
+aus,Avg_Mort,unavailable,,clean,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/aus_Avg_Mort_20260727_135658
+aus,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/aus_Ret_Rate_20260727_135538
+aus,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/aus_Retirement_20260727_135725
+aus,Sep_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/aus_Sep_Rate_20260727_135638
+bos,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/bos_Avg_Mort_20260727_141556
+bos,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/bos_Ret_Rate_20260727_141332
+bos,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/bos_Retirement_20260727_141647
+bos,Sep_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/bos_Sep_Rate_20260727_141453
+chi_edu,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/chi_edu_Age_Serv_Num_20260727_141709
+chi_edu,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/chi_edu_Avg_Mort_20260727_142030
+chi_edu,Retirement,unavailable,,clean,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/chi_edu_Retirement_20260727_142230
+chi_ff,Age_Serv_Num,scored,0.9787,suspect,ok,RA,imperfect - adjudicate vs PDF,sweep_20260727/chi_ff_Age_Serv_Num_20260727_142320
+chi_ff,Avg_Mort,unavailable,,clean,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/chi_ff_Avg_Mort_20260727_142821
+chi_ff,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/chi_ff_Ret_Rate_20260727_142634
+chi_ff,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/chi_ff_Retirement_20260727_142929
+chi_gen,Age_Serv_Num,scored,0.9831,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/chi_gen_Age_Serv_Num_20260727_143004
+chi_gen,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/chi_gen_Retirement_20260727_145242
+chi_pol,Age_Serv_Num,scored,0.8684,suspect,ok,RA,one-row column shift on age-64 row; source stops at 63 so age-70 empty,sweep_20260727/chi_pol_Age_Serv_Num_20260727_145339
+chi_pol,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/chi_pol_Avg_Mort_20260727_150530
+chi_pol,Retirement,scored,1.0,clean,,RA,near-perfect - light spot-check vs PDF,sweep_20260727/chi_pol_Retirement_20260727_150703
+dal,Age_Serv_Num,scored,0.9828,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/dal_Age_Serv_Num_20260727_150733
+dal,Age_Serv_Wage,scored,0.0175,clean,,RA,0.02 - adjudicate vs PDF (likely also a totals/ratio issue),sweep_20260727/dal_Age_Serv_Wage_20260727_150752
+dal,Retirement,scored,1.0,clean,,RA,near-perfect - light spot-check vs PDF,sweep_20260727/dal_Retirement_20260727_151109
+hou_pol,Age_Serv_Num,scored,1.0,suspect,ok,RA,imperfect - adjudicate vs PDF,sweep_20260727/hou_pol_Age_Serv_Num_20260727_151130
+hou_pol,Age_Serv_Wage,scored,0.9773,none,,RA,imperfect - adjudicate vs PDF,sweep_20260727/hou_pol_Age_Serv_Wage_20260727_151305
+hou_pol,Ret_Rate,scored,1.0,none,,RA,near-perfect - light spot-check vs PDF,sweep_20260727/hou_pol_Ret_Rate_20260727_152241
+hou_pol,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/hou_pol_Retirement_20260727_152427
+lax_ffpol,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/lax_ffpol_Age_Serv_Num_20260727_152502
+lax_ffpol,Age_Serv_Wage,scored,0.9167,none,,RA,imperfect - adjudicate vs PDF,sweep_20260727/lax_ffpol_Age_Serv_Wage_20260727_152550
+lax_ffpol,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/lax_ffpol_Avg_Mort_20260727_154125
+lax_ffpol,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/lax_ffpol_Ret_Rate_20260727_152714
+lax_ffpol,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/lax_ffpol_Retirement_20260727_154419
+lax_gen,Age_Serv_Num,scored,0.9655,clean,ok,RA,imperfect - adjudicate vs PDF,sweep_20260727/lax_gen_Age_Serv_Num_20260727_154504
+lax_gen,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/lax_gen_Avg_Mort_20260727_155221
+lax_gen,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/lax_gen_Ret_Rate_20260727_155010
+lax_gen,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/lax_gen_Retirement_20260727_155356
+lax_uty,Age_Serv_Num,scored,1.0,suspect,ok,RA,imperfect - adjudicate vs PDF,sweep_20260727/lax_uty_Age_Serv_Num_20260727_155425
+lax_uty,Age_Serv_Wage,scored,1.0,suspect,,RA,imperfect - adjudicate vs PDF,sweep_20260727/lax_uty_Age_Serv_Wage_20260727_155609
+lax_uty,Avg_Mort,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/lax_uty_Avg_Mort_20260727_160846
+lax_uty,Retirement,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/lax_uty_Retirement_20260727_160927
+mil,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/mil_Age_Serv_Num_20260727_160946
+mil,Age_Serv_Wage,production,,clean,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/mil_Age_Serv_Wage_20260727_161347
+mil,Avg_Mort,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/mil_Avg_Mort_20260727_161917
+mil,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/mil_Ret_Rate_20260727_161831
+phi,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/phi_Age_Serv_Num_20260727_162106
+phi,Age_Serv_Wage,scored,1.0,clean,,RA,near-perfect - light spot-check vs PDF,sweep_20260727/phi_Age_Serv_Wage_20260727_162143
+phi,Ret_Rate,unavailable,,none,,RA,model says table not in doc - verify vs PDF; if it's an IMAGE -> needs vision model,sweep_20260727/phi_Ret_Rate_20260727_162226
+phx,Age_Serv_Num,scored,1.0,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/phx_Age_Serv_Num_20260727_162651
+phx,Age_Serv_Wage,scored,0.9661,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/phx_Age_Serv_Wage_20260727_162709
+phx,Retirement,scored,1.0,none,,RA,near-perfect - light spot-check vs PDF,sweep_20260727/phx_Retirement_20260727_162937
+sd,Age_Serv_Num,scored,0.9206,clean,ok,RA,known: workbook dropped '70 & up' row (register #8) - model likely right vs PDF,sweep_20260727/sd_Age_Serv_Num_20260727_162958
+sd,Age_Serv_Wage,scored,0.9123,none,,RA,imperfect - adjudicate vs PDF,sweep_20260727/sd_Age_Serv_Wage_20260727_163021
+sf,Age_Serv_Num,scored,0.9875,clean,ok,RA,near-perfect - light spot-check vs PDF,sweep_20260727/sf_Age_Serv_Num_20260727_165010
+sf,Age_Serv_Wage,scored,0.925,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/sf_Age_Serv_Wage_20260727_165038
+sf,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/sf_Ret_Rate_20260727_165116
+sf,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/sf_Retirement_20260727_165445
+chi_edu,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_edu_Ret_Rate_20260727_141906
+chi_edu,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_edu_Sep_Rate_20260727_141945
+chi_ff,Sep_Rate,scored,0.0879,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_ff_Sep_Rate_20260727_142733
+chi_gen,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_gen_Ret_Rate_20260727_143207
+chi_gen,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_gen_Sep_Rate_20260727_144033
+chi_pol,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_pol_Ret_Rate_20260727_150427
+chi_pol,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_pol_Sep_Rate_20260727_150505
+dal,Avg_Mort,scored,0.0,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Avg_Mort_20260727_150944
+dal,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Ret_Rate_20260727_150901
+dal,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Sep_Rate_20260727_150925
+hou_pol,Avg_Mort,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/hou_pol_Avg_Mort_20260727_152335
+hou_pol,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/hou_pol_Sep_Rate_20260727_152312
+lax_ffpol,Sep_Rate,scored,0.3909,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_ffpol_Sep_Rate_20260727_154039
+lax_gen,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_gen_Sep_Rate_20260727_155119
+lax_uty,Ret_Rate,scored,0.6561,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_uty_Ret_Rate_20260727_155942
+lax_uty,Sep_Rate,scored,0.1727,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_uty_Sep_Rate_20260727_160824
+mil,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/mil_Sep_Rate_20260727_161847
+phi,Avg_Mort,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phi_Avg_Mort_20260727_162335
+phi,Sep_Rate,scored,0.1727,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phi_Sep_Rate_20260727_162252
+phx,Avg_Mort,scored,0.55,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Avg_Mort_20260727_162855
+phx,Ret_Rate,scored,0.8624,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Ret_Rate_20260727_162731
+phx,Sep_Rate,scored,0.7909,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Sep_Rate_20260727_162816
+sd,Retirement,scored,0.0,clean,,assumption,source combines retirees+disabled+beneficiaries; cannot isolate service retirees -> register 6c,sweep_20260727/sd_Retirement_20260727_164911
+sd,Sep_Rate,scored,0.1818,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sd_Sep_Rate_20260727_164254
+sf,Avg_Mort,scored,0.0,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sf_Avg_Mort_20260727_165308
+sf,Sep_Rate,scored,0.3182,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sf_Sep_Rate_20260727_165155
+bos,Age_Serv_Num,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/bos_Age_Serv_Num_20260727_135753
+bos,Age_Serv_Wage,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/bos_Age_Serv_Wage_20260727_140815
+chi_edu,Age_Serv_Wage,scored,0.0,clean,,me,transcribed salary-TOTALS+counts OK but dropped derive=ratio -> raw totals; instruction/validator fix,sweep_20260727/chi_edu_Age_Serv_Wage_20260727_141736
+chi_ff,Age_Serv_Wage,scored,0.0,none,,me,same as chi_edu: forgot derive=ratio on totals+counts,sweep_20260727/chi_ff_Age_Serv_Wage_20260727_142532
+chi_gen,Age_Serv_Wage,scored,0.0,clean,,me,same: forgot derive=ratio,sweep_20260727/chi_gen_Age_Serv_Wage_20260727_143044
+chi_gen,Avg_Mort,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/chi_gen_Avg_Mort_20260727_144128
+chi_pol,Age_Serv_Wage,scored,0.0,none,,me,same: forgot derive=ratio (interleaved Exhibit C Part III),sweep_20260727/chi_pol_Age_Serv_Wage_20260727_150333
+lax_gen,Age_Serv_Wage,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/lax_gen_Age_Serv_Wage_20260727_154540
+mil,Retirement,scored,0.0,clean,,me,"right approach (sum 3 groups, x12) but MIS-MAPPED columns (Number<-benefit total)",sweep_20260727/mil_Retirement_20260727_162026
+phi,Retirement,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/phi_Retirement_20260727_162420
+sd,Avg_Mort,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/sd_Avg_Mort_20260727_164318
+sd,Ret_Rate,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/sd_Ret_Rate_20260727_163205

@@ -2,8 +2,9 @@
 
 Batch `_batch_resumable`, 96 cells (16 plans x 6 sheets), run post all this-week's
 fixes. Artifacts here: `summary.json`, `summary.csv`, `ra_worklist.csv`
-(per-cell owner routing). Full per-run artifacts are on the cluster under
-`runs/<plan>_<target>_<ts>/` (extraction.json = raw tables + declared ops +
+(per-cell owner routing). Full per-run artifacts are committed locally under
+`runs/sweep_20260727/<plan>_<target>_<ts>/` — the exact path is the `run_dir`
+column in `ra_worklist.csv` (extraction.json = raw tables + declared ops +
 notes; derived.json = output grid; report.json = per-cell mismatches).
 
 **IMPORTANT framing (Niccolo's corrections, do not regress):** the workbook is

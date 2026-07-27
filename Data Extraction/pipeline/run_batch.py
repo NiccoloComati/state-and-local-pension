@@ -16,7 +16,10 @@ engaging_beta/runbook.md):
     python pipeline/run_batch.py --quiet               # only the summary table
 
 Writes runs/_batch_<stamp>/summary.json and summary.csv, and prints a table.
-Each cell's per-run artifacts live in the usual runs/<plan>_<target>_<ts>/.
+Each cell's per-run artifacts nest UNDER the batch dir:
+runs/<batch>/<plan>_<target>_<ts>/ - so one sweep = one self-contained folder
+(summary + every cell), instead of scattering cell dirs across the top of runs/.
+A bare single run_test.run_one (no batch) lands in runs/_adhoc/ for the same reason.
 """
 import argparse
 import csv
@@ -121,7 +124,8 @@ def main():
             print(f"\n===== [{n}/{total}] {plan} / {target} "
                   + "=" * 30, flush=True)
             try:
-                o = run_test.run_one(plan, target, targets, verbose=not args.quiet)
+                o = run_test.run_one(plan, target, targets, verbose=not args.quiet,
+                                     base_dir=batch_dir)
             except Exception as e:                    # noqa: BLE001 - never abort the sweep
                 o = {"plan": plan, "target": target, "status": "crash",
                      "crash": f"harness error: {str(e)[:200]}", "score": None,

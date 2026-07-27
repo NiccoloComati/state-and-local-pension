@@ -106,10 +106,14 @@ def _totals_status(result):
     return "suspect" if any_suspect else ("clean" if any_printed else "none")
 
 
-def run_one(plan_key, target, targets, pages=None, verbose=True):
+def run_one(plan_key, target, targets, pages=None, verbose=True, base_dir=None):
     """Run one plan x target end to end. Writes artifacts to a fresh run dir
     and returns a structured outcome dict (never raises - a Stage A crash is
-    captured as status='crash'). This is the unit the batch harness iterates."""
+    captured as status='crash'). This is the unit the batch harness iterates.
+
+    base_dir groups the cell's run dir: a batch passes its own dir so all its
+    cells nest under it (runs/<batch>/<plan>_<target>_<ts>/); a bare single run
+    (base_dir=None) lands in runs/_adhoc/ so the top of runs/ stays clean."""
     plan = PLANS[plan_key]
     spec = targets[target]
     out = {"plan": plan_key, "target": target, "status": None, "score": None,
@@ -134,7 +138,8 @@ def run_one(plan_key, target, targets, pages=None, verbose=True):
             return out
 
     stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    run_dir = os.path.join(DATA_EXTRACTION, "runs", f"{plan_key}_{target}_{stamp}")
+    runs_root = base_dir or os.path.join(DATA_EXTRACTION, "runs", "_adhoc")
+    run_dir = os.path.join(runs_root, f"{plan_key}_{target}_{stamp}")
     os.makedirs(run_dir, exist_ok=True)
     out["run_dir"] = run_dir
 
