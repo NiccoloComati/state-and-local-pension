@@ -758,18 +758,37 @@ def _call_openai(messages, temperature=0, seed=0):
         raw = json.loads(resp.read().decode("utf-8"))
     choice = raw["choices"][0]
     if choice.get("finish_reason") == "length":
-        # Diagnostic: expose WHAT ran away so we can tell a repetition loop from
-        # over-transcription (many tables) without re-plumbing the record path.
-        # n_tables = how many source_tables it had started; head/tail show
-        # whether the end is a stuck repeat of the start.
+        # Diagnostic: classify the runaway WITHOUT re-plumbing a save path.
+        #   n_tables  = how many source_tables it started (over-transcription of
+        #               real tables, like mil's 12 employer tables, vs. one table)
+        #   n_rows    = rough count of transcribed cell-rows ('], [' separators)
+        #   reps      = how many times a late 140-char window recurs in the whole
+        #               output; a high count == a REPETITION LOOP (model stuck
+        #               emitting the same rows), a low count == a genuinely large
+        #               (single-year) table that just needs more output budget.
+        # The full runaway text is also dumped to EXTRACT_DUMP_DIR (if set) so it
+        # can be inspected end to end.
         c = choice.get("message", {}).get("content") or ""
         n_tables = c.count('"page"')
-        head = c[:180].replace("\n", " ")
-        tail = c[-180:].replace("\n", " ")
+        n_rows = c.count("], [") + c.count("],[")
+        probe = c[-300:-160]
+        reps = c.count(probe) if len(probe.strip()) > 40 else 0
+        verdict = "LIKELY LOOP" if reps >= 4 else "likely large/legit table"
+        dump = os.environ.get("EXTRACT_DUMP_DIR")
+        dumped = ""
+        if dump:
+            path = os.path.join(dump, f"truncated_{seed}_{len(c)}.txt")
+            try:
+                with open(path, "w", encoding="utf-8") as fh:
+                    fh.write(c)
+                dumped = f" [full text -> {path}]"
+            except OSError:
+                pass
         raise RuntimeError(
-            f"local model hit the {MAX_TOKENS}-token output limit (runaway; thinking "
-            f"is OFF). content={len(c)} chars, started {n_tables} source_tables. "
-            f"HEAD: {head!r} ... TAIL: {tail!r}")
+            f"local model hit the {MAX_TOKENS}-token output limit. content={len(c)} "
+            f"chars, {n_tables} source_tables, ~{n_rows} cell-rows, "
+            f"late-window recurs {reps}x -> {verdict}.{dumped} "
+            f"HEAD: {c[:150].replace(chr(10),' ')!r} TAIL: {c[-150:].replace(chr(10),' ')!r}")
     return choice["message"]["content"], raw
 
 
