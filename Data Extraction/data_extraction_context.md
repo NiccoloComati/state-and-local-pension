@@ -1309,3 +1309,28 @@ fix-verification set; got mil/Age_Serv_Num before a preemption bump:
   all samples on it because #5 correctly refuses the over-sum as 'clean', and
   each sample re-generates mil's large (9-12 table) output. Working as intended;
   the eventual ease is the deferred hard table-count/output cap.
+
+### 2026-07-27 - targeted fix-verification (fast set) + harness currency fix
+Ran dal,phx,sd,lax_uty x ASN/ASW/Ret_Rate after the fresh clean TP=2 boot.
+- **Regression SOLID:** phx 1.000 ASN / 0.966 ASW (residual = known 86306-vs-
+  86309 workbook typo), sd 0.921 ASN / 0.912 ASW (residuals = known human 70+
+  drop). Fixes #2/#4 hold; nothing regressed.
+- **Segal count: fixed for chi_pol (sweep-2, 1.0) but NOT lax_uty (0.725!,
+  ppd=ok, totals suspect = a shift that conserves the total).** best-of-N found
+  the un-shifted sample for chi but not lax -> lax_uty is the EXTRACT_APPEND_
+  TABLES A/B candidate.
+- **Truncation STILL crashes rate tables** (sd/lax_uty Ret_Rate: over-
+  transcription runaway, 200-290K chars). Needs the deferred hard output/
+  table-count cap; fix #3 instruction insufficient.
+- **#C per_1000 not cleanly exercised:** dal Ret_Rate 0.0 = the Tier A/B
+  STRUCTURE (empty derivation), not units; sd Ret_Rate crashed on truncation.
+  Capability present, no plan hit it successfully. (phx Ret_Rate 0.862 = known
+  register-3 convention noise.)
+- **NEW HARNESS BUG (fixed): `could not convert string to float: '$91,130'`.**
+  The model sometimes transcribes a salary WITH currency/thousands formatting;
+  the string flowed to the derived grid and crashed float() in scoring (and was
+  silently non-numeric in aggregation). Fix: `ops.to_number` ('$91,130'->91130,
+  leaving labels/'*'/dashes alone) applied to source cells at the START of
+  `execute` (correct aggregation), plus harness `_cell`/`_f` guards (no scoring
+  crash; a genuinely non-numeric cand cell now scores 'wrong', not a run
+  crash). Verified end-to-end; suite 13/13.

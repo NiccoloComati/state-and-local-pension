@@ -78,10 +78,23 @@ def _cell(v):
         try:
             return float(s)
         except ValueError:
-            return s
+            s2 = s.replace("$", "").replace(",", "").strip()   # '$91,130' -> 91130
+            try:
+                return float(s2)
+            except ValueError:
+                return s
     if isinstance(v, (int, float)):
         return float(v)
     return str(v)
+
+
+def _f(x):
+    """Coerce a cell to float, tolerating currency/thousands formatting a
+    candidate grid may carry ('$91,130'). Raises only on a truly non-numeric
+    string (which then surfaces as a scoring mismatch, not a crash)."""
+    if isinstance(x, str):
+        return float(x.replace("$", "").replace(",", "").strip())
+    return float(x)
 
 
 def score(truth, cand, close_rel=0.01, zero_equals_empty=False):
@@ -141,7 +154,14 @@ def score(truth, cand, close_rel=0.01, zero_equals_empty=False):
                     report["wrong"] += 1
                     _mm(report, i, j, t, c, truth)
             else:
-                tf, cf = float(t), float(c)
+                try:
+                    tf, cf = _f(t), _f(c)
+                except (ValueError, TypeError):
+                    # a genuinely non-numeric candidate vs a numeric truth =
+                    # a wrong cell, not a crash of the whole run
+                    report["wrong"] += 1
+                    _mm(report, i, j, t, c, truth)
+                    continue
                 if tf == cf or (tf != 0 and abs(cf - tf) / abs(tf) < 1e-9):
                     report["exact"] += 1
                 elif tf != 0 and abs(cf - tf) / abs(tf) < close_rel:
