@@ -1381,3 +1381,25 @@ transcribed totals+counts fine), NOT an interleaved-layout failure - fixable,
 mine, ~4 cells -> ~1.0. mil Retirement = column mis-map (mine). sd Retirement =
 payee-population assumption. 7 crashes to diagnose. Image-only tables = unknown
 volume, need a vision model.
+
+### 2026-07-27 - SOLVE-NOW fix 1: wage totals-as-averages guard (the 4 chi wage 0.00s)
+Sweep diagnosis: chi_edu/chi_ff/chi_gen/chi_pol Age_Serv_Wage = 0.00 because the
+model transcribed the salary-TOTALS table + counts correctly and its NOTES say
+"average = totals/lives", but declared `derive: None` -> the grid is raw
+million-dollar totals (chi_edu <25/svc4 cand=2,272,208 vs truth 43,955). NOT an
+interleaved-layout transcription failure (earlier guess wrong). Instruction
+rule [3] already covers this; it wasn't landing, and it slipped best-of-N because
+the source totals table reconciles with its OWN printed totals (totals-check
+sees it "clean").
+
+Fix (enforcement, not more instruction): `targets.json` Age_Serv_Wage gets
+`max_plausible_value: 1000000`; `validate()` now rejects (fatal) any wage
+extraction where derive!=ratio and source_tables[0] holds a cell > the ceiling -
+a per-person average can't be seven figures, but a totals cell for any populous
+bucket always is (avg x count > 1M past ~20 people), so it separates cleanly
+(real averages top ~200-300k -> no false positive). The message tells the model
+to declare derive=ratio(totals,counts). Turns the silent totals-as-averages
+output into a loud violation best-of-N/retry corrects; the model already knows
+the op (its notes), it just wasn't forced to declare it. `test_wage_totals_guard
+.py` proves fire-on-totals / allow-ratio / no-false-positive-on-averages. Suite
+14/14. Verify next: re-run chi_edu/ff/gen/pol Age_Serv_Wage on the cluster.

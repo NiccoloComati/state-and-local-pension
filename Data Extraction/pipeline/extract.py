@@ -729,6 +729,29 @@ def validate(result, target_spec=None):
                      f"unit is a probability (max 1): the table prints a scaled rate - "
                      f"set its values_unit to {scale} so code rescales it (transcribe "
                      "the numbers as printed either way)")
+
+    # plausibility for an AVERAGE-dollar target (Age_Serv_Wage): a per-person
+    # average salary can't be seven figures. If source_tables[0] (the values
+    # table that fills the grid) holds million-dollar cells and derive is NOT
+    # ratio, the model transcribed a salary-TOTALS table and is emitting the raw
+    # sums as if they were averages (the whole-corpus 2026-07-27 chi_edu/ff/gen/
+    # pol wage 0.00s: notes said 'average = totals/lives' but derive was None).
+    # Make it a loud contract violation so best-of-N/retry declares derive=ratio.
+    ceiling = target_spec.get("max_plausible_value") if target_spec else None
+    is_ratio = isinstance(derive, dict) and derive.get("op") == "ratio"
+    if ceiling and tables and isinstance(tables[0], dict) and not is_ratio:
+        cells = tables[0].get("cells") or []
+        mx = max((v for row in cells if isinstance(row, list)
+                  for v in row if isinstance(v, (int, float))
+                  and not isinstance(v, bool)), default=None)
+        if mx is not None and mx > ceiling:
+            p.append(f"source_tables[0] holds values up to {mx:,.0f} - a per-person "
+                     f"average can't exceed {ceiling:,.0f}, so this is a salary-TOTALS "
+                     "table, not an averages exhibit. Transcribe the member-COUNTS "
+                     "table too and declare derive={'op':'ratio','numerator_table':"
+                     "<totals index>,'denominator_table':<counts index>} with additive "
+                     "maps (sum/copy) - code computes average = total/count. Do NOT "
+                     "emit the totals as if they were averages.")
     return p
 
 

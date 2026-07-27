@@ -49,6 +49,7 @@
   "Age_Serv_Wage": {
     "description": "Active member AVERAGE SALARY by age (rows) x years of credited service (columns). Source: the AV's average-salary-by-age-and-service exhibit (often adjacent to the counts table, titled 'Active Member Average Salary/Compensation by Age and Service').",
     "unit": "average annual salary in dollars",
+    "max_plausible_value": 1000000,
     "keywords": [
       "average salary",
       "average annual compensation",
