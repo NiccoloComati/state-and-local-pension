@@ -51,29 +51,46 @@ _warmup_prefill_kernels`, during `profile_run`. The visible
   the identical `-p mit_preemptable -N1 --gres=gpu:h200:2 -c 8 --mem=96G`
   request and worked. (Niccolo suspected the alloc method; ruled out by
   node5200.)
-- **Leading untested hypothesis: a poisoned Triton/compile cache** in `~`
-  (home follows every node). "Worked once (node5200 wrote the cache), then
-  every node after crashes" fits this. **First thing to try next session:**
-  wipe caches then boot:
-  `rm -rf ~/.cache/vllm ~/.cache/torch ~/.triton ~/.cache/flashinfer` then the
-  standard TP=2 boot (no --enforce-eager).
-- **Reliable fallback that DOES boot:** TP=1 single GPU
-  (`--tensor-parallel-size 1 --max-model-len 131072 --gpu-memory-utilization
-  0.97 --enforce-eager` + `EXTRACT_MAX_TOKENS=16000`) — it physically can't hit
-  the cross-GPU peer bug. Slower (no prefix-cache room -> re-prefills each doc,
-  best-of-N amplifies it), so only worth it for a SMALL targeted run
-  (mil/dal/phx/sd ASN+Ret_Rate), not the full 96.
-- If cache-wipe doesn't fix TP=2 and the pool keeps handing crash-y nodes,
-  it may be a vLLM/kernel version issue on those nodes worth raising with
-  Engaging support, or pin a different container tag.
-
-### Next-session order (short)
-1. Fresh preemptable alloc (gotcha #6). **Wipe the caches** (above) BEFORE the
-   first boot - likely fixes TP=2.
-2. If TP=2 boots: finish the sweep (or at least mil/dal/phx/sd/lax_uty ASN +
+- **Cache-poison hypothesis TESTED, did NOT fix it (but the test was dirty).**
+  Tried on node4002: `rm -rf ~/.cache/vllm ~/.cache/torch ~/.triton
+  ~/.cache/flashinfer` then a standard TP=2 boot -> STILL crashed identically.
+  BUT the wipe was INCOMPLETE: `rm` failed on a couple of `.nfs*` lock files
+  ("Device or resource busy") because vllm workers were still dying when it
+  ran, so some cache survived. So the theory isn't cleanly disproven - a
+  FULLY clean wipe was never actually achieved.
+- **RECOMMENDED next-session order (stop the TP=2 roulette after ONE clean
+  try):**
+  1. Fresh node. Kill everything and VERIFY empty first:
+     `pkill -9 -u ncomati -f vllm; sleep 8; pgrep -af vllm || echo clean`,
+     THEN wipe: `rm -rf ~/.cache/vllm ~/.cache/torch ~/.triton
+     ~/.cache/flashinfer` (should have NO busy-file errors this time),
+     THEN the standard TP=2 boot. This is the clean cache test we never got.
+  2. If that STILL crashes at `_warmup_prefill_kernels` -> the cache is
+     exonerated; it's the vLLM 0.25.1 GDN kernel vs these H200 nodes. DO NOT
+     keep booting TP=2. Two real options then: (a) **go TP=1** (below) and get
+     the critical runs; (b) rebuild the container from a different pinned vLLM
+     tag (heavier; the §7 apptainer build recipe) and retry TP=2 - a later-vLLM
+     GDN kernel may not have the bug. Worth raising with Engaging/ORCD support
+     too (reproducible CUDA illegal-access in a stock vLLM kernel on their
+     H200s).
+- **Reliable fallback that DOES boot: TP=1 single GPU.**
+  `--tensor-parallel-size 1 --max-model-len 131072 --gpu-memory-utilization
+  0.97 --enforce-eager` + `export EXTRACT_MAX_TOKENS=16000`. It physically
+  can't hit the cross-GPU peer/kernel path and booted fine on 2026-07-24.
+  Slower (no prefix-cache room -> re-prefills each doc; best-of-N amplifies
+  it), so use it for a SMALL targeted run (mil/dal/phx/sd/lax_uty ASN +
+  Age_Serv_Wage + Ret_Rate) to close #5/#C/regression + the Segal wage
+  picture - NOT the full 96. **If tonight repeats, just do this and make
+  progress instead of fighting TP=2.**
+### Next-session order (short) — do NOT repeat the 2026-07-25 boot-roulette
+1. Fresh preemptable alloc (gotcha #6). ONE clean TP=2 attempt: kill+verify
+   procs, do a CLEAN cache wipe (no busy-file errors), standard TP=2 boot.
+2. If it boots: finish the sweep (or at least mil/dal/phx/sd/lax_uty ASN +
    Age_Serv_Wage + Ret_Rate) to close #5/#C/regression + the Segal wage picture.
-3. If TP=2 won't boot after a cache wipe: TP=1 for the small targeted set,
-   defer the full sweep.
+3. If it STILL crashes at `_warmup_prefill_kernels`: DON'T keep booting TP=2.
+   Switch to **TP=1** for the small targeted set and make progress; leave a
+   possible container-rebuild / support ticket for later. (Full 96-sweep waits
+   for a working TP=2.)
 4. Then the next bulk-fix round: Segal wage mapping (EXTRACT_APPEND_TABLES A/B)
    + a hard truncation cap.
 

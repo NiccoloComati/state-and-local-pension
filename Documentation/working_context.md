@@ -2475,3 +2475,26 @@ position-align. Suite 13/13. Remaining need a GPU alloc: Segal A/B
 (EXTRACT_APPEND_TABLES) + the full re-sweep to verify all fixes. The
 step-by-step NEXT-ALLOCATION CHECKLIST is in
 `Data Extraction/engaging_beta/SESSION_HANDOFF.md` section 0b (read first).
+
+## 2026-07-25/27 (session 4): sweep-2 partial (32/96) + a vLLM TP=2 boot blocker
+
+Re-swept after the 6 bulk-fixes on a 2-GPU node; got 32/96 before the 3h wall,
+then hit a hard boot blocker across the rest of the session. Full detail +
+next-session plan in `Data Extraction/engaging_beta/SESSION_HANDOFF.md` §0c
+(read first). Headlines:
+- The 32 runs CONFIRM the gate: Age_Serv_Num chi_edu/chi_ff/chi_pol=1.0,
+  chi_gen 0.983 — and chi_pol is the Segal layout that was 0.868; best-of-N +
+  the hardened totals-check now pick the un-shifted sample. Segal count shift
+  FIXED. Still open: Age_Serv_Wage on Segal chi plans (all 0.0, ratio mapping
+  breaks on interleaved layout) + truncation crashes on some plans (fix #3
+  instruction insufficient). Rate/blend low = expected (bucket E).
+- BOOT BLOCKER: TP=2 vLLM crashes at startup with CUDA illegal-memory-access
+  in the Qwen GDN kernel (_warmup_prefill_kernels) on node5201 AND node4002
+  (node5200 had booted fine and run the 32). Not one bad GPU; not the alloc
+  flags (node5200 used the same). --enforce-eager, --disable-custom-all-reduce,
+  and a DIRTY cache wipe (busy .nfs files) all still crashed. Next session: ONE
+  clean cache-wipe TP=2 attempt, else use the TP=1 single-GPU boot (known to
+  work 2026-07-24) for the critical targeted runs — do NOT repeat the
+  boot-roulette that ate this session.
+- Docs/handoff updated + committed. Nothing else to run on the failed node;
+  partial batch saved at runs/_batch_20260725_143259/.

@@ -23,11 +23,20 @@ best-of-N temperature sampling verified by the printed-totals check, a
 `run_batch.py` sweep (matrix + attention list), a hardened `totals_check`, a
 redundant **PPD count cross-check** (`ppd_check.py`), a prefer-combined-table
 hint, and an opt-in table-extraction path (`EXTRACT_APPEND_TABLES=1`, the Segal
-lever). **The full 16-plan sweep is BUILT AND READY (commit c2b5a9d); it is
-blocked ONLY on the Engaging GPU queue** (slow 2026-07-22/23, forced a machine
-switch before an alloc came). Next session: get a GPU alloc, run the A-D
-sequence in the beta handoff §0, paste the summary back for the bulk-fix pass.
-(Commits no longer add a Claude co-author trailer, per Niccolo.)
+lever). **UPDATE 2026-07-27 — read `engaging_beta/SESSION_HANDOFF.md` §0c
+FIRST (newest); it supersedes §0/§0b.** Sweep-1 ran (16x6, GATE reconfirmed);
+6 bulk-fixes committed (7ff3ab0). Sweep-2 (post-fix) got **32/96** before a wall
+then a hard **vLLM BOOT BLOCKER**: TP=2 crashes with a CUDA illegal-memory-access
+in the Qwen GDN kernel on multiple H200 nodes (node5200 worked; 5201/4002
+crash); --enforce-eager, --disable-custom-all-reduce, and a dirty cache-wipe did
+not fix it. The 32 runs already confirm the gate holds and **chi_pol's Segal
+count shift is fixed (0.868->1.0)**; still-open: Age_Serv_Wage on Segal chi
+plans (0.0) + truncation crashes (next bulk-fix targets). Next session (per §0c):
+ONE clean TP=2 attempt (kill+verify+clean cache wipe), else fall back to the
+**TP=1 single-GPU boot that works** for the critical targeted runs (mil #5, dal
+#C, phx/sd regression, lax_uty Segal wage) — do NOT repeat the boot-roulette.
+Alloc = preemptable + lean (gotcha #6). (Commits no longer add a Claude
+co-author trailer, per Niccolo.)
 
 The current focus is the AV-PDF -> workbook extraction pipeline in
 `Data Extraction/pipeline/`. **Read `Data Extraction/data_extraction_context.md`
