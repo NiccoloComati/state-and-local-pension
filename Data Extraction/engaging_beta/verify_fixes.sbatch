@@ -35,8 +35,11 @@ trap 'pkill -9 -u "$USER" -f "vllm serve" 2>/dev/null || true' EXIT
 apptainer exec --nv -B "$SCRATCH" --env CC=gcc --env CXX=g++ "$SCRATCH/containers/vllm_dir" vllm serve "$SCRATCH/models/qwen35-122b-fp8" --served-model-name qwen35-122b-fp8 --tensor-parallel-size 2 --max-model-len 262144 --gpu-memory-utilization 0.90 --port 8000 > "$SCRATCH/vllm_sbatch.log" 2>&1 &
 
 python "$REPO/Data Extraction/engaging_beta/wait_health.py" \
-  --url http://127.0.0.1:8000/health --timeout 1500 || {
-    echo "!! vLLM never became healthy - see $SCRATCH/vllm_sbatch.log"; exit 1; }
+  --url http://127.0.0.1:8000/health --timeout 900 || {
+    echo "!! vLLM never healthy on $(hostname) after 900s (likely a bad node:"
+    echo "   the qwen_gdn_linear_attn TP=2 boot crash) - requeueing onto a fresh node."
+    echo "   see $SCRATCH/vllm_sbatch.log"
+    scontrol requeue "$SLURM_JOB_ID"; sleep 120; exit 1; }
 
 export EXTRACT_OPENAI_BASE_URL=http://127.0.0.1:8000/v1
 export EXTRACT_MODEL=qwen35-122b-fp8
