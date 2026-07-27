@@ -9,6 +9,45 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0d. LATEST — 2026-07-27 session 5: FULL SWEEP DONE + cell-level diagnosis (READ FIRST)
+
+The preemption problem is SOLVED (resumable `run_batch --batch-dir` + `sbatch
+--requeue`; `engaging_beta/sweep_requeue.sbatch`) and the **full 96-cell sweep
+completed** post all this-week's fixes. **The diagnosis is in
+`engaging_beta/sweep_20260727/diagnosis.md` (READ IT) — grid, owner routing, and
+the 4-way triage (solve-now / dig-deeper / assumption / hardest).** Machine-
+readable: `sweep_20260727/summary.json` + `ra_worklist.csv` (per-cell owner).
+The RA's job spec is `engaging_beta/ra_tasks.md`.
+
+**Headline:** 13/96 clean; owner split **58 RA · 26 assumption · 12 me**.
+Transcription machinery is strong (every Age_Serv_Num 0.87-1.0; wages 0.9-1.0
+where averages are printed). The remaining losses are NOT model transcription
+failure - they are (a) a few MY code/instruction fixes and (b) register
+decisions. Key adjudications (from reading artifacts, not scores):
+- **Wage `0.00(ratio)` on chi_edu/ff/gen/pol = MINE, highest leverage:** the
+  model transcribed salary-TOTALS + counts correctly but dropped `derive=ratio`
+  -> raw million-dollar totals. NOT an interleaved-layout failure (earlier guess
+  wrong). One instruction/validator fix likely flips all four to ~1.0.
+- **mil Retirement `0.00(map)` = MINE** (column mis-map).
+- **sd Retirement `0.00(asmpt)` = assumption** (can't isolate service retirees;
+  register 6c).
+- **chi_pol counts 0.87 = one-row transcription shift** (RA).
+- **Ret/Sep/Avg_Mort 0.00s = register-gated** (tier/convention/blend).
+- **7 crashes = mine to diagnose;** image-only tables = UNKNOWN volume, need a
+  vision model (the RA's Stream-B sizes it).
+
+**NEXT SESSION order:** (1) fix the wage `derive=ratio` miss (biggest lever,
+offline) + mil Retirement mapping; (2) diagnose the 7 crashes (truncation
+classifier + dump dir are wired); (3) re-run the affected cells to confirm
+(the preemption-proof sbatch makes this cheap); (4) the register sit-down owns
+the assumption bucket. To re-run: submit `engaging_beta/sweep_requeue.sbatch`
+(resumes `_batch_resumable`; delete that dir on the cluster first for a clean
+full re-sweep, or scope PLANS/TARGETS in the script).
+
+Everything below (§0c, §0b, §0, §1-9) is still valid background.
+
+---
+
 ## 0c. LATEST — 2026-07-25 session 4: sweep-2 partial (32 runs) + a vLLM BOOT BLOCKER (READ FIRST)
 
 Ran a re-sweep after the 6 bulk-fixes on a 2-GPU node (node5200). Got **32 of

@@ -1367,3 +1367,17 @@ REMAINING genuine gap: **Segal WAGE (chi_pol/chi_ff Age_Serv_Wage = 0.0)** -
 the interleaved total$+count layout breaks the ratio mapping; NOT fixed by
 append. A harder mapping problem (separate from the count targets, which are
 now good: chi_pol 1.0 when not looping, chi_ff 0.979, lax_uty ~1.0 post '--').
+
+### 2026-07-27 - FULL SWEEP complete + cell-level diagnosis + RA worklist
+The preemption-proof resumable sweep (sbatch --requeue) ran all 96 cells post
+the this-week fixes. Adjudicated from the ARTIFACTS (not the summary - per
+Niccolo, summaries hid the '--' bug). Full grid + 4-way triage + owner routing
+in `engaging_beta/sweep_20260727/diagnosis.md`; per-cell CSV
+`ra_worklist.csv`; RA spec `engaging_beta/ra_tasks.md`. Handoff §0d points to
+all of it. Headline: 13/96 clean; owner split 58 RA / 26 assumption / 12 me;
+transcription strong, remaining losses = a few code fixes + register decisions.
+Biggest single finding: the chi wage 0.00s are a dropped `derive=ratio` (model
+transcribed totals+counts fine), NOT an interleaved-layout failure - fixable,
+mine, ~4 cells -> ~1.0. mil Retirement = column mis-map (mine). sd Retirement =
+payee-population assumption. 7 crashes to diagnose. Image-only tables = unknown
+volume, need a vision model.
