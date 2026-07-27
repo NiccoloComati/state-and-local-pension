@@ -36,8 +36,11 @@ apptainer exec --nv -B "$SCRATCH" --env CC=gcc --env CXX=g++ "$SCRATCH/container
 
 python "$REPO/Data Extraction/engaging_beta/wait_health.py" \
   --url http://127.0.0.1:8000/health --timeout 900 || {
-    echo "!! vLLM never healthy on $(hostname) after 900s (likely a bad node:"
-    echo "   the qwen_gdn_linear_attn TP=2 boot crash) - requeueing onto a fresh node."
+    echo "!! vLLM never healthy on $(hostname) after 900s - likely a bad node:"
+    echo "   the TP=2 boot dies in CUDASymmetricMemory (custom all-reduce over"
+    echo "   GPU peer/NVLink), a per-node hardware fault. Requeue onto a fresh node."
+    echo "   If good nodes are scarce, a marginal node may still boot with"
+    echo "   --disable-custom-all-reduce and NCCL_P2P_DISABLE=1 (slower, NCCL fallback)."
     echo "   see $SCRATCH/vllm_sbatch.log"
     scontrol requeue "$SLURM_JOB_ID"; sleep 120; exit 1; }
 
