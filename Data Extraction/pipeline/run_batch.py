@@ -70,6 +70,11 @@ def main():
     ap.add_argument("--plans", help="comma-separated subset (default: all)")
     ap.add_argument("--targets", help="comma-separated subset (default: all)")
     ap.add_argument("--quiet", action="store_true", help="suppress per-run logs")
+    ap.add_argument("--batch-dir", help="resume/append into this batch dir instead "
+                    "of a new _batch_<stamp>; already-completed (plan,target) runs "
+                    "in its summary.json are SKIPPED. For sbatch --requeue: pass a "
+                    "fixed name so a preempted+resubmitted job continues where it left "
+                    "off. Relative names go under runs/.")
     args = ap.parse_args()
 
     _preflight_backend()
@@ -84,16 +89,35 @@ def main():
         if t not in all_targets:
             sys.exit(f"unknown target {t!r}; known: {all_targets}")
 
-    stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    batch_dir = os.path.join(run_test.DATA_EXTRACTION, "runs", f"_batch_{stamp}")
+    if args.batch_dir:
+        batch_dir = args.batch_dir if os.path.isabs(args.batch_dir) else \
+            os.path.join(run_test.DATA_EXTRACTION, "runs", args.batch_dir)
+    else:
+        stamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+        batch_dir = os.path.join(run_test.DATA_EXTRACTION, "runs", f"_batch_{stamp}")
     os.makedirs(batch_dir, exist_ok=True)
+    summary_path = os.path.join(batch_dir, "summary.json")
 
-    outcomes = []
+    # resume: load any prior outcomes in this batch dir and skip those runs.
+    # A run mid-flight when the job was preempted was never appended (we persist
+    # AFTER run_one returns), so it re-runs; only COMPLETED runs are skipped.
+    outcomes, done = [], set()
+    if os.path.exists(summary_path):
+        with open(summary_path, encoding="utf-8") as fh:
+            outcomes = json.load(fh)
+        done = {(o["plan"], o["target"]) for o in outcomes if o.get("status")}
+        print(f"[resume] {len(done)} completed runs in {batch_dir}; skipping them",
+              flush=True)
+
     total = len(plans) * len(tgts)
     n = 0
     for plan in plans:
         for target in tgts:
             n += 1
+            if (plan, target) in done:
+                print(f"\n===== [{n}/{total}] {plan} / {target} - already done, skip",
+                      flush=True)
+                continue
             print(f"\n===== [{n}/{total}] {plan} / {target} "
                   + "=" * 30, flush=True)
             try:
@@ -105,8 +129,9 @@ def main():
                      "run_dir": None, "exact": None, "close": None, "wrong": None,
                      "missing": None, "extra": None, "ppd": None}
             outcomes.append(o)
+            done.add((plan, target))
             # persist incrementally so a preemption/kill still leaves a summary
-            with open(os.path.join(batch_dir, "summary.json"), "w", encoding="utf-8") as fh:
+            with open(summary_path, "w", encoding="utf-8") as fh:
                 json.dump(outcomes, fh, indent=2)
 
     with open(os.path.join(batch_dir, "summary.csv"), "w", newline="", encoding="utf-8") as fh:
