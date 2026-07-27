@@ -1334,3 +1334,36 @@ Ran dal,phx,sd,lax_uty x ASN/ASW/Ret_Rate after the fresh clean TP=2 boot.
   `execute` (correct aggregation), plus harness `_cell`/`_f` guards (no scoring
   crash; a genuinely non-numeric cand cell now scores 'wrong', not a run
   crash). Verified end-to-end; suite 13/13.
+
+### 2026-07-27 - Segal pipe-grid A/B: DISPROVEN (keep append OFF) + two scoring/robustness bugs fixed
+A/B of EXTRACT_APPEND_TABLES (append pdfplumber pipe-grids) OFF vs ON on
+phx(control)/chi_pol/chi_ff/lax_uty x ASN/ASW:
+- phx control unchanged (1.0/0.966) - append doesn't help clean plans.
+- append HURTS: lax_uty ASW 1.0->0.0, chi_ff ASW 0.0->CRASH, chi_pol only
+  crash->0.553 (still bad). pdfplumber's detection on interleaved Segal
+  exhibits produces WORSE input than the layout text. **VERDICT: never enable
+  the append lever.** The pipe-grid hypothesis is disproven; layout-text
+  default is correct.
+
+Two bugs the A/B surfaced (both FIXED, suite 13/13):
+1. **'--' (multi-dash) not read as empty.** The harness only stripped single
+   dashes; a workbook '--' (printed empty) scored as a MISMATCH vs the
+   extractor's None. lax_uty ASN had 22 '--' cells -> false 'missing' ->
+   0.725 instead of ~1.0. Fix: `_cell` treats any all-dash string as empty.
+   Corrects scores corpus-wide wherever '--' is used. (Niccolo flagged the
+   '--' truth cells - real scoring bug.)
+2. **A truncation aborted the whole run.** chi_pol ASN sometimes decodes into
+   a repetition LOOP (diagnostic: 'late-window recurs 162x -> LIKELY LOOP') -
+   and one looping sample killed the entire run. Fix: `_call_openai` returns a
+   truncation flag instead of raising; best-of-N records it as a FAILED
+   candidate and keeps sampling (chi_pol ASN is 1.0 on non-looping draws). Only
+   if ALL attempts truncate does the run fail, now with the loop/large verdict
+   in the message.
+
+Confirmed WIN: **lax_uty Age_Serv_Wage = 1.000** in baseline - the currency
+fix ($91,130) unblocked it and it's perfect.
+
+REMAINING genuine gap: **Segal WAGE (chi_pol/chi_ff Age_Serv_Wage = 0.0)** -
+the interleaved total$+count layout breaks the ratio mapping; NOT fixed by
+append. A harder mapping problem (separate from the count targets, which are
+now good: chi_pol 1.0 when not looping, chi_ff 0.979, lax_uty ~1.0 post '--').

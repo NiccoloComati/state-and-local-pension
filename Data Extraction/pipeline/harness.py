@@ -71,7 +71,11 @@ def _cell(v):
         s = v.strip()
         if not s:
             return None
-        if s in ("-", "–", "—"):  # printed dash = empty cell
+        # any run of dash characters ('-', '--', '–', '—') is a printed empty
+        # cell. Only single dashes were handled before, so a workbook '--'
+        # scored as a MISMATCH against the extractor's None (e.g. lax_uty
+        # Age_Serv_Num: 22 '--' cells wrongly counted 'missing' -> 0.725 not 1.0).
+        if s and set(s) <= {"-", "–", "—"}:
             return None
         if s == "*":
             return "*"

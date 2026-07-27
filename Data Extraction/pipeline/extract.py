@@ -784,12 +784,14 @@ def _call_openai(messages, temperature=0, seed=0):
                 dumped = f" [full text -> {path}]"
             except OSError:
                 pass
-        raise RuntimeError(
-            f"local model hit the {MAX_TOKENS}-token output limit. content={len(c)} "
-            f"chars, {n_tables} source_tables, ~{n_rows} cell-rows, "
-            f"late-window recurs {reps}x -> {verdict}.{dumped} "
-            f"HEAD: {c[:150].replace(chr(10),' ')!r} TAIL: {c[-150:].replace(chr(10),' ')!r}")
-    return choice["message"]["content"], raw
+        msg = (f"output-limit truncation ({MAX_TOKENS} tok): content={len(c)} chars, "
+               f"{n_tables} source_tables, ~{n_rows} cell-rows, late-window recurs "
+               f"{reps}x -> {verdict}.{dumped} HEAD: {c[:150].replace(chr(10),' ')!r}")
+        # A truncation is a FAILED CANDIDATE, not a run abort: one looping
+        # sample must not kill best-of-N (chi_pol ASN loops on some draws and
+        # is perfect on others). Signalled via the 3rd return value.
+        return None, raw, msg
+    return choice["message"]["content"], raw, None
 
 
 def _evaluate(text, target_spec):
@@ -862,11 +864,17 @@ def _extract_openai(target_name, target_spec, prompt, record, record_path,
     best = {"key": (10 ** 9, 10.0, 10 ** 9), "result": None, "text": None, "fatal": None}
     clean = (0, 0.0, 0)
 
-    def consider(text, raw, tag):
-        result, fatal, totals, allp = _evaluate(text, target_spec)
-        recon = _reconcile_penalty(result, target_spec, reconcile_total) if not fatal else 10.0
-        att = {"tag": tag, "response": raw, "usage": raw.get("usage"),
-               "n_fatal": len(fatal), "n_totals": totals, "reconcile_err": recon}
+    def consider(text, raw, tag, trunc=None):
+        # trunc (output-limit truncation) is a FAILED candidate, not a run
+        # abort: record it and keep sampling. Ranks below any parseable one.
+        if trunc:
+            fatal, result, totals, recon = [trunc], None, 0, 10.0
+        else:
+            result, fatal, totals, allp = _evaluate(text, target_spec)
+            recon = _reconcile_penalty(result, target_spec, reconcile_total) if not fatal else 10.0
+        att = {"tag": tag, "response": raw, "usage": raw.get("usage") if raw else None,
+               "n_fatal": len(fatal), "n_totals": totals, "reconcile_err": recon,
+               "truncated": bool(trunc)}
         if fatal:
             att["format_problems"] = fatal
         record["attempts"].append(att)
@@ -876,28 +884,30 @@ def _extract_openai(target_name, target_spec, prompt, record, record_path,
         return key
 
     # 1. greedy baseline (reproducible)
-    text, raw = _call_openai(base, temperature=0, seed=0)
-    if consider(text, raw, "greedy") == clean:
+    text, raw, trunc = _call_openai(base, temperature=0, seed=0)
+    if consider(text, raw, "greedy", trunc) == clean:
         return _finalize_openai(best, record, record_path)
 
     # 2. one greedy correction retry with the specific problems fed back
-    if best["fatal"]:
+    #    (only if we HAVE a candidate to correct - not if greedy truncated)
+    if best["fatal"] and best["text"]:
         msgs = base + [{"role": "assistant", "content": best["text"]},
                        {"role": "user", "content": _correction_message(best["fatal"])}]
-        text, raw = _call_openai(msgs, temperature=0, seed=0)
-        if consider(text, raw, "retry") == clean:
+        text, raw, trunc = _call_openai(msgs, temperature=0, seed=0)
+        if consider(text, raw, "retry", trunc) == clean:
             return _finalize_openai(best, record, record_path)
 
     # 3. best-of-N: independent temperature draws to escape a deterministic
-    #    mistake (column shift, phantom index, wrong table set...), each
-    #    verified by the printed totals and the plan-total reconciliation
+    #    mistake (column shift, phantom index, wrong table set, OR a decoding
+    #    LOOP that truncates one sample), each verified by the printed totals
+    #    and the plan-total reconciliation
     if OPENAI_SAMPLES > 0 and best["key"] != clean:
         print(f"[stage A] not clean after greedy+retry (best: {best['key'][0]} contract, "
               f"{best['key'][1]} reconcile, {best['key'][2]} totals); sampling up to "
               f"{OPENAI_SAMPLES} at temperature {OPENAI_TEMPERATURE}...")
         for i in range(OPENAI_SAMPLES):
-            text, raw = _call_openai(base, temperature=OPENAI_TEMPERATURE, seed=1000 + i)
-            if consider(text, raw, f"sample{i}") == clean:
+            text, raw, trunc = _call_openai(base, temperature=OPENAI_TEMPERATURE, seed=1000 + i)
+            if consider(text, raw, f"sample{i}", trunc) == clean:
                 print(f"[stage A] clean sample found (sample{i})")
                 break
 
