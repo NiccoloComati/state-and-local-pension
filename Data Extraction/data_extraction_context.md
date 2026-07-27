@@ -1286,3 +1286,26 @@ The 4 contract-arity sweep crashes, handled by root cause:
   one-off model-conformance on hard tables**, not a systematic bug. They re-run
   with the other fixes; any remainder stays on the attention list for targeted
   handling (acceptable under breadth-first). Suite 13/13.
+
+### 2026-07-27 - FIX #5 VERIFIED LIVE: mil Age_Serv_Num = 1.0 (reconcile selected the right partition)
+Fresh TP=2 boot on node5200 with a genuinely CLEAN cache wipe (procs verified
+empty, wipe exit 0) - the 2026-07-25 boot blocker did NOT recur (clean cache +
+the known-good node; whichever was decisive, TP=2 works). Ran the targeted
+fix-verification set; got mil/Age_Serv_Num before a preemption bump:
+- greedy+retry over-transcribed (best key: 1 contract, reconcile-placeholder,
+  0 totals) -> best-of-N sampled -> **sample4 transcribed the 9 tables that
+  PARTITION the plan** (the 7 General employer sub-tables + Police + Fire),
+  EXCLUDING the redundant 'General Employees - Total' (p.72) and the Tier1/
+  Tier2 re-partition (p.73/74) -> derive=sum -> **PPD reconcile 10,974 vs
+  10,974 = OK -> 80/80 EXACT (1.0)**.
+- This is fix #5 working exactly as designed: the reconciliation penalty
+  rejected every over-summing candidate and SELECTED the one whose derived
+  total matches the plan. mil went from a 27,858 over-sum (sweep-1) to a
+  perfect 1.0. **The biggest fix is verified live.**
+- Preempted at run 2/15 (mit_preemptable revoked ~11 min in). mil ASN artifact
+  saved: runs/mil_Age_Serv_Num_20260727_090101. STILL TO RUN (14): dal Ret_Rate
+  (#C per_1000), phx/sd regression, lax_uty Age_Serv_Wage (Segal), + the rest.
+- Perf note (NOT a bug): mil is the expensive outlier - best-of-N now draws
+  all samples on it because #5 correctly refuses the over-sum as 'clean', and
+  each sample re-generates mil's large (9-12 table) output. Working as intended;
+  the eventual ease is the deferred hard table-count/output cap.
