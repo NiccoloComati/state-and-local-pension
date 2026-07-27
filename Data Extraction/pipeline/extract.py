@@ -470,6 +470,28 @@ def validate(result, target_spec=None):
                          ("row_labels", list), ("col_labels", list)):
             if not isinstance(t.get(key), typ):
                 p.append(f"source_tables[{k}].{key} missing or not {typ.__name__}")
+        # duplicate labels make label-based row/col maps AMBIGUOUS: the executor
+        # resolves a repeated label to the LAST occurrence, silently. (mil
+        # Retirement 2026-07-27: a two-panel table with 'Total' for BOTH the
+        # count total and the monthly-$ total -> Number mapped to the $ column
+        # and AverageBenefit=ratio($,$)=1 x12=12.) Force distinct labels.
+        for key in ("row_labels", "col_labels"):
+            labs = t.get(key)
+            if isinstance(labs, list):
+                seen, dups = set(), []
+                for lab in labs:
+                    s = str(lab).strip()
+                    if s in seen and s not in dups:
+                        dups.append(s)
+                    seen.add(s)
+                if dups:
+                    p.append(f"source_tables[{k}].{key} has DUPLICATE labels {dups} - "
+                             "label-based maps become ambiguous (code silently takes "
+                             "the last). Give each a DISTINCT label; if the table has "
+                             "two panels under repeated headers (e.g. a COUNT panel and "
+                             "a dollar panel both showing Male/Female/Total), "
+                             "disambiguate them, e.g. 'Total Count' vs 'Total Monthly "
+                             "Benefit', and map each target column to the right one.")
         for key in ("printed_row_totals", "printed_col_totals"):
             tv = t.setdefault(key, None)   # tolerated if absent
             if tv is not None:

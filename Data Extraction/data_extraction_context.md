@@ -1403,3 +1403,22 @@ output into a loud violation best-of-N/retry corrects; the model already knows
 the op (its notes), it just wasn't forced to declare it. `test_wage_totals_guard
 .py` proves fire-on-totals / allow-ratio / no-false-positive-on-averages. Suite
 14/14. Verify next: re-run chi_edu/ff/gen/pol Age_Serv_Wage on the cluster.
+
+### 2026-07-27 - SOLVE-NOW fix 2: mil Retirement = DUPLICATE-column-label ambiguity
+Read the artifact (runs/mil_Retirement_20260727_162026): the 3 group tables were
+transcribed with columns ['Male','Female','Total','Male','Female','Total'] - a
+COUNT panel (101,142,243) and a MONTHLY-$ panel (289494,334937,624431) under
+REPEATED headers. col_map declared Number<-'Total' and AverageBenefit<-ratio(
+'Total','Total'). The executor's _index() maps a duplicate label to its LAST
+occurrence, so every 'Total' resolved to the $ column: Number = summed $ totals
+(~4.9M), AverageBenefit = ratio($,$)=1 x12 = 12. Root cause = ambiguous
+transcription, not a mapping whim (the notes even distinguish 'Total Count' vs
+'Total Monthly Benefit').
+
+Fix (general, root-cause): validate() now REJECTS any source table with
+duplicate row/col labels, telling the model to disambiguate (e.g. 'Total Count'
+vs 'Total Monthly Benefit'); then Number<-Total Count and AverageBenefit<-ratio(
+Total Monthly Benefit, Total Count) are unambiguous. Prevents this whole class
+(any two-panel Male/Female/Total table). test_dup_label_guard.py: fires on
+duplicate cols, passes on distinct. Suite 15/15. Verify: re-run mil Retirement +
+the 4 chi wage cells.
