@@ -1,14 +1,25 @@
 #!/bin/bash
-# Scoped verification of the 2026-07-27 solve-now fixes (offline commits
-# 88a12da wage-ratio guard, 0a3e963 duplicate-label guard). Boots vLLM and
-# re-runs ONLY the affected cells into a FRESH batch dir (_verify_fixes) so the
-# already-0.00 cells in _batch_resumable are not skipped. Same preemption-proof
-# shape as sweep_requeue.sbatch.
+# Scoped verification of the session-7 fixes. Boots vLLM once and re-runs ONLY
+# the affected cells into a FIXED batch dir (_verify_s7) so a preempted job
+# resumes where it stopped -- and so a LATER submission can APPEND more cells
+# to the same dir (already-completed cells are skipped, not repeated).
 #
-# Submit:  sbatch engaging_beta/verify_fixes.sbatch
+# Under test (all already committed + pushed):
+#   77bb513  chi_ff monthly-in-ratio: derive-level annualize + wage-floor guard
+#   a4fc56e  interleaved-exhibit guard (count line + dollar line in one exhibit)
+#
+# Cells:
+#   chi_ff  Age_Serv_Wage   monthly x12   expect ~1.0 (was 0.00)
+#   bos     Age_Serv_Num    interleaved   expect scored (was CRASH)
+#   bos     Age_Serv_Wage   interleaved   expect scored (was CRASH)
+#   lax_gen Age_Serv_Wage   interleaved   expect scored (was CRASH)
+#   REGRESSION SET - these already worked on the SAME interleaved layout, and
+#   the guard changed the SYSTEM prompt globally, so they must not move:
+#   lax_uty Age_Serv_Num    expect 1.0    lax_ffpol Age_Serv_Wage  expect ~0.92
+#
+# Submit:  sbatch --exclude=node4002,node5201 engaging_beta/verify_fixes.sbatch
 # Watch:   tail -f /orcd/scratch/orcd/011/ncomati/verify_<jobid>.log
-# Read:    runs/_verify_fixes/summary.json  (expect chi_* Age_Serv_Wage ~1.0,
-#          mil Retirement ~1.0)
+# Read:    runs/_verify_s7/summary.json
 #
 #SBATCH -J pension-verify
 #SBATCH -p mit_preemptable
@@ -23,9 +34,10 @@
 set -uo pipefail
 SCRATCH=/orcd/scratch/orcd/011/ncomati
 REPO="$SCRATCH/state-and-local-pension"
-BATCH=_verify_fixes
+BATCH=_verify_s7
 
 echo "=== $(date) job $SLURM_JOB_ID on $(hostname), restart #${SLURM_RESTART_COUNT:-0} ==="
+echo "=== repo HEAD: $(cd "$REPO" && git rev-parse --short HEAD) ==="
 module load apptainer/1.4.2 miniforge/24.3.0-0
 
 pkill -9 -u "$USER" -f "vllm serve" 2>/dev/null || true
@@ -50,8 +62,12 @@ export OPENAI_API_KEY=dummy
 export EXTRACT_DUMP_DIR="$SCRATCH/dumps"; mkdir -p "$EXTRACT_DUMP_DIR"
 
 cd "$REPO/Data Extraction"
-# fix 1 (wage totals-as-averages guard): the 4 chi wage 0.00s
-python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans chi_edu,chi_ff,chi_gen,chi_pol --targets Age_Serv_Wage
-# fix 2 (duplicate-label guard): mil Retirement
-python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans mil --targets Retirement
+# fix 1 (derive-level annualize): the chi_ff monthly wage exhibit
+python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans chi_ff   --targets Age_Serv_Wage
+# fix 2 (interleaved-exhibit guard): the 3 crashed Segal-template cells
+python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans bos      --targets Age_Serv_Num,Age_Serv_Wage
+python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans lax_gen  --targets Age_Serv_Wage
+# regression set: same layout, already-working cells must not move
+python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans lax_uty   --targets Age_Serv_Num
+python pipeline/run_batch.py --batch-dir "$BATCH" --quiet --plans lax_ffpol --targets Age_Serv_Wage
 echo "=== verify finished ($(date)); summary in runs/$BATCH/ ==="
