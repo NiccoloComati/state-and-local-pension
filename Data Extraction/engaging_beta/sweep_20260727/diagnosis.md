@@ -66,3 +66,29 @@ reconciliation (mil 1.0 - the big one), C per_1000 + ratio-detection, D
 derive=sum by position, currency `$91,130` parse, `--` multi-dash empty, best-of-N
 skips a truncated/looping sample (not a run abort), append-lever DISPROVEN
 (keep off), resumable sweep + sbatch --requeue (preemption-proof). Suite 13/13.
+
+## Verify re-run of the 2026-07-27 solve-now fixes (evening, batch `_verify_fixes`)
+Re-ran the 5 affected cells after the wage-ratio (88a12da) and duplicate-label
+(0a3e963) guards. Adjudicated from the run artifacts, not the summary.
+- **mil Retirement -> 1.0 clean.** Duplicate-label guard VALIDATED (was the x12 garbage).
+- **chi_gen Age_Serv_Wage 0.00 -> 0.9831.** Wage-ratio guard VALIDATED.
+- The other 3 chi wage cells now all declare the CORRECT `derive=ratio(salary_totals,
+  counts)` (guard worked) but still score 0.0, for THREE distinct downstream reasons:
+  - **chi_pol** — the salary (numerator) table was transcribed margins-only: ONLY the
+    'Total' column filled, all 90 interior age x service cells null -> every average
+    = total/None -> empty grid. FIXED offline: ratio-completeness guard (41f34e0),
+    fires on all-null mapped cells; verified fires on chi_pol, silent on the others.
+  - **chi_ff** — every numeric average is EXACTLY x12 too small. Confirmed against the
+    PDF: Exhibit B.1 prints MONTHLY salary (age 20-24/1-4 yrs: 20 members, $119,627
+    total = $5,981/member/mo; doc's own aggregate avg is $98,722 ANNUAL). Model
+    transcribed monthly correctly but never annualized. NOT yet fixed: `annualize_monthly`
+    currently CANCELS inside a ratio (ops.py 334-336 runs _grid on num and den with the
+    same col_map; the x12 at ops.py:606 hits both and washes out on divide). Fix needs
+    (a) ops.py+schema: annualize applied to the ratio RESULT (derive-level flag), (b) a
+    wage FLOOR guard in validate() on implied avg = sum(num)/sum(den) < ~15k to trigger
+    it (floor is false-positive-safe: a real annual avg is never < 15k), (c) prompt
+    guidance. Also 18 zero-count (0/0) cells emit None vs truth 0.0 - a convention gap.
+  - **chi_edu** — values present but misaligned; error ratio is NON-constant (3.5x, 4x)
+    so NOT a scale bug -> age/service BAND-convention mismatch (col '4' blends
+    'Under 1'+'1-4', fills 11 cells truth leaves empty). Needs source-PDF adjudication
+    (RA), not a mechanical guard.
