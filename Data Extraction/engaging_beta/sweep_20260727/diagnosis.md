@@ -127,3 +127,85 @@ it recurred on ALL 7 attempts (the best-of-N truncation-skip works — it kept
 sampling — but every draw loops). Not a budget problem. Options: page-scoped
 extraction for this cell, a repetition penalty in the sampling params, or accept
 + flag. Needs a decision, not a quick fix.
+
+## Session 7 follow-up (2026-07-28)
+
+### Class C was much larger than "1 crash" — 5 more Retirement cells were wrong
+Probing every archived `extraction.json` (not the summaries) showed the ratio
+gap produced WRONG OUTPUT on four plans that the sweep scored as fine, plus one
+dead grid. Only phi's symptom was loud:
+
+| plan | declared | shipped |
+|---|---|---|
+| chi_ff | `ratio(Male $, Female $)` | AverageBenefit 4.44 / 12.91 / 15.88 — "production" |
+| chi_gen | `ratio(Male $, Female $)` | same shape — "production" |
+| sf | `ratio(Total, Total)` + invented `numerator_table` ON THE COLUMN | 1.0 every row |
+| sd | same | all-null grid |
+| mil | `ratio(Total, Total)` on duplicate col labels | 12.0 every row |
+| phi | refused → crash on the arity rule after 8 attempts | — |
+
+Root cause: the col ratio took exactly two sources, so an exhibit printing the
+dollars AND the counts once per group (chi_ff Exhibit D.1 p.37: `Male Number |
+Male Annual Payments | Female Number | Female Annual Payments`, no Total
+column) could not be declared at all. FIXED (1daa786): `numerator_sources` /
+`denominator_sources`, a plausibility guard on the implied average, and an
+unknown-key guard — sd/sf invented derive-level keys on a column entry and
+ops.py silently ignored them. Correct answer for chi_ff, from the PDF:
+(1,785,714 + 402,441) / (28 + 8) = **$60,782**.
+
+**Lesson: a crash is a gift.** phi's arity crash and chi_ff's $4.44 were the
+same defect; the crash was found in a day, the silent one survived a full sweep
+and was scored "production". Where a contract cannot express the source, prefer
+failing loudly.
+
+### Class D (sd Ret_Rate loop) — diagnosed; it is a PAGE LAYOUT problem
+Not a token budget and not page scoping: `locate_pages` already ranks p61 first
+and the input is small. p61 prints **three tables side by side**, and the text
+layer weaves their rows onto shared lines:
+
+```
+ Service age 62 greater age 55 greater for General 2009 Plan
+  10   --  45.0%   --  45.0%          Age       Rates
+  ...
+  20   50.0% 55.0 25.0% 50.0
+                                       61          15.0
+  21  35.0 40.0   30.0 45.0
+```
+- **Table B-7** General: rows = SERVICE 10..35+, cols = "prior to age 62" / "age 62 or greater"
+- **Table B-8** Safety: same service rows, cols = "prior to 55" / "55 or greater" — on the SAME text lines
+- a third table (General 2009 Plan): rows = AGE 55..70, one Rates column — interleaved between them at irregular intervals
+
+So one line like `20  50.0% 55.0 25.0% 50.0` carries four values from two
+different tables, and `61  15.0` belongs to a third. This is the HORIZONTAL
+analogue of the class-A interleave (which was vertical: two line types per
+band) — and class A was fixed successfully, which is the argument for fixing
+this the same way.
+
+For the target only **B-7 General** is wanted (sd's workbook is General): its
+2 age-bracket columns must expand across the 21 single-age target columns via
+`overlap_weighted` with source_spans `[null, 61]` and `[62, null]`.
+
+Options, in preference order:
+1. **Side-by-side page guidance in SYSTEM** — mirror the class-A fix: when a
+   page prints several tables next to each other the text layer merges their
+   rows, so identify each by its own header/caption and transcribe each
+   separately, ignoring the neighbour's columns. Principled, generic, no
+   sampling risk.
+2. **A repetition-penalty knob** (`EXTRACT_REPETITION_PENALTY`, default off).
+   Cheap and generic for ANY future loop, but note JSON output is legitimately
+   repetitive (`"op"`, `"sources"` on every entry), so a penalty on repeated
+   tokens is not free — it would need a small value and its own A/B.
+3. **Accept + flag → RA** (transcribe B-7 by hand into the contract shape).
+
+### Blocker: the `_verify_fixes` artifacts were never synced off the cluster
+`runs/` on the working machine holds only `_legacy/` and `sweep_20260727/`. The
+evening verify batch (`_verify_fixes`) exists only on Engaging, so its cells —
+including **chi_edu Age_Serv_Wage**, the one routed to the RA as an
+"age/service band-convention mismatch" — cannot be adjudicated from artifacts
+here. The only chi_edu wage artifact on this machine is the PRE-fix run, whose
+candidate values are million-dollar TOTALS (derive=None bug) with cand/truth
+ratios of 51.7 / 95.5 / 463.6 — i.e. the per-cell headcount, the signature of
+totals-instead-of-averages, NOT the "non-constant 3.5x/4x" band mismatch
+recorded above. **That RA routing is therefore unverified and must not be sent
+until the `_verify_fixes` artifacts are pulled.** Same applies to `_verify_s7`:
+commit `runs/_verify_*` from the cluster after each verify job.
