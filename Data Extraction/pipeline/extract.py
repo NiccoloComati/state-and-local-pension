@@ -320,11 +320,15 @@ is a probability is always one of these scales - never leave values_unit null th
 If the document publishes the target separately per POPULATION GROUP (e.g. General vs \
 Safety termination rates; pre- vs post-retirement mortality) and the target wants one \
 blended value, use op "group_weighted": sources = the group rows/columns, and \
-"weights_tables" = one source_tables index PER source, each a transcribed headcount \
-table for that group (e.g. the per-group membership distributions). Code looks the \
+"weights_tables" = one source_tables index PER source, in the same order, each a \
+transcribed headcount table (e.g. the membership distribution). Code looks the \
 weight up at the bin containing each output cell and computes the population-weighted \
 blend - declare row_spans/col_spans on any weights table whose printed bins differ \
-from the target's coordinates (e.g. "50 to 54" -> [50, 54]).
+from the target's coordinates (e.g. "50 to 54" -> [50, 54]). The indices need not be \
+distinct: if ONE membership-distribution exhibit covers every group (the usual case), \
+transcribe it once and repeat its index, e.g. two sources blended by table 2 give \
+"weights_tables": [2, 2]. weights_tables is never omitted - without it the blend has \
+no populations to weight by and the extraction is rejected.
 
 Every target row/column must appear exactly once in the maps, in target-grid order. \
 If data for a target bin does not exist anywhere in the document, give it an empty \
@@ -392,10 +396,29 @@ Constraints:
   "source_spans": one [lo, hi] integer span per source (null = open end).
   Code blends rates proportionally by year overlap with the target bin.
 - "group_weighted" (blending POPULATION GROUPS into one value) requires
-  "weights_tables": one source_tables index per source, each a transcribed
-  headcount table for that group. Code looks up each group's population at
-  the output cell's coordinates (declare row_spans/col_spans on weight tables
-  whose bins differ from the target's) and blends by population.
+  "weights_tables": one source_tables index per source, IN THE SAME ORDER as
+  "sources". Code looks up each group's population at the output cell's
+  coordinates (declare row_spans/col_spans on weight tables whose bins differ
+  from the target's) and blends by population. The indices need not be
+  distinct: when ONE membership table covers every group, repeat it. Worked
+  example - a mortality exhibit printed Male/Female, blended by a single
+  active-member distribution transcribed as table 2:
+    "source_tables": [
+      {"page": 69, "title": "Pre-Retirement Mortality Rates",
+       "row_labels": ["20", "25", "30"], "col_labels": ["Male", "Female"],
+       "cells": [[0.05, 0.02], [0.06, 0.03], [0.07, 0.04]],
+       "row_spans": [[20, 24], [25, 29], [30, 34]], "values_unit": "percent",
+       "printed_row_totals": null, "printed_col_totals": null},
+      {"page": 53, "title": "Distribution of Active Members",
+       "row_labels": ["Under 25", "25 - 29"], "col_labels": ["Total"],
+       "cells": [[311], [1032]], "row_spans": [[null, 24], [25, 29]],
+       "printed_row_totals": null, "printed_col_totals": null}
+    ],
+    "col_map": [{"target": "Death_Prob", "sources": ["Male", "Female"],
+                 "op": "group_weighted", "weights_tables": [1, 1]}]
+  Note weights_tables has TWO entries for TWO sources even though both point
+  at the same table, and that the weights table carries row_spans because its
+  bins are coarser than the target's single ages.
 - "transpose": true when the printed orientation is the reverse of the
   target's; transcribe as printed, code transposes the MAIN table
   (source_tables[0]) before mapping - auxiliary tables keep their printed
@@ -742,9 +765,30 @@ def validate(result, target_spec=None):
                        or any(not isinstance(k, int) or not (0 <= k < n_tables)
                               for k in (wts or [])))
                 if bad:
-                    p.append(f"{name}[{i}] ({e.get('target')!r}): group_weighted "
-                             "requires weights_tables - one valid source_tables index "
-                             "per source (the group's transcribed headcount table)")
+                    # chi_gen and sd Avg_Mort burned all 8 attempts against the
+                    # bare rule. 10 of the 14 plans that DID get it right pass
+                    # ONE distribution table repeated per source
+                    # (weights_tables: [2, 2]) - so the likeliest confusion is
+                    # thinking a DISTINCT table per group is required. Say that,
+                    # and list what has actually been transcribed to choose from.
+                    avail = "; ".join(
+                        f"{k}={str((t or {}).get('title'))[:48]!r}"
+                        for k, t in enumerate(result.get("source_tables") or [])
+                        if isinstance(t, dict)) or "(none transcribed yet)"
+                    n_src = len(srcs) if srcs is not None else "N"
+                    p.append(
+                        f"{name}[{i}] ({e.get('target')!r}): group_weighted requires "
+                        f"weights_tables - a list of {n_src} source_tables indices, "
+                        "ONE PER SOURCE and in the same order, each pointing at a "
+                        "transcribed headcount table. They do NOT have to be "
+                        "different: when a single membership-distribution table "
+                        "covers every group (the usual case - e.g. one 'Distribution "
+                        "of Active Members' exhibit), repeat its index, e.g. "
+                        f"\"weights_tables\": [{', '.join(['2'] * (n_src if isinstance(n_src, int) else 2))}]. "
+                        "If no headcount table is transcribed yet, transcribe the "
+                        "membership-distribution exhibit and reference it; declare "
+                        "row_spans on it when its bins are coarser than the target "
+                        f"(e.g. '50 to 54' -> [50, 54]). Transcribed tables: {avail}")
                 else:
                     gw_weight_tables.update(wts)
                     gw_used = True
