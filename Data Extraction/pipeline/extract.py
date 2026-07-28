@@ -828,6 +828,54 @@ def validate(result, target_spec=None):
                 p.append(f"{name}[{i}] ({e.get('target')!r}): weights_tables only "
                          "belongs on group_weighted entries")
 
+    # EVERY mapped source label must actually exist on the table it is read
+    # from. ops._get looks the label up with `str(l).strip()` and returns None
+    # on a miss, so an invented label produces a null cell in silence - the
+    # single most destructive gap found so far. It emptied 12 of 16 Sep_Rate
+    # grids (the model mapped target SERVICE columns '1','2','3' onto a source
+    # that only prints 'Males'/'Females' - the exhibit has no service
+    # dimension), most of the empty Ret_Rate grids, chi_edu Avg_Mort, mil
+    # Age_Serv_Wage and sd Retirement. None of them raised anything.
+    # transpose swaps which printed axis the maps address (see ops module doc).
+    if not unavailable and tables and isinstance(tables[0], dict):
+        main = tables[0]
+        flipped = bool(result.get("transpose"))
+        printed_rows = [str(x).strip() for x in (main.get("row_labels") or [])]
+        printed_cols = [str(x).strip() for x in (main.get("col_labels") or [])]
+        axes = (("row_map", printed_cols if flipped else printed_rows,
+                 "printed COLUMN labels" if flipped else "printed ROW labels"),
+                ("col_map", printed_rows if flipped else printed_cols,
+                 "printed ROW labels" if flipped else "printed COLUMN labels"))
+        for name, avail, what in axes:
+            if not avail:
+                continue
+            known, missing = set(avail), {}
+            for i, e in enumerate(result.get(name) or []):
+                if not isinstance(e, dict):
+                    continue
+                srcs = list(e.get("sources") or [])
+                for key in ("numerator_sources", "denominator_sources"):
+                    if isinstance(e.get(key), list):
+                        srcs += e[key]
+                for s in srcs:
+                    if str(s).strip() not in known:
+                        missing.setdefault(str(s), []).append(e.get("target"))
+            if missing:
+                shown = list(missing)[:6]
+                p.append(
+                    f"{name} references {len(missing)} source label(s) that do "
+                    f"NOT exist in source_tables[0]: {shown}"
+                    f"{' ...' if len(missing) > 6 else ''}. Code matches these "
+                    "EXACTLY against the table's own labels and silently yields "
+                    "an empty cell when there is no match, so the whole grid "
+                    f"comes out null. The {what} of source_tables[0] are: "
+                    f"{avail[:14]}{' ...' if len(avail) > 14 else ''}. Either use "
+                    "those labels VERBATIM (same dashes and spacing as you "
+                    "transcribed them), or - if the exhibit genuinely does not "
+                    "publish that dimension at all - give those targets an EMPTY "
+                    "sources list and explain in notes. Do NOT invent a label "
+                    "for a bin the document does not print.")
+
     # span consistency: the same source bin must mean the same span everywhere
     # (the executor pools spans across entries to compute overlap sets)
     for name in ("row_map", "col_map"):

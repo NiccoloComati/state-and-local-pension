@@ -1,0 +1,33 @@
+severity,plan,target,code,finding,run_dir
+IMPOSSIBLE,aus,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\aus_Ret_Rate_20260727_135538
+IMPOSSIBLE,aus,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\aus_Sep_Rate_20260727_135638
+IMPOSSIBLE,bos,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\bos_Ret_Rate_20260727_141332
+IMPOSSIBLE,bos,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\bos_Sep_Rate_20260727_141453
+IMPOSSIBLE,chi_edu,Age_Serv_Wage,money-too-low,"average salary: 2 cell(s) below $8,000 (min $6,060.56) - monthly dollars reported as annual, or a ratio whose denominator is not a headcount, lands here",runs\chi_edu_Age_Serv_Wage_20260727_194149
+IMPOSSIBLE,chi_edu,Avg_Mort,empty-grid,all 100 cells are null - nothing was derived,runs\sweep_20260727\chi_edu_Avg_Mort_20260727_142030
+IMPOSSIBLE,chi_edu,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\chi_edu_Ret_Rate_20260727_141906
+IMPOSSIBLE,chi_edu,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\chi_edu_Sep_Rate_20260727_141945
+IMPOSSIBLE,chi_ff,Age_Serv_Wage,money-too-low,"average salary: 18 cell(s) below $8,000 (min $5,486.68) - monthly dollars reported as annual, or a ratio whose denominator is not a headcount, lands here",runs\chi_ff_Age_Serv_Wage_20260727_195911
+IMPOSSIBLE,chi_ff,Retirement,money-too-low,"average benefit: 7 value(s) below $1,200 (min $4.44) - not a plausible annual figure. A ratio whose denominator is not a headcount, or monthly dollars reported as annual, lands here",runs\sweep_20260727\chi_ff_Retirement_20260727_142929
+IMPOSSIBLE,chi_ff,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\chi_ff_Sep_Rate_20260727_142733
+IMPOSSIBLE,chi_gen,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\chi_gen_Ret_Rate_20260727_143207
+IMPOSSIBLE,chi_gen,Retirement,money-too-low,"average benefit: 11 value(s) below $1,200 (min $0.10) - not a plausible annual figure. A ratio whose denominator is not a headcount, or monthly dollars reported as annual, lands here",runs\sweep_20260727\chi_gen_Retirement_20260727_145242
+IMPOSSIBLE,chi_gen,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\chi_gen_Sep_Rate_20260727_144033
+IMPOSSIBLE,chi_pol,Age_Serv_Wage,empty-grid,all 80 cells are null - nothing was derived,runs\chi_pol_Age_Serv_Wage_20260727_200430
+IMPOSSIBLE,chi_pol,Avg_Mort,mortality-inverted,q(79) = 0.1433 is BELOW q(35) = 0.48582,runs\sweep_20260727\chi_pol_Avg_Mort_20260727_150530
+IMPOSSIBLE,chi_pol,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\chi_pol_Sep_Rate_20260727_150505
+IMPOSSIBLE,dal,Age_Serv_Wage,money-too-high,"average salary: 53 cell(s) above $500,000 (max $15,000,070) - salary TOTALS reported as averages land here",runs\sweep_20260727\dal_Age_Serv_Wage_20260727_150752
+IMPOSSIBLE,dal,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\dal_Ret_Rate_20260727_150901
+IMPOSSIBLE,dal,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\dal_Sep_Rate_20260727_150925
+IMPOSSIBLE,hou_pol,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\hou_pol_Sep_Rate_20260727_152312
+IMPOSSIBLE,lax_ffpol,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\lax_ffpol_Ret_Rate_20260727_152714
+IMPOSSIBLE,lax_ffpol,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\lax_ffpol_Sep_Rate_20260727_154039
+IMPOSSIBLE,lax_gen,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\lax_gen_Sep_Rate_20260727_155119
+IMPOSSIBLE,lax_uty,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\lax_uty_Sep_Rate_20260727_160824
+IMPOSSIBLE,mil,Age_Serv_Wage,empty-grid,all 80 cells are null - nothing was derived,runs\sweep_20260727\mil_Age_Serv_Wage_20260727_161347
+IMPOSSIBLE,sd,Retirement,empty-grid,all 22 cells are null - nothing was derived,runs\sweep_20260727\sd_Retirement_20260727_164911
+IMPOSSIBLE,sd,Sep_Rate,no-rate-derived,the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived,runs\sweep_20260727\sd_Sep_Rate_20260727_164254
+IMPOSSIBLE,sf,Ret_Rate,empty-grid,all 189 cells are null - nothing was derived,runs\sweep_20260727\sf_Ret_Rate_20260727_165116
+IMPOSSIBLE,sf,Retirement,money-too-low,"average benefit: 11 value(s) below $1,200 (min $1.00) - not a plausible annual figure. A ratio whose denominator is not a headcount, or monthly dollars reported as annual, lands here",runs\sweep_20260727\sf_Retirement_20260727_165445
+SUSPECT,chi_pol,Avg_Mort,mortality-level,"q(35) = 0.48582 at age 35, above the plausible 0.05 (26 age(s) in 31-60 exceed it) - wrong population (disability/disabled-life table), a missing values_unit, or a bad blend",runs\sweep_20260727\chi_pol_Avg_Mort_20260727_150530
+SUSPECT,dal,Avg_Mort,mortality-level,"q(20) = 0.034864 at age 20, above the plausible 0.01 (6 age(s) in 0-30 exceed it) - wrong population (disability/disabled-life table), a missing values_unit, or a bad blend",runs\sweep_20260727\dal_Avg_Mort_20260727_150944
