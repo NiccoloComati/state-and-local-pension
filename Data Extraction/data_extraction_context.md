@@ -1490,3 +1490,56 @@ CUDASymmetricMemory/NVLink boot; resubmit scoped jobs with
    arity (phi Retirement) - one-off. D: sd Ret_Rate loops on every draw (882x
    repetition) - hardest, needs a decision (page-scoping / repetition penalty /
    accept-and-flag).
+
+### 2026-07-28 - session 8: four fix classes shipped + a corpus-wide OUTPUT audit
+Commits: 1daa786, 4b15f89, 2258095, 6df52f8, f87062e, 299ec06, 0cfa6c5.
+Full state and next actions: `engaging_beta/SESSION_HANDOFF.md` section 0f.
+
+1. **Round 1 verify (`_verify_s7`, job 19074242) CONFIRMED the interleaved
+   guard:** bos ASN and bos ASW crash -> production, lax_gen ASW crash -> 1.0,
+   and the regression set held/improved (lax_uty ASN 1.0, lax_ffpol ASW 0.92 ->
+   1.0). A global prompt change did not disturb what already worked.
+2. **The ratio contract gap was 5 cells, not 1 crash.** The col ratio took
+   exactly two sources, so an exhibit printing dollars AND counts once per group
+   with no Total column was inexpressible. chi_ff/chi_gen shipped AverageBenefit
+   of 4.44/12.91/15.88 as "production", sf shipped 1.0, sd an all-null grid, phi
+   crashed. Fixed with `numerator_sources`/`denominator_sources`, an implied-
+   average plausibility guard, and an unknown-key guard (sd/sf invented
+   derive-level keys on a COLUMN entry, silently ignored by ops.py). **Lesson: a
+   crash is a gift** - phi's loud failure and chi_ff's $4.44 were the same
+   defect; the crash was found in a day, the silent one survived a full sweep.
+3. **chi_edu was never a band-convention question.** Every value was
+   transcribed correctly ONE COLUMN LATE (p55's text layer splits numerals:
+   `2 ,625`, `$ 4 6,732,744`). The workbook matches the PDF exactly, so truth
+   was right and the candidate was shifted. `totals_check` had caught it (10
+   row-total mismatches) but the LOCAL backend only warned while the Anthropic
+   path had always retried on totals - asymmetry closed. The RA item is retired.
+4. **chi_ff's real blocker was not the monthly issue:** 5 of 8 attempts died on
+   `13 rows but 12 row_labels` (the printed `Total` line put in cells without a
+   label). Guarded. **The monthly x12 fix has still never executed live.**
+5. **CORPUS-WIDE OUTPUT AUDIT (`pipeline/audit_derived.py`) - the big finding.**
+   Reading every derived grid instead of its score: 92 cells -> 45 clean, 17
+   declared unavailable, **30 impossible**. Age_Serv_Num is the only healthy
+   sheet (16/16); Sep_Rate is the worst (12 of 16 broken). **One missing check
+   explains most of it:** `ops._get` resolves a mapped source label with
+   `str(l).strip()` and returns None on a miss, and nothing validated that the
+   label existed - so an invented label emptied the grid in silence. 17 of 92
+   cells map from labels their own source_tables[0] does not contain. Sep_Rate
+   is the clearest case: the target is age x SERVICE, several AVs publish
+   termination rates by age only split by sex, and mapping service columns onto
+   a Males/Females table left nothing but the executor's impossibility zeros -
+   which reads as data, not failure. Also caught: chi_pol Avg_Mort q(35)=0.486
+   falling with age, and dal Avg_Mort transcribed from the DISABILITY mortality
+   exhibit (q(20)=0.035, wrong population). Suite 21/21.
+6. **Process:** the cluster repo is PULL-ONLY (a commit there strands - no
+   GitHub auth on the login node - and the next pull reports divergent
+   branches); artifacts move by tarball + one scp and are committed from the
+   laptop; `.gitattributes` pins stored text to LF. RA scope narrowed to
+   VERIFICATION ONLY - assumptions are Niccolo's - and worklist owners
+   relabelled (`assumption` -> `Niccolo`, `me` -> `code`).
+
+**In flight:** job **19084943** (`_verify_s8`, 14 cells) submitted at f87062e,
+which PREDATES the label-existence guard - those 17 cells need a round 3.
+**Open question blocking round 3:** what Sep_Rate should do when the AV
+publishes rates by age only (service table missed / broadcast across service =
+an assumption for Niccolo + coauthor / genuinely unavailable).

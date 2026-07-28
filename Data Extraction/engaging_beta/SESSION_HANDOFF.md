@@ -9,6 +9,123 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0f. LATEST — 2026-07-28 session 8: four fix classes + a corpus-wide OUTPUT audit (READ FIRST)
+
+### Live job in flight
+**Job 19084943** (`_verify_s8`, 14 cells, 4h wall) was submitted from cluster
+commit **f87062e**. It is testing the ratio/group_weighted/transcription/
+side-by-side fixes. **It does NOT contain the label-existence guard (0cfa6c5),
+which landed after submission** — the 17 cells that guard covers need their own
+round 3. First thing on the new machine: see if it finished, pull the artifacts,
+adjudicate from `report.json`/`extraction.json`/`derived.json` (never the
+summary — summaries have hidden two separate bugs now).
+
+### Round 1 (`_verify_s7`, job 19074242) — interleaved-exhibit guard CONFIRMED
+bos ASN crash -> production, bos ASW crash -> production, lax_gen ASW crash ->
+**1.0**. Regression set held and improved: lax_uty ASN 1.0, lax_ffpol ASW 0.92
+-> **1.0**. chi_ff ASW still crashed, on a DIFFERENT fault (below).
+
+### What was fixed offline this session
+1. **Ratio contract (1daa786).** The col ratio took exactly two sources, so an
+   exhibit printing dollars AND counts once per group (chi_ff Exhibit D.1 p.37:
+   `Male Number | Male Annual Payments | Female Number | Female Annual
+   Payments`, no Total column) could not be declared at all. Result across the
+   sweep: chi_ff and chi_gen shipped AverageBenefit of **4.44 / 12.91 / 15.88**
+   as status "production"; sf shipped 1.0 every row; sd an all-null grid; phi
+   refused and crashed. Same defect, only phi was loud. Added
+   `numerator_sources`/`denominator_sources`, an implied-average plausibility
+   guard, and an **unknown-key guard** (sd and sf invented derive-level
+   `numerator_table` on a COLUMN entry; ops.py ignored it silently). Correct
+   chi_ff answer from the PDF: (1,785,714+402,441)/(28+8) = **$60,782**.
+   NOTE: **mil Retirement was already fixed** by the earlier duplicate-label
+   guard — the 12.0 artifact was the pre-fix sweep run; the evening re-run is
+   1.0. Class C is 4 wrong cells + phi, not 5 + 1.
+2. **group_weighted guidance (4b15f89).** chi_gen and sd Avg_Mort burned all 8
+   attempts on a bare rule. 6 of the 10 plans that succeeded repeat ONE table
+   (`weights_tables: [2,2]`), so the misreading is that the tables must be
+   distinct. The rejection now says they may repeat, sizes the example to the
+   entry's own source count, and lists the transcribed tables by title.
+3. **Transcription guards (6df52f8).** (a) chi_ff's real blocker: `13 rows but
+   12 row_labels` on 5 of 8 attempts — Exhibit B.1 p.32 is 12 age bands plus a
+   printed `Total` line put in `cells` with no label. `len(cells) ==
+   len(row_labels)+1` now names it and routes it to `printed_col_totals`.
+   **The monthly x12 fix has therefore still never executed live.** (b) chi_edu
+   was NOT a band-convention question: every value was transcribed correctly
+   ONE COLUMN LATE (p55's text layer splits numerals — `2 ,625`,
+   `$ 4 6,732,744`). `totals_check` caught it with 10 row-total mismatches but
+   the LOCAL backend only warned, while the Anthropic path had always retried
+   on totals; that asymmetry is closed. The workbook matches the PDF exactly
+   ((4,761,166+145,504,054)/(388+2,625) = 49,872.29), so truth was right.
+4. **SIDE-BY-SIDE TABLES prompt paragraph (6df52f8)** for the sd Ret_Rate
+   decoding loop — p61 prints three exhibits next to each other and the text
+   layer merges their rows onto shared lines. Approved approach: mirror the
+   class-A interleave fix rather than a repetition penalty.
+
+### THE BIG FINDING — corpus-wide output audit (0cfa6c5)
+`pipeline/audit_derived.py` reads the OUTPUT of every cell instead of its score.
+All checks are PDF-independent (unit + internal consistency, never a workbook),
+so hits can be trusted corpus-wide. **92 cells: 45 clean, 17 declared
+unavailable, 30 IMPOSSIBLE.**
+
+| sheet | clean | unavail | impossible |
+|---|---|---|---|
+| Age_Serv_Num | 16 | 0 | 0 |
+| Age_Serv_Wage | 11 | 0 | 5 |
+| Ret_Rate | 3 | 5 | 7 |
+| **Sep_Rate** | 3 | 1 | **12** |
+| Avg_Mort | 8 | 4 | 2 |
+| Retirement | 4 | 7 | 4 |
+
+`Age_Serv_Num` is the only healthy sheet. **One missing check explains most of
+it:** `ops._get` resolves a mapped source label with `str(l).strip()` and
+returns None on a miss, and nothing validated the label existed — so an
+invented label produced a null cell in silence. **17 of 92 cells map from
+labels their own `source_tables[0]` does not contain.** `validate()` now
+rejects them (honouring transpose) and lists the labels that ARE available.
+
+Sep_Rate shows why it hid: the target is age x SERVICE, several AVs publish
+termination rates by age only split by sex, the model mapped service columns
+`'1','2','3'` onto a table whose only columns are `Males`/`Females`, every
+lookup missed, and the grid came back holding nothing but the executor's
+impossibility zeros — **which looks like data, not failure.**
+
+Two findings the value pass caught alone: **chi_pol Avg_Mort** q(35)=0.486 and
+falling with age; **dal Avg_Mort** transcribed the DISABILITY mortality exhibit
+(q(20)=0.035) — wrong population, and only 40 of 100 ages filled.
+
+Findings: `sweep_20260727/audit_findings.csv`. Run it after every sweep.
+
+### Process rules confirmed this session
+- **The cluster repo is PULL-ONLY.** Never `git commit`/`push` there — the
+  login node has no GitHub auth, so the commit strands and the next pull reports
+  divergent branches (this happened; fixed with `git reset --hard origin/main`
+  after confirming the content was already on origin).
+- **Artifact transfer, two commands.** Cluster:
+  `cd ".../Data Extraction" && tar -czf /orcd/scratch/orcd/011/ncomati/verify_out.tgz runs/<batch>`
+  Laptop: `scp ncomati@orcd-login.mit.edu:/orcd/scratch/orcd/011/ncomati/verify_out.tgz "$env:TEMP\"`
+  Then commit the artifacts FROM THE LAPTOP.
+- `.gitattributes` now pins stored text to LF (`*.sh`/`*.sbatch` explicitly — a
+  CRLF shebang makes Linux look for an interpreter named `bash`).
+- **RA scope is verification only** (`ra_tasks.md` rewritten). Assumptions are
+  Niccolo's. Worklist owners relabelled: `assumption` -> `Niccolo` (26),
+  `me` -> `code` (12), RA 58 unchanged.
+
+### NEXT ACTIONS, in order
+1. **Adjudicate `_verify_s8`** from artifacts once job 19084943 lands.
+2. **Settle what Sep_Rate should do** — the biggest hole (12 cells) and the
+   label guard only converts silent-empty into a loud crash. Per plan, from the
+   PDF: is there a service-based table the locator missed; or should the
+   age-only rate be broadcast across service columns (an ASSUMPTION for
+   Niccolo + coauthor, not a code decision); or is it genuinely unavailable?
+   Round 3 would just re-crash 12 cells without this.
+3. **Round-3 sbatch** for the 17 label-existence cells (+ whatever `_verify_s8`
+   leaves open). Content depends on (2).
+4. **Size the image-only problem** — which plan x sheet cells are pictures and
+   need a vision model. Still unanswered and needed for scoping.
+5. Finish the session-8 dev-log entry once `_verify_s8` results are in.
+
+---
+
 ## 0e. LATEST — 2026-07-27 session 6: solve-now fixes VERIFIED live + runs/ reorg (READ FIRST)
 
 Re-ran the 5 cells the two solve-now guards touch (batch `_verify_fixes`),
