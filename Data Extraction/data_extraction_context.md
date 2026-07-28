@@ -1422,3 +1422,47 @@ Total Monthly Benefit, Total Count) are unambiguous. Prevents this whole class
 (any two-panel Male/Female/Total table). test_dup_label_guard.py: fires on
 duplicate cols, passes on distinct. Suite 15/15. Verify: re-run mil Retirement +
 the 4 chi wage cells.
+
+### 2026-07-27 (session 6) - solve-now fixes VERIFIED live; chi_pol FIXED; chi_ff = monthly
+Re-ran the 5 affected cells (batch `_verify_fixes`) and adjudicated from the run
+artifacts, not the summary. **mil Retirement -> 1.0** and **chi_gen Age_Serv_Wage
+0.00 -> 0.9831** confirm the duplicate-label and wage-ratio guards LIVE. The other
+3 chi wage cells now declare the correct `derive=ratio` (guard worked) but score
+0.0 for three DIFFERENT downstream reasons - the guard fixed the derive
+declaration, exposing what was underneath:
+- **chi_pol = incomplete transcription -> FIXED.** The salary (numerator) table
+  was transcribed margins-only: only its 'Total' column filled, all 90 interior
+  age x service cells null -> every average = total/None -> empty grid (all 38
+  truth cells missing). New **ratio-completeness guard** in validate(): for a
+  derive=ratio, if a table's map-referenced cells are ALL null (filled==0), reject
+  it so best-of-N/retry retranscribes the full grid. Fires ONLY on all-null, so a
+  legitimately sparse plan (which fills some interior cells) can't false-positive.
+  Verified against the LIVE artifacts: fires on chi_pol, silent on chi_edu/ff/gen.
+  test_ratio_completeness_guard.py added; suite 15/15 (wage-totals, dup-label,
+  ratio-completeness). Commit 41f34e0.
+- **chi_ff = monthly salary, not annualized (diagnosed, fix deferred to session
+  7).** Every numeric average is EXACTLY x12 too small. Read the source PDF
+  (Exhibit B.1, IL_CHICAGOCITY-FABF_AV_2019): it prints MONTHLY salary - age
+  20-24/1-4yr = 20 members, $119,627 total = $5,981/member/month; the doc's own
+  aggregate "Average pensionable salary" is $98,722 ANNUAL. The model transcribed
+  monthly correctly but didn't annualize. BLOCKER for the obvious fix:
+  `annualize_monthly` cancels inside a ratio - ops.execute runs _grid on the
+  numerator AND denominator with the same col_map, and the x12 (ops.py:606) hits
+  both, washing out on divide. Real fix (session 7): annualize the ratio RESULT
+  via a derive-level flag (ops.py + schema) + a validate() wage FLOOR guard on
+  implied avg = sum(num)/sum(den) < ~15k to trigger it (PDF-confirmed
+  false-positive-safe: a real annual avg is never < 15k) + prompt guidance. Plus
+  18 zero-count (0/0) cells emit None vs truth 0.0 - a convention gap.
+- **chi_edu = age/service band-convention mismatch (RA).** Values present but
+  misaligned; error ratio is NON-constant (3.5x, 4x) so not a scale bug. The col
+  map blends 'Under 1'+'1-4' and fills 11 cells truth leaves empty. Needs the
+  source PDF to settle the true band boundaries - RA adjudication, not a guard.
+
+Infra: `runs/` reorganized into `runs/sweep_20260727/` (whole sweep + crash cells
++ batch summaries) and `runs/_legacy/` (older battery runs); run_batch now nests
+each cell under its batch dir, a bare run_one lands in `runs/_adhoc/`. Every
+worklist cell's JSON artifacts are committed locally (read at
+`runs/sweep_20260727/<cell>/`). `verify_fixes.sbatch` self-heals around bad
+vLLM-boot nodes via `scontrol requeue` (node4002/node5201 fail the TP=2
+CUDASymmetricMemory/NVLink boot; resubmit scoped jobs with
+`--exclude=node4002,node5201`). Commits 234e4da, bf0833b, 63eba01.

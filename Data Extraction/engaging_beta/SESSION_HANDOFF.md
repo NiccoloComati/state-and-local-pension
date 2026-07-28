@@ -9,6 +9,96 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0e. LATEST — 2026-07-27 session 6: solve-now fixes VERIFIED live + runs/ reorg (READ FIRST)
+
+Re-ran the 5 cells the two solve-now guards touch (batch `_verify_fixes`),
+adjudicated from the run artifacts (never the summary — summaries hid a scoring
+bug before). **Two of the three original solve-now problems are FIXED and
+proven; the third is diagnosed to the line of code.** Detail is in
+`sweep_20260727/diagnosis.md` under "Verify re-run of the 2026-07-27 solve-now
+fixes" (READ IT).
+
+**Results (adjudicated from artifacts):**
+- **mil Retirement -> 1.0 clean** — duplicate-label guard VALIDATED.
+- **chi_gen Age_Serv_Wage 0.00 -> 0.9831** — wage-ratio guard VALIDATED.
+- The other 3 chi wage cells now declare the CORRECT `derive=ratio` (guard
+  worked) but score 0.0 for THREE distinct downstream reasons:
+  - **chi_pol — FIXED this session.** Salary (numerator) table was transcribed
+    margins-only (only 'Total' column; 90 interior cells null) -> empty grid. New
+    **ratio-completeness guard** in `extract.validate()` (commit **41f34e0**):
+    flags a ratio table whose map-referenced cells are ALL null. Fires only on
+    all-null so a sparse-but-real plan can't false-positive. Verified against the
+    live artifacts (fires on chi_pol, silent on chi_edu/ff/gen). `test_ratio_
+    completeness_guard.py` added; **guard suite now 15/15**.
+  - **chi_ff — diagnosed, NOT yet fixed (next-session code work).** Every average
+    is EXACTLY x12 too small. Confirmed against the PDF: **Exhibit B.1 prints
+    MONTHLY salary** ($119,627 / 20 members = $5,981/mo; the doc's own aggregate
+    avg is $98,722 ANNUAL). Model transcribed monthly correctly but never
+    annualized. **The blocker:** `annualize_monthly` currently CANCELS inside a
+    ratio — `ops.execute` runs `_grid` on numerator and denominator with the SAME
+    col_map, and the x12 (ops.py:606) hits both and washes out on divide. Fix =
+    (a) ops.py + schema: annualize applied to the ratio RESULT (a derive-level
+    flag), (b) a wage FLOOR guard in `validate()` on implied avg = sum(num)/
+    sum(den) < ~15k to trigger it (PDF-confirmed false-positive-safe), (c) prompt
+    guidance. Then a live re-run of chi_ff to confirm. Also 18 zero-count (0/0)
+    cells emit None vs truth 0.0 — a convention gap to settle.
+  - **chi_edu — RA / source-PDF.** Values present but misaligned; error ratio is
+    NON-constant (3.5x, 4x) so NOT a scale bug -> age/service BAND-convention
+    mismatch. Needs the source PDF, not a mechanical guard.
+
+**Infra changes this session (all committed + pushed):**
+- **`runs/` reorganized** (commit **234e4da**): the flat 150+ dirs are now
+  `runs/sweep_20260727/` (the whole sweep + crash cells + batch summaries) and
+  `runs/_legacy/` (older battery runs). Going forward `run_batch` nests each
+  cell UNDER its batch dir (`runs/<batch>/<plan>_<target>_<ts>/`); a bare
+  `run_test.run_one` lands in `runs/_adhoc/`. `ra_worklist.csv` run_dir paths
+  and `diagnosis.md` updated to the `sweep_20260727/` prefix. **Every worklist
+  cell's extraction/derived/report.json is committed locally** — the RA (and you)
+  read them at `runs/sweep_20260727/<cell>/` with no cluster access.
+- **`verify_fixes.sbatch` now self-heals** (commits **bf0833b**, **63eba01**): a
+  node whose TP=2 vLLM boot fails (the `CUDASymmetricMemory`/NVLink peer crash —
+  node4002/node5201 are known-bad) used to die with `exit 1` (no requeue, because
+  that's a clean failure not a preemption). Now a health-check timeout runs
+  `scontrol requeue` to bounce onto a fresh node, and the timeout is 900s so a
+  bad node is caught fast. **When resubmitting a scoped job, add
+  `--exclude=node4002,node5201`.** Reminder: preemption itself (PD->R->PD with a
+  node change) is NORMAL on `mit_preemptable` — it's requeue landing elsewhere,
+  nothing lost.
+
+### NEXT-SESSION order (session 7)
+1. **chi_ff monthly-in-ratio fix (offline, no cluster needed to BUILD):** add
+   derive-level annualize to `ops.py` (x12 the ratio result) + schema field +
+   the `validate()` wage-floor guard (implied avg < ~15k) + a unit test, and
+   prompt guidance so the model declares it. THEN one live cluster re-run of
+   chi_ff (+ chi_edu for the RA) to confirm the flip.
+2. **chi_edu -> RA** with the source PDF (band-convention call).
+3. **The 7 crashes** (bos ASN/ASW, chi_gen Avg_Mort, lax_gen ASW, phi Retirement,
+   sd Ret_Rate/Avg_Mort) — now readable locally under `runs/sweep_20260727/`.
+4. **Assumption bucket (26 cells)** = register sit-down with the coauthor.
+
+### NEXT-SESSION PROMPT (paste verbatim on whatever machine you're on)
+> Continuing the open-weights AV-extraction beta. **First: `git pull`** (the repo
+> carries all code + docs; nothing machine-specific below). Read, in order:
+> `Data Extraction/engaging_beta/SESSION_HANDOFF.md` §0e (this section) and
+> `Data Extraction/engaging_beta/sweep_20260727/diagnosis.md` — its "Verify
+> re-run" section at the bottom. The reference for any value is the **source
+> PDF**, not the workbook; adjudicate from the run artifacts under
+> `runs/sweep_20260727/<cell>/` (extraction/derived/report.json), never from
+> batch summaries. Then, in order: **(1)** build the chi_ff monthly-in-ratio fix
+> OFFLINE — derive-level annualize in `ops.py` (x12 the ratio result) + schema +
+> a `validate()` wage-floor guard (implied avg = sum(num)/sum(den) < ~15k, which
+> the PDF confirmed is false-positive-safe) + a unit test + prompt guidance;
+> keep the guard suite green (currently 15/15). **(2)** Route chi_edu (band
+> convention) to the RA. **(3)** Diagnose the 7 crashes from the local artifacts.
+> The chi_ff fix and the crash diagnosis need NO cluster; only the final
+> confirmation re-run does (submit `engaging_beta/verify_fixes.sbatch
+> --exclude=node4002,node5201` after `git pull` on the cluster, scoped to
+> chi_ff). Work analysis-first; propose before big changes.
+
+Everything below (§0d, §0c, §0b, §0, §1-9) is still valid background.
+
+---
+
 ## 0d. LATEST — 2026-07-27 session 5: FULL SWEEP DONE + cell-level diagnosis (READ FIRST)
 
 The preemption problem is SOLVED (resumable `run_batch --batch-dir` + `sbatch

@@ -1,6 +1,6 @@
 # Session Handoff Notes
 
-Written 2026-06-11, updated 2026-07-13. This is the tacit-knowledge layer the
+Written 2026-06-11, updated 2026-07-27. This is the tacit-knowledge layer the
 technical docs don't carry. Read it after `project_context.md` and the recent
 `working_context.md` sections.
 
@@ -23,19 +23,20 @@ best-of-N temperature sampling verified by the printed-totals check, a
 `run_batch.py` sweep (matrix + attention list), a hardened `totals_check`, a
 redundant **PPD count cross-check** (`ppd_check.py`), a prefer-combined-table
 hint, and an opt-in table-extraction path (`EXTRACT_APPEND_TABLES=1`, the Segal
-lever). **UPDATE 2026-07-27 — read `engaging_beta/SESSION_HANDOFF.md` §0c
-FIRST (newest); it supersedes §0/§0b.** Sweep-1 ran (16x6, GATE reconfirmed);
-6 bulk-fixes committed (7ff3ab0). Sweep-2 (post-fix) got **32/96** before a wall
-then a hard **vLLM BOOT BLOCKER**: TP=2 crashes with a CUDA illegal-memory-access
-in the Qwen GDN kernel on multiple H200 nodes (node5200 worked; 5201/4002
-crash); --enforce-eager, --disable-custom-all-reduce, and a dirty cache-wipe did
-not fix it. The 32 runs already confirm the gate holds and **chi_pol's Segal
-count shift is fixed (0.868->1.0)**; still-open: Age_Serv_Wage on Segal chi
-plans (0.0) + truncation crashes (next bulk-fix targets). Next session (per §0c):
-ONE clean TP=2 attempt (kill+verify+clean cache wipe), else fall back to the
-**TP=1 single-GPU boot that works** for the critical targeted runs (mil #5, dal
-#C, phx/sd regression, lax_uty Segal wage) — do NOT repeat the boot-roulette.
-Alloc = preemptable + lean (gotcha #6). (Commits no longer add a Claude
+lever). **UPDATE 2026-07-27 — read `engaging_beta/SESSION_HANDOFF.md` §0e
+FIRST (newest); it supersedes §0/§0b/§0c/§0d.** The boot blocker was solved
+(resumable `run_batch --batch-dir` + `sbatch --requeue` routes around bad nodes),
+the **full 96-cell sweep completed** (§0d + `sweep_20260727/diagnosis.md`: 13/96
+clean, owner split 58 RA / 26 assumption / 12 me), and the solve-now code fixes
+are now **VERIFIED live** (§0e): mil Retirement -> 1.0 and chi_gen wage 0.00 ->
+0.98 confirm the duplicate-label and wage-ratio guards. chi_pol's empty-grid was
+also fixed this session (ratio-completeness guard, 41f34e0; suite 15/15). Still
+open: **chi_ff** (Exhibit B.1 prints MONTHLY salary — needs an ops.py fix to
+annualize the ratio result, since annualize_monthly cancels inside a ratio),
+**chi_edu** (band-convention -> RA), the 7 crashes, and the 26-cell assumption
+bucket (register sit-down). Next session = the chi_ff monthly fix (offline) then
+a scoped live re-run. Alloc = preemptable + lean (gotcha #6); resubmit scoped
+jobs with `--exclude=node4002,node5201`. (Commits no longer add a Claude
 co-author trailer, per Niccolo.)
 
 The current focus is the AV-PDF -> workbook extraction pipeline in
