@@ -268,6 +268,19 @@ you transcribe must sum to the plan's printed grand total (verify) - e.g. a syst
 General + Police + Fire is exactly THREE total tables, not the dozen agency/tier \
 sub-tables. Use derive=sum over the group totals only when no single all-members table is \
 printed. Fewer tables = far less chance of a misread and no double-counting.
+SIDE-BY-SIDE TABLES (very common): a page often prints two or three SEPARATE \
+exhibits next to each other, and the text layer merges their rows onto shared \
+lines. One line can therefore carry values from two different tables, and a third \
+table's rows can appear between them at irregular intervals - e.g. a line reading \
+"20  50.0% 55.0 25.0% 50.0" is service 20 of the GENERAL table (2 values) followed \
+by service 20 of the SAFETY table (2 values), while a nearby line reading "61 15.0" \
+belongs to a third age-based table entirely. Identify each table by its OWN caption \
+and column headers (Table B-7, Table B-8, ...), then transcribe ONLY the columns \
+belonging to the table you need, ignoring the neighbour's values on the same line \
+and skipping lines that belong to a different table. Never merge two captions into \
+one table, and never let a neighbour's column become a column of yours. If only one \
+of the tables is relevant to the target, transcribe just that one and say in notes \
+which others share the page. \
 2. DECLARE: describe how the source bins map onto the target grid as row_map/col_map \
 operations (copy, sum, share_even, weighted_avg for rows; copy, sum, share_even, \
 weighted_avg, ratio for columns). \
@@ -610,6 +623,25 @@ def validate(result, target_spec=None):
                         "values, source_tables[1] = the counts), then reference the "
                         "counts table by index for weighted_avg (or as the ratio's "
                         "denominator_table). State in the title which line each holds.")
+                elif len(cells) == nlab + 1:
+                    # ONE extra row is almost always the printed grand-TOTAL line
+                    # transcribed into cells without a matching label. chi_ff
+                    # Exhibit B.1 p.32 (12 age bands + a 'Total' line) failed this
+                    # way on 5 of 8 attempts and never recovered, which blocked the
+                    # monthly-salary fix from ever executing. A total is not a bin:
+                    # it belongs in printed_col_totals, where the reconciler uses it.
+                    p.append(
+                        f"source_tables[{k}].cells has {len(cells)} rows but {nlab} "
+                        "row_labels - exactly ONE extra. The extra row is almost "
+                        "always the printed grand-TOTAL line ('Total', 'All Members') "
+                        "at the bottom of the exhibit. A total is NOT an age/service "
+                        "bin: REMOVE that row from cells and put its values in "
+                        "printed_col_totals instead (one value per col_label - code "
+                        "checks them against the sum of your cells, which is how a "
+                        "column-alignment slip gets caught). Same for a printed "
+                        "'Total' COLUMN: it belongs in printed_row_totals, not in "
+                        "col_labels/cells. If the extra row is genuinely a data bin, "
+                        "add its label to row_labels so the two lists line up.")
                 else:
                     p.append(f"source_tables[{k}].cells has {len(cells)} rows but "
                              f"{nlab} row_labels")
@@ -1171,11 +1203,11 @@ def _evaluate(text, target_spec):
         return None, [f"response is not parseable JSON: {e}"], 0, \
                [f"response is not parseable JSON: {e}"]
     fatal = validate(result, target_spec)
-    totals = 0
+    totals = []
     if not fatal:
         for k, t in enumerate(result["source_tables"]):
             for msg in ops.totals_check(t):
-                totals += 1
+                totals.append(f"source_tables[{k}] {msg}")
     return result, fatal, totals, list(fatal)
 
 
@@ -1216,6 +1248,31 @@ def _correction_message(problems):
             "\n\nReturn ONLY the corrected JSON object.")
 
 
+def _totals_correction_message(problems):
+    """The structure is legal but the numbers do not add up against the exhibit's
+    OWN printed totals. That is PDF-independent evidence of a transcription slip,
+    and the dominant cause is column misalignment on a whitespace-collapsed text
+    layer (chi_edu p55 prints '2 ,625' and '$ 4 6,732,744', splitting numerals
+    across apparent columns)."""
+    return ("Your JSON is structurally valid, but the numbers you transcribed do "
+            "NOT agree with the totals PRINTED IN THE EXHIBIT ITSELF:\n"
+            + "\n".join(f"- {pb}" for pb in problems[:20]) +
+            "\n\nThe printed totals are part of the source, so the transcription "
+            "is wrong somewhere. The usual cause is COLUMN MISALIGNMENT: this "
+            "document's text layer collapses whitespace and can split a single "
+            "number across what look like two columns (e.g. '2 ,625' is ONE "
+            "value 2625, and '$ 4 6,732,744' is ONE value 46732744, not a 4 "
+            "followed by 6,732,744). A value placed one column late shifts every "
+            "later column and leaves a phantom empty first column.\n\n"
+            "Re-read the exhibit line by line. For each row, count the values and "
+            "line them up against the column headers, treating a dash as an empty "
+            "cell; join digits that a stray space has split; and do not put a "
+            "printed 'Total' row or column inside cells (those belong in "
+            "printed_col_totals / printed_row_totals). Then re-check that each "
+            "row's cells sum to its printed total.\n\n"
+            "Return ONLY the corrected JSON object, same structure.")
+
+
 def _extract_openai(target_name, target_spec, prompt, record, record_path,
                     reconcile_total=None):
     """Local-backend Stage A: greedy baseline -> one greedy correction retry
@@ -1224,26 +1281,29 @@ def _extract_openai(target_name, target_spec, prompt, record, record_path,
     (contract violations, reconciliation error, totals violations) - fewest
     first. Raises only if no candidate is contract-valid."""
     base = [{"role": "user", "content": prompt}]
-    best = {"key": (10 ** 9, 10.0, 10 ** 9), "result": None, "text": None, "fatal": None}
+    best = {"key": (10 ** 9, 10.0, 10 ** 9), "result": None, "text": None,
+            "fatal": None, "totals": []}
     clean = (0, 0.0, 0)
 
     def consider(text, raw, tag, trunc=None):
         # trunc (output-limit truncation) is a FAILED candidate, not a run
         # abort: record it and keep sampling. Ranks below any parseable one.
         if trunc:
-            fatal, result, totals, recon = [trunc], None, 0, 10.0
+            fatal, result, totals, recon = [trunc], None, [], 10.0
         else:
             result, fatal, totals, allp = _evaluate(text, target_spec)
             recon = _reconcile_penalty(result, target_spec, reconcile_total) if not fatal else 10.0
         att = {"tag": tag, "response": raw, "usage": raw.get("usage") if raw else None,
-               "n_fatal": len(fatal), "n_totals": totals, "reconcile_err": recon,
+               "n_fatal": len(fatal), "n_totals": len(totals), "reconcile_err": recon,
                "truncated": bool(trunc)}
         if fatal:
             att["format_problems"] = fatal
+        if totals:
+            att["totals_problems"] = totals
         record["attempts"].append(att)
-        key = (len(fatal), recon, totals)
+        key = (len(fatal), recon, len(totals))
         if key < best["key"]:
-            best.update(key=key, result=result, text=text, fatal=fatal)
+            best.update(key=key, result=result, text=text, fatal=fatal, totals=totals)
         return key
 
     # 1. greedy baseline (reproducible)
@@ -1258,6 +1318,21 @@ def _extract_openai(target_name, target_spec, prompt, record, record_path,
                        {"role": "user", "content": _correction_message(best["fatal"])}]
         text, raw, trunc = _call_openai(msgs, temperature=0, seed=0)
         if consider(text, raw, "retry", trunc) == clean:
+            return _finalize_openai(best, record, record_path)
+
+    # 2b. contract-clean but the printed totals do not reconcile: retry with the
+    #     MISMATCHES fed back. The Anthropic path has always done this (it folds
+    #     totals into `problems`); the local path only warned, so a systematic
+    #     transcription slip sailed through - chi_edu Age_Serv_Wage shifted every
+    #     row one column right (values all correct, one column late), produced 10
+    #     row-total mismatches, and still shipped a 0.00 grid. A printed total
+    #     that disagrees with the cells is PDF-independent evidence of exactly
+    #     that class of error, so it is worth one greedy correction.
+    if not best["fatal"] and best["totals"] and best["text"]:
+        msgs = base + [{"role": "assistant", "content": best["text"]},
+                       {"role": "user", "content": _totals_correction_message(best["totals"])}]
+        text, raw, trunc = _call_openai(msgs, temperature=0, seed=0)
+        if consider(text, raw, "retry-totals", trunc) == clean:
             return _finalize_openai(best, record, record_path)
 
     # 3. best-of-N: independent temperature draws to escape a deterministic

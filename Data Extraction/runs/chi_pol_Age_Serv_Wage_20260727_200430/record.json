@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-928cf3b10fe03fb3",
+        "object": "chat.completion",
+        "created": 1785197070,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Under 1 year\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 and over\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null, null, null, 0],\n        [null, null, null, null, null, null, null, null, null, 31912638],\n        [null, null, null, null, null, null, null, null, null, 110371308],\n        [null, null, null, null, null, null, null, null, null, 124483158],\n        [null, null, null, null, null, null, null, null, null, 172043600],\n        [null, null, null, null, null, null, null, null, null, 198453535],\n        [null, null, null, null, null, null, null, null, null, 242234827],\n        [null, null, null, null, null, null, null, null, null, 232647252],\n        [null, null, null, null, null, null, null, null, null, 90891189],\n        [null, null, null, null, null, null, null, null, null, 25949357]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019 (Counts)\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Under 1 year\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 and over\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null, null, null, 0],\n        [null, 168, 342, null, null, null, null, null, null, 510],\n        [null, 151, 1345, 48, null, null, null, null, null, 1544],\n        [null, 86, 980, 515, 8, null, null, null, null, 1589],\n        [null, 48, 458, 528, 731, 181, null, null, null, 1946],\n        [null, 7, 134, 233, 513, 976, 191, null, null, 2054],\n        [null, null, 2, 71, 263, 643, 1211, 187, null, 2377],\n        [null, null, 2, 104, 355, 809, 914, 36, null, 2220],\n        [null, null, null, 1, 123, 297, 346, 99, 1, 867],\n        [null, null, null, 22, 81, 87, 47, 9, null, 246]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20 to 24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 to 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 to 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 to 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 to 63\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1 year\",\n        \"1 to 4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 to 9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 to 14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 to 19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 to 24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 and over\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is from Exhibit C Part III (Page 46). The document provides Total Annual Salaries (Table 0) and Member Counts (Table 1) by Age and Service. Average salary is derived by dividing Total Salaries by Counts. Target row '70' has no source data as the document stops at age 63. Target column '40' maps to source '35 and over'. Target row '<25' merges 'Under 20' and '20 to 24' using weighted average. Target column '4' merges 'Under 1 year' and '1 to 4' using weighted average.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 83759,
+          "total_tokens": 86116,
+          "completion_tokens": 2357,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 83759,
+        "total_tokens": 86116,
+        "completion_tokens": 2357,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0]: weighted_avg is not allowed in ratio mode - use additive maps",
+        "col_map[0]: weighted_avg is not allowed in ratio mode - use additive maps"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b54c8c2dc06cde57",
+        "object": "chat.completion",
+        "created": 1785197087,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Under 1 year\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 and over\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null, null, null, 0],\n        [null, null, null, null, null, null, null, null, null, 31912638],\n        [null, null, null, null, null, null, null, null, null, 110371308],\n        [null, null, null, null, null, null, null, null, null, 124483158],\n        [null, null, null, null, null, null, null, null, null, 172043600],\n        [null, null, null, null, null, null, null, null, null, 198453535],\n        [null, null, null, null, null, null, null, null, null, 242234827],\n        [null, null, null, null, null, null, null, null, null, 232647252],\n        [null, null, null, null, null, null, null, null, null, 90891189],\n        [null, null, null, null, null, null, null, null, null, 25949357]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019 (Counts)\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Under 1 year\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 and over\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null, null, null, 0],\n        [null, 168, 342, null, null, null, null, null, null, 510],\n        [null, 151, 1345, 48, null, null, null, null, null, 1544],\n        [null, 86, 980, 515, 8, null, null, null, null, 1589],\n        [null, 48, 458, 528, 731, 181, null, null, null, 1946],\n        [null, 7, 134, 233, 513, 976, 191, null, null, 2054],\n        [null, null, 2, 71, 263, 643, 1211, 187, null, 2377],\n        [null, null, 2, 104, 355, 809, 914, 36, null, 2220],\n        [null, null, null, 1, 123, 297, 346, 99, 1, 867],\n        [null, null, null, 22, 81, 87, 47, 9, null, 246]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20 to 24\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 to 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 to 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 to 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 to 63\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1 year\",\n        \"1 to 4\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 to 9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 to 14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 to 19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 to 24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 and over\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is from Exhibit C Part III (Page 46). The document provides Total Annual Salaries (Table 0) and Member Counts (Table 1) by Age and Service. Average salary is derived by dividing Total Salaries by Counts using the ratio operation. Target row '70' has no source data as the document stops at age 63. Target column '40' maps to source '35 and over'. Target row '<25' merges 'Under 20' and '20 to 24' using sum. Target column '4' merges 'Under 1 year' and '1 to 4' using sum. In ratio mode, all maps must be additive (sum/copy).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 87657,
+          "total_tokens": 90026,
+          "completion_tokens": 2369,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 87657,
+        "total_tokens": 90026,
+        "completion_tokens": 2369,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

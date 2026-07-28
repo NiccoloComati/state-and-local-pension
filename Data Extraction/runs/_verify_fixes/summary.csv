@@ -1,0 +1,6 @@
+plan,target,status,score,exact,close,wrong,missing,extra,totals,n_tables,n_attempts,crash,run_dir,ppd
+chi_edu,Age_Serv_Wage,scored,0.0,0,1,49,0,11,suspect,2,8,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_edu_Age_Serv_Wage_20260727_194149,
+chi_ff,Age_Serv_Wage,scored,0.0,0,0,45,35,0,none,2,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_ff_Age_Serv_Wage_20260727_195911,
+chi_gen,Age_Serv_Wage,scored,0.9831,58,0,1,0,0,suspect,2,8,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_gen_Age_Serv_Wage_20260727_200008,
+chi_pol,Age_Serv_Wage,scored,0.0,0,0,0,38,0,none,2,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/chi_pol_Age_Serv_Wage_20260727_200430,
+mil,Retirement,scored,1.0,22,0,0,0,0,clean,3,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/mil_Retirement_20260727_200513,

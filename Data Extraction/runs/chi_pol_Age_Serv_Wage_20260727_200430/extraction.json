@@ -1,0 +1,470 @@
+{
+  "source_tables": [
+    {
+      "page": 46,
+      "title": "Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019",
+      "row_labels": [
+        "Under 20",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 63"
+      ],
+      "col_labels": [
+        "Under 1 year",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 and over",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          31912638
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          110371308
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          124483158
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          172043600
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          198453535
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          242234827
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          232647252
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          90891189
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          25949357
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 46,
+      "title": "Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019 (Counts)",
+      "row_labels": [
+        "Under 20",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 63"
+      ],
+      "col_labels": [
+        "Under 1 year",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 and over",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        [
+          null,
+          168,
+          342,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          510
+        ],
+        [
+          null,
+          151,
+          1345,
+          48,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1544
+        ],
+        [
+          null,
+          86,
+          980,
+          515,
+          8,
+          null,
+          null,
+          null,
+          null,
+          1589
+        ],
+        [
+          null,
+          48,
+          458,
+          528,
+          731,
+          181,
+          null,
+          null,
+          null,
+          1946
+        ],
+        [
+          null,
+          7,
+          134,
+          233,
+          513,
+          976,
+          191,
+          null,
+          null,
+          2054
+        ],
+        [
+          null,
+          null,
+          2,
+          71,
+          263,
+          643,
+          1211,
+          187,
+          null,
+          2377
+        ],
+        [
+          null,
+          null,
+          2,
+          104,
+          355,
+          809,
+          914,
+          36,
+          null,
+          2220
+        ],
+        [
+          null,
+          null,
+          null,
+          1,
+          123,
+          297,
+          346,
+          99,
+          1,
+          867
+        ],
+        [
+          null,
+          null,
+          null,
+          22,
+          81,
+          87,
+          47,
+          9,
+          null,
+          246
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 20",
+        "20 to 24"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 63"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1 year",
+        "1 to 4"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 and over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "derive": {
+    "op": "ratio",
+    "numerator_table": 0,
+    "denominator_table": 1
+  },
+  "transpose": false,
+  "notes": "Source data is from Exhibit C Part III (Page 46). The document provides Total Annual Salaries (Table 0) and Member Counts (Table 1) by Age and Service. Average salary is derived by dividing Total Salaries by Counts using the ratio operation. Target row '70' has no source data as the document stops at age 63. Target column '40' maps to source '35 and over'. Target row '<25' merges 'Under 20' and '20 to 24' using sum. Target column '4' merges 'Under 1 year' and '1 to 4' using sum. In ratio mode, all maps must be additive (sum/copy).",
+  "unavailable": false
+}

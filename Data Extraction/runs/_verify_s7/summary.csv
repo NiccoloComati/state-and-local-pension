@@ -1,0 +1,7 @@
+plan,target,status,score,exact,close,wrong,missing,extra,totals,n_tables,n_attempts,crash,run_dir,ppd
+chi_ff,Age_Serv_Wage,crash,,,,,,,,,8,"response still violates the contract after 8 attempts: | source_tables[0] holds values up to 7,627,263 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<",/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/_verify_s7/chi_ff_Age_Serv_Wage_20260728_101347,
+bos,Age_Serv_Num,production,,,,,,,clean,2,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/_verify_s7/bos_Age_Serv_Num_20260728_101702,ok
+bos,Age_Serv_Wage,production,,,,,,,none,4,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/_verify_s7/bos_Age_Serv_Wage_20260728_101747,
+lax_gen,Age_Serv_Wage,scored,1.0,58,0,0,0,0,clean,2,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/_verify_s7/lax_gen_Age_Serv_Wage_20260728_101907,
+lax_uty,Age_Serv_Num,scored,1.0,58,0,0,0,0,suspect,1,7,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/_verify_s7/lax_uty_Age_Serv_Num_20260728_102009,ok
+lax_ffpol,Age_Serv_Wage,scored,1.0,48,0,0,0,0,none,2,2,,/orcd/scratch/orcd/011/ncomati/state-and-local-pension/Data Extraction/runs/_verify_s7/lax_ffpol_Age_Serv_Wage_20260728_102158,

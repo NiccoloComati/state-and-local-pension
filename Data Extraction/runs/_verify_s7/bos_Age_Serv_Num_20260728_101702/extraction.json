@@ -1,0 +1,566 @@
+{
+  "source_tables": [
+    {
+      "page": 49,
+      "title": "Exhibit A: Participants in Active Service as of December 31, 2019 \u2013 BRS excluding Teachers by Age, Years of Service, and Average Payroll",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over",
+        "Unknown"
+      ],
+      "col_labels": [
+        "Total",
+        "0-4",
+        "5-9",
+        "10-14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          384,
+          382,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1339,
+          1203,
+          133,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1720,
+          1000,
+          581,
+          134,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1663,
+          592,
+          454,
+          510,
+          101,
+          6,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1527,
+          398,
+          271,
+          397,
+          341,
+          112,
+          8,
+          null,
+          null,
+          null
+        ],
+        [
+          1729,
+          369,
+          212,
+          244,
+          339,
+          433,
+          106,
+          26,
+          null,
+          null
+        ],
+        [
+          1977,
+          329,
+          219,
+          218,
+          291,
+          352,
+          263,
+          289,
+          16,
+          null
+        ],
+        [
+          1984,
+          260,
+          169,
+          199,
+          248,
+          274,
+          202,
+          492,
+          129,
+          11
+        ],
+        [
+          1491,
+          138,
+          134,
+          182,
+          218,
+          222,
+          141,
+          264,
+          137,
+          55
+        ],
+        [
+          546,
+          63,
+          53,
+          87,
+          96,
+          96,
+          58,
+          49,
+          15,
+          29
+        ],
+        [
+          264,
+          46,
+          22,
+          31,
+          47,
+          43,
+          24,
+          25,
+          7,
+          19
+        ],
+        [
+          85,
+          85,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": [
+        384,
+        1339,
+        1720,
+        1663,
+        1527,
+        1729,
+        1977,
+        1984,
+        1491,
+        546,
+        264,
+        85
+      ],
+      "printed_col_totals": [
+        14709,
+        4865,
+        2250,
+        2005,
+        1686,
+        1538,
+        802,
+        1145,
+        304,
+        114
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 51,
+      "title": "Exhibit C: Participants in Active Service as of December 31, 2019 \u2013 Teachers by Age, Years of Service, and Average Payroll",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over",
+        "Unknown"
+      ],
+      "col_labels": [
+        "Total",
+        "0-4",
+        "5-9",
+        "10-14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          98,
+          98,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          781,
+          677,
+          104,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1004,
+          486,
+          454,
+          64,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          969,
+          215,
+          328,
+          391,
+          35,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          926,
+          113,
+          179,
+          306,
+          292,
+          35,
+          1,
+          null,
+          null,
+          null
+        ],
+        [
+          736,
+          87,
+          108,
+          136,
+          199,
+          169,
+          35,
+          2,
+          null,
+          null
+        ],
+        [
+          651,
+          59,
+          67,
+          97,
+          129,
+          148,
+          114,
+          35,
+          2,
+          null
+        ],
+        [
+          519,
+          50,
+          49,
+          71,
+          97,
+          86,
+          80,
+          79,
+          6,
+          1
+        ],
+        [
+          328,
+          21,
+          28,
+          44,
+          62,
+          59,
+          52,
+          44,
+          16,
+          2
+        ],
+        [
+          110,
+          3,
+          7,
+          20,
+          20,
+          30,
+          11,
+          6,
+          5,
+          8
+        ],
+        [
+          25,
+          null,
+          5,
+          4,
+          3,
+          3,
+          2,
+          4,
+          1,
+          3
+        ],
+        [
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": [
+        98,
+        781,
+        1004,
+        969,
+        926,
+        736,
+        651,
+        519,
+        328,
+        110,
+        25,
+        0
+      ],
+      "printed_col_totals": [
+        6147,
+        1809,
+        1329,
+        1133,
+        837,
+        530,
+        295,
+        170,
+        30,
+        14
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & over"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 - 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 - 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 - 39",
+        "40 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1
+    ]
+  },
+  "transpose": false,
+  "notes": "Source data transcribed from Exhibit A (BRS excluding Teachers) and Exhibit C (Teachers) on pages 49 and 51. The target grid requires summing the two group tables to get the total plan counts. Row '70' is derived by summing '65-69' and '70 & over' rows. Column '40' is derived by summing '35-39' and '40 & over' columns. 'Unknown' age row from Exhibit A is excluded from the target mapping as it does not map to a specific age bin, but is included in the source tables to maintain shape alignment for the sum operation (mapped to null in row_map).",
+  "unavailable": false
+}
