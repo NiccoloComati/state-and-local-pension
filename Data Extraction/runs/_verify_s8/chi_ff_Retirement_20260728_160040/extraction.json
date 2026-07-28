@@ -1,0 +1,223 @@
+{
+  "source_tables": [
+    {
+      "page": 37,
+      "title": "Exhibit D.1 \u2013 Service Retirement Annuitants as of December 31, 2019",
+      "row_labels": [
+        "Under 50",
+        "50 \u2013 54",
+        "55 \u2013 59",
+        "60 \u2013 64",
+        "65 \u2013 69",
+        "70 \u2013 74",
+        "75 \u2013 79",
+        "80 \u2013 84",
+        "85 \u2013 89",
+        "90 \u2013 94",
+        "95 \u2013 99",
+        "100 & over"
+      ],
+      "col_labels": [
+        "Male Number",
+        "Male Annual Payments",
+        "Female Number",
+        "Female Annual Payments"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          28,
+          1785714,
+          8,
+          402441
+        ],
+        [
+          432,
+          36048214,
+          37,
+          2791446
+        ],
+        [
+          865,
+          76032267,
+          58,
+          4787391
+        ],
+        [
+          763,
+          66572567,
+          26,
+          1947418
+        ],
+        [
+          401,
+          34689942,
+          7,
+          522153
+        ],
+        [
+          408,
+          33395251,
+          5,
+          305816
+        ],
+        [
+          232,
+          17232882,
+          2,
+          161493
+        ],
+        [
+          175,
+          12345971,
+          0,
+          0
+        ],
+        [
+          82,
+          4557020,
+          0,
+          0
+        ],
+        [
+          6,
+          243907,
+          0,
+          0
+        ],
+        [
+          2,
+          60056,
+          0,
+          0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        3394,
+        282963792,
+        143,
+        10918159
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50 \u2013 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55 \u2013 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 \u2013 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 \u2013 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 \u2013 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 \u2013 79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80 \u2013 84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85 \u2013 89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 \u2013 94"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "95 \u2013 99"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "100 & over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Male Number",
+        "Female Number"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Male Annual Payments",
+        "Female Annual Payments",
+        "Male Number",
+        "Female Number"
+      ],
+      "op": "ratio",
+      "numerator_sources": [
+        "Male Annual Payments",
+        "Female Annual Payments"
+      ],
+      "denominator_sources": [
+        "Male Number",
+        "Female Number"
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is Exhibit D.1 (Page 37) showing Service Retirement Annuitants by Age and Annual Benefit. The table splits data by Male and Female. The target 'Number' is the sum of Male and Female counts. The target 'AverageBenefit' is derived as the ratio of the sum of Male and Female Annual Payments to the sum of Male and Female counts. The source data is already in Annual dollars, so no annualization is needed. The 'Under 50' row is excluded as it does not map to the target grid starting at 50-54. The '100 & over' row maps directly to the target '100 & over'.",
+  "unavailable": false
+}

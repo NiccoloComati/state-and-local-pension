@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a24fc4aa57cb8731",
+        "object": "chat.completion",
+        "created": 1785268840,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 37,\n      \"title\": \"Exhibit D.1 \u2013 Service Retirement Annuitants as of December 31, 2019\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 \u2013 54\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 \u2013 74\",\n        \"75 \u2013 79\",\n        \"80 \u2013 84\",\n        \"85 \u2013 89\",\n        \"90 \u2013 94\",\n        \"95 \u2013 99\",\n        \"100 & over\"\n      ],\n      \"col_labels\": [\n        \"Male Number\",\n        \"Male Annual Payments\",\n        \"Female Number\",\n        \"Female Annual Payments\"\n      ],\n      \"cells\": [\n        [0, 0, 0, 0],\n        [28, 1785714, 8, 402441],\n        [432, 36048214, 37, 2791446],\n        [865, 76032267, 58, 4787391],\n        [763, 66572567, 26, 1947418],\n        [401, 34689942, 7, 522153],\n        [408, 33395251, 5, 305816],\n        [232, 17232882, 2, 161493],\n        [175, 12345971, 0, 0],\n        [82, 4557020, 0, 0],\n        [6, 243907, 0, 0],\n        [2, 60056, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [3394, 282963792, 143, 10918159]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"50-54\", \"sources\": [\"50 \u2013 54\"], \"op\": \"copy\"},\n    {\"target\": \"55-59\", \"sources\": [\"55 \u2013 59\"], \"op\": \"copy\"},\n    {\"target\": \"60-64\", \"sources\": [\"60 \u2013 64\"], \"op\": \"copy\"},\n    {\"target\": \"65-69\", \"sources\": [\"65 \u2013 69\"], \"op\": \"copy\"},\n    {\"target\": \"70-74\", \"sources\": [\"70 \u2013 74\"], \"op\": \"copy\"},\n    {\"target\": \"75-79\", \"sources\": [\"75 \u2013 79\"], \"op\": \"copy\"},\n    {\"target\": \"80-84\", \"sources\": [\"80 \u2013 84\"], \"op\": \"copy\"},\n    {\"target\": \"85-89\", \"sources\": [\"85 \u2013 89\"], \"op\": \"copy\"},\n    {\"target\": \"90-94\", \"sources\": [\"90 \u2013 94\"], \"op\": \"copy\"},\n    {\"target\": \"95-99\", \"sources\": [\"95 \u2013 99\"], \"op\": \"copy\"},\n    {\"target\": \"100 & over\", \"sources\": [\"100 & over\"], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"Number\", \"sources\": [\"Male Number\", \"Female Number\"], \"op\": \"sum\"},\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\"Male Annual Payments\", \"Female Annual Payments\", \"Male Number\", \"Female Number\"],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\"Male Annual Payments\", \"Female Annual Payments\"],\n      \"denominator_sources\": [\"Male Number\", \"Female Number\"]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table is Exhibit D.1 (Page 37) showing Service Retirement Annuitants by Age and Annual Benefit. The table splits data by Male and Female. The target 'Number' is the sum of Male and Female counts. The target 'AverageBenefit' is derived as the ratio of the sum of Male and Female Annual Payments to the sum of Male and Female counts. The source data is already in Annual dollars, so no annualization is needed. The 'Under 50' row is excluded as it does not map to the target grid starting at 50-54. The '100 & over' row maps directly to the target '100 & over'.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 88538,
+          "total_tokens": 89718,
+          "completion_tokens": 1180,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 88538,
+        "total_tokens": 89718,
+        "completion_tokens": 1180,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

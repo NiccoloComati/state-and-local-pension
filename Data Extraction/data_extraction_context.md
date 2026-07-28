@@ -1543,3 +1543,52 @@ which PREDATES the label-existence guard - those 17 cells need a round 3.
 **Open question blocking round 3:** what Sep_Rate should do when the AV
 publishes rates by age only (service table missed / broadcast across service =
 an assumption for Niccolo + coauthor / genuinely unavailable).
+
+### 2026-07-28 - session 8 round-2 verify (`_verify_s8`, job 19084943) ADJUDICATED
+Job COMPLETED (34 min). Pulled the 14-cell batch (tarball + one scp) and
+adjudicated from the per-cell `report/derived/extraction.json`, never the
+summary. Two headline firsts landed:
+- **chi_ff Age_Serv_Wage: the monthly x12 EXECUTED LIVE for the first time
+  ever.** `[<25,svc4]=65,840.1`, bit-exact to the session-7 PDF prediction
+  `(99,840+119,627)/40 x12`. All 45 real cells exact. Score 0.5625 is ENTIRELY
+  the 35 zero-count cells (`truth=0.0` vs `cand=None`) - the known 0/0 wage
+  convention gap, not a fault. The +1 printed-Total-row guard cleared the
+  `13 rows/12 labels` blocker that had killed every prior attempt.
+- **Split-ratio num/den works:** chi_ff Retirement `[50-54]=$60,782.08` (the
+  exact predicted PDF answer), sd Retirement 1.0, phi Retirement 1.0 (was a
+  crash - arity fix). chi_gen Retirement 0.9091 (top-bucket 50-54 dropped).
+
+Per fix class: **totals-driven correction** fixed chi_edu ASW's one-column-late
+shift (46 exact, up from 0.0; residual 9 cells confined to svc 34/40 = a smaller
+top-column boundary issue). **group_weighted guidance** eliminated both Avg_Mort
+crashes: sd Avg_Mort now a plausible monotonic curve (q(20)=0.0002 .. q(70)=
+0.0048, 55/100 filled), but **chi_gen Avg_Mort is flat 0.02 at every age** (crash
+-> bad output; audit_derived would flag IMPOSSIBLE). **side-by-side prompt** broke
+the sd Ret_Rate 882x decode LOOP (no crash; B-7 General transcribed cleanly) but
+the derived grid is all-null -> now a label-existence/round-3 + register-5 cell.
+
+Still open / new:
+- **mil Retirement REGRESSION 1.0 -> 0.82** at greedy (n_attempts=1, no best-of-N
+  escalation): rows 50-54/55-59 (`'59 & Under' /2`) came back null while
+  `'90 & Over' /3` is correct. Same top-bucket-drop as chi_gen Retirement - a
+  NEW recurring Retirement pattern (the model omits the lowest age-bucket even-
+  split on a single greedy pass; Retirement has no reconcile/totals signal to
+  escalate on). Candidate for a small guard or an escalation trigger.
+- **chi_pol Age_Serv_Wage CRASH** (8 attempts): the wage-totals guard fires
+  correctly (242M totals table) but the model cannot transcribe the separate
+  member-counts table from Segal's interleaved layout -> persistent Segal-wage
+  gap, now loud.
+- **sf Retirement CRASH** (8 attempts): model keeps declaring `ratio(Total/
+  Total)` -> avg 1.00; guard rejects (denominator not a count). Needs the PDF -
+  either sf's exhibit has no count column (-> unavailable) or the model can't
+  locate it.
+- The **0/0 zero-count wage convention** (chi_ff ASW, 35 cells) now visibly caps
+  wage scores - a one-line scoring/convention call (wage cell with 0 members =
+  empty vs 0.0), not a bug.
+
+Net: 8 clean wins incl. the two firsts, sd Ret_Rate loop finally broken, vs one
+regression to re-confirm (mil), two loud crashes needing a PDF look (chi_pol
+Segal-wage, sf Retirement), one bad blend (chi_gen Avg_Mort). The remaining
+losses fall cleanly into the label-existence/round-3 + Sep_Rate-decision buckets.
+Artifacts committed from the laptop under `runs/_verify_s8/` (cluster is
+pull-only). NEXT: the Sep_Rate ruling (step 2) gates round 3.

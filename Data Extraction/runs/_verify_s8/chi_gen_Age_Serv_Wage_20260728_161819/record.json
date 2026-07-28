@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8884dd30ffeaefdb",
+        "object": "chat.completion",
+        "created": 1785269899,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 32,\n      \"title\": \"Exhibit B.1 All Members in Active Service as of December 31, 2019 By Age, Years of Service, and Total Salary\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 \u2013 39\",\n        \"40 \u2013 44\",\n        \"45 \u2013 49\",\n        \"50 \u2013 54\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Total\",\n        \"Under 1\",\n        \"1 \u2013 4\",\n        \"5 \u2013 9\",\n        \"10 \u2013 14\",\n        \"15 \u2013 19\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [55, 37, 18, null, null, null, null, null, null, null],\n        [1534905, 1105749, 429156, null, null, null, null, null, null, null],\n        [1081, 428, 639, 14, null, null, null, null, null, null],\n        [34679898, 13690953, 20558145, 430800, null, null, null, null, null, null],\n        [2884, 609, 1886, 383, 6, null, null, null, null, null],\n        [114669563, 21871396, 76664048, 15880870, 253248, null, null, null, null, null],\n        [3489, 431, 1874, 960, 199, 25, null, null, null, null],\n        [167412865, 16567600, 90850678, 49430598, 9186563, 1377426, null, null, null, null],\n        [3557, 362, 1550, 899, 475, 224, 47, null, null, null],\n        [192368059, 14871867, 81099155, 53170609, 27142006, 13026248, 3058174, null, null, null],\n        [3626, 262, 1268, 764, 491, 495, 305, 41, null, null],\n        [211108352, 10295216, 64077522, 46455007, 31008054, 33087280, 22893102, 3292171, null, null],\n        [4178, 257, 1010, 753, 553, 586, 698, 294, 27, null],\n        [256163205, 9714671, 51238476, 44730629, 33978958, 38991934, 52968337, 22479113, 2061087, null],\n        [4357, 162, 825, 582, 507, 681, 787, 611, 199, 3],\n        [275681703, 6919031, 40585440, 33546706, 30053186, 40217687, 58982971, 49008760, 16165988, 201935],\n        [4275, 119, 575, 472, 515, 739, 859, 604, 322, 70],\n        [262308244, 4487304, 28432867, 25776066, 27837414, 42779143, 56287114, 45104807, 25590840, 6012690],\n        [3060, 64, 324, 320, 323, 509, 570, 490, 334, 126],\n        [189859594, 2490924, 15975036, 17710762, 17210361, 27770473, 36790202, 35525345, 25684042, 10702450],\n        [1146, 21, 77, 98, 149, 183, 215, 197, 133, 73],\n        [71260580, 774056, 3245729, 5632544, 7898122, 10305001, 13597282, 14234601, 9849051, 5724194],\n        [454, 7, 37, 38, 44, 65, 88, 69, 50, 56],\n        [25743188, 284546, 1052385, 1381945, 1996635, 2921023, 5533619, 4613410, 3865219, 4094406],\n        [32162, 2759, 10083, 5283, 3262, 3507, 3569, 2306, 1065, 328],\n        [1802790156, 103073314, 474208637, 294146536, 186564546, 210476215, 250110800, 174258206, 83216227, 26735675]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 32,\n      \"title\": \"Exhibit B.1 All Members in Active Service as of December 31, 2019 By Age, Years of Service, and Total Salary (Counts)\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 \u2013 39\",\n        \"40 \u2013 44\",\n        \"45 \u2013 49\",\n        \"50 \u2013 54\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Total\",\n        \"Under 1\",\n        \"1 \u2013 4\",\n        \"5 \u2013 9\",\n        \"10 \u2013 14\",\n        \"15 \u2013 19\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [55, 37, 18, null, null, null, null, null, null, null],\n        [1081, 428, 639, 14, null, null, null, null, null, null],\n        [2884, 609, 1886, 383, 6, null, null, null, null, null],\n        [3489, 431, 1874, 960, 199, 25, null, null, null, null],\n        [3557, 362, 1550, 899, 475, 224, 47, null, null, null],\n        [3626, 262, 1268, 764, 491, 495, 305, 41, null, null],\n        [4178, 257, 1010, 753, 553, 586, 698, 294, 27, null],\n        [4357, 162, 825, 582, 507, 681, 787, 611, 199, 3],\n        [4275, 119, 575, 472, 515, 739, 859, 604, 322, 70],\n        [3060, 64, 324, 320, 323, 509, 570, 490, 334, 126],\n        [1146, 21, 77, 98, 149, 183, 215, 197, 133, 73],\n        [454, 7, 37, 38, 44, 65, 88, 69, 50, 56]\n      ],\n      \"printed_row_totals\": [55, 1081, 2884, 3489, 3557, 3626, 4178, 4357, 4275, 3060, 1146, 454],\n      \"printed_col_totals\": [32162, 2759, 10083, 5283, 3262, 3507, 3569, 2306, 1065, 328]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20 \u2013 24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 \u2013 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 \u2013 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 \u2013 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 \u2013 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 \u2013 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 \u2013 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 \u2013 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 \u2013 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1 \u2013 4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 \u2013 9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 \u2013 14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 \u2013 19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 \u2013 24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 \u2013 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 \u2013 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 & Over\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source data is from Exhibit B.1 (Page 32) which interleaves member counts and total salary. Table 0 transcribes the Total Salary rows (even indices in the printed layout, starting from row 2 of the data block) to serve as the numerator for the average calculation. Table 1 transcribes the Member Count rows (odd indices in the printed layout, starting from row 1 of the data block) to serve as the denominator/weights. The target grid requires specific age and service bins. Age bins '<25' and '70' are weighted averages of the source bins 'Under 20'+'20-24' and '65-69'+'70 & Over' respectively. Service bin '4' is a weighted average of 'Under 1' and '1-4'. All other bins map directly via copy. The derived average salary is calculated by the system as Total Salary / Member Count for each cell after aggregation.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 101465,
+          "total_tokens": 105556,
+          "completion_tokens": 4091,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 101465,
+        "total_tokens": 105556,
+        "completion_tokens": 4091,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].cells has 26 rows but 12 row_labels",
+        "source_tables[0] holds values up to 1,802,790,156 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8a90a3febf1c4b9b",
+        "object": "chat.completion",
+        "created": 1785269929,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 32,\n      \"title\": \"Exhibit B.1 All Members in Active Service as of December 31, 2019 By Age, Years of Service, and Total Salary (Total Salary)\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 \u2013 39\",\n        \"40 \u2013 44\",\n        \"45 \u2013 49\",\n        \"50 \u2013 54\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Total\",\n        \"Under 1\",\n        \"1 \u2013 4\",\n        \"5 \u2013 9\",\n        \"10 \u2013 14\",\n        \"15 \u2013 19\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [1534905, 1105749, 429156, null, null, null, null, null, null, null],\n        [34679898, 13690953, 20558145, 430800, null, null, null, null, null, null],\n        [114669563, 21871396, 76664048, 15880870, 253248, null, null, null, null, null],\n        [167412865, 16567600, 90850678, 49430598, 9186563, 1377426, null, null, null, null],\n        [192368059, 14871867, 81099155, 53170609, 27142006, 13026248, 3058174, null, null, null],\n        [211108352, 10295216, 64077522, 46455007, 31008054, 33087280, 22893102, 3292171, null, null],\n        [256163205, 9714671, 51238476, 44730629, 33978958, 38991934, 52968337, 22479113, 2061087, null],\n        [275681703, 6919031, 40585440, 33546706, 30053186, 40217687, 58982971, 49008760, 16165988, 201935],\n        [262308244, 4487304, 28432867, 25776066, 27837414, 42779143, 56287114, 45104807, 25590840, 6012690],\n        [189859594, 2490924, 15975036, 17710762, 17210361, 27770473, 36790202, 35525345, 25684042, 10702450],\n        [71260580, 774056, 3245729, 5632544, 7898122, 10305001, 13597282, 14234601, 9849051, 5724194],\n        [25743188, 284546, 1052385, 1381945, 1996635, 2921023, 5533619, 4613410, 3865219, 4094406]\n      ],\n      \"printed_row_totals\": [1534905, 34679898, 114669563, 167412865, 192368059, 211108352, 256163205, 275681703, 262308244, 189859594, 71260580, 25743188],\n      \"printed_col_totals\": [1802790156, 103073314, 474208637, 294146536, 186564546, 210476215, 250110800, 174258206, 83216227, 26735675]\n    },\n    {\n      \"page\": 32,\n      \"title\": \"Exhibit B.1 All Members in Active Service as of December 31, 2019 By Age, Years of Service, and Total Salary (Member Counts)\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 \u2013 39\",\n        \"40 \u2013 44\",\n        \"45 \u2013 49\",\n        \"50 \u2013 54\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Total\",\n        \"Under 1\",\n        \"1 \u2013 4\",\n        \"5 \u2013 9\",\n        \"10 \u2013 14\",\n        \"15 \u2013 19\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [55, 37, 18, null, null, null, null, null, null, null],\n        [1081, 428, 639, 14, null, null, null, null, null, null],\n        [2884, 609, 1886, 383, 6, null, null, null, null, null],\n        [3489, 431, 1874, 960, 199, 25, null, null, null, null],\n        [3557, 362, 1550, 899, 475, 224, 47, null, null, null],\n        [3626, 262, 1268, 764, 491, 495, 305, 41, null, null],\n        [4178, 257, 1010, 753, 553, 586, 698, 294, 27, null],\n        [4357, 162, 825, 582, 507, 681, 787, 611, 199, 3],\n        [4275, 119, 575, 472, 515, 739, 859, 604, 322, 70],\n        [3060, 64, 324, 320, 323, 509, 570, 490, 334, 126],\n        [1146, 21, 77, 98, 149, 183, 215, 197, 133, 73],\n        [454, 7, 37, 38, 44, 65, 88, 69, 50, 56]\n      ],\n      \"printed_row_totals\": [55, 1081, 2884, 3489, 3557, 3626, 4178, 4357, 4275, 3060, 1146, 454],\n      \"printed_col_totals\": [32162, 2759, 10083, 5283, 3262, 3507, 3569, 2306, 1065, 328]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20 \u2013 24\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 \u2013 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 \u2013 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 \u2013 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 \u2013 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 \u2013 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 \u2013 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 \u2013 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 \u2013 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1 \u2013 4\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 \u2013 9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 \u2013 14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 \u2013 19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 \u2013 24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 \u2013 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 \u2013 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 & Over\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data from Exhibit B.1 (Page 32) interleaves member counts and total salary. Table 0 is the Total Salary (numerator) and Table 1 is the Member Counts (denominator). The target average salary is derived by dividing the aggregated total salary by the aggregated member count for each bin. Row and column mappings use 'sum' for merged bins (e.g., '<25' combines 'Under 20' and '20-24'; '4' combines 'Under 1' and '1-4') and 'copy' for direct matches. The 'derive' object specifies the ratio operation to compute the average.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 107785,
+          "total_tokens": 111369,
+          "completion_tokens": 3584,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 107785,
+        "total_tokens": 111369,
+        "completion_tokens": 3584,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:8000/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

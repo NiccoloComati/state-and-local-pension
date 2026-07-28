@@ -9,6 +9,62 @@ thing, read the "EXACT STATE" and "NEXT ACTION" sections.
 
 ---
 
+## 0g. LATEST — 2026-07-28 session 9: `_verify_s8` adjudicated (READ FIRST)
+
+Job **19084943** (`_verify_s8`, 14 cells) COMPLETED (34 min). Pulled the batch
+(tar + one scp), adjudicated from per-cell `report/derived/extraction.json`.
+Artifacts committed from the laptop under `runs/_verify_s8/`.
+
+### Two headline firsts
+- **chi_ff Age_Serv_Wage — monthly x12 executed LIVE for the first time ever.**
+  `[<25,svc4]=65,840.1`, bit-exact to the PDF prediction. All 45 real cells
+  exact; the 0.5625 score is entirely the 35 zero-count cells (`truth=0.0` vs
+  `cand=None`) — the 0/0 wage convention gap, not a fault. The +1 Total-row
+  guard cleared the `13 rows/12 labels` blocker.
+- **chi_ff Retirement `[50-54]=$60,782.08`** — the exact predicted split-ratio
+  answer. Score 1.0.
+
+### Per fix class
+| class | result |
+|---|---|
+| split-ratio num/den (5 Retirement) | chi_ff 1.0, sd 1.0, phi 1.0 (was crash), chi_gen 0.91 (top-bucket drop), **sf CRASH** |
+| totals-driven correction | chi_edu ASW shift FIXED (46 exact, up from 0.0; residual 9 cells in svc 34/40) |
+| +1 Total-row | chi_ff ASW cleared (above); **chi_pol ASW still CRASH** (Segal counts un-transcribable) |
+| group_weighted guidance (2 Avg_Mort) | crash gone on both; **sd plausible curve**, **chi_gen flat 0.02 (bad)** |
+| side-by-side prompt (sd Ret_Rate) | 882x LOOP broken (no crash); grid all-null → label-existence/round-3 |
+| regression anchors | lax_gen ASW 1.0 ✅, chi_gen ASW 0.9831 ✅, **mil Retirement 1.0→0.82 ❌** |
+
+### Still open / new (feed round 3 + step 2)
+- **mil Retirement REGRESSION 1.0→0.82** and **chi_gen Retirement 0.91**: same
+  NEW pattern — the lowest age-bucket even-split (`'59 & Under' /2`, or the 50-54
+  row) dropped at greedy, n_attempts=1 (Retirement has no reconcile/totals signal
+  to escalate best-of-N). Candidate: a small guard or escalation trigger.
+- **chi_pol ASW CRASH** — persistent Segal-wage gap, now loud (guard fires on the
+  242M totals table, model can't transcribe the counts table).
+- **sf Retirement CRASH** — needs the PDF: no count column (→ unavailable) or the
+  model can't find it.
+- **chi_gen Avg_Mort flat 0.02** — crash→bad output; `audit_derived` IMPOSSIBLE.
+- **0/0 zero-count wage convention** (35 cells) caps chi_ff ASW — a one-line
+  scoring/convention call, not a bug.
+
+### Corpus PDFs — missing from the city universe (for Niccolo to fetch)
+Empty city folders (no AV): **clt, dc, den, fw, ind, nsh, nyc, sea** (8) — fetch
+FY2019 AVs from publicplansdata.org. (The old §0d list missed `clt`+`ind`.)
+`hou_modeldata` already holds `2019_Houston_MERF_AV.pdf` (ppd 204) — present but
+unregistered; `hou_gen` is a one-line add, no fetch. `hou_ff` not present.
+
+### NEXT, in order
+1. **Step 2 — the Sep_Rate ruling** (12-of-16 impossible), gates round 3.
+   Per-plan from the PDF: service-table-missed / age-only-broadcast (assumption →
+   Niccolo+coauthor) / genuinely unavailable.
+2. **Round-3 sbatch** — the 17 label-existence cells + `_verify_s8` leftovers
+   (mil/chi_gen top-bucket, sf, chi_pol, chi_gen Avg_Mort). Content depends on (1).
+3. Size the image-only problem.
+
+Everything below (§0f …) is still valid background.
+
+---
+
 ## 0f. LATEST — 2026-07-28 session 8: four fix classes + a corpus-wide OUTPUT audit (READ FIRST)
 
 ### Live job in flight
