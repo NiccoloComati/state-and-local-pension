@@ -187,6 +187,10 @@ RESULT_SCHEMA = {
                         "op": {"type": "string", "enum": ["ratio"]},
                         "numerator_table": {"type": "integer"},
                         "denominator_table": {"type": "integer"},
+                        "annualize_monthly": {
+                            "type": "boolean",
+                            "description": "true when the numerator prints MONTHLY dollars while the target wants ANNUAL: code multiplies the RATIO RESULT by 12. Put it HERE (not on a column) - a column-level annualize_monthly cancels inside a ratio because it scales numerator and denominator alike.",
+                        },
                     },
                     "required": ["op", "numerator_table", "denominator_table"],
                     "additionalProperties": False,
@@ -268,7 +272,14 @@ If the document publishes TOTALS instead of the averages the target wants (e.g. 
 salary dollars per cell plus member counts, but no average-salary exhibit), transcribe \
 BOTH tables and declare derive = {"op": "ratio", "numerator_table": <totals>, \
 "denominator_table": <counts>}: code aggregates both tables with your maps (additive \
-ops only - sum/copy, NOT weighted_avg) and divides cell-wise. If the document publishes \
+ops only - sum/copy, NOT weighted_avg) and divides cell-wise. If those totals are \
+MONTHLY dollars while the target wants ANNUAL (check the exhibit's own stated average, \
+or divide the printed grand total by the member count - a monthly salary average is a \
+few thousand, an annual one tens of thousands), add "annualize_monthly": true INSIDE \
+the derive object - code multiplies the RATIO RESULT by 12. Do NOT put annualize_monthly \
+on a column in ratio mode: there it scales the numerator and the denominator alike and \
+cancels out. Transcribe the printed monthly numbers unchanged either way. \
+If the document publishes \
 an ADDITIVE target (e.g. active member counts) separately by employee group, transcribe \
 all same-shaped group tables and declare derive = {"op": "sum", "tables": [<indices>]}: \
 code sums those tables cell-wise before applying your maps. Otherwise derive is null. \
@@ -373,6 +384,10 @@ Constraints:
   "denominator_table": <index of the counts table>}. In ratio mode all row ops
   must be additive (sum/copy, never weighted_avg) - code aggregates both
   tables with the same maps, then divides cell-wise (average = total/count).
+  If those totals are MONTHLY and the target wants ANNUAL, add
+  "annualize_monthly": true INSIDE this derive object (code x12's the ratio
+  RESULT). It does NOT belong on a column in ratio mode - there it scales
+  numerator and denominator alike and cancels.
   (b) the document publishes an ADDITIVE target split across same-shaped
   subgroup tables (e.g. General + Police + Fire member counts): transcribe all
   subgroup tables and set {"op": "sum", "tables": [<indices>]}. In sum mode,
@@ -821,6 +836,49 @@ def validate(result, target_spec=None):
                          "interior. A ratio needs the paired numbers in every cell: "
                          "transcribe the full age x service grid of BOTH the totals and "
                          "counts tables (null only where the printed cell is truly blank).")
+
+    # MONTHLY-in-a-ratio floor: some AVs print salary/benefit dollars MONTHLY
+    # (chi_ff Exhibit B.1). The ratio then yields a per-month average, which is
+    # exactly 12x too small, and NO column flag can fix it (a column-level
+    # annualize_monthly scales numerator and denominator alike and cancels).
+    # Detect it from the data: implied average = sum(numerator)/sum(denominator).
+    # Below the floor it cannot be an annual salary. Verified on the live corpus:
+    # chi_ff 8,227 (monthly -> fires) vs chi_edu 74,383 / chi_gen 56,053 /
+    # chi_pol 46,019 (annual -> silent) - a wide, safe gap. Self-correcting when
+    # a transcribed 'Total' column inflates BOTH sums (the ratio is unchanged).
+    floor = target_spec.get("min_plausible_ratio_value") if target_spec else None
+    if (floor and is_ratio and not derive.get("annualize_monthly") and tables):
+        def _sum(idx):
+            if not isinstance(idx, int) or not (0 <= idx < len(tables)):
+                return None
+            t = tables[idx]
+            if not isinstance(t, dict):
+                return None
+            return sum(v for row in (t.get("cells") or []) if isinstance(row, list)
+                       for v in row if isinstance(v, (int, float))
+                       and not isinstance(v, bool))
+        n_sum = _sum(derive.get("numerator_table"))
+        d_sum = _sum(derive.get("denominator_table"))
+        if n_sum and d_sum:
+            implied = n_sum / d_sum
+            # Fire only when the MONTHLY hypothesis is self-consistent: below the
+            # floor AND x12 lands back in the plausible annual range. An implied
+            # average far below floor/12 is not a monthly salary at all - it means
+            # the wrong tables were paired (e.g. ratio declared over an AVERAGES
+            # table), and telling that model to "annualize" would make it worse.
+            # Live separation: chi_ff 8,227 (x12 = 98,724 -> fires) vs averages-
+            # table pairings at 80-874 (x12 = 960-10,488 -> silent).
+            if floor / 12 <= implied < floor:
+                p.append(
+                    f"derive=ratio implies an average of {implied:,.0f} per member "
+                    f"(sum of the totals table / sum of the counts table), which is "
+                    f"below {floor:,.0f} - the source prints MONTHLY dollars, not "
+                    "annual. Add \"annualize_monthly\": true INSIDE the derive object "
+                    "(not on a column - there it cancels, because it scales the "
+                    "numerator and the denominator alike): "
+                    "derive={'op':'ratio','numerator_table':N,'denominator_table':M,"
+                    "'annualize_monthly':true}. Code then multiplies the ratio RESULT "
+                    "by 12. Transcribe the printed monthly numbers unchanged.")
     return p
 
 

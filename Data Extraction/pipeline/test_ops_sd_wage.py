@@ -22,7 +22,7 @@ sys.path.insert(0, HERE)
 import harness  # noqa: E402
 import ops      # noqa: E402
 
-RUN = os.path.join(os.path.dirname(HERE), "runs", "sd_Age_Serv_Wage_20260710_124156")
+RUN = harness.find_run("sd_Age_Serv_Wage_20260710_124156")
 WORKBOOK = os.path.join(os.path.dirname(HERE), "..", "Data", "Plans", "Cities",
                         "sd_modeldata", "sd_data19_gen.xlsx")
 

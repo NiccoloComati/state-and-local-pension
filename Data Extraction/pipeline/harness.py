@@ -16,6 +16,23 @@ import openpyxl
 STOP_MARKERS = ("TOTAL", "CALCULATIONS", "NOTES", "SOURCE")
 
 
+def find_run(run_name):
+    """Absolute path of an archived run dir, wherever it currently lives under
+    runs/ (top level, runs/_legacy/, runs/<batch>/...). The 2026-07-27 reorg
+    moved the flat run dirs into runs/sweep_20260727/ and runs/_legacy/, which
+    silently broke every executor test that hard-coded `runs/<name>`; resolving
+    by NAME keeps those tests working across any future reorg."""
+    runs = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                        "runs")
+    direct = os.path.join(runs, run_name)
+    if os.path.isdir(direct):
+        return direct
+    for parent, dirs, _ in os.walk(runs):
+        if run_name in dirs:
+            return os.path.join(parent, run_name)
+    raise FileNotFoundError(f"archived run {run_name!r} not found under {runs}")
+
+
 def load_truth(workbook_path, sheet_name):
     """Read a collection-workbook sheet into a canonical grid.
 

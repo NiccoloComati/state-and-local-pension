@@ -346,6 +346,17 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
                     else:
                         out_row.append(None)
                 cells.append(out_row)
+            # DERIVE-LEVEL annualization: when the source prints MONTHLY dollars,
+            # the annual figure the target wants is the RATIO RESULT x12 (average
+            # per member per month -> per year). A column-level annualize_monthly
+            # cannot express this inside a ratio: _grid runs the SAME col_map over
+            # the numerator and the denominator, so the x12 hits both and cancels
+            # on the divide. Live chi_ff Age_Serv_Wage (2026-07-27): Exhibit B.1
+            # prints monthly salary, every derived average came out exactly x12
+            # too small. PDF check: cell <25 x svc'4' = ($99,840+$119,627)/(20+20)
+            # = $5,486.68/month x12 = 65,840.1 = the workbook value exactly.
+            if derive.get("annualize_monthly"):
+                cells = [[v * 12 if _num(v) else v for v in row] for row in cells]
             out = {"row_labels": num["row_labels"],
                    "col_labels": num["col_labels"], "cells": cells}
         else:

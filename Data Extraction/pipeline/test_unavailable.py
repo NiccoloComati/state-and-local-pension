@@ -18,6 +18,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 import extract  # noqa: E402
+import harness  # noqa: E402
 import ops      # noqa: E402
 
 GOOD = {
@@ -70,7 +71,7 @@ def main():
     # the REAL archived first attempt from the Milwaukee wage run must get the
     # same guidance (this is the response the old contract forced to retry
     # into a placeholder)
-    run = os.path.join(os.path.dirname(HERE), "runs", "mil_Age_Serv_Wage_20260713_164600")
+    run = harness.find_run("mil_Age_Serv_Wage_20260713_164600")
     with open(os.path.join(run, "record.json"), encoding="utf-8") as fh:
         attempt0 = json.load(fh)["attempts"][0]
     text = next(b["text"] for b in attempt0["response"]["content"]
