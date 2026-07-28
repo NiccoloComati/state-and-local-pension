@@ -1466,3 +1466,27 @@ worklist cell's JSON artifacts are committed locally (read at
 vLLM-boot nodes via `scontrol requeue` (node4002/node5201 fail the TP=2
 CUDASymmetricMemory/NVLink boot; resubmit scoped jobs with
 `--exclude=node4002,node5201`). Commits 234e4da, bf0833b, 63eba01.
+
+### 2026-07-28 - session 7: chi_ff monthly-in-ratio FIXED + crash taxonomy (3/7 fixed)
+1. **chi_ff monthly-in-ratio (offline, PDF-verified).** Exhibit B.1 prints
+   MONTHLY salary; a column-level annualize_monthly CANCELS inside a ratio
+   (same col_map runs over numerator and denominator). Fix: derive-level
+   `annualize_monthly` x12's the RATIO RESULT (ops), schema + prompt say it
+   belongs inside `derive`, and a validate() floor guard fires on implied avg
+   = sum(num)/sum(den) within the self-consistent band floor/12 <= implied <
+   floor (15,000 for Age_Serv_Wage). Worst-case probe - ratio FORCED onto all
+   10 wage artifacts incl. averages tables - fires on chi_ff alone, silent on
+   the other 9. Test checks the PRINTED PDF numbers: (99,840+119,627)/(20+20)
+   x12 = 65,840.1 = the workbook value exactly.
+2. **Repaired 4 executor tests** the runs/ reorg silently broke (hard-coded
+   `runs/<name>`): `harness.find_run()` resolves an archived run by NAME
+   wherever it lives. Suite 13 -> **17/17**.
+3. **Crash taxonomy: the 7 crashes are 4 root causes** (detail in
+   sweep_20260727/diagnosis.md). **A: interleaved exhibit flattened (3 cells:
+   bos ASN/ASW, lax_gen ASW) - FIXED** (exact-multiple detector + INTERLEAVED
+   prompt paragraph; the PDFs confirm bos Exhibit A p.49 / lax_gen Exhibit B
+   p.53 print a count line AND a dollar line per age band). B: group_weighted
+   without weights_tables (2 Avg_Mort cells) - needs a prompt example. C: ratio
+   arity (phi Retirement) - one-off. D: sd Ret_Rate loops on every draw (882x
+   repetition) - hardest, needs a decision (page-scoping / repetition penalty /
+   accept-and-flag).

@@ -239,6 +239,13 @@ Your job has two strictly separated parts:
 format them differently - judge by content) and transcribe them EXACTLY as printed: \
 original bin labels, original values, null for empty cells, '*' for suppressed cells. \
 Never compute, round, merge, or invent anything at this step. Exclude total rows/columns. \
+INTERLEAVED EXHIBITS (very common): one printed table often shows TWO lines per \
+age band - a member-COUNT line and a dollar line (average pay, or total salary) - \
+sharing one set of age row labels and service column headers. Transcribe it as TWO \
+source_tables with IDENTICAL row_labels/col_labels, one line type each (say which in \
+each title), and reference the counts table by index (weights_table for weighted_avg, \
+or denominator_table for a ratio). NEVER put both line types in one table's cells: \
+that yields twice as many cell rows as row_labels and is rejected. \
 TRANSCRIBE THE FEWEST TABLES THAT COVER EVERY MEMBER EXACTLY ONCE. Documents \
 publish the same distribution at MANY levels of aggregation - by sex (Male/Female), by \
 tier (Tier 1/Tier 2), and especially by EMPLOYER / AGENCY / DEPARTMENT sub-unit - each \
@@ -536,8 +543,30 @@ def validate(result, target_spec=None):
                      " (do NOT use row objects like {{'label':..,'values':..}})")
         else:
             if isinstance(t.get("row_labels"), list) and len(cells) != len(t["row_labels"]):
-                p.append(f"source_tables[{k}].cells has {len(cells)} rows but "
-                         f"{len(t['row_labels'])} row_labels")
+                nlab = len(t["row_labels"])
+                # INTERLEAVED exhibit: Segal-family tables print TWO physical
+                # lines per age band - a COUNT line and a dollar line (average
+                # payroll or total salary) - e.g. bos Exhibit A p.49, lax_gen
+                # Exhibit B p.53. Flattening both line types into one `cells`
+                # gives exactly 2x (or kx) the row_labels and crashed 3 cells of
+                # the 2026-07-27 sweep (bos ASN, bos ASW, lax_gen ASW). Say what
+                # to DO about it instead of just reporting the count mismatch.
+                if nlab and len(cells) % nlab == 0 and len(cells) // nlab >= 2:
+                    k_lines = len(cells) // nlab
+                    p.append(
+                        f"source_tables[{k}].cells has {len(cells)} rows = EXACTLY "
+                        f"{k_lines}x its {nlab} row_labels: this is an INTERLEAVED "
+                        "exhibit that prints several lines per age band (a member-COUNT "
+                        "line and a dollar line - average pay or total salary). Do NOT "
+                        f"flatten them into one table. Transcribe {k_lines} SEPARATE "
+                        "source_tables, each with the SAME row_labels/col_labels and "
+                        "one line type per table (e.g. source_tables[0] = the dollar "
+                        "values, source_tables[1] = the counts), then reference the "
+                        "counts table by index for weighted_avg (or as the ratio's "
+                        "denominator_table). State in the title which line each holds.")
+                else:
+                    p.append(f"source_tables[{k}].cells has {len(cells)} rows but "
+                             f"{nlab} row_labels")
             for i, row in enumerate(cells):
                 if not isinstance(row, list):
                     p.append(f"source_tables[{k}].cells[{i}] is not a list")

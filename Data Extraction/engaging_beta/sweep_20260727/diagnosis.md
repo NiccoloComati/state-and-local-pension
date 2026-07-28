@@ -92,3 +92,38 @@ Re-ran the 5 affected cells after the wage-ratio (88a12da) and duplicate-label
     so NOT a scale bug -> age/service BAND-convention mismatch (col '4' blends
     'Under 1'+'1-4', fills 11 cells truth leaves empty). Needs source-PDF adjudication
     (RA), not a mechanical guard.
+
+## Crash taxonomy (session 7, 2026-07-28) — diagnosed from crash messages + source PDFs
+Crash cells save no artifacts (the run aborts), so these were diagnosed against
+the PDFs. The 7 crashes are only **4 root causes**:
+
+**A. INTERLEAVED exhibit flattened into one table — 3 cells (bos ASN, bos ASW,
+lax_gen ASW). FIXED this session.** Segal-family exhibits print TWO physical
+lines per age band: a COUNT line and a dollar line (average pay / total salary),
+sharing one set of row/col headers — bos Exhibit A p.49 ("Under 25 | 384 382 2"
+then "$40,046 $39,976 $53,461"), lax_gen Exhibit B p.53, identical template. The
+model flattened both line types into one `cells`, giving exactly 2x the
+row_labels -> contract violation. bos ASN is the SAME cause (it summed Exhibit A
++ Exhibit C, both interleaved). Fix: (i) the cells/row_labels mismatch is now
+diagnosed when `len(cells)` is an exact k>=2 multiple of `len(row_labels)` and
+tells the model to transcribe k SEPARATE same-shaped tables (one line type each)
+and reference the counts by index; (ii) SYSTEM prompt gains an INTERLEAVED
+EXHIBITS paragraph. Non-multiple mismatches keep the plain message (no
+misdiagnosis). Note the model ALREADY handles this layout correctly on lax_uty
+(1.0) and lax_ffpol (0.92) — the guard makes it reliable rather than lucky.
+
+**B. group_weighted declared without weights_tables — 2 cells (chi_gen Avg_Mort,
+sd Avg_Mort).** Rung-3 contract compliance: the blend op needs one headcount
+table index per source and the model omitted them through all 8 attempts. Next
+step: a worked example in the prompt (and/or accept a single shared weights
+table), not a code change.
+
+**C. ratio arity — 1 cell (phi Retirement).** `col_map[1] AverageBenefit` given
+!= 2 sources. One-off; the ratio guidance already states the requirement.
+
+**D. persistent decoding LOOP — 1 cell (sd Ret_Rate). HARDEST.** Truncation
+classifier: `content=293,948 chars, late-window recurs 882x -> LIKELY LOOP`, and
+it recurred on ALL 7 attempts (the best-of-N truncation-skip works — it kept
+sampling — but every draw loops). Not a budget problem. Options: page-scoped
+extraction for this cell, a repetition penalty in the sampling params, or accept
++ flag. Needs a decision, not a quick fix.
