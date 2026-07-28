@@ -57,41 +57,41 @@ sf,Age_Serv_Num,scored,0.9875,clean,ok,RA,near-perfect - light spot-check vs PDF
 sf,Age_Serv_Wage,scored,0.925,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/sf_Age_Serv_Wage_20260727_165038
 sf,Ret_Rate,production,,none,,RA,no workbook - check extracted vs PDF directly,sweep_20260727/sf_Ret_Rate_20260727_165116
 sf,Retirement,scored,0.5,clean,,RA,imperfect - adjudicate vs PDF,sweep_20260727/sf_Retirement_20260727_165445
-chi_edu,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_edu_Ret_Rate_20260727_141906
-chi_edu,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_edu_Sep_Rate_20260727_141945
-chi_ff,Sep_Rate,scored,0.0879,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_ff_Sep_Rate_20260727_142733
-chi_gen,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_gen_Ret_Rate_20260727_143207
-chi_gen,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_gen_Sep_Rate_20260727_144033
-chi_pol,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_pol_Ret_Rate_20260727_150427
-chi_pol,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_pol_Sep_Rate_20260727_150505
-dal,Avg_Mort,scored,0.0,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Avg_Mort_20260727_150944
-dal,Ret_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Ret_Rate_20260727_150901
-dal,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Sep_Rate_20260727_150925
-hou_pol,Avg_Mort,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/hou_pol_Avg_Mort_20260727_152335
-hou_pol,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/hou_pol_Sep_Rate_20260727_152312
-lax_ffpol,Sep_Rate,scored,0.3909,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_ffpol_Sep_Rate_20260727_154039
-lax_gen,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_gen_Sep_Rate_20260727_155119
-lax_uty,Ret_Rate,scored,0.6561,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_uty_Ret_Rate_20260727_155942
-lax_uty,Sep_Rate,scored,0.1727,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_uty_Sep_Rate_20260727_160824
-mil,Sep_Rate,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/mil_Sep_Rate_20260727_161847
-phi,Avg_Mort,scored,0.0,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phi_Avg_Mort_20260727_162335
-phi,Sep_Rate,scored,0.1727,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phi_Sep_Rate_20260727_162252
-phx,Avg_Mort,scored,0.55,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Avg_Mort_20260727_162855
-phx,Ret_Rate,scored,0.8624,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Ret_Rate_20260727_162731
-phx,Sep_Rate,scored,0.7909,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Sep_Rate_20260727_162816
-sd,Retirement,scored,0.0,clean,,assumption,source combines retirees+disabled+beneficiaries; cannot isolate service retirees -> register 6c,sweep_20260727/sd_Retirement_20260727_164911
-sd,Sep_Rate,scored,0.1818,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sd_Sep_Rate_20260727_164254
-sf,Avg_Mort,scored,0.0,clean,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sf_Avg_Mort_20260727_165308
-sf,Sep_Rate,scored,0.3182,none,,assumption,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sf_Sep_Rate_20260727_165155
-bos,Age_Serv_Num,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/bos_Age_Serv_Num_20260727_135753
-bos,Age_Serv_Wage,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/bos_Age_Serv_Wage_20260727_140815
-chi_edu,Age_Serv_Wage,scored,0.0,clean,,me,transcribed salary-TOTALS+counts OK but dropped derive=ratio -> raw totals; instruction/validator fix,sweep_20260727/chi_edu_Age_Serv_Wage_20260727_141736
-chi_ff,Age_Serv_Wage,scored,0.0,none,,me,same as chi_edu: forgot derive=ratio on totals+counts,sweep_20260727/chi_ff_Age_Serv_Wage_20260727_142532
-chi_gen,Age_Serv_Wage,scored,0.0,clean,,me,same: forgot derive=ratio,sweep_20260727/chi_gen_Age_Serv_Wage_20260727_143044
-chi_gen,Avg_Mort,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/chi_gen_Avg_Mort_20260727_144128
-chi_pol,Age_Serv_Wage,scored,0.0,none,,me,same: forgot derive=ratio (interleaved Exhibit C Part III),sweep_20260727/chi_pol_Age_Serv_Wage_20260727_150333
-lax_gen,Age_Serv_Wage,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/lax_gen_Age_Serv_Wage_20260727_154540
-mil,Retirement,scored,0.0,clean,,me,"right approach (sum 3 groups, x12) but MIS-MAPPED columns (Number<-benefit total)",sweep_20260727/mil_Retirement_20260727_162026
-phi,Retirement,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/phi_Retirement_20260727_162420
-sd,Avg_Mort,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/sd_Avg_Mort_20260727_164318
-sd,Ret_Rate,crash,,,,me,diagnose crash (loop/large/contract),sweep_20260727/sd_Ret_Rate_20260727_163205
+chi_edu,Ret_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_edu_Ret_Rate_20260727_141906
+chi_edu,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_edu_Sep_Rate_20260727_141945
+chi_ff,Sep_Rate,scored,0.0879,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_ff_Sep_Rate_20260727_142733
+chi_gen,Ret_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_gen_Ret_Rate_20260727_143207
+chi_gen,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_gen_Sep_Rate_20260727_144033
+chi_pol,Ret_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_pol_Ret_Rate_20260727_150427
+chi_pol,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/chi_pol_Sep_Rate_20260727_150505
+dal,Avg_Mort,scored,0.0,clean,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Avg_Mort_20260727_150944
+dal,Ret_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Ret_Rate_20260727_150901
+dal,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/dal_Sep_Rate_20260727_150925
+hou_pol,Avg_Mort,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/hou_pol_Avg_Mort_20260727_152335
+hou_pol,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/hou_pol_Sep_Rate_20260727_152312
+lax_ffpol,Sep_Rate,scored,0.3909,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_ffpol_Sep_Rate_20260727_154039
+lax_gen,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_gen_Sep_Rate_20260727_155119
+lax_uty,Ret_Rate,scored,0.6561,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_uty_Ret_Rate_20260727_155942
+lax_uty,Sep_Rate,scored,0.1727,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/lax_uty_Sep_Rate_20260727_160824
+mil,Sep_Rate,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/mil_Sep_Rate_20260727_161847
+phi,Avg_Mort,scored,0.0,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phi_Avg_Mort_20260727_162335
+phi,Sep_Rate,scored,0.1727,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phi_Sep_Rate_20260727_162252
+phx,Avg_Mort,scored,0.55,clean,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Avg_Mort_20260727_162855
+phx,Ret_Rate,scored,0.8624,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Ret_Rate_20260727_162731
+phx,Sep_Rate,scored,0.7909,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/phx_Sep_Rate_20260727_162816
+sd,Retirement,scored,0.0,clean,,Niccolo,source combines retirees+disabled+beneficiaries; cannot isolate service retirees -> register 6c,sweep_20260727/sd_Retirement_20260727_164911
+sd,Sep_Rate,scored,0.1818,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sd_Sep_Rate_20260727_164254
+sf,Avg_Mort,scored,0.0,clean,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sf_Avg_Mort_20260727_165308
+sf,Sep_Rate,scored,0.3182,none,,Niccolo,rate/blend target - likely tier/convention (register 1-6); adjudicate then flag,sweep_20260727/sf_Sep_Rate_20260727_165155
+bos,Age_Serv_Num,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/bos_Age_Serv_Num_20260727_135753
+bos,Age_Serv_Wage,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/bos_Age_Serv_Wage_20260727_140815
+chi_edu,Age_Serv_Wage,scored,0.0,clean,,code,transcribed salary-TOTALS+counts OK but dropped derive=ratio -> raw totals; instruction/validator fix,sweep_20260727/chi_edu_Age_Serv_Wage_20260727_141736
+chi_ff,Age_Serv_Wage,scored,0.0,none,,code,same as chi_edu: forgot derive=ratio on totals+counts,sweep_20260727/chi_ff_Age_Serv_Wage_20260727_142532
+chi_gen,Age_Serv_Wage,scored,0.0,clean,,code,same: forgot derive=ratio,sweep_20260727/chi_gen_Age_Serv_Wage_20260727_143044
+chi_gen,Avg_Mort,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/chi_gen_Avg_Mort_20260727_144128
+chi_pol,Age_Serv_Wage,scored,0.0,none,,code,same: forgot derive=ratio (interleaved Exhibit C Part III),sweep_20260727/chi_pol_Age_Serv_Wage_20260727_150333
+lax_gen,Age_Serv_Wage,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/lax_gen_Age_Serv_Wage_20260727_154540
+mil,Retirement,scored,0.0,clean,,code,"right approach (sum 3 groups, x12) but MIS-MAPPED columns (Number<-benefit total)",sweep_20260727/mil_Retirement_20260727_162026
+phi,Retirement,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/phi_Retirement_20260727_162420
+sd,Avg_Mort,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/sd_Avg_Mort_20260727_164318
+sd,Ret_Rate,crash,,,,code,diagnose crash (loop/large/contract),sweep_20260727/sd_Ret_Rate_20260727_163205

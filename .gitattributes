@@ -1,0 +1,33 @@
+# Line endings: store text as LF in the repository, on every machine.
+#
+# This repo is edited on a Windows laptop and run on the Linux cluster. Without
+# this file, git on Windows stores CRLF while the cluster stores LF, so the same
+# byte-identical file shows up as "modified" on the other side. On 2026-07-28
+# that made runs/_verify_s7/summary.csv and runs/_verify_fixes/summary.csv look
+# like a real conflict between the two copies when only the invisible
+# end-of-line bytes differed.
+#
+# text=auto lets git decide what is text (binary files are left untouched);
+# eol=lf pins the stored form. Editors on Windows all handle LF fine.
+* text=auto eol=lf
+
+# Belt and braces for the formats we actually carry, so none of them can ever be
+# mangled by end-of-line rewriting.
+*.pdf   binary
+*.xlsx  binary
+*.xls   binary
+*.xlsm  binary
+*.docx  binary
+*.pptx  binary
+*.mp4   binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gz    binary
+*.tgz   binary
+*.zip   binary
+
+# Shell scripts submitted to SLURM must be LF: a CRLF shebang line makes the
+# kernel look for an interpreter named "bash\r" and the job dies immediately.
+*.sh      text eol=lf
+*.sbatch  text eol=lf

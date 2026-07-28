@@ -1,64 +1,75 @@
-# RA task spec — verifying the extraction against the PDFs
+# RA task spec — verifying extraction against the PDFs
 
-**Scope:** every plan, all 6 sheets, every cell. No plan or sheet has priority.
-The reference is the **source PDF (AV / CAFR)** — NOT the 2022 workbook (which
-mostly doesn't exist per plan/sheet and is error-prone; use it only for specific
-methodology points, and only as one more thing to reconcile against the PDF).
+**Scope: verification only.** Check cells the pipeline appears to have extracted
+correctly, against the source document, and report what you find. Assumption and
+convention questions are NOT in scope — they sit with Niccolo (and his coauthor).
+If a cell turns out to need one, stop and record it; do not decide it.
 
-Start from `engaging_beta/sweep_20260727/ra_worklist.csv` — one row per cell with
-its owner (RA / assumption / me) and a note. Each cell points to a run dir whose
-artifacts are the two things to read:
-- `extraction.json` — the RAW tables as read off the PDF + the DECLARED
-  transformation (sum/average/blend/split/ratio...) + the model's plain-English
-  `notes` (read the notes FIRST — they state the model's intention).
+Every plan, all 6 sheets. No plan or sheet has priority.
+
+**The reference is the source PDF (AV / CAFR)** — NOT the 2022 workbook. The
+workbook mostly doesn't exist per plan/sheet and is error-prone; use it only for
+specific methodology points, and only as one more thing to reconcile against the
+PDF. A cell with no workbook is still fully checkable: the PDF is the truth.
+
+Start from `sweep_20260727/ra_worklist.csv`, rows with `owner = RA`. The other
+owners are not yours: `Niccolo` = assumption/convention decisions, `code` =
+pipeline bugs. Row assignments change as fixes land — work from the newest
+worklist, and expect cells to re-open after a re-run rather than close on first
+pass.
+
+## What to read
+Each row points at a run dir holding:
+- `extraction.json` — the RAW tables as read off the PDF, the DECLARED
+  transformation (sum / average / blend / ratio / split...), and the model's
+  plain-English `notes`. **Read the notes first** — they state what the model
+  thought it was doing.
 - `derived.json` — the final grid that transformation produces.
+- `report.json` — present only where a workbook exists.
 
-## Stream A — extracted / attempted cells: compare to the PDF at two layers
-1. **Transcription:** does the raw table in extraction.json match the PDF, digit
-   for digit?
-2. **Transformation:** is the declared operation the RIGHT one? (A cell can be
-   wrong because a digit was mis-read OR because the op was mis-declared - e.g.
-   summed when it should have averaged, mapped a bin to the wrong column - even
-   if every raw number is perfect.)
-Annotate correct/not at EACH layer.
+## The check: two layers, annotate each separately
+1. **Transcription** — does the raw table in `extraction.json` match the PDF,
+   digit for digit? Record the page and exhibit you checked against.
+2. **Transformation** — is the declared operation the RIGHT one for what the
+   document prints? A cell can be wrong with perfect digits (summed where it
+   should have averaged, a bin mapped to the wrong column, dollars divided by
+   dollars instead of by a headcount), and it can look right while hiding a
+   mis-read digit. The two fail independently, so record them independently.
 
-**Effort triage (no workbook = no score for most cells, so don't key off score):**
-check hard where the automated PDF-INDEPENDENT verifiers fire - the within-table
-printed-totals reconciliation (a '!' flag) and the PPD/CAFR headcount cross-check
-('~' or ppd=off) - and on the inherently harder sheets (rates/blends). Cells that
-already reconcile get a light spot-check.
+Real failure modes seen so far, so you know what to look for: a whole table
+transcribed one column late (every value correct, every one in the wrong
+column); a printed `Total` line transcribed as if it were an age band; monthly
+salary reported as annual; an exhibit printing a count line and a dollar line
+per age band flattened into a single table; two exhibits printed side by side
+on one page and read as one.
 
-## Stream B — missing / wrong / empty cells: record WHY
-- **assumption needed** -> identify which; decide it if EASY, FLAG it if not
-  (routes to Niccolo + coauthor). The open ones are in `assumption_register.md`.
-- **image-only table** -> our text-based model can't read it -> **needs a
-  different (vision) extraction model**. Record explicitly (this is NOT the same
-  as "not in the document").
-- **data genuinely not in the document** -> record as such, no action.
-- **real extraction/transformation error** -> a Stream-A finding; routes to the
-  code owner.
+## Effort triage
+Most cells have no workbook, so there is no score to key off. Check hardest
+where the automated PDF-INDEPENDENT verifiers complain:
+- `totals` = `suspect` (`!` in the batch view) — the table disagrees with the
+  totals printed in the exhibit itself. Almost always a transcription slip.
+- `ppd` = `off` (`~`) — headcount disagrees with the PPD/CAFR cross-check.
 
-## Output — structured, one row per cell (extend ra_worklist.csv)
+Cells where both reconcile get a light spot-check. Rate and blend sheets are
+inherently harder and deserve more time even when quiet.
+
+## When a cell is not simply right or wrong, record which of these it is
+- **needs an assumption/convention** → record it and move on; it routes to
+  Niccolo. Do not settle it.
+- **image-only table** → our text-based model cannot read it at all, so it needs
+  a different (vision) extraction model. Flag it explicitly — this is NOT the
+  same as "not in the document", and we need the count of these.
+- **genuinely not in the document** → record as such, no action.
+- **extraction or transformation error** → routes to the code owner, with the
+  PDF page and the correct value.
+
+## Output — one row per cell, extending ra_worklist.csv
 `plan, sheet, cell, extracted_value, PDF_value, PDF_page, verdict, layer
-(transcription/transformation/assumption/image), reason`.
-This routes cleanly to: workbook-fix / register-decision / code-owner / vision /
-recorded-as-absent.
+(transcription / transformation / assumption / image), reason`
 
-## Easy assumption items the RA can settle (from the register)
-- verify 2 known workbook defects vs the PDF: phx Age_Serv_Wage 86,306 -> 86,309;
-  sd dropped '70 & up' row.
-- engine check: does the simulation ever read a year-0 separation rate?
-- Milwaukee: is monthly-benefit x12 correct given escalators / 13th checks?
-- survey which plans have tier-split rate tables / age-only salary / rates
-  printed beyond the template's age range (feeds the hard decisions).
-
-## Hard items to FLAG (Niccolo + coauthor)
-tier handling (per-tier rate tables vs one engine matrix); ages/service beyond
-the printed table (carry forward vs empty vs shrink template); impossibility-cell
-zeroing convention; beneficiaries in/out of mortality & retiree weights; age-only
-wage evidence (broadcast vs empty vs other source); rate-blend weight conventions.
+Give the page and exhibit for every judgement, right or wrong — a "correct"
+verdict with no page reference cannot be re-checked by anyone else.
 
 ## Working mode
-RA works a chunk independently -> joint review with Niccolo -> continue. It is a
-LOOP: annotations -> fixes/decisions/re-runs -> re-verify (cells re-open after a
-fix, not closed on first pass).
+Work a chunk independently → joint review with Niccolo → continue. It is a LOOP:
+annotations → fixes / decisions / re-runs → re-verify.
