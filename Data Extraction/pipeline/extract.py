@@ -774,6 +774,53 @@ def validate(result, target_spec=None):
                      "<totals index>,'denominator_table':<counts index>} with additive "
                      "maps (sum/copy) - code computes average = total/count. Do NOT "
                      "emit the totals as if they were averages.")
+
+    # ratio completeness: a derive=ratio divides a numerator (totals) table by a
+    # denominator (counts) table, aggregating BOTH with the row/col maps. If one
+    # table's MAPPED cells are all null, every average is total/None or None/count
+    # = None and the output grid comes out empty. Live 2026-07-27 chi_pol
+    # Age_Serv_Wage: the salary (numerator) table was transcribed with ONLY its
+    # 'Total' column filled - all 90 interior age x service cells null - so the
+    # grid scored 0.0 despite a correct derive=ratio. Fire ONLY when EVERY mapped
+    # cell of a table is null (filled==0): a legitimately sparse plan still fills
+    # some interior cells, so this can't false-positive - it catches a table
+    # transcribed as margins-only. Turns the silent empty grid into a retry.
+    if (is_ratio and not transpose and tables
+            and isinstance(result.get("row_map"), list)
+            and isinstance(result.get("col_map"), list)):
+        row_srcs = [s for e in result["row_map"] if isinstance(e, dict)
+                    for s in (e.get("sources") or []) if isinstance(s, str)]
+        col_srcs = [s for e in result["col_map"] if isinstance(e, dict)
+                    for s in (e.get("sources") or []) if isinstance(s, str)]
+        for role, idx in (("numerator", derive.get("numerator_table")),
+                          ("denominator", derive.get("denominator_table"))):
+            if not isinstance(idx, int) or not (0 <= idx < len(tables)):
+                continue
+            t = tables[idx]
+            if not isinstance(t, dict):
+                continue
+            ri = {lab: k for k, lab in enumerate(t.get("row_labels") or [])}
+            ci = {lab: k for k, lab in enumerate(t.get("col_labels") or [])}
+            cells = t.get("cells") or []
+            seen = filled = 0
+            for r in row_srcs:
+                if r not in ri:
+                    continue
+                row = cells[ri[r]] if ri[r] < len(cells) else []
+                for c in col_srcs:
+                    if c not in ci:
+                        continue
+                    seen += 1
+                    v = row[ci[c]] if isinstance(row, list) and ci[c] < len(row) else None
+                    if v is not None:
+                        filled += 1
+            if seen and filled == 0:
+                p.append(f"derive=ratio {role} source_tables[{idx}] has {seen} cells "
+                         "referenced by the row/col maps and EVERY ONE is null - the "
+                         "table was transcribed with only its margins/'Total', not the "
+                         "interior. A ratio needs the paired numbers in every cell: "
+                         "transcribe the full age x service grid of BOTH the totals and "
+                         "counts tables (null only where the printed cell is truly blank).")
     return p
 
 
