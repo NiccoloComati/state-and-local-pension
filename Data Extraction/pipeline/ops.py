@@ -311,7 +311,7 @@ def _sum_tables(source_tables, indices):
 
 def execute(source_tables, row_map, col_map, derive=None, transpose=False,
             target_row_spans=None, target_col_spans=None, to_decimal=False,
-            zero_impossible_cfg=None):
+            zero_impossible_cfg=None, broadcast=None):
     """Return the derived canonical grid. Raises ValueError on bad specs.
 
     derive={"op": "ratio", "numerator_table": i, "denominator_table": j}
@@ -322,7 +322,11 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
     printed; see module doc).
     target_*_spans: {target_label: [lo, hi]} template bin semantics, required
     by overlap_weighted entries (from targets.json, NOT model-declared).
-    to_decimal: scale tables declaring values_unit=="percent" by 0.01."""
+    to_decimal: scale tables declaring values_unit=="percent" by 0.01.
+    broadcast={"axis": "age"|"service", "series_sources": [...],
+    "series_op": "copy"|"mean"}: the source measures the rate along ONE
+    dimension only and the other target axis is filled identically (see
+    _broadcast_grid)."""
     prepped = []
     for k, t in enumerate(source_tables):
         t = _normalize_cells(t)    # '$91,130' -> 91130 before any arithmetic
@@ -332,6 +336,14 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
             t = _transpose_table(t)
         prepped.append(t)
     source_tables = prepped
+
+    if broadcast:
+        out = _broadcast_grid(source_tables, row_map, col_map, broadcast,
+                              target_row_spans, target_col_spans)
+        if zero_impossible_cfg:
+            out = zero_impossible(out, target_row_spans, target_col_spans,
+                                  zero_impossible_cfg)
+        return out
 
     # overlap_weighted source sets are COMPUTED from the declared spans, not
     # trusted from the model (audit notes available via resolve_overlap_sources)
@@ -394,6 +406,86 @@ def execute(source_tables, row_map, col_map, derive=None, transpose=False,
         out = zero_impossible(out, target_row_spans, target_col_spans,
                               zero_impossible_cfg)
     return out
+
+
+def _broadcast_grid(source_tables, row_map, col_map, broadcast,
+                    target_row_spans, target_col_spans):
+    """Fill a two-dimensional target grid from a source that measures the rate
+    along ONLY ONE dimension.
+
+    Many AVs publish termination/withdrawal rates by years of service alone (no
+    age breakdown) or by age alone (no service breakdown). The plan's actuary
+    treats the rate as depending on that one variable, so the faithful target
+    grid repeats the same rate along the axis the source does not measure.
+
+    Contract (all model-declared):
+      broadcast = {"axis": "age"|"service", "series_sources": [<col labels>],
+                   "series_op": "copy"|"mean"}
+    The source (source_tables[0]) is transcribed with the VARYING dimension as
+    ROWS (service bins, or ages) and the rate SERIES as COLUMNS (a single 'Rate'
+    column, or Male/Female, or per-group columns).
+      - axis="age": the source varies by SERVICE; every target AGE row is
+        identical. col_map maps target service columns from the source's service
+        rows; row_map supplies the target age labels (its sources are empty).
+      - axis="service": the source varies by AGE; every target SERVICE column is
+        identical. row_map maps target age rows from the source's age rows;
+        col_map supplies the target service labels (empty sources).
+    series_op reduces the rate columns to one value per varying bin: "copy" (a
+    single series column) or "mean" (simple average, e.g. Male/Female with no
+    headcounts to weight by). Impossibility-zeroing (entry-age floor) is applied
+    by execute() afterward, so unreachable age x service cells still blank out."""
+    axis = broadcast.get("axis")
+    if axis not in ("age", "service"):
+        raise ValueError(f"broadcast.axis must be 'age' or 'service', got {axis!r}")
+    series = broadcast.get("series_sources") or []
+    sop = broadcast.get("series_op", "copy")
+    if not series:
+        raise ValueError("broadcast needs a non-empty series_sources list")
+    if sop not in ("copy", "mean"):
+        raise ValueError(f"broadcast.series_op must be 'copy' or 'mean', got {sop!r}")
+    if sop == "copy" and len(series) != 1:
+        raise ValueError("broadcast series_op='copy' takes exactly one series source")
+
+    main = source_tables[0]
+    ridx, cidx = _index(main["row_labels"]), _index(main["col_labels"])
+
+    def series_val(r_label):
+        vals = [_get(main, ridx, cidx, r_label, c) for c in series]
+        if sop == "copy":
+            return vals[0] if vals else None
+        nums = [v for v in vals if _num(v)]
+        return (sum(nums) / len(nums)) if nums else ("*" if "*" in vals else None)
+
+    # one value per source varying bin (the source's ROW labels)
+    svec = {str(rl).strip(): series_val(rl) for rl in main["row_labels"]}
+
+    vary_map = col_map if axis == "age" else row_map
+    const_map = row_map if axis == "age" else col_map
+    vary_spans = target_col_spans if axis == "age" else target_row_spans
+    vary_map, _ = resolve_overlap_sources(vary_map, vary_spans)
+
+    def vary_val(entry):
+        vals = [svec.get(str(s).strip()) for s in entry["sources"]]
+        op = entry["op"]
+        if op == "copy":
+            if len(entry["sources"]) > 1:
+                raise ValueError(f"{entry['target']}: copy with multiple sources")
+            return vals[0] if vals else None
+        if op == "overlap_weighted":
+            return _overlap_combine(entry, vals, vary_spans)
+        raise ValueError(f"broadcast varying-axis op must be copy or "
+                         f"overlap_weighted, got {op!r} on {entry['target']!r}")
+
+    vvec = {e["target"]: vary_val(e) for e in vary_map}
+    vary_labels = [e["target"] for e in vary_map]
+    const_labels = [e["target"] for e in const_map]
+
+    if axis == "age":                 # rows=age (constant), cols=service (vary)
+        cells = [[vvec[c] for c in vary_labels] for _ in const_labels]
+        return {"row_labels": const_labels, "col_labels": vary_labels, "cells": cells}
+    # axis == "service": rows=age (vary), cols=service (constant)
+    cells = [[vvec[r] for _ in const_labels] for r in vary_labels]
+    return {"row_labels": vary_labels, "col_labels": const_labels, "cells": cells}
 
 
 def resolve_overlap_sources(map_entries, target_spans):
@@ -743,11 +835,19 @@ def totals_check(table, tol=0.5, rel_tol=1e-5):
     return problems
 
 
-def summarize(row_map, col_map, derive=None, transpose=False):
+def summarize(row_map, col_map, derive=None, transpose=False, broadcast=None):
     """Human-readable one-liners for the declared operations."""
     lines = []
     if transpose:
         lines.append("transpose: source rows/cols swapped before mapping")
+    if broadcast:
+        vary = "service" if broadcast.get("axis") == "age" else "age"
+        const = broadcast.get("axis")
+        red = broadcast.get("series_op", "copy")
+        srcs = ", ".join(broadcast.get("series_sources") or [])
+        how = f"{red} of ({srcs})" if red == "mean" else srcs
+        lines.append(f"broadcast: source varies by {vary} only ({how}); "
+                     f"the same rate is repeated across every {const}")
     if derive:
         if derive.get("op") == "ratio":
             lines.append(f"derive: ratio = t{derive.get('numerator_table')} / "

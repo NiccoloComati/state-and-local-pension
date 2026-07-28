@@ -52,6 +52,37 @@ import ppd_check   # noqa: E402
 # cross-checkable against PPD actives_tot
 COUNT_TARGETS = {"Age_Serv_Num"}
 
+
+def _plain_assumptions(result, target):
+    """Plain-English notes for any modeling assumption a run embedded, written
+    into derived.json (`assumptions_plain`) and printed. The point is that a
+    reader of the extracted data sees, in ordinary language, what was assumed
+    and why - not only the ops shorthand (Niccolo, 2026-07-28)."""
+    notes = []
+    b = result.get("broadcast")
+    if b:
+        how = ("averaging the " + " and ".join(b.get("series_sources", []) or []) +
+               " columns") if b.get("series_op") == "mean" else \
+              ("using the " + ", ".join(b.get("series_sources", []) or []) + " column")
+        if b.get("axis") == "age":
+            notes.append(
+                "This plan's valuation reports " + target.replace("_", " ").lower() +
+                " by YEARS OF SERVICE only - it does not break the rates down by age. "
+                "We therefore applied each service level's rate to every age (" + how +
+                "). This is faithful to the plan's own assumption that the rate depends "
+                "on length of service, not age; it does not invent any numbers. "
+                "(Approved by Niccolo, 2026-07-28; assumption register #4.)")
+        else:
+            notes.append(
+                "This plan's valuation reports " + target.replace("_", " ").lower() +
+                " by AGE only - it does not break the rates down by years of service. "
+                "We applied each age's rate across every service column (" + how + "). "
+                "Unlike the service-only case, this fills in a dimension the document "
+                "does NOT measure, so it is a modeling ASSUMPTION, not a direct reading "
+                "of the source. (Approved by Niccolo + coauthor, 2026-07-28; assumption "
+                "register #4.)")
+    return notes
+
 # The extraction corpus: every city fund with an in-folder AV PDF (the ppd_id
 # is the trailing number in the AV filename; it drives the PPD cross-check).
 # workbook=None or a blank/stub sheet -> production mode (reviewed via the
@@ -203,15 +234,26 @@ def run_one(plan_key, target, targets, pages=None, verbose=True, base_dir=None):
                               target_row_spans=spec.get("target_row_spans"),
                               target_col_spans=spec.get("target_col_spans"),
                               to_decimal=spec.get("convert_percent_to_decimal", False),
-                              zero_impossible_cfg=spec.get("zero_impossible_cells"))
+                              zero_impossible_cfg=spec.get("zero_impossible_cells"),
+                              broadcast=result.get("broadcast"))
+    # plain-language record of any modeling assumption this run embedded, so a
+    # reader of derived.json sees IN PLAIN ENGLISH what was assumed and why
+    # (not only in the ops jargon). Currently the broadcast fills; extend as
+    # other assumption-bearing ops are added.
+    plain = _plain_assumptions(result, target)
+    if plain:
+        derived["assumptions_plain"] = plain
     with open(os.path.join(run_dir, "derived.json"), "w", encoding="utf-8") as fh:
         json.dump(derived, fh, indent=2)
     if not result.get("unavailable"):
         log("[stage B] declared operations:")
         for line in ops.summarize(result["row_map"], result["col_map"],
                                   derive=result.get("derive"),
-                                  transpose=result.get("transpose", False)):
+                                  transpose=result.get("transpose", False),
+                                  broadcast=result.get("broadcast")):
             log(f"    {line}")
+    for note in plain:
+        log(f"[assumption] {note}")
 
     # ---- redundant safety verifier: PPD cross-check (count targets) ----
     # AV-independent second opinion: catches whole tables dropped/double-counted

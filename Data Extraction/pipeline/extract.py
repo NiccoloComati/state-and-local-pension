@@ -224,6 +224,23 @@ RESULT_SCHEMA = {
             "type": "boolean",
             "description": "true ONLY when the target quantity does not exist in the document in any derivable form; then row_map/col_map are empty lists and notes explain what the document publishes instead",
         },
+        "broadcast": {
+            "anyOf": [
+                {"type": "null"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "axis": {"type": "string", "enum": ["age", "service"]},
+                        "series_sources": {"type": "array", "items": {"type": "string"},
+                                           "minItems": 1},
+                        "series_op": {"type": "string", "enum": ["copy", "mean"]},
+                    },
+                    "required": ["axis", "series_sources", "series_op"],
+                    "additionalProperties": False,
+                },
+            ],
+            "description": "null normally. Set it when the exhibit measures the rate along ONE dimension only. Transcribe the source with the VARYING dimension as ROWS and the rate as COLUMNS. axis='age' when the source gives rates by SERVICE only (no age) -> every target age row is filled with the same service-based rate; col_map maps target service columns from the source's service rows and row_map lists the age targets with EMPTY sources. axis='service' when the source gives rates by AGE only (no service) -> every target service column is identical; row_map maps target ages from the source's age rows and col_map lists the service targets with empty sources. series_sources = the rate COLUMN label(s); series_op='copy' for a single rate column, 'mean' to average several (e.g. Male and Female with no headcounts to weight by).",
+        },
         "notes": {
             "type": "string",
             "description": "every judgment call: why these tables, ambiguities, anything the maps cannot express",
@@ -330,6 +347,22 @@ transcribe the numbers as printed and declare the scale in values_unit: "percent
 percentages (22.50 -> 0.225), "per_1000" for a 'rate per 1,000 members' table (53.31 -> \
 0.05331) - code does the division. (A rate whose printed values exceed ~1 but the target \
 is a probability is always one of these scales - never leave values_unit null then.) \
+If a rate exhibit measures the rate along ONE dimension only - termination/withdrawal \
+rates by YEARS OF SERVICE with no age breakdown, or by AGE with no service breakdown - \
+do NOT declare it unavailable and do NOT invent the missing dimension's bins. Transcribe \
+the source with the VARYING dimension as ROWS and the rate as COLUMNS, and declare \
+"broadcast": {"axis": ..., "series_sources": [...], "series_op": ...}. Use axis="age" \
+when the rate is by SERVICE only (code repeats the same service-based rate across every \
+age - faithful to the plan assuming termination depends on service, not age): col_map \
+maps each target service column from the source's service-year rows (op copy, or \
+overlap_weighted with source_spans when service bins do not align), and row_map lists \
+the target age rows each with an EMPTY sources list. Use axis="service" when the rate is \
+by AGE only: row_map maps each target age row from the source's age rows, and col_map \
+lists the target service columns each with EMPTY sources. series_sources = the rate \
+COLUMN label(s); series_op="copy" for a single rate column, "mean" to average several \
+(e.g. Male and Female when no headcount table is printed to weight by; if the plan is \
+one specific group, name only that group's column with copy). broadcast is null \
+whenever the exhibit genuinely gives the rate by BOTH age and service. \
 If the document publishes the target separately per POPULATION GROUP (e.g. General vs \
 Safety termination rates; pre- vs post-retirement mortality) and the target wants one \
 blended value, use op "group_weighted": sources = the group rows/columns, and \
@@ -468,6 +501,20 @@ Constraints:
   totals. When they ARE additive totals, align each value carefully by its
   column position - interleaved / whitespace-collapsed layouts make a
   one-column-off slip easy, and the totals check is what catches it.
+- "broadcast": null normally. Set it when a RATE exhibit measures the rate
+  along ONE dimension only, so the other target axis repeats the same rate.
+  {"axis": "age", "series_sources": ["Rate"], "series_op": "copy"} = the source
+  gives rates by SERVICE only; col_map maps each target service column from the
+  source's service-year rows (op copy / overlap_weighted), row_map lists the
+  target age rows with EMPTY sources, and code fills every age identically.
+  {"axis": "service", ...} = rates by AGE only; row_map maps target ages from
+  the source's age rows, col_map lists the service columns with EMPTY sources.
+  series_sources = the rate COLUMN label(s); series_op "copy" (one column) or
+  "mean" (average several, e.g. Male+Female with no headcounts). Transcribe the
+  source with the VARYING dimension as ROWS. Do NOT combine broadcast with
+  derive/transpose/unavailable. This is NOT "approximating a missing
+  dimension" - it is the faithful reading of a rate the plan defines on one
+  variable; use it instead of unavailable for one-dimensional rate exhibits.
 - "unavailable": false normally (may be omitted). Set true ONLY when the
   target does not exist in the document in any derivable form: then row_map
   and col_map MUST be EMPTY lists, derive must be null, notes must state what
@@ -837,7 +884,9 @@ def validate(result, target_spec=None):
     # dimension), most of the empty Ret_Rate grids, chi_edu Avg_Mort, mil
     # Age_Serv_Wage and sd Retirement. None of them raised anything.
     # transpose swaps which printed axis the maps address (see ops module doc).
-    if not unavailable and tables and isinstance(tables[0], dict):
+    # broadcast has its OWN label geometry (varying-axis sources are the source's
+    # ROW labels, series_sources are its COLUMN labels), checked separately below.
+    if not unavailable and not result.get("broadcast") and tables and isinstance(tables[0], dict):
         main = tables[0]
         flipped = bool(result.get("transpose"))
         printed_rows = [str(x).strip() for x in (main.get("row_labels") or [])]
@@ -900,6 +949,71 @@ def validate(result, target_spec=None):
     transpose = result.setdefault("transpose", False)   # tolerated if absent
     if not isinstance(transpose, bool):
         p.append("transpose must be a boolean")
+
+    # broadcast: a one-dimensional rate exhibit filled identically along the axis
+    # the document does not measure (Sep_Rate service-only / age-only sources -
+    # the shape behind most of the s8 audit's empty grids). Its label geometry
+    # differs from a normal map, so it is validated here (and the standard
+    # label-existence check above is skipped for it).
+    broadcast = result.setdefault("broadcast", None)   # tolerated if absent
+    if broadcast is not None:
+        if not isinstance(broadcast, dict):
+            p.append("broadcast must be null or an object")
+        elif unavailable:
+            p.append("broadcast and unavailable are mutually exclusive")
+        elif transpose:
+            p.append("broadcast cannot be combined with transpose - transcribe the "
+                     "varying dimension as ROWS and set broadcast instead")
+        elif result.get("derive") is not None:
+            p.append("broadcast cannot be combined with derive")
+        else:
+            axis = broadcast.get("axis")
+            series = broadcast.get("series_sources")
+            sop = broadcast.get("series_op")
+            if axis not in ("age", "service"):
+                p.append("broadcast.axis must be 'age' (source varies by service "
+                         "only) or 'service' (source varies by age only)")
+            if not isinstance(series, list) or not series or not all(
+                    isinstance(s, str) for s in series):
+                p.append("broadcast.series_sources must be a non-empty list of the "
+                         "rate COLUMN label(s) to read")
+            if sop not in ("copy", "mean"):
+                p.append("broadcast.series_op must be 'copy' (one rate column) or "
+                         "'mean' (average several, e.g. Male+Female)")
+            elif sop == "copy" and isinstance(series, list) and len(series) != 1:
+                p.append("broadcast.series_op='copy' takes exactly one series source; "
+                         "use 'mean' to combine several")
+            # label geometry: varying-axis map sources are the source's ROW labels;
+            # series_sources are its COLUMN labels; the constant-axis map's sources
+            # must be empty (code fills that axis identically).
+            if axis in ("age", "service") and tables and isinstance(tables[0], dict):
+                main = tables[0]
+                rows = {str(x).strip() for x in (main.get("row_labels") or [])}
+                cols = {str(x).strip() for x in (main.get("col_labels") or [])}
+                vary_name = "col_map" if axis == "age" else "row_map"
+                const_name = "row_map" if axis == "age" else "col_map"
+                miss = {}
+                for e in (result.get(vary_name) or []):
+                    if isinstance(e, dict):
+                        for s in (e.get("sources") or []):
+                            if str(s).strip() not in rows:
+                                miss.setdefault(str(s), []).append(e.get("target"))
+                if miss:
+                    p.append(f"broadcast: {vary_name} (the varying axis) references "
+                             f"{len(miss)} label(s) that are not ROW labels of "
+                             f"source_tables[0]: {list(miss)[:6]}. In broadcast the "
+                             "varying-axis sources are the source's ROW labels "
+                             f"(the printed bins). Available rows: {sorted(rows)[:14]}")
+                bad_series = [s for s in (series or []) if s not in cols]
+                if bad_series:
+                    p.append(f"broadcast.series_sources {bad_series} are not COLUMN "
+                             f"labels of source_tables[0]. Available columns: {sorted(cols)}")
+                nonempty_const = [e.get("target") for e in (result.get(const_name) or [])
+                                  if isinstance(e, dict) and (e.get("sources") or [])]
+                if nonempty_const:
+                    p.append(f"broadcast: {const_name} entries must have EMPTY sources "
+                             f"(that axis is filled identically); these do not: "
+                             f"{nonempty_const[:6]}")
 
     # group_weighted declarations must be executable: weight tables need their
     # bin spans, and the main table needs spans on the axis whose labels form

@@ -1592,3 +1592,41 @@ Segal-wage, sf Retirement), one bad blend (chi_gen Avg_Mort). The remaining
 losses fall cleanly into the label-existence/round-3 + Sep_Rate-decision buckets.
 Artifacts committed from the laptop under `runs/_verify_s8/` (cluster is
 pull-only). NEXT: the Sep_Rate ruling (step 2) gates round 3.
+
+### 2026-07-28 - Sep_Rate ruling + the `broadcast` op (step 2 -> code)
+Read all 16 Sep_Rate `extraction.json` and adjudicated the two ambiguous ones
+against the PDFs. THE REFRAME: the audit's "12 impossible" is mostly NOT an
+assumption block. Four source shapes: (i) joint age x service already found -
+phx/sf/mil (data present, not blocked); (ii) **SERVICE-ONLY** (rate by service,
+no age) - chi_edu/ff/gen/pol, dal, lax_uty, sd, hou_pol, aus, lax_ffpol (10); the
+faithful fill is the same rate across all ages; the grids were empty only because
+the contract could not say "replicate a service-only rate across age" (the s8
+label-existence silent-null); (iii) **AGE-ONLY** (rate by age, no service) - bos,
+lax_gen's >=5 portion (2); filling service genuinely fabricates a dimension; (iv)
+**IMAGE-ONLY** - phi (p104-106 print the Age x Service table as an image;
+`decimals=0`), needs a vision model. So 10 of 12 are a CODE fix, 2 are a real
+assumption, 1 is image.
+
+Niccolo's rulings (bucket B faithful-fill; bucket C approved as an explicit
+assumption with the coauthor) -> built the **`broadcast` contract op** (v0.9):
+`broadcast={"axis":"age"|"service","series_sources":[...],"series_op":"copy"|
+"mean"}`. The source is transcribed with the VARYING dimension as ROWS and the
+rate as COLUMNS; `_broadcast_grid` reduces the rate columns (copy one / mean
+several - e.g. Male+Female with no headcounts), maps the varying axis with the
+existing copy/overlap machinery, and TILES across the missing axis;
+`zero_impossible` still blanks unreachable age x service cells. axis=age = the
+service-only faithful fill; axis=service = the age-only assumption. validate()
+accepts it, gates the standard label-existence check (broadcast has its own label
+geometry - varying sources are the source ROW labels, series the COLUMNS), and
+rejects transpose/derive/unavailable combos, non-existent varying labels, series
+that are not columns, and non-empty constant-axis sources. Schema + FORMAT_SPEC +
+SYSTEM prompt + targets.json Sep_Rate rules updated (old rule 1's transpose recipe,
+which never worked, replaced). `run_test` writes a PLAIN-ENGLISH `assumptions_plain`
+note into derived.json and prints `[assumption] ...` (Niccolo: every embedded
+assumption must be explained in plain terms in the output, not just the register).
+`test_ops_broadcast.py` (service-only copy/overlap, M/F mean, age-only, impossibility
+zeroing, validate accept+6 rejections); **suite 22/22**. Zero-cost end-to-end proof:
+the archived chi_gen Sep_Rate transcription re-executed under broadcast goes from an
+all-null grid to **110/110 populated** (rates falling with service, identical across
+ages, 19 impossibility-zeros intact). NEXT: round-3 sbatch (these 12 + the 17
+label-existence cells + `_verify_s8` leftovers) once the cluster is up.
