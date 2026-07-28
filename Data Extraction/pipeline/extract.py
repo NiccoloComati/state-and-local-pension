@@ -169,6 +169,14 @@ RESULT_SCHEMA = {
                                       "description": "index into source_tables providing count weights (weighted_avg only, else null). Column weighted_avg merges source COLUMNS of an averages table."},
                     "source_spans": _SPANS,
                     "weights_tables": _WEIGHTS_TABLES,
+                    "numerator_sources": {
+                        "type": "array", "items": {"type": "string"},
+                        "description": "ratio SPLIT form: the source columns that are SUMMED to form the numerator (e.g. every annual-payments column, one per sex/group). Use with denominator_sources when the document prints the dollars and the counts once PER GROUP; 'sources' then lists all of them together.",
+                    },
+                    "denominator_sources": {
+                        "type": "array", "items": {"type": "string"},
+                        "description": "ratio SPLIT form: the source columns SUMMED to form the denominator - the COUNT columns (e.g. Male Number + Female Number). Never dollar columns: dollars/dollars is not an average.",
+                    },
                     "annualize_monthly": {
                         "type": "boolean",
                         "description": "true ONLY on a copy/ratio column whose source dollars are printed MONTHLY while the target wants ANNUAL - code multiplies the column by 12",
@@ -271,6 +279,13 @@ total annual dollars / member count printed side by side), use col op "ratio" wi
 exactly two sources [numerator, denominator] - code divides row by row; if the source \
 dollars are printed MONTHLY and the target wants ANNUAL, add "annualize_monthly": true \
 to that column entry (code multiplies by 12 - never convert units yourself). \
+The denominator of such a quotient is ALWAYS a member count column. If the exhibit \
+prints the dollars and the counts once per GROUP (e.g. Male Number | Male Annual \
+Payments | Female Number | Female Annual Payments) and prints no Total column, two \
+sources cannot express the target: declare "numerator_sources" = every dollar column \
+and "denominator_sources" = every count column (with "sources" listing all of them), \
+and code sums each side before dividing. Never divide one group's dollars by another \
+group's dollars, and never report just one group as if it were the whole population. \
 If one printed ROW bucket covers several target rows (e.g. '90 & Up' across \
 90-94/95-99/100+), map EACH covered target row to it with op "share_even": code splits \
 the bucket's values evenly across those rows (additive columns split; a ratio column \
@@ -358,7 +373,15 @@ Constraints:
   share_even (averages are not additive).
 - col op "ratio" takes EXACTLY TWO sources [numerator, denominator]: the
   target column is their per-row quotient (e.g. average benefit = total
-  dollars column / count column). Row "share_even" splits one printed row
+  dollars column / count column). The DENOMINATOR is always a member COUNT -
+  dividing one dollar column by another dollar column is never an average.
+  SPLIT form: when the exhibit prints the dollars AND the counts once per
+  GROUP (Male Number | Male Annual Payments | Female Number | Female Annual
+  Payments) and prints no Total column, two sources cannot say what you mean.
+  Declare instead "numerator_sources": [every dollar column],
+  "denominator_sources": [every count column], with "sources" listing all of
+  them; code sums each side, then divides. Never pick just one group's pair.
+  Row "share_even" splits one printed row
   bucket evenly across every target row that references it - additive
   columns are divided by the split count; a ratio column then equals the
   bucket's own average on each split row.
@@ -580,6 +603,27 @@ def validate(result, target_spec=None):
                "group_weighted"}
     col_ops = {"copy", "sum", "share_even", "weighted_avg", "overlap_weighted",
                "group_weighted", "ratio"}
+    # Keys the executor actually READS on a map entry. Anything else is
+    # silently ignored by ops.py, which is how sd and sf Retirement shipped:
+    # both invented "numerator_table"/"denominator_table" ON THE COLUMN entry
+    # (those are derive-level keys), code ignored them, and the ratio
+    # degenerated to Total/Total = 1.0 for every row. An unknown key means the
+    # model is trying to express something the contract does not support -
+    # better a retry with guidance than a plausible-looking wrong number.
+    ENTRY_KEYS = {"target", "sources", "op", "weights_table", "weights_tables",
+                  "source_spans", "annualize_monthly",
+                  "numerator_sources", "denominator_sources"}
+    ELSEWHERE = {
+        "numerator_table": "a derive-level key: derive={'op':'ratio',"
+                           "'numerator_table':N,'denominator_table':M} divides "
+                           "two whole TABLES. To divide two COLUMNS use col op "
+                           "'ratio' with sources [numerator col, denominator "
+                           "col], or numerator_sources/denominator_sources",
+        "denominator_table": "a derive-level key (see numerator_table)",
+        "values_unit": "declared on the SOURCE TABLE, not on a map entry - "
+                       "code scales the table before mapping",
+        "notes": "the single top-level 'notes' string",
+    }
     gw_weight_tables, gw_used = set(), False
     for name, ops_allowed in (("row_map", row_ops), ("col_map", col_ops)):
         entries = result[name]
@@ -598,6 +642,12 @@ def validate(result, target_spec=None):
                 continue
             if not isinstance(e.get("target"), str):
                 p.append(f"{name}[{i}].target missing or not a string")
+            for key in sorted(set(e) - ENTRY_KEYS):
+                p.append(f"{name}[{i}] ({e.get('target')!r}): unknown key {key!r} - "
+                         "the executor IGNORES it, so whatever it was meant to say "
+                         "does not happen. " +
+                         (f"{key!r} is {ELSEWHERE[key]}." if key in ELSEWHERE
+                          else f"Remove it. Allowed: {sorted(ENTRY_KEYS)}"))
             srcs = e.get("sources")
             if not isinstance(srcs, list) or any(not isinstance(s, str) for s in srcs):
                 p.append(f"{name}[{i}].sources must be a list of PLAIN STRINGS "
@@ -611,10 +661,38 @@ def validate(result, target_spec=None):
                          "source. To MERGE bins use 'sum' (additive quantities) or "
                          "'weighted_avg' with weights_table = the counts table "
                          "(averages - never sum/share_even them)")
-            if op == "ratio" and srcs is not None and len(srcs) != 2:
+            n_s, d_s = e.get("numerator_sources"), e.get("denominator_sources")
+            split = n_s is not None or d_s is not None
+            if op != "ratio" and split:
+                p.append(f"{name}[{i}] ({e.get('target')!r}): numerator_sources / "
+                         "denominator_sources only belong on a 'ratio' column")
+            elif op == "ratio" and split:
+                for key, v in (("numerator_sources", n_s),
+                               ("denominator_sources", d_s)):
+                    if (not isinstance(v, list) or not v
+                            or any(not isinstance(s, str) for s in v)):
+                        p.append(f"{name}[{i}] ({e.get('target')!r}): ratio SPLIT form "
+                                 f"needs {key} = a NON-EMPTY list of source column "
+                                 "labels (both sides required)")
+                if (isinstance(n_s, list) and isinstance(d_s, list)
+                        and isinstance(srcs, list)
+                        and set(map(str, srcs)) != set(map(str, n_s)) | set(map(str, d_s))):
+                    p.append(f"{name}[{i}] ({e.get('target')!r}): in the ratio SPLIT "
+                             "form 'sources' must list EXACTLY the union of "
+                             "numerator_sources and denominator_sources")
+            elif op == "ratio" and srcs is not None and len(srcs) != 2:
+                # The 2-source form cannot express a per-group split (Male $ |
+                # Male N | Female $ | Female N) - phi Retirement crashed here
+                # rather than declare a wrong pairing. Point at the split form.
                 p.append(f"{name}[{i}] ({e.get('target')!r}): ratio takes exactly TWO "
                          "sources [numerator, denominator] (e.g. the total-dollars "
-                         "column then the count column)")
+                         "column then the count column). If the document prints the "
+                         "dollars AND the counts once per GROUP (per sex, per tier) "
+                         "with no printed Total column, use the SPLIT form instead: "
+                         "\"numerator_sources\": [every dollar column], "
+                         "\"denominator_sources\": [every COUNT column], and "
+                         "\"sources\" = all of them. Code sums each side, then "
+                         "divides")
             am = e.get("annualize_monthly")
             if am is not None:
                 if not isinstance(am, bool):
@@ -908,6 +986,68 @@ def validate(result, target_spec=None):
                     "derive={'op':'ratio','numerator_table':N,'denominator_table':M,"
                     "'annualize_monthly':true}. Code then multiplies the ratio RESULT "
                     "by 12. Transcribe the printed monthly numbers unchanged.")
+
+    # COLUMN-ratio plausibility. The 2-source col ratio happily divides one
+    # DOLLAR column by another dollar column, and nothing downstream notices:
+    # chi_ff and chi_gen Retirement both declared ratio(Male $, Female $) on an
+    # exhibit that prints Male N | Male $ | Female N | Female $ with no Total
+    # column, and shipped "average benefits" of $4.44 / $12.91 / $15.88 as
+    # scored production output. (phi hit the same wall and crashed on the arity
+    # rule instead - same gap, opposite symptom.) The denominator of an average
+    # must be a COUNT, so the implied average is the test.
+    if floor and not transpose and tables and isinstance(tables[0], dict):
+        main = tables[0]
+        labels = [str(c).strip() for c in (main.get("col_labels") or [])]
+        rows = [r for r in (main.get("cells") or []) if isinstance(r, list)]
+
+        def _colsum(names):
+            tot, seen = 0.0, False
+            for nm in names or []:
+                if str(nm).strip() not in labels:
+                    return None
+                j = labels.index(str(nm).strip())
+                for r in rows:
+                    v = r[j] if j < len(r) else None
+                    if isinstance(v, (int, float)) and not isinstance(v, bool):
+                        tot += v
+                        seen = True
+            return tot if seen else None
+
+        cmap = result.get("col_map")
+        for i, e in enumerate(cmap if isinstance(cmap, list) else []):
+            if not isinstance(e, dict) or e.get("op") != "ratio":
+                continue
+            n_s = e.get("numerator_sources")
+            d_s = e.get("denominator_sources")
+            if not (n_s and d_s):
+                s = e.get("sources")
+                if not (isinstance(s, list) and len(s) == 2):
+                    continue          # arity already reported above
+                n_s, d_s = [s[0]], [s[1]]
+            n_sum, d_sum = _colsum(n_s), _colsum(d_s)
+            if not n_sum or not d_sum:
+                continue
+            implied = n_sum / d_sum
+            if implied >= floor:
+                continue
+            if floor / 12 <= implied and not e.get("annualize_monthly"):
+                p.append(
+                    f"col_map[{i}] ({e.get('target')!r}): the declared ratio implies "
+                    f"an average of {implied:,.0f}, below {floor:,.0f} - the source "
+                    "prints MONTHLY dollars. Add \"annualize_monthly\": true to this "
+                    "column entry (code x12's it) and say so in notes.")
+            elif implied < floor / 12:
+                p.append(
+                    f"col_map[{i}] ({e.get('target')!r}): the declared ratio "
+                    f"{n_s} / {d_s} implies an average of {implied:,.2f} - far below "
+                    f"{floor:,.0f}, so the DENOMINATOR is not a member count. Dividing "
+                    "one dollar column by another dollar column is not an average. "
+                    "The denominator must be the COUNT column(s). If the exhibit "
+                    "prints dollars and counts once per GROUP (per sex, per tier) and "
+                    "has no printed Total column, use the SPLIT form: "
+                    "\"numerator_sources\": [every dollar column], "
+                    "\"denominator_sources\": [every count column], \"sources\": all "
+                    "of them - code sums each side, then divides.")
     return p
 
 

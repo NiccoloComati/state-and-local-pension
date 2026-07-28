@@ -24,6 +24,12 @@ Contract executed:
                   dollars / member count when the source prints totals beside
                   counts). Row share_even divides BOTH columns by the split
                   count, so the ratio reproduces the bucket average exactly.
+                  When the source SPLITS both quantities across several column
+                  pairs (e.g. Male $ | Male N | Female $ | Female N), the
+                  two-source form cannot express the target: declare
+                  "numerator_sources" and "denominator_sources" instead (each
+                  a list of source columns, summed before the divide) so that
+                  average = sum(all $ columns) / sum(all count columns).
   derive        : null | {op: "ratio", numerator_table, denominator_table}
                        | {op: "sum", tables: [i, j, ...]}
                   ratio mode: some AVs publish TOTALS (e.g. total salary
@@ -94,6 +100,18 @@ def _get(table, ridx, cidx, r_label, c_label):
 
 def _num(v):
     return isinstance(v, (int, float)) and not isinstance(v, bool)
+
+
+def _add(inter, r, labels):
+    """Sum the stage-1 values of `labels` on target row `r`, with the same
+    semantics as col op 'sum': numeric terms add, an all-suppressed group
+    stays '*', nothing at all is None. Used by the ratio SPLIT form to pool
+    the per-group dollar columns and the per-group count columns separately."""
+    vals = [inter.get((r, str(s).strip())) for s in labels]
+    nums = [v for v in vals if _num(v)]
+    if nums:
+        return sum(nums)
+    return "*" if "*" in vals else None
 
 
 import re as _re
@@ -582,10 +600,27 @@ def _grid(source_tables, main_index, row_map, col_map,
                 v = vals[0]
                 out = v / share_n[cm["sources"][0]] if _num(v) else v
             elif op == "ratio":
-                if len(cm["sources"]) != 2:
+                # SPLIT form: the source prints the numerator and the denominator
+                # once per population group (Male $ | Male N | Female $ | Female
+                # N). Two positional sources cannot say "sum the dollar columns,
+                # sum the count columns, then divide" - chi_ff/chi_gen Retirement
+                # squeezed that into ratio[Male $, Female $] and shipped
+                # dollars/dollars (~$4.44 "average benefit"), while phi refused
+                # and crashed on the arity rule. Both are the same gap.
+                n_s = cm.get("numerator_sources")
+                d_s = cm.get("denominator_sources")
+                if n_s or d_s:
+                    if not n_s or not d_s:
+                        raise ValueError(
+                            f"col {cm['target']}: ratio split form needs BOTH "
+                            "numerator_sources and denominator_sources")
+                    nv = _add(inter, r, n_s)
+                    dv = _add(inter, r, d_s)
+                elif len(cm["sources"]) != 2:
                     raise ValueError(f"col {cm['target']}: ratio takes exactly two "
                                      "sources [numerator, denominator]")
-                nv, dv = vals
+                else:
+                    nv, dv = vals
                 if nv == "*" or dv == "*":
                     out = "*"
                 elif _num(nv) and _num(dv) and dv != 0:
@@ -733,6 +768,13 @@ def summarize(row_map, col_map, derive=None, transpose=False):
             extra = " spans=" + ",".join(f"[{s[0]},{s[1]}]" for s in spans)
         elif e["op"] == "group_weighted":
             extra = " weights=" + ",".join(f"t{k}" for k in e.get("weights_tables", []))
+        elif e["op"] == "ratio" and e.get("numerator_sources"):
+            # split form: show WHAT is divided by WHAT - this line is how a
+            # reader catches a dollars/dollars ratio at a glance
+            lines.append(f"{kind} {e['target']!r} <- ratio("
+                         f"{' + '.join(e['numerator_sources'])} / "
+                         f"{' + '.join(e.get('denominator_sources') or [])})")
+            return
         lines.append(f"{kind} {e['target']!r} <- {e['op']}({', '.join(e['sources'])}){extra}")
 
     for rm in row_map:
