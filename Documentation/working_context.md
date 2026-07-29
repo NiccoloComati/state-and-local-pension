@@ -2498,3 +2498,104 @@ next-session plan in `Data Extraction/engaging_beta/SESSION_HANDOFF.md` §0c
   boot-roulette that ate this session.
 - Docs/handoff updated + committed. Nothing else to run on the failed node;
   partial batch saved at runs/_batch_20260725_143259/.
+
+## 2026-07-29 (STATES track): data-vintage audit, doc corrections, PPD-refresh assessment
+
+New chat scoped to the 40 STATE plans and the working paper. The municipal
+AV-PDF extraction pipeline is a separate chat and was not touched.
+
+### What was verified and corrected
+
+The canonical `062026` run's vintage was established from the production code
+and the saved outputs, not from prior documentation. Result: there is no single
+base year. Every demographic input is a **FY2017 shape scaled by an FY2022
+PPD total**. The full decomposition, the verification method, the refresh cost,
+and the FY2023 completeness check now live in `project_context.md` §3.1; the
+per-input "which side of a vintage change is this on" table is in
+`model_input_dictionary.md` §2–§3.
+
+Corrections made (statements that were not true):
+- `project_context.md` §1 said "Base year: 2017 (with updates to 2021 for key
+  drivers)" and §4.1 said "Base year: 2017". The canonical run is
+  `plan_year = 2022`, projecting 2022–2056.
+- `model_input_dictionary.md` §2 implied `PPD_planlevel_main_updated.csv` was a
+  2022 collection. Its `pctmale`/`pctmrg`/`reduct`/`inactive_adj` values are
+  identical to the FY2017 file for all 37 modeled plans — a re-key.
+- The tier workbook `planchanges_main_2022_clean.xlsx` is identical to the 2017
+  tier file for 35 of 37 plans; only AZ127 and CA97 differ, each by one tier
+  boundary dated 2018-07-01, which is also the latest `startdate` in the file.
+
+`variable_glossary.md` already described `plan_year` correctly and needed no
+change.
+
+### Assessment: does refreshing the PPD year conflict with FY2017 demographics?
+
+Asked by Niccolo, who raised the counter-argument that the model reaches a
+steady state before simulating. Checking the code, that is half true and the
+half matters:
+
+- `calc_inactive_fast` **does** iterate to convergence (tolerance 5e-5, cap
+  5000 iterations) and returns a *normalized* inactive shape, later scaled by
+  the PPD-year inactive count. The inactive population is therefore a construct
+  of the decrements, not a 2017 snapshot.
+- The **active** and **retiree** shapes get no such treatment. They are the 2017
+  workbook matrices scaled to PPD-year totals and fed straight into year 0.
+- There is **no burn-in** before the projection: `Model_AAL = AAL[0,0]` is
+  validated against the PPD-year reported liability, so year 0 is the valuation
+  date by construction.
+- A weaker version of the steady-state argument does hold for the actives over
+  the horizon: `update_employees` refills new hires each year from the
+  first-three-service columns, so the 2017 starting matrix's influence decays
+  over the projection. It decays *from* the years that matter most for the
+  paper's questions (starting AAL, funded ratio at 10–20 years, exhaustion
+  timing), which are dominated by the initial population and retiree run-off.
+  **Untested claim**: how fast that decay is, and how sensitive the converged
+  inactive shape is to the starting active matrix. The decisive test is a
+  perturbation run — re-run one plan with a deliberately altered starting
+  age×service shape at fixed totals and compare AAL[0], the AAL path, and
+  exhaustion timing. Not run; proposed only.
+
+Net judgment: a PPD-year bump is an improvement, not a conflict, but an uneven
+one. It cleanly updates prices, totals and economic assumptions, none of which
+interact with demographic composition. It does not update composition, and it
+widens the gap between shape year and scale year. The two places that gap does
+real work: (1) **tier mix** — `create_tiers_fast` partitions by service years
+since each tier start and the boundary does move with `plan_start`, but it
+partitions a 2017 service distribution, so post-reform tiers are under-weighted
+relative to reality and liabilities/normal cost are biased upward; (2) the
+**retiree age profile**, which sets the near-term outflow path and therefore
+exhaustion timing, and which is corrected only in level (via
+`BeneficiaryBenefit_avg`), never in shape. Plan mortality tables are also
+FY2017-vintage assumptions, predating most plans' Pub-2010-family adoptions.
+Recommendation is to report shape-year and scale-year as two stated model
+vintages rather than one base year.
+
+### FY2023 is not a drop-in replacement (checked across all 40 plans)
+
+FY2022 is the last essentially complete year in our copy of the PPD. At FY2023:
+13 plans lack `payroll` (denominator of both contribution rates), 11 lack the
+contribution and asset-allocation fields, 7 lack `InactiveVestedMembers`, and 4
+(IL32, LA163, MI53, PA93) lack the core assets/liabilities/headcount fields.
+This is PPD reporting lag, not staleness of our file. Downloading the current
+PPD is still worth doing — CRR backfills prior years as plans report, so a fresh
+download likely improves FY2023 as much as it adds FY2024 — but the target year
+must be chosen by re-running the field-by-field completeness check, not assumed.
+
+### Open priorities recorded (Niccolo's, not to be acted on without his go)
+
+1. **Get plans back in, don't blindly exclude.** MA50, MA51 and MO64 are open
+   investigations aimed at inclusion, not settled exclusions. Observed facts
+   are now in `project_context.md` §6.2. Starting points: MO64 has complete PPD
+   at FY2017/2022/2023 and no visible data obstacle — it simply has no
+   `AVAILABLE_DATA` entry or plan script. MA51's PPD lacks `contrib_ER_regular`
+   and `InactiveVestedMembers` at both 2017 and 2022, and it is absent from
+   `CONTRIB_RATE_NA_CHECK`. MA50's exclusion traces to its idiosyncratic R
+   script, so the real question is whether that script's handling is correct or
+   a bug — i.e. whether its suspicious results are mishandled data.
+2. **The 13-of-37 model-vs-reported AAL gaps.** Plans whose modeled AAL differs
+   from the PPD-reported AAL by more than 10%, worst first: OK134 +134.5%,
+   MI53 −30.7%, ME47 +30.1%, IN37 +28.3%, ND82 +19.6%, DC20 +19.3%, GA28
+   +17.6%, NY78 +13.9%. Flagged by Niccolo as a real priority to investigate.
+3. Results interpretation, figure selection, and what the paper argues are to be
+   worked out **together**, not proposed unilaterally. Beta runs exist and need
+   to be gone through specifically, not summarized.

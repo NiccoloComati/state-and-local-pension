@@ -268,6 +268,27 @@ in your new memory directory** (the old one was keyed to the dissolved
   `results_executed_smoke.ipynb` is a rendered preview — both deletable when
   Niccolo says so.
 
+## STATES track / working paper (opened 2026-07-29, separate chat)
+
+Scoped to the 40 state plans and driving them to a working paper; the municipal
+extraction pipeline is deliberately out of scope there. Two things to carry:
+
+- **There is no single base year.** The canonical run is FY2017 shapes scaled by
+  FY2022 PPD totals. Full decomposition in `project_context.md` §3.1, the
+  input-by-input vintage table in `model_input_dictionary.md`, and the
+  PPD-refresh assessment in `working_context.md` (2026-07-29). Do not repeat the
+  old "base year 2017" claim — it was wrong and has been corrected.
+- **Two investigation priorities, both aimed at inclusion rather than
+  exclusion:** getting MA50/MA51/MO64 into the modeled set (MO64 has no visible
+  data obstacle at all), and diagnosing the 13 plans whose modeled AAL is more
+  than 10% off the reported AAL (OK134 worst at +134.5%).
+
+Working-style note from that session: do not frame the Brookings-provided data
+as a limitation or caveat — it is good data they published on, and re-verifying
+it is optional future work, not a standing disclaimer. And do not run ahead into
+results interpretation, figure selection, or what the paper argues; those get
+worked out with Niccolo, not proposed unilaterally.
+
 ## State of the two open work streams (details in working_context)
 
 1. **Scenario plan (parked, fully specified, levers built and validated):**

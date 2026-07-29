@@ -9,7 +9,7 @@
 
 ## 1. Plans Covered
 
-40 state & local pension plans selected by Lenney et al. (2021) as highly representative of the universe of U.S. plans. Base year: **2017** (with updates to 2021 for key drivers).
+40 state & local pension plans selected by Lenney et al. (2021) as highly representative of the universe of U.S. plans. The canonical `062026` run has **`plan_year = 2022`**: FY2022 PPD scalars layered on FY2017 demographic distributions. See §3.1 for the full per-input vintage decomposition.
 
 | Code   | Plan Name / State                              | # Tiers |
 |--------|------------------------------------------------|---------|
@@ -133,10 +133,49 @@ Asset allocation weights come from PPD fields: `EQTotal_Actl`, `FITotal_Actl`, `
 
 ---
 
+## 3.1 Data Vintage (verified 2026-07-29 from the production code and the saved run outputs)
+
+The model does not have one base year. Every demographic input enters as a **shape from one vintage** multiplied by a **scale from another**. In the canonical `062026` run the shapes are FY2017 and the scales are FY2022. Verification method: read `Code/python/fast/Main_PensionModel.py` and the `functions_cf_model.py` helpers, then check the 37 saved detAL pickles and the source workbooks against them.
+
+**Set by `--plan-year` (canonical run: 2022).** All read from the `ppd_id` × `fy = plan_year` row of `ppd-data-latest.xlsx`:
+
+| Input | PPD field | Verification |
+|---|---|---|
+| Starting assets | `ActAssets_GASB` × 1000 | saved `Assets[0,0]` equals this for **37/37** plans |
+| Reported liability (validation target) | `ActLiabilities_GASB` × 1000 | — |
+| Active count / average salary | `actives_tot`, `ActiveSalary_avg` | scale sheets 1 and 3 |
+| Retiree count / average benefit | `beneficiaries_tot`, `BeneficiaryBenefit_avg` | scale sheet 2 |
+| Inactive count | `InactiveVestedMembers` | scales the computed inactive shape |
+| Contribution rates | `contrib_EE_regular`, `contrib_ER_regular` ÷ `payroll` | — |
+| Discount rate | `InvestmentReturnAssumption_GASB` | 37-plan range 5.9%–7.5%, mean 6.89% |
+| Inflation | `InflationAssumption_GASB` | 36/37; NJ71 falls back to the 2017 legacy CSV |
+| Wage growth | `PayrollGrowthAssumption` (26 plans) or `WageInflation` (7) | LA130/NJ71/NJ73/NY78 fall back to 2017 legacy `wage_inf` |
+| Asset allocation | the eight `*Total_Actl` shares | consumed in the asset stage |
+
+`plan_start = date(plan_year, 1, 1)`, so tier-service boundaries are re-derived at the plan year.
+
+**FY2017, regardless of `--plan-year`:**
+
+| Input | Where it comes from | Note |
+|---|---|---|
+| All nine workbook sheets | `file_name = f"{plan}_2017.xlsx"` is **hard-coded** in the runner | source documents in the plan folders are the FY2017 AVs/CAFRs |
+| `pctmale`, `pctmrg`, `reduct`, `inactive_adj` | `PPD_planlevel_main_updated.csv`, key `[PLAN]_2022` | values are **identical to the 2017 `PPD_planlevel_main.csv` rows for all 37 plans** — that file was re-keyed, not re-collected |
+| Tier / benefit rules | `planchanges_main_2022_clean.xlsx`, key `[PLAN]_2022` | **identical to the 2017 tier file for 35 of 37 plans.** Only AZ127 and CA97 differ, each by one new tier boundary dated 2018-07-01. The latest tier `startdate` anywhere in the "2022" file is **2018-07-01** |
+
+**Not year-specific (hard-coded constants):** `PopulationGrowth = 0.01`, `DisabilityPayoutRate = 0.025`, `stock_premium = 0.075`, `stock_vol = 0.20`, `rf = 0.01 + Inflation`, `Nyear = 35`.
+
+**Where a steady state is and is not computed.** `calc_inactive_fast` (`fast/core.py`) forward-iterates the active matrix under the plan's decrements until the inactive stock stops changing (tolerance 5e-5 on the mean year-over-year change, iteration cap 5000), then returns the **normalized** inactive shape, which is afterwards scaled by the PPD-year inactive count. So the inactive population shape is a converged construct of the decrements rather than a 2017 snapshot. The **active** and **retiree** shapes get no such treatment: they are the 2017 workbook matrices scaled to PPD-year totals and fed straight into year 0. There is no burn-in before the projection — `Model_AAL = AAL[0,0]` is compared directly against the PPD-year reported liability, so year 0 is the valuation date.
+
+**Refresh cost.** Bumping the PPD scalars to a newer fiscal year requires: (a) a fresh `ppd-data-latest.xlsx` download, (b) `[PLAN]_<year>`-keyed rows added to `PPD_planlevel_main_updated.csv` (6 columns), (c) `[PLAN]_<year>`-keyed rows added to the tier workbook, then (d) `--plan-year <year>`; the runner is already parameterized. Batch cost ≈ 8 min detAL + 2.5 min asset. Refreshing the **demographic** side means re-extracting the nine sheets per plan from current AVs — the job `Data Extraction/` is being built for on the city side.
+
+**FY2023 completeness in the current copy (checked across all 40 plans).** FY2022 is the last essentially complete year. At FY2023: 13 plans lack `payroll` (the denominator of both contribution rates), 11 lack `contrib_EE_regular`/`contrib_ER_regular` and the asset-allocation fields, 7 lack `InactiveVestedMembers`, and 4 (IL32, LA163, MI53, PA93) lack `ActAssets_GASB`/`ActLiabilities_GASB`/`actives_tot`/`ActiveSalary_avg`/`beneficiaries_tot`/`BeneficiaryBenefit_avg`. `PayrollGrowthAssumption` is missing for 12 plans at FY2022 already (the fallback chain covers it). This reflects PPD reporting lag, not staleness of our copy; a newer download should be re-checked field-by-field by fiscal year before choosing a target year.
+
+---
+
 ## 4. Model Overview
 
 ### 4.1 Simulation Structure
-- **Base year:** 2017 (initializes all variables to observed/imputed values)
+- **Base year:** set by `--plan-year`; the canonical `062026` run uses **2022**, so the projection covers 2022–2056 (the final year carries a zero-AAL placeholder row and is dropped in analysis, leaving 2022–2055). The demographic distributions in that run are FY2017 — see §3.1.
 - **Horizon:** 35 years forward (`Nyear = 35`)
 - **Monte Carlo:** 10,000 asset return simulations (`num_sim = 10000`; each plan script runs `NMonte = 10` for quick testing)
 - **Seed:** `set.seed(54848631)` for replicability
@@ -286,7 +325,14 @@ A Python translation track exists under `Cluster Code/cluster_062026/Python Code
 3. `_zero_outside` in `bucketfill_cf_model.py` (`CreateTiers`): when two adjacent tier boundaries round to the same service year (e.g., OH88 Tiers 2–3 both = 41), Python's empty slice zeroed the entire tier. R's `a:b` for `a >= b` generates a descending sequence spanning both endpoints. Fixed: `keep_from, keep_to = keep_to - 1, keep_from + 1` when `keep_from >= keep_to`.
 4. `fast/Main_PensionModel.py` — `main_ret_fast` called with `COLA_t[1]` instead of `COLA_t[num_tiers]` (and same for `BenefitFactor_t`, `NyearFullBenefit_t`). Caused wrong retired-population AAL for multi-tier plans with different COLA across tiers. Fixed to use `_t[num_tiers]`.
 
-**MA50 excluded from generic runner:** MA50 uses a different risk-free-rate formula, is missing the `*1000` asset multiplier, has backward tier logic, contains a `++` syntax error, and produces no `NormalCost` output.
+**MA50 excluded from generic runner:** MA50 uses a different risk-free-rate formula, is missing the `*1000` asset multiplier, has backward tier logic, contains a `++` syntax error, and produces no `NormalCost` output. These are properties of MA50's idiosyncratic R script, not of its data.
+
+**The three plans of the 40 that the canonical run does not cover** (37 modeled). Observed input availability, checked 2026-07-29 — all three have a `[PLAN]_2017.xlsx` workbook, a tier row, and a `PPD_planlevel_main_updated.csv` row:
+- `MA50` — PPD FY2017 and FY2022 rows are complete on every field the engine reads. Its exclusion traces to the script properties above, not to missing data.
+- `MA51` — PPD is missing `contrib_ER_regular` and `InactiveVestedMembers` at **both** FY2017 and FY2022. MA51 is not in `CONTRIB_RATE_NA_CHECK`, so the employer-rate recomputation path would not fire for it.
+- `MO64` — PPD rows are **complete on every engine-read field at FY2017, FY2022 and FY2023.** No data obstacle is visible; it has no `AVAILABLE_DATA` entry and no plan script in the local set.
+
+Treating these as permanent exclusions is not established. See `working_context.md` (2026-07-29) for the open investigation.
 ## 7. Known Issues / Notes
 
 - **Disability data:** Sheet 9 is almost never populated (`availableData[9] = F`). The model uses a fixed `DisabilityPayoutRate = 0.025` (2.5% of payroll) as default; some plans compute it from actual data (e.g., MA50: ratio of disability payroll to total payroll).

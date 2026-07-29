@@ -44,7 +44,7 @@ Note the **sex-blending asymmetry**: plan-specific mortality/withdrawal/refund c
 | `reduct` (`widow_reduct`) | survivor-benefit reduction factor | death-benefit calc |
 | `inactive_adj` | flag/multiplier choosing the inactive-scaling rule | §3 inactive chain |
 
-These come from `PPD_planlevel_main_updated.csv` keyed `[PLAN]_2022`, which **only contains the 40 state plans** — a city integration blocker (see `city_data_audit.md` §6.1).
+These come from `PPD_planlevel_main_updated.csv` keyed `[PLAN]_2022`, which **only contains the 40 state plans** — a city integration blocker (see `city_data_audit.md` §6.1). That file has just 6 columns (`FIPS`, `planid`, `pctmrg`, `reduct`, `pctmale`, `inactive_adj`), and its values are **identical to the FY2017 `PPD_planlevel_main.csv` rows for all 37 modeled plans** (verified 2026-07-29): the `_2022` key is a re-key of the 2017 file, not a re-collection. So these four scalars are FY2017 data regardless of `--plan-year`.
 
 ## 3. PPD-panel scalars and their fallback chains
 
@@ -64,7 +64,18 @@ Read from the `ppd_id` × `fy=plan_year` row of `ppd-data-latest.xlsx`:
 | `ActiveSalary_avg` | scales `wagerel` | none |
 | `CAFR_AAL` (validation only) | `ActLiabilities_GASB` × 1000 | none |
 
-**Vintage note (the 2022 layering):** in the canonical 062026 run these scalars come from the **fy2022** PPD row, while the §1 distributions remain the **FY2017 Brookings extractions** — the documented "hybrid" (recorded in `working_context.md`, 2026-06-01 "Deep 2017 vs 2022 Version Audit" entry; the standalone audit doc was later deleted). The legacy-csv fallbacks reach back to 2017 values by design.
+**Vintage note (the 2022 layering):** in the canonical 062026 run these scalars come from the **fy2022** PPD row, while the §1 distributions remain the **FY2017 Brookings extractions**. The full per-input decomposition, the verification method, and the refresh cost are in `project_context.md` §3.1 — read that before assuming any single base year. The legacy-csv fallbacks reach back to 2017 values by design; in the canonical run they fired for wage growth (LA130, NJ71, NJ73, NY78), inflation (NJ71) and inactive counts (NY78, PA92).
+
+**Which side of a vintage change each input sits on.** Every demographic input is `shape × scale`. The scale is re-read at whatever `--plan-year` is passed; the shape is not. Bumping the PPD year therefore updates prices, totals and economic assumptions, and leaves composition — the age×service mix of actives, the retiree age profile, and the decrements — at FY2017.
+
+| Moves with `--plan-year` | Fixed at FY2017 until the workbooks are re-extracted |
+|---|---|
+| Starting assets, reported liability | Active age×service shape (sheet 1) |
+| Active/retiree/inactive **counts**, average salary, average benefit | Retiree age profile and benefit relativities (sheet 2) |
+| Contribution rates, payroll | Wage relativities by age×service (sheet 3) |
+| Discount rate, inflation, wage growth | Mortality, withdrawal, retirement, refund decrements (sheets 4, 6, 7, 8) |
+| Asset allocation shares | `pctmale`, `pctmrg`, `reduct`, `inactive_adj` (§2) |
+| Tier-service boundaries (`plan_start`) | Tier rule values themselves (latest `startdate` in the file is 2018-07-01) |
 
 ## 4. Tier rules (`planchanges`)
 
