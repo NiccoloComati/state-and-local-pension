@@ -2599,3 +2599,69 @@ must be chosen by re-running the field-by-field completeness check, not assumed.
 3. Results interpretation, figure selection, and what the paper argues are to be
    worked out **together**, not proposed unilaterally. Beta runs exist and need
    to be gone through specifically, not summarized.
+
+## 2026-07-29 (cont.): the three uncovered plans investigated; PPD refresh status
+
+### Framing correction taken from Niccolo
+
+Reasoning about missing plans in terms of "no plan script exists" is an R-track
+habit and is wrong for the current engine. Python is a **single universal
+runner**; a plan is admitted by one 9-boolean row in the `AVAILABLE_DATA` dict
+of `Code/python/fast/Main_PensionModel.py`. The R scripts stay useful as the
+verified reference to check results against — that is their role, not the
+gatekeeping one. The dict was ported from the 38 R 2022-cluster scripts, which
+is simply why MA51 and MO64 (2017 top-level scripts only) never got an entry.
+
+### Findings (full detail in `project_context.md` §6.2)
+
+- **MO64: no obstacle found.** Workbook equivalent to OK134 on every engine-read
+  range; declared vector identical to OK134's; PPD complete at FY2017/2022/2023.
+  The change needed is one dict row.
+- **MA51: one real blocker.** `contrib_ER_regular` is absent from PPD at 2017,
+  2022 and 2023, so the employer contribution rate is NaN and the
+  `CONTRIB_RATE_NA_CHECK` path reads the same missing field. The
+  `InactiveVestedMembers` gap turned out not to matter — `inactive_adj = 0.0`
+  zeroes the inactive population by construction before that field is consulted.
+- **MA50: most of the documented case against it does not survive checking.**
+  The `++` is valid R (`a + (+b)`, verified `identical()` under R 4.4.1), the
+  backward tier logic and missing `NormalCost` belong to the superseded 2017
+  script generation, and the asset-multiplier and risk-free-rate claims are not
+  MA50-specific at all. What remains genuinely open is that its two scripts
+  **disagree on `availableData`** (2017: `TTTTTTTFF`; 2022: `TTTTTFFFF`, dropping
+  withdrawal and retirement), and the 2022 choice is defensible because MA50's
+  withdrawal block uses non-standard age bins and is one row short.
+- **Shared MA50/MA51 layout quirk:** `wagerel` has 10 age rows where the generic
+  `B2:L12` read expects 11. R pads with `NA`; pandas returns (10, 11) and
+  `ConstantFill` silently zero-fills the top age bin. This is an unresolved
+  R↔Python divergence on real data and needs a ruling before either plan is
+  admitted. MA50's `wagerel` is additionally age-only (identical value across
+  every service column) — the same shape of problem as the `aus` wage broadcast
+  on the city track.
+
+### Decisions needed before admitting any of the three
+
+1. `wagerel` short-block handling: pad the missing age row (with what — zeros,
+   carry-forward of the age-70 row, or the default-assumptions row?) or accept
+   the silent zero. Applies to MA50 and MA51.
+2. MA50's `availableData`: adopt the 2022 vector (`TTTTTFFFF`, defaults for
+   withdrawal and retirement) or the 2017 one. The 2022 vector is the safer
+   reading of the workbook.
+3. MA51's employer contribution rate: no PPD source exists in any year. Options
+   are its AV, the PPD API's contribution tables, or exclusion on that ground.
+
+### PPD refresh status
+
+No newer PPD numeric workbook is in the tree — `ppd-data-latest.xlsx` is still
+the May file ending at FY2023. What another session produced on 2026-07-29 is
+`Data Extraction/ppd_source_survey.md` + `ppd_report_availability.csv`, which
+survey the **AV/CAFR report library and the API for 33 CITY funds** — document
+availability, not PPD numeric data, and not the state track.
+
+Two things from that survey do bear on the state refresh: the PPD's numeric
+tables reportedly run to **FY2024**, and there is a **free, keyless API**
+(`https://publicplansdata.org/api/`, filterable by `filterppdid` /
+`filterfystart`) exposing `pensiongasbassumptions`, contribution tables, asset
+allocation and tier-structured benefit parameters. That is a better refresh
+route than a workbook download, and the tier tables are also a candidate source
+for MA51's missing employer rate and for auditing the hand-curated tier file.
+Not pulled — Niccolo asked to hold before running anything.
