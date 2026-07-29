@@ -1,12 +1,23 @@
-# Input Cleanup To-Do — state track
+# States Track — working context
 
-**Created:** 2026-07-29. **Scope:** getting the model's *inputs* clean and complete
-across all 40 state plans. This is not paper or analysis work.
+**Created:** 2026-07-29. **Scope:** the 40 state plans and the working paper built
+on them. Companion to `working_context.md` (the chronological log across all
+tracks) and `project_context.md` (durable observed facts). Analysis and paper
+framing are decided with Niccolo and are not recorded here in advance.
 
-**Everything below is OPEN. Nothing has been executed.**
+Written to be read without the code open: each item says what the input is and
+what it drives before saying what is wrong with it.
 
-Written to be read without the code open. Each item says what the input is, what
-is actually wrong (if anything), and what the choices are.
+## Decisions taken
+
+- **2026-07-29 — Base year stays 2022.** We are not moving to fiscal 2023 or 2024
+  for now, to avoid changing several things at once. §3 below stays as a recorded
+  option rather than a plan. The one part of §3 still live is whether to adopt the
+  corrected 2022 figures from the newer PPD file.
+
+## Open work on the inputs
+
+**Everything in §1–§5 is OPEN. Nothing has been executed.**
 
 ---
 
@@ -140,12 +151,25 @@ plan's own numbers are sitting right there in the workbook:
 | Refunds | payouts to people who leave and take their money | FL26, IL34 | 2 |
 | Disability | (never read regardless — see 2c) | CA10, FL26, IL34 | 3 |
 
-**These should not be switched on in bulk.** A "no" is often correct precisely
-because the plan's sheet is laid out unusually and the model would misread it —
-MA50's turnover sheet above is the proven example of exactly that. Each one needs
-its block compared against the model's expected layout and against the plan's
-valuation report, then either switched on, or the reader fixed, or a note recorded
-saying the default is the better choice here.
+**Checked 2026-07-29: the layout worry mostly does not apply here.** For each of
+the 33 cases the block was read exactly as the model would read it, and the sheet's
+own age and service labels were compared against a plan that is switched on:
+
+- **Retirement, 17 of the 19** hold a full grid of plausible rates in exactly the
+  right place, with age and service labels **identical** to the switched-on plans.
+  Two exceptions: **FL26**'s sheet will not parse at that range, and **LA44**'s
+  block is completely filled and contains −1 values, suggesting a different
+  convention (possibly −1 meaning "not applicable").
+- **Mortality, all 9** hold a complete block matching the reference in shape and
+  magnitude.
+- **Turnover, all 3** and **refunds, both** look in range.
+
+So 31 of 33 could be switched on mechanically. **What is still unknown is why they
+were switched off.** It is not a layout problem. It could be that someone compared
+them against the valuation report and rejected them, or that they were switched off
+early and never revisited. `Documentation/provenance/state_notes_harvest.md` does
+not explain it. Before flipping any switch, check a sample against the plan's own
+valuation report — the layout being right does not make the numbers right.
 
 Retirement rates are the big one, at 19 plans. They matter twice over — they set
 when benefits start being paid, and they drain the active workforce.
@@ -172,7 +196,11 @@ rate by choice.
 
 ## 3. The PPD file, and which year to run
 
-### 3a. Nothing is broken and doing nothing is a valid option
+### 3a. DECIDED: we stay on 2022
+Recorded 2026-07-29. The rest of this section is kept as background for when the
+year question comes back, not as pending work. The one live piece is 3b's second
+half — whether to take the corrected 2022 figures.
+
 This section is a *choice*, not a problem. The model currently runs on the 2022
 figures from the May version of the PPD, and it will keep doing that indefinitely
 if we leave it alone. Staying on 2022 is entirely reasonable — it is the year the
