@@ -86,9 +86,23 @@ def _plain_assumptions(result, target):
 # The extraction corpus: every city fund with an in-folder AV PDF (the ppd_id
 # is the trailing number in the AV filename; it drives the PPD cross-check).
 # workbook=None or a blank/stub sheet -> production mode (reviewed via the
-# audit artifacts + PPD cross-check, not a score). AVs are missing in-folder
-# for the primary-layout cities (dc/den/fw/nsh/nyc/sea) and hou gen/ff -> those
-# are not sweepable until the PDFs are fetched from publicplansdata.org.
+# audit artifacts + PPD cross-check, not a score).
+#
+# EXPANDED 2026-07-29 from 16 to 32 funds. The missing PDFs were located in the
+# PPD's own report library (publicplansdata.org/wp-content/uploads/reports/ -
+# not linked from the site nav; the YEAR is swappable in the URL). Survey and
+# per-plan year coverage: `Data Extraction/ppd_source_survey.md` +
+# `ppd_report_availability.csv`. Every added PDF was verified for plan identity,
+# year, text layer, and presence of the target exhibits before registration.
+#
+# VINTAGE RULE: the PDF year must match the workbook's vintage wherever a
+# workbook exists, or the score compares two different years of data (hence
+# nsh/nyc_ers use the 2020 AV against their data20 workbooks). Where no 2019 AV
+# is published, the nearest available year is used and flagged below.
+#
+# NOT obtainable here: Fort Worth is not a PPD plan at all, and Indianapolis is
+# not a city fund (its employees are in Indiana state plans) - the empty
+# fw_/ind_ folders do not correspond to fetchable city AVs.
 def _plan(folder, pdf, workbook, ppd_id):
     return {"pdf": os.path.join(CITIES, folder, pdf),
             "workbook": os.path.join(CITIES, folder, workbook) if workbook else None,
@@ -114,7 +128,54 @@ PLANS = {
     "lax_ffpol": _plan("lax_modeldata", "CA_LACITY-LAFPP_AV_2019_140.pdf", "lax_data19_ffpol.xlsx", 140),
     "phi":     _plan("phi_modeldata", "PA_PHILADELPHIACITY-MPERS_AV_2019_152.pdf", "phi_data19_gen.xlsx", 152),
     "sf":      _plan("sf_modeldata", "CA_SANFRANCITYCOUNTY-SFERS_AV_2019_98.pdf", "sf_data19_gen.xlsx", 98),
+
+    # ---- ADDED 2026-07-29: never swept before, so nothing below is verified
+    # against a PDF yet. Several DO carry 2022-collector ground truth (noted),
+    # so they are scored, not production-only - but treat a first-sweep score as
+    # a hypothesis until adjudicated against the source PDF, as always.
+    # (a) the cities the catalogue wanted but whose PDFs were missing:
+    "den":     _plan("den_modeldata", "CO_DENVERCITYCOUNTY-DERP_AV_2019_22.pdf", "den_data19_primary.xlsx", 22),
+    "sea":     _plan("sea_modeldata", "WA_SEATTLECITY-ERS_AV_2019_156.pdf", "sea_data19_primary.xlsx", 156),
+    # nsh + nyc_ers: 2020 AV to match their data20 workbooks (vintage rule above)
+    "nsh":     _plan("nsh_modeldata", "TN_NASHVILLECITY-MPP_AV_2020_158.pdf", "nsh_data20_primary.xlsx", 158),
+    "nyc_ers": _plan("nyc_modeldata", "NY_NYC-ERS_AV_2020_76.pdf", "nyc_data20_primary.xlsx", 76),
+    # DC publishes ONE combined report covering Teachers (20) AND Police & Fire
+    # (19); the dc workbook has no filled sheets -> both run production-mode.
+    "dc_pf":   _plan("dc_modeldata", "DC_DCRB-PFRS-TRS_AV_2019_19_20.pdf", None, 19),
+    "dc_teach": _plan("dc_modeldata", "DC_DCRB-PFRS-TRS_AV_2019_19_20.pdf", None, 20),
+    # (b) city funds that exist in the PPD but were never registered:
+    "hou_gen": _plan("hou_modeldata", "TX_HMERF_AV_2019_204.pdf", "hou_data19_gen.xlsx", 204),
+    # hou_ff: NO 2019 AV is published (2016 -> 2020 gap); the 2020 AV is paired
+    # with a data19 workbook, so its scores carry a one-year vintage mismatch.
+    "hou_ff":  _plan("hou_modeldata", "TX_HOUSTONCITY-HFRRF_AV_2020_30.pdf", "hou_data19_ff.xlsx", 30),
+    "dal_pf":  _plan("dal_modeldata", "TX_DALLASCITY-DPFP_AV_2019_153.pdf", "dal_data19_ffpol.xlsx", 153),
+    "aus_pol": _plan("aus_modeldata", "TX_AUSTINCITY-COAPRS_AV_2019_217.pdf", None, 217),
+    "aus_ff":  _plan("aus_modeldata", "TX_AUSTINCITY-COAFFRP_AV_2017_216.pdf", None, 216),   # nearest year: no 2018-2021 AV
+    "clt_ff":  _plan("clt_modeldata", "NC_CHARLOTTE-FRS_AV_2022_182.pdf", None, 182),        # nearest year: AV starts 2022
+    "nyc_pol": _plan("nyc_modeldata", "NY_NYC-PPF_AV_2019_150.pdf", None, 150),
+    "nyc_edu": _plan("nyc_modeldata", "NY_NYC-BERS_AV_2018_211.pdf", None, 211),             # nearest year: no 2019 AV
+    # nyc_fire publishes NO standalone AV - only the ACFR, which does carry
+    # actuarial-valuation content. Expect a harder extraction.
+    "nyc_fire": _plan("nyc_modeldata", "NY_NYC-FPF_ACFR_2021_149.pdf", None, 149),
+    # Colorado PERA covers Denver Schools inside a multi-division report
+    # (divisions 13/14/15/23 in one PDF) - a whole-document locate test.
+    "den_schools": _plan("den_modeldata", "CO_CO-PERA-LGD-SCDTF-SDTF_AV_2019_13_14_15_23.pdf", None, 23),
 }
+
+# Funds registered 2026-07-29 and NOT yet swept - no cell of these has been
+# checked against its PDF. Kept explicit so a first sweep can be reported
+# separately from the established corpus.
+NEWLY_ADDED = {"den", "sea", "nsh", "nyc_ers", "dc_pf", "dc_teach", "hou_gen",
+               "hou_ff", "dal_pf", "aus_pol", "aus_ff", "clt_ff", "nyc_pol",
+               "nyc_edu", "nyc_fire", "den_schools"}
+
+# Documents whose layout-preserved text cannot fit the 262,144-token window
+# alongside a response (let alone the retry conversation), so a default sweep
+# skips them; naming one in --plans still runs it. nyc_fire is a 206-page ACFR
+# (no standalone AV is published for that fund) at ~262K tokens on the
+# worst-case measured ratio - it needs page-scoped extraction, not a full-doc
+# pass. Estimates: `Data Extraction/ppd_source_survey.md`.
+OVERSIZED = {"nyc_fire"}
 
 
 def load_targets():

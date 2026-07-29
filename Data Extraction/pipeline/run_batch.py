@@ -83,7 +83,10 @@ def main():
     _preflight_backend()
     targets = run_test.load_targets()
     all_targets = run_test.target_names(targets)
-    plans = args.plans.split(",") if args.plans else sorted(run_test.PLANS)
+    # OVERSIZED plans are excluded from a default all-plans sweep (they cannot
+    # fit the context window), but still run when named explicitly with --plans.
+    plans = (args.plans.split(",") if args.plans
+             else sorted(set(run_test.PLANS) - run_test.OVERSIZED))
     tgts = args.targets.split(",") if args.targets else all_targets
     for p in plans:
         if p not in run_test.PLANS:
