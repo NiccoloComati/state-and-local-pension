@@ -95,10 +95,19 @@ def _plain_assumptions(result, target):
 # `ppd_report_availability.csv`. Every added PDF was verified for plan identity,
 # year, text layer, and presence of the target exhibits before registration.
 #
-# VINTAGE RULE: the PDF year must match the workbook's vintage wherever a
-# workbook exists, or the score compares two different years of data (hence
-# nsh/nyc_ers use the 2020 AV against their data20 workbooks). Where no 2019 AV
-# is published, the nearest available year is used and flagged below.
+# VINTAGE RULE: pick the PDF whose own DATA year is 2019 (or nearest), judged
+# from the document itself. NOT from the workbook - the reference is always the
+# source PDF; workbooks are frequently wrong, mostly absent, and record no
+# assumptions, so they never drive which document we extract from.
+#
+# For almost every plan the file year is the data year (a "2019" file is the
+# valuation as of 1 Jan 2020, i.e. end-2019 data). NYC is the sole exception:
+# its reports lag TWO YEARS between census date and the fiscal year whose
+# contributions they set, and PPD names the older NYC files by that fiscal year
+# while naming newer ones by census date. NYC funds below are therefore pinned
+# by CENSUS date (the year the demographic tables actually describe), which is
+# 2018 - one year off the corpus, and the closest available: no June-30-2019
+# NYC valuation is hosted.
 #
 # NOT obtainable here: Fort Worth is not a PPD plan at all, and Indianapolis is
 # not a city fund (its employees are in Indiana state plans) - the empty
@@ -136,8 +145,9 @@ PLANS = {
     # (a) the cities the catalogue wanted but whose PDFs were missing:
     "den":     _plan("den_modeldata", "CO_DENVERCITYCOUNTY-DERP_AV_2019_22.pdf", "den_data19_primary.xlsx", 22),
     "sea":     _plan("sea_modeldata", "WA_SEATTLECITY-ERS_AV_2019_156.pdf", "sea_data19_primary.xlsx", 156),
-    # nsh + nyc_ers: 2020 AV to match their data20 workbooks (vintage rule above)
-    "nsh":     _plan("nsh_modeldata", "TN_NASHVILLECITY-MPP_AV_2020_158.pdf", "nsh_data20_primary.xlsx", 158),
+    "nsh":     _plan("nsh_modeldata", "TN_NASHVILLECITY-MPP_AV_2019_158.pdf", "nsh_data20_primary.xlsx", 158),
+    # NYC: pinned by CENSUS date 2018 (see the vintage note above) - the file
+    # year is the contribution fiscal year, two years ahead of the data.
     "nyc_ers": _plan("nyc_modeldata", "NY_NYC-ERS_AV_2020_76.pdf", "nyc_data20_primary.xlsx", 76),
     # DC publishes ONE combined report covering Teachers (20) AND Police & Fire
     # (19); the dc workbook has no filled sheets -> both run production-mode.
@@ -152,11 +162,12 @@ PLANS = {
     "aus_pol": _plan("aus_modeldata", "TX_AUSTINCITY-COAPRS_AV_2019_217.pdf", None, 217),
     "aus_ff":  _plan("aus_modeldata", "TX_AUSTINCITY-COAFFRP_AV_2017_216.pdf", None, 216),   # nearest year: no 2018-2021 AV
     "clt_ff":  _plan("clt_modeldata", "NC_CHARLOTTE-FRS_AV_2022_182.pdf", None, 182),        # nearest year: AV starts 2022
-    "nyc_pol": _plan("nyc_modeldata", "NY_NYC-PPF_AV_2019_150.pdf", None, 150),
-    "nyc_edu": _plan("nyc_modeldata", "NY_NYC-BERS_AV_2018_211.pdf", None, 211),             # nearest year: no 2019 AV
-    # nyc_fire publishes NO standalone AV - only the ACFR, which does carry
-    # actuarial-valuation content. Expect a harder extraction.
-    "nyc_fire": _plan("nyc_modeldata", "NY_NYC-FPF_ACFR_2021_149.pdf", None, 149),
+    "nyc_pol": _plan("nyc_modeldata", "NY_NYC-PPF_AV_2020_150.pdf", None, 150),   # census 2018
+    "nyc_edu": _plan("nyc_modeldata", "NY_NYC-BERS_AV_2018_211.pdf", None, 211),  # census 2018
+    # NOT REGISTERED - nyc_fire (ppd 149): the fund publishes no standalone
+    # actuarial valuation, only a 206-page ACFR (~262K tokens = the whole
+    # context window) that does not carry the exhibits we need. Excluded as
+    # more trouble than it is worth; revisit only with page-scoped extraction.
     # Colorado PERA covers Denver Schools inside a multi-division report
     # (divisions 13/14/15/23 in one PDF) - a whole-document locate test.
     "den_schools": _plan("den_modeldata", "CO_CO-PERA-LGD-SCDTF-SDTF_AV_2019_13_14_15_23.pdf", None, 23),
@@ -167,15 +178,13 @@ PLANS = {
 # separately from the established corpus.
 NEWLY_ADDED = {"den", "sea", "nsh", "nyc_ers", "dc_pf", "dc_teach", "hou_gen",
                "hou_ff", "dal_pf", "aus_pol", "aus_ff", "clt_ff", "nyc_pol",
-               "nyc_edu", "nyc_fire", "den_schools"}
+               "nyc_edu", "den_schools"}
 
 # Documents whose layout-preserved text cannot fit the 262,144-token window
-# alongside a response (let alone the retry conversation), so a default sweep
-# skips them; naming one in --plans still runs it. nyc_fire is a 206-page ACFR
-# (no standalone AV is published for that fund) at ~262K tokens on the
-# worst-case measured ratio - it needs page-scoped extraction, not a full-doc
-# pass. Estimates: `Data Extraction/ppd_source_survey.md`.
-OVERSIZED = {"nyc_fire"}
+# alongside a response, so a default sweep skips them; naming one in --plans
+# still runs it. Currently empty (nyc_fire, the only case, was dropped from the
+# corpus outright). Size estimates: `Data Extraction/ppd_source_survey.md`.
+OVERSIZED = set()
 
 
 def load_targets():
