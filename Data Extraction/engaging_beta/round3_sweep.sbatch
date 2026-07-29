@@ -46,15 +46,34 @@ sleep 5
 # kill the server when this job ends (normal exit OR SLURM's pre-preemption TERM)
 trap 'pkill -9 -u "$USER" -f "vllm serve" 2>/dev/null || true' EXIT
 
+# Pick a FREE port instead of hardcoding 8000. On 2026-07-29 another user's
+# service already held :8000 on the node, vLLM died with "Address already in
+# use", and the old health check connected to THEIR server - all 186 cells were
+# sent to a stranger's endpoint and 401'd. Never assume a port is ours.
+PORT=$(python - <<'EOF'
+import socket
+s = socket.socket(); s.bind(("127.0.0.1", 0)); print(s.getsockname()[1]); s.close()
+EOF
+)
+echo "[boot] using port $PORT"
+
 # boot vLLM in the background (ONE line - no backslashes, paste/exec safe)
-apptainer exec --nv -B "$SCRATCH" --env CC=gcc --env CXX=g++ "$SCRATCH/containers/vllm_dir" vllm serve "$SCRATCH/models/qwen35-122b-fp8" --served-model-name qwen35-122b-fp8 --tensor-parallel-size 2 --max-model-len 262144 --gpu-memory-utilization 0.90 --port 8000 > "$SCRATCH/vllm_sbatch.log" 2>&1 &
+apptainer exec --nv -B "$SCRATCH" --env CC=gcc --env CXX=g++ "$SCRATCH/containers/vllm_dir" vllm serve "$SCRATCH/models/qwen35-122b-fp8" --served-model-name qwen35-122b-fp8 --tensor-parallel-size 2 --max-model-len 262144 --gpu-memory-utilization 0.90 --port "$PORT" > "$SCRATCH/vllm_sbatch.log" 2>&1 &
+VLLM_PID=$!
 
-# wait for the server (boot + kernel compile can take ~6-15 min)
+# wait for OUR server: the endpoint must answer AND report our model
+# (boot + kernel compile can take ~6-15 min)
 python "$REPO/Data Extraction/engaging_beta/wait_health.py" \
-  --url http://127.0.0.1:8000/health --timeout 1500 || {
-    echo "!! vLLM never became healthy - see $SCRATCH/vllm_sbatch.log"; exit 1; }
+  --base "http://127.0.0.1:$PORT" --model qwen35-122b-fp8 --timeout 1500 || {
+    echo "!! vLLM never became healthy - last 40 lines of its log:"
+    tail -40 "$SCRATCH/vllm_sbatch.log"; exit 1; }
 
-export EXTRACT_OPENAI_BASE_URL=http://127.0.0.1:8000/v1
+# the boot process must still be alive; if it exited, do NOT run the sweep
+kill -0 "$VLLM_PID" 2>/dev/null || {
+    echo "!! vLLM process died during boot - see $SCRATCH/vllm_sbatch.log"
+    tail -40 "$SCRATCH/vllm_sbatch.log"; exit 1; }
+
+export EXTRACT_OPENAI_BASE_URL="http://127.0.0.1:$PORT/v1"
 export EXTRACT_MODEL=qwen35-122b-fp8
 export OPENAI_API_KEY=dummy
 export EXTRACT_DUMP_DIR="$SCRATCH/dumps"; mkdir -p "$EXTRACT_DUMP_DIR"

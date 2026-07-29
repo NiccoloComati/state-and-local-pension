@@ -141,6 +141,22 @@ def main():
             with open(summary_path, "w", encoding="utf-8") as fh:
                 json.dump(outcomes, fh, indent=2)
 
+            # ENVIRONMENT failure, not a per-cell failure: our local vLLM has no
+            # auth, so 401/403 means we are talking to somebody else's server
+            # (2026-07-29: port 8000 was held by another user's service and all
+            # 186 cells burned against it). Stop immediately - every remaining
+            # cell would fail identically and the summary would look like 186
+            # extraction failures instead of one misconfiguration.
+            msg = str(o.get("crash") or "")
+            if o.get("status") == "crash" and ("401" in msg or "403" in msg
+                                               or "Unauthorized" in msg):
+                sys.exit(
+                    f"\n!! ABORTING BATCH after {n} cell(s): {msg}\n"
+                    "   A local no-auth vLLM never returns 401/403, so the "
+                    "requests are reaching the WRONG endpoint.\n"
+                    "   Check EXTRACT_OPENAI_BASE_URL and that the port is "
+                    "actually serving OUR model (wait_health.py --model).")
+
     with open(os.path.join(batch_dir, "summary.csv"), "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=list(outcomes[0].keys()))
         w.writeheader()
