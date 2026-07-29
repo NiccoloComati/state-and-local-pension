@@ -2665,3 +2665,41 @@ allocation and tier-structured benefit parameters. That is a better refresh
 route than a workbook download, and the tier tables are also a candidate source
 for MA51's missing employer rate and for auditing the hand-curated tier file.
 Not pulled — Niccolo asked to hold before running anything.
+
+## 2026-07-29 (cont. 2): new PPD file found; input-cleanup to-do list built
+
+The current PPD download **is** in the tree: `Data/Common/states/ppd-data-latest.csv`
+(9.4 MB, 2026-07-28, 253 plans/year, fy through **2024**, latin-1 encoded). It
+supersedes the May `.xlsx` (228 plans/year, fy through 2023). The engine still
+reads the `.xlsx` by hard-coded `pd.read_excel(..., sheet_name='ppd-data-latest')`.
+
+**This reverses the earlier FY2023 assessment.** The "13 plans lack payroll, 4
+lack core assets/liabilities at fy2023" finding was a property of the OLD file. In
+the new file, all 40 plans have complete engine-read fields at fy2022, 2023 and
+2024 apart from four named exceptions (MA51 `contrib_ER_regular`; MA51+NY78
+`InactiveVestedMembers`; NJ71 `InflationAssumption_GASB` at fy2022 only;
+MO175/NM74 `EQTotal_Actl` at fy2023–24). fy2025 does not exist yet.
+
+Two findings that matter beyond the year question:
+
+- **MA51's blocker has a source.** `contrib_ER_regular` has been empty since 1999,
+  but fy2022 carries `contrib_ER_tot = contrib_ER_state = 2,104,604`. Extending
+  the employer-rate fallback to `contrib_ER_tot` resolves the only thing keeping
+  MA51 out.
+- **The file swap is not free even at a fixed year.** 24 fy2022 cells the canonical
+  run consumes are restated between old and new, concentrated in the retiree block:
+  `beneficiaries_tot` (12 plans), `BeneficiaryBenefit_avg` (8), plus
+  `ActLiabilities_GASB`, `actives_tot` and `payroll`. ME47 retiree count −16.4%
+  with average benefit +19.6%; MO175 −14.5%/+17.0%. A year change and a data
+  revision would otherwise be confounded.
+
+Full ordered list of input work: **`Documentation/input_cleanup_todo.md`** (new).
+It covers the fallback design (defaults workbook, PPD scalar chains, constants) so
+"missing data" is framed correctly, then Groups A–E: A blockers with fixes in hand
+(MA51 rate, MO64 admission, MA50 vector, the MA50/MA51 `wagerel` short-block rule
+where R pads NA and pandas silently zero-fills), B flag-vs-workbook mismatches
+(36 sheet-instances hold plan-specific data the engine ignores — 19 of them
+`retirement`; 3 plans claim plan-specific mortality but hold the default;
+`wagegrowth` and `disability` are never read at all despite 37 and 3 plans holding
+real data), C the PPD refresh, D clarifications, E the AAL gaps. Suggested order
+A → B → C → E with D alongside, and the reasoning for why E goes last.
