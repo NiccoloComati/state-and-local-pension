@@ -10,7 +10,35 @@ what it drives before saying what is wrong with it.
 
 ## Decisions taken
 
-- **2026-07-29 — Base year stays 2022.** We are not moving to fiscal 2023 or 2024
+- **2026-07-29 — Base year stays 2022.** Adopt the corrected 2022 figures from the
+  newer PPD file (they are CRR revisions, so treated as improvements); comparing
+  against the older file stays available later as a check, not a sensitivity.
+- **2026-07-29 — Wage growth and disability sheets stay unused.** We keep taking
+  wage growth from the PPD and disability at the flat 2.5% of payroll. The plan
+  data stays in the workbooks and the switches can be turned on later; recorded
+  here so the choice is explicit rather than accidental.
+- **2026-07-29 — Admit MO64, MA51 and MA50** (37 plans -> 40). MO64 needs only a
+  list entry; MA51 needs the employer-contribution fallback; MA50 takes its 2022
+  switch settings. Every change is to be recorded so it can be reversed.
+- **2026-07-29 — Match the original R behaviour** on the short salary sheet, unless
+  R's behaviour is itself unusable. See §1d for how that resolved.
+
+### Key finding on the skipped sheets (2026-07-29)
+
+The switches were **deliberately changed between script generations**, not left
+unexamined. Comparing each plan's 2017 script against its 2022 one: plan-specific
+retirement rates were switched OFF for 14 plans in the 2022 update (AZ127, CA111,
+CA43, DC20, FL26, GA28, IL33, LA44, ME47, NM74, NY83, OH88, SC100, SC99), along
+with mortality for 5 of those and withdrawal for GA27 and OH88. The Python engine
+inherited the 2022 settings. Six plans (AZ06, CA98, IL32, IL34, NJ71, NJ73) had
+those sheets off in both generations.
+
+**No reason is recorded anywhere** — not in script comments, not in the workbook
+notes, not in any documentation. So we know the change was intentional and roughly
+when it happened, but not why. That argues for checking against the valuation
+reports rather than assuming the switches were simply neglected.
+
+- **2026-07-29 — Base year stays 2022 (detail).** We are not moving to fiscal 2023 or 2024
   for now, to avoid changing several things at once. §3 below stays as a recorded
   option rather than a plan. The one part of §3 still live is whether to adopt the
   corrected 2022 figures from the newer PPD file.
