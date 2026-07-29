@@ -1,211 +1,297 @@
 # Input Cleanup To-Do — state track
 
-**Created:** 2026-07-29. **Scope:** making the model's *inputs* clean, complete and
-defensible across all 40 state plans. Not paper or analysis work.
+**Created:** 2026-07-29. **Scope:** getting the model's *inputs* clean and complete
+across all 40 state plans. This is not paper or analysis work.
 
-**Status of every item here is OPEN.** Nothing below has been executed.
+**Everything below is OPEN. Nothing has been executed.**
 
----
-
-## How "missing data" is already handled (the design, so nothing here reads as alarm)
-
-The engine never lacks an input. Three fallback layers exist by design:
-
-1. **Distribution sheets.** Each plan carries a 9-boolean `availableData` vector
-   (the `AVAILABLE_DATA` dict in `Code/python/fast/Main_PensionModel.py`). Where a
-   flag is `False`, the same-named sheet of `Data/Common/states/default_assumptions.xlsx`
-   is read instead — the shared actuarial tables.
-2. **PPD scalars.** Chains in `functions_cf_model.py`: wage growth tries
-   `PayrollGrowthAssumption` → `WageInflation` → legacy 2017 `wage_inf` →
-   `InflationAssumption_GASB` → legacy `inflation`; inflation tries
-   `InflationAssumption_GASB` → legacy `inflation`; the inactive count tries
-   `InactiveVestedMembers` → legacy `inactive`.
-3. **Constants.** Disability payout 2.5% of payroll, population growth 1%,
-   `rf = 0.01 + Inflation`.
-
-So the questions below are never "is there a number?" — there always is. They are
-**is the fallback the right choice here, and does the flag match what is actually
-in the workbook?** Several times below the answer is that plan-specific data
-exists and is being passed over, or that a flag claims plan-specific data that
-isn't there.
+Written to be read without the code open. Each item says what the input is, what
+is actually wrong (if anything), and what the choices are.
 
 ---
 
-## Group A — Blockers with a concrete fix now in hand (gets coverage to 40/40)
+## First: how the model handles missing data today
 
-### A1. MA51's employer contribution rate — solvable, source identified
-`contrib_ER_regular` is empty for MA51 in **every year since 1999**, which makes
-`EmployerContributionRate` NaN and is the plan's only real blocker. But the new
-PPD file carries the same quantity under other names at fy2022:
-`contrib_ER_tot = contrib_ER_state = 2,104,604` (with `contrib_ER_other = 179,369`).
-**Do:** extend the employer-rate fallback to `contrib_ER_regular → contrib_ER_tot`,
-check the same for `contrib_EE_regular`, and verify the resulting rate against
-MA51's AV before adopting. Decide whether the fallback is MA51-only or general.
-*(MA51's other suspected gap is a non-issue: `inactive_adj = 0.0` zeroes the
-inactive population before `InactiveVestedMembers` is ever consulted.)*
+This matters because otherwise the list below reads like a pile of holes. It isn't.
+The model can never be short of a number — there are three layers of backup:
 
-### A2. Admit MO64 — one line
-Verified workbook-equivalent to OK134 on every engine-read range, own declared
-vector identical, PPD complete at fy2017/2022/2023/2024.
-**Do:** add `'MO64': [T,T,T,T,T,T,T,F,F]` to `AVAILABLE_DATA`. No other change.
+**Each plan has a checklist of nine yes/no switches**, one for each data sheet in
+its workbook (active members by age and service, the retiree age distribution,
+salaries by age and service, mortality, wage growth, turnover, retirement rates,
+refunds, disability). A "yes" means use this plan's own numbers. A "no" means use
+the shared table in `default_assumptions.xlsx` instead — the generic actuarial
+tables that stand in for any plan without its own.
 
-### A3. Admit MA50 — pick its availability vector
-Its two R scripts disagree: 2017 says `TTTTTTTFF`, 2022 says `TTTTTFFFF`
-(withdrawal and retirement → defaults). The 2022 reading matches the workbook,
-whose withdrawal block uses non-standard age bins (20, 30, 40, 45, 50, …) and is
-one row short.
-**Do:** adopt the 2022 vector unless inspection of the AV says otherwise. Depends
-on A4. The old indictment of MA50 was mostly wrong — see `project_context.md` §6.2.
+**The plan-level figures from the PPD have ordered backups.** Wage growth, for
+example, tries the PPD's payroll-growth assumption first, then its wage-inflation
+figure, then the 2017 value, then the inflation assumption, then 2017 inflation.
+Inflation and the inactive-member count work the same way.
 
-### A4. The `wagerel` short block (MA50, MA51) — needs an explicit rule
-Both have 10 age rows (25–70) where the generic `B2:L12` read expects 11 (25–75).
-**R pads the missing row with `NA`; pandas returns a (10, 11) array and
-`ConstantFill` silently leaves the top age bin at zero.** That silent divergence
-is the real defect — not the missing row.
-**Do:** choose and implement one rule (carry the age-70 row forward, take the
-`default_assumptions` wagerel row, or explicit zeros), make the reader assert the
-expected shape instead of truncating, and record the choice as a named assumption.
-Also note MA50's `wagerel` is degenerate in a second way — identical value across
-every service column, i.e. age-only relativities with no service dimension (the
-same shape of problem as the `aus` wage broadcast on the city track).
+**A handful of things are simply fixed by us**, the same for every plan, with no
+data source at all: disability payments at 2.5% of payroll, workforce growth at
+1% a year, the risk-free rate at 1% above inflation, the stock premium at 7.5%
+with 20% volatility, and a 35-year horizon.
+
+So no item below is "there's no number." Each one is either *the switch says one
+thing and the workbook contains another*, or *we should decide whether the backup
+is the right choice here*.
+
+### On the sheets we don't use — already known, and this confirms it
+
+The record already says not all nine sheets are read. `model_input_dictionary.md`
+marks **wage growth** and **disability** as sheets the model never opens, and
+`project_context.md` notes that 33 plan-sheets hold the plan's own data that the
+switches tell the model to skip. `data_sources_map.md` goes further and says the
+audit found mortality and retirement rates to be "half-real, half-default-copied."
+
+The scan done for this document reproduces those numbers independently: 36 cases
+where the plan's own data is skipped, of which 3 are the disability sheet the model
+never reads anyway — **exactly the documented 33**. That agreement is a good sign
+the existing record is accurate. What is new here is only the per-plan breakdown
+(§2 below) and the three plans whose switch claims plan-specific mortality when the
+sheet actually holds the shared default.
+
+The fixed values (1% workforce growth, 2.5% disability, and the rest) are all listed
+in `model_input_dictionary.md` §6. They are deliberate, not gaps. Whether 1% growth
+for every plan in every state is a good assumption is a separate question, and a
+fair one — it just isn't a data-cleanliness question.
 
 ---
 
-## Group B — Flags that disagree with the workbooks (largest quality item)
+## 1. Three plans we currently don't model at all
 
-Source: `Documentation/provenance/state_sheet_fill_audit.csv`, 40 plans × 9 sheets.
-Of 360 sheet-instances: 282 hold plan-specific content, 74 hold the shared
-default, 4 are absent. Flags exist for 37 plans (MA50/MA51/MO64 have none yet).
+We run 37 of the 40. These three are the missing ones, and none of them is a lost
+cause.
 
-### B1. 36 sheet-instances hold plan-specific data that the engine ignores
-Flag is `False`, so `default_assumptions.xlsx` is used even though the plan's own
-numbers are sitting in the workbook:
+### 1a. MO64 (Missouri) — nothing wrong with it
+Its workbook matches a known-good plan (OK134) in every respect the model cares
+about: same sheets, same shapes, same layout, and the shares add to exactly 1.0 as
+they should. The PPD has complete figures for it in 2017, 2022, 2023 and 2024.
 
-| Sheet | Plans | Count |
+It is missing for a purely clerical reason. The model's list of plans was copied
+across from an older set of 38 R scripts, and MO64 wasn't in that set, so it never
+got a row in the list. Adding one line admits it.
+
+### 1b. MA51 (Massachusetts) — one gap, and we've found the fix
+The one thing genuinely missing is the **employer contribution**. The field the
+model reads has been empty for MA51 in every year since 1999.
+
+The new PPD file has the number under different field names: employer contributions
+of $2,104,604 for 2022 recorded as "total" and "state" rather than "regular."
+So the fix is to let the model fall back to the total when the regular field is
+empty. Worth checking the resulting rate against MA51's own valuation report before
+adopting it, and worth deciding whether that fallback applies only to MA51 or to
+any plan.
+
+A second suspected gap turned out not to be one. MA51 is set up so its
+inactive-member population is zero by construction, which means the missing
+inactive-member count is never consulted.
+
+### 1c. MA50 (Massachusetts PERC) — the old case against it was mostly wrong
+MA50 has been carrying a reputation for being broken. Checking each claim:
+
+- The "syntax error" is not one. `++` in R means plus-followed-by-a-plus-sign and
+  gives the same answer as `+`. Verified.
+- "Backward tier logic" and "produces no normal cost" describe an old 2017 version
+  of its script. The 2022 version does neither — it uses the same shared function
+  as every other plan.
+- "Missing an asset multiplier" and "different risk-free rate" aren't MA50-specific
+  at all; those lines are identical across plans.
+
+What *is* real: MA50's two script versions disagree about which of its sheets to
+trust. The older one says use the plan's own turnover and retirement rates; the
+newer one says fall back to the shared defaults for both. The newer one looks
+right, because MA50's turnover sheet is built on unusual age brackets (20, 30, 40,
+45, 50…) instead of the regular five-year steps, so the model would read it against
+the wrong ages.
+
+### 1d. A genuine bug that affects MA50 and MA51 both
+Their salary-by-age-and-service sheets stop at age 70; every other plan's runs to
+age 75. The model reads a fixed block that assumes the longer version.
+
+**R fills the missing row with "not available." Python quietly fills it with zeros.**
+That means the two implementations disagree on real data, and the Python side does
+it silently — no warning, no error. That silent disagreement is the actual defect;
+the short sheet is just a layout quirk.
+
+We need to pick one rule — repeat the age-70 row, use the shared default row, or
+leave it at zero — write it down as a stated assumption, and make the reader check
+the shape rather than quietly truncating.
+
+One more thing about MA50's salary sheet: every service column holds the same
+number, so its salaries vary by age only, with no seniority effect at all. Worth
+a look at the source document. (This is the same problem as the Austin wage grid on
+the city side.)
+
+---
+
+## 2. Sheets where the switch and the workbook disagree
+
+### 2a. 36 cases where we have the plan's own data and skip it
+
+The switch says "no," so the model uses the shared default table even though the
+plan's own numbers are sitting right there in the workbook:
+
+| Sheet | What it drives | Plans affected | Count |
+|---|---|---|---|
+| Retirement rates | how likely someone is to retire at each age and service level | AZ06, AZ127, CA111, CA43, CA97, CA98, DC20, FL26, GA27, GA28, LA44, ME47, NJ71, NJ73, NM74, NY83, OH88, SC100, SC99 | **19** |
+| Mortality | how long members live, and so how long benefits are paid | AZ127, DC20, FL26, GA27, IL33, NJ71, NJ73, NM74, NY83 | **9** |
+| Turnover | how many members leave before retiring | GA27, IL32, OH88 | 3 |
+| Refunds | payouts to people who leave and take their money | FL26, IL34 | 2 |
+| Disability | (never read regardless — see 2c) | CA10, FL26, IL34 | 3 |
+
+**These should not be switched on in bulk.** A "no" is often correct precisely
+because the plan's sheet is laid out unusually and the model would misread it —
+MA50's turnover sheet above is the proven example of exactly that. Each one needs
+its block compared against the model's expected layout and against the plan's
+valuation report, then either switched on, or the reader fixed, or a note recorded
+saying the default is the better choice here.
+
+Retirement rates are the big one, at 19 plans. They matter twice over — they set
+when benefits start being paid, and they drain the active workforce.
+
+### 2b. Three plans claim their own mortality but hold the shared table
+IN37, ME47 and OR91 are switched to "yes" for mortality, but their sheets contain
+the generic default table, cell for cell. The numbers used are the same either way,
+so nothing is computed wrongly — but the record says "plan-specific" when it isn't.
+
+Worth noting that ME47 and IN37 both turn up again in §5 among the plans whose
+modeled liability is furthest from the reported figure.
+
+### 2c. Two sheets are never opened at all
+**Wage growth**: 37 plans have their own wage-growth data in the workbook and the
+model has never read any of it — it uses the PPD figures instead. **Disability**:
+3 plans have real data; everyone gets the flat 2.5% of payroll.
+
+Neither is necessarily wrong. But right now that data is orphaned without an
+explicit decision. Either wire the sheets in, or record plainly — in the assumption
+register and in what a run prints — that we prefer the PPD figures and the flat
+rate by choice.
+
+---
+
+## 3. The PPD file, and which year to run
+
+### 3a. Nothing is broken and doing nothing is a valid option
+This section is a *choice*, not a problem. The model currently runs on the 2022
+figures from the May version of the PPD, and it will keep doing that indefinitely
+if we leave it alone. Staying on 2022 is entirely reasonable — it is the year the
+work has been built around.
+
+A newer PPD file arrived on 28 July (`ppd-data-latest.csv`, covering 253 plans and
+running through fiscal 2024, against the old file's 228 plans through 2023).
+
+### 3b. What the new file would buy us
+Two separate things, and they're worth keeping apart:
+
+**Newer years.** Fiscal 2023 and 2024 are both usable now for all 40 plans. My
+earlier claim that 2023 was too patchy was based on the *old* file and no longer
+holds. There's no 2025 yet. What's still missing anywhere is small and named:
+MA51's employer contribution (§1b), the inactive-member count for MA51 and NY78
+(both fall back to 2017 automatically), NJ71's inflation assumption in 2022 only,
+and the equity share for MO175 in 2023–24 and NM74 in 2024.
+
+**Corrected 2022 figures.** The new file reports *different numbers for 2022* than
+the old one — 24 of the values we actually use have changed, nearly all in the
+retiree block. CRR revised retiree counts and average benefits. The biggest:
+
+| Plan | Retiree count | Average benefit |
 |---|---|---|
-| `retirement` | AZ06, AZ127, CA111, CA43, CA97, CA98, DC20, FL26, GA27, GA28, LA44, ME47, NJ71, NJ73, NM74, NY83, OH88, SC100, SC99 | **19** |
-| `mortality` | AZ127, DC20, FL26, GA27, IL33, NJ71, NJ73, NM74, NY83 | **9** |
-| `withdrawal` | GA27, IL32, OH88 | 3 |
-| `refund` | FL26, IL34 | 2 |
-| `disability` | CA10, FL26, IL34 | 3 (ghost sheet — see B3) |
+| ME47 (Maine) | −16.4% | +19.6% |
+| MO175 (Kansas City) | −14.5% | +17.0% |
+| CA144 (San Diego City) | −8.0% | — |
+| FL26 (Florida RS) | −6.8% | +7.2% |
+| LA163 (Baton Rouge) | −7.5% | +8.1% |
 
-**Do not bulk-flip these.** A `False` flag is often correct precisely because the
-layout is non-standard and the generic reader would mis-map it — MA50's withdrawal
-is the proven example. **Do:** per sheet-instance, check the block against the
-engine's read range and against the plan's AV, then either flip the flag, fix the
-read, or record why the default is the right call. Retirement (19 plans) is the
-biggest single block and the most consequential — retirement rates drive both
-benefit timing and the active-population run-off.
+These are corrections, so taking them is probably an improvement — but they will
+move results, and ME47 is already one of the plans whose liability is furthest off
+(§5), so this could be part of that story.
 
-### B2. Three plans claim plan-specific mortality but hold the shared default
-IN37, ME47, OR91: flag `True`, sheet content identical to the default table
-(601 numeric cells, the shared signature). Numerically harmless — the same numbers
-are used either way — but the flag misrepresents provenance, and **ME47 and IN37
-are both in the >10% AAL-gap set** (Group E).
-**Do:** set the flag to `False` or supply real plan mortality from the AV.
+### 3c. What I meant by "confounded" — put plainly
+If we decide to take the new file, the file and the year are two separate changes.
+Change both at once and results will shift, but we won't know how much came from
+the corrected 2022 figures and how much from moving to a newer year.
 
-### B3. Two sheets are never read at all, regardless of flag
-- `wagegrowth`: **37 plans hold plan-specific data that is never consumed.** Wage
-  growth comes from the PPD scalar chain instead.
-- `disability`: 3 plans hold real data; the engine uses the flat 2.5%-of-payroll
-  constant for everyone.
-**Do:** either wire these sheets in, or record explicitly — in the assumption
-register and in run output — that we prefer the PPD chain and the 2.5% constant by
-choice. Right now the workbook data is silently orphaned.
+So if we go: run 2022 on the new file first, compare against what we have now, and
+we'll have measured exactly what the data revision did. Then move the year as a
+second step. That's the whole point — it isn't a problem with the data, just an
+argument for two steps instead of one.
+
+### 3d. Practical bits if we do move
+The model reads an Excel file by a hard-coded name; the new one is a CSV (and needs
+a non-standard text encoding to open). Either convert it or teach the loader both.
+And two small lookup files — the one holding percent-male and related figures, and
+the tier-rules workbook — are keyed by year and currently only have 2022 rows, so
+they'd each need rows for whatever year we pick.
 
 ---
 
-## Group C — The PPD refresh (new file landed 2026-07-28)
+## 4. Things to clarify (no obvious defect, but the record is thin)
 
-`Data/Common/states/ppd-data-latest.csv` (9.4 MB, 253 plans/year, **fy through
-2024**) supersedes the May `.xlsx` (228 plans/year, fy through 2023).
-
-### C1. FY2023 and FY2024 are now viable target years — this reverses the earlier read
-The earlier "FY2023 is not a drop-in replacement" finding was a property of the
-**old** file. In the new file all 40 plans have rows at fy2022, 2023 and 2024, and
-the engine-read fields are complete except:
-`contrib_ER_regular` (MA51, all years — see A1), `InactiveVestedMembers`
-(MA51, NY78 — falls back to legacy 2017 by design), `InflationAssumption_GASB`
-(NJ71, fy2022 only), `EQTotal_Actl` (MO175 fy2023–24; NM74 fy2024).
-`PayrollGrowthAssumption` is absent for 13–15 plans in every year — expected, the
-chain covers it. **fy2025 does not exist yet.**
-
-### C2. Swapping the file is not free even at the same year — decide this first
-24 fy2022 cells that the canonical run consumes are **restated** between the old
-and new files, concentrated in the retiree block: `beneficiaries_tot` (12 plans),
-`BeneficiaryBenefit_avg` (8), plus one each of `ActLiabilities_GASB` and
-`actives_tot` and two `payroll`. Largest: ME47 retiree count −16.4% with average
-benefit +19.6%; MO175 −14.5% / +17.0%; CA144 −8.0%; FL26 −6.8%.
-**Do:** rebase the canonical run on the new file **at fy2022 first**, so the
-restatement effect is isolated and measurable, before changing the year. Otherwise
-a year change and a data revision are confounded.
-
-### C3. Mechanics of any year change
-Add `[PLAN]_<year>`-keyed rows to `PPD_planlevel_main_updated.csv` and to the tier
-workbook — both are looked up by `[PLAN]_<plan_year>` and currently only have
-`_2022` keys. Then `--plan-year <year>`; the runner is already parameterized.
-
-### C4. The engine reads `.xlsx`; the new file is `.csv`
-`pd.read_excel(..., sheet_name='ppd-data-latest')` is hard-coded. Either convert
-the CSV to the expected workbook or teach the loader both. The CSV also needs
-`encoding='latin-1'` — it is not UTF-8.
+- **The four demographic figures** — percent male, percent married, the survivor
+  benefit reduction, and the inactive-scaling factor — sit in a file labelled 2022
+  but the values are identical to the 2017 file for all 37 plans. It was relabelled,
+  not recollected. Decide whether to re-derive them or just state that they're 2017.
+- **Tier rules stop at July 2018.** Anything a legislature changed since then isn't
+  in the model. Also, CA97 is missing its early-retirement ages entirely. The PPD's
+  online interface now publishes tier-by-tier benefit rules, which could either
+  check or replace our hand-built file.
+- **MA51's inactive-member setting is zero**, which wipes out that population
+  entirely. Confirm that's a deliberate statement about MA51 and not a missing value
+  that got written as a zero.
+- **NY78 has no inactive-member count in any recent year**, so it silently uses the
+  2017 figure. That works, but it should be a recorded assumption rather than an
+  invisible fallback. Same for **NJ71's inflation**, which falls back to the 2017
+  value of 3.5% — noticeably higher than the 2–3% the other plans use. NJ71 does
+  have the figure in 2023 and 2024, so moving the year fixes that one.
+- **MO175 and NM74 are missing their equity share** in the newer years, which the
+  model needs to split assets between stocks and bonds. Needs a rule before any
+  year change.
 
 ---
 
-## Group D — Clarifications (no obvious defect, but the record is unclear)
+## 5. Plans whose modeled liability is far from the reported one
 
-- **D1.** `PPD_planlevel_main_updated.csv` supplies `pctmale`, `pctmrg`, `reduct`,
-  `inactive_adj` on a `_2022` key, but its values are identical to the FY2017 file
-  for all 37 plans — a re-key, not a re-collection. Decide whether to re-derive
-  these (PPD carries member counts by sex) or to state plainly that they are 2017.
-- **D2.** The tier workbook's latest `startdate` is **2018-07-01**, so benefit
-  rules miss anything enacted since. CA97 also has `er4`/`er5`/`er6` empty (early
-  retirement age). The PPD API now exposes tier-structured benefit parameters
-  (`pensiontierbasics`, `pensionnormalretirementbenefit`, `pensioncolabenefit`, …),
-  a candidate to audit or replace the hand curation. See `Data Extraction/ppd_source_survey.md` §4b.
-- **D3.** `inactive_adj` semantics: `1.0` means "scale by the inactive count";
-  anything else multiplies the active count. MA51's value is `0.0`, which zeroes
-  the inactive population entirely. Confirm that is a deliberate statement about
-  MA51 and not a missing value encoded as zero.
-- **D4.** NY78 has no `InactiveVestedMembers` in any recent year, so its inactive
-  count comes from the legacy 2017 `inactive`. Working as designed; should be a
-  recorded assumption rather than an invisible fallback.
-- **D5.** NJ71 lacks `InflationAssumption_GASB` at fy2022 and falls back to the
-  2017 legacy inflation of 0.035, well above the 0.02–0.03 typical of the others.
-  It is present at fy2023–24, so a year change resolves this one.
-- **D6.** MO175 (fy2023–24) and NM74 (fy2024) lack `EQTotal_Actl`, so the 2-asset
-  risky share would be incomplete if the year moves. Needs a rule before C3.
+13 of the 37 plans differ from the PPD's reported liability by more than 10%:
 
----
+| Plan | Difference |
+|---|---|
+| OK134 (Oklahoma Police) | +134.5% |
+| MI53 (Michigan Public Schools) | −30.7% |
+| ME47 (Maine) | +30.1% |
+| IN37 (Indiana Teachers) | +28.3% |
+| ND82 (North Dakota Teachers) | +19.6% |
+| DC20 (Washington DC) | +19.3% |
+| GA28 (Georgia Teachers) | +17.6% |
+| NY78 (New York) | +13.9% |
 
-## Group E — The model-vs-reported AAL gaps (sequence last, and here is why)
+Plus five more between 10% and 14%.
 
-13 of 37 plans differ from the PPD-reported AAL by more than 10%: OK134 +134.5%,
-MI53 −30.7%, ME47 +30.1%, IN37 +28.3%, ND82 +19.6%, DC20 +19.3%, GA28 +17.6%,
-NY78 +13.9%, and five more between 10% and 14%.
+Some difference is expected — the model values liabilities its own consistent way
+while each plan uses its own actuarial method, so they were never going to match
+exactly. But 134% is not a method difference, and this is worth understanding.
 
-This is an input question as much as a modeling one, but it must come **after**
-Groups A–C, because every one of those changes moves these numbers: flipping a
-retirement or mortality flag (B1/B2) changes the liability directly; rebasing on
-the new PPD (C2) changes both the modeled AAL and the reported target. Diagnosing
-the gaps on inputs we are about to change would be wasted work.
+**This should come last**, because everything above moves these numbers. Switching
+on a plan's real retirement or mortality rates (§2) changes its liability directly.
+Taking the new PPD (§3) changes both the modeled figure and the reported one we
+compare against. Diagnosing the gaps on inputs we're about to change would be
+wasted effort.
 
-Note the overlap already visible: ME47 and IN37 appear in B2 (mortality flagged
-plan-specific but holding the default), and ME47 has the largest C2 restatement.
+The overlaps are already visible: ME47 and IN37 both appear in §2b (claiming their
+own mortality but holding the default), and ME47 has the largest correction in §3b.
 
 ---
 
 ## Suggested order
 
-**A → B → C → E**, with **D** running alongside.
+**§1 → §2 → §3 → §5**, with §4 alongside.
 
-A is small, self-contained and takes plan coverage from 37 to 40, which every
-later step benefits from. B is the largest input-quality item and is independent
-of the vintage question. C changes the numbers globally, so it should land after
-the inputs are settled but before the gaps are diagnosed. E is the payoff and
-needs stable inputs underneath it.
+§1 is small, self-contained, and takes us from 37 plans to 40 — everything after
+benefits from that. §2 is the biggest quality item and doesn't depend on the year
+question at all. §3 moves every number, so it should land after the inputs are
+settled but before we start diagnosing anything. §5 is the payoff and needs stable
+inputs underneath it.
 
-The one exception worth considering: **C2 (rebase at fy2022 on the new file)**
-could be pulled forward, because it is a pure file swap at a fixed year and it
-tells us how sensitive the results are to a PPD revision — useful context for
-judging everything else.
+The one thing worth pulling forward is running 2022 on the new PPD file (§3c),
+because it's a single clean swap and tells us how much a data revision moves the
+results — useful context for judging everything else.
