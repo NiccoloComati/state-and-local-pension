@@ -67,33 +67,10 @@ any results until this is understood.
 
 Scratch outputs kept at `_ARCHIVE/snapshots/scratch_0729_three_plan_admission/`.
 
-### Why the retirement switches were turned off — likely answered (2026-07-29)
+### LA44's `-100` values — resolved (2026-07-29)
 
-Checked two of the fourteen plans against their own 2017 valuation reports:
-
-- **ME47** publishes retirement rates **by tier** (Tier 1 / 2 / 3) at ages 45, 50,
-  55, 59-64. Tier 1 reaches 25% at age 60. The workbook collapses all of it to a
-  flat 4% across ages 55-64 and drops the age-45 and age-50 rates to zero. That
-  materially understates retirement in the band where most retirement happens.
-- **SC99** publishes two separate tables (age-based and service-based), each split
-  by Class Two / Class Three **and** by sex. The workbook's single grid does not
-  reproduce them.
-
-Both are cases where the source table has a structure the engine's single
-age x service grid cannot hold. That is very likely the reason for the 2022
-switch-off, and it is the same issue already logged as entry 1 in
-`Data Extraction/assumption_register.md` ("tier-specific retirement rates cannot
-be represented in the engine").
-
-**Conclusion: do not flip these switches.** The 2022 decision looks deliberate and
-well-founded. The shared default table is probably the better input until the
-engine can carry tier-specific decrements. This is a modelling-structure question,
-not a data-cleanliness one, and it should be recorded as such rather than fixed.
-Two of the fourteen were checked; the remaining twelve are assumed to follow the
-same pattern until someone shows otherwise.
-
-Also resolved: **LA44's `-100` values are "not eligible" markers**, and the engine
-already converts negatives to zero. Not a defect.
+They are "not eligible to retire" markers, and the engine already converts negatives
+to zero before use. Not a defect.
 
 ### FLAG (2026-07-30) — the retirement-rate sheets have THREE separate problems
 
@@ -104,21 +81,26 @@ problems below are recorded so they can be picked up deliberately later, and so
 they appear in any writeup describing how retirement is modelled. The natural
 moment to revisit is if the engine ever gains per-tier decrements — see
 `Data Extraction/assumption_register.md` entry 1, which is the same issue on the
-city track.
-
-
-Sample enlarged to 3 of the 14 plans whose retirement switch was turned off in
-2022. **Switches stay OFF for now.** Both problems below must be carried into any
-writeup; they are different in kind and neither substitutes for the other.
+city track. The three problems are different in kind; none substitutes for another.
 
 **Problem 1 — a model limitation. The engine holds one retirement grid per plan,
-and the source documents do not publish one.**
+and the source documents do not publish one.** Checked 8 of the 14 plans against
+their own 2017 valuation reports; all 8 show it:
 
-| Plan | What its valuation report actually publishes |
+| Plan | How its own valuation report splits retirement rates |
 |---|---|
-| ME47 (Maine) | three separate rate sets, one per tier. At age 60: Tier 1 25%, Tier 2 7.5%, Tier 3 4% |
-| SC99 (SC Police) | two tables (age-based and service-based, applying to different members), each split by Class Two / Class Three **and** by sex |
-| CA43 (LA County) | **eight** rate tables, Tables A-6 to A-13, one per benefit plan (General A-E, Safety A-C) |
+| ME47 (Maine) | 3 tiers. At age 60: Tier 1 25%, Tier 2 7.5%, Tier 3 4% |
+| SC99 (SC Police) | an age-based and a service-based table, each x Class Two/Three x sex |
+| CA43 (LA County) | 8 tables (A-6 to A-13), one per benefit plan (General A-E, Safety A-C) |
+| SC100 (SC RS) | 3 tables x General/Teachers x Reduced/Normal x sex, plus a Rule-of-90 column — at least 24 series |
+| FL26 (Florida RS) | 5 member classes (Regular, Special Risk, Special Risk Admin, Elected Officers, Senior Management) x sex, per tier |
+| OH88 (Ohio Teachers) | grandfathered / non-grandfathered x sex x service band |
+| LA44 (Louisiana SERS) | separate assumption sets for Regular Members and for Judges, by service band |
+| AZ127 (AZ Corrections) | separate rate sets by hire date (pre / post 1 Jan 2012) |
+
+Not one of the eight publishes a single age x service grid. SC100's withdrawal
+rates are split the same way, so this is not confined to retirement.
+**Still unchecked: 6 of the 14** — CA111, DC20, GA28, IL33, NM74, NY83.
 
 Anything put in a single age x service grid is therefore a lossy collapse of a
 richer structure — unavoidable given the current engine. This is the same issue as
@@ -143,24 +125,6 @@ or an extraction error is not recorded anywhere. Either way the resulting sheet
 understates retirement in the band where most retirement happens, which is why
 using the shared default table instead is defensible.
 
-**Sample as of 2026-07-30: 8 of the 14 checked. All 8 show Problem 1.**
-
-| Plan | How its own valuation report splits retirement rates |
-|---|---|
-| ME47 | 3 tiers |
-| SC99 | an age-based and a service-based table, each x class x sex |
-| CA43 | 8 tables (A-6 to A-13), one per benefit plan (General A-E, Safety A-C) |
-| SC100 | 3 tables x General/Teachers x Reduced/Normal x sex, plus a Rule-of-90 column — at least 24 series |
-| FL26 | 5 member classes (Regular, Special Risk, Special Risk Admin, Elected Officers, Senior Management) x sex, per tier |
-| OH88 | grandfathered / non-grandfathered x sex x service band |
-| LA44 | separate assumption sets for Regular Members and for Judges, by service band |
-| AZ127 | separate rate sets by hire date (pre / post 1 Jan 2012) |
-
-Not one of the eight publishes a single age x service grid. SC100's withdrawal
-rates are split the same way, so this is not confined to retirement.
-
-**Still unchecked: 6 of the 14** — CA111, DC20, GA28, IL33, NM74, NY83.
-
 **Problem 3 — for two plans the source document does not contain the rates at all.**
 *Corrected 2026-07-30: an earlier version of this note named four plans. A
 systematic page scan shows only two.* `DC20` (61 pages) and `GA28` (43 pages)
@@ -168,14 +132,11 @@ contain no locatable retirement-rate table, although both carry other assumption
 tables. `CA111` and `IL33` **do** have retirement-rate pages — the first keyword
 search simply missed them; they are unchecked, not missing.
 
-**STATUS: DOCUMENTED, NO ACTION.** Nothing to do now; obtaining the two full
-valuation reports is only worth it if we ever decide to verify those sheets.
-
 Where the document in the plan folder holds no rate table, that workbook's
 retirement sheet must have been built from a document we do not hold and which is
-recorded nowhere. Those two cannot be checked against our own files at all; doing so
-would mean obtaining the full valuation report. This is a provenance gap, separate
-in kind from Problems 1 and 2.
+recorded nowhere. Those two cannot be checked against our own files at all. This is
+a provenance gap, separate in kind from Problems 1 and 2. Nothing to do now —
+obtaining the two full reports is only worth it if we decide to verify those sheets.
 
 Only ME47 has been examined closely enough to demonstrate Problem 2; whether the
 other collapses are also systematically low is unknown.
