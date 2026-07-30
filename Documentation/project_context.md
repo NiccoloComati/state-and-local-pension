@@ -346,6 +346,18 @@ All three have a `[PLAN]_2017.xlsx` workbook, a tier row, a `PPD_planlevel_main_
 Treating any of the three as a permanent exclusion is not established. See `working_context.md` (2026-07-29) for the open items.
 ## 6.3 Engine input guards (behaviour a reviewer should know about)
 
+- **`LinearFill` weight correction (2026-07-30).** The within-band weight inherited
+  from the R implementation mixed units, made the tilt depend on plan size, and
+  centred the weights on zero so the normaliser could vanish — producing negative
+  headcounts for 3 of 40 plans and, for OK134, cells of +/-200,000 people. Replaced
+  by a weight normalised around 1 (`LINEARFILL_TILT = 0.10`). Applied in
+  `Code/python/bucketfill_cf_model.py` and, on the R side, only in the new
+  `Common_Code/bucketfill_cf_model_072026.R` used by `cluster_code_2022_072026`;
+  the original file and `cluster_code_2022` are untouched. Originals are commented
+  out in place, not deleted. Full account: `states_track_context.md`.
+  **All results before this date, including `062026` and `072026`, use the
+  defective version.**
+
 - **Retiree benefit-relativity guard (2026-07-30).** The engine checks `retdist`
   column F on every plan and rewrites it in memory for the one plan whose column
   holds the wrong quantity (MA51). This is the only input the engine rewrites.

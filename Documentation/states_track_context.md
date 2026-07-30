@@ -252,6 +252,134 @@ deliberately (see Decisions taken). Nothing has been re-run.
 
 ---
 
+## CORRECTION APPLIED 2026-07-30 — LinearFill's within-band weight
+
+**This is a correction to inherited code, not a modelling assumption.** The
+formula came with the original R implementation and was taken to be right. It is
+not. Every result the project has produced to date, including `062026` and
+`072026`, was computed with the defective version.
+
+### What was wrong
+
+`LinearFill` splits a five-year age band into single years. Its weight was
+
+```
+Share = GroupCount/(N*M) + Slope * age
+```
+
+which subtracts an age in years from a headcount per cell. Three consequences:
+
+1. **Mixed units** — the difference of a count and an age has no meaning.
+2. **Size-dependent tilt** — because the headcount sits inside the weight, a band
+   holding 20,000 people came out almost flat (0.1% tilt) while a band holding 500
+   came out at 17%. A plan's age profile must not depend on how large the plan is.
+3. **Centred on zero instead of on 1** — the weights average
+   `GroupCount/N - mean age`, so they straddle zero. Their sum, used as the
+   normaliser, is `GroupCount - (sum of the ages in the band)`. When a band holds
+   about that many people the normaliser approaches zero, the division explodes,
+   and either side of that point the tilt silently reverses direction.
+
+Each band has its own danger point — the sum of the five ages it covers, so 210 for
+40-44 up to 485 for 95-99. A band holding roughly 200-600 people is at risk. Both
+extremes are safe, which is why this survived: very large bands give near-uniform
+positive weights, very small bands give near-uniform negative weights that cancel
+in the normalisation. Only the middle breaks.
+
+**Measured on the 40 plans:** three produced negative retiree headcounts — OK134
+(worst cell -8,778), LA163 (-30), SC99 (-30). OK134's 75-79 band held 385.004
+people against an age-sum of 385, so the normaliser was 0.004 and the band was
+filled with about +/-200,000 people in a plan with 4,242 retirees. Band totals
+still reconciled because the positives and negatives cancel, so no aggregate check
+ever flagged it. A one-person PPD revision moved that plan's liability by 56%.
+
+The active side (`Slope = +1`) **cannot** hit the singularity — it adds an age
+instead of subtracting one, so all weights stay positive. Confirmed: zero negative
+cells on the active side under either version. The size-dependent tilt still
+applied there.
+
+### What it is now
+
+A perturbation around 1, driven only by position in the band:
+
+```
+u = (k-1)/(N-1)                     position, 0 -> 1 across the band
+w = 1 + Slope * s * (2u - 1)        s = LINEARFILL_TILT = 0.10
+```
+
+Retirees (`Slope=-1`) run from `1+s` at the youngest age to `1-s` at the oldest —
+declining, as intended. Actives (`Slope=+1`) run the other way. All weights are
+strictly positive for `s < 1`, so no cell can go negative, and they sum to exactly
+`N`, so the normaliser is a constant that can never approach zero. `s = 0` is an
+exact even split, and `s` shifts a band's mean age by exactly `s` years, which
+makes it an interpretable knob rather than a magic number.
+
+### Verification, before implementing
+
+Run across all 40 plans at both call sites:
+
+| | Current | Corrected |
+|---|---|---|
+| Plans with negative retiree headcounts | 3 | **0** |
+| Most negative cell | -8,778 | **0** |
+| Retiree band totals preserved | 36/40 | 36/40 |
+| Active plans with negatives | 0 | 0 |
+
+Change in mean retiree age, which is what drives liability: **median 0.099 years,
+90th percentile 0.100 years** — and **10.5 years for OK134**, the broken one. So
+39 of 40 plans barely move and the fix is surgical. Mean active age moves about
+0.09 years across the board.
+
+Python and R produce identical output (retiree band of 1,000 -> 220, 210, 200, 190,
+180 in both).
+
+One thing worth recording: the first version of the corrected weight had the tilt
+direction reversed on both sides. Every headline check still passed — negatives
+gone, totals preserved — and it was only caught by varying `s` and noticing mean
+retiree age moving the wrong way. Sign errors here are invisible to the obvious
+tests.
+
+### Where it is applied
+
+| File | Status |
+|---|---|
+| `Code/python/bucketfill_cf_model.py` | **corrected**, original left commented out with the reasoning |
+| `Code/R/Common_Code/bucketfill_cf_model_072026.R` | **new file**, corrected, same comments |
+| `Code/R/cluster_code_2022_072026/*.R` (38) | repointed to source the corrected file |
+| `Code/R/Common_Code/bucketfill_cf_model.R` | **untouched** |
+| `Code/R/cluster_code_2022/*.R` (38) | **untouched**, still source the original |
+
+The frozen R lineage is deliberately left alone so it keeps reproducing exactly
+what it always produced. The corrected R lives in a separate file rather than an
+edit, because `Common_Code` is shared by both lineages.
+
+In both languages the original line is commented out in place, not deleted, with
+the reasons alongside it.
+
+### Consequence for existing results
+
+`062026` and `072026` both carry the defective version. OK134's numbers in both are
+unusable. LA163 and SC99 are mildly affected. The other 37 plans are affected only
+to the extent of the size-dependent tilt, which is worth about a tenth of a year of
+mean age.
+
+---
+
+## Minor, checked 2026-07-30: do the workbook share sheets sum to 1?
+
+Raised because the fill totals did not always match the PPD headcount. It is
+rounding, not a defect.
+
+Retiree shares sum to exactly 1 for **36 of 40** plans; the four that miss are IL33
+(0.9969), MA50 (0.9978), RI96 (0.9995) and MA51 (0.9996). Active shares are exact
+for **37 of 40**, worst miss 0.0003 (MI53).
+
+The largest consequence is IL33's modelled retiree headcount sitting 0.31% below
+its PPD count. That is published percentages not quite totalling 100, well inside
+any tolerance that matters, and it behaves identically under both versions of
+`LinearFill`. Recorded, no action.
+
+---
+
 ## 2026-07-30 — the 072026 run completed, and it exposed a real bug in LinearFill
 
 **Run status: complete and clean.** 40/40 liability outputs, 40/40 asset outputs,

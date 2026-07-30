@@ -1,6 +1,12 @@
 import numpy as np
 import g
 
+# Strength of the within-band tilt used by LinearFill (added 2026-07-30 with the
+# weight correction documented inside that function). Weights run from (1 + s) to
+# (1 - s) across a band, so s = 0 is an exact even split and s shifts the band's
+# mean age by exactly s years. Must stay below 1 or weights could turn negative.
+LINEARFILL_TILT = 0.10
+
 
 def LinearFill(Collapsed, Slope=1, retirement=False):
     if retirement:
@@ -33,11 +39,55 @@ def LinearFill(Collapsed, Slope=1, retirement=False):
             sharesum = 0.0
             for k in range(1, N + 1):                   # R: for k in 1:N
                 svcmax = rowmin + k - all_age_min
+
+                # ---------------------------------------------------------------
+                # ORIGINAL WEIGHT (inherited from Common_Code/bucketfill_cf_model.R).
+                # CORRECTED 2026-07-30 — kept here because it produced every result
+                # up to and including the 072026 run, and must stay legible.
+                #
+                #     Share[k - 1, L - 1] = GroupCount / (N * M) + Slope * (rowmin + k - 1)
+                #
+                # Three defects:
+                #  1. It subtracts an AGE IN YEARS from a HEADCOUNT PER CELL. Those are
+                #     different quantities and the difference has no meaning.
+                #  2. Because GroupCount sits inside the weight, the size of the tilt
+                #     depends on how big the plan is: a band holding 20,000 people came
+                #     out almost flat (0.1% tilt) while a band holding 500 came out at
+                #     17%. A plan's age profile must not depend on its size.
+                #  3. The weights are centred on (GroupCount/N - mean age) instead of on
+                #     1, so they straddle zero. Their sum, used as the normaliser below,
+                #     equals GroupCount - (sum of the ages in the band). When a band
+                #     happens to hold about that many people the normaliser approaches
+                #     zero and the division explodes; on either side of that point the
+                #     tilt silently REVERSES direction.
+                #
+                # Measured effect: 3 of 40 plans produced NEGATIVE retiree headcounts.
+                # OK134's 75-79 band held 385.004 people against an age-sum of 385, so
+                # the normaliser was 0.004 and the band was filled with +/-200,000 people
+                # in a plan with 4,242 retirees. Band totals still reconciled, because
+                # the huge positives and negatives cancel, which is why it went unseen.
+                # A one-person data revision moved that plan's liability by 56%.
+                #
+                # CORRECTED WEIGHT: a perturbation around 1, driven only by POSITION in
+                # the band, never by the headcount and never by the absolute age.
+                #   u  runs 0 -> 1 across the band
+                #   w  runs (1 + s) -> (1 - s) for Slope = -1  (retirees, declining)
+                #      and (1 - s) -> (1 + s) for Slope = +1  (actives, rising)
+                # Every weight is strictly positive for s < 1, so no cell can go
+                # negative; and the weights sum to exactly N, so the normaliser is a
+                # constant and can never approach zero. s = 0 gives an even split.
+                # Verified on all 40 plans: negatives 3 -> 0, totals still preserved,
+                # and mean age moves by ~0.1 years for 39 plans (OK134, the broken one,
+                # moves 10.5 years). See Documentation/states_track_context.md.
+                # ---------------------------------------------------------------
+                u = 0.0 if N == 1 else (k - 1) / (N - 1)
+                w_age = 1.0 + Slope * LINEARFILL_TILT * (2.0 * u - 1.0)
+
                 for L in range(1, M + 1):               # R: for L in 1:M
                     if (columnmin + L - 1) > svcmax:
                         Share[k - 1, L - 1] = 0.0
                     else:
-                        Share[k - 1, L - 1] = GroupCount / (N * M) + Slope * (rowmin + k - 1)
+                        Share[k - 1, L - 1] = w_age
                     sharesum += Share[k - 1, L - 1]
             # R: Expanded[(rowmin+1-all_age_min):(rowmax+1-all_age_min), (columnmin+1-all_serv_min):(columnmax+1-all_serv_min)]
             row_s = rowmin - all_age_min
