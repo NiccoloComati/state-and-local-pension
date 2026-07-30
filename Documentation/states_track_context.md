@@ -133,23 +133,36 @@ or an extraction error is not recorded anywhere. Either way the resulting sheet
 understates retirement in the band where most retirement happens, which is why
 using the shared default table instead is defensible.
 
-**Sample as of 2026-07-30: 4 of the 14 confirmed**, all showing Problem 1.
-Added since:
+**Sample as of 2026-07-30: 8 of the 14 checked. All 8 show Problem 1.**
 
-- **CA43 (LA County)** — retirement rates live in *Tables A-6 through A-13*, eight
-  tables, one per benefit plan (General A-E, Safety A-C).
-- **SC100 (South Carolina RS)** — the most extreme found. Three tables (Class Two
-  age-based, Class Two service-based, Class Three), each split by General Employees
-  vs Teachers, by Reduced vs Normal retirement, and by sex, plus a separate
-  "Rule of 90" column. That is at least 24 distinct rate series to be squashed into
-  one age x service grid. Its withdrawal rates are likewise split by sex and
-  employee group.
+| Plan | How its own valuation report splits retirement rates |
+|---|---|
+| ME47 | 3 tiers |
+| SC99 | an age-based and a service-based table, each x class x sex |
+| CA43 | 8 tables (A-6 to A-13), one per benefit plan (General A-E, Safety A-C) |
+| SC100 | 3 tables x General/Teachers x Reduced/Normal x sex, plus a Rule-of-90 column — at least 24 series |
+| FL26 | 5 member classes (Regular, Special Risk, Special Risk Admin, Elected Officers, Senior Management) x sex, per tier |
+| OH88 | grandfathered / non-grandfathered x sex x service band |
+| LA44 | separate assumption sets for Regular Members and for Judges, by service band |
+| AZ127 | separate rate sets by hire date (pre / post 1 Jan 2012) |
 
-**A separate observation worth following up:** several of these plan folders hold a
-*summary* valuation rather than a full one — GA28, DC20, CA111 and IL33 do not
-appear to carry assumption tables at all. If the document in the folder has no rate
-tables, the workbook's retirement sheet was built from some other source that is
-not recorded. That is a provenance gap distinct from Problems 1 and 2.
+Not one of the eight publishes a single age x service grid. SC100's withdrawal
+rates are split the same way, so this is not confined to retirement.
+
+**Still unchecked: 6 of the 14** — CA111, DC20, GA28, IL33, NM74, NY83.
+
+**Problem 3 — for two plans the source document does not contain the rates at all.**
+*Corrected 2026-07-30: an earlier version of this note named four plans. A
+systematic page scan shows only two.* `DC20` (61 pages) and `GA28` (43 pages)
+contain no locatable retirement-rate table, although both carry other assumption
+tables. `CA111` and `IL33` **do** have retirement-rate pages — the first keyword
+search simply missed them; they are unchecked, not missing.
+
+Where the document in the plan folder holds no rate table, that workbook's
+retirement sheet must have been built from a document we do not hold and which is
+recorded nowhere. Those two cannot be checked against our own files at all; doing so
+would mean obtaining the full valuation report. This is a provenance gap, separate
+in kind from Problems 1 and 2.
 
 Only ME47 has been examined closely enough to demonstrate Problem 2; whether the
 other collapses are also systematically low is unknown.
