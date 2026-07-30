@@ -344,6 +344,22 @@ All three have a `[PLAN]_2017.xlsx` workbook, a tier row, a `PPD_planlevel_main_
 - MA50's 2017 script did use `InvestmentReturnAssumption_GASB` for the discount rate against OK134's `PPD$discount`, but the Python engine now uses `InvestmentReturnAssumption_GASB` for **all** plans, so MA50's convention became the universal one.
 
 Treating any of the three as a permanent exclusion is not established. See `working_context.md` (2026-07-29) for the open items.
+## 6.3 Engine input guards (behaviour a reviewer should know about)
+
+- **Retiree benefit-relativity guard (2026-07-30).** The engine checks `retdist`
+  column F on every plan and rewrites it in memory for the one plan whose column
+  holds the wrong quantity (MA51). This is the only input the engine rewrites.
+  Full description, scope, and how to disable it: `model_input_dictionary.md` §1.1.
+- **Short-grid padding (2026-07-29).** A `wagerel` block shorter than 11 age rows is
+  padded with zero rows and a note is printed; a block longer than expected raises.
+  Affects MA50 and MA51 only.
+- **Employer-contribution fallback (2026-07-29).** When `contrib_ER_regular` is
+  empty the engine falls back to `contrib_ER_tot` / `contrib_ER_state` and prints a
+  note. Affects MA51, which is funded by state appropriation.
+
+All three print to run output when they fire, so a run log shows which plans were
+touched.
+
 ## 7. Known Issues / Notes
 
 - **Disability data:** Sheet 9 is almost never populated (`availableData[9] = F`). The model uses a fixed `DisabilityPayoutRate = 0.025` (2.5% of payroll) as default; some plans compute it from actual data (e.g., MA50: ratio of disability payroll to total payroll).

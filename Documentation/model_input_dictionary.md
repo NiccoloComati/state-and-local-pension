@@ -24,7 +24,7 @@
 | # | Sheet | Model object | What it is | Read as | Scaling applied | Fallback when flag=False |
 |---|---|---|---|---|---|---|
 | 1 | `ageservice` | `active` (via `LinearFill`) | Active-member shares by age×service bucket | `B2:L12` (11×11 fractions) | × `ppd_panel.actives_tot` | default `ageservice` |
-| 2 | `retdist` | `RetirementNumber`, `RetirementBenefit` | Current-retiree age distribution + benefit relativities | col `B` (counts share), col `F` (benefit rel.), 16 rows | × `beneficiaries_tot`; × `BeneficiaryBenefit_avg`×1000 | default `retdist` |
+| 2 | `retdist` | `RetirementNumber`, `RetirementBenefit` | Current-retiree age distribution + benefit relativities | col `B` (counts share), col `F` (benefit rel.), 16 rows | × `beneficiaries_tot`; × `BeneficiaryBenefit_avg`×1000 — **col F passes the guard in §1.1 first** | default `retdist` |
 | 3 | `wagerel` | `BaseWage_2d` (via `ConstantFill`) | Relative wage by age×service | `B2:L12` | × `ActiveSalary_avg`×1000 | default `wagerel` |
 | 4 | `mortality` | `MortalityTable` | Mortality rates, male (`B:D`) + female (`F:H`), 4 age points each | 2 blocks, 4 rows | blended with `pctmale` via `mort_table_fast` | default `mortality` |
 | 5 | `wagegrowth` | — | **GHOST SHEET: never read by the engine.** Wage growth is the PPD scalar chain (§3). Sheet exists in workbooks for provenance only. | — | — | — |
@@ -32,6 +32,45 @@
 | 7 | `retirement` | `RetirementRate` | Retirement propensity by age×service | `Q:AA` 11 rows, /100, negatives→0 | — | default `retirement` (`B:L`) |
 | 8 | `refund` | `RefundRate` | Refund rates on separation, male (`B:L`) + female (`O:Y`) | 11×11 | blended with `pctmale` | default `refund` (single block) |
 | 9 | `disability` | — | **GHOST SHEET: never read.** Disability payout is the constant `DisabilityPayoutRate = 0.025` (2.5% of payroll). | — | — | — |
+
+## 1.1 ACTIVE INPUT GUARD — the retiree benefit-relativity column (added 2026-07-30)
+
+**This is the only place the engine silently rewrites a workbook input. Anyone
+reviewing model inputs should know it exists and be able to switch it off.**
+
+**What column F of `retdist` must contain.** Each retiree age band's average benefit
+*divided by the plan's overall average benefit*. The engine multiplies it by
+`BeneficiaryBenefit_avg`, so a correct column averages **1.0** when weighted by the
+headcount shares in column B. It is a ratio, not a level and not a share.
+
+**What the guard does.** `_check_benefit_relativity()` in
+`Code/python/fast/Main_PensionModel.py` runs for **every plan, every run**:
+1. computes the headcount-weighted mean of column F;
+2. if it lands in **0.75–1.35**, returns the column untouched and prints nothing;
+3. otherwise prints a `WARNING` naming the plan and the mean;
+4. tries rebuilding the column as `col F / col B`. If that lands back in range it
+   adopts it, prints what was wrong and what it did, and carries the last populated
+   value into empty tail bands. If it does not, it prints that it is leaving the
+   published column alone and changes nothing.
+
+**Why it exists.** Checked across all 40 state plans: 39 fall between 0.78 and 1.04
+(nearly all exactly 1.000). **MA51 alone sits at 0.1188**, because its column holds
+each band's *share of total benefit dollars* — a different quantity. That scales its
+retiree benefits to roughly an eighth of true size. Rebuilding gives **0.9696**.
+
+**Scope, verified on the data with no simulation:** 39 of 40 columns pass through
+bit-for-bit unchanged; MA51 is the only plan altered.
+
+**How to revise or remove it.** Return `rel` unchanged at the top of the function to
+disable entirely; widen or narrow `LO, HI` to change sensitivity; delete the rebuild
+branch to keep warnings without any rewriting. **The workbooks are never modified** —
+this happens in memory at load time, so switching the guard off restores the
+published data exactly.
+
+**Open caveat.** The guard infers intent from one statistic. It would not catch a
+column that is wrong but still averages near 1.0, and it assumes the dollar-share
+reading is the right repair for MA51 — that repair has not been checked against
+MA51's valuation report, only against internal consistency. Worth revisiting.
 
 Note the **sex-blending asymmetry**: plan-specific mortality/withdrawal/refund come as male+female blocks blended with `pctmale`; the defaults are single pre-blended blocks. The Brookings `corresponding CSV matrices` layer holds the even-more-granular precursors (`mortalityact`/`mortalityret`, `withdrawalf`/`withdrawalm`, `retirementn`/`retiremento`, `retbenrel`) that the workbooks condensed.
 
