@@ -630,6 +630,71 @@ an extreme.
 
 ---
 
+## 2026-07-30 — follow-up on the three input findings
+
+### Finding 1: is excluding state contributions a deliberate no-subsidy design?
+
+Niccolo's hypothesis: state appropriations are taxpayer subsidies, and a model of
+unsubsidised fund dynamics might exclude them on purpose. Tested, and the evidence
+says **no — it is inherited, not designed.**
+
+- **The original R reads the identical two fields.**
+  `EmployeeContributionRate <- planinfo$contrib_EE_regular/planinfo$payroll` and
+  the same for `contrib_ER_regular`. Python copied R; nobody chose it in Python.
+- **No documentation states any such intent.** The only related statement is "if
+  assets hit zero, they stay at zero (no bailout assumption)" — that is about
+  refusing rescue *after* exhaustion, a different mechanism from excluding ongoing
+  contribution income.
+- **The decisive point: `contrib_ER_regular` is already government money.** OH88
+  Ohio Teachers contributes $1.78bn through it with nothing in `ER_state`; CA43 is
+  LA County. So taxpayer money is already included for 28 of 40 plans. The current
+  behaviour excludes subsidies for some plans and includes them for others,
+  depending on which accounting bucket that plan happens to use.
+- **TX108 settles it.** Texas Teachers has **both** fields populated — `ER_regular`
+  $1.91bn and `ER_state` $2.16bn. Same plan, same kind of money, and the model
+  takes one and drops the other. The split is administrative (what employing
+  districts remit directly versus what the state appropriates on their behalf),
+  not economic.
+
+So the current state is an artifact. **Excluding subsidies remains a legitimate
+modelling choice** — it is just not what is happening now, and implementing it
+would mean excluding employer contributions *consistently*, which would change all
+40 plans rather than 12.
+
+### Finding 2: MI53 is not a double division — the PPD value is MONTHLY
+
+`ActiveSalary_avg` = $5,318. Multiply by 12: **$63,816**, against $64,181 implied by
+its own payroll over its own headcount — **0.6% apart**. MI53 reports a monthly
+salary where every other plan reports annual, and the engine treats it as annual.
+
+Checked across all 40: the implied-over-stated ratio has a median of 1.001 and MI53
+is the only plan anywhere near 12. Nothing in our code divides twice.
+
+### Finding 3: FL26 is a denominator mismatch, and it affects six plans
+
+The engine computes contribution rates as `contributions / payroll`, then applies
+those rates to a payroll it constructs itself as `actives_tot x ActiveSalary_avg`.
+That constructed figure equals the PPD's **`ActiveSalaries`** field — which is a
+different, narrower quantity than **`payroll`** for some plans.
+
+For FL26: `payroll` $38.68bn, `ActiveSalaries` $24.22bn. The rate is calculated on
+the larger base and applied to the smaller one, so the plan collects **63%** of the
+contributions intended. The gap is definitional and persistent, widening from 1.45x
+in 2018 to 1.68x in 2024 — FRS's covered payroll spans a broader population than
+its valuation actives (it separately reports 32,150 DROP members).
+
+Six plans disagree by more than 10%: MI53 12.07x (the monthly issue above),
+FL26 1.60x, CA10 1.11x, IN37 1.10x, NJ73 0.88x, NY78 0.84x.
+
+**Fix available:** use `ActiveSalaries` as the rate denominator so numerator and
+denominator describe the same population. It is populated for all 40 plans and its
+ratio to the engine's constructed payroll has a median of 1.000.
+
+**None of the three is implemented.** All change results, and two of them change
+the risk ranking.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a
