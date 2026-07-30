@@ -23,6 +23,78 @@ what it drives before saying what is wrong with it.
 - **2026-07-29 — Match the original R behaviour** on the short salary sheet, unless
   R's behaviour is itself unusable. See §1d for how that resolved.
 
+### DONE 2026-07-29 — the three plans are admitted; the switches are NOT being flipped
+
+**Code changed** (`Code/python/fast/Main_PensionModel.py`), all three reversible:
+1. `AVAILABLE_DATA` gained `MA50 [T,T,T,T,T,F,F,F,F]`, `MA51 [T,T,T,T,T,T,F,F,F]`,
+   `MO64 [T,T,T,T,T,T,T,F,F]`, taken from each plan's own R script. Revert by
+   deleting the three rows.
+2. `_employer_contrib()` falls back to `contrib_ER_tot` / `contrib_ER_state` when
+   `contrib_ER_regular` is empty, and prints a note when it fires. Revert by
+   reading `contrib_ER_regular` alone.
+3. `_pad_rows()` pads a short `wagerel` grid to 11 rows with zeros and prints a
+   note. Same values pandas produced by silent truncation before, now explicit
+   and loud, and it raises if a grid is ever too long.
+
+**Verified:** OK134 rerun compared against the canonical pickle across 45
+arrays and scalars — **max absolute difference 0.0, bit-identical**. Nothing moved
+for existing plans.
+
+**MA51's employer contribution is confirmed.** Massachusetts Teachers is funded by
+a Commonwealth appropriation rather than a payroll-rate employer contribution,
+which is exactly why `contrib_ER_regular` has been blank since 1999. The PPD's
+FY2018 `contrib_ER_state` of $1.315bn matches the valuation report's stated FY18
+appropriation of $1.303bn to 0.9%. Implied FY2022 rates (11.6% employee, 27.3%
+employer) sit inside the range of the 37 modelled plans.
+
+**First results for the three, against each plan's reported liability:**
+
+| Plan | Model | Reported | Difference |
+|---|---|---|---|
+| MA50 | $49.3bn | $47.3bn | **+4.3%** — better than most of the existing 37 |
+| MO64 | $68.7bn | $55.4bn | +24.0% — joins the group in §5 |
+| MA51 | $12.2bn | $60.3bn | **-79.8% — not trustworthy, see below** |
+
+MA50's good result is worth noting given its reputation: configured with its 2022
+switch settings it behaves normally, which suggests the "suspicious results" that
+got it dropped came from the older configuration rather than from the plan.
+
+**MA51 is admitted but NOT closed.** A liability one fifth of the reported figure
+is a structural failure, not a tolerance. The first thing to check is that its
+inactive-member population is zeroed by construction (`inactive_adj = 0.0`, §4) in
+a plan whose liability is dominated by long-service teachers. Do not use MA51 in
+any results until this is understood.
+
+Scratch outputs kept at `_ARCHIVE/snapshots/scratch_0729_three_plan_admission/`.
+
+### Why the retirement switches were turned off — likely answered (2026-07-29)
+
+Checked two of the fourteen plans against their own 2017 valuation reports:
+
+- **ME47** publishes retirement rates **by tier** (Tier 1 / 2 / 3) at ages 45, 50,
+  55, 59-64. Tier 1 reaches 25% at age 60. The workbook collapses all of it to a
+  flat 4% across ages 55-64 and drops the age-45 and age-50 rates to zero. That
+  materially understates retirement in the band where most retirement happens.
+- **SC99** publishes two separate tables (age-based and service-based), each split
+  by Class Two / Class Three **and** by sex. The workbook's single grid does not
+  reproduce them.
+
+Both are cases where the source table has a structure the engine's single
+age x service grid cannot hold. That is very likely the reason for the 2022
+switch-off, and it is the same issue already logged as entry 1 in
+`Data Extraction/assumption_register.md` ("tier-specific retirement rates cannot
+be represented in the engine").
+
+**Conclusion: do not flip these switches.** The 2022 decision looks deliberate and
+well-founded. The shared default table is probably the better input until the
+engine can carry tier-specific decrements. This is a modelling-structure question,
+not a data-cleanliness one, and it should be recorded as such rather than fixed.
+Two of the fourteen were checked; the remaining twelve are assumed to follow the
+same pattern until someone shows otherwise.
+
+Also resolved: **LA44's `-100` values are "not eligible" markers**, and the engine
+already converts negatives to zero. Not a defect.
+
 ### Key finding on the skipped sheets (2026-07-29)
 
 The switches were **deliberately changed between script generations**, not left

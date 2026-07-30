@@ -71,6 +71,14 @@ AVAILABLE_DATA = {
     'SC99':  [True,  True,  True,  True,  True,  True,  False, False, False],
     'SC100': [True,  True,  True,  True,  True,  True,  False, False, False],
     'TX108': [True,  True,  True,  True,  True,  True,  True,  False, False],
+    # --- Added 2026-07-29. Previously absent, which excluded these three plans
+    # from every run (the dict was ported from the 38 R 2022-cluster scripts,
+    # which omit MA51/MO64). Vectors taken from each plan's own R script; see
+    # Documentation/states_track_context.md 1a-1c for the evidence. To revert,
+    # delete these three rows.
+    'MA50':  [True,  True,  True,  True,  True,  False, False, False, False],
+    'MA51':  [True,  True,  True,  True,  True,  True,  False, False, False],
+    'MO64':  [True,  True,  True,  True,  True,  True,  True,  False, False],
 }
 CONTRIB_RATE_NA_CHECK = {'AZ127', 'CA144', 'CA98', 'IL32', 'IN37', 'LA130', 'LA44'}
 RETDIST_SKIPROWS      = {'MI53': 1}
@@ -120,6 +128,49 @@ def _s(df, col):
     return float(df[col].values[0])
 
 
+def _pad_rows(mat, n_rows, what):
+    """Pad a short bucket grid up to n_rows with zero rows.
+
+    Added 2026-07-29. MA50 and MA51 stop their `wagerel` grid at age 70; every
+    other plan runs to age 75, and in those plans that final row is all zeros.
+    R's read_excel pads the absent row with NA (which would spread through the
+    wage matrix); pandas silently returns a short array, which ConstantFill then
+    leaves as zeros in the top age bin. Same values as pandas produced before,
+    but now explicit and loud instead of a silent truncation.
+    """
+    if mat.shape[0] == n_rows:
+        return mat
+    if mat.shape[0] > n_rows:
+        raise ValueError(f"{what}: got {mat.shape[0]} rows, expected at most {n_rows}")
+    pad = n_rows - mat.shape[0]
+    print(f"  NOTE: {what} has {mat.shape[0]} rows, expected {n_rows}; "
+          f"padding {pad} trailing row(s) with zeros "
+          f"(matches the all-zero final row every full-length plan carries)")
+    return np.vstack([mat, np.zeros((pad, mat.shape[1]))])
+
+
+def _employer_contrib(planinfo):
+    """Employer contribution, falling back to the total when 'regular' is absent.
+
+    Added 2026-07-29. MA51 (Massachusetts Teachers) is funded by a Commonwealth
+    appropriation rather than a payroll-rate employer contribution, so PPD's
+    `contrib_ER_regular` has been empty for it since 1999 while `contrib_ER_state`
+    / `contrib_ER_tot` carry the money. Verified against MA51's 2017 valuation
+    report: PPD FY2018 contrib_ER_state = $1.315bn vs the report's stated FY18
+    appropriation of $1.303bn (0.9%). To revert, use `contrib_ER_regular` alone.
+    """
+    v = _s(planinfo, 'contrib_ER_regular')
+    if not np.isnan(v):
+        return v
+    for alt in ('contrib_ER_tot', 'contrib_ER_state'):
+        if alt in planinfo.columns:
+            a = _s(planinfo, alt)
+            if not np.isnan(a):
+                print(f"  NOTE: contrib_ER_regular is empty; using {alt} = {a:,.0f}")
+                return a
+    return v
+
+
 # ---- PPD and planinfo ----
 ppid       = int(''.join(filter(str.isdigit, plan)))
 plan_start = date(plan_year, 1, 1)
@@ -142,7 +193,7 @@ if args.discount_override is not None:
     print(f"discount override: {args.discount_override} (plan GASB rate was {discountrate})")
     discountrate = args.discount_override
 EmployeeContributionRate = _s(planinfo, 'contrib_EE_regular') / _s(planinfo, 'payroll')
-EmployerContributionRate = _s(planinfo, 'contrib_ER_regular') / _s(planinfo, 'payroll')
+EmployerContributionRate = _employer_contrib(planinfo) / _s(planinfo, 'payroll')
 Inflation                = get_inflation_assumption(plan, planinfo)
 rf                       = 0.01 + Inflation
 PopulationGrowth         = 0.01
@@ -224,6 +275,7 @@ else:
         os.path.join(common_dir, 'default_assumptions.xlsx'),
         sheet_name='wagerel', usecols='B:L', skiprows=1, nrows=11,
         header=None).to_numpy(dtype=float)
+asy_wage    = _pad_rows(asy_wage, 11, f"{plan} wagerel B2:L12")
 asy_wage    = asy_wage * _s(planinfo, 'ActiveSalary_avg') * 1000
 BaseWage_2d = ConstantFill(asy_wage)
 
