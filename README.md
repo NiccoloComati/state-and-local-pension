@@ -4,7 +4,8 @@ Reorganized 2026-06-11 into a single clean tree (see `Documentation/reorg_plan.m
 
 | Folder | Contents |
 |---|---|
-| `Code/python/` | THE production simulation engine (fast runner, asset simulation with common shocks, scenario layer, `launcher.ipynb`, `analysis/results.ipynb`) |
+| `Code/python/` | THE production simulation engine (fast runner, asset simulation with common shocks, scenario layer + `launcher.ipynb`). See `Code/python/README.md` for what each file is. |
+| `Analysis/` | Results analysis — `results.ipynb`, `results_analysis.py`, `output/`. Moved out of `Code/python/` 2026-07-30: it consumes runs, it is not part of the model, and it shares no code with the engine. |
 | `Code/R/` | Verified R reference implementation (2022 scripts + Common_Code) |
 | `Data/Plans/States/` | 40 state plan folders (workbooks + AV/CAFR PDFs), fully intact |
 | `Data/Plans/Cities/` | Canonical municipal collection (FY2019, ~16 cities) + `_migration/` bridge |

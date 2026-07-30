@@ -66,13 +66,13 @@ Plan IDs correspond to the Public Plans Database (PPD) identifier (`ppid`).
 State and Local Pension/          <- PROJECT ROOT
 +-- Code/
 |   +-- python/                   # THE production engine
-|   |   +-- fast/                 # Optimized package (PlanParams, vectorized core)
-|   |   +-- analysis/             # results_analysis.py + results.ipynb
+|   |   +-- fast/                 # THE production engine (PlanParams, vectorized core)
 |   |   +-- validation/           # compare_r_python.py, compare_fast_vs_orig.py
-|   |   +-- engaging/             # Slurm scripts (STALE paths post-reorg; rework before next cluster use)
-|   |   +-- config/               # plans_38.txt canonical plan list
-|   |   +-- Main_PensionModel.py, asset_simulation.py, run_simulation.py,
-|   |   +-- scenarios.py, launcher.ipynb, sim_commands.html, g.py, ...
+|   |   +-- config/               # plans_40.txt (current) + plans_38.txt (reproduces the old 37-plan set)
+|   |   +-- README.md             # what every file here is - read this first
+|   |   +-- run_simulation.py, asset_simulation.py, bucketfill/functions/liability_cf_model.py, g.py
+|   |   +-- Main_PensionModel_original.py   # reference lineage, never run
+|   |   +-- scenarios.py, launcher.ipynb    # scenario layer, built and parked
 |   +-- R/                        # Verified reference implementation
 |       +-- cluster_code_2022/    # 38 plan scripts (paths updated for new tree)
 |       +-- Common_Code/          # shared R functions + asset_simulation_all_2022_062026.R
@@ -93,6 +93,8 @@ State and Local Pension/          <- PROJECT ROOT
 |   |                             #   guidebook copy, variable_glossary, media/ (incl. recorded code-walkthrough call)
 |   +-- provenance/               # generator scripts (provenance_scan.py, city_data_scan.py,
 |   |                             #   build_city_extraction_catalogue.py) + their generated CSVs/harvest
++-- Analysis/                     # results analysis: results.ipynb, results_analysis.py, output/
+|                                 #   (moved out of Code/python/ 2026-07-30 - consumes runs, shares no code with the engine)
 +-- Papers/                       # reference literature (Brookings papers, Dan_Papers) — moved out of Documentation 2026-07-07
 +-- Drafts/                       # paper drafts (PensionSustainabilityV5.docx)
 +-- Backup/                       # pre-reorg backup (file manifest + code/docs zip)

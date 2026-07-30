@@ -31,7 +31,7 @@ def project_root() -> Path:
 
 ROOT = project_root()
 SCRIPT_DIR   = Path(__file__).resolve().parent
-DETAL_SCRIPT      = SCRIPT_DIR / "Main_PensionModel.py"
+DETAL_SCRIPT      = SCRIPT_DIR / "Main_PensionModel_original.py"
 DETAL_SCRIPT_FAST = SCRIPT_DIR / "fast" / "Main_PensionModel.py"
 ASSET_SCRIPT = SCRIPT_DIR / "asset_simulation.py"
 

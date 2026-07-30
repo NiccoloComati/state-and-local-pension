@@ -264,9 +264,10 @@ in your new memory directory** (the old one was keyed to the dissolved
   are filtered; export from "All" views. A partial export sits in
   `Data/Sources/airtable_export/` (only Boston's table docs); a full re-export
   is still pending.
-- `Code/python/analysis/results.ipynb.bak` is the pre-rebuild notebook copy;
-  `results_executed_smoke.ipynb` is a rendered preview — both deletable when
-  Niccolo says so.
+- Analysis moved to a top-level `Analysis/` on 2026-07-30. The pre-rebuild
+  notebook copy and the rendered smoke preview were archived to
+  `_ARCHIVE/superseded_2026-07-30/`, along with the stale `engaging/` Slurm
+  scripts and `sim_commands.html`.
 
 ## STATES track / working paper (opened 2026-07-29, separate chat)
 

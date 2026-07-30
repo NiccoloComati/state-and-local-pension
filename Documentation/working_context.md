@@ -2768,3 +2768,40 @@ value. In the long-standing canonical run OK134 was the fourth-riskiest plan of
 `20260730_2` is the first run whose inputs are all in the state agreed this
 session. Nothing has been interpreted beyond verifying the run and measuring the
 correction.
+
+## 2026-07-30 (cont.): Python folder audit — analysis moved out, stale material archived
+
+Asked what in `Code/python/` is actually useful. Audited by import graph rather
+than by memory, which corrected one documented claim.
+
+**Live path** (every run): `run_simulation.py`, `fast/` (the engine),
+`bucketfill_cf_model.py`, `functions_cf_model.py`, `g.py`, `asset_simulation.py`,
+`config/plans_40.txt`.
+
+**Correction:** `g.py` is documented as "legacy, used only by the original Python
+scripts." That is wrong. `bucketfill_cf_model` and `functions_cf_model` reference
+`g.` 49 and 73 times, and the fast engine imports both, so `g.py` is on the live
+path and cannot be removed.
+
+**Moved to a top-level `Analysis/`** — `results_analysis.py`, `results.ipynb`, plus
+an `output/` for generated figures and exports. It imports nothing from the engine
+(verified), so the move was free, and it sits beside `Data/`, `Results/`, `Papers/`
+and `Drafts/` where the other non-engine material lives. Verified working from the
+new location: project root found, `latest_run_tag()` resolves, 40 parquet bundles
+load.
+
+**Archived to `_ARCHIVE/superseded_2026-07-30/`** (moved, not deleted):
+`results.ipynb.bak` and `results_executed_smoke.ipynb` (1.6 MB each, June copies),
+the `engaging/` Slurm scripts (pre-reorg paths, stale since June), and
+`sim_commands.html` (a command reference predating run tags, `plans_40` and the
+overwrite guards — a stale reference being worse than none).
+
+**Renamed** `Main_PensionModel.py` to `Main_PensionModel_original.py`. Having the
+reference lineage share a filename with the engine in a sibling folder was a
+standing trap. `run_simulation.py` updated; it is still reachable without `--fast`.
+
+**Added `Code/python/README.md`** — what every remaining file is, the live path
+versus the reference lineage, and the standing run command with why each flag is
+what it is. It also records that `launcher.ipynb` is **not** an alternative way to
+launch a baseline run: it drives the parked scenario layer. Baselines go through
+`run_simulation.py` from the terminal, which is what we have been doing correctly.
