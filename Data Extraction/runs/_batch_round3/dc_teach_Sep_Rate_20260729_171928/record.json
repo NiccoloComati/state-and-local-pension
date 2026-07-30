@@ -1,0 +1,184 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-87178da84f5e5764",
+        "object": "chat.completion",
+        "created": 1785359968,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 64,\n      \"title\": \"Percent of Members Separating Within the Next Year - Teachers\",\n      \"row_labels\": [\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"62\",\n        \"65\",\n        \"70\",\n        \"71\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Withdrawal 5 years of service and up Male\",\n        \"Withdrawal 5 years of service and up Female\",\n        \"Service Retirement Under 30 yrs\",\n        \"Service Retirement 30 & up yrs\",\n        \"Disability\"\n      ],\n      \"cells\": [\n        [18.00, 18.00, null, null, null],\n        [16.00, 16.00, null, null, 0.01],\n        [12.00, 10.00, null, null, 0.02],\n        [12.00, 8.00, null, null, 0.03],\n        [8.00, 6.50, null, null, 0.07],\n        [8.00, 6.50, 5.00, 5.00, 0.12],\n        [8.00, 6.50, 9.00, 22.00, 0.20],\n        [null, null, 27.00, 28.00, 0.25],\n        [null, null, 22.00, 25.00, 0.30],\n        [null, null, 25.00, 35.00, null],\n        [null, null, 30.00, 30.00, null],\n        [null, null, 25.00, 30.00, null],\n        [null, null, 100.00, 100.00, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 61],\n        [62, 64],\n        [65, 69],\n        [70, 70],\n        [71, 74],\n        [75, null]\n      ]\n    },\n    {\n      \"page\": 65,\n      \"title\": \"Percent of Members Separating Within the Next Year - Police Officers\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Withdrawal Males\",\n        \"Withdrawal Females\",\n        \"Disability Males\",\n        \"Disability Females\",\n        \"Service Retirement 20\",\n        \"Service Retirement 25\",\n        \"Service Retirement 30\",\n        \"Service Retirement 35\",\n        \"Service Retirement 40\"\n      ],\n      \"cells\": [\n        [5.00, 5.00, 0.03, 0.02, null, null, null, null, null],\n        [5.00, 5.00, 0.06, 0.05, null, null, null, null, null],\n        [4.25, 4.50, 0.11, 0.10, null, null, null, null, null],\n        [1.50, 3.50, 0.16, 0.15, null, null, null, null, null],\n        [1.50, 1.50, 0.23, 0.30, 15.0, null, null, null, null],\n        [1.50, 1.50, 0.32, 0.40, 22.0, null, null, null, null],\n        [1.50, 1.50, 0.42, 0.60, 38.0, null, null, null, null],\n        [1.50, 1.50, 0.44, 0.70, 18.0, null, null, null, null],\n        [1.50, 1.50, 0.51, 1.00, 16.0, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, null]\n      ]\n    },\n    {\n      \"page\": 66,\n      \"title\": \"Percent of Members Separating Within the Next Year - Firefighters\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Withdrawal (5 years of service & up)\",\n        \"Disability Retirement\",\n        \"Service Retirement 20\",\n        \"Service Retirement 25\",\n        \"Service Retirement 30\",\n        \"Service Retirement 35\",\n        \"Service Retirement 40\"\n      ],\n      \"cells\": [\n        [3.00, 0.01, null, null, null, null, null],\n        [3.00, 0.05, null, null, null, null, null],\n        [2.60, 0.18, null, null, null, null, null],\n        [1.80, 0.25, null, null, null, null, null],\n        [1.40, 0.30, 12.50, null, null, null, null],\n        [1.20, 0.35, 12.50, null, null, null, null],\n        [1.20, 0.40, 22.00, null, null, null, null],\n        [0.80, 0.45, 40.00, null, null, null, null],\n        [0.60, 0.50, 40.00, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [\n        \"25\",\n        \"25\",\n        \"25\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\",\n        \"30\",\n        \"30\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [\n        \"35\",\n        \"35\",\n        \"35\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40\",\n        \"40\",\n        \"40\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [\n        \"45\",\n        \"45\",\n        \"45\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"50\",\n        \"50\",\n        \"50\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"55\",\n        \"55\",\n        \"55\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"60\",\n        \"60\",\n        \"60\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"65\",\n        null,\n        null\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"70\",\n        null,\n        null\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document provides withdrawal rates by age only (Teachers, Police, Fire) and service retirement rates by service years only (Police, Fire). No table provides withdrawal rates by both age and service simultaneously. The target grid requires withdrawal rates by age x service. Since the source data for withdrawal is independent of service (constant across service for a given age), the target grid cannot be populated with specific service-dependent withdrawal rates. The provided row_map and col_map reflect the available data: row_map averages the withdrawal rates across the three employee groups for each target age. The col_map has empty sources for all service columns because the source tables do not contain service-dependent withdrawal rates. The 'Service Retirement' columns in the source tables are not 'Withdrawal' rates and are excluded. The target grid for withdrawal rates is effectively unavailable in the requested 2D format, but the age-dependent rates are extracted and mapped to the rows, with service columns remaining empty as per the 'empty sources' rule for missing dimensions.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 65199,
+          "total_tokens": 68169,
+          "completion_tokens": 2970,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 65199,
+        "total_tokens": 68169,
+        "completion_tokens": 2970,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 11,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[1].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[2].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[3].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[4].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[5].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[6].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[7].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'share_even', 'sum', 'weighted_avg']",
+        "row_map[8].sources must be a list of PLAIN STRINGS (source row/col labels), not objects",
+        "row_map[9].sources must be a list of PLAIN STRINGS (source row/col labels), not objects",
+        "row_map references 1 source label(s) that do NOT exist in source_tables[0]: ['None']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['25', '30', '35', '40', '45', '50', '55', '60', '62', '65', '70', '71', '75']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b68ac6ffc05573db",
+        "object": "chat.completion",
+        "created": 1785359989,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 64,\n      \"title\": \"Percent of Members Separating Within the Next Year - Teachers\",\n      \"row_labels\": [\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"62\",\n        \"65\",\n        \"70\",\n        \"71\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Withdrawal 5 years of service and up Male\",\n        \"Withdrawal 5 years of service and up Female\",\n        \"Service Retirement Under 30 yrs\",\n        \"Service Retirement 30 & up yrs\",\n        \"Disability\"\n      ],\n      \"cells\": [\n        [18.00, 18.00, null, null, null],\n        [16.00, 16.00, null, null, 0.01],\n        [12.00, 10.00, null, null, 0.02],\n        [12.00, 8.00, null, null, 0.03],\n        [8.00, 6.50, null, null, 0.07],\n        [8.00, 6.50, 5.00, 5.00, 0.12],\n        [8.00, 6.50, 9.00, 22.00, 0.20],\n        [null, null, 27.00, 28.00, 0.25],\n        [null, null, 22.00, 25.00, 0.30],\n        [null, null, 25.00, 35.00, null],\n        [null, null, 30.00, 30.00, null],\n        [null, null, 25.00, 30.00, null],\n        [null, null, 100.00, 100.00, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 61],\n        [62, 64],\n        [65, 69],\n        [70, 70],\n        [71, 74],\n        [75, null]\n      ]\n    },\n    {\n      \"page\": 65,\n      \"title\": \"Percent of Members Separating Within the Next Year - Police Officers\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Withdrawal Males\",\n        \"Withdrawal Females\",\n        \"Disability Males\",\n        \"Disability Females\",\n        \"Service Retirement 20\",\n        \"Service Retirement 25\",\n        \"Service Retirement 30\",\n        \"Service Retirement 35\",\n        \"Service Retirement 40\"\n      ],\n      \"cells\": [\n        [5.00, 5.00, 0.03, 0.02, null, null, null, null, null],\n        [5.00, 5.00, 0.06, 0.05, null, null, null, null, null],\n        [4.25, 4.50, 0.11, 0.10, null, null, null, null, null],\n        [1.50, 3.50, 0.16, 0.15, null, null, null, null, null],\n        [1.50, 1.50, 0.23, 0.30, 15.0, null, null, null, null],\n        [1.50, 1.50, 0.32, 0.40, 22.0, null, null, null, null],\n        [1.50, 1.50, 0.42, 0.60, 38.0, null, null, null, null],\n        [1.50, 1.50, 0.44, 0.70, 18.0, null, null, null, null],\n        [1.50, 1.50, 0.51, 1.00, 16.0, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, null]\n      ]\n    },\n    {\n      \"page\": 66,\n      \"title\": \"Percent of Members Separating Within the Next Year - Firefighters\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Withdrawal (5 years of service & up)\",\n        \"Disability Retirement\",\n        \"Service Retirement 20\",\n        \"Service Retirement 25\",\n        \"Service Retirement 30\",\n        \"Service Retirement 35\",\n        \"Service Retirement 40\"\n      ],\n      \"cells\": [\n        [3.00, 0.01, null, null, null, null, null],\n        [3.00, 0.05, null, null, null, null, null],\n        [2.60, 0.18, null, null, null, null, null],\n        [1.80, 0.25, null, null, null, null, null],\n        [1.40, 0.30, 12.50, null, null, null, null],\n        [1.20, 0.35, 12.50, null, null, null, null],\n        [1.20, 0.40, 22.00, null, null, null, null],\n        [0.80, 0.45, 40.00, null, null, null, null],\n        [0.60, 0.50, 40.00, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [\n        \"25\",\n        \"25\",\n        \"25\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\",\n        \"30\",\n        \"30\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [\n        \"35\",\n        \"35\",\n        \"35\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40\",\n        \"40\",\n        \"40\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [\n        \"45\",\n        \"45\",\n        \"45\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"50\",\n        \"50\",\n        \"50\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"55\",\n        \"55\",\n        \"55\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"60\",\n        \"60\",\n        \"60\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        1,\n        2\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"65\",\n        null,\n        null\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"70\",\n        null,\n        null\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document provides withdrawal rates by age only (Teachers, Police, Fire) and service retirement rates by service years only (Police, Fire). No table provides withdrawal rates by both age and service simultaneously. The target grid requires withdrawal rates by age x service. Since the source data for withdrawal is independent of service (constant across service for a given age), the target grid cannot be populated with specific service-dependent withdrawal rates. The provided row_map uses group_weighted to blend the three employee groups (Teachers, Police, Fire) for each target age, using the respective tables as weights (though without a specific headcount table, this effectively averages the rates if weights are uniform, or requires external weights; here we list the source tables as weights to satisfy the schema, but the actual blending logic depends on the execution engine's handling of missing weight data). The col_map has empty sources for all service columns because the source tables do not contain service-dependent withdrawal rates. The 'Service Retirement' columns in the source tables are not 'Withdrawal' rates and are excluded. The target grid for withdrawal rates is effectively unavailable in the requested 2D format, but the age-dependent rates are extracted and mapped to the rows, with service columns remaining empty as per the 'empty sources' rule for missing dimensions.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 71048,
+          "total_tokens": 74284,
+          "completion_tokens": 3236,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 71048,
+        "total_tokens": 74284,
+        "completion_tokens": 3236,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 7,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[8].sources must be a list of PLAIN STRINGS (source row/col labels), not objects",
+        "row_map[9].sources must be a list of PLAIN STRINGS (source row/col labels), not objects",
+        "row_map references 1 source label(s) that do NOT exist in source_tables[0]: ['None']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['25', '30', '35', '40', '45', '50', '55', '60', '62', '65', '70', '71', '75']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 5 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)",
+        "source_tables[1] is used as group_weighted weights and has 9 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)",
+        "source_tables[2] is used as group_weighted weights and has 7 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)",
+        "source_tables[0] needs col_spans declared: group_weighted weights are looked up by the main table's bin coordinates (with transpose=true the printed ROW labels are that lookup axis)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-b2178d9fcd879d18",
+        "object": "chat.completion",
+        "created": 1785360012,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 65,\n      \"title\": \"Percent of Members Separating Within the Next Year - Police Officers\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [5.0, 5.0],\n        [5.0, 5.0],\n        [4.25, 4.5],\n        [1.5, 3.5],\n        [1.5, 1.5],\n        [1.5, 1.5],\n        [1.5, 1.5],\n        [1.5, 1.5],\n        [1.5, 1.5]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [19, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 66,\n      \"title\": \"Percent of Members Separating Within the Next Year - Firefighters\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [3.0, 3.0],\n        [3.0, 3.0],\n        [2.6, 2.6],\n        [1.8, 1.8],\n        [1.4, 1.4],\n        [1.2, 1.2],\n        [1.2, 1.2],\n        [0.8, 0.8],\n        [0.6, 0.6]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [19, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Males\",\n      \"Females\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source tables (Pages 65-66) provide withdrawal rates by Age only (5-year bins) for Police and Fire groups. The target requires rates by Service (columns) and Age (rows). Since the source has no service dimension, the 'broadcast' operation is used to repeat the age-based rates across all target service columns. The source groups (Police/Fire) are averaged ('mean') as no headcount distribution table is provided to weight them. The source rates are percentages and will be converted to decimals by the code. Target ages 65 and 70 are extrapolated from the 60-64 bin as the source stops at age 60.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 65199,
+          "total_tokens": 66775,
+          "completion_tokens": 1576,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 65199,
+        "total_tokens": 66775,
+        "completion_tokens": 1576,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

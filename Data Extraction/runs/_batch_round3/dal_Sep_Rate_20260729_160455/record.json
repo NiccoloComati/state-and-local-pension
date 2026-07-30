@@ -1,0 +1,119 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-bbaaa24c6a3acf1b",
+        "object": "chat.completion",
+        "created": 1785355495,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"General Turnover (Terminations per 1,000)\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [228, 200],\n        [180, 165],\n        [144, 150],\n        [110, 120],\n        [90, 95],\n        [75, 90],\n        [67, 80],\n        [60, 65],\n        [51, 48],\n        [43, 48],\n        [33, 45],\n        [33, 32],\n        [30, 30],\n        [30, 30],\n        [22, 20],\n        [22, 14],\n        [19, 14],\n        [19, 14],\n        [19, 14],\n        [19, 14],\n        [12, 14],\n        [12, 14],\n        [12, 6],\n        [12, 6],\n        [12, 6],\n        [12, 6],\n        [5, 6]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [1, 1]\n      ]\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [2, 2]\n      ]\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [3, 3]\n      ]\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [4, 4]\n      ]\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5\",\n        \"6\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [5, 5],\n        [6, 6]\n      ]\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"7\",\n        \"8\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [7, 7],\n        [8, 8]\n      ]\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"9\",\n        \"10\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [9, 9],\n        [10, 10]\n      ]\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"11\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [11, 11]\n      ]\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"12\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [12, 12]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26 & Over\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, null]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26 & Over\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Male\",\n      \"Female\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table provides termination rates by Years of Service only (Male and Female columns). Rates are per 1,000. Target requires annual probability (decimal). Code will divide by 1000. Since the source has no age dimension, broadcast is used to repeat the service-based rates across all target ages. Male and Female rates are averaged (series_op: mean) as no headcount distribution is provided to weight them. Target service bins 6, 8, 10, 30, 40 are mapped via overlap_weighted from the single-year source bins. Target service bin 30 and 40 both map to the tail of the source table (13+ years) as the source does not distinguish between 13-30 and 31-40; the code will apply the same blended rate to both target columns based on the source distribution.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 45611,
+          "total_tokens": 48068,
+          "completion_tokens": 2457,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 45611,
+        "total_tokens": 48068,
+        "completion_tokens": 2457,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 6,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0] ('1'): source_spans only belongs on overlap_weighted entries",
+        "col_map[1] ('2'): source_spans only belongs on overlap_weighted entries",
+        "col_map[2] ('3'): source_spans only belongs on overlap_weighted entries",
+        "col_map[3] ('4'): source_spans only belongs on overlap_weighted entries",
+        "col_map[7] ('11'): source_spans only belongs on overlap_weighted entries",
+        "col_map[8] ('12'): source_spans only belongs on overlap_weighted entries"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-ab7e01fd37edb7cb",
+        "object": "chat.completion",
+        "created": 1785355512,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"General Turnover (Terminations per 1,000)\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [228, 200],\n        [180, 165],\n        [144, 150],\n        [110, 120],\n        [90, 95],\n        [75, 90],\n        [67, 80],\n        [60, 65],\n        [51, 48],\n        [43, 48],\n        [33, 45],\n        [33, 32],\n        [30, 30],\n        [30, 30],\n        [22, 20],\n        [22, 14],\n        [19, 14],\n        [19, 14],\n        [19, 14],\n        [19, 14],\n        [12, 14],\n        [12, 14],\n        [12, 6],\n        [12, 6],\n        [12, 6],\n        [12, 6],\n        [5, 6]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5\",\n        \"6\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [5, 5],\n        [6, 6]\n      ]\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"7\",\n        \"8\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [7, 7],\n        [8, 8]\n      ]\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"9\",\n        \"10\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [9, 9],\n        [10, 10]\n      ]\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"11\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"12\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26 & Over\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, null]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26 & Over\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Male\",\n      \"Female\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table provides termination rates by Years of Service only (Male and Female columns). Rates are per 1,000. Target requires annual probability (decimal). Code will divide by 1000. Since the source has no age dimension, broadcast is used to repeat the service-based rates across all target ages. Male and Female rates are averaged (series_op: mean) as no headcount distribution is provided to weight them. Target service bins 6, 8, 10, 30, 40 are mapped via overlap_weighted from the single-year source bins. Target service bin 30 and 40 both map to the tail of the source table (13+ years) as the source does not distinguish between 13-30 and 31-40; the code will apply the same blended rate to both target columns based on the source distribution.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 50543,
+          "total_tokens": 52882,
+          "completion_tokens": 2339,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 50543,
+        "total_tokens": 52882,
+        "completion_tokens": 2339,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

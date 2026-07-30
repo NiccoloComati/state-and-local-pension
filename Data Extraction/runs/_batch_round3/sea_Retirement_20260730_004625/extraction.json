@@ -1,0 +1,350 @@
+{
+  "source_tables": [
+    {
+      "page": 60,
+      "title": "Members Receiving Service Retirement Benefits as of January 1, 2020 \u2013 Inactive Lives",
+      "row_labels": [
+        "<50",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90+"
+      ],
+      "col_labels": [
+        "Number of Persons",
+        "Annual Benefits in Thousands",
+        "Average Annual Benefits"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          1127,
+          59302
+        ],
+        [
+          219,
+          9117,
+          41629
+        ],
+        [
+          750,
+          29471,
+          39295
+        ],
+        [
+          1592,
+          53519,
+          33617
+        ],
+        [
+          1635,
+          52271,
+          31970
+        ],
+        [
+          973,
+          28316,
+          29102
+        ],
+        [
+          524,
+          12914,
+          24646
+        ],
+        [
+          265,
+          6386,
+          24099
+        ],
+        [
+          228,
+          4536,
+          19897
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        6205,
+        197657,
+        31855
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 61,
+      "title": "Members Receiving Disability Retirement Benefits as of January 1, 2020 \u2013 Inactive Lives",
+      "row_labels": [
+        "<50",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90+"
+      ],
+      "col_labels": [
+        "Number of Persons",
+        "Annual Benefits in Thousands",
+        "Average Annual Benefits"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          54,
+          17892
+        ],
+        [
+          10,
+          195,
+          19509
+        ],
+        [
+          14,
+          288,
+          20587
+        ],
+        [
+          8,
+          126,
+          15808
+        ],
+        [
+          4,
+          67,
+          16724
+        ],
+        [
+          3,
+          38,
+          12642
+        ],
+        [
+          3,
+          44,
+          14513
+        ],
+        [
+          1,
+          "*",
+          null
+        ],
+        [
+          1,
+          "*",
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        47,
+        812,
+        17273
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 62,
+      "title": "Survivors Receiving Retirement Benefits as of January 1, 2020 \u2013 Inactive Lives",
+      "row_labels": [
+        "<50",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90+"
+      ],
+      "col_labels": [
+        "Number of Persons",
+        "Annual Benefits in Thousands",
+        "Average Annual Benefits"
+      ],
+      "cells": [
+        [
+          7,
+          86,
+          12223
+        ],
+        [
+          11,
+          168,
+          15284
+        ],
+        [
+          25,
+          593,
+          23727
+        ],
+        [
+          53,
+          1156,
+          21802
+        ],
+        [
+          88,
+          1893,
+          21513
+        ],
+        [
+          101,
+          1938,
+          19191
+        ],
+        [
+          93,
+          2196,
+          23617
+        ],
+        [
+          81,
+          1647,
+          20329
+        ],
+        [
+          81,
+          1672,
+          20646
+        ],
+        [
+          148,
+          2837,
+          19167
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        688,
+        14186,
+        20619
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70-74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75-79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80-84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85-89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90+"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "90+"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "90+"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Number of Persons"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Average Annual Benefits"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Target requires Service retirees only; Table C-2 (page 60) provides Service Retirement data. Table C-3 (Disability) and Table C-4 (Survivors) are transcribed as archived evidence but excluded from mapping. Source 'Annual Benefits in Thousands' column is present but not used as the source table already provides 'Average Annual Benefits' directly in dollars. The source '90+' bucket covers ages 90 and up; it is mapped to target rows 90-94, 95-99, and 100 & over using 'share_even' as per guidance. The source average benefit for 90+ is 19,897; splitting the count and total dollars evenly across the three target rows reproduces this average for each row.",
+  "unavailable": false,
+  "broadcast": null
+}

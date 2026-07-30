@@ -1,0 +1,462 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9a09602b9c9e9b37",
+        "object": "chat.completion",
+        "created": 1785364945,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\n        \"31\",\n        \"32\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, 31],\n        [32, 32]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\n        \"33\",\n        \"34\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [33, 33],\n        [34, 34]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [40, null]\n      ]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 7 provides retirement probabilities by years of service only, with no age breakdown. The target requires a grid by service (rows) and age (columns). Since the source rate depends only on service, the broadcast mechanism is used to repeat the service-based rate across all target age columns (50-70). The source table is transposed to match the target's row/column orientation (service as rows, age as columns). Values are printed as percentages and converted to decimals by the code. The 'Less than 25' service bin is mapped to target service bins 5-11, 12-19, and 20-24 using overlap_weighted, assuming the rate applies uniformly across the service range. The '40+' bin is mapped to target '40' using overlap_weighted.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 29993,
+          "completion_tokens": 2098,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 29993,
+        "completion_tokens": 2098,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with transpose - transcribe the varying dimension as ROWS and set broadcast instead"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-bee22fa5d2fa1bc2",
+        "object": "chat.completion",
+        "created": 1785364958,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\n        \"31\",\n        \"32\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, 31],\n        [32, 32]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\n        \"33\",\n        \"34\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [33, 33],\n        [34, 34]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [40, null]\n      ]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 7 provides retirement probabilities by years of service only, with no age breakdown. The target requires a grid by service (rows) and age (columns). Since the source rate depends only on service, the broadcast mechanism is used to repeat the service-based rate across all target age columns (50-70). The source table is transcribed with service bins as rows. Values are printed as percentages and converted to decimals by the code. The 'Less than 25' service bin is mapped to target service bins 5-11, 12-19, and 20-24 using overlap_weighted, assuming the rate applies uniformly across the service range. The '40+' bin is mapped to target '40' using overlap_weighted.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 32367,
+          "total_tokens": 34454,
+          "completion_tokens": 2087,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 32367,
+        "total_tokens": 34454,
+        "completion_tokens": 2087,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast: row_map entries must have EMPTY sources (that axis is filled identically); these do not: ['5-11', '12-19', '20-24', '25-29', '30', '31-32']"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-8a68d53b9232195c",
+        "object": "chat.completion",
+        "created": 1785364971,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\"Less than 25\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[null, 24]]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\"25\", \"26\", \"27\", \"28\", \"29\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[25, 25], [26, 26], [27, 27], [28, 28], [29, 29]]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\"30\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[30, 30]]\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\"31\", \"32\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[31, 31], [32, 32]]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\"33\", \"34\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[33, 33], [34, 34]]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\"35\", \"36\", \"37\", \"38\", \"39\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[35, 35], [36, 36], [37, 37], [38, 38], [39, 39]]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\"40+\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[40, null]]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"values_unit\": \"percent\",\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 7 provides Retirement Rates by Years of Service only, with no age breakdown. The rate is assumed constant across all ages for a given service year. The target grid requires rates by age and service. Per instructions, a one-dimensional rate exhibit is transcribed with the varying dimension (service) as rows and the other dimension (age) broadcasted. The source table rows 'Less than 25' through '40+' are mapped to target service buckets using overlap_weighted. Since the source has no age dimension, the target age columns (50-70) are mapped to the single source column with an empty source list in the row_map/col_map logic, but the broadcast object indicates the rate is repeated across all ages. The values are percentages (e.g., 2.0) and will be converted to decimals by the code.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 30059,
+          "completion_tokens": 2164,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 30059,
+        "completion_tokens": 2164,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with transpose - transcribe the varying dimension as ROWS and set broadcast instead",
+        "source_tables[0] holds values up to 100.0 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-b56a51446f516f04",
+        "object": "chat.completion",
+        "created": 1785364985,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, 30]\n      ]\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\n        \"31\",\n        \"32\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, 31],\n        [32, 32]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\n        \"33\",\n        \"34\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [33, 33],\n        [34, 34]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [40, null]\n      ]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"broadcast\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"service\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 7 provides Retirement Rates by Years of Service only, with no age breakdown. The target requires rates by service x age. Per instructions, the rate by service is broadcast across all age columns (axis='service'). The source bins (e.g., 'Less than 25', '40+') are mapped to target service bins using 'overlap_weighted' with declared source_spans. The source values are percentages (e.g., 2.0) and are converted to decimals by the code via values_unit='percent'. No age-specific retirement rates are published.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 29962,
+          "completion_tokens": 2067,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 29962,
+        "completion_tokens": 2067,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 21,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[1].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[2].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[3].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[4].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[5].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[6].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[7].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[8].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[9].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[10].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[11].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[12].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[13].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[14].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[15].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[16].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[17].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[18].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[19].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[20].op 'broadcast' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-8f41c00f4b27c73e",
+        "object": "chat.completion",
+        "created": 1785364998,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\"Less than 25\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[null, 24]]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\"25\", \"26\", \"27\", \"28\", \"29\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[25, 25], [26, 26], [27, 27], [28, 28], [29, 29]]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\"30\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[30, 30]]\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\"31\", \"32\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[31, 31], [32, 32]]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\"33\", \"34\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[33, 33], [34, 34]]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\"35\", \"36\", \"37\", \"38\", \"39\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[35, 35], [36, 36], [37, 37], [38, 38], [39, 39]]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\"40+\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[40, null]]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"The source table (Page 7) provides retirement rates by years of service only, with no age breakdown. The target requires rates by service and age. As per instructions for one-dimensional rate exhibits, I have transcribed the service-based rates and declared a broadcast on the 'age' axis. This means the code will repeat the service-based rate across all target age columns (50-70). The source bins for service are mapped to the target service bins using overlap_weighted. Target bins with no source coverage (e.g., 5-11, 12-19) have empty source lists. The values are printed as percentages.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 30015,
+          "completion_tokens": 2120,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 30015,
+        "completion_tokens": 2120,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with transpose - transcribe the varying dimension as ROWS and set broadcast instead"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-946b7aebdcc5e2d9",
+        "object": "chat.completion",
+        "created": 1785365012,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\n        \"31\",\n        \"32\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, 31],\n        [32, 32]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\n        \"33\",\n        \"34\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [33, 33],\n        [34, 34]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40+\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 7 provides retirement rates by years of service only, with no age breakdown. The target grid requires rates by service (rows) and age (columns). Since the source rate depends only on service, the 'broadcast' operation is used to repeat the service-based rate across all target age columns (50-70). The source rates are printed as percentages and converted to decimals by the code (values_unit='percent'). The target service bins (e.g., '5-11', '20-24') are mapped to the source bins using 'overlap_weighted' to blend rates where a target bin spans multiple source bins (e.g., '25-29' spans source rows 25, 26, 27, 28, 29). The source row 'Less than 25' is treated as [null, 24] and covers target rows '5-11', '12-19', '20-24' equally via overlap weighting logic (though the rate is constant 2.0% for all these bins, the operation remains overlap_weighted to respect the bin definition). The '40+' source row maps to target '40' (40 and over). The target age columns have empty sources because the rate is broadcast from the service dimension.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 30080,
+          "completion_tokens": 2185,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 30080,
+        "completion_tokens": 2185,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with transpose - transcribe the varying dimension as ROWS and set broadcast instead"
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-ab99210d60e87f34",
+        "object": "chat.completion",
+        "created": 1785365026,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\"Less than 25\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\"25\", \"26\", \"27\", \"28\", \"29\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\"30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\"31\", \"32\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, 31],\n        [32, 32]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\"33\", \"34\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [33, 33],\n        [34, 34]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\"35\", \"36\", \"37\", \"38\", \"39\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\"40+\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on Page 7 provides retirement probabilities by years of service only, with no age breakdown. The target requires rates by service x age. Per instructions, the service-based rate is broadcast across all age columns (axis='age'). Target rows with no corresponding source service bins (5-11, 12-19) are mapped with empty sources. Rows with single source bins (20-24, 30, 40) use copy. Rows spanning multiple source bins use overlap_weighted with defined spans. Values are percentages; code converts to decimals. No age-specific rates exist in the document.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 29776,
+          "completion_tokens": 1881,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 29776,
+        "completion_tokens": 1881,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with transpose - transcribe the varying dimension as ROWS and set broadcast instead"
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-bbf5d0696c2e34d9",
+        "object": "chat.completion",
+        "created": 1785365038,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 7,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"Less than 25\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40+\"\n      ],\n      \"col_labels\": [\n        \"Probability of Retiring Within One Year\"\n      ],\n      \"cells\": [\n        [2.0],\n        [2.0],\n        [5.5],\n        [5.5],\n        [5.5],\n        [5.5],\n        [13.0],\n        [15.0],\n        [20.0],\n        [20.0],\n        [20.0],\n        [30.0],\n        [30.0],\n        [40.0],\n        [40.0],\n        [40.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, 31],\n        [32, 32],\n        [33, 33],\n        [34, 34],\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39],\n        [40, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\n        \"Less than 25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, 30]\n      ]\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\n        \"31\",\n        \"32\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, 31],\n        [32, 32]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\n        \"33\",\n        \"34\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [33, 33],\n        [34, 34]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [35, 35],\n        [36, 36],\n        [37, 37],\n        [38, 38],\n        [39, 39]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [40, null]\n      ]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Probability of Retiring Within One Year\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on Page 7 provides retirement probabilities by years of service only, with no age breakdown. The target requires rates by service (rows) and age (columns). Since the source rate is independent of age (broadcast along age axis), the same service-based rate is applied to all target age columns (50-70). The source table is transposed to match the target's row/column orientation (Service rows, Age columns). Rates are in percent and converted to decimals by code. Source bins for service are mapped to target bins using overlap_weighted to handle bin boundaries (e.g., 'Less than 25' covers 5-11, 12-19, 20-24). '40+' maps to target '40'.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 27895,
+          "total_tokens": 30003,
+          "completion_tokens": 2108,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 27895,
+        "total_tokens": 30003,
+        "completion_tokens": 2108,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with transpose - transcribe the varying dimension as ROWS and set broadcast instead"
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

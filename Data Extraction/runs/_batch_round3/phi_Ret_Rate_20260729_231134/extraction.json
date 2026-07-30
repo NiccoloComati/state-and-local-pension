@@ -1,0 +1,10 @@
+{
+  "source_tables": [],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not contain a table of retirement rates by age and service. Appendix C (pages 108-111) lists 'Rates of Retirement' as an assumption but does not provide the numerical rate table (age rows x service columns) required to populate the target grid. The text mentions 'sample rates shown below' on page 108 and 111, but the actual tables are missing from the provided text. Therefore, the target data is unavailable.",
+  "unavailable": true,
+  "broadcast": null
+}

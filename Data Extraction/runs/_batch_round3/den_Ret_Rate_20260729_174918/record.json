@@ -1,0 +1,500 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8f08aa6a1a4411ef",
+        "object": "chat.completion",
+        "created": 1785361758,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Rates of Retirement - Non-DHHA\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [5.0, 2.5, \"N/A\"],\n        [9.0, 4.5, \"N/A\"],\n        [10.0, 5.0, \"N/A\"],\n        [6.0, 3.0, \"N/A\"],\n        [6.0, 3.0, \"N/A\"],\n        [\"N/A\", \"N/A\", 20.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 25.0],\n        [\"N/A\", \"N/A\", 30.0],\n        [\"N/A\", \"N/A\", 30.0],\n        [\"N/A\", \"N/A\", 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 62,\n      \"title\": \"Rates of Retirement - Rule of 75/85\",\n      \"row_labels\": [\n        \"NAR\",\n        \"NAR+1\",\n        \"NAR+2\",\n        \"NAR+3\",\n        \"NAR+4\",\n        \"NAR+5\",\n        \"NAR+6\",\n        \"NAR+7\",\n        \"NAR+8\",\n        \"NAR+9\",\n        \"NAR+10\",\n        \"NAR+11\"\n      ],\n      \"col_labels\": [\n        \"Rule of 75/85\"\n      ],\n      \"cells\": [\n        [25.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [27.0],\n        [27.0],\n        [27.0],\n        [33.0],\n        [33.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"op\": \"copy\",\n      \"sources\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The document provides retirement rates by attained age (rows) and service/tier (columns), not by service-year buckets x single age. The target grid requires rates by service buckets (rows) and single ages (columns). The source table (Page 61) lists specific ages 55-72. For ages 50-54, the document shows 'N/A' or no data, implying 0% probability. For ages 55-64, rates depend on hire date (Tier 1/2 vs Tier 3). The target grid's service buckets (5-11, 12-19, etc.) do not align with the source's age-based rows. The source does not provide a matrix of Age x Service. Instead, it provides Age x Tier. The target requires Age x Service. Since the document does not publish rates by service-year buckets (only by age and tier), and the target grid specifically asks for service buckets as rows, the data is not directly available in the requested format. However, the 'Rules of 75/85' (Page 62) imply a relationship between age and service (Age + Service = 75 or 85). Without a full matrix of Age x Service, we cannot populate the target grid accurately for all cells. The provided mapping attempts to map the available Age-based rates to the Age columns, but the Row mapping (Service Buckets) cannot be derived from the source which is indexed by Age. Thus, the target grid is effectively unavailable in the requested orientation and granularity. The 'transpose' flag is set to true to reflect the source's Age-rows/Service-cols (or Age-rows/Tier-cols) orientation, but the content does not match the target's Service-rows/Age-cols requirement. The 'unavailable' flag should be true because the specific cross-tabulation of Service Buckets x Single Age is not published. The source tables are transcribed as evidence of the available data (Age-based rates).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 60875,
+          "completion_tokens": 2712,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 60875,
+        "completion_tokens": 2712,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-bdbe996f103818ac",
+        "object": "chat.completion",
+        "created": 1785361777,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Rates of Retirement - Non-DHHA\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [5.0, 2.5, \"N/A\"],\n        [9.0, 4.5, \"N/A\"],\n        [10.0, 5.0, \"N/A\"],\n        [6.0, 3.0, \"N/A\"],\n        [6.0, 3.0, \"N/A\"],\n        [\"N/A\", \"N/A\", 20.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 25.0],\n        [\"N/A\", \"N/A\", 30.0],\n        [\"N/A\", \"N/A\", 30.0],\n        [\"N/A\", \"N/A\", 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 59], [60, 64]]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"unavailable\": true,\n  \"notes\": \"The document publishes retirement rates by attained age (rows) and hire tier (columns), not by service-year buckets (rows) x single age (columns) as required by the target grid. The source table (Page 61) lists specific ages 55-72. The target requires rows for service buckets (e.g., '5-11', '12-19') which are not present in the source. The source does not provide a matrix of Age x Service. Therefore, the target grid cannot be populated. The source tables are transcribed as evidence of the available data (Age-based rates), but the target is unavailable.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 63441,
+          "total_tokens": 65583,
+          "completion_tokens": 2142,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 63441,
+        "total_tokens": 65583,
+        "completion_tokens": 2142,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "unavailable=true requires row_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "unavailable=true requires col_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-9ed37d4fb6ffd667",
+        "object": "chat.completion",
+        "created": 1785361793,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Non-DHHA Rates of Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [5.0, 2.5, null],\n        [9.0, 4.5, null],\n        [10.0, 5.0, null],\n        [6.0, 3.0, null],\n        [6.0, 3.0, null],\n        [null, null, 20.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 25.0],\n        [null, null, 30.0],\n        [null, null, 30.0],\n        [null, null, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 55]]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[56, 56]]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[57, 57]]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 58]]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[59, 59]]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[60, 60], [60, 60]]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[61, 61], [61, 61]]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[62, 62], [62, 62]]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[63, 63], [63, 63]]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[64, 64], [64, 64]]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, 65]]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[66, 66]]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[67, 67]]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[68, 68]]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[69, 69]]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[70, 72]]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table on page 61 provides retirement rates by age for three cohorts: 'Hired before July 1, 2011' (ages 55-64), 'Hired after June 30, 2011' (ages 60-64), and 'Normal Retirement' (ages 65+). The target grid requires rates by service year (rows) and single age (columns). The source does not provide rates by service year; it only provides rates by age for specific hire cohorts. Therefore, the target cannot be fully constructed as the service-year dimension is missing. The row_map sources are empty for all service buckets because no service-based rates exist in the document. The col_map uses the age-based rates where available, but these are conditional on hire date/cohort, not service. The target grid asks for a single probability per (service, age) cell, but the source provides different probabilities for the same age depending on hire date (e.g., age 60 has 5.0% for pre-2011 hires and 2.5% for post-2011 hires). Without a distribution of members by hire date within each service-age cell, a single blended rate cannot be calculated. The document does not publish a combined retirement rate table by age and service. The provided mapping attempts to map the available age data, but the row dimension (service) remains unmapped (empty sources). The 'transpose' is set to true because the source is Age x Cohort, and the target is Service x Age, but since the source lacks the Service dimension entirely, the transpose alone cannot solve the missing data. The target is effectively unavailable for the service dimension.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 60793,
+          "completion_tokens": 2630,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 60793,
+        "completion_tokens": 2630,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 19,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([55, 55] vs [56, 56]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([56, 56] vs [57, 57]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([57, 57] vs [58, 58]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([58, 58] vs [59, 59]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([59, 59] vs [60, 60]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([65, 65] vs [66, 66]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([66, 66] vs [67, 67]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([67, 67] vs [68, 68]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([68, 68] vs [69, 69]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([69, 69] vs [70, 72]) - a printed bin has ONE meaning; declare the same span everywhere"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-a8a9bfc87b557e09",
+        "object": "chat.completion",
+        "created": 1785361812,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Rates of Retirement - Non-DHHA\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [4.0, \"N/A\", \"N/A\"],\n        [5.0, 2.5, \"N/A\"],\n        [9.0, 4.5, \"N/A\"],\n        [10.0, 5.0, \"N/A\"],\n        [6.0, 3.0, \"N/A\"],\n        [6.0, 3.0, \"N/A\"],\n        [\"N/A\", \"N/A\", 20.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 18.0],\n        [\"N/A\", \"N/A\", 25.0],\n        [\"N/A\", \"N/A\", 30.0],\n        [\"N/A\", \"N/A\", 30.0],\n        [\"N/A\", \"N/A\", 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 62,\n      \"title\": \"Rates of Retirement - Rule of 75 or 85\",\n      \"row_labels\": [\n        \"NAR\",\n        \"NAR+1\",\n        \"NAR+2\",\n        \"NAR+3\",\n        \"NAR+4\",\n        \"NAR+5\",\n        \"NAR+6\",\n        \"NAR+7\",\n        \"NAR+8\",\n        \"NAR+9\",\n        \"NAR+10\",\n        \"NAR+11\"\n      ],\n      \"col_labels\": [\n        \"Rule of 75/85\"\n      ],\n      \"cells\": [\n        [25.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [27.0],\n        [27.0],\n        [27.0],\n        [33.0],\n        [33.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\", \"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 60],\n        [60, 60],\n        [60, 60]\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\", \"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [61, 61],\n        [61, 61],\n        [61, 61]\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\", \"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [62, 62],\n        [62, 62],\n        [62, 62]\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\", \"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [63, 63],\n        [63, 63],\n        [63, 63]\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\", \"Normal Retirement\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [64, 64],\n        [64, 64],\n        [64, 64]\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The document provides retirement rates by attained age (rows) and service-based eligibility (columns: 'Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement'). It does not provide a single rate for every combination of age and years of service. The target grid requires rates by service-year buckets (rows) and single ages (columns). Since the source rates are conditional on age and hire-date/service-eligibility rather than a simple function of years of service, and the document does not provide a joint distribution of age and service to calculate a weighted average rate for the target bins, the specific target grid cannot be derived. The source table is transcribed for reference, but the row_map and col_map are effectively empty or non-applicable for the target's specific 'service-year bucket x age' definition because the source does not define rates by service buckets in the required manner (it defines them by age and hire cohort). The 'Rule of 75/85' table provides rates relative to Normal Age at Retirement (NAR), which is also not directly mappable to the fixed service buckets without additional assumptions about the NAR for each member. Thus, the target is unavailable in the required format.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 60831,
+          "completion_tokens": 2668,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 60831,
+        "completion_tokens": 2668,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 13,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-9ba4ad7b5194f954",
+        "object": "chat.completion",
+        "created": 1785361832,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"10. Increases in Pay\",\n      \"row_labels\": [\n        \"Service Non-DHHA\",\n        \"Age DHHA\"\n      ],\n      \"col_labels\": [\n        \"Rate Non-DHHA\",\n        \"Rate DHHA\"\n      ],\n      \"cells\": [\n        [\n          \"7.00%\",\n          \"2.00%\"\n        ],\n        [\n          \"5.50%\",\n          \"2.00%\"\n        ],\n        [\n          \"3.50%\",\n          \"2.00%\"\n        ],\n        [\n          \"3.25%\",\n          \"2.00%\"\n        ],\n        [\n          \"3.00%\",\n          \"2.00%\"\n        ],\n        [\n          \"2.75%\",\n          \"2.00%\"\n        ],\n        [\n          \"2.50%\",\n          \"2.00%\"\n        ],\n        [\n          \"2.25%\",\n          \"2.00%\"\n        ],\n        [\n          \"2.00%\",\n          \"2.00%\"\n        ],\n        [\n          \"1.50%\",\n          \"2.00%\"\n        ],\n        [\n          \"1.50%\",\n          \"0.75%\"\n        ],\n        [\n          \"1.25%\",\n          \"0.75%\"\n        ],\n        [\n          \"1.25%\",\n          \"0.75%\"\n        ],\n        [\n          \"1.00%\",\n          \"0.75%\"\n        ],\n        [\n          \"0.75%\",\n          \"0.75%\"\n        ],\n        [\n          \"0.50%\",\n          \"0.50%\"\n        ],\n        [\n          \"0.50%\",\n          \"0.50%\"\n        ],\n        [\n          \"0.25%\",\n          \"0.50%\"\n        ],\n        [\n          \"0.25%\",\n          \"0.50%\"\n        ],\n        [\n          \"0.25%\",\n          \"0.50%\"\n        ],\n        [\n          \"0.00%\",\n          \"0.00%\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 62,\n      \"title\": \"11. Rates of Termination\",\n      \"row_labels\": [\n        \"0-1\",\n        \"1-2\",\n        \"2-3\",\n        \"3-4\",\n        \"4-5\",\n        \"5-6\",\n        \"6-7\",\n        \"7-8\",\n        \"8-9\",\n        \"9-10\",\n        \"10-11\",\n        \"11-12\",\n        \"12-13\",\n        \"13-14\",\n        \"14-15\",\n        \"15-16\",\n        \"16-17\",\n        \"17-18\",\n        \"18-19\",\n        \"19-20\",\n        \"21+\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [\n          \"18%\",\n          \"23%\"\n        ],\n        [\n          \"15%\",\n          \"18%\"\n        ],\n        [\n          \"14%\",\n          \"16%\"\n        ],\n        [\n          \"11%\",\n          \"13%\"\n        ],\n        [\n          \"10%\",\n          \"12%\"\n        ],\n        [\n          \"9%\",\n          \"11%\"\n        ],\n        [\n          \"8%\",\n          \"10%\"\n        ],\n        [\n          \"8%\",\n          \"10%\"\n        ],\n        [\n          \"7%\",\n          \"9%\"\n        ],\n        [\n          \"6%\",\n          \"9%\"\n        ],\n        [\n          \"5%\",\n          \"8%\"\n        ],\n        [\n          \"5%\",\n          \"7%\"\n        ],\n        [\n          \"5%\",\n          \"5%\"\n        ],\n        [\n          \"5%\",\n          \"5%\"\n        ],\n        [\n          \"4%\",\n          \"4%\"\n        ],\n        [\n          \"4%\",\n          \"4%\"\n        ],\n        [\n          \"3%\",\n          \"3%\"\n        ],\n        [\n          \"3%\",\n          \"3%\"\n        ],\n        [\n          \"3%\",\n          \"3%\"\n        ],\n        [\n          \"3%\",\n          \"3%\"\n        ],\n        [\n          \"2%\",\n          \"2%\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 61,\n      \"title\": \"15. Rates of Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [\n          \"2.5%\",\n          \"N/A\",\n          \"N/A\"\n        ],\n        [\n          \"4.0%\",\n          \"N/A\",\n          \"N/A\"\n        ],\n        [\n          \"4.0%\",\n          \"N/A\",\n          \"N/A\"\n        ],\n        [\n          \"4.0%\",\n          \"N/A\",\n          \"N/A\"\n        ],\n        [\n          \"4.0%\",\n          \"N/A\",\n          \"N/A\"\n        ],\n        [\n          \"5.0%\",\n          \"2.5%\",\n          \"N/A\"\n        ],\n        [\n          \"9.0%\",\n          \"4.5%\",\n          \"N/A\"\n        ],\n        [\n          \"10.0%\",\n          \"5.0%\",\n          \"N/A\"\n        ],\n        [\n          \"6.0%\",\n          \"3.0%\",\n          \"N/A\"\n        ],\n        [\n          \"6.0%\",\n          \"3.0%\",\n          \"N/A\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"20.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"18.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"18.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"18.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"25.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"30.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"30.0%\"\n        ],\n        [\n          \"N/A\",\n          \"N/A\",\n          \"100.0%\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 62,\n      \"title\": \"Eligible for Rule of 75 or Rule of 85\",\n      \"row_labels\": [\n        \"NAR\",\n        \"NAR+1\",\n        \"NAR+2\",\n        \"NAR+3\",\n        \"NAR+4\",\n        \"NAR+5\",\n        \"NAR+6\",\n        \"NAR+7\",\n        \"NAR+8\",\n        \"NAR+9\",\n        \"NAR+10\",\n        \"NAR+11\"\n      ],\n      \"col_labels\": [\n        \"Rule of 75/85\"\n      ],\n      \"cells\": [\n        [\n          \"25.0%\"\n        ],\n        [\n          \"17.0%\"\n        ],\n        [\n          \"17.0%\"\n        ],\n        [\n          \"17.0%\"\n        ],\n        [\n          \"17.0%\"\n        ],\n        [\n          \"17.0%\"\n        ],\n        [\n          \"27.0%\"\n        ],\n        [\n          \"27.0%\"\n        ],\n        [\n          \"27.0%\"\n        ],\n        [\n          \"33.0%\"\n        ],\n        [\n          \"33.0%\"\n        ],\n        [\n          \"100.0%\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a table of retirement rates by both age and service years simultaneously. Page 61 (Table 15) provides retirement rates by Age for specific hire-date cohorts (Hired before July 1, 2011; Hired after June 30, 2011) and Normal Retirement, but does not vary by years of service. Page 62 provides rates based on 'Rule of 75 or 85' which depends on the sum of age and service, not service alone. Page 62 (Table 11) provides termination rates by service, not retirement. Page 61 (Table 10) provides salary increase assumptions. Since the target requires a probability of retirement by service-year bucket x single age, and no such 2D table exists (the document only provides 1D slices by age or by service/age-sum rule), the target is unavailable. The closest related tables (Retirement rates by age, Termination rates by service) are transcribed as source_tables for archival evidence.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 60647,
+          "completion_tokens": 2484,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 60647,
+        "completion_tokens": 2484,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].cells has 21 rows but 2 row_labels",
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-8db72fe43fdfc9f2",
+        "object": "chat.completion",
+        "created": 1785361850,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Rates of Retirement - Non-DHHA\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [5.0, 2.5, null],\n        [9.0, 4.5, null],\n        [10.0, 5.0, null],\n        [6.0, 3.0, null],\n        [6.0, 3.0, null],\n        [null, null, 20.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 25.0],\n        [null, null, 30.0],\n        [null, null, 30.0],\n        [null, null, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 62,\n      \"title\": \"Rates of Retirement - Rule of 75/85\",\n      \"row_labels\": [\n        \"NAR\",\n        \"NAR+1\",\n        \"NAR+2\",\n        \"NAR+3\",\n        \"NAR+4\",\n        \"NAR+5\",\n        \"NAR+6\",\n        \"NAR+7\",\n        \"NAR+8\",\n        \"NAR+9\",\n        \"NAR+10\",\n        \"NAR+11\"\n      ],\n      \"col_labels\": [\n        \"Rule of 75/85\"\n      ],\n      \"cells\": [\n        [25.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [27.0],\n        [27.0],\n        [27.0],\n        [33.0],\n        [33.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table on page 61 provides retirement rates by age for Non-DHHA members, split by hire date (pre/post July 2011) and Normal Retirement. The target requires rates by service year (rows) and age (columns). The document does not provide retirement rates as a function of service years, only by attained age. Therefore, for the target rows (service buckets), there is no source data. The row_map entries for service buckets have empty sources. The column mapping uses the age-based rates from page 61. For ages 60-64, the document provides separate rates for 'Hired before July 1, 2011' and 'Hired after June 30, 2011'. The target grid does not specify a tier/hire-date split, so a weighted average (group_weighted) is declared, but without a weights table for the specific age/service distribution of these subgroups, the code will default to a simple average or require external data. The 'Normal Retirement' column applies to ages 65+. The 'Rule of 75/85' table on page 62 provides rates relative to NAR but cannot be mapped to absolute service years without knowing NAR for each member, which is not provided in a single table. Thus, the primary source is the age-based table on page 61. Since the target asks for service-year buckets and the source is age-based, and no joint distribution is given, the mapping for rows is effectively empty (no data). The column map reflects the age data available. The 'transpose' flag is set because the source is Age x Service (conceptually, though here it is Age x Tier) and the target is Service x Age, but since the row dimension (Service) is missing in the source, the transpose mainly handles the column-to-row flip for the age data if it were present. However, strictly speaking, the source is Age x Tier, not Age x Service. The target requires Service x Age. Since Service data is missing, the result is largely empty for rows. The notes clarify that the document publishes rates by age, not by service years.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 60809,
+          "completion_tokens": 2646,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 60809,
+        "completion_tokens": 2646,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 3 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)"
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-b56b275b21a3decc",
+        "object": "chat.completion",
+        "created": 1785361870,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Rates of Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [5.0, 2.5, null],\n        [9.0, 4.5, null],\n        [10.0, 5.0, null],\n        [6.0, 3.0, null],\n        [6.0, 3.0, null],\n        [null, null, 20.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 25.0],\n        [null, null, 30.0],\n        [null, null, 30.0],\n        [null, null, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Hired before July 1, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Hired before July 1, 2011\", \"Hired after June 30, 2011\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Normal Retirement\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The document provides retirement rates by attained age (rows) and hire tier (columns: Hired before July 1, 2011, Hired after June 30, 2011, Normal Retirement). No rates are provided by years of service; the target grid requires rates by service-year buckets. Since the source table lacks the service dimension entirely, the target cannot be derived. The row_map entries for service buckets have empty sources. The col_map maps target ages to the available age-based rates, but without service data, the full 2D grid is unavailable. The table is transposed in the declaration to match the target's service-row/age-col orientation, but the data remains missing for the service dimension.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 59929,
+          "completion_tokens": 1766,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 59929,
+        "completion_tokens": 1766,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 7,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[10] ('60'): 'copy' takes exactly one source. To MERGE bins use 'sum' (additive quantities) or 'weighted_avg' with weights_table = the counts table (averages - never sum/share_even them)",
+        "col_map[11] ('61'): 'copy' takes exactly one source. To MERGE bins use 'sum' (additive quantities) or 'weighted_avg' with weights_table = the counts table (averages - never sum/share_even them)",
+        "col_map[12] ('62'): 'copy' takes exactly one source. To MERGE bins use 'sum' (additive quantities) or 'weighted_avg' with weights_table = the counts table (averages - never sum/share_even them)",
+        "col_map[13] ('63'): 'copy' takes exactly one source. To MERGE bins use 'sum' (additive quantities) or 'weighted_avg' with weights_table = the counts table (averages - never sum/share_even them)",
+        "col_map[14] ('64'): 'copy' takes exactly one source. To MERGE bins use 'sum' (additive quantities) or 'weighted_avg' with weights_table = the counts table (averages - never sum/share_even them)",
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] holds values up to 100.0 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-bb3fe30aa844fc75",
+        "object": "chat.completion",
+        "created": 1785361884,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 61,\n      \"title\": \"Non-DHHA Rates of Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\"\n      ],\n      \"col_labels\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\",\n        \"Normal Retirement\"\n      ],\n      \"cells\": [\n        [2.5, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [4.0, null, null],\n        [5.0, 2.5, null],\n        [9.0, 4.5, null],\n        [10.0, 5.0, null],\n        [6.0, 3.0, null],\n        [6.0, 3.0, null],\n        [null, null, 20.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 18.0],\n        [null, null, 25.0],\n        [null, null, 30.0],\n        [null, null, 30.0],\n        [null, null, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72]\n      ],\n      \"col_spans\": [\n        [null, null],\n        [null, null],\n        [null, null]\n      ]\n    },\n    {\n      \"page\": 62,\n      \"title\": \"Eligible for Rule of 75 or Rule of 85\",\n      \"row_labels\": [\n        \"NAR\",\n        \"NAR+1\",\n        \"NAR+2\",\n        \"NAR+3\",\n        \"NAR+4\",\n        \"NAR+5\",\n        \"NAR+6\",\n        \"NAR+7\",\n        \"NAR+8\",\n        \"NAR+9\",\n        \"NAR+10\",\n        \"NAR+11\"\n      ],\n      \"col_labels\": [\n        \"Rule of 75/85\"\n      ],\n      \"cells\": [\n        [25.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [17.0],\n        [27.0],\n        [27.0],\n        [27.0],\n        [33.0],\n        [33.0],\n        [100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null]\n      ],\n      \"col_spans\": [\n        [null, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Hired before July 1, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 55]\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Hired before July 1, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [56, 56]\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Hired before July 1, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [57, 57]\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Hired before July 1, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [58, 58]\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Hired before July 1, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [59, 59]\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 60],\n        [60, 60]\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [61, 61],\n        [61, 61]\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [62, 62],\n        [62, 62]\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [63, 63],\n        [63, 63]\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Hired before July 1, 2011\",\n        \"Hired after June 30, 2011\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [64, 64],\n        [64, 64]\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Normal Retirement\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, 65]\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Normal Retirement\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [66, 66]\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Normal Retirement\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [67, 67]\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Normal Retirement\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [68, 68]\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Normal Retirement\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [69, 69]\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Normal Retirement\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [70, 72]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"values_unit\": \"percent\",\n  \"notes\": \"The document provides retirement rates by attained age only, not by service year. The target requires a matrix of service-year buckets x single age. Since the source rates are independent of service (except for the 'Hired before/after' distinction which is a cohort effect, not a service-year function), the rates for ages 55+ are mapped to the single-age columns. For service buckets 5-40, the rates are effectively 0% (or undefined) for ages <55, and for ages >=55, the rate depends on the cohort (Hired before/after) but not the specific service bucket within the target grid. The mapping assumes the target wants the rates applicable to the age, regardless of service bucket, or that the service buckets are irrelevant for the rate calculation in this specific table structure. However, strictly speaking, the document does not provide a rate for 'Service 5-11 at Age 55' vs 'Service 40 at Age 55' as distinct values; it provides 'Age 55' rate. The 'overlap_weighted' op is used for age bins, but for service bins, since no service dimension exists in the source, the rates are broadcast across the service dimension. The 'Hired before' and 'Hired after' columns represent different cohorts. The target does not specify a cohort, so the 'Hired before' (Tier 1/2) rates are used for ages 55-64 where applicable, and 'Normal Retirement' (Tier 3/Rule of 75) rates for ages 65+. For age 60-64, both columns exist; the target does not specify which to pick, so both are listed in sources but the logic requires a choice. Given the target is a single probability, and the document splits by cohort, a weighted average or selection is needed. The current mapping lists both sources for ages 60-64. The 'overlap_weighted' with identical spans [60,60] implies a weighted average if weights were provided, but without weights, the code might fail or average. A more precise approach would be to assume the 'Hired before' rates apply to the older population and 'Hired after' to the younger, but the target grid is single age. The mapping provided lists both sources for 60-64. The 'Normal Retirement' column applies to ages 65+. The 'Rule of 75' table (page 62) is a continuation of the retirement assumption for those eligible, but the primary table (page 61) covers the specific ages. The 'Rule of 75' table uses NAR (Normal Age at Retirement) which varies by service, making it impossible to map directly to a single age column without knowing the service. Thus, the primary table on page 61 is the only source for single-age rates. The 'Rule of 75' table is ignored for the single-age target as it is service-dependent. The 'Hired before' and 'Hired after' columns are treated as separate sources for the overlap_weighted operation, but since the target is a single value, the code must decide how to combine them. The current JSON lists both. The 'transpose' is true because the source is Age x Service (implicitly, though service is not a column, the columns are cohorts) and the target is Service x Age. Wait, the source is Age x Cohort. The target is Service x Age. The source does not have service. So the 'transpose' is not strictly applicable in the sense of swapping dimensions, but the target grid is Service x Age, and the source is Age x Cohort. The mapping is from Age (source rows) to Age (target cols) and Service (source none) to Service (target rows). The 'transpose' flag is set to true to indicate the source is printed with Age as rows, while the target has Age as columns. The 'overlap_weighted' is used to map the single-age source rows to the single-age target columns. The service dimension in the target is not covered by the source, so the rates are broadcast across service buckets. The 'row_map' has empty sources for service buckets, implying the rate is the same for all service buckets at a given age (which is the case for the source table, as it only varies by age and cohort). The 'col_map' maps the age columns. The 'values_unit' is 'percent'. The 'notes' explain the limitation regarding service dimension.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58163,
+          "total_tokens": 61886,
+          "completion_tokens": 3723,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58163,
+        "total_tokens": 61886,
+        "completion_tokens": 3723,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 20,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Hired before July 1, 2011', 'Hired after June 30, 2011', 'Normal Retirement']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([55, 55] vs [56, 56]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([56, 56] vs [57, 57]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([57, 57] vs [58, 58]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([58, 58] vs [59, 59]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([59, 59] vs [60, 60]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([60, 60] vs [61, 61]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([61, 61] vs [62, 62]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([62, 62] vs [63, 63]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired before July 1, 2011' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Hired after June 30, 2011' declared with two different spans ([63, 63] vs [64, 64]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([65, 65] vs [66, 66]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([66, 66] vs [67, 67]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([67, 67] vs [68, 68]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([68, 68] vs [69, 69]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Normal Retirement' declared with two different spans ([69, 69] vs [70, 72]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "source_tables[0] holds values up to 100.0 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

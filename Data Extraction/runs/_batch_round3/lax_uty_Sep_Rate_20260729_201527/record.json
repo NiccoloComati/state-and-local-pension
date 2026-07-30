@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9bfd0ddefacc9617",
+        "object": "chat.completion",
+        "created": 1785370527,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 63,\n      \"title\": \"Termination Rates: Total Termination Rate (%)\",\n      \"row_labels\": [\n        \"Less than 1\",\n        \"1 \u2013 2\",\n        \"2 \u2013 3\",\n        \"3 \u2013 4\",\n        \"4 \u2013 5\",\n        \"5 \u2013 6\",\n        \"6 \u2013 7\",\n        \"7 \u2013 8\",\n        \"8 \u2013 9\",\n        \"9 \u2013 10\",\n        \"10 \u2013 20\",\n        \"20 & over\"\n      ],\n      \"col_labels\": [\n        \"Rate (%)\"\n      ],\n      \"cells\": [\n        [10.0],\n        [5.25],\n        [3.75],\n        [3.5],\n        [2.5],\n        [2.0],\n        [1.5],\n        [1.5],\n        [1.5],\n        [1.0],\n        [0.75],\n        [0.5]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 20],\n        [20, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1 \u2013 2\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [1, 1]\n      ]\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2 \u2013 3\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [2, 2]\n      ]\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3 \u2013 4\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [3, 3]\n      ]\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4 \u2013 5\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [4, 4]\n      ]\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5 \u2013 6\",\n        \"6 \u2013 7\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [5, 5],\n        [6, 6]\n      ]\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"7 \u2013 8\",\n        \"8 \u2013 9\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [7, 7],\n        [8, 8]\n      ]\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"9 \u2013 10\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [9, 9]\n      ]\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"10 \u2013 20\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [10, 20]\n      ]\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"10 \u2013 20\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [10, 20]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"10 \u2013 20\",\n        \"20 & over\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [10, 20],\n        [20, null]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"20 & over\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [20, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Rate (%)\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 63 provides Total Termination Rates by Years of Service only. No age breakdown is provided. Rates are broadcast across all target ages. Source bins are service-year ranges; target bins are single years or ranges. Overlap weighting is used to map source service bins to target service bins. Values are in percent and will be converted to decimal by the code.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 57011,
+          "total_tokens": 58588,
+          "completion_tokens": 1577,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 57011,
+        "total_tokens": 58588,
+        "completion_tokens": 1577,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

@@ -1,0 +1,442 @@
+{
+  "source_tables": [
+    {
+      "page": 53,
+      "title": "Expected Retirements per 100 Lives",
+      "row_labels": [
+        "45-49",
+        "50-54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66-69",
+        "70-74",
+        "75+"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          15,
+          12
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          12,
+          11
+        ],
+        [
+          14,
+          11
+        ],
+        [
+          16,
+          20
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          20,
+          12
+        ],
+        [
+          20,
+          22
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          100,
+          100
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "45-49",
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "51",
+      "sources": [
+        "45-49",
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "52",
+      "sources": [
+        "45-49",
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "53",
+      "sources": [
+        "45-49",
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "54",
+      "sources": [
+        "45-49",
+        "50-54"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70-74",
+        "75+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source table 'Expected Retirements per 100 Lives' on page 53 provides retirement rates by Age (rows) and Group (Males/Females). The target requires rates by Service (rows) and Age (columns). The source table does NOT contain service-year breakdowns; it only provides rates by attained age. Therefore, the target grid (Service x Age) cannot be populated from this source. The row_map sources are empty for all target rows because no service dimension exists in the source. The col_map uses overlap_weighted to map source age bins to target single ages, but since the row dimension is missing, the resulting table will be empty or invalid for the target's service requirement. The document does not publish retirement rates by service-year bucket.",
+  "unavailable": false,
+  "broadcast": null
+}

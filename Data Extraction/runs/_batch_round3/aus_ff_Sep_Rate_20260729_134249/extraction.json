@@ -1,0 +1,187 @@
+{
+  "source_tables": [
+    {
+      "page": 12,
+      "title": "Termination Rates",
+      "row_labels": [
+        "0-4",
+        "5-13",
+        "14+"
+      ],
+      "col_labels": [
+        "Termination Probability"
+      ],
+      "cells": [
+        [
+          "1.0%"
+        ],
+        [
+          "0.5"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          4
+        ],
+        [
+          5,
+          13
+        ],
+        [
+          14,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5-13"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "5-13"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "5-13"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "5-13"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "5-13"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "14+"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "14+"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Termination Probability"
+    ],
+    "series_op": "copy"
+  },
+  "notes": "Source table on page 12 provides termination rates by Years of Service only (0-4, 5-13, 14+). No age breakdown is provided. The target grid requires rates by Age x Service. Per instructions, the service-based rates are broadcast across all target ages (axis='age'). The source values are percentages (1.0%, 0.5, 0) and are transcribed as printed; the code will convert to decimal probability. Target service bins 1-4 map to source '0-4'; bins 6-12 map to source '5-13'; bins 30-40 map to source '14+'. Target ages 25-70 have no specific source rows and are filled by the broadcast operation.",
+  "unavailable": false
+}

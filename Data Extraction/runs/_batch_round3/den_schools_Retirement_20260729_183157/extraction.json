@@ -1,0 +1,133 @@
+{
+  "source_tables": [
+    {
+      "page": 120,
+      "title": "Exhibit D: Schedule of Benefit Recipients by Annual Benefit as of December 31, 2019",
+      "row_labels": [
+        "$0 - $4,999",
+        "$5000 - $9,999",
+        "$10,000 - $24,999",
+        "$25,000 - $49,999",
+        "$50,000 - $99,999",
+        "$100,000 - $149,999",
+        "$150,000 - $199,999",
+        "$200,000 - $249,999",
+        "$250,000 - $299,999",
+        "$300,000 +"
+      ],
+      "col_labels": [
+        "Annual Benefit Range",
+        "State Division",
+        "School Division",
+        "Local Government Division",
+        "Judicial Division",
+        "Denver Public Schools Division",
+        "Total"
+      ],
+      "cells": [
+        [
+          "$0 - $4,999",
+          2128,
+          6243,
+          479,
+          5,
+          255,
+          9110
+        ],
+        [
+          "$5000 - $9,999",
+          2731,
+          6376,
+          689,
+          11,
+          487,
+          10294
+        ],
+        [
+          "$10,000 - $24,999",
+          8906,
+          14350,
+          1960,
+          32,
+          1504,
+          26752
+        ],
+        [
+          "$25,000 - $49,999",
+          14768,
+          20404,
+          2590,
+          68,
+          2603,
+          40433
+        ],
+        [
+          "$50,000 - $99,999",
+          11563,
+          20339,
+          1969,
+          198,
+          2240,
+          36309
+        ],
+        [
+          "$100,000 - $149,999",
+          963,
+          604,
+          211,
+          83,
+          54,
+          1915
+        ],
+        [
+          "$150,000 - $199,999",
+          84,
+          37,
+          26,
+          2,
+          0,
+          149
+        ],
+        [
+          "$200,000 - $249,999",
+          30,
+          7,
+          6,
+          0,
+          0,
+          43
+        ],
+        [
+          "$250,000 - $299,999",
+          4,
+          2,
+          2,
+          0,
+          0,
+          8
+        ],
+        [
+          "$300,000 +",
+          4,
+          0,
+          1,
+          0,
+          0,
+          5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not contain a table distributing benefit recipients by attained age (e.g., 50-54, 55-59). Exhibit D (Page 120) provides the distribution by Annual Benefit Range only. Exhibit E (Page 121) provides average annual benefits by division but not by age. Exhibit C (Pages 115-119) provides active member data by age, not retirees. Therefore, the target grid for 'Retirees by Age' is unavailable in this document.",
+  "broadcast": null
+}

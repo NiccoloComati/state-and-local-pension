@@ -1,0 +1,949 @@
+{
+  "source_tables": [
+    {
+      "page": 66,
+      "title": "Retirement Rates for Tier 1 Employees and Tier 2 Employees",
+      "row_labels": [
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75"
+      ],
+      "col_labels": [
+        "<34 Years of Service",
+        "34+ Years of Service",
+        "Tier 2 Age 62",
+        "Tier 2 Age 63",
+        "Tier 2 Age 64",
+        "Tier 2 Age 65",
+        "Tier 2 Age 66",
+        "Tier 2 Age 67",
+        "Tier 2 Age 68",
+        "Tier 2 Age 69",
+        "Tier 2 Age 70",
+        "Tier 2 Age 71",
+        "Tier 2 Age 72",
+        "Tier 2 Age 73",
+        "Tier 2 Age 74",
+        "Tier 2 Age 75"
+      ],
+      "cells": [
+        [
+          5.0,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          5.0,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          5.0,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          5.0,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          7.0,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          9.0,
+          22.5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          11.0,
+          22.5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          12.0,
+          22.5,
+          40.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          13.0,
+          22.5,
+          null,
+          25.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          14.0,
+          22.5,
+          null,
+          null,
+          25.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          15.0,
+          25.0,
+          null,
+          null,
+          null,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          16.0,
+          25.0,
+          null,
+          null,
+          null,
+          null,
+          25.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          17.0,
+          25.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          18.0,
+          27.5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          19.0,
+          27.5,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          20.0,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          20.0,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          20.0,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null,
+          null,
+          null
+        ],
+        [
+          20.0,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null,
+          null
+        ],
+        [
+          20.0,
+          30.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          20.0,
+          null
+        ],
+        [
+          100.0,
+          100.0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          33
+        ],
+        [
+          34,
+          null
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [
+        "<34 Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          33
+        ]
+      ]
+    },
+    {
+      "target": "25-29",
+      "sources": [
+        "<34 Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          33
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "<34 Years of Service",
+        "34+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          33
+        ],
+        [
+          34,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "31-32",
+      "sources": [
+        "<34 Years of Service",
+        "34+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          33
+        ],
+        [
+          34,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "33-34",
+      "sources": [
+        "<34 Years of Service",
+        "34+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          33
+        ],
+        [
+          34,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "35-39",
+      "sources": [
+        "34+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          34,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "34+ Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          34,
+          null
+        ]
+      ]
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "51",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "52",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "53",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "54",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          55
+        ]
+      ]
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          56,
+          56
+        ]
+      ]
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          57,
+          57
+        ]
+      ]
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          58,
+          58
+        ]
+      ]
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          59,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          60
+        ]
+      ]
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          61,
+          61
+        ]
+      ]
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          62,
+          62
+        ]
+      ]
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          63,
+          63
+        ]
+      ]
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          64,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          65
+        ]
+      ]
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          66,
+          66
+        ]
+      ]
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          67,
+          67
+        ]
+      ]
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          68,
+          68
+        ]
+      ]
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          69,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          70
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source table on page 66 provides retirement rates by Age (rows) and Service (columns) for Tier 1 and Tier 2. Target requires rates by Service (rows) and Age (columns), so transpose=true. Source rates are in percent; values_unit='percent' is set. Target rows 5-11 and 12-19 have no corresponding source data (source starts at <34 years service). Target columns 50-54 have no corresponding source data (source starts at age 55). For overlapping bins (e.g., target 20-24 vs source <34), overlap_weighted is used with source_spans. Tier 2 rates are provided as single ages (62-75) rather than service buckets, so they map directly to the corresponding age columns but do not contribute to service-based rows in the same way as Tier 1. The mapping logic assumes the target wants a blended rate or the specific Tier 1 rate where applicable, but since the source separates them by column, the overlap_weighted operation on the service columns (<34 and 34+) captures the Tier 1 rates. The Tier 2 specific age columns are mapped to the target age columns but have no service dimension in the source, so they are effectively ignored for the service-based row mapping unless a specific blend is requested (which is not specified, so we map the available service-based rates). Note: The target grid asks for a single probability per cell. The source provides two distinct sets of rates (Tier 1 by service, Tier 2 by age). The mapping provided extracts the Tier 1 rates for the service buckets and the Tier 2 rates for the specific ages, but since the target grid is Service x Age, and Tier 2 rates are Age-only (not Service-dependent in the table), the Tier 2 rates are not directly mappable to the Service rows without an assumption (e.g., that Tier 2 members retire at those ages regardless of service, or that the service bucket is irrelevant for them). The current mapping focuses on the Tier 1 service-based rates for the service rows and leaves the Tier 2 specific age columns as sources for the age columns, but since the row_map for Tier 2 is empty (no service bucket), the result for Tier 2 rows will be null/empty unless a broadcast or specific logic is applied. However, the prompt asks for the probability of retirement by service-year bucket x single age. The source table for Tier 2 does not provide service buckets, only age. Thus, for Tier 2, the rate is constant across service buckets for a given age (or undefined). The mapping provided reflects the available data: Tier 1 rates are mapped to service buckets, and Tier 2 rates are mapped to ages but not to service buckets (resulting in null for those cells in the final grid if not blended). Given the constraints, the mapping extracts the explicit data: Tier 1 rates for service buckets and Tier 2 rates for ages, but the final grid will have nulls where the source does not provide a service-based rate for Tier 2. The notes clarify this limitation.",
+  "unavailable": false,
+  "broadcast": null
+}

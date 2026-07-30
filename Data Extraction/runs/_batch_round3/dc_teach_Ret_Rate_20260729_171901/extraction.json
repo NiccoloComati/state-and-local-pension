@@ -1,0 +1,586 @@
+{
+  "source_tables": [
+    {
+      "page": 64,
+      "title": "Percent of Members Separating Within the Next Year - Teachers",
+      "row_labels": [
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "62",
+        "65",
+        "70",
+        "71",
+        "75"
+      ],
+      "col_labels": [
+        "Under 30 yrs",
+        "30 & up yrs"
+      ],
+      "cells": [
+        [
+          null,
+          null
+        ],
+        [
+          0.01,
+          null
+        ],
+        [
+          0.02,
+          null
+        ],
+        [
+          0.03,
+          null
+        ],
+        [
+          0.07,
+          null
+        ],
+        [
+          0.12,
+          5.0
+        ],
+        [
+          0.2,
+          9.0
+        ],
+        [
+          0.25,
+          27.0
+        ],
+        [
+          0.3,
+          22.0
+        ],
+        [
+          null,
+          25.0
+        ],
+        [
+          null,
+          30.0
+        ],
+        [
+          null,
+          25.0
+        ],
+        [
+          null,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          61
+        ],
+        [
+          62,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          74
+        ],
+        [
+          75,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 65,
+      "title": "Percent of Members Separating Within the Next Year - Police Officers",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          15.0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          22.0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          38.0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          18.0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          16.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 66,
+      "title": "Percent of Members Separating Within the Next Year - Firefighters",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          12.5
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          12.5
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          22.0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          40.0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          40.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "51",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "52",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "53",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "54",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "56",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "57",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "58",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "59",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "61",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "62",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "63",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "64",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "66",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "67",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "68",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "69",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The document provides retirement rates by Service Years (columns) for specific Age groups (rows) for Teachers, Police, and Fire separately. The target requires a single grid of Retirement Rates by Service (rows) x Age (columns). The source tables do not provide a joint distribution of Age and Service for retirement rates; they provide rates conditional on Service for broad Age bands (e.g., Teachers: 'Under 30 yrs' vs '30 & up yrs'; Police/Fire: specific service years for all ages). The target grid requires single-age columns (50-70) and specific service buckets. The source data is insufficient to populate the target grid without making assumptions about the distribution of ages within the service buckets or the service distribution within the age bands. Specifically, the Police and Fire tables list rates for specific service years (20, 25, 30, 35, 40) but do not vary by age (the rates are constant across all ages for a given service year, or the table implies a single rate per service year regardless of age). The Teachers table varies by age but groups service into two broad buckets ('Under 30', '30 & up'). There is no table that provides a rate for a specific Age AND specific Service Year simultaneously (e.g., Age 55, Service 25). Therefore, the target grid cannot be derived. The source tables are transcribed as evidence of the available data, but the mapping is empty as the specific joint probabilities are not published.",
+  "unavailable": false,
+  "broadcast": null
+}

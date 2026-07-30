@@ -1,0 +1,487 @@
+{
+  "source_tables": [
+    {
+      "page": 50,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND BY YEARS OF SERVICE - TOTAL ACTIVE AND DROP MEMBERS",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          111,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          111
+        ],
+        [
+          591,
+          89,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          680
+        ],
+        [
+          358,
+          380,
+          85,
+          null,
+          null,
+          null,
+          null,
+          null,
+          823
+        ],
+        [
+          123,
+          216,
+          400,
+          19,
+          null,
+          null,
+          null,
+          null,
+          758
+        ],
+        [
+          47,
+          88,
+          232,
+          228,
+          31,
+          null,
+          null,
+          null,
+          626
+        ],
+        [
+          17,
+          66,
+          133,
+          183,
+          365,
+          65,
+          null,
+          null,
+          829
+        ],
+        [
+          1,
+          25,
+          47,
+          62,
+          307,
+          425,
+          27,
+          null,
+          894
+        ],
+        [
+          1,
+          null,
+          8,
+          9,
+          74,
+          128,
+          119,
+          73,
+          412
+        ],
+        [
+          null,
+          null,
+          null,
+          1,
+          9,
+          27,
+          31,
+          61,
+          129
+        ],
+        [
+          null,
+          null,
+          null,
+          3,
+          3,
+          3,
+          3,
+          11,
+          20
+        ]
+      ],
+      "printed_row_totals": [
+        111,
+        680,
+        823,
+        758,
+        626,
+        829,
+        894,
+        412,
+        129,
+        20
+      ],
+      "printed_col_totals": [
+        1249,
+        864,
+        905,
+        502,
+        789,
+        648,
+        180,
+        145,
+        5282
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 50,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND BY YEARS OF SERVICE - TOTAL ACTIVE AND DROP MEMBERS (Salary Values)",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          52555,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          52555
+        ],
+        [
+          62744,
+          72170,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          63977
+        ],
+        [
+          64304,
+          77242,
+          86526,
+          null,
+          null,
+          null,
+          null,
+          null,
+          72573
+        ],
+        [
+          65581,
+          77962,
+          89126,
+          98780,
+          null,
+          null,
+          null,
+          null,
+          82366
+        ],
+        [
+          66692,
+          79898,
+          89185,
+          101981,
+          103827,
+          null,
+          null,
+          null,
+          91576
+        ],
+        [
+          68655,
+          79401,
+          88790,
+          98494,
+          102192,
+          105644,
+          null,
+          null,
+          96994
+        ],
+        [
+          80555,
+          77506,
+          87231,
+          97315,
+          101446,
+          101897,
+          101014,
+          null,
+          99921
+        ],
+        [
+          73635,
+          null,
+          83873,
+          97809,
+          101669,
+          99860,
+          102555,
+          99887,
+          100549
+        ],
+        [
+          null,
+          null,
+          null,
+          91871,
+          97088,
+          97951,
+          98641,
+          99447,
+          98716
+        ],
+        [
+          null,
+          null,
+          null,
+          97395,
+          97626,
+          89012,
+          101814,
+          null,
+          98603
+        ]
+      ],
+      "printed_row_totals": [
+        52555,
+        63977,
+        72573,
+        82366,
+        91576,
+        96994,
+        99921,
+        100549,
+        98716,
+        98603
+      ],
+      "printed_col_totals": [
+        62817,
+        77343,
+        88703,
+        99918,
+        101840,
+        101686,
+        101424,
+        99848,
+        86084
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & Over"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 & Over"
+      ],
+      "op": "copy",
+      "weights_table": 0
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables transcribed from Page 50 (Table 20d). Table 0 contains member counts (weights), Table 1 contains average salary values. Row and column bins in the source match the target grid exactly, so 'copy' operations are used. No aggregation or weighted averaging is required as the bin definitions align perfectly.",
+  "unavailable": false,
+  "broadcast": null
+}

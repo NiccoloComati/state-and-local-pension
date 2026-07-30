@@ -1,0 +1,871 @@
+{
+  "source_tables": [
+    {
+      "page": 55,
+      "title": "TABLE III-1 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO GENERAL GOVERNMENT DIVISION A",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-UP"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-UP",
+        "TOTAL"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          9,
+          0,
+          0,
+          11
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          6,
+          1,
+          1,
+          9
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2,
+          3,
+          2,
+          3,
+          10
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          2,
+          1,
+          7
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          2
+        ]
+      ],
+      "printed_row_totals": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        11,
+        9,
+        10,
+        7,
+        2
+      ],
+      "printed_col_totals": [
+        0,
+        1,
+        0,
+        0,
+        6,
+        23,
+        5,
+        5,
+        40
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 56,
+      "title": "TABLE III-2 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO FIRE AND POLICE DIVISION A",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-UP"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-UP",
+        "TOTAL"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2,
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          3,
+          2,
+          1,
+          7
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "printed_row_totals": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        7,
+        1,
+        0
+      ],
+      "printed_col_totals": [
+        0,
+        1,
+        0,
+        3,
+        1,
+        6,
+        2,
+        2,
+        15
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 58,
+      "title": "TABLE III-4 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO GENERAL GOVERNMENT DIVISION B",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-UP"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-UP",
+        "TOTAL"
+      ],
+      "cells": [
+        [
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          17
+        ],
+        [
+          263,
+          12,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          275
+        ],
+        [
+          681,
+          117,
+          6,
+          0,
+          0,
+          0,
+          0,
+          0,
+          804
+        ],
+        [
+          580,
+          244,
+          101,
+          11,
+          0,
+          0,
+          0,
+          0,
+          936
+        ],
+        [
+          443,
+          237,
+          232,
+          117,
+          7,
+          0,
+          0,
+          0,
+          1036
+        ],
+        [
+          356,
+          183,
+          196,
+          189,
+          80,
+          7,
+          0,
+          0,
+          1011
+        ],
+        [
+          316,
+          183,
+          200,
+          187,
+          162,
+          74,
+          16,
+          0,
+          1138
+        ],
+        [
+          286,
+          175,
+          188,
+          227,
+          167,
+          120,
+          114,
+          18,
+          1295
+        ],
+        [
+          218,
+          164,
+          157,
+          208,
+          183,
+          110,
+          132,
+          76,
+          1248
+        ],
+        [
+          130,
+          89,
+          115,
+          138,
+          89,
+          58,
+          38,
+          50,
+          707
+        ],
+        [
+          56,
+          61,
+          57,
+          61,
+          36,
+          17,
+          16,
+          28,
+          332
+        ]
+      ],
+      "printed_row_totals": [
+        17,
+        275,
+        804,
+        936,
+        1036,
+        1011,
+        1138,
+        1295,
+        1248,
+        707,
+        332
+      ],
+      "printed_col_totals": [
+        3346,
+        1465,
+        1252,
+        1138,
+        724,
+        386,
+        316,
+        172,
+        8799
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 59,
+      "title": "TABLE III-5 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO FIRE AND POLICE DIVISION B",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-UP"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-UP",
+        "TOTAL"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          125,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          126
+        ],
+        [
+          330,
+          100,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          431
+        ],
+        [
+          166,
+          260,
+          88,
+          1,
+          0,
+          0,
+          0,
+          0,
+          515
+        ],
+        [
+          71,
+          139,
+          163,
+          41,
+          1,
+          0,
+          0,
+          0,
+          415
+        ],
+        [
+          35,
+          69,
+          92,
+          153,
+          97,
+          2,
+          0,
+          0,
+          448
+        ],
+        [
+          17,
+          50,
+          59,
+          104,
+          174,
+          59,
+          1,
+          0,
+          464
+        ],
+        [
+          13,
+          19,
+          28,
+          37,
+          82,
+          94,
+          62,
+          1,
+          336
+        ],
+        [
+          3,
+          6,
+          12,
+          11,
+          30,
+          33,
+          50,
+          6,
+          151
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          8,
+          12,
+          27,
+          17,
+          74
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0,
+          2,
+          1,
+          8,
+          14
+        ]
+      ],
+      "printed_row_totals": [
+        0,
+        126,
+        431,
+        515,
+        415,
+        448,
+        464,
+        336,
+        151,
+        74,
+        14
+      ],
+      "printed_col_totals": [
+        762,
+        646,
+        446,
+        353,
+        392,
+        202,
+        141,
+        32,
+        2974
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "1-20",
+        "21-25"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "26-30"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "31-35"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "36-40"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "41-45"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "46-50"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "51-55"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "56-60"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "61-65"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "66-UP"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35-UP"
+      ],
+      "op": "share_even",
+      "weights_table": null
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "transpose": false,
+  "notes": "Source tables III-1, III-2, III-4, and III-5 provide active member counts by age and service for Division A (General/Fire) and Division B (General/Fire). The target grid requires specific age bins (e.g., 25-29) and service bins (e.g., 35-40). Source age bins (e.g., 26-30) are split evenly across the target bins they cover (share_even). Source service bin '35-UP' is split evenly between target bins '34' and '40' (share_even). Counts from all four group tables are summed to produce the total plan distribution.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,563 @@
+{
+  "source_tables": [
+    {
+      "page": 48,
+      "title": "Distribution of All Active Members by Age and by Years of Service",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over"
+      ],
+      "cells": [
+        [
+          35439,
+          33979,
+          38992,
+          37844,
+          38159,
+          40545,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          40007,
+          40826,
+          38509,
+          40433,
+          42039,
+          42558,
+          54970,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          45989,
+          47655,
+          46193,
+          47013,
+          50130,
+          48593,
+          47406,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          49051,
+          49938,
+          54219,
+          48501,
+          58070,
+          53260,
+          56071,
+          47545,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          49316,
+          51193,
+          48477,
+          50900,
+          60749,
+          55593,
+          58982,
+          59604,
+          53443,
+          null,
+          null,
+          null
+        ],
+        [
+          58715,
+          45133,
+          59898,
+          53143,
+          55836,
+          56450,
+          59769,
+          57647,
+          56666,
+          57648,
+          null,
+          null
+        ],
+        [
+          46412,
+          54693,
+          51658,
+          49706,
+          61832,
+          53991,
+          59743,
+          58269,
+          56861,
+          59605,
+          58476,
+          56763
+        ],
+        [
+          50002,
+          57219,
+          57793,
+          53440,
+          65017,
+          57897,
+          57816,
+          56381,
+          56486,
+          63306,
+          60654,
+          62790
+        ],
+        [
+          53221,
+          62196,
+          59777,
+          59507,
+          54099,
+          60764,
+          57849,
+          53886,
+          62345,
+          63612,
+          70433,
+          66503
+        ],
+        [
+          85482,
+          76418,
+          65738,
+          67162,
+          51023,
+          65827,
+          61624,
+          65090,
+          61071,
+          62988,
+          71352,
+          78090
+        ]
+      ],
+      "printed_row_totals": [
+        36119,
+        40708,
+        47553,
+        53078,
+        55460,
+        57085,
+        56763,
+        58326,
+        60365,
+        64127
+      ],
+      "printed_col_totals": [
+        47125,
+        48926,
+        50556,
+        49576,
+        55787,
+        54600,
+        58156,
+        57391,
+        57936,
+        61627,
+        64133,
+        66939
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 48,
+      "title": "Distribution of All Active Members by Age and by Years of Service (Counts)",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over"
+      ],
+      "cells": [
+        [
+          8,
+          7,
+          3,
+          7,
+          2,
+          4,
+          1,
+          4,
+          7,
+          7,
+          null,
+          null
+        ],
+        [
+          171,
+          135,
+          9,
+          9,
+          8,
+          5,
+          7,
+          107,
+          5,
+          null,
+          null,
+          null
+        ],
+        [
+          175,
+          140,
+          125,
+          148,
+          106,
+          243,
+          111,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          151,
+          119,
+          9,
+          9,
+          106,
+          107,
+          281,
+          358,
+          58,
+          1,
+          null,
+          null
+        ],
+        [
+          131,
+          9,
+          0,
+          9,
+          0,
+          8,
+          2,
+          8,
+          7,
+          203,
+          360,
+          133
+        ],
+        [
+          112,
+          6,
+          8,
+          1,
+          9,
+          1,
+          9,
+          3,
+          215,
+          359,
+          167,
+          180
+        ],
+        [
+          105,
+          7,
+          4,
+          7,
+          3,
+          8,
+          0,
+          7,
+          8,
+          198,
+          384,
+          212
+        ],
+        [
+          5,
+          0,
+          5,
+          5,
+          5,
+          7,
+          9,
+          6,
+          2,
+          219,
+          393,
+          228
+        ],
+        [
+          3,
+          6,
+          3,
+          9,
+          4,
+          1,
+          4,
+          6,
+          5,
+          0,
+          155,
+          307
+        ],
+        [
+          7,
+          1,
+          3,
+          1,
+          4,
+          1,
+          3,
+          2,
+          8,
+          9,
+          5,
+          201
+        ]
+      ],
+      "printed_row_totals": [
+        176,
+        659,
+        1048,
+        1280,
+        1246,
+        1453,
+        1787,
+        1785,
+        1336,
+        737
+      ],
+      "printed_col_totals": [
+        1025,
+        770,
+        703,
+        744,
+        675,
+        1723,
+        2478,
+        1051,
+        1029,
+        823,
+        344,
+        142
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & Over"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 & Over"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table 0 contains average salaries. Source table 1 contains member counts used as weights for weighted_avg operations. Target row '70' maps to source row '65 & Over'. Target column '4' is a weighted average of source columns 0-4. Target columns 9, 14, 19, 24, 29, 34, 40 map directly to source columns with identical or broader ranges. Note: Source column '4' is a single year, while target '4' is a bucket; the mapping treats the single year '4' as the representative for the bucket 0-4 in the weighted average calculation alongside 0,1,2,3. The target grid asks for bins like '4' (likely meaning 0-4 or 5-9 in some contexts, but here the target list is specific: 4, 9, 14...). The source has '4' as a single column. The target '4' corresponds to the source '4' column? No, target '4' usually implies a bin ending at 4 (0-4). The target list is [\"4\", \"9\", \"14\", \"19\", \"24\", \"29\", \"34\", \"40\"]. These look like upper bounds of bins: 0-4, 5-9, 10-14, etc. Source has columns: 0, 1, 2, 3, 4, 5-9, 10-14... So target '4' (0-4) is the weighted avg of source 0,1,2,3,4. Target '9' (5-9) is source '5-9'. Target '14' is '10-14'. Target '19' is '15-19'. Target '24' is '20-24'. Target '29' is '25-29'. Target '34' is '30-34'. Target '40' (35+) is '35 & Over'. This matches the col_map defined.",
+  "unavailable": false,
+  "broadcast": null
+}

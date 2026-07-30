@@ -1,0 +1,227 @@
+{
+  "source_tables": [
+    {
+      "page": 54,
+      "title": "Retirement Rates: DROP Active Members",
+      "row_labels": [
+        "Under 50",
+        "50",
+        "51",
+        "52-53",
+        "54",
+        "55-57",
+        "58-62",
+        "63",
+        "64",
+        "65 & over"
+      ],
+      "col_labels": [
+        "Police",
+        "Fire"
+      ],
+      "cells": [
+        [
+          1.0,
+          0.75
+        ],
+        [
+          10.0,
+          0.75
+        ],
+        [
+          15.0,
+          0.75
+        ],
+        [
+          15.0,
+          10.0
+        ],
+        [
+          25.0,
+          10.0
+        ],
+        [
+          25.0,
+          15.0
+        ],
+        [
+          30.0,
+          40.0
+        ],
+        [
+          40.0,
+          50.0
+        ],
+        [
+          50.0,
+          50.0
+        ],
+        [
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          49
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          57
+        ],
+        [
+          58,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 55,
+      "title": "Retirement Rates (continued): Non-DROP Active Members",
+      "row_labels": [
+        "Under 50",
+        "50-51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56-57",
+        "58-60",
+        "61",
+        "62"
+      ],
+      "col_labels": [
+        "Member hired prior to March 1, 2011 with at least 20 years of service as of September 1, 2017 & Members hired on or after March 1, 2011",
+        "Member hired prior to March 1, 2011 with less than 20 years of service as of September 1, 2017"
+      ],
+      "cells": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          2.0,
+          8.0
+        ],
+        [
+          2.0,
+          10.0
+        ],
+        [
+          2.0,
+          15.0
+        ],
+        [
+          2.0,
+          20.0
+        ],
+        [
+          2.0,
+          35.0
+        ],
+        [
+          2.0,
+          40.0
+        ],
+        [
+          25.0,
+          75.0
+        ],
+        [
+          50.0,
+          75.0
+        ],
+        [
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          49
+        ],
+        [
+          50,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          57
+        ],
+        [
+          58,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The target requires retirement rates by service-year bucket (rows) and single age (columns). The document provides two tables (Pages 54 and 55) with retirement rates by Age (rows) and Member Type/Service Group (columns). The document does NOT publish retirement rates by Years of Service. The target grid's primary dimension (Service) is missing from the source data. Therefore, the target is unavailable. The source tables are transcribed as evidence of the available Age-based rates.",
+  "broadcast": null
+}

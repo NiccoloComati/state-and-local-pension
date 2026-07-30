@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-98a53c7a4ac2fd98",
+        "object": "chat.completion",
+        "created": 1785349040,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 17,\n      \"title\": \"Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age\",\n      \"row_labels\": [\n        \"Superannuation\",\n        \"Accidental Disability\",\n        \"Beneficiaries\",\n        \"Ordinary Disability\"\n      ],\n      \"col_labels\": [\n        \"Age 60-64\",\n        \"Age 65-69\",\n        \"Age 70-74\",\n        \"Age 75-79\",\n        \"Age 80-84\",\n        \"Age 85-89\",\n        \"Age 90+\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null],\n        [null, null, null, null, null, null, null],\n        [null, null, null, null, null, null, null],\n        [null, null, null, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"notes\": \"The document contains a chart titled 'Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age' on page 17. However, the chart is a visual bar graph with no numerical data labels or a corresponding data table in the text. The text on page 17 provides aggregate counts (7,992 retired participants, 1,787 beneficiaries) and average ages/benefits, but does not provide the distribution of members by 5-year age bands required for the target grid. Therefore, the specific data for the target grid is unavailable.\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The target data (distribution of members receiving benefits by 5-year age band) is not available in the document. Page 17 displays a bar chart titled 'Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age', but the chart lacks numerical data labels, and no corresponding data table with counts by age band is present in the text. The text only provides aggregate totals (e.g., 7,992 retired participants, 1,787 beneficiaries) and average ages (73.7 for retired participants and beneficiaries). Without the specific counts per age band, the target grid cannot be populated. The source table is transcribed as empty evidence of the missing data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 57534,
+          "total_tokens": 58130,
+          "completion_tokens": 596,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 57534,
+        "total_tokens": 58130,
+        "completion_tokens": 596,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-98fbf2f282c1a8c7",
+        "object": "chat.completion",
+        "created": 1785349045,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 17,\n      \"title\": \"Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age\",\n      \"row_labels\": [\n        \"Superannuation\",\n        \"Accidental Disability\",\n        \"Beneficiaries\",\n        \"Ordinary Disability\"\n      ],\n      \"col_labels\": [\n        \"Age 60-64\",\n        \"Age 65-69\",\n        \"Age 70-74\",\n        \"Age 75-79\",\n        \"Age 80-84\",\n        \"Age 85-89\",\n        \"Age 90+\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null],\n        [null, null, null, null, null, null, null],\n        [null, null, null, null, null, null, null],\n        [null, null, null, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The target data (distribution of members receiving benefits by 5-year age band) is not available in the document. Page 17 displays a bar chart titled 'Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age', but the chart lacks numerical data labels, and no corresponding data table with counts by age band is present in the text. The text only provides aggregate totals (e.g., 7,992 retired participants, 1,787 beneficiaries) and average ages (73.7 for retired participants and beneficiaries). Without the specific counts per age band, the target grid cannot be populated. The source table is transcribed as empty evidence of the missing data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 60503,
+          "total_tokens": 60973,
+          "completion_tokens": 470,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 60503,
+        "total_tokens": 60973,
+        "completion_tokens": 470,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

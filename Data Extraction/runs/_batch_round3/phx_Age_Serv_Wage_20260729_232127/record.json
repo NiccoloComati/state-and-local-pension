@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a3709738d40f9ea8",
+        "object": "chat.completion",
+        "created": 1785381687,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 39,\n      \"title\": \"Active Member Average Salary by Age and Service\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\",\n        \"Over 65\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"Over 30\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [41626, null, null, null, null, null, null, 41626],\n        [44659, null, null, null, null, null, null, 44659],\n        [50934, 59850, \"*\", null, null, null, null, 50903],\n        [54748, 70411, 65420, 70566, null, null, null, 59037],\n        [56924, 71314, 72895, 75875, 77420, null, null, 66576],\n        [60351, 73938, 75698, 79693, 80315, \"*\", null, 71923],\n        [61347, 72990, 72905, 83080, 87018, 93221, 92618, 76378],\n        [62285, 70283, 72092, 74958, 85475, 89765, 92565, 76392],\n        [61225, 73067, 68401, 75562, 80684, 83048, 81690, 73723],\n        [72472, 83369, 71729, 74615, 77256, 88544, 85362, 77212],\n        [62261, 88125, 71923, 72105, 77163, 80139, 86309, 75261]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [58073, 72654, 71887, 77677, 82864, 87885, 85553, 70896]\n    },\n    {\n      \"page\": 38,\n      \"title\": \"Active Member Counts by Age and Service\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\",\n        \"Over 65\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"Over 30\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [4, null, null, null, null, null, null, 4],\n        [150, null, null, null, null, null, null, 150],\n        [414, 26, 2, null, null, null, null, 442],\n        [429, 90, 117, 6, null, null, null, 642],\n        [389, 105, 265, 111, 6, null, null, 876],\n        [347, 116, 252, 251, 108, 1, null, 1075],\n        [320, 104, 271, 331, 228, 75, 5, 1334],\n        [240, 90, 229, 285, 257, 170, 41, 1312],\n        [202, 87, 217, 250, 234, 110, 87, 1187],\n        [112, 48, 127, 155, 100, 58, 65, 665],\n        [32, 10, 59, 49, 42, 28, 34, 254]\n      ],\n      \"printed_row_totals\": [4, 150, 442, 642, 876, 1075, 1334, 1312, 1187, 665, 254],\n      \"printed_col_totals\": [2639, 676, 1539, 1438, 975, 442, 232, 7941]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20-24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35-39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40-44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45-49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Over 65\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"Over 30\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"Over 30\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table F.4 provides average salaries. Source table F.3 provides member counts for weighting. Target row '<25' is a weighted average of source rows 'Under 20' and '20-24'. Target rows '29' through '70' map directly to single source rows. Target columns '4' through '29' map directly to single source columns. Target columns '34' and '40' both map to the source column 'Over 30' (copy), as the source bin is coarser than the target bins and averages do not split. Suppressed cells in source are marked as '*'.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 39911,
+          "total_tokens": 42418,
+          "completion_tokens": 2507,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 39911,
+        "total_tokens": 42418,
+        "completion_tokens": 2507,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

@@ -1,0 +1,293 @@
+{
+  "source_tables": [
+    {
+      "page": 78,
+      "title": "Distribution of Active Participants (Excludes DROP Participants) as of July 1, 2019 -- Total City",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 & Up"
+      ],
+      "cells": [
+        [
+          221,
+          367,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          484,
+          1838,
+          470,
+          61,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          289,
+          1489,
+          1173,
+          697,
+          49,
+          0,
+          0,
+          0
+        ],
+        [
+          207,
+          865,
+          757,
+          1251,
+          517,
+          28,
+          0,
+          0
+        ],
+        [
+          121,
+          612,
+          502,
+          897,
+          976,
+          484,
+          29,
+          0
+        ],
+        [
+          109,
+          508,
+          399,
+          626,
+          827,
+          1276,
+          299,
+          32
+        ],
+        [
+          91,
+          405,
+          321,
+          522,
+          631,
+          1009,
+          862,
+          331
+        ],
+        [
+          78,
+          318,
+          267,
+          454,
+          521,
+          695,
+          550,
+          589
+        ],
+        [
+          40,
+          232,
+          231,
+          272,
+          246,
+          286,
+          160,
+          253
+        ],
+        [
+          16,
+          126,
+          139,
+          144,
+          98,
+          91,
+          36,
+          90
+        ]
+      ],
+      "printed_row_totals": [
+        620,
+        2853,
+        3697,
+        3625,
+        3621,
+        4076,
+        4172,
+        3472,
+        1720,
+        740
+      ],
+      "printed_col_totals": [
+        1656,
+        6760,
+        4291,
+        4924,
+        3865,
+        3869,
+        1936,
+        1295
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & up"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 & Up"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30 & Up"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table A-5 on page 78 provides active member counts by age and service for the Total City (excluding DROP). Target rows map 1:1 to source rows. Target column '4' sums source columns 'Under 1' and '1 to 4'. Target columns '34' and '40' share the source column '30 & Up' evenly as the source bin is coarser than the target bins.",
+  "unavailable": false,
+  "broadcast": null
+}

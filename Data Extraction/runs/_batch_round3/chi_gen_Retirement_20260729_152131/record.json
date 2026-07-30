@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9488758d46286b5a",
+        "object": "chat.completion",
+        "created": 1785352891,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 38,\n      \"title\": \"Employee Annuitants as of December 31, 2019 By Age and Annual Benefit\",\n      \"row_labels\": [\n        \"Under 55\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 \u2013 74\",\n        \"75 \u2013 79\",\n        \"80 \u2013 84\",\n        \"85 \u2013 89\",\n        \"90 \u2013 94\",\n        \"95 \u2013 99\",\n        \"100 & over\"\n      ],\n      \"col_labels\": [\n        \"Male Number\",\n        \"Male Annual Payments\",\n        \"Female Number\",\n        \"Female Annual Payments\"\n      ],\n      \"cells\": [\n        [81, 5042771, 77, 4084147],\n        [594, 35258880, 620, 26243200],\n        [1357, 75975087, 1668, 57927951],\n        [1818, 99572385, 2690, 89249037],\n        [1605, 84624310, 2566, 84496446],\n        [1183, 59923675, 2090, 67148680],\n        [817, 41058965, 1699, 52743873],\n        [516, 25638909, 983, 29599052],\n        [236, 12107807, 551, 15436912],\n        [67, 3021519, 175, 4568859],\n        [2, 69635, 28, 670987]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [8276, 442293943, 13147, 432169144]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"Under 55\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 \u2013 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 \u2013 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 \u2013 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 \u2013 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 \u2013 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 \u2013 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 \u2013 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 \u2013 94\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"95 \u2013 99\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"100 & over\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Male Number\",\n        \"Female Number\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Male Annual Payments\",\n        \"Female Annual Payments\",\n        \"Male Number\",\n        \"Female Number\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Male Annual Payments\",\n        \"Female Annual Payments\"\n      ],\n      \"denominator_sources\": [\n        \"Male Number\",\n        \"Female Number\"\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table (Exhibit D.1) provides counts and total annual payments split by sex (Male/Female) for Employee Annuitants only. No separate 'Total' column is printed, so the ratio operation sums the male and female payment columns and divides by the sum of the male and female count columns to derive the average annual benefit. The 'Under 55' row is mapped to the '50-54' target bin using 'share_even' as per guidance for buckets covering multiple target rows, assuming the bucket contains members in the 50-54 range. The table title specifies 'Annual Benefit', so no annualization is needed. Disabled retirees and beneficiaries are excluded as they appear in separate exhibits (D.2, D.3).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 102211,
+          "total_tokens": 103666,
+          "completion_tokens": 1455,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 102211,
+        "total_tokens": 103666,
+        "completion_tokens": 1455,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

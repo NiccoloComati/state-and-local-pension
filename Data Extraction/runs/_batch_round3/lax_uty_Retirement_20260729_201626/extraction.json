@@ -1,0 +1,41 @@
+{
+  "source_tables": [
+    {
+      "page": 42,
+      "title": "EXHIBIT A \u2013 TABLE OF PLAN COVERAGE - Retired members and Beneficiaries",
+      "row_labels": [
+        "Retired members",
+        "Beneficiaries"
+      ],
+      "col_labels": [
+        "Number in pay status",
+        "Average age",
+        "Average monthly benefit"
+      ],
+      "cells": [
+        [
+          7355,
+          72.9,
+          6008
+        ],
+        [
+          1960,
+          80.7,
+          3513
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a distribution of retired members by age (e.g., 50-54, 55-59). It only provides aggregate counts and average ages/benefits for 'Retired members' and 'Beneficiaries' separately in Exhibit A (Page 42). No age-banded data exists to map to the target grid rows. The source table transcribed is the closest available evidence.",
+  "broadcast": null
+}

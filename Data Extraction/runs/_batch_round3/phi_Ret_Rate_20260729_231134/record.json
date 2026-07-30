@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-816fcd99071e1858",
+        "object": "chat.completion",
+        "created": 1785381094,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a table of retirement rates by age and service. Appendix C (pages 108-111) lists 'Rates of Retirement' as an assumption but does not provide the numerical rate table (age rows x service columns) required to populate the target grid. The text mentions 'sample rates shown below' on page 108 and 111, but the actual tables are missing from the provided text. Therefore, the target data is unavailable.\",\n  \"unavailable\": true\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 121152,
+          "total_tokens": 121303,
+          "completion_tokens": 151,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 121152,
+        "total_tokens": 121303,
+        "completion_tokens": 151,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

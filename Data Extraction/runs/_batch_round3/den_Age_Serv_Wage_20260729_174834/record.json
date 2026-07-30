@@ -1,0 +1,114 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b5ebb55b5155bbc7",
+        "object": "chat.completion",
+        "created": 1785361714,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Age and Service Distribution for Active Members - Payroll\",\n      \"row_labels\": [\n        \"< 25\",\n        \"25 - 29\",\n        \"30 - 34\",\n        \"35 - 39\",\n        \"40 - 44\",\n        \"45 - 49\",\n        \"50 - 54\",\n        \"55 - 59\",\n        \"60 - 64\",\n        \"65 - 69\",\n        \"70 +\"\n      ],\n      \"col_labels\": [\n        \"0 - 4\",\n        \"5 - 9\",\n        \"10 - 14\",\n        \"15 - 19\",\n        \"20 - 24\",\n        \"25 - 29\",\n        \"30+\",\n        \"Count\",\n        \"Payroll\"\n      ],\n      \"cells\": [\n        [240, 3, 0, 0, 0, 0, 0, 243, 12266726],\n        [872, 74, 1, 0, 0, 0, 0, 947, 57150133],\n        [927, 282, 66, 2, 0, 0, 0, 1277, 87968845],\n        [716, 317, 211, 50, 11, 0, 0, 1305, 99065438],\n        [491, 234, 251, 136, 74, 5, 0, 1191, 97868738],\n        [404, 189, 200, 174, 231, 79, 3, 1280, 110055919],\n        [289, 179, 155, 179, 244, 216, 70, 1332, 115159236],\n        [236, 125, 142, 122, 152, 120, 72, 969, 84005255],\n        [129, 88, 107, 71, 81, 49, 75, 600, 51863895],\n        [42, 31, 34, 27, 21, 22, 22, 199, 17101868],\n        [9, 9, 16, 9, 10, 2, 3, 58, 5026607]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [4355, 1531, 1183, 770, 824, 493, 245, 9401, 737532660]\n    },\n    {\n      \"page\": 57,\n      \"title\": \"Age and Service Distribution for Active Members - Count\",\n      \"row_labels\": [\n        \"< 25\",\n        \"25 - 29\",\n        \"30 - 34\",\n        \"35 - 39\",\n        \"40 - 44\",\n        \"45 - 49\",\n        \"50 - 54\",\n        \"55 - 59\",\n        \"60 - 64\",\n        \"65 - 69\",\n        \"70 +\"\n      ],\n      \"col_labels\": [\n        \"0 - 4\",\n        \"5 - 9\",\n        \"10 - 14\",\n        \"15 - 19\",\n        \"20 - 24\",\n        \"25 - 29\",\n        \"30+\",\n        \"Count\",\n        \"Payroll\"\n      ],\n      \"cells\": [\n        [240, 3, 0, 0, 0, 0, 0, 243, 12266726],\n        [872, 74, 1, 0, 0, 0, 0, 947, 57150133],\n        [927, 282, 66, 2, 0, 0, 0, 1277, 87968845],\n        [716, 317, 211, 50, 11, 0, 0, 1305, 99065438],\n        [491, 234, 251, 136, 74, 5, 0, 1191, 97868738],\n        [404, 189, 200, 174, 231, 79, 3, 1280, 110055919],\n        [289, 179, 155, 179, 244, 216, 70, 1332, 115159236],\n        [236, 125, 142, 122, 152, 120, 72, 969, 84005255],\n        [129, 88, 107, 71, 81, 49, 75, 600, 51863895],\n        [42, 31, 34, 27, 21, 22, 22, 199, 17101868],\n        [9, 9, 16, 9, 10, 2, 3, 58, 5026607]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [4355, 1531, 1183, 770, 824, 493, 245, 9401, 737532660]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\"< 25\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\"25 - 29\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\"30 - 34\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\"35 - 39\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\"40 - 44\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\"45 - 49\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"50 - 54\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"55 - 59\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"60 - 64\"],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"65 - 69\", \"70 +\"],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\"0 - 4\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\"5 - 9\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\"10 - 14\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\"15 - 19\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\"20 - 24\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\"25 - 29\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\"30+\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\"30+\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is interleaved in a single printed table on page 57. Table 0 transcribes the Payroll column (used as numerator) and Table 1 transcribes the Count column (used as denominator) to enable ratio calculation for average salary. Target rows 0-8 map 1:1 to source rows. Target row 9 (70+) is a weighted average of source rows '65 - 69' and '70 +'. Target columns 0-5 map 1:1. Target columns 6 and 7 (34, 40) both map to the source '30+' column as the document does not provide finer service bins for the oldest service group; the average salary for the '30+' bucket is applied to both target bins.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58314,
+          "total_tokens": 60907,
+          "completion_tokens": 2593,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58314,
+        "total_tokens": 60907,
+        "completion_tokens": 2593,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[9]: weighted_avg is not allowed in ratio mode - use additive maps"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-88fde6355f452ca4",
+        "object": "chat.completion",
+        "created": 1785361733,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Age and Service Distribution for Active Members - Payroll\",\n      \"row_labels\": [\n        \"< 25\",\n        \"25 - 29\",\n        \"30 - 34\",\n        \"35 - 39\",\n        \"40 - 44\",\n        \"45 - 49\",\n        \"50 - 54\",\n        \"55 - 59\",\n        \"60 - 64\",\n        \"65 - 69\",\n        \"70 +\"\n      ],\n      \"col_labels\": [\n        \"0 - 4\",\n        \"5 - 9\",\n        \"10 - 14\",\n        \"15 - 19\",\n        \"20 - 24\",\n        \"25 - 29\",\n        \"30+\",\n        \"Count\",\n        \"Payroll\"\n      ],\n      \"cells\": [\n        [240, 3, 0, 0, 0, 0, 0, 243, 12266726],\n        [872, 74, 1, 0, 0, 0, 0, 947, 57150133],\n        [927, 282, 66, 2, 0, 0, 0, 1277, 87968845],\n        [716, 317, 211, 50, 11, 0, 0, 1305, 99065438],\n        [491, 234, 251, 136, 74, 5, 0, 1191, 97868738],\n        [404, 189, 200, 174, 231, 79, 3, 1280, 110055919],\n        [289, 179, 155, 179, 244, 216, 70, 1332, 115159236],\n        [236, 125, 142, 122, 152, 120, 72, 969, 84005255],\n        [129, 88, 107, 71, 81, 49, 75, 600, 51863895],\n        [42, 31, 34, 27, 21, 22, 22, 199, 17101868],\n        [9, 9, 16, 9, 10, 2, 3, 58, 5026607]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [4355, 1531, 1183, 770, 824, 493, 245, 9401, 737532660]\n    },\n    {\n      \"page\": 57,\n      \"title\": \"Age and Service Distribution for Active Members - Count\",\n      \"row_labels\": [\n        \"< 25\",\n        \"25 - 29\",\n        \"30 - 34\",\n        \"35 - 39\",\n        \"40 - 44\",\n        \"45 - 49\",\n        \"50 - 54\",\n        \"55 - 59\",\n        \"60 - 64\",\n        \"65 - 69\",\n        \"70 +\"\n      ],\n      \"col_labels\": [\n        \"0 - 4\",\n        \"5 - 9\",\n        \"10 - 14\",\n        \"15 - 19\",\n        \"20 - 24\",\n        \"25 - 29\",\n        \"30+\",\n        \"Count\",\n        \"Payroll\"\n      ],\n      \"cells\": [\n        [240, 3, 0, 0, 0, 0, 0, 243, 12266726],\n        [872, 74, 1, 0, 0, 0, 0, 947, 57150133],\n        [927, 282, 66, 2, 0, 0, 0, 1277, 87968845],\n        [716, 317, 211, 50, 11, 0, 0, 1305, 99065438],\n        [491, 234, 251, 136, 74, 5, 0, 1191, 97868738],\n        [404, 189, 200, 174, 231, 79, 3, 1280, 110055919],\n        [289, 179, 155, 179, 244, 216, 70, 1332, 115159236],\n        [236, 125, 142, 122, 152, 120, 72, 969, 84005255],\n        [129, 88, 107, 71, 81, 49, 75, 600, 51863895],\n        [42, 31, 34, 27, 21, 22, 22, 199, 17101868],\n        [9, 9, 16, 9, 10, 2, 3, 58, 5026607]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [4355, 1531, 1183, 770, 824, 493, 245, 9401, 737532660]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\"< 25\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\"25 - 29\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\"30 - 34\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\"35 - 39\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\"40 - 44\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\"45 - 49\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"50 - 54\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"55 - 59\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"60 - 64\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"65 - 69\", \"70 +\"],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\"0 - 4\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\"5 - 9\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\"10 - 14\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\"15 - 19\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\"20 - 24\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\"25 - 29\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\"30+\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\"30+\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is interleaved in a single printed table on page 57. Table 0 transcribes the Payroll column (used as numerator) and Table 1 transcribes the Count column (used as denominator) to enable ratio calculation for average salary. Target rows 0-8 map 1:1 to source rows. Target row 9 (70+) is a sum of source rows '65 - 69' and '70 +' (additive for ratio mode). Target columns 0-5 map 1:1. Target columns 6 and 7 (34, 40) both map to the source '30+' column as the document does not provide finer service bins for the oldest service group; the average salary for the '30+' bucket is applied to both target bins.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 63279,
+          "total_tokens": 65866,
+          "completion_tokens": 2587,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 63279,
+        "total_tokens": 65866,
+        "completion_tokens": 2587,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

@@ -1,0 +1,420 @@
+{
+  "source_tables": [
+    {
+      "page": 58,
+      "title": "Rates of Termination",
+      "row_labels": [
+        "0-1",
+        "1-2",
+        "2-3",
+        "3-4",
+        "4-5",
+        "5-6",
+        "6-7",
+        "7-8",
+        "8-9",
+        "9-10",
+        "10-11",
+        "11-12",
+        "12-13",
+        "13-14",
+        "14-15",
+        "15-16",
+        "16-17",
+        "17-18",
+        "18-19",
+        "19-20",
+        "21+"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          18,
+          23
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          14,
+          16
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          9,
+          11
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          21,
+          null
+        ]
+      ],
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "0-1"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "target": "2",
+      "sources": [
+        "1-2"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "2-3"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "3-4"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5-6"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          6
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7-8"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          7,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9-10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "10-11"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          10,
+          11
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "11-12"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          11,
+          12
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "21+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          21,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "21+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          21,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Male",
+      "Female"
+    ],
+    "series_op": "mean"
+  },
+  "notes": "Source table provides termination rates by years of service only (Non-DHHA Male/Female). Rates are broadcast across all target ages. Male and Female columns are averaged (series_op: mean) as no headcount table is provided to weight them. Values are printed as percentages and will be converted to decimals by code. Source bins are 1-year intervals (e.g., 0-1) except the last (21+). Target service bins (1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40) are mapped using overlap_weighted with source_spans defined. Target service 5 is not requested. Target service 30 and 40 both map to the '21+' source bin.",
+  "unavailable": false
+}

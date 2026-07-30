@@ -1,0 +1,165 @@
+{
+  "source_tables": [
+    {
+      "page": 48,
+      "title": "Annuitants \u2013 Distribution by Age and Category",
+      "row_labels": [
+        "Under 60",
+        "60 - 64",
+        "65 - 69",
+        "70 - 74",
+        "75 - 80",
+        "Over 80"
+      ],
+      "col_labels": [
+        "Age",
+        "Number",
+        "Annual Benefit",
+        "Average Annual Benefit"
+      ],
+      "cells": [
+        [
+          "Under 60",
+          357,
+          25731734,
+          72078
+        ],
+        [
+          "60 - 64",
+          193,
+          12355077,
+          64016
+        ],
+        [
+          "65 - 69",
+          189,
+          11125087,
+          58863
+        ],
+        [
+          "70 - 74",
+          105,
+          5644056,
+          53753
+        ],
+        [
+          "75 - 80",
+          47,
+          2281501,
+          48543
+        ],
+        [
+          "Over 80",
+          59,
+          2796686,
+          47401
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "Under 60"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "Under 60"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 - 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 - 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 - 80"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "75 - 80"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "Over 80"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "Over 80"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "Over 80"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "Over 80"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Number"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Average Annual Benefit"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table 'Annuitants \u2013 Distribution by Age and Category' includes all pay-status members (Service, Disability, Beneficiaries, QDROs) as a single combined population; no separate Service-only table is provided. The 'Under 60' bucket (357 members) is split evenly across target rows 50-54 and 55-59. The '75 - 80' bucket (47 members) is split evenly across target rows 75-79 and 80-84. The 'Over 80' bucket (59 members) is split evenly across target rows 85-89, 90-94, 95-99, and 100 & over. The source prints 'Average Annual Benefit' directly, so no ratio calculation is needed. Values are annual dollars.",
+  "unavailable": false,
+  "broadcast": null
+}

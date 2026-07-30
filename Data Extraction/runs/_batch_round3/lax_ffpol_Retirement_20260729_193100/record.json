@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8f483ce5260b0dfb",
+        "object": "chat.completion",
+        "created": 1785367861,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 22,\n      \"title\": \"Distribution of Retired Members and Beneficiaries as of June 30, 2019 - BY TYPE AND AGE\",\n      \"row_labels\": [\n        \"Service\",\n        \"Disability\",\n        \"Beneficiaries\"\n      ],\n      \"col_labels\": [\n        \"Type\",\n        \"Count\",\n        \"Average Age\",\n        \"Average Monthly Benefit\"\n      ],\n      \"cells\": [\n        [\n          \"Service\",\n          8811,\n          69.9,\n          6758\n        ],\n        [\n          \"Disability\",\n          1821,\n          71.9,\n          5141\n        ],\n        [\n          \"Beneficiaries\",\n          2465,\n          76.6,\n          4646\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not publish a distribution of retired members by 5-year age band. It only provides aggregate counts and average ages/benefits for three broad categories: Service Retirees, Disability Retirees, and Beneficiaries. The target grid requires specific age bands (50-54, 55-59, etc.) which are not present in the text. The closest available data is the aggregate table on page 22, which is transcribed as evidence but cannot be mapped to the target rows.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 163748,
+          "total_tokens": 164144,
+          "completion_tokens": 396,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 163748,
+        "total_tokens": 164144,
+        "completion_tokens": 396,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-ab23412c6af7aa50",
+        "object": "chat.completion",
+        "created": 1785367872,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 22,\n      \"title\": \"Distribution of Retired Members and Beneficiaries as of June 30, 2019 - BY TYPE AND AGE\",\n      \"row_labels\": [\n        \"Service\",\n        \"Disability\",\n        \"Beneficiaries\"\n      ],\n      \"col_labels\": [\n        \"Type\",\n        \"Count\",\n        \"Average Age\",\n        \"Average Monthly Benefit\"\n      ],\n      \"cells\": [\n        [\n          \"Service\",\n          8811,\n          69.9,\n          6758\n        ],\n        [\n          \"Disability\",\n          1821,\n          71.9,\n          5141\n        ],\n        [\n          \"Beneficiaries\",\n          2465,\n          76.6,\n          4646\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not publish a distribution of retired members by 5-year age band. It only provides aggregate counts and average ages/benefits for three broad categories: Service Retirees, Disability Retirees, and Beneficiaries. The target grid requires specific age bands (50-54, 55-59, etc.) which are not present in the text. The closest available data is the aggregate table on page 22, which is transcribed as evidence but cannot be mapped to the target rows.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 166517,
+          "total_tokens": 166921,
+          "completion_tokens": 404,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 166517,
+        "total_tokens": 166921,
+        "completion_tokens": 404,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

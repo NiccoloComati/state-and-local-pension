@@ -1,0 +1,489 @@
+{
+  "source_tables": [
+    {
+      "page": 47,
+      "title": "Active Members \u2013 Distribution by Age and Service",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "Over 64"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40+",
+        "Total"
+      ],
+      "cells": [
+        [
+          57774,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          57774
+        ],
+        [
+          66167,
+          74195,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          67107
+        ],
+        [
+          69358,
+          77836,
+          84458,
+          74011,
+          null,
+          null,
+          null,
+          null,
+          null,
+          74794
+        ],
+        [
+          71559,
+          78332,
+          87569,
+          97443,
+          86084,
+          null,
+          null,
+          null,
+          null,
+          83346
+        ],
+        [
+          72285,
+          79150,
+          86867,
+          103451,
+          111831,
+          null,
+          null,
+          null,
+          null,
+          95637
+        ],
+        [
+          70843,
+          77156,
+          88801,
+          102564,
+          113077,
+          112630,
+          null,
+          null,
+          null,
+          103810
+        ],
+        [
+          null,
+          91805,
+          89068,
+          100893,
+          114183,
+          115331,
+          110419,
+          null,
+          null,
+          108371
+        ],
+        [
+          null,
+          null,
+          85219,
+          103818,
+          112256,
+          110260,
+          110332,
+          103844,
+          null,
+          107505
+        ],
+        [
+          160609,
+          null,
+          97990,
+          116586,
+          97814,
+          120685,
+          109449,
+          null,
+          null,
+          111402
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          99172,
+          null,
+          null,
+          null,
+          null,
+          99172
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 47,
+      "title": "Active Members \u2013 Distribution by Age and Service (Counts)",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "Over 64"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40+",
+        "Total"
+      ],
+      "cells": [
+        [
+          27,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          27
+        ],
+        [
+          181,
+          24,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          205
+        ],
+        [
+          127,
+          116,
+          35,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          279
+        ],
+        [
+          46,
+          114,
+          163,
+          30,
+          1,
+          null,
+          null,
+          null,
+          null,
+          354
+        ],
+        [
+          25,
+          36,
+          93,
+          139,
+          56,
+          null,
+          null,
+          null,
+          null,
+          349
+        ],
+        [
+          8,
+          20,
+          48,
+          101,
+          144,
+          35,
+          null,
+          null,
+          null,
+          356
+        ],
+        [
+          null,
+          4,
+          20,
+          53,
+          70,
+          62,
+          5,
+          null,
+          null,
+          214
+        ],
+        [
+          null,
+          null,
+          5,
+          12,
+          14,
+          22,
+          14,
+          3,
+          null,
+          70
+        ],
+        [
+          1,
+          null,
+          1,
+          1,
+          6,
+          5,
+          3,
+          null,
+          null,
+          17
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      ],
+      "printed_row_totals": [
+        27,
+        205,
+        279,
+        354,
+        349,
+        356,
+        214,
+        70,
+        17,
+        1
+      ],
+      "printed_col_totals": [
+        415,
+        314,
+        365,
+        337,
+        292,
+        124,
+        22,
+        3,
+        null,
+        1872
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "70",
+      "sources": [
+        "Over 64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40+"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table on page 47 contains interleaved rows for counts (top) and average salary (bottom) for each age band. Table 0 is the average salary values. Table 1 is the member counts used as weights for the weighted_avg operations (though here bins align 1:1 so op is copy, weights_table is still required by schema for average targets). Target rows 29, 34, etc. correspond to the printed labels '25-29', '30-34', etc. Target column '40' maps to source '40+'. No aggregation needed as bins align perfectly.",
+  "unavailable": false,
+  "broadcast": null
+}

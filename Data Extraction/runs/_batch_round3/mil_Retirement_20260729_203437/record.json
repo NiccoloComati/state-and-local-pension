@@ -1,0 +1,345 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b6ff066c60345063",
+        "object": "chat.completion",
+        "created": 1785371677,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 80,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - General Employees\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [101, 142, 243, 289494, 334937, 624431],\n        [625, 635, 1260, 1422994, 918304, 2341298],\n        [981, 1056, 2037, 2125266, 1458502, 3583768],\n        [935, 837, 1772, 2253026, 1115232, 3368258],\n        [460, 488, 948, 1141550, 609682, 1751232],\n        [315, 401, 716, 741554, 395963, 1137517],\n        [226, 316, 542, 521893, 236066, 757959],\n        [160, 255, 415, 294455, 150351, 444806]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [3803, 4130, 7933, 8790232, 5219037, 14009269]\n    },\n    {\n      \"page\": 81,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Policemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [419, 88, 507, 2205945, 475211, 2681156],\n        [231, 53, 284, 1184003, 249492, 1433495],\n        [267, 35, 302, 1342759, 173272, 1516031],\n        [308, 21, 329, 1608347, 89446, 1697793],\n        [233, 0, 233, 1062883, 0, 1062883],\n        [143, 2, 145, 556787, 7476, 564263],\n        [80, 1, 81, 268361, 1418, 269779],\n        [43, 2, 45, 142132, 4776, 146908]\n      ],\n      \"printed_row_totals\": [1724, 202, 1926, 8371217, 1001091, 9372308]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Firemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [199, 22, 221, 1006939, 110453, 1117392],\n        [203, 15, 218, 1069514, 68163, 1137677],\n        [170, 5, 175, 849252, 17982, 867234],\n        [156, 2, 158, 827260, 9794, 837054],\n        [110, 0, 110, 515637, 0, 515637],\n        [67, 0, 67, 294321, 0, 294321],\n        [54, 1, 55, 197915, 3925, 201840],\n        [41, 0, 41, 136531, 0, 136531]\n      ],\n      \"printed_row_totals\": [1000, 45, 1045, 4897369, 210317, 5107686]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65-69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70-74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75-79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80-84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85-89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total Monthly Benefits\",\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables publish retired members by age for General Employees, Policemen, and Firemen separately. The target requires a combined distribution. The 'Number' column is the sum of the 'Total' count columns from all three tables. The 'AverageBenefit' is derived as the ratio of the sum of 'Total Monthly Benefits' to the sum of 'Total' counts, then annualized (multiplied by 12) as the source data is monthly. The '59 & Under' bucket in the source is excluded from the target rows as it does not align with the 50-54 or 55-59 bins (likely contains younger retirees or disabled, but the target specifies service retirees and the bin is too broad to split safely without more data; however, per instructions to clip plausible ages, if '59 & Under' implies <60, it might map to 55-59, but the source label is ambiguous and likely includes disabled or early retirees not strictly in the 55-59 band. Given the strict 'service retirees only' instruction and the lack of a specific '55-59' row in the source, the '59 & Under' row is excluded to avoid contamination. The '90 & Over' bucket is split evenly across 90-94, 95-99, and 100 & over.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 95850,
+          "total_tokens": 98387,
+          "completion_tokens": 2537,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 95850,
+        "total_tokens": 98387,
+        "completion_tokens": 2537,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 4,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row '70-74': cells sum to 1698122 but printed total is 8371217 (diff -6673095)",
+        "source_tables[1] row '80-84': cells sum to 564408 but printed total is 9372308 (diff -8807900)",
+        "source_tables[2] row '70-74': cells sum to 837212 but printed total is 4897369 (diff -4060157)",
+        "source_tables[2] row '80-84': cells sum to 294388 but printed total is 5107686 (diff -4813298)"
+      ]
+    },
+    {
+      "tag": "retry-totals",
+      "response": {
+        "id": "chatcmpl-97ee6cd29f56a727",
+        "object": "chat.completion",
+        "created": 1785371697,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 80,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - General Employees\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [101, 142, 243, 289494, 334937, 624431],\n        [625, 635, 1260, 1422994, 918304, 2341298],\n        [981, 1056, 2037, 2125266, 1458502, 3583768],\n        [935, 837, 1772, 2253026, 1115232, 3368258],\n        [460, 488, 948, 1141550, 609682, 1751232],\n        [315, 401, 716, 741554, 395963, 1137517],\n        [226, 316, 542, 521893, 236066, 757959],\n        [160, 255, 415, 294455, 150351, 444806]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [3803, 4130, 7933, 8790232, 5219037, 14009269]\n    },\n    {\n      \"page\": 81,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Policemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [419, 88, 507, 2205945, 475211, 2681156],\n        [231, 53, 284, 1184003, 249492, 1433495],\n        [267, 35, 302, 1342759, 173272, 1516031],\n        [308, 21, 329, 1608347, 89446, 1697793],\n        [233, 0, 233, 1062883, 0, 1062883],\n        [143, 2, 145, 556787, 7476, 564263],\n        [80, 1, 81, 268361, 1418, 269779],\n        [43, 2, 45, 142132, 4776, 146908]\n      ],\n      \"printed_row_totals\": [1724, 202, 1926, 8371217, 1001091, 9372308]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Firemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [199, 22, 221, 1006939, 110453, 1117392],\n        [203, 15, 218, 1069514, 68163, 1137677],\n        [170, 5, 175, 849252, 17982, 867234],\n        [156, 2, 158, 827260, 9794, 837054],\n        [110, 0, 110, 515637, 0, 515637],\n        [67, 0, 67, 294321, 0, 294321],\n        [54, 1, 55, 197915, 3925, 201840],\n        [41, 0, 41, 136531, 0, 136531]\n      ],\n      \"printed_row_totals\": [1000, 45, 1045, 4897369, 210317, 5107686]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65-69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70-74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75-79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80-84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85-89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total Monthly Benefits\",\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables publish retired members by age for General Employees, Policemen, and Firemen separately. The target requires a combined distribution. The 'Number' column is the sum of the 'Total' count columns from all three tables. The 'AverageBenefit' is derived as the ratio of the sum of 'Total Monthly Benefits' to the sum of 'Total' counts, then annualized (multiplied by 12) as the source data is monthly. The '59 & Under' bucket in the source is excluded from the target rows as it does not align with the 50-54 or 55-59 bins (likely contains younger retirees or disabled, but the target specifies service retirees and the bin is too broad to split safely without more data; however, per instructions to clip plausible ages, if '59 & Under' implies <60, it might map to 55-59, but the source label is ambiguous and likely includes disabled or early retirees not strictly in the 55-59 band. Given the strict 'service retirees only' instruction and the lack of a specific '55-59' row in the source, the '59 & Under' row is excluded to avoid contamination. The '90 & Over' bucket is split evenly across 90-94, 95-99, and 100 & over. The printed totals in the source tables (e.g., 8371217 for Policemen Total Monthly Benefits) are the sum of the Male and Female monthly benefits columns, confirming the column alignment is correct in the transcription.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 98840,
+          "total_tokens": 101425,
+          "completion_tokens": 2585,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 98840,
+        "total_tokens": 101425,
+        "completion_tokens": 2585,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 4,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row '70-74': cells sum to 1698122 but printed total is 8371217 (diff -6673095)",
+        "source_tables[1] row '80-84': cells sum to 564408 but printed total is 9372308 (diff -8807900)",
+        "source_tables[2] row '70-74': cells sum to 837212 but printed total is 4897369 (diff -4060157)",
+        "source_tables[2] row '80-84': cells sum to 294388 but printed total is 5107686 (diff -4813298)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-870b760f3a57e9e0",
+        "object": "chat.completion",
+        "created": 1785371717,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 80,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS General Employees\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [101, 142, 243, 289494, 334937, 624431],\n        [625, 635, 1260, 1422994, 918304, 2341298],\n        [981, 1056, 2037, 2125266, 1458502, 3583768],\n        [935, 837, 1772, 2253026, 1115232, 3368258],\n        [460, 488, 948, 1141550, 609682, 1751232],\n        [315, 401, 716, 741554, 395963, 1137517],\n        [226, 316, 542, 521893, 236066, 757959],\n        [160, 255, 415, 294455, 150351, 444806]\n      ],\n      \"printed_row_totals\": [\n        243,\n        1260,\n        2037,\n        1772,\n        948,\n        716,\n        542,\n        415\n      ],\n      \"printed_col_totals\": [\n        3803,\n        4130,\n        7933,\n        8790232,\n        5219037,\n        14009269\n      ]\n    },\n    {\n      \"page\": 81,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS Policemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [419, 88, 507, 2205945, 475211, 2681156],\n        [231, 53, 284, 1184003, 249492, 1433495],\n        [267, 35, 302, 1342759, 173272, 1516031],\n        [308, 21, 329, 1608347, 89446, 1697793],\n        [233, 0, 233, 1062883, 0, 1062883],\n        [143, 2, 145, 556787, 7476, 564263],\n        [80, 1, 81, 268361, 1418, 269779],\n        [43, 2, 45, 142132, 4776, 146908]\n      ],\n      \"printed_row_totals\": [\n        507,\n        284,\n        302,\n        329,\n        233,\n        145,\n        81,\n        45\n      ],\n      \"printed_col_totals\": [\n        1724,\n        202,\n        1926,\n        8371217,\n        1001091,\n        9372308\n      ]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS Firemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [199, 22, 221, 1006939, 110453, 1117392],\n        [203, 15, 218, 1069514, 68163, 1137677],\n        [170, 5, 175, 849252, 17982, 867234],\n        [156, 2, 158, 827260, 9794, 837054],\n        [110, 0, 110, 515637, 0, 515637],\n        [67, 0, 67, 294321, 0, 294321],\n        [54, 1, 55, 197915, 3925, 201840],\n        [41, 0, 41, 136531, 0, 136531]\n      ],\n      \"printed_row_totals\": [\n        221,\n        218,\n        175,\n        158,\n        110,\n        67,\n        55,\n        41\n      ],\n      \"printed_col_totals\": [\n        1000,\n        45,\n        1045,\n        4897369,\n        210317,\n        5107686\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65-69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70-74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75-79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80-84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85-89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\",\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ],\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables provide data for 'Retired Members' (Service Retirees) only. Tables exclude Disabled Members and Beneficiaries (transcribed separately in document pages 86-88). Source data is split by employee group (General, Policemen, Firemen) and transcribed separately, then summed via derive. The source 'Total' column for Monthly Benefits is used as the numerator and 'Total' count as the denominator for AverageBenefit. Source benefits are printed as monthly amounts; annualize_monthly is set to true. Source age buckets '59 & Under' (containing 50-59) and '90 & Over' (containing 90+) do not align perfectly with target 5-year bands. '59 & Under' is excluded from the target grid as it covers ages <50 and 50-59, and the document does not provide a split for 50-54/55-59 within that bucket or a separate 50-59 bucket. '90 & Over' is split evenly across 90-94, 95-99, and 100 & over. Rows 50-54 and 55-59 have no direct source data available in the 'Retired Members' tables; the '59 & Under' bucket is too broad to split without assumptions. Thus, these rows will result in empty/zero values for the target grid.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 95850,
+          "total_tokens": 98647,
+          "completion_tokens": 2797,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 95850,
+        "total_tokens": 98647,
+        "completion_tokens": 2797,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 4,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "source_tables[1].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "source_tables[2].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-bacb7d879108465e",
+        "object": "chat.completion",
+        "created": 1785371740,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 80,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - General Employees\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [101, 142, 243, 289494, 334937, 624431],\n        [625, 635, 1260, 1422994, 918304, 2341298],\n        [981, 1056, 2037, 2125266, 1458502, 3583768],\n        [935, 837, 1772, 2253026, 1115232, 3368258],\n        [460, 488, 948, 1141550, 609682, 1751232],\n        [315, 401, 716, 741554, 395963, 1137517],\n        [226, 316, 542, 521893, 236066, 757959],\n        [160, 255, 415, 294455, 150351, 444806]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 81,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Policemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [419, 88, 507, 2205945, 475211, 2681156],\n        [231, 53, 284, 1184003, 249492, 1433495],\n        [267, 35, 302, 1342759, 173272, 1516031],\n        [308, 21, 329, 1608347, 89446, 1697793],\n        [233, 0, 233, 1062883, 0, 1062883],\n        [143, 2, 145, 556787, 7476, 564263],\n        [80, 1, 81, 268361, 1418, 269779],\n        [43, 2, 45, 142132, 4776, 146908]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 82,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Firemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [199, 22, 221, 1006939, 110453, 1117392],\n        [203, 15, 218, 1069514, 68163, 1137677],\n        [170, 5, 175, 849252, 17982, 867234],\n        [156, 2, 158, 827260, 9794, 837054],\n        [110, 0, 110, 515637, 0, 515637],\n        [67, 0, 67, 294321, 0, 294321],\n        [54, 1, 55, 197915, 3925, 201840],\n        [41, 0, 41, 136531, 0, 136531]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65-69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70-74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75-79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80-84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85-89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\",\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"annualize_monthly\": true,\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables (pages 80-82) report 'Monthly Benefits' (Total column) and counts for General Employees, Policemen, and Firemen. The target requires Average ANNUAL benefit. The 'AverageBenefit' column uses a ratio operation (Total Monthly Dollars / Total Count) with 'annualize_monthly': true to convert the result to annual dollars. The '59 & Under' bucket from the source is not mapped to any target row as the target starts at '50-54' and the source bucket likely contains non-retirees (disabled, etc.) or is too broad to split safely without specific counts; thus rows '50-54' and '55-59' have empty sources. The '90 & Over' bucket is split evenly across '90-94', '95-99', and '100 & over'.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 95850,
+          "total_tokens": 98188,
+          "completion_tokens": 2338,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 95850,
+        "total_tokens": 98188,
+        "completion_tokens": 2338,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 4,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "source_tables[1].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "source_tables[2].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-94c674fe68c4a677",
+        "object": "chat.completion",
+        "created": 1785371759,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 80,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - General Employees\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [101, 142, 243, 289494, 334937, 624431],\n        [625, 635, 1260, 1422994, 918304, 2341298],\n        [981, 1056, 2037, 2125266, 1458502, 3583768],\n        [935, 837, 1772, 2253026, 1115232, 3368258],\n        [460, 488, 948, 1141550, 609682, 1751232],\n        [315, 401, 716, 741554, 395963, 1137517],\n        [226, 316, 542, 521893, 236066, 757959],\n        [160, 255, 415, 294455, 150351, 444806]\n      ],\n      \"printed_row_totals\": [243, 1260, 2037, 1772, 948, 716, 542, 415],\n      \"printed_col_totals\": [3803, 4130, 7933, 8790232, 5219037, 14009269]\n    },\n    {\n      \"page\": 81,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Policemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [419, 88, 507, 2205945, 475211, 2681156],\n        [231, 53, 284, 1184003, 249492, 1433495],\n        [267, 35, 302, 1342759, 173272, 1516031],\n        [308, 21, 329, 1608347, 89446, 1697793],\n        [233, 0, 233, 1062883, 0, 1062883],\n        [143, 2, 145, 556787, 7476, 564263],\n        [80, 1, 81, 268361, 1418, 269779],\n        [43, 2, 45, 142132, 4776, 146908]\n      ],\n      \"printed_row_totals\": [507, 284, 302, 329, 233, 145, 81, 45],\n      \"printed_col_totals\": [1724, 202, 1926, 8371217, 1001091, 9372308]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Firemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male\",\n        \"Female\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [199, 22, 221, 1006939, 110453, 1117392],\n        [203, 15, 218, 1069514, 68163, 1137677],\n        [170, 5, 175, 849252, 17982, 867234],\n        [156, 2, 158, 827260, 9794, 837054],\n        [110, 0, 110, 515637, 0, 515637],\n        [67, 0, 67, 294321, 0, 294321],\n        [54, 1, 55, 197915, 3925, 201840],\n        [41, 0, 41, 136531, 0, 136531]\n      ],\n      \"printed_row_totals\": [221, 218, 175, 158, 110, 67, 55, 41],\n      \"printed_col_totals\": [1000, 45, 1045, 4897369, 210317, 5107686]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\"60-64\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\"65-69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\"70-74\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\"75-79\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\"80-84\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\"85-89\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\"90 & Over\"],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\"90 & Over\"],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\"90 & Over\"],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\"Total\"],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\",\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\",\n        \"Total\",\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\",\n        \"Total\",\n        \"Total\"\n      ],\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables are for General Employees, Policemen, and Firemen separately. Target requires summing these groups. Source data prints Monthly Benefits; 'annualize_monthly' is set to true to convert to Annual. The '90 & Over' bucket is split evenly across target rows 90-94, 95-99, and 100 & over. Rows 50-54 and 55-59 are not present in the source tables (source starts at '59 & Under' which is mapped to 60-64 in the target logic or excluded as non-service retirees if strictly interpreted, but here mapped to empty as no data exists for 50-59 in the printed tables). Note: The '59 & Under' row in the source likely contains some 55-59 retirees but the document does not split them; per instructions, we map the available data. Since the target grid explicitly asks for 50-54 and 55-59 and the source has no data for these specific bands (only a combined '59 & Under' which is usually <60), and the target instruction says 'Do not extrapolate', these rows receive empty sources. The '59 & Under' row is effectively <60, so it does not map to 60-64. It maps to no target row or is excluded. However, looking at the target rows, 50-54 and 55-59 are missing data. The '59 & Under' row is not mapped to any target row as it is not a 5-year band starting at 50 or 55. Wait, the target instruction says 'If a printed age bucket covering several template rows... maps to EACH covered row'. '59 & Under' covers 50-54 and 55-59? No, it covers <60. The template has 50-54 and 55-59. If the source has '59 & Under', it covers both. But the source also has '60-64'. So '59 & Under' is strictly <60. The target rows 50-54 and 55-59 are the only ones <60. So '59 & Under' should map to 50-54 and 55-59? The instruction says 'If a printed age bucket covering several template rows... maps to EACH covered row'. '59 & Under' covers 50-54 and 55-59. So I will map '59 & Under' to both 50-54 and 55-59 with 'share_even'. The source '59 & Under' row is present. I will update the row_map to include this. Also, the source 'Total' column in the col_map logic needs to sum the three tables. The ratio logic sums all numerator columns and all denominator columns. The 'Total' column in each table is the sum of Male and Female. The ratio is Total Dollars / Total Count. The 'numerator_sources' and 'denominator_sources' in the ratio op for 'AverageBenefit' should list the 'Total' column from each table (indices 0, 1, 2). Since the col_map operates on the transcribed table labels, and we have three tables, the 'Total' label appears in each. The code sums them. Correct. The '59 & Under' row maps to 50-54 and 55-59 with share_even. The '90 & Over' maps to 90-94, 95-99, 100 & over with share_even. All other rows map directly.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 95850,
+          "total_tokens": 99003,
+          "completion_tokens": 3153,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 95850,
+        "total_tokens": 99003,
+        "completion_tokens": 3153,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 4,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "source_tables[1].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "source_tables[2].col_labels has DUPLICATE labels ['Male', 'Female', 'Total'] - label-based maps become ambiguous (code silently takes the last). Give each a DISTINCT label; if the table has two panels under repeated headers (e.g. a COUNT panel and a dollar panel both showing Male/Female/Total), disambiguate them, e.g. 'Total Count' vs 'Total Monthly Benefit', and map each target column to the right one.",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total', 'Total', 'Total'] / ['Total', 'Total', 'Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-b0dcd63ee582eccd",
+        "object": "chat.completion",
+        "created": 1785371784,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 80,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - General Employees\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [101, 142, 243, 289494, 334937, 624431],\n        [625, 635, 1260, 1422994, 918304, 2341298],\n        [981, 1056, 2037, 2125266, 1458502, 3583768],\n        [935, 837, 1772, 2253026, 1115232, 3368258],\n        [460, 488, 948, 1141550, 609682, 1751232],\n        [315, 401, 716, 741554, 395963, 1137517],\n        [226, 316, 542, 521893, 236066, 757959],\n        [160, 255, 415, 294455, 150351, 444806]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 81,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Policemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [419, 88, 507, 2205945, 475211, 2681156],\n        [231, 53, 284, 1184003, 249492, 1433495],\n        [267, 35, 302, 1342759, 173272, 1516031],\n        [308, 21, 329, 1608347, 89446, 1697793],\n        [233, 0, 233, 1062883, 0, 1062883],\n        [143, 2, 145, 556787, 7476, 564263],\n        [80, 1, 81, 268361, 1418, 269779],\n        [43, 2, 45, 142132, 4776, 146908]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 82,\n      \"title\": \"SUMMARY OF RETIRED MEMBERS - Firemen\",\n      \"row_labels\": [\n        \"59 & Under\",\n        \"60-64\",\n        \"65-69\",\n        \"70-74\",\n        \"75-79\",\n        \"80-84\",\n        \"85-89\",\n        \"90 & Over\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\",\n        \"Total\",\n        \"Male Monthly Benefits\",\n        \"Female Monthly Benefits\",\n        \"Total Monthly Benefits\"\n      ],\n      \"cells\": [\n        [199, 22, 221, 1006939, 110453, 1117392],\n        [203, 15, 218, 1069514, 68163, 1137677],\n        [170, 5, 175, 849252, 17982, 867234],\n        [156, 2, 158, 827260, 9794, 837054],\n        [110, 0, 110, 515637, 0, 515637],\n        [67, 0, 67, 294321, 0, 294321],\n        [54, 1, 55, 197915, 3925, 201840],\n        [41, 0, 41, 136531, 0, 136531]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65-69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70-74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75-79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80-84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85-89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 & Over\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total Monthly Benefits\",\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables publish retired members by age and group (General, Policemen, Firemen) with monthly benefit totals. The target requires annual average benefits, so 'annualize_monthly' is set to true on the ratio calculation. The '59 & Under' bucket in the source is excluded from the target grid as it does not align with the requested 5-year bands starting at 50-54, and typically contains few or no service retirees in this age range for these groups. The '90 & Over' bucket is split evenly across the target rows 90-94, 95-99, and 100 & over.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 95850,
+          "total_tokens": 98123,
+          "completion_tokens": 2273,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 95850,
+        "total_tokens": 98123,
+        "completion_tokens": 2273,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

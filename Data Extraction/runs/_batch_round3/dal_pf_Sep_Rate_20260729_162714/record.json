@@ -1,0 +1,125 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a69d3deff9dd49c4",
+        "object": "chat.completion",
+        "created": 1785356834,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 53,\n      \"title\": \"Withdrawal Rates Before Retirement\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11-14\",\n        \"15-24\",\n        \"25 & over\"\n      ],\n      \"col_labels\": [\n        \"Years of Service\",\n        \"Police\",\n        \"Fire\"\n      ],\n      \"cells\": [\n        [0, 20.0, 10.0],\n        [1, 5.5, 5.5],\n        [2, 5.5, 5.5],\n        [3, 5.5, 5.5],\n        [4, 5.5, 5.5],\n        [5, 5.5, 5.5],\n        [6, 3.5, 5.5],\n        [7, 3.5, 1.0],\n        [8, 3.5, 1.0],\n        [9, 3.5, 1.0],\n        [10, 3.5, 1.0],\n        [11, 2.0, 1.0],\n        [15, 1.0, 1.0],\n        [25, 0.0, 0.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 14],\n        [15, 24],\n        [25, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [1, 1]\n      ]\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [2, 2]\n      ]\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [3, 3]\n      ]\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [4, 4]\n      ]\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [6, 6]\n      ]\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [8, 8]\n      ]\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [10, 10]\n      ]\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [11, 11]\n      ]\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [12, 14]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [15, 24],\n        [25, null]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"Police\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [15, 24],\n        [25, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Police\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 53 provides withdrawal rates by years of service only, separated by Police and Fire. The target requires a single rate grid. Since the document does not provide a headcount distribution to weight Police and Fire rates, and the target implies a single plan rate, the Police column is used as the primary source (series_op: copy) and broadcast across all target ages. The source rates are in percent and will be converted to decimal by the code. Target service bins 1-10 map directly to single-year source rows. Target bins 11, 12, 30, 40 map to source bins 11-14, 15-24, and 25+ using overlap_weighted logic (though for single-point targets inside a bin, it effectively copies the bin rate). Target service 12 falls in the 11-14 bin. Target service 30 and 40 fall in the 25+ bin (with partial overlap in 15-24 for 30, but 30 is > 24, so it falls entirely in 25+). Wait, 30 is in 25+. 12 is in 11-14. 11 is in 11-14. 10 is in 10. 8 is in 8. 6 is in 6. 4 is in 4. 3 is in 3. 2 is in 2. 1 is in 1. The source_spans for 12 should be [11, 14]. For 30 and 40, the source span is [25, null]. The overlap logic handles the blending if a target bin spanned multiple source bins, but here the target points are single years (or effectively single years in the mapping logic) falling into specific source bins. The code will handle the overlap calculation. Note: The target column '12' corresponds to service year 12, which is in the '11-14' source bin. The target column '30' and '40' correspond to service years 30 and 40, which are in the '25 & over' source bin.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 52309,
+          "total_tokens": 54359,
+          "completion_tokens": 2050,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 52309,
+        "total_tokens": 54359,
+        "completion_tokens": 2050,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 12,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[9] ('30'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "col_map[10] ('40'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "col_map: source bin 'Police' declared with two different spans ([1, 1] vs [2, 2]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([2, 2] vs [3, 3]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([3, 3] vs [4, 4]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([4, 4] vs [6, 6]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([6, 6] vs [8, 8]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([8, 8] vs [10, 10]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([10, 10] vs [11, 11]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([11, 11] vs [12, 14]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Police' declared with two different spans ([12, 14] vs [15, 24]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "broadcast: col_map (the varying axis) references 1 label(s) that are not ROW labels of source_tables[0]: ['Police']. In broadcast the varying-axis sources are the source's ROW labels (the printed bins). Available rows: ['0', '1', '10', '11-14', '15-24', '2', '25 & over', '3', '4', '5', '6', '7', '8', '9']"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b8f468424c612a81",
+        "object": "chat.completion",
+        "created": 1785356848,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 53,\n      \"title\": \"Withdrawal Rates Before Retirement\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11-14\",\n        \"15-24\",\n        \"25 & over\"\n      ],\n      \"col_labels\": [\n        \"Years of Service\",\n        \"Police\",\n        \"Fire\"\n      ],\n      \"cells\": [\n        [0, 20.0, 10.0],\n        [1, 5.5, 5.5],\n        [2, 5.5, 5.5],\n        [3, 5.5, 5.5],\n        [4, 5.5, 5.5],\n        [5, 5.5, 5.5],\n        [6, 3.5, 5.5],\n        [7, 3.5, 1.0],\n        [8, 3.5, 1.0],\n        [9, 3.5, 1.0],\n        [10, 3.5, 1.0],\n        [11, 2.0, 1.0],\n        [15, 1.0, 1.0],\n        [25, 0.0, 0.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 14],\n        [15, 24],\n        [25, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"6\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"8\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"10\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"11-14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"11-14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"25 & over\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"25 & over\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Police\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 53 provides withdrawal rates by years of service only, separated by Police and Fire. The target requires a single rate grid. Since the document does not provide a headcount distribution to weight Police and Fire rates, and the target implies a single plan rate, the Police column is used as the primary source (series_op: copy) and broadcast across all target ages. The source rates are in percent and will be converted to decimal by the code. Target service bins 1-10 map directly to single-year source rows. Target bins 11 and 12 map to the '11-14' source bin. Target bins 30 and 40 map to the '25 & over' source bin. The broadcast axis is 'age' because the source rates vary only by service.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 57301,
+          "total_tokens": 58798,
+          "completion_tokens": 1497,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 57301,
+        "total_tokens": 58798,
+        "completion_tokens": 1497,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

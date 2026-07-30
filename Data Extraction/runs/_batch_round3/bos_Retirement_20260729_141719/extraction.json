@@ -1,0 +1,73 @@
+{
+  "source_tables": [
+    {
+      "page": 17,
+      "title": "Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age",
+      "row_labels": [
+        "Superannuation",
+        "Accidental Disability",
+        "Beneficiaries",
+        "Ordinary Disability"
+      ],
+      "col_labels": [
+        "Age 60-64",
+        "Age 65-69",
+        "Age 70-74",
+        "Age 75-79",
+        "Age 80-84",
+        "Age 85-89",
+        "Age 90+"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The target data (distribution of members receiving benefits by 5-year age band) is not available in the document. Page 17 displays a bar chart titled 'Distribution of Pensioners and Beneficiaries as of December 31, 2019 by Type and Age', but the chart lacks numerical data labels, and no corresponding data table with counts by age band is present in the text. The text only provides aggregate totals (e.g., 7,992 retired participants, 1,787 beneficiaries) and average ages (73.7 for retired participants and beneficiaries). Without the specific counts per age band, the target grid cannot be populated. The source table is transcribed as empty evidence of the missing data.",
+  "broadcast": null
+}

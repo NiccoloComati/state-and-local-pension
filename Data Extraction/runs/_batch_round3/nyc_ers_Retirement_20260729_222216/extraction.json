@@ -1,0 +1,297 @@
+{
+  "source_tables": [
+    {
+      "page": 121,
+      "title": "Distribution of Pension Benefits by Cause and Age as of June 30, 2018 - Service Retirement",
+      "row_labels": [
+        "UNDER 30",
+        "30 TO 34",
+        "35 TO 39",
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "70 TO 74",
+        "75 TO 79",
+        "80 TO 84",
+        "85 TO 89",
+        "90 & UP"
+      ],
+      "col_labels": [
+        "MALE NUMBER",
+        "MALE BENEFITS",
+        "MALE AVERAGE",
+        "FEMALE NUMBER",
+        "FEMALE BENEFITS",
+        "FEMALE AVERAGE",
+        "TOTAL NUMBER",
+        "TOTAL BENEFITS",
+        "TOTAL AVERAGE"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          19,
+          1064086,
+          56005,
+          10,
+          527258,
+          52726,
+          29,
+          1591344,
+          54874
+        ],
+        [
+          319,
+          16384818,
+          51363,
+          175,
+          9067341,
+          51813,
+          494,
+          25452159,
+          51523
+        ],
+        [
+          1900,
+          95959603,
+          50505,
+          824,
+          40083676,
+          48645,
+          2724,
+          136043279,
+          49942
+        ],
+        [
+          5332,
+          243885324,
+          45740,
+          2328,
+          87055013,
+          37395,
+          7660,
+          330940337,
+          43204
+        ],
+        [
+          10226,
+          410730987,
+          40165,
+          5958,
+          176832623,
+          29680,
+          16184,
+          587563610,
+          36305
+        ],
+        [
+          15427,
+          581529921,
+          37696,
+          10162,
+          293202556,
+          28853,
+          25589,
+          874732477,
+          34184
+        ],
+        [
+          15028,
+          535917260,
+          35661,
+          10210,
+          276485165,
+          27080,
+          25238,
+          812402425,
+          32190
+        ],
+        [
+          12248,
+          395894280,
+          32323,
+          7656,
+          188077766,
+          24566,
+          19904,
+          583972046,
+          29339
+        ],
+        [
+          8008,
+          231335557,
+          28888,
+          4984,
+          103785408,
+          20824,
+          12992,
+          335120965,
+          25794
+        ],
+        [
+          4590,
+          123418289,
+          26889,
+          3204,
+          59819571,
+          18670,
+          7794,
+          183237860,
+          23510
+        ],
+        [
+          2956,
+          74413849,
+          25174,
+          3063,
+          47772702,
+          15597,
+          6019,
+          122186551,
+          20300
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50 TO 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55 TO 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 TO 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 TO 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 TO 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 TO 79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80 TO 84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85 TO 89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 & UP"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "90 & UP"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "90 & UP"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "TOTAL NUMBER"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "TOTAL BENEFITS",
+        "TOTAL NUMBER"
+      ],
+      "op": "ratio"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is 'Distribution of Pension Benefits by Cause and Age as of June 30, 2018' on page 121. Only the 'SERVICE RETIREMENT' section is used as per target definition (excluding disability and death beneficiaries). The source prints 'TOTAL BENEFITS' (annual dollars) and 'TOTAL NUMBER' (count). The 'AverageBenefit' column is derived as a ratio of these two. The source bucket '90 & UP' covers three target rows (90-94, 95-99, 100 & over) and is mapped using 'share_even' to split the count and total benefits evenly, preserving the average benefit value in the derived ratio column. Rows for ages under 50 are not in the target grid and are ignored.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a50505a897f35ddb",
+        "object": "chat.completion",
+        "created": 1785381022,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 78,\n      \"title\": \"Distribution of Active Participants (Excludes DROP Participants) as of July 1, 2019 -- Total City\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 & up\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 & Up\"\n      ],\n      \"cells\": [\n        [221, 367, 32, 0, 0, 0, 0, 0],\n        [484, 1838, 470, 61, 0, 0, 0, 0],\n        [289, 1489, 1173, 697, 49, 0, 0, 0],\n        [207, 865, 757, 1251, 517, 28, 0, 0],\n        [121, 612, 502, 897, 976, 484, 29, 0],\n        [109, 508, 399, 626, 827, 1276, 299, 32],\n        [91, 405, 321, 522, 631, 1009, 862, 331],\n        [78, 318, 267, 454, 521, 695, 550, 589],\n        [40, 232, 231, 272, 246, 286, 160, 253],\n        [16, 126, 139, 144, 98, 91, 36, 90]\n      ],\n      \"printed_row_totals\": [620, 2853, 3697, 3625, 3621, 4076, 4172, 3472, 1720, 740],\n      \"printed_col_totals\": [1656, 6760, 4291, 4924, 3865, 3869, 1936, 1295]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 25\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 to 39\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 to 44\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 to 49\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 & up\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1 to 4\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 to 9\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 to 14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 to 19\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 to 24\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 & Up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"30 & Up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table A-5 on page 78 provides active member counts by age and service for the Total City (excluding DROP). Target rows map 1:1 to source rows. Target column '4' sums source columns 'Under 1' and '1 to 4'. Target columns '34' and '40' share the source column '30 & Up' evenly as the source bin is coarser than the target bins.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 121138,
+          "total_tokens": 122778,
+          "completion_tokens": 1640,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 121138,
+        "total_tokens": 122778,
+        "completion_tokens": 1640,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

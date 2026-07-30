@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-97335c96de101e34",
+        "object": "chat.completion",
+        "created": 1785359941,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 64,\n      \"title\": \"Percent of Members Separating Within the Next Year - Teachers\",\n      \"row_labels\": [\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"62\",\n        \"65\",\n        \"70\",\n        \"71\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Under 30 yrs\",\n        \"30 & up yrs\"\n      ],\n      \"cells\": [\n        [null, null],\n        [0.01, null],\n        [0.02, null],\n        [0.03, null],\n        [0.07, null],\n        [0.12, 5.0],\n        [0.2, 9.0],\n        [0.25, 27.0],\n        [0.3, 22.0],\n        [null, 25.0],\n        [null, 30.0],\n        [null, 25.0],\n        [null, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 61],\n        [62, 64],\n        [65, 69],\n        [70, 70],\n        [71, 74],\n        [75, null]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 65,\n      \"title\": \"Percent of Members Separating Within the Next Year - Police Officers\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null],\n        [null, null, null, null, null],\n        [null, null, null, null, null],\n        [null, null, null, null, null],\n        [null, null, null, null, 15.0],\n        [null, null, null, null, 22.0],\n        [null, null, null, null, 38.0],\n        [null, null, null, null, 18.0],\n        [null, null, null, null, 16.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, null]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 66,\n      \"title\": \"Percent of Members Separating Within the Next Year - Firefighters\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null],\n        [null, null, null, null, null],\n        [null, null, null, null, null],\n        [null, null, null, null, null],\n        [null, null, null, null, 12.5],\n        [null, null, null, null, 12.5],\n        [null, null, null, null, 22.0],\n        [null, null, null, null, 40.0],\n        [null, null, null, null, 40.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The document provides retirement rates by Service Years (columns) for specific Age groups (rows) for Teachers, Police, and Fire separately. The target requires a single grid of Retirement Rates by Service (rows) x Age (columns). The source tables do not provide a joint distribution of Age and Service for retirement rates; they provide rates conditional on Service for broad Age bands (e.g., Teachers: 'Under 30 yrs' vs '30 & up yrs'; Police/Fire: specific service years for all ages). The target grid requires single-age columns (50-70) and specific service buckets. The source data is insufficient to populate the target grid without making assumptions about the distribution of ages within the service buckets or the service distribution within the age bands. Specifically, the Police and Fire tables list rates for specific service years (20, 25, 30, 35, 40) but do not vary by age (the rates are constant across all ages for a given service year, or the table implies a single rate per service year regardless of age). The Teachers table varies by age but groups service into two broad buckets ('Under 30', '30 & up'). There is no table that provides a rate for a specific Age AND specific Service Year simultaneously (e.g., Age 55, Service 25). Therefore, the target grid cannot be derived. The source tables are transcribed as evidence of the available data, but the mapping is empty as the specific joint probabilities are not published.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 64849,
+          "total_tokens": 67695,
+          "completion_tokens": 2846,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 64849,
+        "total_tokens": 67695,
+        "completion_tokens": 2846,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

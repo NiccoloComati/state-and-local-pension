@@ -1,0 +1,279 @@
+{
+  "source_tables": [
+    {
+      "page": 21,
+      "title": "Annual Rate of Separation from Active Service (Withdrawal)",
+      "row_labels": [
+        "0-5",
+        "6-10",
+        "11-15",
+        "16-25",
+        "26+"
+      ],
+      "col_labels": [
+        "Withdrawal"
+      ],
+      "cells": [
+        [
+          1.4
+        ],
+        [
+          0.8
+        ],
+        [
+          0.6
+        ],
+        [
+          0.3
+        ],
+        [
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          5
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          11,
+          15
+        ],
+        [
+          16,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "0-5"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "target": "2",
+      "sources": [
+        "0-5"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "0-5"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "0-5"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6-10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "6-10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "6-10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          6,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11-15"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          11,
+          15
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "11-15"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          11,
+          15
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "16-25",
+        "26+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          16,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "16-25",
+        "26+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          16,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Withdrawal"
+    ],
+    "series_op": "copy"
+  },
+  "notes": "Source table on Page 21 provides withdrawal rates by Years of Service only (0-5, 6-10, 11-15, 16-25, 26+). No age breakdown is provided. Rates are printed as percentages (e.g., 1.40%). The target grid requires rates by Age x Service. Per instructions, broadcast is used to apply the service-based rates across all target ages. Source spans are defined for overlap_weighted mapping to target service bins. Target service bins 1-4 map to source 0-5; 6,8,10 map to 6-10; 11,12 map to 11-15; 30,40 map to 16-25 and 26+ (weighted by overlap). Note: The source bin '0-5' includes service year 0, but the target starts at 1. The overlap logic handles the partial overlap (years 1-5 vs 0-5) by weighting the rate proportionally to the years covered in the target bin relative to the source bin, or simply copying if the target bin is fully contained (which it is for 1-4). For 30 and 40, the source bins 16-25 and 26+ are blended.",
+  "unavailable": false
+}

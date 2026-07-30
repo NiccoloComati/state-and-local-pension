@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b9b12d08a1c67dc3",
+        "object": "chat.completion",
+        "created": 1785354822,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 26,\n      \"title\": \"DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND SERVICE GROUPS AS OF JULY 1, 2022 (Total Pay)\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 & up\",\n        \"Total Count\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [14900000, 24000000, 11000000, 1000000, 5000000, 1000000, 49000000, null, null],\n        [12400000, 20000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [109100000, 89178953, null, null, null, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 26,\n      \"title\": \"DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND SERVICE GROUPS AS OF JULY 1, 2022 (Count)\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 & up\",\n        \"Total Count\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [7, 24, 11, 1, 5, 1, 49, null, null],\n        [12, 20, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [1091, 1091, null, null, null, null, null, null, null]\n      ],\n      \"printed_row_totals\": [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 1091],\n      \"printed_col_totals\": [1091, 1091, null, null, null, null, null, null, null]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"Under 25\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"29\", \"sources\": [\"25 to 29\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"34\", \"sources\": [\"30 to 34\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"39\", \"sources\": [\"35 to 39\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"44\", \"sources\": [\"40 to 44\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"49\", \"sources\": [\"45 to 49\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"54\", \"sources\": [\"50 to 54\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"59\", \"sources\": [\"55 to 59\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"64\", \"sources\": [\"60 to 64\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"70\", \"sources\": [\"65 to 69\", \"70 & up\"], \"op\": \"weighted_avg\", \"weights_table\": 1}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"Under 1\", \"1 to 4\"], \"op\": \"weighted_avg\", \"weights_table\": 1},\n    {\"target\": \"9\", \"sources\": [\"5 to 9\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"14\", \"sources\": [\"10 to 14\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"19\", \"sources\": [\"15 to 19\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"24\", \"sources\": [\"20 to 24\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"29\", \"sources\": [\"25 to 29\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"34\", \"sources\": [\"30 to 34\"], \"op\": \"copy\", \"weights_table\": 1},\n    {\"target\": \"40\", \"sources\": [\"35 & Over\"], \"op\": \"copy\", \"weights_table\": 1}\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is interleaved on Page 26: Table 1 contains 'Total Pay' (numerator) and 'Count' (denominator) rows for each age band. The target requires average salary. The 'Total Pay' row for each age band is the sum of salaries for that age band across all service columns. The 'Count' row is the sum of members. The ratio of these two tables yields the average salary. The 'Total Count' row at the bottom of the table is the grand total of members and is not used for cell-wise ratios. The 'Total Pay' row at the bottom is the grand total of salaries. The mapping uses weighted_avg for merging bins (e.g., 'Under 1' + '1 to 4' into '4', and '65 to 69' + '70 & up' into '70') using the count table as weights. The 'Total Count' row in the source table is excluded from the cells list as per instructions to exclude total rows.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 25671,
+          "total_tokens": 28552,
+          "completion_tokens": 2881,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 25671,
+        "total_tokens": 28552,
+        "completion_tokens": 2881,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[9]: weighted_avg is not allowed in ratio mode - use additive maps",
+        "col_map[0]: weighted_avg is not allowed in ratio mode - use additive maps"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8813c75ba67cf51d",
+        "object": "chat.completion",
+        "created": 1785354840,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 26,\n      \"title\": \"DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND SERVICE GROUPS AS OF JULY 1, 2022 (Total Pay)\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 & up\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [14900000, 24000000, 11000000, 1000000, 5000000, 1000000, 49000000, null, null],\n        [12400000, 20000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000],\n        [11000000, 18000000, 9000000, 3000000, 6000000, 1000000, 3000000, 1000000, 1000000]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 26,\n      \"title\": \"DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND SERVICE GROUPS AS OF JULY 1, 2022 (Count)\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 & up\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [7, 24, 11, 1, 5, 1, 49, null, null],\n        [12, 20, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1],\n        [11, 18, 9, 3, 6, 1, 3, 1, 1]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"Under 25\"], \"op\": \"copy\"},\n    {\"target\": \"29\", \"sources\": [\"25 to 29\"], \"op\": \"copy\"},\n    {\"target\": \"34\", \"sources\": [\"30 to 34\"], \"op\": \"copy\"},\n    {\"target\": \"39\", \"sources\": [\"35 to 39\"], \"op\": \"copy\"},\n    {\"target\": \"44\", \"sources\": [\"40 to 44\"], \"op\": \"copy\"},\n    {\"target\": \"49\", \"sources\": [\"45 to 49\"], \"op\": \"copy\"},\n    {\"target\": \"54\", \"sources\": [\"50 to 54\"], \"op\": \"copy\"},\n    {\"target\": \"59\", \"sources\": [\"55 to 59\"], \"op\": \"copy\"},\n    {\"target\": \"64\", \"sources\": [\"60 to 64\"], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [\"65 to 69\", \"70 & up\"], \"op\": \"sum\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"Under 1\", \"1 to 4\"], \"op\": \"sum\"},\n    {\"target\": \"9\", \"sources\": [\"5 to 9\"], \"op\": \"copy\"},\n    {\"target\": \"14\", \"sources\": [\"10 to 14\"], \"op\": \"copy\"},\n    {\"target\": \"19\", \"sources\": [\"15 to 19\"], \"op\": \"copy\"},\n    {\"target\": \"24\", \"sources\": [\"20 to 24\"], \"op\": \"copy\"},\n    {\"target\": \"29\", \"sources\": [\"25 to 29\"], \"op\": \"copy\"},\n    {\"target\": \"34\", \"sources\": [\"30 to 34\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"35 & Over\"], \"op\": \"copy\"}\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 0,\n    \"denominator_table\": 1\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is interleaved on Page 26: Table 1 contains 'Total Pay' (numerator) and Table 2 contains 'Count' (denominator) rows for each age band. The target requires average salary. The mapping uses additive operations (sum/copy) for both rows and columns because the derive operation is 'ratio', which computes the average after aggregation. The 'Total Pay' and 'Count' rows are summed across the specified bins before the division is performed cell-wise.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 30943,
+          "total_tokens": 33424,
+          "completion_tokens": 2481,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 30943,
+        "total_tokens": 33424,
+        "completion_tokens": 2481,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

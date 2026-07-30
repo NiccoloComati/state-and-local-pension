@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a8d384f2bc002629",
+        "object": "chat.completion",
+        "created": 1785357580,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 36,\n      \"title\": \"Exhibit A: Table of Plan Coverage - Retired members\",\n      \"row_labels\": [\n        \"Retired members:\"\n      ],\n      \"col_labels\": [\n        \"Number in pay status\",\n        \"Average age\",\n        \"Average monthly benefit\"\n      ],\n      \"cells\": [\n        [3676, 67.4, 4886]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 37,\n      \"title\": \"Exhibit A: Table of Plan Coverage - Disabled members\",\n      \"row_labels\": [\n        \"Disabled members:\"\n      ],\n      \"col_labels\": [\n        \"Number in pay status\",\n        \"Average age\",\n        \"Average monthly benefit\"\n      ],\n      \"cells\": [\n        [127, 68.1, 3605]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 37,\n      \"title\": \"Exhibit A: Table of Plan Coverage - Beneficiaries\",\n      \"row_labels\": [\n        \"Beneficiaries:\"\n      ],\n      \"col_labels\": [\n        \"Number in pay status\",\n        \"Average age\",\n        \"Average monthly benefit\"\n      ],\n      \"cells\": [\n        [1153, 72.9, 2294]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not publish a distribution of retired members by 5-year age band. Exhibit A (pages 36-37) provides only aggregate totals for 'Retired members' (3,676 count, $4,886 avg monthly), 'Disabled members' (127 count, $3,605 avg monthly), and 'Beneficiaries' (1,153 count, $2,294 avg monthly) without age breakdowns. Consequently, the target grid for 'Retirement' distribution by age band is unavailable. The transcribed tables are archived as evidence of the available aggregate data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 52301,
+          "total_tokens": 52863,
+          "completion_tokens": 562,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 52301,
+        "total_tokens": 52863,
+        "completion_tokens": 562,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-affc307a251bed65",
+        "object": "chat.completion",
+        "created": 1785357585,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 36,\n      \"title\": \"Exhibit A: Table of Plan Coverage - Retired members\",\n      \"row_labels\": [\n        \"Retired members:\"\n      ],\n      \"col_labels\": [\n        \"Number in pay status\",\n        \"Average age\",\n        \"Average monthly benefit\"\n      ],\n      \"cells\": [\n        [3676, 67.4, 4886]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 37,\n      \"title\": \"Exhibit A: Table of Plan Coverage - Disabled members\",\n      \"row_labels\": [\n        \"Disabled members:\"\n      ],\n      \"col_labels\": [\n        \"Number in pay status\",\n        \"Average age\",\n        \"Average monthly benefit\"\n      ],\n      \"cells\": [\n        [127, 68.1, 3605]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 37,\n      \"title\": \"Exhibit A: Table of Plan Coverage - Beneficiaries\",\n      \"row_labels\": [\n        \"Beneficiaries:\"\n      ],\n      \"col_labels\": [\n        \"Number in pay status\",\n        \"Average age\",\n        \"Average monthly benefit\"\n      ],\n      \"cells\": [\n        [1153, 72.9, 2294]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not publish a distribution of retired members by 5-year age band. Exhibit A (pages 36-37) provides only aggregate totals for 'Retired members' (3,676 count, $4,886 avg monthly), 'Disabled members' (127 count, $3,605 avg monthly), and 'Beneficiaries' (1,153 count, $2,294 avg monthly) without age breakdowns. Consequently, the target grid for 'Retirement' distribution by age band is unavailable. The transcribed tables are archived as evidence of the available aggregate data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 55236,
+          "total_tokens": 55806,
+          "completion_tokens": 570,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 55236,
+        "total_tokens": 55806,
+        "completion_tokens": 570,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

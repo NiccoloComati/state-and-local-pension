@@ -1,0 +1,351 @@
+{
+  "source_tables": [
+    {
+      "page": 18,
+      "title": "Summary of Active Participants as of July 1, 2020",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 & up"
+      ],
+      "cells": [
+        [
+          5,
+          20,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          2
+        ],
+        [
+          7,
+          162,
+          7,
+          7,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          3,
+          192,
+          314,
+          5,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          80,
+          229,
+          249,
+          130,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          8,
+          56,
+          152,
+          511,
+          1,
+          8,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          5,
+          61,
+          358,
+          103,
+          1,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          1,
+          150,
+          7,
+          6,
+          1,
+          1,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          4,
+          12,
+          null,
+          null,
+          null,
+          1
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": [
+        26,
+        246,
+        560,
+        688,
+        745,
+        528,
+        229,
+        16,
+        null,
+        null,
+        null
+      ],
+      "printed_col_totals": [
+        15,
+        462,
+        682,
+        514,
+        1153,
+        209,
+        2,
+        1,
+        1,
+        2
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 to 69",
+        "70 & up"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 to 39",
+        "40 & up"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is 'Summary of Active Participants as of July 1, 2020' on page 18. Target row '70' (65+) is derived by summing source rows '65 to 69' and '70 & up'. Target col '4' (0-4) is derived by summing source cols 'Under 1' and '1 to 4'. Target col '40' (35-40) is derived by summing source cols '35 to 39' and '40 & up'. All other rows and columns are direct copies. Note: The source table includes a 'Total' row and column which are excluded from transcription as per instructions. The 'Avg. Pay' rows are also excluded.",
+  "unavailable": false,
+  "broadcast": null
+}

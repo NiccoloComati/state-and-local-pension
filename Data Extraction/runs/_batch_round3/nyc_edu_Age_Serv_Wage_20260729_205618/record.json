@@ -1,0 +1,320 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9800d68144cea425",
+        "object": "chat.completion",
+        "created": 1785372979,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - Total Average Salaries\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [46492, 0, 0, 0, 0, 0, 0, 0, 0, 46492],\n        [35354, 32895, 0, 0, 0, 0, 0, 0, 0, 51319],\n        [51482, 48537, 0, 0, 0, 0, 0, 0, 0, 57980],\n        [56193, 62472, 65442, 97158, 0, 0, 0, 0, 0, 58854],\n        [51158, 63662, 74485, 62707, 73885, 0, 0, 0, 0, 57665],\n        [45013, 58027, 74873, 74619, 80511, 89058, 0, 0, 0, 52256],\n        [38734, 46804, 66768, 72022, 77806, 83035, 99260, 0, 0, 47537],\n        [35979, 39149, 53719, 58700, 73622, 77210, 82545, 93759, 0, 45724],\n        [35457, 36008, 44415, 49335, 66257, 78408, 80763, 85522, 0, 45523],\n        [35324, 36513, 40333, 46117, 53916, 68293, 89823, 83639, 78383, 42439],\n        [32549, 32374, 37696, 44331, 50352, 64099, 77454, 102985, 72577, 37640],\n        [43560, 44893, 52291, 53426, 61475, 71642, 83132, 86387, 78531, 49501],\n        [29616, 28617, 32415, 37187, 45522, 51876, 66082, 70538, 91243, 35329]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - Total Number\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],\n        [97, 1, 0, 0, 0, 0, 0, 0, 0, 98],\n        [751, 44, 0, 0, 0, 0, 0, 0, 0, 795],\n        [1199, 410, 35, 1, 0, 0, 0, 0, 0, 1645],\n        [1035, 647, 297, 47, 2, 0, 0, 0, 0, 2028],\n        [1118, 739, 562, 204, 30, 2, 0, 0, 0, 2655],\n        [1152, 903, 642, 382, 109, 26, 1, 0, 0, 3215],\n        [1215, 1200, 862, 572, 258, 130, 45, 5, 0, 4287],\n        [976, 1174, 1057, 814, 381, 204, 115, 34, 0, 4755],\n        [502, 826, 907, 785, 408, 238, 128, 48, 14, 3856],\n        [183, 347, 454, 342, 204, 94, 41, 18, 21, 1704],\n        [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864],\n        [70, 144, 225, 169, 124, 47, 20, 11, 10, 820]\n      ],\n      \"printed_row_totals\": [6, 98, 795, 1645, 2028, 2655, 3215, 4287, 4755, 3856, 1704, 25864, 820],\n      \"printed_col_totals\": [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"UNDER 20\",\n        \"20 TO 24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 TO 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 TO 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 TO 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 TO 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 TO 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 TO 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 TO 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 TO 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 TO 69\",\n        \"70 & UP\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"UNDER 5\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40 & UP\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source tables are from Page 72 (Table XII-6 cont'd). Table 0 is Average Salaries, Table 1 is Member Counts (used as weights). Target rows <25 and 70 are weighted averages of source bins. Target columns map 1-to-1 with source service bins. Source bins 'UNDER 5', '5-9', etc. correspond to target bins '4', '9', etc. Source bin '40 & UP' maps to target '40'.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 74205,
+          "total_tokens": 77342,
+          "completion_tokens": 3137,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 74205,
+        "total_tokens": 77342,
+        "completion_tokens": 3137,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 12,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row 'UNDER 20': cells sum to 12 but printed total is 6 (diff 6)",
+        "source_tables[1] row '20 TO 24': cells sum to 196 but printed total is 98 (diff 98)",
+        "source_tables[1] row '25 TO 29': cells sum to 1590 but printed total is 795 (diff 795)",
+        "source_tables[1] row '30 TO 34': cells sum to 3290 but printed total is 1645 (diff 1645)",
+        "source_tables[1] row '35 TO 39': cells sum to 4056 but printed total is 2028 (diff 2028)",
+        "source_tables[1] row '40 TO 44': cells sum to 5310 but printed total is 2655 (diff 2655)",
+        "source_tables[1] row '45 TO 49': cells sum to 6430 but printed total is 3215 (diff 3215)",
+        "source_tables[1] row '50 TO 54': cells sum to 8574 but printed total is 4287 (diff 4287)",
+        "source_tables[1] row '55 TO 59': cells sum to 9510 but printed total is 4755 (diff 4755)",
+        "source_tables[1] row '60 TO 64': cells sum to 7712 but printed total is 3856 (diff 3856)",
+        "source_tables[1] row '65 TO 69': cells sum to 3408 but printed total is 1704 (diff 1704)",
+        "source_tables[1] row '70 & UP': cells sum to 1640 but printed total is 820 (diff 820)"
+      ]
+    },
+    {
+      "tag": "retry-totals",
+      "response": {
+        "id": "chatcmpl-8d530843fcc5fbf2",
+        "object": "chat.completion",
+        "created": 1785373001,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - Total Average Salaries\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [46492, null, null, null, null, null, null, null, null, 46492],\n        [35354, 32895, null, null, null, null, null, null, null, 51319],\n        [51482, 48537, null, null, null, null, null, null, null, 57980],\n        [56193, 62472, 65442, 97158, null, null, null, null, null, 58854],\n        [51158, 63662, 74485, 62707, 73885, null, null, null, null, 57665],\n        [45013, 58027, 74873, 74619, 80511, 89058, null, null, null, 52256],\n        [38734, 46804, 66768, 72022, 77806, 83035, 99260, null, null, 47537],\n        [35979, 39149, 53719, 58700, 73622, 77210, 82545, 93759, null, 45724],\n        [35457, 36008, 44415, 49335, 66257, 78408, 80763, 85522, null, 45523],\n        [35324, 36513, 40333, 46117, 53916, 68293, 89823, 83639, 78383, 42439],\n        [32549, 32374, 37696, 44331, 50352, 64099, 77454, 102985, 72577, 37640],\n        [43560, 44893, 52291, 53426, 61475, 71642, 83132, 86387, 78531, 49501],\n        [29616, 28617, 32415, 37187, 45522, 51876, 66082, 70538, 91243, 35329]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - Total Number\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [6, null, null, null, null, null, null, null, null, 6],\n        [97, 1, null, null, null, null, null, null, null, 98],\n        [751, 44, null, null, null, null, null, null, null, 795],\n        [1199, 410, 35, 1, null, null, null, null, null, 1645],\n        [1035, 647, 297, 47, 2, null, null, null, null, 2028],\n        [1118, 739, 562, 204, 30, 2, null, null, null, 2655],\n        [1152, 903, 642, 382, 109, 26, 1, null, null, 3215],\n        [1215, 1200, 862, 572, 258, 130, 45, 5, null, 4287],\n        [976, 1174, 1057, 814, 381, 204, 115, 34, null, 4755],\n        [502, 826, 907, 785, 408, 238, 128, 48, 14, 3856],\n        [183, 347, 454, 342, 204, 94, 41, 18, 21, 1704],\n        [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864],\n        [70, 144, 225, 169, 124, 47, 20, 11, 10, 820]\n      ],\n      \"printed_row_totals\": [6, 98, 795, 1645, 2028, 2655, 3215, 4287, 4755, 3856, 1704, 25864, 820],\n      \"printed_col_totals\": [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"UNDER 20\",\n        \"20 TO 24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 TO 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 TO 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 TO 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 TO 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 TO 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 TO 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 TO 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 TO 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 TO 69\",\n        \"70 & UP\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"UNDER 5\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40 & UP\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Corrected transcription of Table XII-6 (Total) on Page 72. The previous error was due to misalignment of columns caused by whitespace splitting in the text layer. The 'Total' column (ALL YEARS) and row totals were excluded from the cells array and placed in printed_row_totals/printed_col_totals where appropriate. The 'UNDER 5' column corresponds to target '4', '5-9' to '9', etc. The '40 & UP' column maps to target '40'. The 'TOTAL' row and 'ALL YEARS' column are excluded from the cells data as per instructions.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 78073,
+          "total_tokens": 81155,
+          "completion_tokens": 3082,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 78073,
+        "total_tokens": 81155,
+        "completion_tokens": 3082,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 12,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row 'UNDER 20': cells sum to 12 but printed total is 6 (diff 6)",
+        "source_tables[1] row '20 TO 24': cells sum to 196 but printed total is 98 (diff 98)",
+        "source_tables[1] row '25 TO 29': cells sum to 1590 but printed total is 795 (diff 795)",
+        "source_tables[1] row '30 TO 34': cells sum to 3290 but printed total is 1645 (diff 1645)",
+        "source_tables[1] row '35 TO 39': cells sum to 4056 but printed total is 2028 (diff 2028)",
+        "source_tables[1] row '40 TO 44': cells sum to 5310 but printed total is 2655 (diff 2655)",
+        "source_tables[1] row '45 TO 49': cells sum to 6430 but printed total is 3215 (diff 3215)",
+        "source_tables[1] row '50 TO 54': cells sum to 8574 but printed total is 4287 (diff 4287)",
+        "source_tables[1] row '55 TO 59': cells sum to 9510 but printed total is 4755 (diff 4755)",
+        "source_tables[1] row '60 TO 64': cells sum to 7712 but printed total is 3856 (diff 3856)",
+        "source_tables[1] row '65 TO 69': cells sum to 3408 but printed total is 1704 (diff 1704)",
+        "source_tables[1] row '70 & UP': cells sum to 1640 but printed total is 820 (diff 820)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-9c778a97808d3278",
+        "object": "chat.completion",
+        "created": 1785373022,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - Total Average Salaries\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [46492, null, null, null, null, null, null, null, null, null],\n        [35354, 32895, null, null, null, null, null, null, null, null],\n        [51482, 48537, null, null, null, null, null, null, null, null],\n        [56193, 62472, 65442, 97158, null, null, null, null, null, null],\n        [51158, 63662, 74485, 62707, 73885, null, null, null, null, null],\n        [45013, 58027, 74873, 74619, 80511, 89058, null, null, null, null],\n        [38734, 46804, 66768, 72022, 77806, 83035, 99260, null, null, null],\n        [35979, 39149, 53719, 58700, 73622, 77210, 82545, 93759, null, null],\n        [35457, 36008, 44415, 49335, 66257, 78408, 80763, 85522, null, null],\n        [35324, 36513, 40333, 46117, 53916, 68293, 89823, 83639, 78383, null],\n        [32549, 32374, 37696, 44331, 50352, 64099, 77454, 102985, 72577, null],\n        [43560, 44893, 52291, 53426, 61475, 71642, 83132, 86387, 78531, 49501],\n        [29616, 28617, 32415, 37187, 45522, 51876, 66082, 70538, 91243, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - Total Number\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [6, null, null, null, null, null, null, null, null, 6],\n        [97, 1, null, null, null, null, null, null, null, 98],\n        [751, 44, null, null, null, null, null, null, null, 795],\n        [1199, 410, 35, 1, null, null, null, null, null, 1645],\n        [1035, 647, 297, 47, 2, null, null, null, null, 2028],\n        [1118, 739, 562, 204, 30, 2, null, null, null, 2655],\n        [1152, 903, 642, 382, 109, 26, 1, null, null, 3215],\n        [1215, 1200, 862, 572, 258, 130, 45, 5, null, 4287],\n        [976, 1174, 1057, 814, 381, 204, 115, 34, null, 4755],\n        [502, 826, 907, 785, 408, 238, 128, 48, 14, 3856],\n        [183, 347, 454, 342, 204, 94, 41, 18, 21, 1704],\n        [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864],\n        [70, 144, 225, 169, 124, 47, 20, 11, 10, 820]\n      ],\n      \"printed_row_totals\": [6, 98, 795, 1645, 2028, 2655, 3215, 4287, 4755, 3856, 1704, 25864, 820],\n      \"printed_col_totals\": [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"UNDER 20\",\n        \"20 TO 24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 TO 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 TO 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 TO 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 TO 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 TO 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 TO 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 TO 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 TO 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"70 & UP\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"UNDER 5\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40 & UP\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source data from Table XII-6 (Total) on page 72. Source bins for age (e.g., 20 TO 24) and service (e.g., UNDER 5) align with target bins. The first source table is Average Salaries, the second is Member Counts used as weights for the '<25' row merge. All other rows map 1:1. All columns map 1:1.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 74205,
+          "total_tokens": 77122,
+          "completion_tokens": 2917,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 74205,
+        "total_tokens": 77122,
+        "completion_tokens": 2917,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 12,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row 'UNDER 20': cells sum to 12 but printed total is 6 (diff 6)",
+        "source_tables[1] row '20 TO 24': cells sum to 196 but printed total is 98 (diff 98)",
+        "source_tables[1] row '25 TO 29': cells sum to 1590 but printed total is 795 (diff 795)",
+        "source_tables[1] row '30 TO 34': cells sum to 3290 but printed total is 1645 (diff 1645)",
+        "source_tables[1] row '35 TO 39': cells sum to 4056 but printed total is 2028 (diff 2028)",
+        "source_tables[1] row '40 TO 44': cells sum to 5310 but printed total is 2655 (diff 2655)",
+        "source_tables[1] row '45 TO 49': cells sum to 6430 but printed total is 3215 (diff 3215)",
+        "source_tables[1] row '50 TO 54': cells sum to 8574 but printed total is 4287 (diff 4287)",
+        "source_tables[1] row '55 TO 59': cells sum to 9510 but printed total is 4755 (diff 4755)",
+        "source_tables[1] row '60 TO 64': cells sum to 7712 but printed total is 3856 (diff 3856)",
+        "source_tables[1] row '65 TO 69': cells sum to 3408 but printed total is 1704 (diff 1704)",
+        "source_tables[1] row '70 & UP': cells sum to 1640 but printed total is 820 (diff 820)"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-8eb121fdf4a1d219",
+        "object": "chat.completion",
+        "created": 1785373044,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - AVERAGE SALARIES\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [46492, 0, 0, 0, 0, 0, 0, 0, 0, 35329],\n        [35354, 32895, 0, 0, 0, 0, 0, 0, 0, 51319],\n        [51482, 48537, 0, 0, 0, 0, 0, 0, 0, 57980],\n        [56193, 62472, 65442, 97158, 0, 0, 0, 0, 0, 58854],\n        [51158, 63662, 74485, 62707, 73885, 0, 0, 0, 0, 57665],\n        [45013, 58027, 74873, 74619, 80511, 89058, 0, 0, 0, 52256],\n        [38734, 46804, 66768, 72022, 77806, 83035, 99260, 0, 0, 47537],\n        [35979, 39149, 53719, 58700, 73622, 77210, 82545, 93759, 0, 45724],\n        [35457, 36008, 44415, 49335, 66257, 78408, 80763, 85522, 0, 45523],\n        [35324, 36513, 40333, 46117, 53916, 68293, 89823, 83639, 78383, 42439],\n        [32549, 32374, 37696, 44331, 50352, 64099, 77454, 102985, 72577, 37640],\n        [43560, 44893, 52291, 53426, 61475, 71642, 83132, 86387, 78531, 49501],\n        [29616, 28617, 32415, 37187, 45522, 51876, 66082, 70538, 91243, 37640]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 72,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - NUMBER\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],\n        [97, 1, 0, 0, 0, 0, 0, 0, 0, 98],\n        [751, 44, 0, 0, 0, 0, 0, 0, 0, 795],\n        [1199, 410, 35, 1, 0, 0, 0, 0, 0, 1645],\n        [1035, 647, 297, 47, 2, 0, 0, 0, 0, 2028],\n        [1118, 739, 562, 204, 30, 2, 0, 0, 0, 2655],\n        [1152, 903, 642, 382, 109, 26, 1, 0, 0, 3215],\n        [1215, 1200, 862, 572, 258, 130, 45, 5, 0, 4287],\n        [976, 1174, 1057, 814, 381, 204, 115, 34, 0, 4755],\n        [502, 826, 907, 785, 408, 238, 128, 48, 14, 3856],\n        [183, 347, 454, 342, 204, 94, 41, 18, 21, 1704],\n        [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864],\n        [70, 144, 225, 169, 124, 47, 20, 11, 10, 820]\n      ],\n      \"printed_row_totals\": [6, 98, 795, 1645, 2028, 2655, 3215, 4287, 4755, 3856, 1704, 25864, 820],\n      \"printed_col_totals\": [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"UNDER 20\", \"20 TO 24\"], \"op\": \"weighted_avg\", \"weights_table\": 1},\n    {\"target\": \"29\", \"sources\": [\"25 TO 29\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"34\", \"sources\": [\"30 TO 34\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"39\", \"sources\": [\"35 TO 39\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"44\", \"sources\": [\"40 TO 44\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"49\", \"sources\": [\"45 TO 49\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"54\", \"sources\": [\"50 TO 54\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"59\", \"sources\": [\"55 TO 59\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"64\", \"sources\": [\"60 TO 64\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"65 TO 69\", \"70 & UP\"], \"op\": \"weighted_avg\", \"weights_table\": 1}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"UNDER 5\"], \"op\": \"copy\"},\n    {\"target\": \"9\", \"sources\": [\"5-9\"], \"op\": \"copy\"},\n    {\"target\": \"14\", \"sources\": [\"10-14\"], \"op\": \"copy\"},\n    {\"target\": \"19\", \"sources\": [\"15-19\"], \"op\": \"copy\"},\n    {\"target\": \"24\", \"sources\": [\"20-24\"], \"op\": \"copy\"},\n    {\"target\": \"29\", \"sources\": [\"25-29\"], \"op\": \"copy\"},\n    {\"target\": \"34\", \"sources\": [\"30-34\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"35-39\", \"40 & UP\"], \"op\": \"weighted_avg\", \"weights_table\": 1}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source tables from Page 72 (Table XII-6 cont'd). Table 0 is Average Salaries, Table 1 is Member Counts (weights). Row mapping for <25 combines Under 20 and 20-24. Row mapping for 70 combines 65-69 and 70+. Column mapping for 40 combines 35-39 and 40+. All other bins map 1:1. Note: The 'TOTAL' row and 'ALL YEARS' column in the source are excluded from transcription as per instructions.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 74205,
+          "total_tokens": 77013,
+          "completion_tokens": 2808,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 74205,
+        "total_tokens": 77013,
+        "completion_tokens": 2808,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 12,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row 'UNDER 20': cells sum to 12 but printed total is 6 (diff 6)",
+        "source_tables[1] row '20 TO 24': cells sum to 196 but printed total is 98 (diff 98)",
+        "source_tables[1] row '25 TO 29': cells sum to 1590 but printed total is 795 (diff 795)",
+        "source_tables[1] row '30 TO 34': cells sum to 3290 but printed total is 1645 (diff 1645)",
+        "source_tables[1] row '35 TO 39': cells sum to 4056 but printed total is 2028 (diff 2028)",
+        "source_tables[1] row '40 TO 44': cells sum to 5310 but printed total is 2655 (diff 2655)",
+        "source_tables[1] row '45 TO 49': cells sum to 6430 but printed total is 3215 (diff 3215)",
+        "source_tables[1] row '50 TO 54': cells sum to 8574 but printed total is 4287 (diff 4287)",
+        "source_tables[1] row '55 TO 59': cells sum to 9510 but printed total is 4755 (diff 4755)",
+        "source_tables[1] row '60 TO 64': cells sum to 7712 but printed total is 3856 (diff 3856)",
+        "source_tables[1] row '65 TO 69': cells sum to 3408 but printed total is 1704 (diff 1704)",
+        "source_tables[1] row '70 & UP': cells sum to 1640 but printed total is 820 (diff 820)"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-9260d142daa3f41f",
+        "object": "chat.completion",
+        "created": 1785373065,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 70,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (Total)\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [46492, 0, 0, 0, 0, 0, 0, 0, 0, 46492],\n        [35354, 32895, 0, 0, 0, 0, 0, 0, 0, 51319],\n        [51482, 48537, 0, 0, 0, 0, 0, 0, 0, 57980],\n        [56193, 62472, 65442, 97158, 0, 0, 0, 0, 0, 58854],\n        [51158, 63662, 74485, 62707, 73885, 0, 0, 0, 0, 57665],\n        [45013, 58027, 74873, 74619, 80511, 89058, 0, 0, 0, 52256],\n        [38734, 46804, 66768, 72022, 77806, 83035, 99260, 0, 0, 47537],\n        [35979, 39149, 53719, 58700, 73622, 77210, 82545, 93759, 0, 45724],\n        [35457, 36008, 44415, 49335, 66257, 78408, 80763, 85522, 0, 45523],\n        [35324, 36513, 40333, 46117, 53916, 68293, 89823, 83639, 78383, 42439],\n        [32549, 32374, 37696, 44331, 50352, 64099, 77454, 102985, 72577, 37640],\n        [43560, 44893, 52291, 53426, 61475, 71642, 83132, 86387, 78531, 49501],\n        [29616, 28617, 32415, 37187, 45522, 51876, 66082, 70538, 91243, 35329]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 70,\n      \"title\": \"Detailed Active Membership and Salaries as of June 30, 2018 (Total) - Count\",\n      \"row_labels\": [\n        \"UNDER 20\",\n        \"20 TO 24\",\n        \"25 TO 29\",\n        \"30 TO 34\",\n        \"35 TO 39\",\n        \"40 TO 44\",\n        \"45 TO 49\",\n        \"50 TO 54\",\n        \"55 TO 59\",\n        \"60 TO 64\",\n        \"65 TO 69\",\n        \"TOTAL\",\n        \"70 & UP\"\n      ],\n      \"col_labels\": [\n        \"UNDER 5\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40 & UP\",\n        \"ALL YEARS\"\n      ],\n      \"cells\": [\n        [6, 0, 0, 0, 0, 0, 0, 0, 0, 6],\n        [97, 1, 0, 0, 0, 0, 0, 0, 0, 98],\n        [751, 44, 0, 0, 0, 0, 0, 0, 0, 795],\n        [1199, 410, 35, 1, 0, 0, 0, 0, 0, 1645],\n        [1035, 647, 297, 47, 2, 0, 0, 0, 0, 2028],\n        [1118, 739, 562, 204, 30, 2, 0, 0, 0, 2655],\n        [1152, 903, 642, 382, 109, 26, 1, 0, 0, 3215],\n        [1215, 1200, 862, 572, 258, 130, 45, 5, 0, 4287],\n        [976, 1174, 1057, 814, 381, 204, 115, 34, 0, 4755],\n        [502, 826, 907, 785, 408, 238, 128, 48, 14, 3856],\n        [183, 347, 454, 342, 204, 94, 41, 18, 21, 1704],\n        [8304, 6435, 5041, 3316, 1516, 741, 350, 116, 45, 25864],\n        [70, 144, 225, 169, 124, 47, 20, 11, 10, 820]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"UNDER 20\", \"20 TO 24\"], \"op\": \"weighted_avg\", \"weights_table\": 1},\n    {\"target\": \"29\", \"sources\": [\"25 TO 29\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"34\", \"sources\": [\"30 TO 34\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"39\", \"sources\": [\"35 TO 39\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"44\", \"sources\": [\"40 TO 44\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"49\", \"sources\": [\"45 TO 49\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"54\", \"sources\": [\"50 TO 54\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"59\", \"sources\": [\"55 TO 59\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"64\", \"sources\": [\"60 TO 64\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"70 & UP\"], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"UNDER 5\", \"5-9\"], \"op\": \"weighted_avg\", \"weights_table\": 1},\n    {\"target\": \"9\", \"sources\": [\"10-14\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"14\", \"sources\": [\"15-19\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"19\", \"sources\": [\"20-24\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"24\", \"sources\": [\"25-29\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"29\", \"sources\": [\"30-34\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"34\", \"sources\": [\"35-39\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"40\", \"sources\": [\"40 & UP\"], \"op\": \"copy\", \"weights_table\": null}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source data from Table XII-6 (Total) on pages 70-72. Source row labels are age ranges (e.g., 'UNDER 20', '20 TO 24') and column labels are service ranges (e.g., 'UNDER 5', '5-9'). Target rows map age ranges: '<25' aggregates 'UNDER 20' and '20 TO 24' using weighted average with counts from the second transcribed table. Other target rows map directly to single source rows. Target columns map service ranges: '4' aggregates 'UNDER 5' and '5-9' using weighted average with counts. Other target columns map directly. The 'TOTAL' row and 'ALL YEARS' column in the source are excluded. The '70 & UP' source row is mapped to the '70' target row as it is the only source covering that age group.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 74205,
+          "total_tokens": 76982,
+          "completion_tokens": 2777,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 74205,
+        "total_tokens": 76982,
+        "completion_tokens": 2777,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

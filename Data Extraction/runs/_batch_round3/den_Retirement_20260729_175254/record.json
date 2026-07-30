@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-baece5733f353e9b",
+        "object": "chat.completion",
+        "created": 1785361974,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 55,\n      \"title\": \"Valuation Data Comparison - Inactives\",\n      \"row_labels\": [\n        \"Retirees\",\n        \"QDROs\",\n        \"Disabled Members\",\n        \"Beneficiaries\",\n        \"Children\"\n      ],\n      \"col_labels\": [\n        \"Count\",\n        \"Average Age\",\n        \"Total Annual Benefits\",\n        \"Average Annual Benefits\"\n      ],\n      \"cells\": [\n        [8554, 70.2, 197794296, 23123],\n        [60, 64.3, 572738, 9546],\n        [285, 66.7, 4699969, 16491],\n        [1227, 70.6, 17003908, 13858],\n        [27, 16.1, 182823, 6771]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document provides aggregate statistics for 'Members in Pay Status' (Retirees, QDROs, Disabled, Beneficiaries, Children) but does not publish a distribution of these members by attained age (e.g., 50-54, 55-59). The target grid requires headcount and average benefit by 5-year age bands. Since no age-distributed data exists in the report, the target is unavailable. The transcribed table (Table on page 55) is archived as evidence of the available aggregate data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58505,
+          "total_tokens": 58945,
+          "completion_tokens": 440,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58505,
+        "total_tokens": 58945,
+        "completion_tokens": 440,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-a283eb6810408eb1",
+        "object": "chat.completion",
+        "created": 1785361979,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 55,\n      \"title\": \"Valuation Data Comparison - Inactives\",\n      \"row_labels\": [\n        \"Retirees\",\n        \"QDROs\",\n        \"Disabled Members\",\n        \"Beneficiaries\",\n        \"Children\"\n      ],\n      \"col_labels\": [\n        \"Count\",\n        \"Average Age\",\n        \"Total Annual Benefits\",\n        \"Average Annual Benefits\"\n      ],\n      \"cells\": [\n        [8554, 70.2, 197794296, 23123],\n        [60, 64.3, 572738, 9546],\n        [285, 66.7, 4699969, 16491],\n        [1227, 70.6, 17003908, 13858],\n        [27, 16.1, 182823, 6771]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document provides aggregate statistics for 'Members in Pay Status' (Retirees, QDROs, Disabled, Beneficiaries, Children) but does not publish a distribution of these members by attained age (e.g., 50-54, 55-59). The target grid requires headcount and average benefit by 5-year age bands. Since no age-distributed data exists in the report, the target is unavailable. The transcribed table (Table on page 55) is archived as evidence of the available aggregate data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 61318,
+          "total_tokens": 61766,
+          "completion_tokens": 448,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 61318,
+        "total_tokens": 61766,
+        "completion_tokens": 448,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

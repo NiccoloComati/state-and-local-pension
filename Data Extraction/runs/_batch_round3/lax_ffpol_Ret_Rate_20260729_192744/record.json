@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9f9281f74ee6feda",
+        "object": "chat.completion",
+        "created": 1785367665,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 94,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"41\",\n        \"42\",\n        \"43\",\n        \"44\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Fire Tier 2 & 4\",\n        \"Fire Tier 3 & 5\",\n        \"Fire Tier 6\",\n        \"Police Tier 2 & 4\",\n        \"Police Tier 3 & 5\",\n        \"Police Tier 6\"\n      ],\n      \"cells\": [\n        [1.0, 0.0, 0.0, 10.0, 0.0, 0.0],\n        [1.0, 0.0, 0.0, 10.0, 0.0, 0.0],\n        [1.0, 0.0, 0.0, 10.0, 0.0, 0.0],\n        [1.0, 0.0, 0.0, 10.0, 0.0, 0.0],\n        [1.0, 0.0, 0.0, 10.0, 0.0, 0.0],\n        [1.0, 0.0, 0.0, 7.0, 0.0, 0.0],\n        [1.0, 0.0, 0.0, 7.0, 0.0, 0.0],\n        [2.0, 0.0, 0.0, 7.0, 0.0, 0.0],\n        [2.0, 0.0, 0.0, 7.0, 0.0, 0.0],\n        [3.0, 2.0, 3.0, 12.0, 7.0, 8.0],\n        [5.0, 2.0, 3.0, 12.0, 5.0, 10.0],\n        [8.0, 2.0, 4.0, 12.0, 5.0, 10.0],\n        [10.0, 2.0, 5.0, 20.0, 5.0, 15.0],\n        [20.0, 7.0, 5.0, 25.0, 12.0, 20.0],\n        [25.0, 14.0, 10.0, 30.0, 20.0, 20.0],\n        [25.0, 16.0, 12.0, 30.0, 20.0, 20.0],\n        [25.0, 18.0, 15.0, 30.0, 20.0, 20.0],\n        [25.0, 25.0, 18.0, 30.0, 22.0, 22.0],\n        [25.0, 25.0, 20.0, 30.0, 22.0, 22.0],\n        [25.0, 30.0, 25.0, 30.0, 25.0, 25.0],\n        [25.0, 30.0, 30.0, 30.0, 25.0, 25.0],\n        [25.0, 35.0, 30.0, 30.0, 25.0, 25.0],\n        [25.0, 40.0, 35.0, 30.0, 25.0, 25.0],\n        [30.0, 40.0, 40.0, 40.0, 30.0, 30.0],\n        [60.0, 60.0, 60.0, 60.0, 60.0, 60.0],\n        [60.0, 60.0, 60.0, 60.0, 60.0, 60.0],\n        [60.0, 60.0, 60.0, 60.0, 60.0, 60.0],\n        [60.0, 60.0, 60.0, 60.0, 60.0, 60.0],\n        [60.0, 60.0, 60.0, 60.0, 60.0, 60.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [41, 41],\n        [42, 42],\n        [43, 43],\n        [44, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"41\", \"42\", \"43\", \"44\", \"45\", \"46\", \"47\", \"48\", \"49\", \"50\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[41, 41], [42, 42], [43, 43], [44, 44], [45, 45], [46, 46], [47, 47], [48, 48], [49, 49], [50, 50]]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"51\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"52\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"53\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"54\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"56\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"57\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"59\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"60\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"61\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"62\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"66\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"67\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"68\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"70 & Over\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table on page 94 provides retirement rates by Age (rows) and Tier (columns). The target requires rates by Service (rows) and Age (columns). The source table does not contain service-year bins; it only contains age bins. Therefore, the target rows (service buckets) cannot be mapped from the source data. The row_map entries for service buckets have empty sources and op 'overlap_weighted' with empty spans to indicate no data exists for these rows. The column mapping correctly maps target ages to source age rows. The table is transposed because the source has Age as rows and the target has Age as columns. Values are in percent.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 163406,
+          "total_tokens": 166474,
+          "completion_tokens": 3068,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 163406,
+        "total_tokens": 166474,
+        "completion_tokens": 3068,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

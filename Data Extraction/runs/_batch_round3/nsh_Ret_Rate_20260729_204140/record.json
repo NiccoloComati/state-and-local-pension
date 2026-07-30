@@ -1,0 +1,349 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8bd98582f91988c4",
+        "object": "chat.completion",
+        "created": 1785372100,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"Rate of Normal Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"General Government Male\",\n        \"General Government Female\",\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, 3, 50],\n        [2, 4, null],\n        [5, 8, null],\n        [5, 6, null],\n        [12, 15, null],\n        [23, 26, null],\n        [18, 11, null],\n        [6, 9, null],\n        [6, 5, null],\n        [6, 3, null],\n        [17, 10, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table (Page 121) provides retirement rates by Age (rows) and Group (columns). The target requires rates by Service (rows) and Age (columns). The source table only contains data for Fire and Police (ages 55-60) and General Government (ages 61-70). There is NO data in the document for retirement rates by Service years (the target rows 5-11 through 40). The source table lists 'Percent Rating at Age' for specific ages, not service-based probabilities. Since the target grid requires a probability of retirement by service-year bucket, and the document only provides age-based retirement probabilities for specific groups without a service dimension, the target data is unavailable. The source table is transcribed as evidence of the available age-based rates, but the mapping for service rows is empty as no service-based rates exist. The col_map attempts to map available age data, but without service rows, the grid cannot be populated. The 'group_weighted' operation in col_map is illustrative of how one might blend Male/Female if weights were available, but since the row dimension (Service) is missing entirely, the result is effectively unavailable for the target grid structure.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128020,
+          "total_tokens": 130154,
+          "completion_tokens": 2134,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128020,
+        "total_tokens": 130154,
+        "completion_tokens": 2134,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Fire and Police', 'General Government Male', 'General Government Female']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 3 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-9fed59d89d943497",
+        "object": "chat.completion",
+        "created": 1785372120,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"Rate of Normal Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"General Government Male\",\n        \"General Government Female\",\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, 3, 50],\n        [2, 4, null],\n        [5, 8, null],\n        [5, 6, null],\n        [12, 15, null],\n        [23, 26, null],\n        [18, 11, null],\n        [6, 9, null],\n        [6, 5, null],\n        [6, 3, null],\n        [17, 10, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70]\n      ],\n      \"col_spans\": [\n        [null, null],\n        [null, null],\n        [null, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 121) provides retirement rates by Age (rows) and Group (columns). The target requires rates by Service (rows) and Age (columns). The source table only contains data for Fire and Police (ages 55-60) and General Government (ages 61-70). There is NO data in the document for retirement rates by Service years (the target rows 5-11 through 40). The source table lists 'Percent Rating at Age' for specific ages, not service-based probabilities. Since the target grid requires a probability of retirement by service-year bucket, and the document only provides age-based retirement probabilities for specific groups without a service dimension, the target data is unavailable. The source table is transcribed as evidence of the available age-based rates, but the mapping for service rows is empty as no service-based rates exist. The col_map attempts to map available age data, but without service rows, the grid cannot be populated. The 'group_weighted' operation in col_map is illustrative of how one might blend Male/Female if weights were available, but since the row dimension (Service) is missing entirely, the result is effectively unavailable for the target grid structure.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 132748,
+          "total_tokens": 134915,
+          "completion_tokens": 2167,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 132748,
+        "total_tokens": 134915,
+        "completion_tokens": 2167,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Fire and Police', 'General Government Male', 'General Government Female']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-b599b12dcf79307f",
+        "object": "chat.completion",
+        "created": 1785372140,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"Rate of Normal Retirement\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"General Government Male\",\n        \"General Government Female\",\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, 3, 50],\n        [2, 4, null],\n        [5, 8, null],\n        [5, 6, null],\n        [12, 15, null],\n        [23, 26, null],\n        [18, 11, null],\n        [6, 9, null],\n        [6, 5, null],\n        [6, 3, null],\n        [17, 10, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 55]]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[56, 56]]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[57, 57]]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 58]]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[59, 59]]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[60, 60]]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [null, null]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Target requires retirement rates by Service (rows) and Age (cols). Source Table 13 (Page 121) provides 'Rate of Normal Retirement' by Age (rows) and Group (cols). The source has no Service dimension; it only shows rates for General Government (Male/Female) and Fire and Police. Fire and Police rates are only defined for ages 55-60. General Government rates are defined for ages 55-70. The target service buckets (5-11 through 40) cannot be mapped from this source as the source does not vary by service. The target age columns 50-54 have no data in the source (rates start at 55). The target age columns 61-70 have data for General Government but require blending by sex which is not possible without a headcount table for the specific age/service bin (weights_tables are null here). The target rows (service) are completely missing from the source. Thus, the data is effectively unavailable for the full target grid. However, per instructions to transcribe closest related tables, Table 13 is transcribed. The row_map and col_map reflect the structural mismatch: target rows have no source, and target cols 50-54 have no source. Cols 55-60 map to Fire and Police (single source). Cols 61-70 map to General Government (two sources) but require weights for blending which are unavailable. The transpose flag is set to true as the source is Age x Group and target is Service x Age, but since the Service dimension is missing, the transpose alone does not solve the availability issue. The 'group_weighted' operations for General Government lack valid weights_tables, indicating the specific blend cannot be computed. The 'overlap_weighted' for Fire and Police is valid for the single age matches. The rows 5-11 to 40 are empty in the source (no service dimension).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128020,
+          "total_tokens": 130406,
+          "completion_tokens": 2386,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128020,
+        "total_tokens": 130406,
+        "completion_tokens": 2386,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 16,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[11] ('61'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[12] ('62'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[13] ('63'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[14] ('64'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[15] ('65'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[16] ('66'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[17] ('67'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[18] ('68'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[19] ('69'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map[20] ('70'): group_weighted requires weights_tables - a list of 2 source_tables indices, ONE PER SOURCE and in the same order, each pointing at a transcribed headcount table. They do NOT have to be different: when a single membership-distribution table covers every group (the usual case - e.g. one 'Distribution of Active Members' exhibit), repeat its index, e.g. \"weights_tables\": [2, 2]. If no headcount table is transcribed yet, transcribe the membership-distribution exhibit and reference it; declare row_spans on it when its bins are coarser than the target (e.g. '50 to 54' -> [50, 54]). Transcribed tables: 0='Rate of Normal Retirement'",
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Fire and Police', 'General Government Male', 'General Government Female']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "col_map: source bin 'Fire and Police' declared with two different spans ([55, 55] vs [56, 56]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Fire and Police' declared with two different spans ([56, 56] vs [57, 57]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Fire and Police' declared with two different spans ([57, 57] vs [58, 58]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Fire and Police' declared with two different spans ([58, 58] vs [59, 59]) - a printed bin has ONE meaning; declare the same span everywhere",
+        "col_map: source bin 'Fire and Police' declared with two different spans ([59, 59] vs [60, 60]) - a printed bin has ONE meaning; declare the same span everywhere"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-bddf6df7b690f6cc",
+        "object": "chat.completion",
+        "created": 1785372162,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 123,\n      \"title\": \"Rate of Normal Retirement - Division A\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"General Government Male\",\n        \"General Government Female\",\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, null, 10],\n        [null, 3, 50],\n        [2, 4, null],\n        [5, 8, null],\n        [5, 6, null],\n        [12, 15, null],\n        [23, 26, null],\n        [18, 11, null],\n        [6, 9, null],\n        [6, 5, null],\n        [6, 3, null],\n        [17, 10, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70]\n      ]\n    },\n    {\n      \"page\": 125,\n      \"title\": \"Rate of Normal Retirement - Division B Fire and Police\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64-69\"\n      ],\n      \"col_labels\": [\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [3],\n        [3],\n        [4],\n        [8],\n        [12],\n        [8],\n        [8],\n        [8],\n        [8],\n        [5],\n        [5],\n        [5],\n        [5],\n        [6],\n        [2]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 69]\n      ]\n    },\n    {\n      \"page\": 124,\n      \"title\": \"Rate of Normal Retirement - Division B General Government\",\n      \"row_labels\": [\n        \"NRA-10\",\n        \"NRA-9\",\n        \"NRA-8\",\n        \"NRA-7\",\n        \"NRA-6\",\n        \"NRA-5\",\n        \"NRA-4\",\n        \"NRA-3\",\n        \"NRA-2\",\n        \"NRA-1\",\n        \"NRA\",\n        \"NRA+1\",\n        \"NRA+2\",\n        \"NRA+3\",\n        \"NRA+4\",\n        \"NRA+5\",\n        \"NRA+6\",\n        \"NRA+7\",\n        \"NRA+8\",\n        \"NRA+9\",\n        \"NRA+10\"\n      ],\n      \"col_labels\": [\n        \"General Government\"\n      ],\n      \"cells\": [\n        [1],\n        [1],\n        [2],\n        [2],\n        [2],\n        [3],\n        [6],\n        [6],\n        [8],\n        [8],\n        [20],\n        [20],\n        [20],\n        [20],\n        [20],\n        [20],\n        [30],\n        [30],\n        [30],\n        [30],\n        [100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"Fire and Police\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Fire and Police\", \"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Fire and Police\", \"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Fire and Police\", \"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Fire and Police\", \"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Fire and Police\", \"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Fire and Police\", \"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"General Government Male\", \"General Government Female\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"group_weighted\",\n    \"sources\": [\"Fire and Police\", \"General Government\"],\n    \"weights_tables\": [0, 0]\n  },\n  \"transpose\": true,\n  \"notes\": \"The source tables provide retirement rates by age for specific groups (Division A General, Division A Fire/Police, Division B General, Division B Fire/Police). The target requires rates by service-year buckets. The document does not provide a joint distribution of retirement rates by both age and service (e.g., 'Retirement rate for age 60 with 20 years of service'). Instead, it provides rates by age (often with a note about service eligibility) or by service (often with a note about age eligibility). For Division A, rates are given by age for General (starting at 61) and Fire/Police (starting at 55). For Division B, General rates are given relative to Normal Retirement Age (NRA) which varies by age/service, and Fire/Police rates are given by age. Since the target grid explicitly asks for 'Probability of retirement by service-year bucket (rows) x single age (columns)', and the document does not provide a table where the rate is a function of BOTH age and service simultaneously (it provides rates by age assuming eligibility, or by service assuming eligibility), the exact target grid cannot be populated with a single rate per cell without making assumptions about the joint distribution (e.g., assuming the rate is 0 if the service bucket is below the eligibility threshold for that age). The 'Rate of Normal Retirement' tables in the document (Pages 123-125) list rates by Age for specific groups. For Division B General, rates are listed by 'Years before/after NRA', which depends on the member's specific NRA (a function of age and service). Without a table explicitly mapping (Age, Service) -> Rate, the target grid is not directly available in the required format. However, the 'Rate of Normal Retirement' tables are the closest evidence. The mapping provided assumes that for the 'Fire and Police' column, the rate applies to the age row regardless of service (as per the table structure), and for 'General Government', the rate applies to the age row. The service buckets in the target rows (5-11, 12-19, etc.) do not align with the source tables which are primarily age-driven or NRA-driven. The 'broadcast' approach is not strictly applicable as the rates are not purely one-dimensional in the way the target requires (service x age). The 'group_weighted' operation in the col_map attempts to blend the groups, but the row_map has empty sources because the source tables do not have service buckets as rows. This indicates the target grid structure (Service x Age) is not directly supported by the source data structure (Age x Group). The 'derive' object attempts to blend groups, but the fundamental mismatch in dimensions (Service vs Age) remains. The notes clarify that the document publishes rates by Age (for specific groups) or by Service (relative to NRA), not a joint matrix. The provided JSON attempts to map the available Age-based rates to the Age columns, but the Service rows will effectively be empty or require an assumption that the rate is constant across service buckets for a given age, which is not stated. Given the strict instruction to not approximate missing dimensions, the 'unavailable' flag should ideally be true, but the prompt asks to transcribe the closest related tables. The closest tables are the Age-based retirement rates. The 'row_map' with empty sources and 'share_even' is a placeholder indicating the source does not define the service dimension. The 'col_map' maps the age columns from the source tables. The 'derive' is set to group_weighted to blend the groups, but this is only valid if the rate is independent of service, which is not the case for General Government (where NRA varies). Thus, the target grid is effectively unavailable in the requested format. However, to provide the closest possible extraction, the Age-based rates are transcribed and mapped to the Age columns, with the Service rows left undefined (empty sources). The 'notes' explain this limitation.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128020,
+          "total_tokens": 131620,
+          "completion_tokens": 3600,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128020,
+        "total_tokens": 131620,
+        "completion_tokens": 3600,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 3 source label(s) that do NOT exist in source_tables[0]: ['Fire and Police', 'General Government Male', 'General Government Female']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['55', '56', '57', '58', '59', '60', '61', '62', '63', '64', '65', '66', '67', '68'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 3 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)",
+        "derive.op 'group_weighted' must be 'ratio' or 'sum'"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-98718bd5fa7e6846",
+        "object": "chat.completion",
+        "created": 1785372193,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"Rate of Normal Retirement (Division A - General Government)\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, 3],\n        [null, null],\n        [2, 4],\n        [5, 8],\n        [5, 6],\n        [12, 15],\n        [23, 26],\n        [18, 11],\n        [6, 9],\n        [6, 5],\n        [6, 3],\n        [17, 10]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 121,\n      \"title\": \"Rate of Normal Retirement (Division A - Fire and Police)\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [10],\n        [10],\n        [10],\n        [10],\n        [10],\n        [50],\n        [null],\n        [null],\n        [null],\n        [null],\n        [null],\n        [null],\n        [null],\n        [null],\n        [null],\n        [null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 123,\n      \"title\": \"Rate of Normal Retirement (Division B - Fire and Police)\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\"\n      ],\n      \"col_labels\": [\n        \"Fire and Police\"\n      ],\n      \"cells\": [\n        [3],\n        [3],\n        [4],\n        [8],\n        [12],\n        [8],\n        [8],\n        [8],\n        [8],\n        [5],\n        [5],\n        [5],\n        [5],\n        [6],\n        [2]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 69]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 122,\n      \"title\": \"Rate of Normal Retirement (Division B - General Government)\",\n      \"row_labels\": [\n        \"NRA-10\",\n        \"NRA-9\",\n        \"NRA-8\",\n        \"NRA-7\",\n        \"NRA-6\",\n        \"NRA-5\",\n        \"NRA-4\",\n        \"NRA-3\",\n        \"NRA-2\",\n        \"NRA-1\",\n        \"NRA\",\n        \"NRA+1\",\n        \"NRA+2\",\n        \"NRA+3\",\n        \"NRA+4\",\n        \"NRA+5\",\n        \"NRA+6\",\n        \"NRA+7\",\n        \"NRA+8\",\n        \"NRA+9\",\n        \"NRA+10\"\n      ],\n      \"col_labels\": [\n        \"General Government\"\n      ],\n      \"cells\": [\n        [1],\n        [1],\n        [2],\n        [2],\n        [2],\n        [3],\n        [6],\n        [6],\n        [8],\n        [8],\n        [20],\n        [20],\n        [20],\n        [20],\n        [20],\n        [20],\n        [30],\n        [30],\n        [30],\n        [30],\n        [100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document provides retirement rates as percentages of participants retiring at specific ages relative to Normal Retirement Age (NRA) or at specific attained ages for Division A. Division A rates are given by attained age (50-70) for General Government and Fire/Police. Division B rates for General Government are given as a distribution relative to NRA (which varies by service/age), and for Fire/Police by attained age (50-64+). The target requires probabilities by Service Year Buckets (rows) x Single Attained Age (columns). The document does not provide a direct matrix of Retirement Probability = f(Service, Age). For Division B General Government, the rate depends on NRA (which is a function of Age+Service), but the table only gives the distribution of retirement years relative to NRA, not the probability of retiring at a specific (Age, Service) pair without further assumptions about the population distribution. For Division A, rates are by Age only (service is implicitly handled by eligibility, but the rate itself is Age-dependent). There is no table showing 'Probability of Retirement' with Service as the row variable and Age as the column variable. The target grid (Service x Age) cannot be derived directly from the provided rate tables which are either Age-only (Div A) or NRA-relative (Div B). Thus, the target is unavailable in the requested format.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128020,
+          "total_tokens": 130106,
+          "completion_tokens": 2086,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128020,
+        "total_tokens": 130106,
+        "completion_tokens": 2086,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-b9a56539bb0ecae7",
+        "object": "chat.completion",
+        "created": 1785372213,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 123,\n      \"title\": \"Rate of Normal Retirement - Division A General Government\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, null],\n        [null, 3],\n        [null, 4],\n        [2, 8],\n        [5, 12]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 123,\n      \"title\": \"Rate of Normal Retirement - Division A Fire and Police\",\n      \"row_labels\": [\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\"\n      ],\n      \"col_labels\": [\n        \"Combined\"\n      ],\n      \"cells\": [\n        [10],\n        [10],\n        [10],\n        [10],\n        [10],\n        [50]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 123,\n      \"title\": \"Rate of Normal Retirement - Division A General Government (Continued)\",\n      \"row_labels\": [\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [5, 6],\n        [12, 15],\n        [23, 26],\n        [18, 11],\n        [6, 9],\n        [6, 5],\n        [6, 3],\n        [17, 10]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 125,\n      \"title\": \"Rate of Normal Retirement - Division B Fire and Police\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64-69\"\n      ],\n      \"col_labels\": [\n        \"Combined\"\n      ],\n      \"cells\": [\n        [3],\n        [3],\n        [4],\n        [8],\n        [12],\n        [8],\n        [8],\n        [8],\n        [8],\n        [5],\n        [5],\n        [5],\n        [5],\n        [6],\n        [2]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 122,\n      \"title\": \"Rate of Normal Retirement - Division B General Government\",\n      \"row_labels\": [\n        \"NRA-10\",\n        \"NRA-9\",\n        \"NRA-8\",\n        \"NRA-7\",\n        \"NRA-6\",\n        \"NRA-5\",\n        \"NRA-4\",\n        \"NRA-3\",\n        \"NRA-2\",\n        \"NRA-1\",\n        \"NRA\",\n        \"NRA+1\",\n        \"NRA+2\",\n        \"NRA+3\",\n        \"NRA+4\",\n        \"NRA+5\",\n        \"NRA+6\",\n        \"NRA+7\",\n        \"NRA+8\",\n        \"NRA+9\",\n        \"NRA+10\"\n      ],\n      \"col_labels\": [\n        \"General Government\"\n      ],\n      \"cells\": [\n        [1],\n        [1],\n        [2],\n        [2],\n        [2],\n        [3],\n        [6],\n        [6],\n        [8],\n        [8],\n        [20],\n        [20],\n        [20],\n        [20],\n        [20],\n        [20],\n        [30],\n        [30],\n        [30],\n        [30],\n        [100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a single table with retirement rates by both Age (columns) and Service (rows) as required by the target grid. Instead, it publishes: 1) Rates by Age only (Division A General Government, Division A Fire/Police, Division B Fire/Police) in Tables on pages 123 and 125. 2) Rates by Service only (Division B General Government) relative to Normal Retirement Age (NRA) in Table on page 122. There is no cross-tabulated table to map directly to the target grid of Service x Age. The target requires a specific grid structure that is not present in the source. The 'unavailable' flag is set to true because no derivable form exists to populate the specific Service x Age grid without making modeling assumptions (e.g., applying the age-only rates to all service years, or mapping the NRA-based service rates to specific ages which varies by group). The source tables are transcribed as evidence of the available data.\",\n  \"unavailable\": true\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128020,
+          "total_tokens": 129519,
+          "completion_tokens": 1499,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128020,
+        "total_tokens": 129519,
+        "completion_tokens": 1499,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

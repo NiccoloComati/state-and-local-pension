@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b6f6e457dc66bc1f",
+        "object": "chat.completion",
+        "created": 1785349061,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 55,\n      \"title\": \"Table 13 \u2014 Total Lives and Annual Salaries of Active Members Classified by Age and Years of Service as of June 30, 2019\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\",\n        \"65-69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35 & Over\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [null, null, null, null, null, null, null, null, null, null],\n        [182, 627, null, null, null, null, null, null, null, 809],\n        [388, 2625, 717, null, null, null, null, null, null, 3730],\n        [235, 1690, 2204, 389, null, null, null, null, null, 4518],\n        [206, 952, 1476, 1633, 467, 1, null, null, null, 4735],\n        [160, 544, 702, 1096, 1338, 252, null, null, null, 4092],\n        [165, 421, 491, 586, 977, 1034, 214, 1, null, 3889],\n        [115, 286, 293, 364, 539, 654, 690, 99, 1, 3041],\n        [102, 251, 190, 254, 377, 435, 429, 246, 32, 2316],\n        [87, 159, 131, 159, 258, 233, 212, 107, 51, 1397],\n        [48, 75, 67, 68, 82, 63, 64, 33, 25, 525],\n        [37, 54, 34, 29, 28, 19, 21, 5, 16, 243]\n      ],\n      \"printed_row_totals\": [null, 809, 3730, 4518, 4735, 4092, 3889, 3041, 2316, 1397, 525, 243],\n      \"printed_col_totals\": [1725, 7684, 6305, 4578, 4066, 2691, 1630, 491, 125, 29295]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20-24\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35-39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40-44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45-49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65-69\",\n        \"70 & Over\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1-4\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 & Over\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table is Table 13 on page 55. Target row '<25' sums 'Under 20' and '20-24'. Target row '70' sums '65-69' and '70 & Over'. Target col '4' sums 'Under 1' and '1-4'. Target col '40' maps to '35 & Over' (open-ended bin covering 35-40+). All other bins map 1:1.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81583,
+          "total_tokens": 83540,
+          "completion_tokens": 1957,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81583,
+        "total_tokens": 83540,
+        "completion_tokens": 1957,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

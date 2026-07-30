@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-87460d1ae49a6929",
+        "object": "chat.completion",
+        "created": 1785364318,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 120,\n      \"title\": \"Exhibit D: Schedule of Benefit Recipients by Annual Benefit as of December 31, 2019\",\n      \"row_labels\": [\n        \"$0 - $4,999\",\n        \"$5000 - $9,999\",\n        \"$10,000 - $24,999\",\n        \"$25,000 - $49,999\",\n        \"$50,000 - $99,999\",\n        \"$100,000 - $149,999\",\n        \"$150,000 - $199,999\",\n        \"$200,000 - $249,999\",\n        \"$250,000 - $299,999\",\n        \"$300,000 +\"\n      ],\n      \"col_labels\": [\n        \"Annual Benefit Range\",\n        \"State Division\",\n        \"School Division\",\n        \"Local Government Division\",\n        \"Judicial Division\",\n        \"Denver Public Schools Division\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [\n          \"$0 - $4,999\",\n          2128,\n          6243,\n          479,\n          5,\n          255,\n          9110\n        ],\n        [\n          \"$5000 - $9,999\",\n          2731,\n          6376,\n          689,\n          11,\n          487,\n          10294\n        ],\n        [\n          \"$10,000 - $24,999\",\n          8906,\n          14350,\n          1960,\n          32,\n          1504,\n          26752\n        ],\n        [\n          \"$25,000 - $49,999\",\n          14768,\n          20404,\n          2590,\n          68,\n          2603,\n          40433\n        ],\n        [\n          \"$50,000 - $99,999\",\n          11563,\n          20339,\n          1969,\n          198,\n          2240,\n          36309\n        ],\n        [\n          \"$100,000 - $149,999\",\n          963,\n          604,\n          211,\n          83,\n          54,\n          1915\n        ],\n        [\n          \"$150,000 - $199,999\",\n          84,\n          37,\n          26,\n          2,\n          0,\n          149\n        ],\n        [\n          \"$200,000 - $249,999\",\n          30,\n          7,\n          6,\n          0,\n          0,\n          43\n        ],\n        [\n          \"$250,000 - $299,999\",\n          4,\n          2,\n          2,\n          0,\n          0,\n          8\n        ],\n        [\n          \"$300,000 +\",\n          4,\n          0,\n          1,\n          0,\n          0,\n          5\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a table distributing benefit recipients by attained age (e.g., 50-54, 55-59). Exhibit D (Page 120) provides the distribution by Annual Benefit Range only. Exhibit E (Page 121) provides average annual benefits by division but not by age. Exhibit C (Pages 115-119) provides active member data by age, not retirees. Therefore, the target grid for 'Retirees by Age' is unavailable in this document.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 143661,
+          "total_tokens": 144757,
+          "completion_tokens": 1096,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 143661,
+        "total_tokens": 144757,
+        "completion_tokens": 1096,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-91f9a9d8eb8d171e",
+        "object": "chat.completion",
+        "created": 1785364332,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 120,\n      \"title\": \"Exhibit D: Schedule of Benefit Recipients by Annual Benefit as of December 31, 2019\",\n      \"row_labels\": [\n        \"$0 - $4,999\",\n        \"$5000 - $9,999\",\n        \"$10,000 - $24,999\",\n        \"$25,000 - $49,999\",\n        \"$50,000 - $99,999\",\n        \"$100,000 - $149,999\",\n        \"$150,000 - $199,999\",\n        \"$200,000 - $249,999\",\n        \"$250,000 - $299,999\",\n        \"$300,000 +\"\n      ],\n      \"col_labels\": [\n        \"Annual Benefit Range\",\n        \"State Division\",\n        \"School Division\",\n        \"Local Government Division\",\n        \"Judicial Division\",\n        \"Denver Public Schools Division\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [\n          \"$0 - $4,999\",\n          2128,\n          6243,\n          479,\n          5,\n          255,\n          9110\n        ],\n        [\n          \"$5000 - $9,999\",\n          2731,\n          6376,\n          689,\n          11,\n          487,\n          10294\n        ],\n        [\n          \"$10,000 - $24,999\",\n          8906,\n          14350,\n          1960,\n          32,\n          1504,\n          26752\n        ],\n        [\n          \"$25,000 - $49,999\",\n          14768,\n          20404,\n          2590,\n          68,\n          2603,\n          40433\n        ],\n        [\n          \"$50,000 - $99,999\",\n          11563,\n          20339,\n          1969,\n          198,\n          2240,\n          36309\n        ],\n        [\n          \"$100,000 - $149,999\",\n          963,\n          604,\n          211,\n          83,\n          54,\n          1915\n        ],\n        [\n          \"$150,000 - $199,999\",\n          84,\n          37,\n          26,\n          2,\n          0,\n          149\n        ],\n        [\n          \"$200,000 - $249,999\",\n          30,\n          7,\n          6,\n          0,\n          0,\n          43\n        ],\n        [\n          \"$250,000 - $299,999\",\n          4,\n          2,\n          2,\n          0,\n          0,\n          8\n        ],\n        [\n          \"$300,000 +\",\n          4,\n          0,\n          1,\n          0,\n          0,\n          5\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a table distributing benefit recipients by attained age (e.g., 50-54, 55-59). Exhibit D (Page 120) provides the distribution by Annual Benefit Range only. Exhibit E (Page 121) provides average annual benefits by division but not by age. Exhibit C (Pages 115-119) provides active member data by age, not retirees. Therefore, the target grid for 'Retirees by Age' is unavailable in this document.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 147130,
+          "total_tokens": 148234,
+          "completion_tokens": 1104,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 147130,
+        "total_tokens": 148234,
+        "completion_tokens": 1104,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

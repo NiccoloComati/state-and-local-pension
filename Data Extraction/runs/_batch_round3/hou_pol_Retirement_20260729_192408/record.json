@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-837700a549b08efb",
+        "object": "chat.completion",
+        "created": 1785367449,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"MEMBERSHIP DATA\",\n      \"row_labels\": [\n        \"3. Service retirees\",\n        \"4. Disabled retirees\",\n        \"5. Beneficiaries and spouses\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Total annual benefits\",\n        \"Average annual benefit\",\n        \"Average age\"\n      ],\n      \"cells\": [\n        [3512, 190276099, 54179, 65.5],\n        [175, 8123143, 46418, 56.7],\n        [807, 35727748, 44272, 69.9]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not publish a distribution of Service Retirees by 5-year age band. Table 19 (Page 46) provides only aggregate counts and average ages for Service Retirees (3,512 members, avg age 65.5), Disabled Retirees, and Beneficiaries. No breakdown by attained age (e.g., 50-54, 55-59) is available for any pay-status group. Tables 20a-d (Pages 47-50) provide age distributions but only for ACTIVE members (including DROP), not retirees. Consequently, the target grid cannot be populated.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 55304,
+          "total_tokens": 55704,
+          "completion_tokens": 400,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 55304,
+        "total_tokens": 55704,
+        "completion_tokens": 400,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b0dff37e82b1d12d",
+        "object": "chat.completion",
+        "created": 1785367453,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"MEMBERSHIP DATA\",\n      \"row_labels\": [\n        \"3. Service retirees\",\n        \"4. Disabled retirees\",\n        \"5. Beneficiaries and spouses\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Total annual benefits\",\n        \"Average annual benefit\",\n        \"Average age\"\n      ],\n      \"cells\": [\n        [3512, 190276099, 54179, 65.5],\n        [175, 8123143, 46418, 56.7],\n        [807, 35727748, 44272, 69.9]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not publish a distribution of Service Retirees by 5-year age band. Table 19 (Page 46) provides only aggregate counts and average ages for Service Retirees (3,512 members, avg age 65.5), Disabled Retirees, and Beneficiaries. No breakdown by attained age (e.g., 50-54, 55-59) is available for any pay-status group. Tables 20a-d (Pages 47-50) provide age distributions but only for ACTIVE members (including DROP), not retirees. Consequently, the target grid cannot be populated.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 58077,
+          "total_tokens": 58485,
+          "completion_tokens": 408,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 58077,
+        "total_tokens": 58485,
+        "completion_tokens": 408,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

@@ -1,0 +1,197 @@
+{
+  "source_tables": [
+    {
+      "page": 10,
+      "title": "Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50"
+      ],
+      "col_labels": [
+        "Termination Rate"
+      ],
+      "cells": [
+        [
+          2.4
+        ],
+        [
+          2.4
+        ],
+        [
+          2.4
+        ],
+        [
+          1.5
+        ],
+        [
+          0.75
+        ],
+        [
+          0.75
+        ],
+        [
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "service",
+    "series_sources": [
+      "Termination Rate"
+    ],
+    "series_op": "copy"
+  },
+  "notes": "Source table on page 10 provides termination rates by attained age only (no service breakdown). Rates are constant across all service years for a given age. Target grid requires rates by age x service. Used broadcast axis='service' to repeat the age-specific rate across all service columns. Source values are percentages (e.g., 2.40) and will be converted to decimals by the code. Target ages 55, 60, 65, 70 are not explicitly listed in the source table; the source table ends at age 50 (0.00%). Per instructions, target bins with no printed source get empty sources, but the broadcast mechanism implies the rate for the last known age (50, 0.00%) might be carried forward or treated as 0.00% for older ages if the plan assumes no termination after 50. However, strictly following the 'empty sources' rule for missing data: the row_map sources are empty for 55+. The code will likely default to 0 or handle the empty source list. The source table lists '50' with 0.00%, implying no terminations at age 50 or older. Thus, for ages 55-70, the rate is effectively 0.00% (or empty). The mapping reflects the source structure: Age rows map to the single rate column, and Service columns are broadcast.",
+  "unavailable": false
+}

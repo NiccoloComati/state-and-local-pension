@@ -1,0 +1,341 @@
+{
+  "source_tables": [
+    {
+      "page": 123,
+      "title": "Rate of Normal Retirement - Division A General Government",
+      "row_labels": [
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          3
+        ],
+        [
+          null,
+          4
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          5,
+          12
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 123,
+      "title": "Rate of Normal Retirement - Division A Fire and Police",
+      "row_labels": [
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60"
+      ],
+      "col_labels": [
+        "Combined"
+      ],
+      "cells": [
+        [
+          10
+        ],
+        [
+          10
+        ],
+        [
+          10
+        ],
+        [
+          10
+        ],
+        [
+          10
+        ],
+        [
+          50
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 123,
+      "title": "Rate of Normal Retirement - Division A General Government (Continued)",
+      "row_labels": [
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          5,
+          6
+        ],
+        [
+          12,
+          15
+        ],
+        [
+          23,
+          26
+        ],
+        [
+          18,
+          11
+        ],
+        [
+          6,
+          9
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          17,
+          10
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 125,
+      "title": "Rate of Normal Retirement - Division B Fire and Police",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64-69"
+      ],
+      "col_labels": [
+        "Combined"
+      ],
+      "cells": [
+        [
+          3
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          8
+        ],
+        [
+          12
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ],
+        [
+          2
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 122,
+      "title": "Rate of Normal Retirement - Division B General Government",
+      "row_labels": [
+        "NRA-10",
+        "NRA-9",
+        "NRA-8",
+        "NRA-7",
+        "NRA-6",
+        "NRA-5",
+        "NRA-4",
+        "NRA-3",
+        "NRA-2",
+        "NRA-1",
+        "NRA",
+        "NRA+1",
+        "NRA+2",
+        "NRA+3",
+        "NRA+4",
+        "NRA+5",
+        "NRA+6",
+        "NRA+7",
+        "NRA+8",
+        "NRA+9",
+        "NRA+10"
+      ],
+      "col_labels": [
+        "General Government"
+      ],
+      "cells": [
+        [
+          1
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          6
+        ],
+        [
+          6
+        ],
+        [
+          8
+        ],
+        [
+          8
+        ],
+        [
+          20
+        ],
+        [
+          20
+        ],
+        [
+          20
+        ],
+        [
+          20
+        ],
+        [
+          20
+        ],
+        [
+          20
+        ],
+        [
+          30
+        ],
+        [
+          30
+        ],
+        [
+          30
+        ],
+        [
+          30
+        ],
+        [
+          100
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not contain a single table with retirement rates by both Age (columns) and Service (rows) as required by the target grid. Instead, it publishes: 1) Rates by Age only (Division A General Government, Division A Fire/Police, Division B Fire/Police) in Tables on pages 123 and 125. 2) Rates by Service only (Division B General Government) relative to Normal Retirement Age (NRA) in Table on page 122. There is no cross-tabulated table to map directly to the target grid of Service x Age. The target requires a specific grid structure that is not present in the source. The 'unavailable' flag is set to true because no derivable form exists to populate the specific Service x Age grid without making modeling assumptions (e.g., applying the age-only rates to all service years, or mapping the NRA-based service rates to specific ages which varies by group). The source tables are transcribed as evidence of the available data.",
+  "unavailable": true,
+  "broadcast": null
+}

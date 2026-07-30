@@ -1,0 +1,357 @@
+{
+  "source_tables": [
+    {
+      "page": 78,
+      "title": "Detailed Active Membership and Salaries as of June 30, 2018 - ALL TIERS: ALL MEMBERS",
+      "row_labels": [
+        "UNDER 20",
+        "20 TO 24",
+        "25 TO 29",
+        "30 TO 34",
+        "35 TO 39",
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "70 & UP"
+      ],
+      "col_labels": [
+        "UNDER 5",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & UP",
+        "ALL YEARS"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1299
+        ],
+        [
+          1299,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5575
+        ],
+        [
+          4467,
+          1101,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7577
+        ],
+        [
+          2121,
+          3337,
+          2115,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7649
+        ],
+        [
+          768,
+          1183,
+          4508,
+          1184,
+          6,
+          0,
+          0,
+          0,
+          0,
+          7649
+        ],
+        [
+          151,
+          496,
+          2011,
+          2703,
+          850,
+          2,
+          0,
+          0,
+          0,
+          6213
+        ],
+        [
+          5,
+          41,
+          758,
+          1393,
+          1886,
+          714,
+          4,
+          0,
+          0,
+          4801
+        ],
+        [
+          2,
+          1,
+          63,
+          512,
+          787,
+          853,
+          314,
+          0,
+          0,
+          2532
+        ],
+        [
+          1,
+          2,
+          3,
+          27,
+          173,
+          215,
+          218,
+          99,
+          0,
+          738
+        ],
+        [
+          1,
+          0,
+          2,
+          9,
+          11,
+          11,
+          48,
+          75,
+          6,
+          163
+        ],
+        [
+          0,
+          1,
+          1,
+          3,
+          2,
+          1,
+          1,
+          0,
+          0,
+          9
+        ],
+        [
+          0,
+          0,
+          1,
+          3,
+          1,
+          0,
+          0,
+          0,
+          1,
+          6
+        ]
+      ],
+      "printed_row_totals": [
+        1299,
+        5575,
+        7577,
+        7649,
+        7649,
+        6213,
+        4801,
+        2532,
+        738,
+        163,
+        9,
+        6
+      ],
+      "printed_col_totals": [
+        8815,
+        6162,
+        9469,
+        5838,
+        3716,
+        1796,
+        585,
+        174,
+        7,
+        36562
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "UNDER 20",
+        "20 TO 24"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 TO 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 TO 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 TO 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 TO 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 TO 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 TO 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 TO 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 TO 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 TO 69",
+        "70 & UP"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "UNDER 5"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35-39",
+        "40 & UP"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is 'Detailed Active Membership and Salaries as of June 30, 2018 - ALL TIERS: ALL MEMBERS' on page 78. Row labels 'UNDER 20' and '20 TO 24' are summed for target '<25'. Row labels '65 TO 69' and '70 & UP' are summed for target '70'. Column '35-39' and '40 & UP' are summed for target '40' (representing 35+ service). All other rows and columns map directly by copy.",
+  "unavailable": false,
+  "broadcast": null
+}

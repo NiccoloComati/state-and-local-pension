@@ -1,0 +1,556 @@
+{
+  "source_tables": [
+    {
+      "page": 44,
+      "title": "Distribution of Active Members as of June 30, 2019 - Total City - Average Salary",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 and up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 and up",
+        "Total"
+      ],
+      "cells": [
+        [
+          66690,
+          74111,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          68545
+        ],
+        [
+          66243,
+          81682,
+          73763,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          76913
+        ],
+        [
+          64810,
+          79136,
+          81053,
+          89249,
+          80809,
+          null,
+          null,
+          null,
+          null,
+          null,
+          81580
+        ],
+        [
+          63035,
+          76380,
+          83918,
+          88282,
+          82160,
+          101316,
+          null,
+          null,
+          null,
+          null,
+          84757
+        ],
+        [
+          67495,
+          74954,
+          80236,
+          86440,
+          86369,
+          89533,
+          66550,
+          null,
+          null,
+          null,
+          85136
+        ],
+        [
+          68618,
+          58743,
+          71169,
+          80225,
+          83387,
+          91542,
+          89330,
+          62446,
+          null,
+          null,
+          83944
+        ],
+        [
+          43540,
+          47249,
+          67041,
+          74659,
+          73027,
+          83066,
+          87147,
+          77247,
+          63845,
+          78202,
+          77963
+        ],
+        [
+          43548,
+          64826,
+          62372,
+          67917,
+          64260,
+          77360,
+          76309,
+          82610,
+          78429,
+          null,
+          70791
+        ],
+        [
+          null,
+          44352,
+          70188,
+          60318,
+          59524,
+          72132,
+          77678,
+          61890,
+          91358,
+          null,
+          64137
+        ],
+        [
+          null,
+          39343,
+          57406,
+          68442,
+          69900,
+          52426,
+          79605,
+          51849,
+          73011,
+          null,
+          61042
+        ],
+        [
+          40288,
+          null,
+          71848,
+          48997,
+          40880,
+          null,
+          null,
+          null,
+          null,
+          78098,
+          57784
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        65219,
+        75260,
+        76768,
+        81884,
+        77441,
+        85221,
+        84910,
+        77082,
+        71069,
+        78150,
+        79474
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 44,
+      "title": "Distribution of Active Members as of June 30, 2019 - Total City - Count",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 and up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 and up",
+        "Total"
+      ],
+      "cells": [
+        [
+          45,
+          15,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          60
+        ],
+        [
+          79,
+          221,
+          67,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          367
+        ],
+        [
+          25,
+          164,
+          231,
+          123,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          545
+        ],
+        [
+          10,
+          84,
+          203,
+          362,
+          84,
+          2,
+          null,
+          null,
+          null,
+          null,
+          745
+        ],
+        [
+          2,
+          36,
+          135,
+          313,
+          284,
+          82,
+          3,
+          null,
+          null,
+          null,
+          855
+        ],
+        [
+          4,
+          31,
+          98,
+          160,
+          315,
+          331,
+          89,
+          6,
+          null,
+          null,
+          1034
+        ],
+        [
+          1,
+          30,
+          83,
+          119,
+          261,
+          313,
+          240,
+          123,
+          12,
+          1,
+          1183
+        ],
+        [
+          4,
+          17,
+          53,
+          101,
+          159,
+          122,
+          82,
+          58,
+          6,
+          null,
+          602
+        ],
+        [
+          null,
+          11,
+          35,
+          72,
+          81,
+          42,
+          22,
+          15,
+          2,
+          null,
+          280
+        ],
+        [
+          null,
+          7,
+          17,
+          22,
+          10,
+          9,
+          2,
+          1,
+          1,
+          null,
+          69
+        ],
+        [
+          1,
+          null,
+          6,
+          8,
+          1,
+          null,
+          null,
+          null,
+          null,
+          1,
+          17
+        ]
+      ],
+      "printed_row_totals": [
+        60,
+        367,
+        545,
+        745,
+        855,
+        1034,
+        1183,
+        602,
+        280,
+        69,
+        17
+      ],
+      "printed_col_totals": [
+        171,
+        616,
+        928,
+        1280,
+        1197,
+        901,
+        438,
+        203,
+        21,
+        2,
+        5757
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 to 69",
+        "70 and up"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 to 39",
+        "40 and up"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables are Table A-8 (Average Salary) and Table A-7 (Count) from page 44. Target rows '29', '34', etc. map directly to source rows '25 to 29', '30 to 34', etc. Target row '70' is a weighted average of source rows '65 to 69' and '70 and up'. Target column '4' is a weighted average of source columns 'Under 1' and '1 to 4'. Target column '40' is a weighted average of source columns '35 to 39' and '40 and up'. All other mappings are direct copies. Weights are taken from the Count table (index 1).",
+  "unavailable": false,
+  "broadcast": null
+}

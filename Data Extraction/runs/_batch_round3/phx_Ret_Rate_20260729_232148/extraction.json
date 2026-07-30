@@ -1,0 +1,405 @@
+{
+  "source_tables": [
+    {
+      "page": 50,
+      "title": "Probability of Retirement",
+      "row_labels": [
+        "50-51",
+        "52",
+        "53",
+        "54",
+        "55-58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66-69",
+        "70"
+      ],
+      "col_labels": [
+        "<15",
+        "15-24",
+        "25-31",
+        ">31"
+      ],
+      "cells": [
+        [
+          0.0,
+          0.0,
+          40.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          35.0,
+          40.0
+        ],
+        [
+          0.0,
+          0.0,
+          32.5,
+          32.5
+        ],
+        [
+          0.0,
+          22.5,
+          27.5,
+          32.5
+        ],
+        [
+          0.0,
+          22.5,
+          22.5,
+          32.5
+        ],
+        [
+          0.0,
+          22.5,
+          22.5,
+          42.5
+        ],
+        [
+          10.0,
+          22.5,
+          27.5,
+          42.5
+        ],
+        [
+          17.0,
+          22.5,
+          32.5,
+          42.5
+        ],
+        [
+          17.0,
+          30.0,
+          32.5,
+          42.5
+        ],
+        [
+          17.0,
+          25.0,
+          32.5,
+          42.5
+        ],
+        [
+          17.0,
+          25.0,
+          37.5,
+          42.5
+        ],
+        [
+          30.0,
+          32.5,
+          40.0,
+          42.5
+        ],
+        [
+          25.0,
+          32.5,
+          40.0,
+          42.5
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          50,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          69
+        ],
+        [
+          70,
+          70
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          14
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          25,
+          31
+        ],
+        [
+          32,
+          null
+        ]
+      ],
+      "values_unit": "percent"
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50-51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "50-51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55-58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "55-58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "55-58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "55-58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "66-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source table on page 50 provides retirement probabilities by Age (rows) and Service (columns). Target requires Service (rows) x Age (columns), so transpose=true. Source rates are in percent; values_unit='percent' handles conversion. Source service bins (<15, 15-24, 25-31, >31) do not align with target service bins (5-11, 12-19, 20-24, 25-29, 30, 31-32, 33-34, 35-39, 40). Since the source table has no data for service years <15, all target service rows (5-11, 12-19) map to empty sources (op overlap_weighted with empty spans) resulting in null/zero rates. Target rows 20-24, 25-29, 30, 31-32, 33-34, 35-39, 40 map to source columns 15-24, 25-31, >31 using overlap_weighted logic (e.g., target 20-24 overlaps source 15-24 and 25-31). Target age columns map to source age rows using copy for single ages or bins (e.g., 50-51, 55-58, 66-69). Note: The source table has no data for service years 0-14, so the target rows 5-11 and 12-19 will have no data (empty sources).",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,223 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9af4fe604356ec99",
+        "object": "chat.completion",
+        "created": 1785372242,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS - Withdrawal Rates\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"20\",\n        \"35\",\n        \"50\",\n        \"60\"\n      ],\n      \"cells\": [\n        [210.0, 180.0, 120.0, null],\n        [190.0, 150.0, 100.0, null],\n        [219.0, 89.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 1],\n        [2, 2],\n        [3, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    },\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS - Withdrawal Rates Fire and Police\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"20\",\n        \"35\",\n        \"50\",\n        \"60\"\n      ],\n      \"cells\": [\n        [60.0, 40.0, 0.0, null],\n        [40.0, 28.0, 20.0, null],\n        [71.0, 36.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 1],\n        [2, 2],\n        [3, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"First Year\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"Second Year\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"First Year\",\n      \"Second Year\",\n      \"Ultimate\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source tables provide withdrawal rates by years of service (First Year, Second Year, Ultimate) for General Government and Fire/Police groups. Rates are per 1,000 lives. The target requires a single rate grid; since no headcount distribution is provided to weight the groups, the rates are averaged (series_op: mean) across the two groups. The source rates are by service only, so the age dimension is broadcast (axis: age) with empty sources in row_map, meaning the service-based rate applies to all target ages. Target service bins 1, 2 map to First Year, Second Year respectively. Target service bins 3 through 40 map to the Ultimate rate. Target ages 25-70 are filled by broadcasting the service rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128370,
+          "total_tokens": 129825,
+          "completion_tokens": 1455,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128370,
+        "total_tokens": 129825,
+        "completion_tokens": 1455,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast.series_sources ['First Year', 'Second Year', 'Ultimate'] are not COLUMN labels of source_tables[0]. Available columns: ['20', '35', '50', '60']"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b456ea6e38454ddd",
+        "object": "chat.completion",
+        "created": 1785372257,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS - Withdrawal Rates\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"20\",\n        \"35\",\n        \"50\",\n        \"60\"\n      ],\n      \"cells\": [\n        [210.0, 180.0, 120.0, null],\n        [190.0, 150.0, 100.0, null],\n        [219.0, 89.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 1],\n        [2, 2],\n        [3, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    },\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS - Withdrawal Rates Fire and Police\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"20\",\n        \"35\",\n        \"50\",\n        \"60\"\n      ],\n      \"cells\": [\n        [60.0, 40.0, 0.0, null],\n        [40.0, 28.0, 20.0, null],\n        [71.0, 36.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 1],\n        [2, 2],\n        [3, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"First Year\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"Second Year\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"Ultimate\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"First Year\",\n      \"Second Year\",\n      \"Ultimate\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source tables provide withdrawal rates by years of service (First Year, Second Year, Ultimate) for General Government and Fire/Police groups. Rates are per 1,000 lives. The target requires a single rate grid; since no headcount distribution is provided to weight the groups, the rates are averaged (series_op: mean) across the two groups. The source rates are by service only, so the age dimension is broadcast (axis: age) with empty sources in row_map, meaning the service-based rate applies to all target ages. Target service bins 1, 2 map to First Year, Second Year respectively. Target service bins 3 through 40 map to the Ultimate rate. Target ages 25-70 are filled by broadcasting the service rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 132224,
+          "total_tokens": 133679,
+          "completion_tokens": 1455,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 132224,
+        "total_tokens": 133679,
+        "completion_tokens": 1455,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast.series_sources ['First Year', 'Second Year', 'Ultimate'] are not COLUMN labels of source_tables[0]. Available columns: ['20', '35', '50', '60']"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-8788f995b37dc548",
+        "object": "chat.completion",
+        "created": 1785372273,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS (Withdrawal Rates)\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"Age 20\",\n        \"Age 35\",\n        \"Age 50\",\n        \"Age 60\"\n      ],\n      \"cells\": [\n        [210.0, 180.0, 120.0, null],\n        [190.0, 150.0, 100.0, null],\n        [219.0, 89.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 1],\n        [2, 2],\n        [3, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    },\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS (Withdrawal Rates Fire and Police)\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"Age 20\",\n        \"Age 35\",\n        \"Age 50\",\n        \"Age 60\"\n      ],\n      \"cells\": [\n        [60.0, 40.0, 0.0, null],\n        [40.0, 28.0, 20.0, null],\n        [71.0, 36.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 1],\n        [2, 2],\n        [3, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": {\n    \"op\": \"group_weighted\",\n    \"sources\": [\n      \"General Government\",\n      \"Fire and Police\"\n    ],\n    \"weights_tables\": [\n      2,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"General Government\",\n      \"Fire and Police\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"The document provides withdrawal rates by years of service (First Year, Second Year, Ultimate) and by attained age (20, 35, 50, 60) separately for General Government and Fire and Police. The target grid requires a full age x service matrix. The source data is sparse: service is only broken into 1, 2, and 3+ years, and age is only given at 20, 35, 50, and 60. To populate the target grid, the 'Ultimate' service rates (which apply to 3+ years) are broadcast across all service columns >2 (3, 4, 6, 8, 10, 11, 12, 30, 40) and all ages not explicitly listed, using the 'mean' of the General Government and Fire/Police columns as the plan does not provide a specific headcount distribution for this specific blending in the assumptions section (unlike the active member counts in Table I). The 'First Year' and 'Second Year' rates are mapped to service columns 1 and 2 respectively. Ages 25, 30, 40, 45, 55, 65, 70 are interpolated or extrapolated from the provided age points (20, 35, 50, 60) using the broadcast mechanism which fills all ages with the service-based rate, effectively assuming the rate is constant for ages between the provided points or using the nearest provided point if strict interpolation is not supported by the extraction logic. The values are in per_1000 and converted to decimal probability.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128370,
+          "total_tokens": 129985,
+          "completion_tokens": 1615,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128370,
+        "total_tokens": 129985,
+        "completion_tokens": 1615,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast cannot be combined with derive",
+        "derive.op 'group_weighted' must be 'ratio' or 'sum'"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-b30468862374e047",
+        "object": "chat.completion",
+        "created": 1785372290,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS (Sample Values per 1,000 Lives) - Withdrawal Rates\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"Age 20\",\n        \"Age 35\",\n        \"Age 50\",\n        \"Age 60\"\n      ],\n      \"cells\": [\n        [210.0, 180.0, 120.0, null],\n        [190.0, 150.0, 100.0, null],\n        [219.0, 89.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, null],\n        [null, null],\n        [null, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    },\n    {\n      \"page\": 121,\n      \"title\": \"SUMMARY OF ACTUARIAL ASSUMPTIONS (Sample Values per 1,000 Lives) - Withdrawal Rates (Fire and Police)\",\n      \"row_labels\": [\n        \"First Year\",\n        \"Second Year\",\n        \"Ultimate\"\n      ],\n      \"col_labels\": [\n        \"Age 20\",\n        \"Age 35\",\n        \"Age 50\",\n        \"Age 60\"\n      ],\n      \"cells\": [\n        [60.0, 40.0, 0.0, null],\n        [40.0, 28.0, 20.0, null],\n        [71.0, 36.0, 4.0, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, null],\n        [null, null],\n        [null, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"service\",\n    \"series_sources\": [\n      \"Age 20\",\n      \"Age 35\",\n      \"Age 50\",\n      \"Age 60\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"The document provides withdrawal rates by attained age only (General Government and Fire/Police groups separately) with no breakdown by years of service. The rates are presented as 'per 1,000 lives' for specific ages (20, 35, 50, 60) and service categories ('First Year', 'Second Year', 'Ultimate'). To map to the target grid of service columns, the 'Ultimate' rates are used as the primary source for all service years beyond the first two, as no specific service-based rates are provided. The 'First Year' and 'Second Year' labels are treated as service bins 1 and 2 respectively. Since the target requires a single rate per cell and the document splits rates by employee group (General vs Fire/Police) without a headcount table to weight them, the 'mean' operation is used to average the two group rates for each age column. The target service columns (1, 2, 3...) are mapped to the source categories: Service 1 -> 'First Year', Service 2 -> 'Second Year', Service 3+ -> 'Ultimate'. The target age rows are mapped to the source age columns using overlap_weighted logic where applicable, but since the source is age-only, the broadcast mechanism repeats the derived rate across all service columns for each age. Note: The source 'Age 60' column has null values for First/Second year in the printed table, implying 0 or not applicable, handled as null in transcription.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128370,
+          "total_tokens": 129933,
+          "completion_tokens": 1563,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128370,
+        "total_tokens": 129933,
+        "completion_tokens": 1563,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

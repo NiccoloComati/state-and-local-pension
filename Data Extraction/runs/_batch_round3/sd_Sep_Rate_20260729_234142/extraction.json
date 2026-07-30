@@ -1,0 +1,291 @@
+{
+  "source_tables": [
+    {
+      "page": 53,
+      "title": "Rates of Termination",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20+"
+      ],
+      "col_labels": [
+        "Service",
+        "General",
+        "Safety"
+      ],
+      "cells": [
+        [
+          0,
+          10.0,
+          10.0
+        ],
+        [
+          1,
+          9.0,
+          8.0
+        ],
+        [
+          2,
+          8.5,
+          6.0
+        ],
+        [
+          3,
+          7.5,
+          5.0
+        ],
+        [
+          4,
+          6.5,
+          4.0
+        ],
+        [
+          5,
+          5.5,
+          3.0
+        ],
+        [
+          6,
+          4.5,
+          2.75
+        ],
+        [
+          7,
+          4.25,
+          2.5
+        ],
+        [
+          8,
+          4.0,
+          2.25
+        ],
+        [
+          9,
+          3.25,
+          2.0
+        ],
+        [
+          10,
+          2.75,
+          1.8
+        ],
+        [
+          11,
+          2.75,
+          1.8
+        ],
+        [
+          12,
+          2.75,
+          1.8
+        ],
+        [
+          13,
+          2.75,
+          1.8
+        ],
+        [
+          14,
+          2.75,
+          1.8
+        ],
+        [
+          15,
+          2.75,
+          1.6
+        ],
+        [
+          16,
+          2.75,
+          1.6
+        ],
+        [
+          17,
+          2.75,
+          1.6
+        ],
+        [
+          18,
+          2.75,
+          1.6
+        ],
+        [
+          19,
+          2.75,
+          1.6
+        ],
+        [
+          "20+",
+          2.75,
+          1.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "8"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "20+"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "20+"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "General",
+      "Safety"
+    ],
+    "series_op": "mean"
+  },
+  "notes": "Source table (Table B-2) provides termination rates by Years of Service only, with separate columns for General and Safety groups. No age breakdown is provided. Per instructions, rates are broadcast across all target ages (axis='age'). Since the target requires a single rate and the document provides two distinct group rates without a headcount table to weight them, the series_op is set to 'mean' to average the General and Safety rates for each service year. Source values are percentages (e.g., 10.00) and will be converted to decimals by the code via values_unit='percent'. Target service bins 30 and 40 map to the source '20+' bin. Target service bins 1, 2, 3, 4, 6, 8, 10, 11, 12 map directly to source rows with identical labels.",
+  "unavailable": false
+}

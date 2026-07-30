@@ -1,0 +1,549 @@
+{
+  "source_tables": [
+    {
+      "page": 64,
+      "title": "Termination Rates by Service",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30",
+        "31+"
+      ],
+      "col_labels": [
+        "Termination Rate (%)"
+      ],
+      "cells": [
+        [
+          30.0
+        ],
+        [
+          16.0
+        ],
+        [
+          13.0
+        ],
+        [
+          12.0
+        ],
+        [
+          9.0
+        ],
+        [
+          9.0
+        ],
+        [
+          8.0
+        ],
+        [
+          6.0
+        ],
+        [
+          5.0
+        ],
+        [
+          5.0
+        ],
+        [
+          4.0
+        ],
+        [
+          3.0
+        ],
+        [
+          3.0
+        ],
+        [
+          3.0
+        ],
+        [
+          3.0
+        ],
+        [
+          3.0
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          2.25
+        ],
+        [
+          1.75
+        ],
+        [
+          1.75
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          31,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5",
+        "6"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7",
+        "8"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9",
+        "10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "29",
+        "30"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          27,
+          27
+        ],
+        [
+          28,
+          28
+        ],
+        [
+          29,
+          29
+        ],
+        [
+          30,
+          30
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "31+"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          31,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Termination Rate (%)"
+    ],
+    "series_op": "copy"
+  },
+  "notes": "Source table on page 64 provides termination rates by years of service only. Rates are broadcast across all target ages. Source values are percentages; code will convert to decimal. Target service bins 6, 8, 10, 30, and 40 are derived via overlap_weighted from single-year source bins or the open-ended 31+ bin.",
+  "unavailable": false
+}

@@ -1,0 +1,39 @@
+{
+  "source_tables": [
+    {
+      "page": 69,
+      "title": "Mortality Rates (Pre-retirement, Disabled, Post-retirement)",
+      "row_labels": [
+        "Pre-retirement",
+        "Disabled",
+        "Post-retirement"
+      ],
+      "col_labels": [
+        "Description"
+      ],
+      "cells": [
+        [
+          "The RP-2014 Blue Collar Employee Mortality Table, with scaling factors of 92 percent for males and 100 percent for females, projected generationally using scale MP-2017 (effective December 31, 2017)."
+        ],
+        [
+          "The RP-2014 Blue Collar Healthy Annuitant Mortality Table, with scaling factors of 107 percent for males and 99 percent for females, projected generationally using scale MP-2017 (effective December 31, 2017)."
+        ],
+        [
+          "The RP-2014 Blue Collar Healthy Annuitant Mortality Table, with scaling factors of 106 percent for males and 98 percent for females, projected generationally using scale MP-2017 (effective December 31, 2017)."
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not contain a table of sample mortality rates (e.g., 'Sample Probability of Death' by age). It only describes the mortality assumptions textually as 'RP-2014 Blue Collar' tables with specific scaling factors and generational projection (MP-2017). Without a printed table of rates by age, the target grid of annual probabilities of death cannot be constructed or extracted. The target is unavailable.",
+  "unavailable": true,
+  "broadcast": null
+}

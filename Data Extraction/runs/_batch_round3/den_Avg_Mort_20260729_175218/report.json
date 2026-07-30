@@ -1,0 +1,48 @@
+{
+  "shape_truth": [
+    100,
+    1
+  ],
+  "shape_cand": [
+    100,
+    1
+  ],
+  "label_mismatches": [
+    "col_labels[0]: truth='Mortality' cand='Death_Prob'"
+  ],
+  "exact": 0,
+  "close": 1,
+  "wrong": 35,
+  "missing_in_cand": 64,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 20 x svc Mortality] truth=0.00029376 cand=None",
+    "[age 21 x svc Mortality] truth=0.00031698 cand=None",
+    "[age 22 x svc Mortality] truth=0.00033804 cand=None",
+    "[age 23 x svc Mortality] truth=0.00035122 cand=None",
+    "[age 24 x svc Mortality] truth=0.00035638000000000005 cand=None",
+    "[age 25 x svc Mortality] truth=0.00034093999999999997 cand=None",
+    "[age 26 x svc Mortality] truth=0.00033182000000000003 cand=None",
+    "[age 27 x svc Mortality] truth=0.00032848 cand=None",
+    "[age 28 x svc Mortality] truth=0.00032992 cand=None",
+    "[age 29 x svc Mortality] truth=0.00033559999999999997 cand=None",
+    "[age 30 x svc Mortality] truth=0.00034436 cand=0.00015",
+    "[age 31 x svc Mortality] truth=0.00035628 cand=0.00015",
+    "[age 32 x svc Mortality] truth=0.00036982000000000003 cand=0.00015",
+    "[age 33 x svc Mortality] truth=0.00038436 cand=0.00018800000000000002",
+    "[age 34 x svc Mortality] truth=0.00039944 cand=0.00020299999999999997",
+    "[age 35 x svc Mortality] truth=0.00041398000000000004 cand=0.000225",
+    "[age 36 x svc Mortality] truth=0.00042743999999999996 cand=0.0003",
+    "[age 37 x svc Mortality] truth=0.00044381999999999994 cand=0.000375",
+    "[age 38 x svc Mortality] truth=0.00046374 cand=0.00045",
+    "[age 39 x svc Mortality] truth=0.0004892000000000001 cand=0.00045",
+    "[age 40 x svc Mortality] truth=0.0005212799999999999 cand=0.000525",
+    "[age 41 x svc Mortality] truth=0.00056152 cand=0.0006",
+    "[age 42 x svc Mortality] truth=0.0006109199999999999 cand=0.0007499999999999999",
+    "[age 43 x svc Mortality] truth=0.00067156 cand=0.000825",
+    "[age 44 x svc Mortality] truth=0.0007439799999999999 cand=0.0009"
+  ],
+  "truth_filled_cells": 100,
+  "accuracy": 0.0
+}

@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-919b6c1cf82b048b",
+        "object": "chat.completion",
+        "created": 1785371816,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 55,\n      \"title\": \"TABLE III-1 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO GENERAL GOVERNMENT DIVISION A\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\",\n        \"TOTAL\"\n      ],\n      \"cells\": [\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 1, 0, 0, 0, 1],\n        [0, 0, 0, 0, 2, 9, 0, 0, 11],\n        [0, 0, 0, 0, 1, 6, 1, 1, 9],\n        [0, 0, 0, 0, 2, 3, 2, 3, 10],\n        [0, 0, 0, 0, 0, 4, 2, 1, 7],\n        [0, 1, 0, 0, 0, 1, 0, 0, 2]\n      ],\n      \"printed_row_totals\": [0, 0, 0, 0, 0, 1, 11, 9, 10, 7, 2],\n      \"printed_col_totals\": [0, 1, 0, 0, 6, 23, 5, 5, 40]\n    },\n    {\n      \"page\": 56,\n      \"title\": \"TABLE III-2 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO FIRE AND POLICE DIVISION A\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\",\n        \"TOTAL\"\n      ],\n      \"cells\": [\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [0, 1, 0, 0, 0, 0, 0, 0, 1],\n        [0, 0, 0, 1, 0, 1, 0, 0, 2],\n        [0, 0, 0, 2, 0, 0, 0, 0, 2],\n        [0, 0, 0, 0, 0, 2, 0, 0, 2],\n        [0, 0, 0, 0, 1, 3, 2, 1, 7],\n        [0, 0, 0, 0, 0, 0, 0, 1, 1],\n        [0, 0, 0, 0, 0, 0, 0, 0, 0]\n      ],\n      \"printed_row_totals\": [0, 0, 0, 0, 1, 2, 2, 2, 7, 1, 0],\n      \"printed_col_totals\": [0, 1, 0, 3, 1, 6, 2, 2, 15]\n    },\n    {\n      \"page\": 58,\n      \"title\": \"TABLE III-4 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO GENERAL GOVERNMENT DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\",\n        \"TOTAL\"\n      ],\n      \"cells\": [\n        [17, 0, 0, 0, 0, 0, 0, 0, 17],\n        [263, 12, 0, 0, 0, 0, 0, 0, 275],\n        [681, 117, 6, 0, 0, 0, 0, 0, 804],\n        [580, 244, 101, 11, 0, 0, 0, 0, 936],\n        [443, 237, 232, 117, 7, 0, 0, 0, 1036],\n        [356, 183, 196, 189, 80, 7, 0, 0, 1011],\n        [316, 183, 200, 187, 162, 74, 16, 0, 1138],\n        [286, 175, 188, 227, 167, 120, 114, 18, 1295],\n        [218, 164, 157, 208, 183, 110, 132, 76, 1248],\n        [130, 89, 115, 138, 89, 58, 38, 50, 707],\n        [56, 61, 57, 61, 36, 17, 16, 28, 332]\n      ],\n      \"printed_row_totals\": [17, 275, 804, 936, 1036, 1011, 1138, 1295, 1248, 707, 332],\n      \"printed_col_totals\": [3346, 1465, 1252, 1138, 724, 386, 316, 172, 8799]\n    },\n    {\n      \"page\": 59,\n      \"title\": \"TABLE III-5 DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO FIRE AND POLICE DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\",\n        \"TOTAL\"\n      ],\n      \"cells\": [\n        [0, 0, 0, 0, 0, 0, 0, 0, 0],\n        [125, 1, 0, 0, 0, 0, 0, 0, 126],\n        [330, 100, 1, 0, 0, 0, 0, 0, 431],\n        [166, 260, 88, 1, 0, 0, 0, 0, 515],\n        [71, 139, 163, 41, 1, 0, 0, 0, 415],\n        [35, 69, 92, 153, 97, 2, 0, 0, 448],\n        [17, 50, 59, 104, 174, 59, 1, 0, 464],\n        [13, 19, 28, 37, 82, 94, 62, 1, 336],\n        [3, 6, 12, 11, 30, 33, 50, 6, 151],\n        [1, 2, 3, 4, 8, 12, 27, 17, 74],\n        [1, 0, 0, 2, 0, 2, 1, 8, 14]\n      ],\n      \"printed_row_totals\": [0, 126, 431, 515, 415, 448, 464, 336, 151, 74, 14],\n      \"printed_col_totals\": [762, 646, 446, 353, 392, 202, 141, 32, 2974]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"1-20\",\n        \"21-25\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"66-UP\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35-UP\"\n      ],\n      \"op\": \"share_even\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2,\n      3\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables III-1, III-2, III-4, and III-5 provide active member counts by age and service for Division A (General/Fire) and Division B (General/Fire). The target grid requires specific age bins (e.g., 25-29) and service bins (e.g., 35-40). Source age bins (e.g., 26-30) are split evenly across the target bins they cover (share_even). Source service bin '35-UP' is split evenly between target bins '34' and '40' (share_even). Counts from all four group tables are summed to produce the total plan distribution.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128006,
+          "total_tokens": 131898,
+          "completion_tokens": 3892,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128006,
+        "total_tokens": 131898,
+        "completion_tokens": 3892,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

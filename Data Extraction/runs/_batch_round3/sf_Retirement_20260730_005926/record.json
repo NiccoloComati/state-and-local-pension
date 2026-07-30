@@ -1,0 +1,450 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b78b0f81af38ba06",
+        "object": "chat.completion",
+        "created": 1785387566,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [2706, 2134, 25938, 30778]\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [267325842, 228292650, 1017817589, 1513436081]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 provide counts and total annual benefits for all pay-status members (Retired, Disabled, Beneficiaries) combined. The target requires 'Retirement' (Service Retirees) only, but the document does not publish a separate table for Service Retirees excluding Disabled and Beneficiaries. The extracted data represents the total 'Members in Pay Status' as published. The '90 and up' bucket is split evenly across target rows 90-94, 95-99, and 100 & over. The AverageBenefit is derived by dividing the Total Annual Benefit (Table A-17) by the Total Count (Table A-16). Values are already annual.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82836,
+          "completion_tokens": 1990,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82836,
+        "completion_tokens": 1990,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-a75227d10511fa6c",
+        "object": "chat.completion",
+        "created": 1785387582,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [2706, 2134, 25938, 30778]\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [267325842, 228292650, 1017817589, 1513436081]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 provide counts and total annual benefits for all pay-status members (Retired, Disabled, Beneficiaries) combined. The target requires 'Retirement' (Service Retirees) only, but the document does not publish a separate table for Service Retirees excluding Disabled and Beneficiaries. The extracted data represents the total 'Members in Pay Status' as published. The '90 and up' bucket is split evenly across target rows 90-94, 95-99, and 100 & over. The AverageBenefit is derived by dividing the Total Annual Benefit (Table A-17) by the Total Count (Table A-16). Values are already annual.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 85348,
+          "total_tokens": 87338,
+          "completion_tokens": 1990,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 85348,
+        "total_tokens": 87338,
+        "completion_tokens": 1990,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-b753c6ebb7224022",
+        "object": "chat.completion",
+        "created": 1785387597,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ],\n      \"numerator_table\": 1,\n      \"denominator_table\": 0\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 include all pay-status members (Retired, Disabled, Beneficiaries). The target specifies SERVICE retirees only, but the document does not provide a separate table for Service Retirees; these tables are used as the best available proxy for the 'Retirement' distribution. The '90 and up' bucket is split evenly across the target rows 90-94, 95-99, and 100 & over. The AverageBenefit is calculated as the ratio of Total Annual Benefit (Table A-17) to Total Count (Table A-16).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82761,
+          "completion_tokens": 1915,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82761,
+        "completion_tokens": 1915,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 4,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): unknown key 'denominator_table' - the executor IGNORES it, so whatever it was meant to say does not happen. 'denominator_table' is a derive-level key (see numerator_table).",
+        "col_map[1] ('AverageBenefit'): unknown key 'numerator_table' - the executor IGNORES it, so whatever it was meant to say does not happen. 'numerator_table' is a derive-level key: derive={'op':'ratio','numerator_table':N,'denominator_table':M} divides two whole TABLES. To divide two COLUMNS use col op 'ratio' with sources [numerator col, denominator col], or numerator_sources/denominator_sources.",
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-bef78d83940d3474",
+        "object": "chat.completion",
+        "created": 1785387613,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 - Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 - Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 include Retirees, Disabled Members, and Beneficiaries combined. The target requests 'Retirement' distribution (Service Retirees only), but the document does not publish a separate table for Service Retirees alone. The provided data represents the total population in pay status. The '90 and up' bucket is split evenly across the target rows '90-94', '95-99', and '100 & over' using share_even. The AverageBenefit is derived as Total Annual Benefit divided by Total Count.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82735,
+          "completion_tokens": 1889,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82735,
+        "completion_tokens": 1889,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-b3b8259631e07bc3",
+        "object": "chat.completion",
+        "created": 1785387628,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [2706, 2134, 25938, 30778]\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [267325842, 228292650, 1017817589, 1513436081]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 provide counts and total annual benefits for ALL pay-status members (Retirees, Disabled, and Beneficiaries combined). The target requires SERVICE retirees only. The document does not provide a separate table for Service Retirees broken down by age and benefit amount; the breakdown by status is only available in aggregate counts (Table A-16) without corresponding benefit totals. Therefore, the extracted data represents the combined population of all members in pay status. The '90 and up' bucket is split evenly across the target rows 90-94, 95-99, and 100 & over. The 'Under 50' bucket is excluded as it does not map to the target grid starting at 50-54. The AverageBenefit is derived by dividing the Total Annual Benefit by the Total Count.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82863,
+          "completion_tokens": 2017,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82863,
+        "completion_tokens": 2017,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-bda74a6083a40b3e",
+        "object": "chat.completion",
+        "created": 1785387644,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 - Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [2706, 2134, 25938, 30778]\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 - Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [267325842, 228292650, 1017817589, 1513436081]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 (Count) and A-17 (Annual Benefit) include Retirees, Disabled Members, and Beneficiaries combined. The target specifies 'Retirement' (service retirees only), but the document does not publish a separate table for service retirees only; the combined table is used as the best available evidence. The '90 and up' bucket in the source is split evenly across the target rows '90-94', '95-99', and '100 & over' using 'share_even'. The 'AverageBenefit' is derived as the ratio of Total Annual Benefit to Total Count. Values are already annual.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82820,
+          "completion_tokens": 1974,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82820,
+        "completion_tokens": 1974,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-9e9770a39897df81",
+        "object": "chat.completion",
+        "created": 1785387660,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 include Disabled Members and Beneficiaries in addition to Service Retirees; the document does not provide a separate table for Service Retirees only, so the combined 'Total' population is used. The '90 and up' bucket is split evenly across the target rows '90-94', '95-99', and '100 & over' using share_even. The 'Under 50' bucket is excluded as it falls below the target grid's minimum age of 50. The 'AverageBenefit' is derived as the ratio of the Total Annual Benefit (Table A-17) to the Total Count (Table A-16). The values in Table A-17 are annual totals.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82744,
+          "completion_tokens": 1898,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82744,
+        "completion_tokens": 1898,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-8892a036591d4db2",
+        "object": "chat.completion",
+        "created": 1785387676,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 57,\n      \"title\": \"Table A-16 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Count\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [46, 18, 111, 175],\n        [97, 60, 562, 719],\n        [295, 187, 1616, 2098],\n        [500, 270, 3765, 4535],\n        [503, 395, 5649, 6547],\n        [438, 412, 5304, 6154],\n        [299, 324, 3571, 4194],\n        [225, 184, 2503, 2912],\n        [164, 131, 1622, 1917],\n        [139, 153, 1235, 1527]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 58,\n      \"title\": \"Table A-17 Distribution of Retirees, Disabled Members, and Beneficiaries as of July 1, 2019 Annual Benefit\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 to 74\",\n        \"75 to 79\",\n        \"80 to 84\",\n        \"85 to 89\",\n        \"90 and up\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Misc\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [2898758, 1164202, 2438986, 6501947],\n        [6502205, 4433733, 10286466, 21222404],\n        [32042140, 19003659, 36644144, 87689944],\n        [59768325, 30771340, 143112386, 233652051],\n        [57204108, 49729262, 243185439, 350118809],\n        [43956377, 46569388, 243737941, 334263706],\n        [25932356, 34167862, 155763951, 215864170],\n        [17416874, 16855804, 95948660, 130221338],\n        [12359989, 12399014, 53679778, 78438782],\n        [9244710, 13198386, 33019836, 55462932]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"65 to 69\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"70 to 74\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"75 to 79\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"80 to 84\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"85 to 89\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [\n        \"90 and up\"\n      ],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total\"\n      ],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [\n        \"Total\"\n      ],\n      \"denominator_sources\": [\n        \"Total\"\n      ]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"ratio\",\n    \"numerator_table\": 1,\n    \"denominator_table\": 0\n  },\n  \"transpose\": false,\n  \"notes\": \"Source tables A-16 and A-17 provide counts and total annual benefits for Retirees, Disabled Members, and Beneficiaries combined. The target requires Service Retirees only, but the document does not provide a split by status in these specific tables (Table A-3 provides system totals but not by age). Therefore, the combined 'Retirees, Disabled Members, and Beneficiaries' population is used as the best available approximation for 'Members in Pay Status'. The '90 and up' bucket is split evenly across target rows 90-94, 95-99, and 100 & over. The 'AverageBenefit' is derived by dividing the Total Annual Benefit (Table A-17) by the Total Count (Table A-16) row by row. Values are already annual.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80846,
+          "total_tokens": 82786,
+          "completion_tokens": 1940,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80846,
+        "total_tokens": 82786,
+        "completion_tokens": 1940,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1]: ratio is not allowed in ratio mode - use additive maps",
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total'] / ['Total'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

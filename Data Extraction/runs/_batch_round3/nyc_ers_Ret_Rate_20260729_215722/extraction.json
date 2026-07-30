@@ -1,0 +1,559 @@
+{
+  "source_tables": [
+    {
+      "page": 68,
+      "title": "PROBABILITIES OF SERVICE RETIREMENT: GENERAL",
+      "row_labels": [
+        "\u2264 54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75",
+        "76",
+        "77",
+        "78",
+        "79",
+        "\u2265 80"
+      ],
+      "col_labels": [
+        "Reduced Service Retirement",
+        "Unreduced Service Retirement For Members Mandated Into Their Retirement Program Year 1",
+        "Unreduced Service Retirement For Members Mandated Into Their Retirement Program Ultimate",
+        "Unreduced Service Retirement For Members Who Elected an Improved Retirement Program Year 1",
+        "Unreduced Service Retirement For Members Who Elected an Improved Retirement Program Ultimate"
+      ],
+      "cells": [
+        [
+          0.0,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          3.5,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          3.5,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          3.5,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          3.5,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          5.25,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          7.0,
+          8.0,
+          5.0,
+          40.0,
+          15.0
+        ],
+        [
+          8.0,
+          8.0,
+          7.5,
+          40.0,
+          15.0
+        ],
+        [
+          8.0,
+          30.0,
+          8.0,
+          60.0,
+          25.0
+        ],
+        [
+          0.0,
+          20.0,
+          30.0,
+          40.0,
+          20.0
+        ],
+        [
+          0.0,
+          20.0,
+          15.0,
+          40.0,
+          20.0
+        ],
+        [
+          0.0,
+          30.0,
+          20.0,
+          60.0,
+          25.0
+        ],
+        [
+          0.0,
+          20.0,
+          15.0,
+          40.0,
+          20.0
+        ],
+        [
+          0.0,
+          20.0,
+          15.0,
+          40.0,
+          20.0
+        ],
+        [
+          0.0,
+          20.0,
+          15.0,
+          40.0,
+          20.0
+        ],
+        [
+          0.0,
+          20.0,
+          15.0,
+          40.0,
+          20.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          0.0,
+          25.0,
+          25.0,
+          40.0,
+          25.0
+        ],
+        [
+          null,
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          80,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "\u2264 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "\u2264 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "\u2264 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "\u2264 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "\u2264 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The source table (Table XII-1, page 68) provides retirement probabilities by Age (rows) and Service (columns). The target requires probabilities by Service (rows) and Age (columns), so transpose=true is set. The source table only covers ages 50+ (row '\u2264 54' and up). The target requires service buckets (5-11, 12-19, etc.) which are NOT present in the source table columns (which are categories like 'Reduced', 'Unreduced Year 1', 'Unreduced Ultimate'). The source table does not contain the specific service-year buckets required by the target grid. Therefore, the row_map sources are empty for all target rows, indicating the data is unavailable for the specific service buckets requested. The col_map copies the available age rows to the target age columns. The values are in percent.",
+  "unavailable": false,
+  "broadcast": null
+}

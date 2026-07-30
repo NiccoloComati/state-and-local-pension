@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-abf80ba64db45043",
+        "object": "chat.completion",
+        "created": 1785365847,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 53,\n      \"title\": \"Expected Retirements per 100 Lives\",\n      \"row_labels\": [\n        \"45-49\",\n        \"50-54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66-69\",\n        \"70-74\",\n        \"75+\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [15, 12],\n        [10, 11],\n        [10, 11],\n        [10, 11],\n        [10, 11],\n        [10, 11],\n        [10, 11],\n        [12, 11],\n        [14, 11],\n        [16, 20],\n        [18, 18],\n        [20, 12],\n        [20, 22],\n        [20, 20],\n        [20, 25],\n        [100, 100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [45, 49],\n        [50, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 69],\n        [70, 74],\n        [75, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"45-49\", \"50-54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[45, 49], [50, 54]]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"45-49\", \"50-54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[45, 49], [50, 54]]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"45-49\", \"50-54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[45, 49], [50, 54]]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"45-49\", \"50-54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[45, 49], [50, 54]]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"45-49\", \"50-54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[45, 49], [50, 54]]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"56\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"57\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"59\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"60\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"61\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"62\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"66-69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"66-69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"66-69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"66-69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"70-74\", \"75+\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[70, 74], [75, null]]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table 'Expected Retirements per 100 Lives' on page 53 provides retirement rates by Age (rows) and Group (Males/Females). The target requires rates by Service (rows) and Age (columns). The source table does NOT contain service-year breakdowns; it only provides rates by attained age. Therefore, the target grid (Service x Age) cannot be populated from this source. The row_map sources are empty for all target rows because no service dimension exists in the source. The col_map uses overlap_weighted to map source age bins to target single ages, but since the row dimension is missing, the resulting table will be empty or invalid for the target's service requirement. The document does not publish retirement rates by service-year bucket.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 51045,
+          "total_tokens": 53053,
+          "completion_tokens": 2008,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 51045,
+        "total_tokens": 53053,
+        "completion_tokens": 2008,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

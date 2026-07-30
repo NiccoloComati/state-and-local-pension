@@ -1,0 +1,83 @@
+{
+  "source_tables": [
+    {
+      "page": 36,
+      "title": "Exhibit A: Table of Plan Coverage - Retired members",
+      "row_labels": [
+        "Retired members:"
+      ],
+      "col_labels": [
+        "Number in pay status",
+        "Average age",
+        "Average monthly benefit"
+      ],
+      "cells": [
+        [
+          3676,
+          67.4,
+          4886
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 37,
+      "title": "Exhibit A: Table of Plan Coverage - Disabled members",
+      "row_labels": [
+        "Disabled members:"
+      ],
+      "col_labels": [
+        "Number in pay status",
+        "Average age",
+        "Average monthly benefit"
+      ],
+      "cells": [
+        [
+          127,
+          68.1,
+          3605
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 37,
+      "title": "Exhibit A: Table of Plan Coverage - Beneficiaries",
+      "row_labels": [
+        "Beneficiaries:"
+      ],
+      "col_labels": [
+        "Number in pay status",
+        "Average age",
+        "Average monthly benefit"
+      ],
+      "cells": [
+        [
+          1153,
+          72.9,
+          2294
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a distribution of retired members by 5-year age band. Exhibit A (pages 36-37) provides only aggregate totals for 'Retired members' (3,676 count, $4,886 avg monthly), 'Disabled members' (127 count, $3,605 avg monthly), and 'Beneficiaries' (1,153 count, $2,294 avg monthly) without age breakdowns. Consequently, the target grid for 'Retirement' distribution by age band is unavailable. The transcribed tables are archived as evidence of the available aggregate data.",
+  "broadcast": null
+}

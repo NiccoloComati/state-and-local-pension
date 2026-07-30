@@ -1,0 +1,42 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [
+    "row_labels[0]: truth='Under 25' cand='<25'",
+    "row_labels[1]: truth='25-29' cand='29'",
+    "row_labels[2]: truth='30-34' cand='34'",
+    "row_labels[3]: truth='35-39' cand='39'",
+    "row_labels[4]: truth='40-44' cand='44'",
+    "row_labels[5]: truth='45-49' cand='49'",
+    "row_labels[6]: truth='50-54' cand='54'",
+    "row_labels[7]: truth='55-59' cand='59'",
+    "row_labels[8]: truth='60-64' cand='64'",
+    "row_labels[9]: truth='65-70' cand='70'",
+    "col_labels[0]: truth='0-4' cand='4'",
+    "col_labels[1]: truth='5-9' cand='9'",
+    "col_labels[2]: truth='10-14' cand='14'",
+    "col_labels[3]: truth='15-19' cand='19'",
+    "col_labels[4]: truth='20-24' cand='24'",
+    "col_labels[5]: truth='25-29' cand='29'",
+    "col_labels[6]: truth='30-34' cand='34'",
+    "col_labels[7]: truth='35-40' cand='40'"
+  ],
+  "exact": 57,
+  "close": 0,
+  "wrong": 1,
+  "missing_in_cand": 0,
+  "extra_in_cand": 1,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 45-49 x svc 30-34] truth=1.0 cand=0.5",
+    "[age 45-49 x svc 35-40] truth=None cand=0.5"
+  ],
+  "truth_filled_cells": 58,
+  "accuracy": 0.9828
+}

@@ -1,0 +1,337 @@
+{
+  "source_tables": [
+    {
+      "page": 68,
+      "title": "Misc. Rates of Termination by Age and Service Years",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65"
+      ],
+      "col_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5 or more"
+      ],
+      "cells": [
+        [
+          37.5,
+          19.0,
+          15.0,
+          12.0,
+          9.0,
+          6.5
+        ],
+        [
+          27.5,
+          19.0,
+          10.0,
+          9.0,
+          7.0,
+          6.5
+        ],
+        [
+          24.0,
+          14.0,
+          9.0,
+          9.0,
+          7.0,
+          5.5
+        ],
+        [
+          20.0,
+          9.0,
+          9.0,
+          7.0,
+          6.5,
+          4.25
+        ],
+        [
+          17.5,
+          9.0,
+          8.0,
+          6.0,
+          4.5,
+          3.0
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          2.5
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          2.6
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          3.15
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          5.0
+        ],
+        [
+          15.0,
+          9.0,
+          6.0,
+          4.5,
+          3.5,
+          12.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ]
+      ],
+      "col_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          null
+        ]
+      ]
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "5 or more"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": null,
+  "notes": "Termination rates are published by Age and Service for Miscellaneous members in Table B-2 (Page 68). The target grid requires rates by Age (rows) and Service (columns). The source table provides exactly this structure. Target ages 25-65 map directly to source rows. Target age 70 maps to the last source row (65) as no older age is provided. Target service bins 1-4 map directly. Target service bins 6, 8, 10, 11, 12, 30, 40 all map to the source bin '5 or more' via copy, as the source does not differentiate beyond 5 years. Source values are percentages and will be converted to decimals by the code. No broadcast is needed as both dimensions are present in the source.",
+  "unavailable": false
+}

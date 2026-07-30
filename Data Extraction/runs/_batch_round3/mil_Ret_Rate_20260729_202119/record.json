@@ -1,0 +1,116 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a97938abd4597db5",
+        "object": "chat.completion",
+        "created": 1785370880,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a table of retirement rates by age and service. Appendix C (pages 105-112) provides 'Illustrative Rates of Early and Normal Retirement' (Table on page 108) which lists the PERCENTAGE OF MEMBERS RETIRING at specific ages for various groups (General, Fire, Police), but these are not conditional probabilities by service year (retirement rates). The table on page 108 has Age as rows and Groups as columns, with no service-year dimension. The target requires a 2D grid of retirement probabilities by service-year (rows) and age (columns). Since the specific rate table (Age x Service) is missing, the target is unavailable. The closest related data (Illustrative Retirement Rates by Age) is archived in notes but not transcribed as a source table for derivation.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 95508,
+          "total_tokens": 95730,
+          "completion_tokens": 222,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 95508,
+        "total_tokens": 95730,
+        "completion_tokens": 222,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables is empty - if the target data does not exist in this document in any derivable form, set \"unavailable\": true with EMPTY row_map/col_map and notes explaining what the document publishes instead; otherwise transcribe the source table(s)",
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8943a94bf5bde265",
+        "object": "chat.completion",
+        "created": 1785370885,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 108,\n      \"title\": \"Illustrative Rates of Early and Normal Retirement\",\n      \"row_labels\": [\n        \"42\",\n        \"43\",\n        \"44\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"General Employees\",\n        \"Firemen Males\",\n        \"Firemen Females\",\n        \"Firemen All\",\n        \"Policemen Not in Combined Fund\",\n        \"Policemen In Combined Fund\"\n      ],\n      \"cells\": [\n        [null, null, null, null, 10, null],\n        [null, null, null, null, 25, null],\n        [null, null, null, null, 25, null],\n        [null, null, null, null, 25, null],\n        [null, null, null, null, 32, null],\n        [null, null, null, null, 32, null],\n        [null, null, null, 10, 32, null],\n        [null, null, null, 13, 25, null],\n        [null, null, null, 13, 25, null],\n        [null, null, null, 13, 44, 25],\n        [null, null, null, 18, 44, 25],\n        [null, null, null, 18, 24, 25],\n        [35, 26, 26, 20, 24, 25],\n        [4, 45, 26, 25, 24, 25],\n        [4, 30, 17, 25, 40, 25],\n        [4, 27, 15, 30, 35, 25],\n        [4, 27, 20, 35, 35, 25],\n        [4, 22, 20, 35, 35, 25],\n        [4, 19, 19, 35, 35, 25],\n        [4, 19, 20, 50, 35, 25],\n        [4, 28, 25, 50, 50, 50],\n        [4, 20, 18, 100, 100, 100],\n        [4, 20, 18, 100, 100, 100],\n        [null, 30, 25, 100, 100, 100],\n        [null, 30, 30, 100, 100, 100],\n        [null, 18, 20, 100, 100, 100],\n        [null, 18, 20, 100, 100, 100],\n        [null, 18, 20, 100, 100, 100],\n        [null, 100, 100, 100, 100, 100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a table of retirement rates by service-year and age. The target requires a 2D grid of probabilities by service (rows) and age (columns). The document only provides 'Illustrative Rates of Early and Normal Retirement' (Page 108) which lists retirement percentages by attained age (rows) for specific employee groups (columns), but lacks the service-year dimension entirely. Therefore, the target grid cannot be derived.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 98156,
+          "total_tokens": 99288,
+          "completion_tokens": 1132,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 98156,
+        "total_tokens": 99288,
+        "completion_tokens": 1132,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

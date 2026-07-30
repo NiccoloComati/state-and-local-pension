@@ -1,0 +1,51 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [
+    "row_labels[0]: truth='24' cand='<25'",
+    "row_labels[9]: truth='65+' cand='70'",
+    "col_labels[3]: truth='20' cand='19'",
+    "col_labels[7]: truth='35+' cand='40'"
+  ],
+  "exact": 0,
+  "close": 4,
+  "wrong": 51,
+  "missing_in_cand": 3,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 24 x svc 4] truth=34548.87356321839 cand=36280.25925925926",
+    "[age 24 x svc 9] truth=37466.0 cand=40545",
+    "[age 29 x svc 4] truth=39066.70376175549 cand=40359.930722891564",
+    "[age 29 x svc 9] truth=39251.0 cand=42558",
+    "[age 29 x svc 14] truth=56518.0 cand=54970",
+    "[age 34 x svc 4] truth=44775.23279648609 cand=47212.68587896253",
+    "[age 34 x svc 9] truth=45797.0 cand=48593",
+    "[age 34 x svc 14] truth=45687.0 cand=47406",
+    "[age 34 x svc 20] truth=56659.0 cand=None",
+    "[age 39 x svc 4] truth=48541.647651006715 cand=51850.81979695432",
+    "[age 39 x svc 9] truth=51648.0 cand=53260",
+    "[age 39 x svc 14] truth=54901.0 cand=56071",
+    "[age 39 x svc 20] truth=50052.0 cand=47545",
+    "[age 39 x svc 24] truth=51362.0 cand=None",
+    "[age 44 x svc 4] truth=48851.4348785872 cand=49525.05369127517",
+    "[age 44 x svc 9] truth=56788.0 cand=55593",
+    "[age 44 x svc 14] truth=55715.0 cand=58982",
+    "[age 44 x svc 20] truth=54379.0 cand=59604",
+    "[age 44 x svc 24] truth=50474.0 cand=53443",
+    "[age 49 x svc 4] truth=49597.932279909706 cand=57953.88970588235",
+    "[age 49 x svc 9] truth=53227.0 cand=56450",
+    "[age 49 x svc 14] truth=57139.0 cand=59769",
+    "[age 49 x svc 20] truth=53455.0 cand=57647",
+    "[age 49 x svc 24] truth=57155.0 cand=56666",
+    "[age 49 x svc 29] truth=55964.0 cand=57648"
+  ],
+  "truth_filled_cells": 58,
+  "accuracy": 0.0
+}

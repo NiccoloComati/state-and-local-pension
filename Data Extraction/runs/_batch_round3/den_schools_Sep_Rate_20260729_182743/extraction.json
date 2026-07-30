@@ -1,0 +1,1016 @@
+{
+  "source_tables": [
+    {
+      "page": 134,
+      "title": "State Division Trust Fund (Non-Troopers) Ultimate Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          30.0,
+          20.0
+        ],
+        [
+          10.0,
+          14.5
+        ],
+        [
+          7.0,
+          10.0
+        ],
+        [
+          6.0,
+          7.5
+        ],
+        [
+          5.0,
+          6.75
+        ],
+        [
+          4.25,
+          5.5
+        ],
+        [
+          4.25,
+          5.25
+        ],
+        [
+          4.25,
+          5.25
+        ],
+        [
+          4.25,
+          5.25
+        ],
+        [
+          4.25,
+          5.25
+        ],
+        [
+          4.25,
+          5.25
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 134,
+      "title": "State Division Trust Fund (Non-Troopers) Select Termination Rates",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          41.5,
+          41.5
+        ],
+        [
+          20.5,
+          21.5
+        ],
+        [
+          14.5,
+          16.0
+        ],
+        [
+          11.5,
+          13.0
+        ],
+        [
+          9.5,
+          11.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 135,
+      "title": "State Division Trust Fund (Troopers) Ultimate Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          8.0,
+          8.0
+        ],
+        [
+          6.0,
+          6.0
+        ],
+        [
+          4.0,
+          4.0
+        ],
+        [
+          3.75,
+          3.75
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          3.0,
+          3.0
+        ],
+        [
+          3.0,
+          3.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 135,
+      "title": "School Division and DPS Division Trust Funds (PERA Benefit Structure) Ultimate Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          20.0,
+          14.5
+        ],
+        [
+          10.0,
+          12.0
+        ],
+        [
+          6.5,
+          8.0
+        ],
+        [
+          5.25,
+          6.5
+        ],
+        [
+          4.25,
+          5.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          4.0,
+          5.0
+        ],
+        [
+          4.0,
+          5.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 136,
+      "title": "School Division and DPS Division Trust Funds (PERA Benefit Structure) Select Termination Rates",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          37.0,
+          34.0
+        ],
+        [
+          21.0,
+          20.0
+        ],
+        [
+          16.0,
+          15.0
+        ],
+        [
+          12.0,
+          12.0
+        ],
+        [
+          11.0,
+          11.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 136,
+      "title": "Local Government Division Trust Fund Ultimate Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          13.0,
+          16.0
+        ],
+        [
+          12.0,
+          16.0
+        ],
+        [
+          8.0,
+          11.0
+        ],
+        [
+          6.0,
+          9.0
+        ],
+        [
+          5.25,
+          6.5
+        ],
+        [
+          4.5,
+          6.5
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 137,
+      "title": "Local Government Division Trust Fund Select Termination Rates",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          41.0,
+          39.0
+        ],
+        [
+          24.0,
+          23.0
+        ],
+        [
+          17.0,
+          18.0
+        ],
+        [
+          12.0,
+          14.0
+        ],
+        [
+          10.0,
+          11.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 137,
+      "title": "Judicial Division Trust Fund Ultimate Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          13.0,
+          16.0
+        ],
+        [
+          12.0,
+          16.0
+        ],
+        [
+          8.0,
+          11.0
+        ],
+        [
+          6.0,
+          9.0
+        ],
+        [
+          5.25,
+          6.5
+        ],
+        [
+          4.5,
+          6.5
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ],
+        [
+          4.5,
+          6.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    },
+    {
+      "page": 138,
+      "title": "All Division Trust Funds (DPS Benefit Structure) Termination Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          8.0,
+          10.0
+        ],
+        [
+          8.0,
+          10.0
+        ],
+        [
+          7.0,
+          9.0
+        ],
+        [
+          7.0,
+          8.0
+        ],
+        [
+          5.75,
+          6.5
+        ],
+        [
+          5.0,
+          4.5
+        ],
+        [
+          4.5,
+          4.5
+        ],
+        [
+          4.25,
+          4.5
+        ],
+        [
+          4.25,
+          4.5
+        ],
+        [
+          4.25,
+          4.5
+        ],
+        [
+          4.25,
+          4.5
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Males",
+      "Females"
+    ],
+    "series_op": "mean"
+  },
+  "notes": "The document provides separation (termination) rates by years of service only, not by attained age. The rates are constant across all ages for a given service year. The target grid requires rates by age x service. Since the source rates are independent of age, the broadcast mechanism is used to repeat the service-based rates across all target age rows. The source tables provide rates for specific service years (0-4, 5-9, etc.) and specific single years (0, 1, 2, 3, 4). The target columns (1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40) are mapped from the source service rows using overlap_weighted logic where bins differ (e.g., source '0-4' covers target 1, 2, 3, 4; source '5-9' covers 6, 8; source '10-14' covers 10, 11, 12; source '30+' covers 30, 40). The source tables are transcribed as printed with service as rows. The 'Males' and 'Females' columns are averaged (series_op: 'mean') to produce a single rate per service year, as no headcount table is provided to weight them by population. The values are in percent and will be converted to decimal by the code.",
+  "unavailable": false
+}

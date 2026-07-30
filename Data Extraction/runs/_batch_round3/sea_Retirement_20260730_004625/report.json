@@ -1,0 +1,26 @@
+{
+  "shape_truth": [
+    11,
+    2
+  ],
+  "shape_cand": [
+    11,
+    2
+  ],
+  "label_mismatches": [
+    "row_labels[10]: truth='100 & up' cand='100 & over'"
+  ],
+  "exact": 19,
+  "close": 0,
+  "wrong": 3,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 90-94 x svc AverageBenefit] truth=19897.0 cand=6632.333333333333",
+    "[age 95-99 x svc AverageBenefit] truth=19897.0 cand=6632.333333333333",
+    "[age 100 & up x svc AverageBenefit] truth=19897.0 cand=6632.333333333333"
+  ],
+  "truth_filled_cells": 22,
+  "accuracy": 0.8636
+}

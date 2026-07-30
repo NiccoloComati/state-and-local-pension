@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-af3b18be636e381d",
+        "object": "chat.completion",
+        "created": 1785349182,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 63,\n      \"title\": \"Mortality Assumptions - Base Tables and Scaling Factors\",\n      \"row_labels\": [\n        \"Pre-retirement Mortality\",\n        \"Post-retirement Disabled Mortality\",\n        \"Post-retirement Healthy Mortality\"\n      ],\n      \"col_labels\": [\n        \"Applicable Group\",\n        \"Base Mortality Table\",\n        \"Male Scaling Factor\",\n        \"Female Scaling Factor\"\n      ],\n      \"cells\": [\n        [\n          \"Pre-retirement Mortality\",\n          \"RP-2014 White Collar Employee, sex distinct\",\n          \"98%\",\n          \"113%\"\n        ],\n        [\n          \"Post-retirement Disabled Mortality\",\n          \"RP-2014 Disabled Annuitant, sex distinct\",\n          \"103%\",\n          \"106%\"\n        ],\n        [\n          \"Post-retirement Healthy Mortality\",\n          \"RP-2014 White Collar Healthy Annuitant, sex distinct\",\n          \"108%\",\n          \"94%\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 63,\n      \"title\": \"Future Life Expectancy (years) in 2019 and 2030\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"2019 Post-retirement Healthy Male\",\n        \"2019 Post-retirement Healthy Female\",\n        \"2019 Post-retirement Disabled Male\",\n        \"2019 Post-retirement Disabled Female\",\n        \"2030 Post-retirement Healthy Male\",\n        \"2030 Post-retirement Healthy Female\",\n        \"2030 Post-retirement Disabled Male\",\n        \"2030 Post-retirement Disabled Female\"\n      ],\n      \"cells\": [\n        [35, 51.05, 54.32, 34.14, 40.53, 52.13, 55.34, 35.90, 42.14],\n        [40, 45.88, 49.13, 30.45, 36.10, 46.93, 50.13, 32.03, 37.60],\n        [45, 40.79, 44.00, 27.16, 32.01, 41.81, 44.98, 28.60, 33.41],\n        [50, 35.79, 38.91, 23.98, 28.05, 36.79, 39.87, 25.34, 29.37],\n        [55, 30.91, 33.87, 20.89, 24.30, 31.88, 34.81, 22.16, 25.53],\n        [60, 26.17, 28.96, 17.90, 20.84, 27.09, 29.86, 19.03, 21.93],\n        [65, 21.62, 24.25, 15.09, 17.50, 22.46, 25.09, 16.03, 18.44],\n        [70, 17.31, 19.75, 12.39, 14.19, 18.06, 20.53, 13.18, 15.02],\n        [75, 13.32, 15.50, 9.80, 11.09, 13.99, 16.22, 10.48, 11.84]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Summary of Fund Membership\",\n      \"row_labels\": [\n        \"Active Members\",\n        \"Inactive Vested Members\",\n        \"Inactive Non-Vested Members\",\n        \"Retirees\",\n        \"Disabled Retirees\",\n        \"Beneficiaries (Including Children)\",\n        \"Total Members\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Average Age\",\n        \"Average Service\",\n        \"Total Salary\",\n        \"Average Annual Salary\",\n        \"Total Active Vested Participants\",\n        \"Male Members\",\n        \"Female Members\",\n        \"Tier 1 Members\",\n        \"Tier 2 Members\"\n      ],\n      \"cells\": [\n        [29295, 42.3, 10.8, 2179054844, 74383, 16655, 6903, 22392, 18632, 10663],\n        [9926, 47.2, 7.7, null, null, null, null, null, null, null],\n        [20621, null, null, null, null, null, null, null, null, null],\n        [24631, 74.6, null, 1373459588, 55761, null, null, null, null, null],\n        [469, 67.8, null, 18158456, 38717, null, null, null, null, null],\n        [3217, 77.0, null, 77424498, 24067, null, null, null, null, null],\n        [88159, null, null, null, null, null, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Target unavailable. The document provides mortality assumptions as base tables (RP-2014) with scaling factors (e.g., 98% for Pre-retirement Male) and future life expectancy tables, but does not publish a table of sample mortality rates (probability of death) by age. The target requires a constructed column of annual death probabilities derived from sample rates, which are not present in the text. The provided tables only allow for the calculation of rates if the full RP-2014 table values were known externally, which is outside the scope of extracting data from the provided text.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 82294,
+          "total_tokens": 84028,
+          "completion_tokens": 1734,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 82294,
+        "total_tokens": 84028,
+        "completion_tokens": 1734,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-9cfa5e1730cbbe27",
+        "object": "chat.completion",
+        "created": 1785349196,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 63,\n      \"title\": \"Mortality Assumptions - Base Tables and Scaling Factors\",\n      \"row_labels\": [\n        \"Pre-retirement Mortality\",\n        \"Post-retirement Disabled Mortality\",\n        \"Post-retirement Healthy Mortality\"\n      ],\n      \"col_labels\": [\n        \"Applicable Group\",\n        \"Base Mortality Table\",\n        \"Male Scaling Factor\",\n        \"Female Scaling Factor\"\n      ],\n      \"cells\": [\n        [\n          \"Pre-retirement Mortality\",\n          \"RP-2014 White Collar Employee, sex distinct\",\n          \"98%\",\n          \"113%\"\n        ],\n        [\n          \"Post-retirement Disabled Mortality\",\n          \"RP-2014 Disabled Annuitant, sex distinct\",\n          \"103%\",\n          \"106%\"\n        ],\n        [\n          \"Post-retirement Healthy Mortality\",\n          \"RP-2014 White Collar Healthy Annuitant, sex distinct\",\n          \"108%\",\n          \"94%\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 63,\n      \"title\": \"Future Life Expectancy (years) in 2019 and 2030\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"2019 Post-retirement Healthy Male\",\n        \"2019 Post-retirement Healthy Female\",\n        \"2019 Post-retirement Disabled Male\",\n        \"2019 Post-retirement Disabled Female\",\n        \"2030 Post-retirement Healthy Male\",\n        \"2030 Post-retirement Healthy Female\",\n        \"2030 Post-retirement Disabled Male\",\n        \"2030 Post-retirement Disabled Female\"\n      ],\n      \"cells\": [\n        [35, 51.05, 54.32, 34.14, 40.53, 52.13, 55.34, 35.90, 42.14],\n        [40, 45.88, 49.13, 30.45, 36.10, 46.93, 50.13, 32.03, 37.60],\n        [45, 40.79, 44.00, 27.16, 32.01, 41.81, 44.98, 28.60, 33.41],\n        [50, 35.79, 38.91, 23.98, 28.05, 36.79, 39.87, 25.34, 29.37],\n        [55, 30.91, 33.87, 20.89, 24.30, 31.88, 34.81, 22.16, 25.53],\n        [60, 26.17, 28.96, 17.90, 20.84, 27.09, 29.86, 19.03, 21.93],\n        [65, 21.62, 24.25, 15.09, 17.50, 22.46, 25.09, 16.03, 18.44],\n        [70, 17.31, 19.75, 12.39, 14.19, 18.06, 20.53, 13.18, 15.02],\n        [75, 13.32, 15.50, 9.80, 11.09, 13.99, 16.22, 10.48, 11.84]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Summary of Fund Membership\",\n      \"row_labels\": [\n        \"Active Members\",\n        \"Inactive Vested Members\",\n        \"Inactive Non-Vested Members\",\n        \"Retirees\",\n        \"Disabled Retirees\",\n        \"Beneficiaries (Including Children)\",\n        \"Total Members\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Average Age\",\n        \"Average Service\",\n        \"Total Salary\",\n        \"Average Annual Salary\",\n        \"Total Active Vested Participants\",\n        \"Male Members\",\n        \"Female Members\",\n        \"Tier 1 Members\",\n        \"Tier 2 Members\"\n      ],\n      \"cells\": [\n        [29295, 42.3, 10.8, 2179054844, 74383, 16655, 6903, 22392, 18632, 10663],\n        [9926, 47.2, 7.7, null, null, null, null, null, null, null],\n        [20621, null, null, null, null, null, null, null, null, null],\n        [24631, 74.6, null, 1373459588, 55761, null, null, null, null, null],\n        [469, 67.8, null, 18158456, 38717, null, null, null, null, null],\n        [3217, 77.0, null, 77424498, 24067, null, null, null, null, null],\n        [88159, null, null, null, null, null, null, null, null, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"Target unavailable. The document provides mortality assumptions as base tables (RP-2014) with scaling factors (e.g., 98% for Pre-retirement Male) and future life expectancy tables, but does not publish a table of sample mortality rates (probability of death) by age. The target requires a constructed column of annual death probabilities derived from sample rates, which are not present in the text. The provided tables only allow for the calculation of rates if the full RP-2014 table values were known externally, which is outside the scope of extracting data from the provided text.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86401,
+          "total_tokens": 88143,
+          "completion_tokens": 1742,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86401,
+        "total_tokens": 88143,
+        "completion_tokens": 1742,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

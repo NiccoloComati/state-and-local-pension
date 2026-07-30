@@ -1,0 +1,60 @@
+{
+  "shape_truth": [
+    12,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [
+    "row_labels[0]: truth='20' cand='<25'",
+    "row_labels[1]: truth='25' cand='29'",
+    "row_labels[2]: truth='30' cand='34'",
+    "row_labels[3]: truth='35' cand='39'",
+    "row_labels[4]: truth='40' cand='44'",
+    "row_labels[5]: truth='45' cand='49'",
+    "row_labels[6]: truth='50' cand='54'",
+    "row_labels[7]: truth='55' cand='59'",
+    "row_labels[8]: truth='60' cand='64'",
+    "row_labels[9]: truth='65' cand='70'",
+    "row_labels[10]: truth='70' cand='(none)'",
+    "row_labels[11]: truth='75' cand='(none)'",
+    "col_labels[7]: truth='39' cand='40'"
+  ],
+  "exact": 36,
+  "close": 0,
+  "wrong": 59,
+  "missing_in_cand": 1,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 20 x svc 4] truth=0.0 cand=405",
+    "[age 20 x svc 9] truth=0.0 cand=13",
+    "[age 25 x svc 4] truth=0.0 cand=1011.0",
+    "[age 25 x svc 9] truth=0.0 cand=217.0",
+    "[age 25 x svc 14] truth=0.0 cand=7.0",
+    "[age 30 x svc 4] truth=0.0 cand=746.0",
+    "[age 30 x svc 9] truth=0.0 cand=504.0",
+    "[age 30 x svc 14] truth=0.0 cand=189.0",
+    "[age 30 x svc 19] truth=0.0 cand=12.0",
+    "[age 35 x svc 4] truth=0.0 cand=514.0",
+    "[age 35 x svc 9] truth=0.0 cand=377.0",
+    "[age 35 x svc 14] truth=0.0 cand=395.0",
+    "[age 35 x svc 19] truth=0.0 cand=158.0",
+    "[age 35 x svc 24] truth=0.0 cand=8.0",
+    "[age 40 x svc 4] truth=0.0 cand=391.0",
+    "[age 40 x svc 9] truth=0.0 cand=252.0",
+    "[age 40 x svc 14] truth=0.0 cand=288.0",
+    "[age 40 x svc 19] truth=0.0 cand=343.0",
+    "[age 40 x svc 24] truth=0.0 cand=178.0",
+    "[age 40 x svc 29] truth=0.0 cand=10.0",
+    "[age 45 x svc 4] truth=0.0 cand=333.0",
+    "[age 45 x svc 9] truth=0.0 cand=233.0",
+    "[age 45 x svc 14] truth=0.0 cand=259.0",
+    "[age 45 x svc 19] truth=0.0 cand=293.0",
+    "[age 45 x svc 24] truth=0.0 cand=338.0"
+  ],
+  "truth_filled_cells": 96,
+  "accuracy": 0.375
+}

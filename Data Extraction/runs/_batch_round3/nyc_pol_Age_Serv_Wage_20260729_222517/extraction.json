@@ -1,0 +1,521 @@
+{
+  "source_tables": [
+    {
+      "page": 74,
+      "title": "Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - ALL TIERS: ALL MEMBERS - AVERAGE SALARIES",
+      "row_labels": [
+        "UNDER 20",
+        "20 TO 24",
+        "25 TO 29",
+        "30 TO 34",
+        "35 TO 39",
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "70 & UP"
+      ],
+      "col_labels": [
+        "UNDER 5",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & UP",
+        "ALL YEARS"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          56034,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          71706
+        ],
+        [
+          64614,
+          100319,
+          97134,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          101397
+        ],
+        [
+          66569,
+          109700,
+          123170,
+          129500,
+          0,
+          0,
+          0,
+          0,
+          0,
+          117026
+        ],
+        [
+          66577,
+          108306,
+          124382,
+          130393,
+          130061,
+          0,
+          0,
+          0,
+          0,
+          126395
+        ],
+        [
+          70547,
+          107957,
+          122394,
+          131095,
+          141538,
+          151403,
+          0,
+          0,
+          0,
+          134984
+        ],
+        [
+          79623,
+          115493,
+          122765,
+          128296,
+          140137,
+          148858,
+          141916,
+          0,
+          0,
+          138558
+        ],
+        [
+          134953,
+          120515,
+          123087,
+          127328,
+          136116,
+          144070,
+          151199,
+          0,
+          0,
+          142758
+        ],
+        [
+          123106,
+          141120,
+          136236,
+          127658,
+          133851,
+          136534,
+          147772,
+          165349,
+          0,
+          155161
+        ],
+        [
+          129882,
+          0,
+          146198,
+          137949,
+          143739,
+          128704,
+          141193,
+          168577,
+          201678,
+          164369
+        ],
+        [
+          0,
+          147086,
+          147165,
+          138652,
+          154917,
+          230343,
+          228942,
+          0,
+          0,
+          155720
+        ],
+        [
+          0,
+          0,
+          147086,
+          158452,
+          149132,
+          0,
+          0,
+          0,
+          162747,
+          196116
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 74,
+      "title": "Detailed Active Membership and Salaries as of June 30, 2018 (cont'd) - ALL TIERS: ALL MEMBERS - NUMBER",
+      "row_labels": [
+        "UNDER 20",
+        "20 TO 24",
+        "25 TO 29",
+        "30 TO 34",
+        "35 TO 39",
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "70 & UP"
+      ],
+      "col_labels": [
+        "UNDER 5",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & UP",
+        "ALL YEARS"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1299,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1299
+        ],
+        [
+          4467,
+          1101,
+          7,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5575
+        ],
+        [
+          2121,
+          3337,
+          2115,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          7577
+        ],
+        [
+          768,
+          1183,
+          4508,
+          1184,
+          6,
+          0,
+          0,
+          0,
+          0,
+          7649
+        ],
+        [
+          151,
+          496,
+          2011,
+          2703,
+          850,
+          2,
+          0,
+          0,
+          0,
+          6213
+        ],
+        [
+          5,
+          41,
+          758,
+          1393,
+          1886,
+          714,
+          4,
+          0,
+          0,
+          4801
+        ],
+        [
+          2,
+          1,
+          63,
+          512,
+          787,
+          853,
+          314,
+          0,
+          0,
+          2532
+        ],
+        [
+          1,
+          2,
+          3,
+          27,
+          173,
+          215,
+          218,
+          99,
+          0,
+          738
+        ],
+        [
+          1,
+          0,
+          2,
+          9,
+          11,
+          11,
+          48,
+          75,
+          6,
+          163
+        ],
+        [
+          0,
+          1,
+          1,
+          3,
+          2,
+          1,
+          1,
+          0,
+          0,
+          9
+        ],
+        [
+          0,
+          0,
+          1,
+          3,
+          1,
+          0,
+          0,
+          0,
+          1,
+          6
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "UNDER 20",
+        "20 TO 24"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 TO 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 TO 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 TO 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 TO 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 TO 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 TO 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 TO 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 TO 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 TO 69",
+        "70 & UP"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "UNDER 5"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40 & UP"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables are Table XII-6 (cont'd) on page 74. Table 0 is Average Salaries, Table 1 is Member Counts (used as weights). Target rows <25 and 70 require weighted averaging of source rows using counts as weights. All other target rows map 1:1 to source rows. All target columns map 1:1 to source columns.",
+  "unavailable": false,
+  "broadcast": null
+}

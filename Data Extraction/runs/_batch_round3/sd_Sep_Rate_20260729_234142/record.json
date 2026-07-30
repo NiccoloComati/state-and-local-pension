@@ -1,0 +1,114 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-86497096234a2f51",
+        "object": "chat.completion",
+        "created": 1785382902,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 53,\n      \"title\": \"Rates of Termination\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20+\"\n      ],\n      \"col_labels\": [\n        \"Service\",\n        \"General\",\n        \"Safety\"\n      ],\n      \"cells\": [\n        [0, 10.00, 10.00],\n        [1, 9.00, 8.00],\n        [2, 8.50, 6.00],\n        [3, 7.50, 5.00],\n        [4, 6.50, 4.00],\n        [5, 5.50, 3.00],\n        [6, 4.50, 2.75],\n        [7, 4.25, 2.50],\n        [8, 4.00, 2.25],\n        [9, 3.25, 2.00],\n        [10, 2.75, 1.80],\n        [11, 2.75, 1.80],\n        [12, 2.75, 1.80],\n        [13, 2.75, 1.80],\n        [14, 2.75, 1.80],\n        [15, 2.75, 1.60],\n        [16, 2.75, 1.60],\n        [17, 2.75, 1.60],\n        [18, 2.75, 1.60],\n        [19, 2.75, 1.60],\n        [\"20+\", 2.75, 1.50]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"6\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"8\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"10\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"11\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"12\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"20+\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"20+\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"General\",\n      \"Safety\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table (Table B-2) provides termination rates by Years of Service only, with separate columns for General and Safety groups. No age breakdown is provided. Per instructions, rates are broadcast across all target ages (axis='age'). Since the target requires a single rate and the document provides two distinct group rates without a headcount table to weight them, the series_op is set to 'mean' to average the General and Safety rates for each service year. Source values are percentages (e.g., 10.00) and will be converted to decimals by the code. Target service bins 30 and 40 map to the source '20+' bin. Target service bins 1, 2, 3, 4, 6, 8, 10, 11, 12 map directly to source rows with identical labels.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 74279,
+          "total_tokens": 75826,
+          "completion_tokens": 1547,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 74279,
+        "total_tokens": 75826,
+        "completion_tokens": 1547,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0] holds values up to 19 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8180802b42578ffe",
+        "object": "chat.completion",
+        "created": 1785382914,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 53,\n      \"title\": \"Rates of Termination\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20+\"\n      ],\n      \"col_labels\": [\n        \"Service\",\n        \"General\",\n        \"Safety\"\n      ],\n      \"cells\": [\n        [0, 10.00, 10.00],\n        [1, 9.00, 8.00],\n        [2, 8.50, 6.00],\n        [3, 7.50, 5.00],\n        [4, 6.50, 4.00],\n        [5, 5.50, 3.00],\n        [6, 4.50, 2.75],\n        [7, 4.25, 2.50],\n        [8, 4.00, 2.25],\n        [9, 3.25, 2.00],\n        [10, 2.75, 1.80],\n        [11, 2.75, 1.80],\n        [12, 2.75, 1.80],\n        [13, 2.75, 1.80],\n        [14, 2.75, 1.80],\n        [15, 2.75, 1.60],\n        [16, 2.75, 1.60],\n        [17, 2.75, 1.60],\n        [18, 2.75, 1.60],\n        [19, 2.75, 1.60],\n        [\"20+\", 2.75, 1.50]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"6\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"8\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"10\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"11\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"12\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"20+\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"20+\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"General\",\n      \"Safety\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table (Table B-2) provides termination rates by Years of Service only, with separate columns for General and Safety groups. No age breakdown is provided. Per instructions, rates are broadcast across all target ages (axis='age'). Since the target requires a single rate and the document provides two distinct group rates without a headcount table to weight them, the series_op is set to 'mean' to average the General and Safety rates for each service year. Source values are percentages (e.g., 10.00) and will be converted to decimals by the code via values_unit='percent'. Target service bins 30 and 40 map to the source '20+' bin. Target service bins 1, 2, 3, 4, 6, 8, 10, 11, 12 map directly to source rows with identical labels.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 78236,
+          "total_tokens": 79798,
+          "completion_tokens": 1562,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 78236,
+        "total_tokens": 79798,
+        "completion_tokens": 1562,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

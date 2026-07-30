@@ -1,0 +1,779 @@
+{
+  "source_tables": [
+    {
+      "page": 33,
+      "title": "Active Age/Service Distribution Including Compensation - Teachers",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & Up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & Up",
+        "Total"
+      ],
+      "cells": [
+        [
+          3,
+          57,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          61
+        ],
+        [
+          20,
+          455,
+          133,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          608
+        ],
+        [
+          22,
+          503,
+          454,
+          104,
+          4,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1087
+        ],
+        [
+          22,
+          352,
+          358,
+          208,
+          36,
+          0,
+          0,
+          0,
+          0,
+          0,
+          976
+        ],
+        [
+          9,
+          254,
+          242,
+          164,
+          95,
+          21,
+          0,
+          0,
+          0,
+          0,
+          785
+        ],
+        [
+          6,
+          142,
+          157,
+          103,
+          105,
+          103,
+          17,
+          1,
+          0,
+          0,
+          634
+        ],
+        [
+          5,
+          88,
+          74,
+          83,
+          41,
+          48,
+          47,
+          21,
+          0,
+          0,
+          407
+        ],
+        [
+          0,
+          46,
+          47,
+          40,
+          33,
+          41,
+          37,
+          61,
+          1,
+          0,
+          306
+        ],
+        [
+          1,
+          30,
+          26,
+          35,
+          33,
+          29,
+          28,
+          37,
+          10,
+          1,
+          230
+        ],
+        [
+          1,
+          10,
+          12,
+          16,
+          11,
+          13,
+          10,
+          24,
+          5,
+          1,
+          103
+        ],
+        [
+          0,
+          1,
+          1,
+          4,
+          1,
+          9,
+          1,
+          10,
+          0,
+          2,
+          29
+        ]
+      ],
+      "printed_row_totals": [
+        61,
+        608,
+        1087,
+        976,
+        785,
+        634,
+        407,
+        306,
+        230,
+        103,
+        29
+      ],
+      "printed_col_totals": [
+        89,
+        1938,
+        1505,
+        757,
+        359,
+        264,
+        140,
+        154,
+        16,
+        4,
+        5226
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 34,
+      "title": "Active Age/Service Distribution Including Compensation - Police",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & Up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & Up",
+        "Total"
+      ],
+      "cells": [
+        [
+          50,
+          91,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          143
+        ],
+        [
+          50,
+          388,
+          105,
+          3,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          546
+        ],
+        [
+          27,
+          194,
+          255,
+          95,
+          2,
+          0,
+          0,
+          0,
+          0,
+          0,
+          573
+        ],
+        [
+          7,
+          67,
+          115,
+          306,
+          88,
+          0,
+          0,
+          0,
+          0,
+          0,
+          583
+        ],
+        [
+          3,
+          25,
+          33,
+          125,
+          212,
+          63,
+          7,
+          0,
+          0,
+          0,
+          468
+        ],
+        [
+          3,
+          14,
+          15,
+          67,
+          186,
+          175,
+          108,
+          44,
+          0,
+          0,
+          612
+        ],
+        [
+          0,
+          6,
+          6,
+          35,
+          100,
+          66,
+          187,
+          35,
+          0,
+          0,
+          435
+        ],
+        [
+          0,
+          2,
+          3,
+          14,
+          43,
+          20,
+          55,
+          33,
+          3,
+          0,
+          173
+        ],
+        [
+          0,
+          0,
+          1,
+          3,
+          9,
+          3,
+          8,
+          4,
+          2,
+          3,
+          33
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "printed_row_totals": [
+        143,
+        546,
+        573,
+        583,
+        468,
+        612,
+        435,
+        173,
+        33,
+        0,
+        0
+      ],
+      "printed_col_totals": [
+        140,
+        787,
+        535,
+        648,
+        640,
+        327,
+        365,
+        116,
+        5,
+        3,
+        3566
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 35,
+      "title": "Active Age/Service Distribution Including Compensation - Fire",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & Up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & Up",
+        "Total"
+      ],
+      "cells": [
+        [
+          10,
+          54,
+          31,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          95
+        ],
+        [
+          31,
+          116,
+          69,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          217
+        ],
+        [
+          21,
+          84,
+          68,
+          126,
+          5,
+          0,
+          0,
+          0,
+          0,
+          0,
+          304
+        ],
+        [
+          4,
+          30,
+          44,
+          187,
+          74,
+          0,
+          0,
+          0,
+          0,
+          0,
+          339
+        ],
+        [
+          0,
+          8,
+          17,
+          88,
+          146,
+          12,
+          5,
+          0,
+          0,
+          0,
+          276
+        ],
+        [
+          1,
+          3,
+          2,
+          3,
+          138,
+          40,
+          67,
+          31,
+          0,
+          0,
+          285
+        ],
+        [
+          0,
+          2,
+          2,
+          2,
+          42,
+          62,
+          74,
+          31,
+          0,
+          0,
+          215
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          31,
+          27,
+          35,
+          0,
+          0,
+          94
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          1,
+          1,
+          9,
+          3,
+          0,
+          15
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "printed_row_totals": [
+        95,
+        217,
+        304,
+        339,
+        276,
+        285,
+        215,
+        94,
+        15,
+        0,
+        0
+      ],
+      "printed_col_totals": [
+        67,
+        297,
+        233,
+        408,
+        406,
+        146,
+        174,
+        106,
+        3,
+        0,
+        1840
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & Up"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1-4"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35-39",
+        "40 & Up"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1,
+      2
+    ]
+  },
+  "transpose": false,
+  "notes": "Transcribed three separate tables for Teachers, Police, and Fire active member counts by age and service. Derived target by summing these three tables cell-wise. Mapped source age rows to target bins: 'Under 25' maps to '<25'; '25-29' to '29'; '30-34' to '34'; '35-39' to '39'; '40-44' to '44'; '45-49' to '49'; '50-54' to '54'; '55-59' to '59'; '60-64' to '64'; '65-69' and '70 & Up' summed to '70'. Mapped source service columns: 'Under 1' and '1-4' summed to '4'; '5-9' to '9'; '10-14' to '14'; '15-19' to '19'; '20-24' to '24'; '25-29' to '29'; '30-34' to '34'; '35-39' and '40 & Up' summed to '40'. Excluded 'Total' columns from source tables.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,488 @@
+{
+  "source_tables": [
+    {
+      "page": 78,
+      "title": "Distribution of Active Participants (Excludes DROP Participants) as of July 1, 2019 -- Total City AVERAGE SALARY BY AGE/SERVICE",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 & Up",
+        "Total"
+      ],
+      "cells": [
+        [
+          43268,
+          39860,
+          34774,
+          0,
+          0,
+          0,
+          0,
+          0,
+          40813
+        ],
+        [
+          46337,
+          54904,
+          60143,
+          54509,
+          0,
+          0,
+          0,
+          0,
+          54305
+        ],
+        [
+          47882,
+          56307,
+          66606,
+          68891,
+          62353,
+          0,
+          0,
+          0,
+          61369
+        ],
+        [
+          48595,
+          56369,
+          67201,
+          71752,
+          73366,
+          63082,
+          0,
+          0,
+          65972
+        ],
+        [
+          48225,
+          52238,
+          63499,
+          71537,
+          77065,
+          78840,
+          67983,
+          0,
+          68820
+        ],
+        [
+          44863,
+          51196,
+          59791,
+          66131,
+          72613,
+          80740,
+          80492,
+          69748,
+          70051
+        ],
+        [
+          43250,
+          48705,
+          59177,
+          61679,
+          66143,
+          75495,
+          83191,
+          78398,
+          69613
+        ],
+        [
+          46975,
+          47978,
+          54947,
+          54284,
+          59101,
+          67015,
+          79961,
+          81190,
+          65496
+        ],
+        [
+          47796,
+          48489,
+          51153,
+          52413,
+          55316,
+          64992,
+          72933,
+          77554,
+          59721
+        ],
+        [
+          55013,
+          52895,
+          51506,
+          44885,
+          53634,
+          57351,
+          71189,
+          75716,
+          55432
+        ]
+      ],
+      "printed_row_totals": [
+        40813,
+        54305,
+        61369,
+        65972,
+        68820,
+        70051,
+        69613,
+        65496,
+        59721,
+        55432
+      ],
+      "printed_col_totals": [
+        46500,
+        53109,
+        62166,
+        65847,
+        69248,
+        74827,
+        80558,
+        79103,
+        64434
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 78,
+      "title": "Distribution of Active Participants (Excludes DROP Participants) as of July 1, 2019 -- Total City COUNTS BY AGE/SERVICE",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 & Up",
+        "Total"
+      ],
+      "cells": [
+        [
+          221,
+          367,
+          32,
+          0,
+          0,
+          0,
+          0,
+          0,
+          620
+        ],
+        [
+          484,
+          1838,
+          470,
+          61,
+          0,
+          0,
+          0,
+          0,
+          2853
+        ],
+        [
+          289,
+          1489,
+          1173,
+          697,
+          49,
+          0,
+          0,
+          0,
+          3697
+        ],
+        [
+          207,
+          865,
+          757,
+          1251,
+          517,
+          28,
+          0,
+          0,
+          3625
+        ],
+        [
+          121,
+          612,
+          502,
+          897,
+          976,
+          484,
+          29,
+          0,
+          3621
+        ],
+        [
+          109,
+          508,
+          399,
+          626,
+          827,
+          1276,
+          299,
+          32,
+          4076
+        ],
+        [
+          91,
+          405,
+          321,
+          522,
+          631,
+          1009,
+          862,
+          331,
+          4172
+        ],
+        [
+          78,
+          318,
+          267,
+          454,
+          521,
+          695,
+          550,
+          589,
+          3472
+        ],
+        [
+          40,
+          232,
+          231,
+          272,
+          246,
+          286,
+          160,
+          253,
+          1720
+        ],
+        [
+          16,
+          126,
+          139,
+          144,
+          98,
+          91,
+          36,
+          90,
+          740
+        ]
+      ],
+      "printed_row_totals": [
+        620,
+        2853,
+        3697,
+        3625,
+        3621,
+        4076,
+        4172,
+        3472,
+        1720,
+        740
+      ],
+      "printed_col_totals": [
+        1656,
+        6760,
+        4291,
+        4924,
+        3865,
+        3869,
+        1936,
+        1295,
+        28596
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & up"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 & Up"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30 & Up"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables are Table A-5 (Counts) and Table A-6 (Average Salary) on page 78. Target row '70' maps to source '65 & up'. Target col '34' and '40' both map to source '30 & Up' as the source bin is coarser than the target bins (30+ covers 30-34 and 35-39+). The 'Under 1' and '1 to 4' columns are merged into target '4' using weighted_avg with counts as weights. Note: Source '30 & Up' is used for both target '34' and '40' because the source bin is open-ended and covers both target ranges; the average salary for the entire '30 & Up' group is applied to both target bins as no finer breakdown exists.",
+  "unavailable": false,
+  "broadcast": null
+}

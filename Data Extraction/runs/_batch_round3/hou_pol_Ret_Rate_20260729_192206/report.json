@@ -1,0 +1,20 @@
+{
+  "shape_truth": [
+    9,
+    21
+  ],
+  "shape_cand": [
+    9,
+    21
+  ],
+  "label_mismatches": [],
+  "exact": 189,
+  "close": 0,
+  "wrong": 0,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [],
+  "truth_filled_cells": 189,
+  "accuracy": 1.0
+}

@@ -1,0 +1,515 @@
+{
+  "source_tables": [
+    {
+      "page": 48,
+      "title": "Active Retirement Rates",
+      "row_labels": [
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75",
+        "76",
+        "77",
+        "78",
+        "79",
+        "80+"
+      ],
+      "col_labels": [
+        "Reduced Service Retirement Year 1",
+        "Reduced Service Retirement Ultimate",
+        "Unreduced Service Retirement Year 1",
+        "Unreduced Service Retirement Ultimate"
+      ],
+      "cells": [
+        [
+          2.5,
+          15.0,
+          0.0,
+          35.0
+        ],
+        [
+          2.5,
+          15.0,
+          6.5,
+          35.0
+        ],
+        [
+          2.5,
+          15.0,
+          6.5,
+          35.0
+        ],
+        [
+          2.5,
+          15.0,
+          6.5,
+          35.0
+        ],
+        [
+          3.75,
+          15.0,
+          6.5,
+          35.0
+        ],
+        [
+          5.0,
+          15.0,
+          6.5,
+          35.0
+        ],
+        [
+          6.25,
+          15.0,
+          10.0,
+          35.0
+        ],
+        [
+          7.5,
+          "20.00%/15.00%",
+          10.0,
+          50.0
+        ],
+        [
+          0.0,
+          "15.00%/20.00%",
+          10.0,
+          35.0
+        ],
+        [
+          0.0,
+          15.0,
+          10.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          15.0,
+          50.0
+        ],
+        [
+          0.0,
+          15.0,
+          10.0,
+          35.0
+        ],
+        [
+          0.0,
+          15.0,
+          10.0,
+          35.0
+        ],
+        [
+          0.0,
+          15.0,
+          10.0,
+          35.0
+        ],
+        [
+          0.0,
+          15.0,
+          10.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          0.0,
+          20.0,
+          20.0,
+          35.0
+        ],
+        [
+          "NA",
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": [
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          75
+        ],
+        [
+          76,
+          76
+        ],
+        [
+          77,
+          77
+        ],
+        [
+          78,
+          78
+        ],
+        [
+          79,
+          79
+        ],
+        [
+          80,
+          null
+        ]
+      ],
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "51",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "52",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "53",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "54",
+      "sources": [],
+      "op": "overlap_weighted",
+      "source_spans": []
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The document provides Active Retirement Rates by Age (rows) and Service (columns). The target requires Rates by Service (rows) and Age (columns), so transpose=true. The source table only covers ages 55-80+; target ages 50-54 have no data (empty sources). The source table columns are 'Reduced Service Retirement Year 1', 'Reduced Service Retirement Ultimate', 'Unreduced Service Retirement Year 1', 'Unreduced Service Retirement Ultimate'. The target asks for 'Probability of retirement' without specifying reduced/unreduced or year. The mapping uses 'overlap_weighted' for service bins where the source has no direct column match (e.g. service 5-11 vs source columns which are essentially binary 'Year 1' or 'Ultimate' for specific plans, not a continuous service rate curve). However, looking closely at the source Table XI-1, the columns are actually 'Reduced Service Retirement Year 1', 'Reduced Service Retirement Ultimate', 'Unreduced Service Retirement Year 1', 'Unreduced Service Retirement Ultimate'. These are not service buckets but rather categories of retirement. The target asks for retirement probability by service-year bucket. The document does NOT provide a retirement rate matrix by Age x Service. It provides rates by Age for specific retirement types (Reduced/Unreduced, Year 1/Ultimate). The 'Service' dimension in the target (5-11, 12-19, etc.) cannot be mapped from this table because the table does not have service buckets as columns; it has retirement types. Therefore, the target grid (Ret_Rate by Service x Age) is NOT available in the document. The document only has Age x Retirement_Type. I must set unavailable=true. Wait, the prompt says 'Source: the AV's demographic-assumptions section ('Retirement rates', 'Probability of Retirement'), usually printed as age rows x service-bucket columns'. This document (BERS) does NOT follow that pattern. It prints Age rows and Retirement Type columns. Thus, the specific target grid (Service x Age) is unavailable. I will set unavailable=true and transcribe the closest related table (Table XI-1) as evidence.",
+  "unavailable": false,
+  "broadcast": null
+}

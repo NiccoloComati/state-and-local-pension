@@ -1,0 +1,583 @@
+{
+  "source_tables": [
+    {
+      "page": 54,
+      "title": "General Turnover (Terminations per 1,000)",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26 & Over"
+      ],
+      "col_labels": [
+        "Male",
+        "Female"
+      ],
+      "cells": [
+        [
+          228,
+          200
+        ],
+        [
+          180,
+          165
+        ],
+        [
+          144,
+          150
+        ],
+        [
+          110,
+          120
+        ],
+        [
+          90,
+          95
+        ],
+        [
+          75,
+          90
+        ],
+        [
+          67,
+          80
+        ],
+        [
+          60,
+          65
+        ],
+        [
+          51,
+          48
+        ],
+        [
+          43,
+          48
+        ],
+        [
+          33,
+          45
+        ],
+        [
+          33,
+          32
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          30,
+          30
+        ],
+        [
+          22,
+          20
+        ],
+        [
+          22,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          19,
+          14
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          12,
+          14
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          11
+        ],
+        [
+          12,
+          12
+        ],
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ],
+      "values_unit": "per_1000",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "5",
+        "6"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "7",
+        "8"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "9",
+        "10"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26 & Over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26 & Over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          13,
+          13
+        ],
+        [
+          14,
+          14
+        ],
+        [
+          15,
+          15
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          17,
+          17
+        ],
+        [
+          18,
+          18
+        ],
+        [
+          19,
+          19
+        ],
+        [
+          20,
+          20
+        ],
+        [
+          21,
+          21
+        ],
+        [
+          22,
+          22
+        ],
+        [
+          23,
+          23
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Male",
+      "Female"
+    ],
+    "series_op": "mean"
+  },
+  "notes": "Source table provides termination rates by Years of Service only (Male and Female columns). Rates are per 1,000. Target requires annual probability (decimal). Code will divide by 1000. Since the source has no age dimension, broadcast is used to repeat the service-based rates across all target ages. Male and Female rates are averaged (series_op: mean) as no headcount distribution is provided to weight them. Target service bins 6, 8, 10, 30, 40 are mapped via overlap_weighted from the single-year source bins. Target service bin 30 and 40 both map to the tail of the source table (13+ years) as the source does not distinguish between 13-30 and 31-40; the code will apply the same blended rate to both target columns based on the source distribution.",
+  "unavailable": false
+}

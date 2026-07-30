@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9b90ca93601d0ff6",
+        "object": "chat.completion",
+        "created": 1785346588,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 41,\n      \"title\": \"Retired Members by Type of Benefit (as of December 31, 2019)\",\n      \"row_labels\": [\n        \"Deferred\",\n        \"$1-250\",\n        \"251-500\",\n        \"501-750\",\n        \"751-1,000\",\n        \"1,001-1,250\",\n        \"1,251-1,500\",\n        \"1,501-1,750\",\n        \"1,751-2,000\",\n        \"Over $2,000\",\n        \"Total\"\n      ],\n      \"col_labels\": [\n        \"Amount of Monthly Benefit\",\n        \"Number of Retired Members\",\n        \"Type of Retirement 1\",\n        \"Type of Retirement 2\",\n        \"Type of Retirement 3\",\n        \"Type of Retirement 4\",\n        \"Unmod.\",\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\",\n        \"Option 4\",\n        \"Option 5\",\n        \"Option 6\",\n        \"Option 7\"\n      ],\n      \"cells\": [\n        [\"Deferred\", 1271, null, null, null, null, null, null, null, null, null, null, null, null],\n        [\"$1-250\", 205, 172, 12, 2, 19, 135, 52, 6, 1, null, 11, null, null],\n        [\"251-500\", 300, 244, 30, 12, 14, 165, 94, 15, 8, 2, 14, 1, 1],\n        [\"501-750\", 349, 275, 51, 10, 13, 211, 103, 14, 9, 3, 9, null, null],\n        [\"751-1,000\", 366, 275, 63, 14, 14, 212, 106, 20, 14, 4, 10, null, null],\n        [\"1,001-1,250\", 350, 259, 68, 15, 8, 192, 110, 16, 18, 5, 9, null, null],\n        [\"1,251-1,500\", 402, 321, 61, 15, 5, 192, 142, 30, 23, 2, 10, 1, 2],\n        [\"1,501-1,750\", 422, 354, 57, 11, 0, 194, 133, 31, 44, 4, 11, null, 5],\n        [\"1,751-2,000\", 455, 395, 44, 12, 4, 204, 160, 43, 36, 5, 7, null, null],\n        [\"Over $2,000\", 3854, 3648, 176, 20, 10, 1484, 1528, 359, 324, 38, 92, 25, 4],\n        [\"Total\", 6703, 5943, 562, 111, 87, 4260, 2428, 534, 477, 63, 173, 27, 12]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a distribution of retired members by attained age. Table 16 (Page 41) provides a distribution by monthly benefit amount and type of retirement, but no age breakdown is available. Table 13A (Page 36) provides active member distribution by age, not retirees. Consequently, the target grid for 'Retired Members by Age' is unavailable.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 50280,
+          "total_tokens": 51410,
+          "completion_tokens": 1130,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 50280,
+        "total_tokens": 51410,
+        "completion_tokens": 1130,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-bf3fc4c35dfe8ecc",
+        "object": "chat.completion",
+        "created": 1785346596,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 41,\n      \"title\": \"Retired Members by Type of Benefit (as of December 31, 2019)\",\n      \"row_labels\": [\n        \"Deferred\",\n        \"$1-250\",\n        \"251-500\",\n        \"501-750\",\n        \"751-1,000\",\n        \"1,001-1,250\",\n        \"1,251-1,500\",\n        \"1,501-1,750\",\n        \"1,751-2,000\",\n        \"Over $2,000\",\n        \"Total\"\n      ],\n      \"col_labels\": [\n        \"Amount of Monthly Benefit\",\n        \"Number of Retired Members\",\n        \"Type of Retirement 1\",\n        \"Type of Retirement 2\",\n        \"Type of Retirement 3\",\n        \"Type of Retirement 4\",\n        \"Unmod.\",\n        \"Option 1\",\n        \"Option 2\",\n        \"Option 3\",\n        \"Option 4\",\n        \"Option 5\",\n        \"Option 6\",\n        \"Option 7\"\n      ],\n      \"cells\": [\n        [\"Deferred\", 1271, null, null, null, null, null, null, null, null, null, null, null, null],\n        [\"$1-250\", 205, 172, 12, 2, 19, 135, 52, 6, 1, null, 11, null, null],\n        [\"251-500\", 300, 244, 30, 12, 14, 165, 94, 15, 8, 2, 14, 1, 1],\n        [\"501-750\", 349, 275, 51, 10, 13, 211, 103, 14, 9, 3, 9, null, null],\n        [\"751-1,000\", 366, 275, 63, 14, 14, 212, 106, 20, 14, 4, 10, null, null],\n        [\"1,001-1,250\", 350, 259, 68, 15, 8, 192, 110, 16, 18, 5, 9, null, null],\n        [\"1,251-1,500\", 402, 321, 61, 15, 5, 192, 142, 30, 23, 2, 10, 1, 2],\n        [\"1,501-1,750\", 422, 354, 57, 11, 0, 194, 133, 31, 44, 4, 11, null, 5],\n        [\"1,751-2,000\", 455, 395, 44, 12, 4, 204, 160, 43, 36, 5, 7, null, null],\n        [\"Over $2,000\", 3854, 3648, 176, 20, 10, 1484, 1528, 359, 324, 38, 92, 25, 4],\n        [\"Total\", 6703, 5943, 562, 111, 87, 4260, 2428, 534, 477, 63, 173, 27, 12]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a distribution of retired members by attained age. Table 16 (Page 41) provides a distribution by monthly benefit amount and type of retirement, but no age breakdown is available. Table 13A (Page 36) provides active member distribution by age, not retirees. Consequently, the target grid for 'Retired Members by Age' is unavailable.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 53783,
+          "total_tokens": 54921,
+          "completion_tokens": 1138,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 53783,
+        "total_tokens": 54921,
+        "completion_tokens": 1138,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

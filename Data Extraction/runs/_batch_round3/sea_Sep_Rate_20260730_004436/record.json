@@ -1,0 +1,247 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-991ca50e2bcf0638",
+        "object": "chat.completion",
+        "created": 1785386676,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 51,\n      \"title\": \"Other Terminations of Employment Among Members Not Eligible to Retire \u2013 Plans 1 and 2\",\n      \"row_labels\": [\n        \"0 to 1\",\n        \"1 to 2\",\n        \"2 to 3\",\n        \"3 to 4\",\n        \"4 to 5\",\n        \"5 to 6\",\n        \"6 to 7\",\n        \"7 to 8\",\n        \"8 to 9\",\n        \"9 to 10\",\n        \"10 to 11\",\n        \"11 to 12\",\n        \"12 to 13\",\n        \"13 to 14\",\n        \"14 to 15\",\n        \"15 to 16\",\n        \"16 to 17\",\n        \"17 to 18\",\n        \"18 to 19\",\n        \"19 to 20\",\n        \"20 to 21\",\n        \"21 to 22\",\n        \"22 to 23\",\n        \"23 to 24\",\n        \"24 to 25\",\n        \"25 to 26\",\n        \"26 to 27\",\n        \"27 to 28\",\n        \"28 to 29\",\n        \"29 to 30\",\n        \"30 or more\"\n      ],\n      \"col_labels\": [\n        \"Years of Service\",\n        \"Annual Rates for Males\",\n        \"Annual Rates for Females\"\n      ],\n      \"cells\": [\n        [\"0 to 1\", \"6.5%\", \"8.5%\"],\n        [\"1 to 2\", \"5.8\", \"8.3\"],\n        [\"2 to 3\", \"5.3\", \"8.0\"],\n        [\"3 to 4\", \"4.8\", \"7.8\"],\n        [\"4 to 5\", \"4.4\", \"7.5\"],\n        [\"5 to 6\", \"4.1\", \"7.0\"],\n        [\"6 to 7\", \"3.8\", \"6.3\"],\n        [\"7 to 8\", \"3.5\", \"5.7\"],\n        [\"8 to 9\", \"3.2\", \"5.1\"],\n        [\"9 to 10\", \"2.9\", \"4.5\"],\n        [\"10 to 11\", \"2.6\", \"4.1\"],\n        [\"11 to 12\", \"2.3\", \"3.8\"],\n        [\"12 to 13\", \"2.1\", \"3.4\"],\n        [\"13 to 14\", \"1.9\", \"3.1\"],\n        [\"14 to 15\", \"1.7\", \"2.7\"],\n        [\"15 to 16\", \"1.5\", \"2.4\"],\n        [\"16 to 17\", \"1.4\", \"2.0\"],\n        [\"17 to 18\", \"1.2\", \"1.7\"],\n        [\"18 to 19\", \"1.1\", \"1.4\"],\n        [\"19 to 20\", \"1.0\", \"1.2\"],\n        [\"20 to 21\", \"0.9\", \"1.1\"],\n        [\"21 to 22\", \"0.8\", \"1.0\"],\n        [\"22 to 23\", \"0.8\", \"0.9\"],\n        [\"23 to 24\", \"0.7\", \"0.8\"],\n        [\"24 to 25\", \"0.7\", \"0.8\"],\n        [\"25 to 26\", \"0.6\", \"0.7\"],\n        [\"26 to 27\", \"0.6\", \"0.7\"],\n        [\"27 to 28\", \"0.5\", \"0.6\"],\n        [\"28 to 29\", \"0.5\", \"0.6\"],\n        [\"29 to 30\", \"0.4\", \"0.5\"],\n        [\"30 or more\", \"0.5\", \"0.5\"]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 1],\n        [1, 2],\n        [2, 3],\n        [3, 4],\n        [4, 5],\n        [5, 6],\n        [6, 7],\n        [7, 8],\n        [8, 9],\n        [9, 10],\n        [10, 11],\n        [11, 12],\n        [12, 13],\n        [13, 14],\n        [14, 15],\n        [15, 16],\n        [16, 17],\n        [17, 18],\n        [18, 19],\n        [19, 20],\n        [20, 21],\n        [21, 22],\n        [22, 23],\n        [23, 24],\n        [24, 25],\n        [25, 26],\n        [26, 27],\n        [27, 28],\n        [28, 29],\n        [29, 30],\n        [30, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[0, 1], [0, 1]]},\n    {\"target\": \"2\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[1, 2], [1, 2]]},\n    {\"target\": \"3\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[2, 3], [2, 3]]},\n    {\"target\": \"4\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[3, 4], [3, 4]]},\n    {\"target\": \"6\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[5, 6], [5, 6]]},\n    {\"target\": \"8\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[7, 8], [7, 8]]},\n    {\"target\": \"10\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[9, 10], [9, 10]]},\n    {\"target\": \"11\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[10, 11], [10, 11]]},\n    {\"target\": \"12\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[11, 12], [11, 12]]},\n    {\"target\": \"30\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[29, 30], [29, 30]]},\n    {\"target\": \"40\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0], \"source_spans\": [[30, null], [30, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Annual Rates for Males\",\n      \"Annual Rates for Females\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table (Table A-6) provides termination rates by Years of Service only, with separate columns for Males and Females. No age breakdown is provided. Per instructions, rates are broadcast across all target ages (axis='age'). Since the plan includes both groups and no specific headcount distribution table is provided to weight the blend, the Male and Female rates are averaged (series_op='mean') for each service bin. Target service bins are mapped using overlap_weighted logic (implemented via group_weighted with source_spans) to align the source's 1-year service bins with the target's specific service points/buckets. Values are transcribed as percentages.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 54822,
+          "total_tokens": 57256,
+          "completion_tokens": 2434,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 54822,
+        "total_tokens": 57256,
+        "completion_tokens": 2434,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 14,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0] ('1'): source_spans only belongs on overlap_weighted entries",
+        "col_map[1] ('2'): source_spans only belongs on overlap_weighted entries",
+        "col_map[2] ('3'): source_spans only belongs on overlap_weighted entries",
+        "col_map[3] ('4'): source_spans only belongs on overlap_weighted entries",
+        "col_map[4] ('6'): source_spans only belongs on overlap_weighted entries",
+        "col_map[5] ('8'): source_spans only belongs on overlap_weighted entries",
+        "col_map[6] ('10'): source_spans only belongs on overlap_weighted entries",
+        "col_map[7] ('11'): source_spans only belongs on overlap_weighted entries",
+        "col_map[8] ('12'): source_spans only belongs on overlap_weighted entries",
+        "col_map[9] ('30'): source_spans only belongs on overlap_weighted entries",
+        "col_map[10] ('40'): source_spans only belongs on overlap_weighted entries",
+        "broadcast: col_map (the varying axis) references 2 label(s) that are not ROW labels of source_tables[0]: ['Annual Rates for Males', 'Annual Rates for Females']. In broadcast the varying-axis sources are the source's ROW labels (the printed bins). Available rows: ['0 to 1', '1 to 2', '10 to 11', '11 to 12', '12 to 13', '13 to 14', '14 to 15', '15 to 16', '16 to 17', '17 to 18', '18 to 19', '19 to 20', '2 to 3', '20 to 21']",
+        "source_tables[0] is used as group_weighted weights and has 3 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)",
+        "source_tables[0] needs col_spans declared: group_weighted weights are looked up by the main table's bin coordinates (with transpose=true the printed ROW labels are that lookup axis)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8a25b7d964dc91ab",
+        "object": "chat.completion",
+        "created": 1785386693,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 51,\n      \"title\": \"Other Terminations of Employment Among Members Not Eligible to Retire \u2013 Plans 1 and 2\",\n      \"row_labels\": [\n        \"0 to 1\",\n        \"1 to 2\",\n        \"2 to 3\",\n        \"3 to 4\",\n        \"4 to 5\",\n        \"5 to 6\",\n        \"6 to 7\",\n        \"7 to 8\",\n        \"8 to 9\",\n        \"9 to 10\",\n        \"10 to 11\",\n        \"11 to 12\",\n        \"12 to 13\",\n        \"13 to 14\",\n        \"14 to 15\",\n        \"15 to 16\",\n        \"16 to 17\",\n        \"17 to 18\",\n        \"18 to 19\",\n        \"19 to 20\",\n        \"20 to 21\",\n        \"21 to 22\",\n        \"22 to 23\",\n        \"23 to 24\",\n        \"24 to 25\",\n        \"25 to 26\",\n        \"26 to 27\",\n        \"27 to 28\",\n        \"28 to 29\",\n        \"29 to 30\",\n        \"30 or more\"\n      ],\n      \"col_labels\": [\n        \"Years of Service\",\n        \"Annual Rates for Males\",\n        \"Annual Rates for Females\"\n      ],\n      \"cells\": [\n        [\"0 to 1\", \"6.5%\", \"8.5%\"],\n        [\"1 to 2\", \"5.8\", \"8.3\"],\n        [\"2 to 3\", \"5.3\", \"8.0\"],\n        [\"3 to 4\", \"4.8\", \"7.8\"],\n        [\"4 to 5\", \"4.4\", \"7.5\"],\n        [\"5 to 6\", \"4.1\", \"7.0\"],\n        [\"6 to 7\", \"3.8\", \"6.3\"],\n        [\"7 to 8\", \"3.5\", \"5.7\"],\n        [\"8 to 9\", \"3.2\", \"5.1\"],\n        [\"9 to 10\", \"2.9\", \"4.5\"],\n        [\"10 to 11\", \"2.6\", \"4.1\"],\n        [\"11 to 12\", \"2.3\", \"3.8\"],\n        [\"12 to 13\", \"2.1\", \"3.4\"],\n        [\"13 to 14\", \"1.9\", \"3.1\"],\n        [\"14 to 15\", \"1.7\", \"2.7\"],\n        [\"15 to 16\", \"1.5\", \"2.4\"],\n        [\"16 to 17\", \"1.4\", \"2.0\"],\n        [\"17 to 18\", \"1.2\", \"1.7\"],\n        [\"18 to 19\", \"1.1\", \"1.4\"],\n        [\"19 to 20\", \"1.0\", \"1.2\"],\n        [\"20 to 21\", \"0.9\", \"1.1\"],\n        [\"21 to 22\", \"0.8\", \"1.0\"],\n        [\"22 to 23\", \"0.8\", \"0.9\"],\n        [\"23 to 24\", \"0.7\", \"0.8\"],\n        [\"24 to 25\", \"0.7\", \"0.8\"],\n        [\"25 to 26\", \"0.6\", \"0.7\"],\n        [\"26 to 27\", \"0.6\", \"0.7\"],\n        [\"27 to 28\", \"0.5\", \"0.6\"],\n        [\"28 to 29\", \"0.5\", \"0.6\"],\n        [\"29 to 30\", \"0.4\", \"0.5\"],\n        [\"30 or more\", \"0.5\", \"0.5\"]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 1],\n        [1, 2],\n        [2, 3],\n        [3, 4],\n        [4, 5],\n        [5, 6],\n        [6, 7],\n        [7, 8],\n        [8, 9],\n        [9, 10],\n        [10, 11],\n        [11, 12],\n        [12, 13],\n        [13, 14],\n        [14, 15],\n        [15, 16],\n        [16, 17],\n        [17, 18],\n        [18, 19],\n        [19, 20],\n        [20, 21],\n        [21, 22],\n        [22, 23],\n        [23, 24],\n        [24, 25],\n        [25, 26],\n        [26, 27],\n        [27, 28],\n        [28, 29],\n        [29, 30],\n        [30, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"2\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"3\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"4\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"6\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"8\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"10\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"11\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"12\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"30\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]},\n    {\"target\": \"40\", \"sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"], \"op\": \"group_weighted\", \"weights_tables\": [0, 0]}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Annual Rates for Males\",\n      \"Annual Rates for Females\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table (Table A-6) provides termination rates by Years of Service only, with separate columns for Males and Females. No age breakdown is provided. Per instructions, rates are broadcast across all target ages (axis='age'). Since the plan includes both groups and no specific headcount distribution table is provided to weight the blend, the Male and Female rates are averaged (series_op='mean') for each service bin. Target service columns are mapped from the source's service-year rows using group_weighted (which handles the bin alignment via row_spans defined on the source table). Values are transcribed as percentages.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 60089,
+          "total_tokens": 62302,
+          "completion_tokens": 2213,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 60089,
+        "total_tokens": 62302,
+        "completion_tokens": 2213,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast: col_map (the varying axis) references 2 label(s) that are not ROW labels of source_tables[0]: ['Annual Rates for Males', 'Annual Rates for Females']. In broadcast the varying-axis sources are the source's ROW labels (the printed bins). Available rows: ['0 to 1', '1 to 2', '10 to 11', '11 to 12', '12 to 13', '13 to 14', '14 to 15', '15 to 16', '16 to 17', '17 to 18', '18 to 19', '19 to 20', '2 to 3', '20 to 21']",
+        "source_tables[0] is used as group_weighted weights and has 3 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)",
+        "source_tables[0] needs col_spans declared: group_weighted weights are looked up by the main table's bin coordinates (with transpose=true the printed ROW labels are that lookup axis)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-9b7ef409354562e5",
+        "object": "chat.completion",
+        "created": 1785386708,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 51,\n      \"title\": \"Table A-6 Other Terminations of Employment Among Members Not Eligible to Retire \u2013 Plans 1 and 2\",\n      \"row_labels\": [\n        \"0 to 1\",\n        \"1 to 2\",\n        \"2 to 3\",\n        \"3 to 4\",\n        \"4 to 5\",\n        \"5 to 6\",\n        \"6 to 7\",\n        \"7 to 8\",\n        \"8 to 9\",\n        \"9 to 10\",\n        \"10 to 11\",\n        \"11 to 12\",\n        \"12 to 13\",\n        \"13 to 14\",\n        \"14 to 15\",\n        \"15 to 16\",\n        \"16 to 17\",\n        \"17 to 18\",\n        \"18 to 19\",\n        \"19 to 20\",\n        \"20 to 21\",\n        \"21 to 22\",\n        \"22 to 23\",\n        \"23 to 24\",\n        \"24 to 25\",\n        \"25 to 26\",\n        \"26 to 27\",\n        \"27 to 28\",\n        \"28 to 29\",\n        \"29 to 30\",\n        \"30 or more\"\n      ],\n      \"col_labels\": [\n        \"Years of Service\",\n        \"Annual Rates for Males\",\n        \"Annual Rates for Females\"\n      ],\n      \"cells\": [\n        [\"0 to 1\", 6.5, 8.5],\n        [\"1 to 2\", 5.8, 8.3],\n        [\"2 to 3\", 5.3, 8.0],\n        [\"3 to 4\", 4.8, 7.8],\n        [\"4 to 5\", 4.4, 7.5],\n        [\"5 to 6\", 4.1, 7.0],\n        [\"6 to 7\", 3.8, 6.3],\n        [\"7 to 8\", 3.5, 5.7],\n        [\"8 to 9\", 3.2, 5.1],\n        [\"9 to 10\", 2.9, 4.5],\n        [\"10 to 11\", 2.6, 4.1],\n        [\"11 to 12\", 2.3, 3.8],\n        [\"12 to 13\", 2.1, 3.4],\n        [\"13 to 14\", 1.9, 3.1],\n        [\"14 to 15\", 1.7, 2.7],\n        [\"15 to 16\", 1.5, 2.4],\n        [\"16 to 17\", 1.4, 2.0],\n        [\"17 to 18\", 1.2, 1.7],\n        [\"18 to 19\", 1.1, 1.4],\n        [\"19 to 20\", 1.0, 1.2],\n        [\"20 to 21\", 0.9, 1.1],\n        [\"21 to 22\", 0.8, 1.0],\n        [\"22 to 23\", 0.8, 0.9],\n        [\"23 to 24\", 0.7, 0.8],\n        [\"24 to 25\", 0.7, 0.8],\n        [\"25 to 26\", 0.6, 0.7],\n        [\"26 to 27\", 0.6, 0.7],\n        [\"27 to 28\", 0.5, 0.6],\n        [\"28 to 29\", 0.5, 0.6],\n        [\"29 to 30\", 0.4, 0.5],\n        [\"30 or more\", 0.5, 0.5]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 1],\n        [1, 2],\n        [2, 3],\n        [3, 4],\n        [4, 5],\n        [5, 6],\n        [6, 7],\n        [7, 8],\n        [8, 9],\n        [9, 10],\n        [10, 11],\n        [11, 12],\n        [12, 13],\n        [13, 14],\n        [14, 15],\n        [15, 16],\n        [16, 17],\n        [17, 18],\n        [18, 19],\n        [19, 20],\n        [20, 21],\n        [21, 22],\n        [22, 23],\n        [23, 24],\n        [24, 25],\n        [25, 26],\n        [26, 27],\n        [27, 28],\n        [28, 29],\n        [29, 30],\n        [30, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"0 to 1\"], \"op\": \"copy\", \"source_spans\": [[0, 1]]},\n    {\"target\": \"2\", \"sources\": [\"1 to 2\"], \"op\": \"copy\", \"source_spans\": [[1, 2]]},\n    {\"target\": \"3\", \"sources\": [\"2 to 3\"], \"op\": \"copy\", \"source_spans\": [[2, 3]]},\n    {\"target\": \"4\", \"sources\": [\"3 to 4\"], \"op\": \"copy\", \"source_spans\": [[3, 4]]},\n    {\"target\": \"6\", \"sources\": [\"5 to 6\"], \"op\": \"copy\", \"source_spans\": [[5, 6]]},\n    {\"target\": \"8\", \"sources\": [\"7 to 8\"], \"op\": \"copy\", \"source_spans\": [[7, 8]]},\n    {\"target\": \"10\", \"sources\": [\"9 to 10\"], \"op\": \"copy\", \"source_spans\": [[9, 10]]},\n    {\"target\": \"11\", \"sources\": [\"10 to 11\"], \"op\": \"copy\", \"source_spans\": [[10, 11]]},\n    {\"target\": \"12\", \"sources\": [\"11 to 12\"], \"op\": \"copy\", \"source_spans\": [[11, 12]]},\n    {\"target\": \"30\", \"sources\": [\"29 to 30\"], \"op\": \"copy\", \"source_spans\": [[29, 30]]},\n    {\"target\": \"40\", \"sources\": [\"30 or more\"], \"op\": \"copy\", \"source_spans\": [[30, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\"Annual Rates for Males\", \"Annual Rates for Females\"],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source Table A-6 provides termination rates by years of service only, with separate columns for Males and Females. Rates are in percent. The target requires a single rate grid by age and service. Since the source is service-only, broadcast is used to repeat the service-based rates across all target ages. The Male and Female columns are averaged (series_op: mean) as no headcount distribution is provided to weight them. Target service bins 1, 2, 3, 4, 6, 8, 10, 11, 12 map directly to single source bins. Target bin 30 maps to '29 to 30'. Target bin 40 maps to '30 or more'. Target ages 25-70 are mapped with empty sources to trigger the broadcast fill.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 54822,
+          "total_tokens": 57003,
+          "completion_tokens": 2181,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 54822,
+        "total_tokens": 57003,
+        "completion_tokens": 2181,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 11,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0] ('1'): source_spans only belongs on overlap_weighted entries",
+        "col_map[1] ('2'): source_spans only belongs on overlap_weighted entries",
+        "col_map[2] ('3'): source_spans only belongs on overlap_weighted entries",
+        "col_map[3] ('4'): source_spans only belongs on overlap_weighted entries",
+        "col_map[4] ('6'): source_spans only belongs on overlap_weighted entries",
+        "col_map[5] ('8'): source_spans only belongs on overlap_weighted entries",
+        "col_map[6] ('10'): source_spans only belongs on overlap_weighted entries",
+        "col_map[7] ('11'): source_spans only belongs on overlap_weighted entries",
+        "col_map[8] ('12'): source_spans only belongs on overlap_weighted entries",
+        "col_map[9] ('30'): source_spans only belongs on overlap_weighted entries",
+        "col_map[10] ('40'): source_spans only belongs on overlap_weighted entries"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-8e998124fd7c6510",
+        "object": "chat.completion",
+        "created": 1785386724,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 51,\n      \"title\": \"Other Terminations of Employment Among Members Not Eligible to Retire \u2013 Plans 1 and 2\",\n      \"row_labels\": [\n        \"0 to 1\",\n        \"1 to 2\",\n        \"2 to 3\",\n        \"3 to 4\",\n        \"4 to 5\",\n        \"5 to 6\",\n        \"6 to 7\",\n        \"7 to 8\",\n        \"8 to 9\",\n        \"9 to 10\",\n        \"10 to 11\",\n        \"11 to 12\",\n        \"12 to 13\",\n        \"13 to 14\",\n        \"14 to 15\",\n        \"15 to 16\",\n        \"16 to 17\",\n        \"17 to 18\",\n        \"18 to 19\",\n        \"19 to 20\",\n        \"20 to 21\",\n        \"21 to 22\",\n        \"22 to 23\",\n        \"23 to 24\",\n        \"24 to 25\",\n        \"25 to 26\",\n        \"26 to 27\",\n        \"27 to 28\",\n        \"28 to 29\",\n        \"29 to 30\",\n        \"30 or more\"\n      ],\n      \"col_labels\": [\n        \"Years of Service\",\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [\"0 to 1\", \"6.5%\", \"8.5%\"],\n        [\"1 to 2\", \"5.8\", \"8.3\"],\n        [\"2 to 3\", \"5.3\", \"8.0\"],\n        [\"3 to 4\", \"4.8\", \"7.8\"],\n        [\"4 to 5\", \"4.4\", \"7.5\"],\n        [\"5 to 6\", \"4.1\", \"7.0\"],\n        [\"6 to 7\", \"3.8\", \"6.3\"],\n        [\"7 to 8\", \"3.5\", \"5.7\"],\n        [\"8 to 9\", \"3.2\", \"5.1\"],\n        [\"9 to 10\", \"2.9\", \"4.5\"],\n        [\"10 to 11\", \"2.6\", \"4.1\"],\n        [\"11 to 12\", \"2.3\", \"3.8\"],\n        [\"12 to 13\", \"2.1\", \"3.4\"],\n        [\"13 to 14\", \"1.9\", \"3.1\"],\n        [\"14 to 15\", \"1.7\", \"2.7\"],\n        [\"15 to 16\", \"1.5\", \"2.4\"],\n        [\"16 to 17\", \"1.4\", \"2.0\"],\n        [\"17 to 18\", \"1.2\", \"1.7\"],\n        [\"18 to 19\", \"1.1\", \"1.4\"],\n        [\"19 to 20\", \"1.0\", \"1.2\"],\n        [\"20 to 21\", \"0.9\", \"1.1\"],\n        [\"21 to 22\", \"0.8\", \"1.0\"],\n        [\"22 to 23\", \"0.8\", \"0.9\"],\n        [\"23 to 24\", \"0.7\", \"0.8\"],\n        [\"24 to 25\", \"0.7\", \"0.8\"],\n        [\"25 to 26\", \"0.6\", \"0.7\"],\n        [\"26 to 27\", \"0.6\", \"0.7\"],\n        [\"27 to 28\", \"0.5\", \"0.6\"],\n        [\"28 to 29\", \"0.5\", \"0.6\"],\n        [\"29 to 30\", \"0.4\", \"0.5\"],\n        [\"30 or more\", \"0.5\", \"0.5\"]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"0 to 1\"], \"op\": \"copy\"},\n    {\"target\": \"2\", \"sources\": [\"1 to 2\"], \"op\": \"copy\"},\n    {\"target\": \"3\", \"sources\": [\"2 to 3\"], \"op\": \"copy\"},\n    {\"target\": \"4\", \"sources\": [\"3 to 4\"], \"op\": \"copy\"},\n    {\"target\": \"6\", \"sources\": [\"5 to 6\"], \"op\": \"copy\"},\n    {\"target\": \"8\", \"sources\": [\"7 to 8\"], \"op\": \"copy\"},\n    {\"target\": \"10\", \"sources\": [\"9 to 10\"], \"op\": \"copy\"},\n    {\"target\": \"11\", \"sources\": [\"10 to 11\"], \"op\": \"copy\"},\n    {\"target\": \"12\", \"sources\": [\"11 to 12\"], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [\"29 to 30\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"30 or more\"], \"op\": \"copy\"}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Males\",\n      \"Females\"\n    ],\n    \"series_op\": \"mean\"\n  },\n  \"notes\": \"Source table provides termination rates by Years of Service only, with separate columns for Males and Females. Rates are printed as percentages. Target requires a single rate per service bin; since no headcount distribution by gender is provided for weighting, a simple mean of the Male and Female columns is used (series_op: mean). The rate is broadcast across all target ages (broadcast axis: age) as the source does not vary by age. Target service bins 1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40 map directly to the printed service intervals (e.g., '0 to 1' maps to target 1). Target bins 5, 7, 9, 13-29, 31-39 are not explicitly requested in the target grid.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 54822,
+          "total_tokens": 56569,
+          "completion_tokens": 1747,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 54822,
+        "total_tokens": 56569,
+        "completion_tokens": 1747,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

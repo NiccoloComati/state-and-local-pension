@@ -1,0 +1,114 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a40855ec0d60a641",
+        "object": "chat.completion",
+        "created": 1785356798,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"Retirement Rates: DROP Active Members\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50\",\n        \"51\",\n        \"52-53\",\n        \"54\",\n        \"55-57\",\n        \"58-62\",\n        \"63\",\n        \"64\",\n        \"65 & over\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\"\n      ],\n      \"cells\": [\n        [1.0, 0.75],\n        [10.0, 0.75],\n        [15.0, 0.75],\n        [15.0, 10.0],\n        [25.0, 10.0],\n        [25.0, 15.0],\n        [30.0, 40.0],\n        [40.0, 50.0],\n        [50.0, 50.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 49],\n        [50, 50],\n        [51, 51],\n        [52, 53],\n        [54, 54],\n        [55, 57],\n        [58, 62],\n        [63, 63],\n        [64, 64],\n        [65, null]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 55,\n      \"title\": \"Retirement Rates (continued): Non-DROP Active Members\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50-51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56-57\",\n        \"58-60\",\n        \"61\",\n        \"62\"\n      ],\n      \"col_labels\": [\n        \"Member hired prior to March 1, 2011 with at least 20 years of service as of September 1, 2017 & Members hired on or after March 1, 2011\",\n        \"Member hired prior to March 1, 2011 with less than 20 years of service as of September 1, 2017\"\n      ],\n      \"cells\": [\n        [1.0, 1.0],\n        [2.0, 8.0],\n        [2.0, 10.0],\n        [2.0, 15.0],\n        [2.0, 20.0],\n        [2.0, 35.0],\n        [2.0, 40.0],\n        [25.0, 75.0],\n        [50.0, 75.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 49],\n        [50, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 57],\n        [58, 60],\n        [61, 61],\n        [62, 62]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"Under 50\", \"50\", \"50-51\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[null, 49], [50, 50], [50, 51]]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"50-51\", \"51\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[50, 51], [51, 51]]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"52-53\", \"52\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[52, 53], [52, 52]]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"52-53\", \"53\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[52, 53], [53, 53]]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"54\", \"54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[54, 54], [54, 54]]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55-57\", \"55\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 57], [55, 55]]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"55-57\", \"56-57\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 57], [56, 57]]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"55-57\", \"56-57\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 57], [56, 57]]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58-62\", \"58-60\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 62], [58, 60]]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"58-62\", \"58-60\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 62], [58, 60]]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"58-62\", \"58-60\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 62], [58, 60]]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"58-62\", \"61\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 62], [61, 61]]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"58-62\", \"62\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 62], [62, 62]]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\", \"63\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[63, 63], [63, 63]]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\", \"64\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[64, 64], [64, 64]]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65 & over\", \"65 & over\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, null], [65, null]]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"65 & over\", \"65 & over\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, null], [65, null]]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"65 & over\", \"65 & over\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, null], [65, null]]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"65 & over\", \"65 & over\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, null], [65, null]]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"65 & over\", \"65 & over\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, null], [65, null]]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"65 & over\", \"65 & over\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, null], [65, null]]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The target requires retirement rates by service (rows) and age (columns). The document provides two tables: one for DROP members (Page 54) and one for Non-DROP members (Page 55), both with Age as rows and Service as columns (or implicit service). The target grid has specific service buckets (5-11, 12-19, etc.) which do not align with the source tables' service columns (which are implicit or not explicitly binned in the same way). The source tables actually show rates by Age (rows) and Member Type (columns). The target asks for rates by Service (rows) and Age (columns). The document does NOT provide a table of retirement rates by Service. It provides rates by Age. The target grid's rows are Service buckets, but the source data is by Age. This is a mismatch. The document provides 'Retirement Rates' by Age for DROP and Non-DROP members. It does not provide rates by Service. Therefore, the target (Retirement Rate by Service x Age) is unavailable in the document. The source tables transcribed are the Age-based rates. The row_map and col_map are constructed to attempt to map the available Age-based data to the target, but since the target's primary dimension (Service) is missing from the source, the mapping is effectively impossible to derive correctly without assumptions. However, the instructions say 'If the ENTIRE target... is not published... set unavailable: true'. The target is 'Probability of retirement by service-year bucket x single age'. The document provides 'Probability of retirement by Age x Member Type'. It does not provide rates by Service. Thus, the target is unavailable. I will set unavailable to true and leave maps empty, but I will transcribe the closest related tables (Age-based rates) as evidence.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 51959,
+          "total_tokens": 55012,
+          "completion_tokens": 3053,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 51959,
+        "total_tokens": 55012,
+        "completion_tokens": 3053,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 8 source label(s) that do NOT exist in source_tables[0]: ['50-51', '52', '53', '55', '56-57', '58-60'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['Under 50', '50', '51', '52-53', '54', '55-57', '58-62', '63', '64', '65 & over']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-84be57b26743d7c6",
+        "object": "chat.completion",
+        "created": 1785356819,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"Retirement Rates: DROP Active Members\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50\",\n        \"51\",\n        \"52-53\",\n        \"54\",\n        \"55-57\",\n        \"58-62\",\n        \"63\",\n        \"64\",\n        \"65 & over\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\"\n      ],\n      \"cells\": [\n        [1.0, 0.75],\n        [10.0, 0.75],\n        [15.0, 0.75],\n        [15.0, 10.0],\n        [25.0, 10.0],\n        [25.0, 15.0],\n        [30.0, 40.0],\n        [40.0, 50.0],\n        [50.0, 50.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 49],\n        [50, 50],\n        [51, 51],\n        [52, 53],\n        [54, 54],\n        [55, 57],\n        [58, 62],\n        [63, 63],\n        [64, 64],\n        [65, null]\n      ],\n      \"values_unit\": \"percent\"\n    },\n    {\n      \"page\": 55,\n      \"title\": \"Retirement Rates (continued): Non-DROP Active Members\",\n      \"row_labels\": [\n        \"Under 50\",\n        \"50-51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56-57\",\n        \"58-60\",\n        \"61\",\n        \"62\"\n      ],\n      \"col_labels\": [\n        \"Member hired prior to March 1, 2011 with at least 20 years of service as of September 1, 2017 & Members hired on or after March 1, 2011\",\n        \"Member hired prior to March 1, 2011 with less than 20 years of service as of September 1, 2017\"\n      ],\n      \"cells\": [\n        [1.0, 1.0],\n        [2.0, 8.0],\n        [2.0, 10.0],\n        [2.0, 15.0],\n        [2.0, 20.0],\n        [2.0, 35.0],\n        [2.0, 40.0],\n        [25.0, 75.0],\n        [50.0, 75.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 49],\n        [50, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 57],\n        [58, 60],\n        [61, 61],\n        [62, 62]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The target requires retirement rates by service-year bucket (rows) and single age (columns). The document provides two tables (Pages 54 and 55) with retirement rates by Age (rows) and Member Type/Service Group (columns). The document does NOT publish retirement rates by Years of Service. The target grid's primary dimension (Service) is missing from the source data. Therefore, the target is unavailable. The source tables are transcribed as evidence of the available Age-based rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 57575,
+          "total_tokens": 58640,
+          "completion_tokens": 1065,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 57575,
+        "total_tokens": 58640,
+        "completion_tokens": 1065,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

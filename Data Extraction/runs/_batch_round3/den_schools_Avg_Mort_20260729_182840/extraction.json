@@ -1,0 +1,2164 @@
+{
+  "source_tables": [
+    {
+      "page": 145,
+      "title": "Single Life Retirement Values and Rates of Post-Retirement Mortality - Healthy Benefit Recipients (State/Troopers/Local)",
+      "row_labels": [
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          0.031,
+          0.018
+        ],
+        [
+          0.048,
+          0.031
+        ],
+        [
+          0.297,
+          0.198
+        ],
+        [
+          0.458,
+          0.277
+        ],
+        [
+          0.635,
+          0.393
+        ],
+        [
+          0.831,
+          0.595
+        ],
+        [
+          1.185,
+          0.965
+        ],
+        [
+          1.83,
+          1.627
+        ],
+        [
+          3.824,
+          3.123
+        ],
+        [
+          7.94,
+          6.061
+        ]
+      ],
+      "row_spans": [
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          89
+        ]
+      ],
+      "values_unit": "percent",
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "col_spans": null
+    },
+    {
+      "page": 145,
+      "title": "Single Life Retirement Values and Rates of Post-Retirement Mortality - Healthy Benefit Recipients (School/DPS/Judges)",
+      "row_labels": [
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          0.031,
+          0.018
+        ],
+        [
+          0.048,
+          0.031
+        ],
+        [
+          0.257,
+          0.13
+        ],
+        [
+          0.397,
+          0.181
+        ],
+        [
+          0.544,
+          0.257
+        ],
+        [
+          0.728,
+          0.422
+        ],
+        [
+          1.117,
+          0.69
+        ],
+        [
+          1.849,
+          1.191
+        ],
+        [
+          3.63,
+          2.537
+        ],
+        [
+          7.332,
+          5.32
+        ]
+      ],
+      "row_spans": [
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          89
+        ]
+      ],
+      "values_unit": "percent",
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "col_spans": null
+    },
+    {
+      "page": 146,
+      "title": "Single Life Retirement Values and Rates of Post-Retirement Mortality - Disability Benefit Recipients",
+      "row_labels": [
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75",
+        "80",
+        "85"
+      ],
+      "col_labels": [
+        "Males",
+        "Females"
+      ],
+      "cells": [
+        [
+          0.99,
+          0.491
+        ],
+        [
+          1.534,
+          0.814
+        ],
+        [
+          1.836,
+          1.072
+        ],
+        [
+          2.103,
+          1.303
+        ],
+        [
+          2.394,
+          1.53
+        ],
+        [
+          2.852,
+          1.877
+        ],
+        [
+          3.631,
+          2.538
+        ],
+        [
+          4.886,
+          3.694
+        ],
+        [
+          6.895,
+          5.493
+        ],
+        [
+          10.197,
+          8.138
+        ]
+      ],
+      "row_spans": [
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          89
+        ]
+      ],
+      "values_unit": "percent",
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "col_spans": null
+    },
+    {
+      "page": 115,
+      "title": "Schedule of Active Member Data as of December 31, 2019 - State Division",
+      "row_labels": [
+        "Under 20",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          232
+        ],
+        [
+          1893
+        ],
+        [
+          4825
+        ],
+        [
+          6260
+        ],
+        [
+          6665
+        ],
+        [
+          6441
+        ],
+        [
+          8544
+        ],
+        [
+          6734
+        ],
+        [
+          6155
+        ],
+        [
+          1058
+        ],
+        [
+          1051
+        ],
+        [
+          958
+        ],
+        [
+          842
+        ],
+        [
+          758
+        ],
+        [
+          611
+        ],
+        [
+          492
+        ],
+        [
+          363
+        ],
+        [
+          287
+        ],
+        [
+          271
+        ],
+        [
+          812
+        ]
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 116,
+      "title": "Schedule of Active Member Data as of December 31, 2019 - School Division",
+      "row_labels": [
+        "Under 20",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          1261
+        ],
+        [
+          5583
+        ],
+        [
+          11705
+        ],
+        [
+          13141
+        ],
+        [
+          15614
+        ],
+        [
+          19957
+        ],
+        [
+          17646
+        ],
+        [
+          15740
+        ],
+        [
+          13572
+        ],
+        [
+          2287
+        ],
+        [
+          2031
+        ],
+        [
+          1847
+        ],
+        [
+          1594
+        ],
+        [
+          1373
+        ],
+        [
+          1058
+        ],
+        [
+          850
+        ],
+        [
+          614
+        ],
+        [
+          586
+        ],
+        [
+          498
+        ],
+        [
+          1981
+        ]
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 117,
+      "title": "Schedule of Active Member Data as of December 31, 2019 - Local Government Division",
+      "row_labels": [
+        "Under 20",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          643
+        ],
+        [
+          670
+        ],
+        [
+          1153
+        ],
+        [
+          1381
+        ],
+        [
+          1380
+        ],
+        [
+          1618
+        ],
+        [
+          1550
+        ],
+        [
+          1422
+        ],
+        [
+          1449
+        ],
+        [
+          256
+        ],
+        [
+          230
+        ],
+        [
+          209
+        ],
+        [
+          186
+        ],
+        [
+          170
+        ],
+        [
+          122
+        ],
+        [
+          108
+        ],
+        [
+          97
+        ],
+        [
+          77
+        ],
+        [
+          54
+        ],
+        [
+          311
+        ]
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 118,
+      "title": "Schedule of Active Member Data as of December 31, 2019 - Judicial Division",
+      "row_labels": [
+        "Under 20",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ],
+        [
+          16
+        ],
+        [
+          33
+        ],
+        [
+          40
+        ],
+        [
+          73
+        ],
+        [
+          64
+        ],
+        [
+          17
+        ],
+        [
+          13
+        ],
+        [
+          8
+        ],
+        [
+          14
+        ],
+        [
+          4
+        ],
+        [
+          9
+        ],
+        [
+          8
+        ],
+        [
+          10
+        ],
+        [
+          4
+        ],
+        [
+          7
+        ],
+        [
+          17
+        ]
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 119,
+      "title": "Schedule of Active Member Data as of December 31, 2019 - Denver Public Schools Division",
+      "row_labels": [
+        "Under 20",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Total"
+      ],
+      "cells": [
+        [
+          109
+        ],
+        [
+          803
+        ],
+        [
+          2216
+        ],
+        [
+          2631
+        ],
+        [
+          2194
+        ],
+        [
+          2562
+        ],
+        [
+          1562
+        ],
+        [
+          1271
+        ],
+        [
+          1053
+        ],
+        [
+          162
+        ],
+        [
+          178
+        ],
+        [
+          147
+        ],
+        [
+          143
+        ],
+        [
+          121
+        ],
+        [
+          108
+        ],
+        [
+          76
+        ],
+        [
+          62
+        ],
+        [
+          53
+        ],
+        [
+          41
+        ],
+        [
+          187
+        ]
+      ],
+      "row_spans": [
+        [
+          null,
+          19
+        ],
+        [
+          20,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "col_spans": null
+    },
+    {
+      "page": 120,
+      "title": "Schedule of Benefit Recipients by Annual Benefit as of December 31, 2019 - Total Benefit Recipients",
+      "row_labels": [
+        "Total Benefit Recipients"
+      ],
+      "col_labels": [
+        "State Division",
+        "School Division",
+        "Local Government Division",
+        "Judicial Division",
+        "Denver Public Schools Division",
+        "Total"
+      ],
+      "cells": [
+        [
+          41181,
+          68362,
+          7933,
+          399,
+          7143,
+          125018
+        ]
+      ],
+      "row_spans": null,
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "20",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "21",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "22",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "23",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "26",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "27",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "28",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "31",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "32",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "33",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "36",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "37",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "38",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "39",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "41",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "42",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "43",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          40,
+          44
+        ]
+      ]
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "46",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "47",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "48",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          45,
+          49
+        ]
+      ]
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "51",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "52",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "53",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          50,
+          54
+        ]
+      ]
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "56",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "57",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "58",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          55,
+          59
+        ]
+      ]
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "61",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "62",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "63",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          60,
+          64
+        ]
+      ]
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "66",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "67",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "68",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "69",
+      "sources": [
+        "65"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          65,
+          69
+        ]
+      ]
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "71",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "72",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "73",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "74",
+      "sources": [
+        "70"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          70,
+          74
+        ]
+      ]
+    },
+    {
+      "target": "75",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "76",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "77",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "78",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "79",
+      "sources": [
+        "75"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          75,
+          79
+        ]
+      ]
+    },
+    {
+      "target": "80",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "81",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "82",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "83",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "84",
+      "sources": [
+        "80"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          80,
+          84
+        ]
+      ]
+    },
+    {
+      "target": "85",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "86",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "87",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "88",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "89",
+      "sources": [
+        "85"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          85,
+          89
+        ]
+      ]
+    },
+    {
+      "target": "90",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "91",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "92",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "93",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "94",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "95",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "96",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "97",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "98",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "99",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "100",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "101",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "102",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "103",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "104",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "105",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "106",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "107",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "108",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "109",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "110",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "111",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "112",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "113",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "114",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "115",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "116",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "117",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "118",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "119",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Death_Prob",
+      "sources": [
+        "Males",
+        "Females"
+      ],
+      "op": "group_weighted",
+      "weights_tables": [
+        3,
+        3
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Target column is a population-weighted blend of pre-retirement (active) and post-retirement (healthy) mortality rates. Post-disability rates (Table 3) are transcribed but excluded from the blend as per instructions. The blend uses active member counts (Tables 4-8) for pre-retirement rates. The document does not provide a specific table of service retiree counts by age to weight the post-retirement rates; Table 9 provides total benefit recipient counts by division but not by age. Consequently, the post-retirement rates (Tables 1 and 2) cannot be properly weighted by a retiree population distribution in this extraction. The 'group_weighted' operation will attempt to blend the two populations (Pre-Retirement and Post-Retirement) using the available weights. For ages where active members exist (approx 20-69), the pre-retirement rates will be weighted by active counts. For ages where active members are zero or negligible (70+), the post-retirement rates would be weighted by retiree counts if available, but since no age-specific retiree count table exists, the post-retirement contribution to the blend is effectively unweighted or zero. The 'values_unit' is 'percent' as the source rates are printed as percentages (e.g., 0.031%). The target grid extends to age 119, but source data only covers up to age 89 (5-year bands ending at 85-89). Target ages 20-39 and 90-119 have empty sources because the source tables only provide rates starting at age 40.",
+  "unavailable": false,
+  "broadcast": null
+}

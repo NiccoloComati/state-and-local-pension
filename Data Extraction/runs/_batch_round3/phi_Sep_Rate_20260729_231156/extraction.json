@@ -1,0 +1,305 @@
+{
+  "source_tables": [
+    {
+      "page": 105,
+      "title": "Rates of Termination (Sample Rates)",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85+"
+      ],
+      "col_labels": [
+        "Municipal",
+        "Police",
+        "Fire"
+      ],
+      "cells": [
+        [
+          0.025,
+          0.015,
+          0.012
+        ],
+        [
+          0.022,
+          0.014,
+          0.011
+        ],
+        [
+          0.019,
+          0.013,
+          0.01
+        ],
+        [
+          0.016,
+          0.012,
+          0.009
+        ],
+        [
+          0.014,
+          0.011,
+          0.008
+        ],
+        [
+          0.012,
+          0.01,
+          0.007
+        ],
+        [
+          0.01,
+          0.009,
+          0.006
+        ],
+        [
+          0.008,
+          0.008,
+          0.005
+        ],
+        [
+          0.006,
+          0.007,
+          0.004
+        ],
+        [
+          0.004,
+          0.006,
+          0.003
+        ],
+        [
+          0.003,
+          0.005,
+          0.002
+        ],
+        [
+          0.002,
+          0.004,
+          0.002
+        ],
+        [
+          0.001,
+          0.003,
+          0.001
+        ],
+        [
+          0.001,
+          0.002,
+          0.001
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          24
+        ],
+        [
+          25,
+          29
+        ],
+        [
+          30,
+          34
+        ],
+        [
+          35,
+          39
+        ],
+        [
+          40,
+          44
+        ],
+        [
+          45,
+          49
+        ],
+        [
+          50,
+          54
+        ],
+        [
+          55,
+          59
+        ],
+        [
+          60,
+          64
+        ],
+        [
+          65,
+          69
+        ],
+        [
+          70,
+          74
+        ],
+        [
+          75,
+          79
+        ],
+        [
+          80,
+          84
+        ],
+        [
+          85,
+          null
+        ]
+      ],
+      "values_unit": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70-74"
+      ],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "service",
+    "series_sources": [
+      "Municipal",
+      "Police",
+      "Fire"
+    ],
+    "series_op": "mean"
+  },
+  "notes": "The document provides termination rates by Age only (Table on page 105), with no breakdown by Years of Service. Per instructions, rates are broadcast across all service columns. The source table lists rates for Municipal, Police, and Fire groups; these are averaged (series_op: mean) to produce a single rate per age for the target grid. Target service columns (1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40) have empty sources in col_map as the rate is constant across service in the source data. Values are transcribed as decimals (not percent).",
+  "unavailable": false
+}

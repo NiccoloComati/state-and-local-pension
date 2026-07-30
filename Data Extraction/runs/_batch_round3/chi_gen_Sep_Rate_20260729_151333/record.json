@@ -1,0 +1,119 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8de4355aad9eece1",
+        "object": "chat.completion",
+        "created": 1785352414,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Termination Rates\",\n      \"row_labels\": [\n        \"0 - 0.99\",\n        \"1 - 1.99\",\n        \"2 - 2.99\",\n        \"3 - 3.99\",\n        \"4 - 4.99\",\n        \"5 \u2013 5.99\",\n        \"6 \u2013 6.99\",\n        \"7 \u2013 7.99\",\n        \"8 \u2013 8.99\",\n        \"9 \u2013 10.99\",\n        \"11 \u2013 11.99\",\n        \"12 - 12.99\",\n        \"13 - 13.99\",\n        \"14 - 14.99\",\n        \"15 - 15.99\",\n        \"16 - 16.99\",\n        \"17 - 17.99\",\n        \"18 - 18.99\",\n        \"19 - 19.99\",\n        \"20 - 20.99\",\n        \"21+\"\n      ],\n      \"col_labels\": [\n        \"Service\",\n        \"Rate (%)\"\n      ],\n      \"cells\": [\n        [\"0 - 0.99\", 17.00],\n        [\"1 - 1.99\", 16.00],\n        [\"2 - 2.99\", 14.00],\n        [\"3 - 3.99\", 12.00],\n        [\"4 - 4.99\", 10.00],\n        [\"5 \u2013 5.99\", 8.00],\n        [\"6 \u2013 6.99\", 7.00],\n        [\"7 \u2013 7.99\", 6.50],\n        [\"8 \u2013 8.99\", 6.00],\n        [\"9 \u2013 10.99\", 5.00],\n        [\"11 \u2013 11.99\", 4.50],\n        [\"12 - 12.99\", 4.25],\n        [\"13 - 13.99\", 4.00],\n        [\"14 - 14.99\", 3.75],\n        [\"15 - 15.99\", 3.50],\n        [\"16 - 16.99\", 3.25],\n        [\"17 - 17.99\", 3.00],\n        [\"18 - 18.99\", 2.75],\n        [\"19 - 19.99\", 2.50],\n        [\"20 - 20.99\", 2.25],\n        [\"21+\", 2.00]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"1 - 1.99\"], \"op\": \"copy\", \"source_spans\": [[1, 1]]},\n    {\"target\": \"2\", \"sources\": [\"2 - 2.99\"], \"op\": \"copy\", \"source_spans\": [[2, 2]]},\n    {\"target\": \"3\", \"sources\": [\"3 - 3.99\"], \"op\": \"copy\", \"source_spans\": [[3, 3]]},\n    {\"target\": \"4\", \"sources\": [\"4 - 4.99\"], \"op\": \"copy\", \"source_spans\": [[4, 4]]},\n    {\"target\": \"6\", \"sources\": [\"5 \u2013 5.99\", \"6 \u2013 6.99\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, 5], [6, 6]]},\n    {\"target\": \"8\", \"sources\": [\"7 \u2013 7.99\", \"8 \u2013 8.99\"], \"op\": \"overlap_weighted\", \"source_spans\": [[7, 7], [8, 8]]},\n    {\"target\": \"10\", \"sources\": [\"9 \u2013 10.99\"], \"op\": \"overlap_weighted\", \"source_spans\": [[9, 10]]},\n    {\"target\": \"11\", \"sources\": [\"11 \u2013 11.99\"], \"op\": \"copy\", \"source_spans\": [[11, 11]]},\n    {\"target\": \"12\", \"sources\": [\"12 - 12.99\"], \"op\": \"copy\", \"source_spans\": [[12, 12]]},\n    {\"target\": \"30\", \"sources\": [\"21+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[21, null]]},\n    {\"target\": \"40\", \"sources\": [\"21+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[21, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Rate (%)\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 71 lists termination rates by years of service only, with no age breakdown. The target grid requires rates by age and service. Per instructions, the service-based rates are broadcast across all target age rows (axis='age'). Source rates are in percent; code will convert to decimal. Source bins are single years or ranges (e.g., 9-10.99, 21+). Overlap weighting is used for target bins that span multiple source bins (e.g., target service 6 spans source 5-5.99 and 6-6.99; target service 10 spans source 9-10.99). Target service 30 and 40 map to the open-ended '21+' bin.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 102219,
+          "total_tokens": 104049,
+          "completion_tokens": 1830,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 102219,
+        "total_tokens": 104049,
+        "completion_tokens": 1830,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 6,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0] ('1'): source_spans only belongs on overlap_weighted entries",
+        "col_map[1] ('2'): source_spans only belongs on overlap_weighted entries",
+        "col_map[2] ('3'): source_spans only belongs on overlap_weighted entries",
+        "col_map[3] ('4'): source_spans only belongs on overlap_weighted entries",
+        "col_map[7] ('11'): source_spans only belongs on overlap_weighted entries",
+        "col_map[8] ('12'): source_spans only belongs on overlap_weighted entries"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b84bf9dc62f36b13",
+        "object": "chat.completion",
+        "created": 1785352430,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Termination Rates\",\n      \"row_labels\": [\n        \"0 - 0.99\",\n        \"1 - 1.99\",\n        \"2 - 2.99\",\n        \"3 - 3.99\",\n        \"4 - 4.99\",\n        \"5 \u2013 5.99\",\n        \"6 \u2013 6.99\",\n        \"7 \u2013 7.99\",\n        \"8 \u2013 8.99\",\n        \"9 \u2013 10.99\",\n        \"11 \u2013 11.99\",\n        \"12 - 12.99\",\n        \"13 - 13.99\",\n        \"14 - 14.99\",\n        \"15 - 15.99\",\n        \"16 - 16.99\",\n        \"17 - 17.99\",\n        \"18 - 18.99\",\n        \"19 - 19.99\",\n        \"20 - 20.99\",\n        \"21+\"\n      ],\n      \"col_labels\": [\n        \"Service\",\n        \"Rate (%)\"\n      ],\n      \"cells\": [\n        [\"0 - 0.99\", 17.00],\n        [\"1 - 1.99\", 16.00],\n        [\"2 - 2.99\", 14.00],\n        [\"3 - 3.99\", 12.00],\n        [\"4 - 4.99\", 10.00],\n        [\"5 \u2013 5.99\", 8.00],\n        [\"6 \u2013 6.99\", 7.00],\n        [\"7 \u2013 7.99\", 6.50],\n        [\"8 \u2013 8.99\", 6.00],\n        [\"9 \u2013 10.99\", 5.00],\n        [\"11 \u2013 11.99\", 4.50],\n        [\"12 - 12.99\", 4.25],\n        [\"13 - 13.99\", 4.00],\n        [\"14 - 14.99\", 3.75],\n        [\"15 - 15.99\", 3.50],\n        [\"16 - 16.99\", 3.25],\n        [\"17 - 17.99\", 3.00],\n        [\"18 - 18.99\", 2.75],\n        [\"19 - 19.99\", 2.50],\n        [\"20 - 20.99\", 2.25],\n        [\"21+\", 2.00]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"25\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"35\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"45\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"50\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"55\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"60\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"65\", \"sources\": [], \"op\": \"copy\"},\n    {\"target\": \"70\", \"sources\": [], \"op\": \"copy\"}\n  ],\n  \"col_map\": [\n    {\"target\": \"1\", \"sources\": [\"1 - 1.99\"], \"op\": \"copy\"},\n    {\"target\": \"2\", \"sources\": [\"2 - 2.99\"], \"op\": \"copy\"},\n    {\"target\": \"3\", \"sources\": [\"3 - 3.99\"], \"op\": \"copy\"},\n    {\"target\": \"4\", \"sources\": [\"4 - 4.99\"], \"op\": \"copy\"},\n    {\"target\": \"6\", \"sources\": [\"5 \u2013 5.99\", \"6 \u2013 6.99\"], \"op\": \"overlap_weighted\", \"source_spans\": [[5, 5], [6, 6]]},\n    {\"target\": \"8\", \"sources\": [\"7 \u2013 7.99\", \"8 \u2013 8.99\"], \"op\": \"overlap_weighted\", \"source_spans\": [[7, 7], [8, 8]]},\n    {\"target\": \"10\", \"sources\": [\"9 \u2013 10.99\"], \"op\": \"overlap_weighted\", \"source_spans\": [[9, 10]]},\n    {\"target\": \"11\", \"sources\": [\"11 \u2013 11.99\"], \"op\": \"copy\"},\n    {\"target\": \"12\", \"sources\": [\"12 - 12.99\"], \"op\": \"copy\"},\n    {\"target\": \"30\", \"sources\": [\"21+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[21, null]]},\n    {\"target\": \"40\", \"sources\": [\"21+\"], \"op\": \"overlap_weighted\", \"source_spans\": [[21, null]]}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Rate (%)\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 71 lists termination rates by years of service only, with no age breakdown. The target grid requires rates by age and service. Per instructions, the service-based rates are broadcast across all target age rows (axis='age'). Source rates are in percent; code will convert to decimal. Source bins are single years or ranges (e.g., 9-10.99, 21+). Overlap weighting is used for target bins that span multiple source bins (e.g., target service 6 spans source 5-5.99 and 6-6.99; target service 10 spans source 9-10.99). Target service 30 and 40 map to the open-ended '21+' bin.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 106524,
+          "total_tokens": 108278,
+          "completion_tokens": 1754,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 106524,
+        "total_tokens": 108278,
+        "completion_tokens": 1754,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

@@ -1,0 +1,79 @@
+{
+  "source_tables": [
+    {
+      "page": 24,
+      "title": "Distribution of Retired Members and Beneficiaries as of June 30, 2019 - Retired Members and Beneficiaries by Type and Age",
+      "row_labels": [
+        "Service",
+        "Disability",
+        "Beneficiary"
+      ],
+      "col_labels": [
+        "Age 50-54",
+        "Age 55-59",
+        "Age 60-64",
+        "Age 65-69",
+        "Age 70-74",
+        "Age 75-79",
+        "Age 80-84",
+        "Age 85-89",
+        "Age 90-94",
+        "Age 95-99",
+        "Age 100 & over"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The target data (distribution of members receiving benefits by 5-year age band with headcount and average annual benefit) is not available in the provided document text. Page 24 contains a bar chart titled 'Distribution of Retired Members and Beneficiaries as of June 30, 2019' showing 'Type and Age', but the specific numerical values for counts and benefits by age band are not transcribed in the text layer. Exhibit A (Page 50) and Exhibit B (Page 53) provide aggregate statistics (total counts, average age, average benefit) but do not break down the retired population by 5-year age bands. Without the specific age-banded counts and benefit totals/averages, the target grid cannot be populated. The source table listed above represents the closest related visual evidence (the chart) but lacks the numerical data required for extraction.",
+  "broadcast": null
+}

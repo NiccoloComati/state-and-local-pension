@@ -1,0 +1,305 @@
+{
+  "source_tables": [
+    {
+      "page": 53,
+      "title": "Withdrawal Rates Before Retirement",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11-14",
+        "15-24",
+        "25 & over"
+      ],
+      "col_labels": [
+        "Years of Service",
+        "Police",
+        "Fire"
+      ],
+      "cells": [
+        [
+          0,
+          20.0,
+          10.0
+        ],
+        [
+          1,
+          5.5,
+          5.5
+        ],
+        [
+          2,
+          5.5,
+          5.5
+        ],
+        [
+          3,
+          5.5,
+          5.5
+        ],
+        [
+          4,
+          5.5,
+          5.5
+        ],
+        [
+          5,
+          5.5,
+          5.5
+        ],
+        [
+          6,
+          3.5,
+          5.5
+        ],
+        [
+          7,
+          3.5,
+          1.0
+        ],
+        [
+          8,
+          3.5,
+          1.0
+        ],
+        [
+          9,
+          3.5,
+          1.0
+        ],
+        [
+          10,
+          3.5,
+          1.0
+        ],
+        [
+          11,
+          2.0,
+          1.0
+        ],
+        [
+          15,
+          1.0,
+          1.0
+        ],
+        [
+          25,
+          0.0,
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          6,
+          6
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          8,
+          8
+        ],
+        [
+          9,
+          9
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          11,
+          14
+        ],
+        [
+          15,
+          24
+        ],
+        [
+          25,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "8"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "11-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "25 & over"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "25 & over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Police"
+    ],
+    "series_op": "copy"
+  },
+  "notes": "Source table on page 53 provides withdrawal rates by years of service only, separated by Police and Fire. The target requires a single rate grid. Since the document does not provide a headcount distribution to weight Police and Fire rates, and the target implies a single plan rate, the Police column is used as the primary source (series_op: copy) and broadcast across all target ages. The source rates are in percent and will be converted to decimal by the code. Target service bins 1-10 map directly to single-year source rows. Target bins 11 and 12 map to the '11-14' source bin. Target bins 30 and 40 map to the '25 & over' source bin. The broadcast axis is 'age' because the source rates vary only by service.",
+  "unavailable": false
+}

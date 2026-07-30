@@ -1,0 +1,457 @@
+{
+  "source_tables": [
+    {
+      "page": 26,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND SERVICE GROUPS AS OF JULY 1, 2022 (Total Pay)",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 & Over"
+      ],
+      "cells": [
+        [
+          14900000,
+          24000000,
+          11000000,
+          1000000,
+          5000000,
+          1000000,
+          49000000,
+          null,
+          null
+        ],
+        [
+          12400000,
+          20000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ],
+        [
+          11000000,
+          18000000,
+          9000000,
+          3000000,
+          6000000,
+          1000000,
+          3000000,
+          1000000,
+          1000000
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 26,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND SERVICE GROUPS AS OF JULY 1, 2022 (Count)",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 & Over"
+      ],
+      "cells": [
+        [
+          7,
+          24,
+          11,
+          1,
+          5,
+          1,
+          49,
+          null,
+          null
+        ],
+        [
+          12,
+          20,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ],
+        [
+          11,
+          18,
+          9,
+          3,
+          6,
+          1,
+          3,
+          1,
+          1
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 to 69",
+        "70 & up"
+      ],
+      "op": "sum"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 & Over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": {
+    "op": "ratio",
+    "numerator_table": 0,
+    "denominator_table": 1
+  },
+  "transpose": false,
+  "notes": "Source data is interleaved on Page 26: Table 1 contains 'Total Pay' (numerator) and Table 2 contains 'Count' (denominator) rows for each age band. The target requires average salary. The mapping uses additive operations (sum/copy) for both rows and columns because the derive operation is 'ratio', which computes the average after aggregation. The 'Total Pay' and 'Count' rows are summed across the specified bins before the division is performed cell-wise.",
+  "unavailable": false,
+  "broadcast": null
+}

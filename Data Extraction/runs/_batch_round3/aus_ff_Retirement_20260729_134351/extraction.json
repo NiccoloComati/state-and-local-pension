@@ -1,0 +1,10 @@
+{
+  "source_tables": [],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not contain a table showing the distribution of retired members by age with headcounts and average annual benefits. Page 21 provides an 'Age and Service Distribution' table, but it covers only 'Actives' (1,045 members) and does not include retirees. Pages 8 and 9 provide aggregate counts for 'Service Retirees + DROP' (650) and 'Beneficiaries' (74) and total benefit payments, but no age-specific breakdown for these groups. Therefore, the target grid for 'Retirement' (retiree headcount and average benefit by age) is unavailable.",
+  "broadcast": null
+}

@@ -1,0 +1,298 @@
+{
+  "source_tables": [
+    {
+      "page": 63,
+      "title": "Mortality Assumptions - Base Tables and Scaling Factors",
+      "row_labels": [
+        "Pre-retirement Mortality",
+        "Post-retirement Disabled Mortality",
+        "Post-retirement Healthy Mortality"
+      ],
+      "col_labels": [
+        "Applicable Group",
+        "Base Mortality Table",
+        "Male Scaling Factor",
+        "Female Scaling Factor"
+      ],
+      "cells": [
+        [
+          "Pre-retirement Mortality",
+          "RP-2014 White Collar Employee, sex distinct",
+          "98%",
+          "113%"
+        ],
+        [
+          "Post-retirement Disabled Mortality",
+          "RP-2014 Disabled Annuitant, sex distinct",
+          "103%",
+          "106%"
+        ],
+        [
+          "Post-retirement Healthy Mortality",
+          "RP-2014 White Collar Healthy Annuitant, sex distinct",
+          "108%",
+          "94%"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 63,
+      "title": "Future Life Expectancy (years) in 2019 and 2030",
+      "row_labels": [
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60",
+        "65",
+        "70",
+        "75"
+      ],
+      "col_labels": [
+        "2019 Post-retirement Healthy Male",
+        "2019 Post-retirement Healthy Female",
+        "2019 Post-retirement Disabled Male",
+        "2019 Post-retirement Disabled Female",
+        "2030 Post-retirement Healthy Male",
+        "2030 Post-retirement Healthy Female",
+        "2030 Post-retirement Disabled Male",
+        "2030 Post-retirement Disabled Female"
+      ],
+      "cells": [
+        [
+          35,
+          51.05,
+          54.32,
+          34.14,
+          40.53,
+          52.13,
+          55.34,
+          35.9,
+          42.14
+        ],
+        [
+          40,
+          45.88,
+          49.13,
+          30.45,
+          36.1,
+          46.93,
+          50.13,
+          32.03,
+          37.6
+        ],
+        [
+          45,
+          40.79,
+          44.0,
+          27.16,
+          32.01,
+          41.81,
+          44.98,
+          28.6,
+          33.41
+        ],
+        [
+          50,
+          35.79,
+          38.91,
+          23.98,
+          28.05,
+          36.79,
+          39.87,
+          25.34,
+          29.37
+        ],
+        [
+          55,
+          30.91,
+          33.87,
+          20.89,
+          24.3,
+          31.88,
+          34.81,
+          22.16,
+          25.53
+        ],
+        [
+          60,
+          26.17,
+          28.96,
+          17.9,
+          20.84,
+          27.09,
+          29.86,
+          19.03,
+          21.93
+        ],
+        [
+          65,
+          21.62,
+          24.25,
+          15.09,
+          17.5,
+          22.46,
+          25.09,
+          16.03,
+          18.44
+        ],
+        [
+          70,
+          17.31,
+          19.75,
+          12.39,
+          14.19,
+          18.06,
+          20.53,
+          13.18,
+          15.02
+        ],
+        [
+          75,
+          13.32,
+          15.5,
+          9.8,
+          11.09,
+          13.99,
+          16.22,
+          10.48,
+          11.84
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 53,
+      "title": "Summary of Fund Membership",
+      "row_labels": [
+        "Active Members",
+        "Inactive Vested Members",
+        "Inactive Non-Vested Members",
+        "Retirees",
+        "Disabled Retirees",
+        "Beneficiaries (Including Children)",
+        "Total Members"
+      ],
+      "col_labels": [
+        "Number",
+        "Average Age",
+        "Average Service",
+        "Total Salary",
+        "Average Annual Salary",
+        "Total Active Vested Participants",
+        "Male Members",
+        "Female Members",
+        "Tier 1 Members",
+        "Tier 2 Members"
+      ],
+      "cells": [
+        [
+          29295,
+          42.3,
+          10.8,
+          2179054844,
+          74383,
+          16655,
+          6903,
+          22392,
+          18632,
+          10663
+        ],
+        [
+          9926,
+          47.2,
+          7.7,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          20621,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          24631,
+          74.6,
+          null,
+          1373459588,
+          55761,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          469,
+          67.8,
+          null,
+          18158456,
+          38717,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          3217,
+          77.0,
+          null,
+          77424498,
+          24067,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          88159,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "Target unavailable. The document provides mortality assumptions as base tables (RP-2014) with scaling factors (e.g., 98% for Pre-retirement Male) and future life expectancy tables, but does not publish a table of sample mortality rates (probability of death) by age. The target requires a constructed column of annual death probabilities derived from sample rates, which are not present in the text. The provided tables only allow for the calculation of rates if the full RP-2014 table values were known externally, which is outside the scope of extracting data from the provided text.",
+  "broadcast": null
+}

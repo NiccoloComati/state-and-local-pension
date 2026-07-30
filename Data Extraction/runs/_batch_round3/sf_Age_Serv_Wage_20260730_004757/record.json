@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-be15ad599234ea96",
+        "object": "chat.completion",
+        "created": 1785386878,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 53,\n      \"title\": \"Distribution of Active Members as of July 1, 2019 - Average Salary By Age/Service - Total System\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 and up\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 and up\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [61362, 68613, 0, 0, 0, 0, 0, 0, 0, 0, 64806],\n        [76187, 80332, 91226, 0, 0, 0, 0, 0, 0, 0, 80116],\n        [83226, 84282, 100728, 107794, 0, 0, 0, 0, 0, 0, 89130],\n        [87596, 88308, 102274, 114548, 118629, 114241, 0, 0, 0, 0, 97137],\n        [83254, 88171, 101469, 111654, 118889, 118917, 88244, 0, 0, 0, 100526],\n        [85084, 87707, 98483, 111545, 116645, 128186, 132556, 0, 0, 0, 105381],\n        [79592, 87675, 92263, 102588, 109852, 122382, 134622, 133036, 189028, 0, 105611],\n        [82982, 88765, 91984, 98803, 103167, 112373, 121333, 114387, 101280, 0, 102601],\n        [82470, 86763, 92382, 97019, 94468, 100496, 111224, 113563, 104140, 85448, 97952],\n        [97176, 89262, 84810, 92560, 101183, 100737, 112852, 114189, 109547, 100373, 98031],\n        [51570, 69223, 92753, 88517, 98761, 104433, 103248, 105304, 94944, 121452, 95834]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [81264, 86004, 97710, 106140, 108301, 115911, 122590, 115597, 104067, 103969, 98787]\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Distribution of Active Members as of July 1, 2019 - Count By Age/Service - Total System\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 and up\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 and up\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [147, 133, 0, 0, 0, 0, 0, 0, 0, 0, 280],\n        [435, 1272, 129, 0, 0, 0, 0, 0, 0, 0, 1836],\n        [520, 2206, 976, 131, 0, 0, 0, 0, 0, 0, 3833],\n        [397, 1959, 1281, 731, 81, 2, 0, 0, 0, 0, 4451],\n        [291, 1383, 1094, 907, 508, 91, 1, 0, 0, 0, 4275],\n        [241, 1129, 891, 931, 898, 591, 61, 0, 0, 0, 4742],\n        [207, 940, 758, 797, 970, 905, 457, 75, 2, 0, 5111],\n        [133, 751, 672, 734, 908, 800, 594, 306, 106, 0, 5004],\n        [63, 383, 455, 517, 611, 491, 337, 261, 115, 8, 3241],\n        [22, 115, 166, 189, 217, 155, 88, 77, 48, 22, 1099],\n        [7, 25, 43, 51, 58, 55, 33, 29, 16, 13, 330]\n      ],\n      \"printed_row_totals\": [280, 1836, 3833, 4451, 4275, 4742, 5111, 5004, 3241, 1099, 330],\n      \"printed_col_totals\": [2463, 10296, 6465, 4988, 4251, 3090, 1571, 748, 287, 43, 34202]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 25\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 to 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 to 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 to 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 to 69\",\n        \"70 and up\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1 to 4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 to 9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 to 14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 to 19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 to 24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 to 39\",\n        \"40 and up\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source tables are Table A-8 (Counts) and Table A-9 (Average Salary) on page 53. Target rows 70 maps to source rows '65 to 69' and '70 and up' using weighted_avg. Target col 4 maps to 'Under 1' and '1 to 4' using weighted_avg. Target col 40 maps to '35 to 39' and '40 and up' using weighted_avg. All other mappings are direct copies. Weights table is index 1 (Counts).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80655,
+          "total_tokens": 83870,
+          "completion_tokens": 3215,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80655,
+        "total_tokens": 83870,
+        "completion_tokens": 3215,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

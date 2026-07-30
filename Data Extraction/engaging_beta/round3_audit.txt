@@ -1,0 +1,322 @@
+audited 164 cells (newest run each): 23 declared unavailable (skipped), 141 checked -> 89 clean, 52 with findings
+
+
+===== IMPOSSIBLE =====
+  aus        Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/sweep_20260727/aus_Ret_Rate_20260727_135538
+  aus        Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/sweep_20260727/aus_Sep_Rate_20260727_135638
+  aus_ff     Age_Serv_Wage   [money-too-low]
+      average salary: 39 cell(s) below $8,000 (min $3.00) - monthly dollars reported as annual, or a ratio whose denominator is not a headcount, lands here
+      runs/_batch_round3/aus_ff_Age_Serv_Wage_20260729_133901
+  bos        Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/bos_Ret_Rate_20260729_140654
+  bos        Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/sweep_20260727/bos_Sep_Rate_20260727_141453
+  chi_gen    Avg_Mort        [mortality-inverted]
+      q(119) = 0.02 is BELOW q(20) = 0.0225
+      runs/_verify_s8/chi_gen_Avg_Mort_20260728_161350
+  chi_gen    Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/sweep_20260727/chi_gen_Ret_Rate_20260727_143207
+  chi_pol    Avg_Mort        [mortality-inverted]
+      q(79) = 0.1433 is BELOW q(35) = 0.48582
+      runs/sweep_20260727/chi_pol_Avg_Mort_20260727_150530
+  clt_ff     Age_Serv_Wage   [money-too-high]
+      average salary: 78 cell(s) above $500,000 (max $1,254,839) - salary TOTALS reported as averages land here
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Avg_Mort        [mortality-inverted]
+      q(119) = 0 is BELOW q(20) = 0.003
+      runs/_batch_round3/clt_ff_Avg_Mort_20260729_160147
+  dal        Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/dal_Ret_Rate_20260729_160431
+  dc_pf      Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/dc_pf_Ret_Rate_20260729_164452
+  dc_pf      Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/dc_pf_Sep_Rate_20260729_164519
+  dc_teach   Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/dc_teach_Ret_Rate_20260729_171901
+  dc_teach   Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/dc_teach_Sep_Rate_20260729_171928
+  den        Age_Serv_Wage   [money-too-low]
+      average salary: 60 cell(s) below $8,000 (min $1.00) - monthly dollars reported as annual, or a ratio whose denominator is not a headcount, lands here
+      runs/_batch_round3/den_Age_Serv_Wage_20260729_174834
+  den_schools Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/den_schools_Sep_Rate_20260729_182743
+  hou_ff     Avg_Mort        [empty-grid]
+      all 100 cells are null - nothing was derived
+      runs/_batch_round3/hou_ff_Avg_Mort_20260729_184437
+  hou_ff     Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/hou_ff_Sep_Rate_20260729_184414
+  hou_gen    Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/hou_gen_Ret_Rate_20260729_185726
+  hou_pol    Age_Serv_Wage   [money-too-low]
+      average salary: 45 cell(s) below $8,000 (min $1.00) - monthly dollars reported as annual, or a ratio whose denominator is not a headcount, lands here
+      runs/_batch_round3/hou_pol_Age_Serv_Wage_20260729_191935
+  lax_ffpol  Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/lax_ffpol_Ret_Rate_20260729_192744
+  lax_ffpol  Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/lax_ffpol_Sep_Rate_20260729_192835
+  lax_gen    Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/lax_gen_Ret_Rate_20260729_193337
+  lax_gen    Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/sweep_20260727/lax_gen_Sep_Rate_20260727_155119
+  mil        Age_Serv_Wage   [empty-grid]
+      all 80 cells are null - nothing was derived
+      runs/sweep_20260727/mil_Age_Serv_Wage_20260727_161347
+  nsh        Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/nsh_Sep_Rate_20260729_204402
+  nyc_edu    Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/nyc_edu_Ret_Rate_20260729_205812
+  nyc_ers    Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/nyc_ers_Ret_Rate_20260729_215722
+  nyc_pol    Sep_Rate        [no-rate-derived]
+      the only populated cells are the 19 impossibility zeros written by the executor; every real age x service cell is null - no rate was derived
+      runs/_batch_round3/nyc_pol_Sep_Rate_20260729_222620
+  phx        Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_batch_round3/phx_Ret_Rate_20260729_232148
+  sd         Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/_verify_s8/sd_Ret_Rate_20260728_161602
+  sf         Ret_Rate        [empty-grid]
+      all 189 cells are null - nothing was derived
+      runs/sweep_20260727/sf_Ret_Rate_20260727_165116
+  sf         Retirement      [money-too-low]
+      average benefit: 11 value(s) below $1,200 (min $1.00) - not a plausible annual figure. A ratio whose denominator is not a headcount, or monthly dollars reported as annual, lands here
+      runs/sweep_20260727/sf_Retirement_20260727_165445
+
+===== SUSPECT =====
+  aus_pol    Retirement      [counts-fractional]
+      8/11 count values are not whole numbers
+      runs/_batch_round3/aus_pol_Retirement_20260729_140517
+  aus_pol    Sep_Rate        [constant-column]
+      column '1' is 0.06 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/aus_pol_Sep_Rate_20260729_134737
+  aus_pol    Sep_Rate        [constant-column]
+      column '2' is 0.02 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/aus_pol_Sep_Rate_20260729_134737
+  aus_pol    Sep_Rate        [constant-column]
+      column '3' is 0.02 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/aus_pol_Sep_Rate_20260729_134737
+  aus_pol    Sep_Rate        [constant-column]
+      column '4' is 0.02 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/aus_pol_Sep_Rate_20260729_134737
+  chi_edu    Sep_Rate        [constant-column]
+      column '1' is 0.16 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_edu_Sep_Rate_20260729_141915
+  chi_edu    Sep_Rate        [constant-column]
+      column '2' is 0.13 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_edu_Sep_Rate_20260729_141915
+  chi_edu    Sep_Rate        [constant-column]
+      column '3' is 0.12 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_edu_Sep_Rate_20260729_141915
+  chi_edu    Sep_Rate        [constant-column]
+      column '4' is 0.09 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_edu_Sep_Rate_20260729_141915
+  chi_ff     Sep_Rate        [constant-column]
+      column '1' is 0.008 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_ff_Sep_Rate_20260729_144450
+  chi_ff     Sep_Rate        [constant-column]
+      column '2' is 0.006 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_ff_Sep_Rate_20260729_144450
+  chi_ff     Sep_Rate        [constant-column]
+      column '3' is 0.006 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_ff_Sep_Rate_20260729_144450
+  chi_ff     Sep_Rate        [constant-column]
+      column '4' is 0.006 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_ff_Sep_Rate_20260729_144450
+  chi_gen    Avg_Mort        [mortality-level]
+      q(20) = 0.0225 at age 20, above the plausible 0.01 (11 age(s) in 0-30 exceed it) - wrong population (disability/disabled-life table), a missing values_unit, or a bad blend
+      runs/_verify_s8/chi_gen_Avg_Mort_20260728_161350
+  chi_gen    Sep_Rate        [constant-column]
+      column '1' is 0.16 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_gen_Sep_Rate_20260729_151333
+  chi_gen    Sep_Rate        [constant-column]
+      column '2' is 0.14 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_gen_Sep_Rate_20260729_151333
+  chi_gen    Sep_Rate        [constant-column]
+      column '3' is 0.12 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_gen_Sep_Rate_20260729_151333
+  chi_gen    Sep_Rate        [constant-column]
+      column '4' is 0.1 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_gen_Sep_Rate_20260729_151333
+  chi_pol    Avg_Mort        [mortality-level]
+      q(35) = 0.48582 at age 35, above the plausible 0.05 (26 age(s) in 31-60 exceed it) - wrong population (disability/disabled-life table), a missing values_unit, or a bad blend
+      runs/sweep_20260727/chi_pol_Avg_Mort_20260727_150530
+  chi_pol    Sep_Rate        [constant-column]
+      column '1' is 0.025 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_pol_Sep_Rate_20260729_155012
+  chi_pol    Sep_Rate        [constant-column]
+      column '2' is 0.017 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_pol_Sep_Rate_20260729_155012
+  chi_pol    Sep_Rate        [constant-column]
+      column '3' is 0.015 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_pol_Sep_Rate_20260729_155012
+  chi_pol    Sep_Rate        [constant-column]
+      column '4' is 0.014 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/chi_pol_Sep_Rate_20260729_155012
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '9' is 1000000.0 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '14' is 1000000.0 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '19' is 1000000.0 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '24' is 1000000.0 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '29' is 1000000.0 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '34' is 1000000.0 in all 9 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Age_Serv_Wage   [constant-column]
+      column '40' is 1000000.0 in all 9 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Age_Serv_Wage_20260729_155342
+  clt_ff     Sep_Rate        [constant-column]
+      column '1' is 0.013999999999999999 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Sep_Rate_20260729_160134
+  clt_ff     Sep_Rate        [constant-column]
+      column '2' is 0.013999999999999999 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Sep_Rate_20260729_160134
+  clt_ff     Sep_Rate        [constant-column]
+      column '3' is 0.013999999999999999 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Sep_Rate_20260729_160134
+  clt_ff     Sep_Rate        [constant-column]
+      column '4' is 0.013999999999999999 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/clt_ff_Sep_Rate_20260729_160134
+  dal        Avg_Mort        [constant-column]
+      column 'Death_Prob' is 0.0325 in all 25 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_Avg_Mort_20260729_160533
+  dal        Avg_Mort        [mortality-level]
+      q(20) = 0.0325 at age 20, above the plausible 0.01 (6 age(s) in 0-30 exceed it) - wrong population (disability/disabled-life table), a missing values_unit, or a bad blend
+      runs/_batch_round3/dal_Avg_Mort_20260729_160533
+  dal        Sep_Rate        [constant-column]
+      column '1' is 0.1725 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_Sep_Rate_20260729_160455
+  dal        Sep_Rate        [constant-column]
+      column '2' is 0.147 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_Sep_Rate_20260729_160455
+  dal        Sep_Rate        [constant-column]
+      column '3' is 0.11499999999999999 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_Sep_Rate_20260729_160455
+  dal        Sep_Rate        [constant-column]
+      column '4' is 0.0925 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_Sep_Rate_20260729_160455
+  dal_pf     Sep_Rate        [constant-column]
+      column '1' is 0.055 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_pf_Sep_Rate_20260729_162714
+  dal_pf     Sep_Rate        [constant-column]
+      column '2' is 0.055 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_pf_Sep_Rate_20260729_162714
+  dal_pf     Sep_Rate        [constant-column]
+      column '3' is 0.055 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_pf_Sep_Rate_20260729_162714
+  dal_pf     Sep_Rate        [constant-column]
+      column '4' is 0.055 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/dal_pf_Sep_Rate_20260729_162714
+  den        Sep_Rate        [constant-column]
+      column '1' is 0.185 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/den_Sep_Rate_20260729_175157
+  den        Sep_Rate        [constant-column]
+      column '2' is 0.1575 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/den_Sep_Rate_20260729_175157
+  den        Sep_Rate        [constant-column]
+      column '3' is 0.135 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/den_Sep_Rate_20260729_175157
+  den        Sep_Rate        [constant-column]
+      column '4' is 0.12 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/den_Sep_Rate_20260729_175157
+  hou_pol    Sep_Rate        [constant-column]
+      column '1' is 0.0271 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/hou_pol_Sep_Rate_20260729_192254
+  hou_pol    Sep_Rate        [constant-column]
+      column '3' is 0.0195 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/hou_pol_Sep_Rate_20260729_192254
+  lax_uty    Sep_Rate        [constant-column]
+      column '1' is 0.0525 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/lax_uty_Sep_Rate_20260729_201527
+  lax_uty    Sep_Rate        [constant-column]
+      column '2' is 0.0375 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/lax_uty_Sep_Rate_20260729_201527
+  lax_uty    Sep_Rate        [constant-column]
+      column '3' is 0.035 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/lax_uty_Sep_Rate_20260729_201527
+  lax_uty    Sep_Rate        [constant-column]
+      column '4' is 0.025 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/lax_uty_Sep_Rate_20260729_201527
+  nyc_edu    Sep_Rate        [constant-column]
+      column '1' is 0.065 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_edu_Sep_Rate_20260729_212713
+  nyc_edu    Sep_Rate        [constant-column]
+      column '2' is 0.061000000000000006 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_edu_Sep_Rate_20260729_212713
+  nyc_edu    Sep_Rate        [constant-column]
+      column '3' is 0.057 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_edu_Sep_Rate_20260729_212713
+  nyc_edu    Sep_Rate        [constant-column]
+      column '4' is 0.0535 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_edu_Sep_Rate_20260729_212713
+  nyc_ers    Sep_Rate        [constant-column]
+      column '1' is 0.07 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_ers_Sep_Rate_20260729_215802
+  nyc_ers    Sep_Rate        [constant-column]
+      column '2' is 0.055999999999999994 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_ers_Sep_Rate_20260729_215802
+  nyc_ers    Sep_Rate        [constant-column]
+      column '3' is 0.042 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_ers_Sep_Rate_20260729_215802
+  nyc_ers    Sep_Rate        [constant-column]
+      column '4' is 0.042 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/nyc_ers_Sep_Rate_20260729_215802
+  sd         Sep_Rate        [constant-column]
+      column '1' is 0.08499999999999999 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sd_Sep_Rate_20260729_234142
+  sd         Sep_Rate        [constant-column]
+      column '2' is 0.07250000000000001 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sd_Sep_Rate_20260729_234142
+  sd         Sep_Rate        [constant-column]
+      column '3' is 0.0625 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sd_Sep_Rate_20260729_234142
+  sd         Sep_Rate        [constant-column]
+      column '4' is 0.052500000000000005 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sd_Sep_Rate_20260729_234142
+  sea        Sep_Rate        [constant-column]
+      column '2' is 0.07050000000000001 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sea_Sep_Rate_20260730_004436
+  sea        Sep_Rate        [constant-column]
+      column '3' is 0.0665 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sea_Sep_Rate_20260730_004436
+  sea        Sep_Rate        [constant-column]
+      column '4' is 0.063 in all 10 populated rows - a ratio of a column by itself looks like this
+      runs/_batch_round3/sea_Sep_Rate_20260730_004436
+
+===== NOTE =====
+  den_schools Age_Serv_Wage   [sparse]
+      only 10/80 cells populated (12%)
+      runs/_batch_round3/den_schools_Age_Serv_Wage_20260729_180002
+
+wrote 104 findings to runs/_batch_round3/audit_findings.csv

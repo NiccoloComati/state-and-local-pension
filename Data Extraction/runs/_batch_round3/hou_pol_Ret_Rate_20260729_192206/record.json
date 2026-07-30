@@ -1,0 +1,122 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-819382e6c0d6c5d3",
+        "object": "chat.completion",
+        "created": 1785367326,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"40-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\",\n        \"65 +\"\n      ],\n      \"col_labels\": [\n        \"<25\",\n        \"25 - 29\",\n        \"30+\"\n      ],\n      \"cells\": [\n        [3.0, 3.0, 9.0],\n        [4.0, 6.0, 10.0],\n        [6.8, 10.2, 17.0],\n        [9.6, 14.4, 24.0],\n        [100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [40, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, null]\n      ],\n      \"col_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table on page 54 provides retirement rates by Age (rows) and Service (columns). Target requires Service (rows) x Age (columns), so transpose=true. Source rates are in percent; values_unit='percent' handles conversion. Source service bins (<25, 25-29, 30+) do not align with target service bins (5-11, 12-19, etc.), so row_map uses overlap_weighted with source_spans. Source age bins (40-49, 50-54, etc.) do not align with target single ages, so col_map uses overlap_weighted with source_spans. For target service bins <25, the source bin '<25' covers the entire range, so the rate is copied (overlap is 100%). For target service bins >=25, the source bin '30+' covers the range, so the rate is copied. The source bin '25-29' is not used for any target bin as the target bins are either fully below 25 or fully above 29 (except 25-29 itself which maps to 25-29). Wait, target has '25-29'. Source has '25-29'. So for target '25-29', the source '25-29' is used. For target '5-11', '12-19', '20-24', the source '<25' is used. For target '30', '31-32', '33-34', '35-39', '40', the source '30+' is used. The row_map sources list is empty because the mapping is done via overlap_weighted on the source_spans defined in the row_map entry itself, referencing the source table's column spans. Actually, the row_map 'sources' should list the source column labels that contribute. For '5-11', it's '<25'. For '25-29', it's '25-29'. For '30+', it's '30+'. The 'op' is overlap_weighted because the target bin might span multiple source bins, but here each target bin falls entirely within one source bin, so it's effectively a copy. However, the instruction says to use overlap_weighted with source_spans for non-aligned bins. Since the target bins are subsets of source bins, the overlap is 100% for the matching source bin and 0% for others. The 'sources' list should contain the source labels that have non-zero overlap. So for '5-11', sources=['<25']. For '25-29', sources=['25-29']. For '30', sources=['30+']. The 'source_spans' in the row_map entry should be the spans of the source bins. The 'source_spans' in the row_map entry is a list of [lo, hi] for each source in the 'sources' list. So for '5-11', sources=['<25'], source_spans=[[null, 24]]. For '25-29', sources=['25-29'], source_spans=[[25, 29]]. For '30', sources=['30+'], source_spans=[[30, null]]. The same logic applies to col_map. The source age bins are [40,49], [50,54], [55,59], [60,64], [65,null]. The target ages are single years. For target '50', it falls in [50,54], so sources=['50-54'], source_spans=[[50,54]]. For target '65', it falls in [65,null], so sources=['65 +'], source_spans=[[65, null]]. The 'transpose' is true because the source is Age x Service and target is Service x Age. The 'values_unit' is 'percent' because the source prints percentages. The 'derive' is null because no calculation is needed beyond the mapping and unit conversion. The 'notes' explain the mapping strategy.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 54962,
+          "total_tokens": 58212,
+          "completion_tokens": 3250,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 54962,
+        "total_tokens": 58212,
+        "completion_tokens": 3250,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 9,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0] ('5-11'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[1] ('12-19'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[2] ('20-24'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[3] ('25-29'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[4] ('30'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[5] ('31-32'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[6] ('33-34'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[7] ('35-39'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])",
+        "row_map[8] ('40'): overlap_weighted requires source_spans - one [lo, hi] integer span per source, null for open ends (e.g. '<15' -> [null, 14])"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-ab4cf64b8d97bd69",
+        "object": "chat.completion",
+        "created": 1785367347,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"40-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\",\n        \"65 +\"\n      ],\n      \"col_labels\": [\n        \"<25\",\n        \"25 - 29\",\n        \"30+\"\n      ],\n      \"cells\": [\n        [3.0, 3.0, 9.0],\n        [4.0, 6.0, 10.0],\n        [6.8, 10.2, 17.0],\n        [9.6, 14.4, 24.0],\n        [100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [40, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, null]\n      ],\n      \"col_spans\": [\n        [null, 24],\n        [25, 29],\n        [30, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [\n        \"<25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [\n        \"<25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [\n        \"<25\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [null, 24]\n      ]\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [\n        \"25 - 29\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [25, 29]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [\n        \"30+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [\n        \"30+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [\n        \"30+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, null]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"30+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [30, null]\n      ]\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [50, 54]\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [55, 59]\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [60, 64]\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 +\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [65, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table on page 54 provides retirement rates by Age (rows) and Service (columns). Target requires Service (rows) x Age (columns), so transpose=true. Source rates are in percent; values_unit='percent' handles conversion. Source service bins (<25, 25-29, 30+) do not align perfectly with target service bins, so row_map uses overlap_weighted with source_spans. Source age bins (40-49, 50-54, etc.) do not align with target single ages, so col_map uses overlap_weighted with source_spans. For target service bins 5-11, 12-19, 20-24, the source bin '<25' covers the entire range. For target service bin 25-29, the source bin '25 - 29' covers the range. For target service bins 30, 31-32, 33-34, 35-39, 40, the source bin '30+' covers the range. The 'sources' list in row_map/col_map contains the source labels that have non-zero overlap with the target bin. The 'source_spans' list contains the numeric spans corresponding to those source labels.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 61035,
+          "total_tokens": 63576,
+          "completion_tokens": 2541,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 61035,
+        "total_tokens": 63576,
+        "completion_tokens": 2541,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

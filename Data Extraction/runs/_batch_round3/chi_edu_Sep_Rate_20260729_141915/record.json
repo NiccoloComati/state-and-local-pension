@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9ce90b7c32b57858",
+        "object": "chat.completion",
+        "created": 1785349155,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 64,\n      \"title\": \"Termination Rates by Service\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31+\"\n      ],\n      \"col_labels\": [\n        \"Termination Rate (%)\"\n      ],\n      \"cells\": [\n        [30.0],\n        [16.0],\n        [13.0],\n        [12.0],\n        [9.0],\n        [9.0],\n        [8.0],\n        [6.0],\n        [5.0],\n        [5.0],\n        [4.0],\n        [3.0],\n        [3.0],\n        [3.0],\n        [3.0],\n        [3.0],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [2.25],\n        [1.75],\n        [1.75]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30],\n        [31, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5\",\n        \"6\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [5, 5],\n        [6, 6]\n      ]\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"7\",\n        \"8\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [7, 7],\n        [8, 8]\n      ]\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"9\",\n        \"10\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [9, 9],\n        [10, 10]\n      ]\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"11\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"12\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, 26],\n        [27, 27],\n        [28, 28],\n        [29, 29],\n        [30, 30]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"31+\"\n      ],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [\n        [31, null]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Termination Rate (%)\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 64 provides termination rates by years of service only. Rates are broadcast across all target ages. Source values are percentages; code will convert to decimal. Target service bins 6, 8, 10, 30, and 40 are derived via overlap_weighted from single-year source bins or the open-ended 31+ bin.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81947,
+          "total_tokens": 84064,
+          "completion_tokens": 2117,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81947,
+        "total_tokens": 84064,
+        "completion_tokens": 2117,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

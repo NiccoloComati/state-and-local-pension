@@ -1,0 +1,115 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b158756a57f5037e",
+        "object": "chat.completion",
+        "created": 1785387469,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 68,\n      \"title\": \"Misc. Rates of Termination by Age and Service Years\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\"\n      ],\n      \"col_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5 or more\"\n      ],\n      \"cells\": [\n        [37.50, 19.00, 15.00, 12.00, 9.00, 6.50],\n        [27.50, 19.00, 10.00, 9.00, 7.00, 6.50],\n        [24.00, 14.00, 9.00, 9.00, 7.00, 5.50],\n        [20.00, 9.00, 9.00, 7.00, 6.50, 4.25],\n        [17.50, 9.00, 8.00, 6.00, 4.50, 3.00],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 2.50],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 2.60],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 3.15],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 5.00],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 12.50]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69]\n      ],\n      \"col_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, null]\n      ]\n    },\n    {\n      \"page\": 69,\n      \"title\": \"Rates of Termination\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14\",\n        \"15\",\n        \"16\",\n        \"17\",\n        \"18\",\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26\"\n      ],\n      \"col_labels\": [\n        \"Police\",\n        \"Fire\",\n        \"Muni Drivers\",\n        \"Craft\"\n      ],\n      \"cells\": [\n        [10.00, 4.00, 12.00, 10.00],\n        [2.50, 1.50, 6.00, 7.00],\n        [1.50, 1.50, 5.00, 6.00],\n        [1.00, 1.50, 4.00, 5.00],\n        [0.75, 1.50, 3.50, 4.00],\n        [0.75, 1.50, 3.25, 3.25],\n        [0.75, 0.75, 3.00, 2.75],\n        [0.75, 0.75, 3.00, 2.50],\n        [0.75, 0.75, 3.00, 2.25],\n        [0.75, 0.75, 3.00, 2.00],\n        [0.75, 0.75, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.50, 0.50, 3.00, 1.75],\n        [0.00, 0.00, 0.00, 1.75],\n        [0.00, 0.00, 0.00, 1.75],\n        [0.00, 0.00, 0.00, 1.75],\n        [0.00, 0.00, 0.00, 1.75],\n        [0.00, 0.00, 0.00, 1.75],\n        [0.00, 0.00, 0.00, 0.00]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, 14],\n        [15, 15],\n        [16, 16],\n        [17, 17],\n        [18, 18],\n        [19, 19],\n        [20, 20],\n        [21, 21],\n        [22, 22],\n        [23, 23],\n        [24, 24],\n        [25, 25],\n        [26, 26]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Misc\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Termination rates are published by Service only for Safety groups (Police, Fire, Muni Drivers, Craft) in Table B-3 (Page 69) and by Age and Service for Miscellaneous in Table B-2 (Page 68). The target grid requires a single rate per cell. Since the document provides distinct rates for different employee groups (Safety vs Misc) and the target does not specify a group, and no headcount table is provided to weight them, the extraction defaults to the Miscellaneous group (Table B-2) as it is the largest and most detailed group with Age x Service data. The Safety rates (Table B-3) are by Service only and would require a broadcast assumption of 'age' independence which is not explicitly stated for Safety (though implied by the table structure). However, Table B-2 explicitly provides Age x Service for Misc. The mapping uses the Misc table. For Safety groups, the rates are constant by age for a given service (Table B-3), so a broadcast of 'age' would apply the service rate to all ages. Since the target asks for 'Sep_Rate' without group specification, and Misc is the default 'general' group in many contexts, Misc is selected. Note: Target service bins 6, 8, 10, 11, 12, 30, 40 all map to the source bin '5 or more' (op copy) as the source does not differentiate beyond 5 years. Target ages 25-70 map to the source age rows (25, 30, 35, 40, 45, 50, 55, 60, 65) via copy. Age 70 is not explicitly in Table B-2 (last row 65), so it is mapped to the 65 row (or 65+ if implied, but here 65 is the last row). The source values are percentages and will be converted to decimals by the code.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 80854,
+          "total_tokens": 84046,
+          "completion_tokens": 3192,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 80854,
+        "total_tokens": 84046,
+        "completion_tokens": 3192,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "broadcast: col_map (the varying axis) references 5 label(s) that are not ROW labels of source_tables[0]: ['1', '2', '3', '4', '5 or more']. In broadcast the varying-axis sources are the source's ROW labels (the printed bins). Available rows: ['20', '25', '30', '35', '40', '45', '50', '55', '60', '65']",
+        "broadcast.series_sources ['Misc'] are not COLUMN labels of source_tables[0]. Available columns: ['0', '1', '2', '3', '4', '5 or more']"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-b8f19febf2a1457c",
+        "object": "chat.completion",
+        "created": 1785387491,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 68,\n      \"title\": \"Misc. Rates of Termination by Age and Service Years\",\n      \"row_labels\": [\n        \"20\",\n        \"25\",\n        \"30\",\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\"\n      ],\n      \"col_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5 or more\"\n      ],\n      \"cells\": [\n        [37.50, 19.00, 15.00, 12.00, 9.00, 6.50],\n        [27.50, 19.00, 10.00, 9.00, 7.00, 6.50],\n        [24.00, 14.00, 9.00, 9.00, 7.00, 5.50],\n        [20.00, 9.00, 9.00, 7.00, 6.50, 4.25],\n        [17.50, 9.00, 8.00, 6.00, 4.50, 3.00],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 2.50],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 2.60],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 3.15],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 5.00],\n        [15.00, 9.00, 6.00, 4.50, 3.50, 12.50]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69]\n      ],\n      \"col_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [\n        \"25\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"30\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [\n        \"35\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"40\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [\n        \"45\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"50\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"55\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"60\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"65\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"1\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"2\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"3\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"5 or more\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": null,\n  \"notes\": \"Termination rates are published by Age and Service for Miscellaneous members in Table B-2 (Page 68). The target grid requires rates by Age (rows) and Service (columns). The source table provides exactly this structure. Target ages 25-65 map directly to source rows. Target age 70 maps to the last source row (65) as no older age is provided. Target service bins 1-4 map directly. Target service bins 6, 8, 10, 11, 12, 30, 40 all map to the source bin '5 or more' via copy, as the source does not differentiate beyond 5 years. Source values are percentages and will be converted to decimals by the code. No broadcast is needed as both dimensions are present in the source.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86545,
+          "total_tokens": 88320,
+          "completion_tokens": 1775,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86545,
+        "total_tokens": 88320,
+        "completion_tokens": 1775,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

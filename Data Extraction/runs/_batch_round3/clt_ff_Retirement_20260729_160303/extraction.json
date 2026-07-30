@@ -1,0 +1,199 @@
+{
+  "source_tables": [
+    {
+      "page": 27,
+      "title": "TABLE 2: NUMBER OF RETIRED MEMBERS AND BENEFICIARIES AND THEIR BENEFITS BY AGE",
+      "row_labels": [
+        "50 & Under",
+        "51 - 55",
+        "56 - 60",
+        "61 - 65",
+        "66 - 70",
+        "71 - 75",
+        "76 - 80",
+        "Over 80",
+        "Total"
+      ],
+      "col_labels": [
+        "Number of Members",
+        "Total Annual Benefits",
+        "Average Annual Benefits"
+      ],
+      "cells": [
+        [
+          24,
+          1439958,
+          59998
+        ],
+        [
+          114,
+          8233620,
+          72225
+        ],
+        [
+          163,
+          9707602,
+          59556
+        ],
+        [
+          157,
+          8721067,
+          55548
+        ],
+        [
+          135,
+          6760697,
+          50079
+        ],
+        [
+          103,
+          4550093,
+          44176
+        ],
+        [
+          65,
+          2489845,
+          38305
+        ],
+        [
+          65,
+          2732071,
+          42032
+        ],
+        [
+          826,
+          44634953,
+          54037
+        ]
+      ],
+      "printed_row_totals": [
+        24,
+        114,
+        163,
+        157,
+        135,
+        103,
+        65,
+        65,
+        826
+      ],
+      "printed_col_totals": [
+        826,
+        44634953,
+        54037
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50 & Under",
+        "51 - 55"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "51 - 55",
+        "56 - 60"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "56 - 60",
+        "61 - 65"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "61 - 65",
+        "66 - 70"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "66 - 70",
+        "71 - 75"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "71 - 75",
+        "76 - 80"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "76 - 80",
+        "Over 80"
+      ],
+      "op": "sum",
+      "weights_table": 0
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "Over 80"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "90-94",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Number of Members"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Total Annual Benefits",
+        "Number of Members"
+      ],
+      "op": "ratio"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table includes all retired members and beneficiaries (Service, Disability, and Survivors) as the document does not provide a separate table for Service Retirees only. The '50 & Under' bin is mapped to '50-54' via sum (assuming negligible counts below 50 for this plan). The 'Over 80' bin is split evenly across '80-84' and '85-89' via share_even. Target rows '90-94', '95-99', and '100 & over' have no source data. The 'Average Annual Benefits' column in the source is derived from Total/Count, so the target AverageBenefit is declared as a ratio of the Total Annual Benefits and Number of Members columns to ensure exact alignment with the split counts. The 'Number' column uses 'sum' with 'weights_table' 0 to correctly compute the weighted average for the 'AverageBenefit' column when bins are merged.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,528 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8f88c5b53294faaa",
+        "object": "chat.completion",
+        "created": 1785371860,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 43,\n      \"title\": \"DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE - METRO TOTALS - COMBINED\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [243, 9124821, 37551],\n        [423, 20022894, 47335],\n        [414, 20885530, 50448],\n        [373, 19102232, 51212],\n        [299, 16424985, 54933],\n        [1752, 85560462, 48836],\n        [1172, 68991162, 58866],\n        [895, 58349106, 65195],\n        [770, 53646056, 69670],\n        [619, 48329990, 78078],\n        [356, 28884788, 81137],\n        [295, 23768840, 80572],\n        [94, 6993836, 74403],\n        [46, 3957595, 86035],\n        [5, 474746, 94949]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [6004, 378956581, 63117]\n    },\n    {\n      \"page\": 61,\n      \"title\": \"DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS - ACTIVE LIVES - METRO TOTALS - COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\",\n        \"TOTAL\"\n      ],\n      \"cells\": [\n        [17, 0, 0, 0, 0, 0, 0, 0, 17],\n        [388, 13, 0, 0, 0, 0, 0, 0, 401],\n        [1011, 217, 7, 0, 0, 0, 0, 0, 1235],\n        [746, 504, 189, 12, 0, 0, 0, 0, 1451],\n        [514, 377, 395, 158, 8, 0, 0, 0, 1452],\n        [391, 252, 288, 343, 178, 10, 0, 0, 1462],\n        [333, 233, 259, 293, 338, 142, 17, 0, 1615],\n        [299, 194, 216, 264, 250, 222, 177, 20, 1642],\n        [221, 170, 169, 219, 216, 149, 186, 86, 1416],\n        [131, 91, 118, 142, 97, 74, 67, 69, 789],\n        [57, 62, 57, 63, 36, 20, 17, 36, 348]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [4108, 2113, 1698, 1494, 1123, 617, 464, 211, 11828]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"1-20\",\n        \"21-25\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"66-UP\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35-UP\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table 0 (Page 43) provides Average Salary by Service. Source table 1 (Page 61) provides Member Counts by Age and Service. The target grid requires Average Salary by Age and Service. Since the source tables are split (Salary by Service only, Counts by Age and Service), and no single table provides Salary by Age and Service, the target is unavailable in the document. The provided mapping attempts to construct it by assuming Salary is independent of Age (broadcasting the service-based average to all ages), but this is a modeling assumption not supported by the data. The document does not publish Average Salary by Age and Service. The closest available data is Average Salary by Service (Table 0) and Counts by Age and Service (Table 1). Without a table linking Salary to Age, the target grid cannot be derived without assumption. Therefore, unavailable is true.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 130656,
+          "completion_tokens": 2485,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 130656,
+        "completion_tokens": 2485,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map references 11 source label(s) that do NOT exist in source_tables[0]: ['1-20', '21-25', '26-30', '31-35', '36-40', '41-45'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['0', '1', '2', '3', '4', '0-4', '5-9', '10-14', '15-19', '20-24', '25-29', '30-34', '35-39', '40-44'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "col_map references 8 source label(s) that do NOT exist in source_tables[0]: ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed COLUMN labels of source_tables[0] are: ['NO', 'TOTAL', 'AVERAGE']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] holds values up to 85,560,462 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-ae5006ef1f9917c6",
+        "object": "chat.completion",
+        "created": 1785371882,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 54,\n      \"title\": \"DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE - METRO TOTALS - COMBINED\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [243, 9124821, 37551],\n        [423, 20022894, 47335],\n        [414, 20885530, 50448],\n        [373, 19102232, 51212],\n        [299, 16424985, 54933],\n        [1752, 85560462, 48836],\n        [1172, 68991162, 58866],\n        [895, 58349106, 65195],\n        [770, 53646056, 69670],\n        [619, 48329990, 78078],\n        [356, 28884788, 81137],\n        [295, 23768840, 80572],\n        [94, 6993836, 74403],\n        [46, 3957595, 86035],\n        [5, 474746, 94949]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [6004, 378956581, 63117]\n    },\n    {\n      \"page\": 61,\n      \"title\": \"DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS - ACTIVE LIVES - METRO TOTALS - COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\",\n        \"TOTAL\"\n      ],\n      \"cells\": [\n        [17, 0, 0, 0, 0, 0, 0, 0, 17],\n        [388, 13, 0, 0, 0, 0, 0, 0, 401],\n        [1011, 217, 7, 0, 0, 0, 0, 0, 1235],\n        [746, 504, 189, 12, 0, 0, 0, 0, 1451],\n        [514, 377, 395, 158, 8, 0, 0, 0, 1452],\n        [391, 252, 288, 343, 178, 10, 0, 0, 1462],\n        [333, 233, 259, 293, 338, 142, 17, 0, 1615],\n        [299, 194, 216, 264, 250, 222, 177, 20, 1642],\n        [221, 170, 169, 219, 216, 149, 186, 86, 1416],\n        [131, 91, 118, 142, 97, 74, 67, 69, 789],\n        [57, 62, 57, 63, 36, 20, 17, 36, 348]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [4108, 2113, 1698, 1494, 1123, 617, 464, 211, 11828]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not publish Active Member Average Salary by Age and Service. Table 0 (Page 54) provides Total Salary and Member Counts by Service only (no age breakdown). Table 1 (Page 61) provides Member Counts by Age and Service. There is no table linking Salary to Age. The target grid requires Average Salary by Age and Service. Since the salary dimension is only available by Service, and the age dimension is only available in the counts table, the target cannot be derived without assuming salary is independent of age (a modeling assumption). Therefore, the target is unavailable.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 133539,
+          "total_tokens": 135593,
+          "completion_tokens": 2054,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 133539,
+        "total_tokens": 135593,
+        "completion_tokens": 2054,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "unavailable=true requires row_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "unavailable=true requires col_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "source_tables[0] holds values up to 85,560,462 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-b44e6ce901dd483b",
+        "object": "chat.completion",
+        "created": 1785371902,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 37,\n      \"title\": \"TABLE I-3 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL DIVISION A\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 68039, 68039],\n        [3, 181053, 60351],\n        [13, 856502, 65885],\n        [11, 648653, 58968],\n        [17, 1070061, 62945],\n        [8, 397422, 49678],\n        [1, 25915, 25915],\n        [1, 30391, 30391],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [55, 3278036, 132249]\n    },\n    {\n      \"page\": 38,\n      \"title\": \"TABLE I-4 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO GENERAL GOVERNMENT DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 438695, 25805],\n        [275, 8977386, 32645],\n        [804, 30753844, 38251],\n        [936, 40317522, 43074],\n        [1036, 50185967, 48442],\n        [1011, 48691716, 48161],\n        [1138, 57498683, 50526],\n        [1295, 66963624, 51709],\n        [1248, 64498051, 51681],\n        [707, 35992618, 50908],\n        [231, 12121014, 52471],\n        [74, 2922954, 39499],\n        [18, 865376, 48076],\n        [8, 391096, 48887],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [8799, 420696885, 47811]\n    },\n    {\n      \"page\": 39,\n      \"title\": \"TABLE I-5 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO FIRE AND POLICE DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [126, 6482948, 51451],\n        [431, 25120855, 58285],\n        [515, 33469815, 64989],\n        [415, 28628355, 68983],\n        [448, 34722899, 77506],\n        [464, 37890038, 81659],\n        [336, 27903441, 83045],\n        [151, 12291230, 81398],\n        [74, 6143309, 83017],\n        [13, 1159232, 89171],\n        [1, 233333, 233333],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [2974, 214045455, 71972]\n    },\n    {\n      \"page\": 40,\n      \"title\": \"TABLE I-6 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 438695, 25806],\n        [401, 15460334, 38554],\n        [1235, 55874699, 45243],\n        [1451, 73787337, 50853],\n        [1451, 78814322, 54317],\n        [1459, 83414615, 57172],\n        [1602, 95388721, 59544],\n        [1631, 94867065, 58165],\n        [1399, 76789281, 54889],\n        [781, 42135927, 53951],\n        [244, 13280246, 54427],\n        [75, 3156287, 42084],\n        [18, 865376, 48076],\n        [8, 391096, 48887],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [11773, 634742340, 53915]\n    },\n    {\n      \"page\": 41,\n      \"title\": \"TABLE I-7 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO GENERAL GOVERNMENT COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 438695, 25806],\n        [275, 8977386, 32645],\n        [804, 30753844, 38251],\n        [936, 40317522, 43074],\n        [1036, 50185967, 48442],\n        [1012, 48718066, 48140],\n        [1149, 58185640, 50640],\n        [1304, 67451103, 51726],\n        [1258, 65004640, 51673],\n        [714, 36299775, 50840],\n        [232, 12146929, 52357],\n        [75, 2953345, 39378],\n        [18, 865376, 48076],\n        [8, 391096, 48887],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [8839, 422767723, 47830]\n    },\n    {\n      \"page\": 42,\n      \"title\": \"TABLE I-8 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO FIRE AND POLICE COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [126, 6482948, 51452],\n        [431, 25120855, 58285],\n        [515, 33469815, 64990],\n        [416, 28696394, 68982],\n        [450, 34877602, 77506],\n        [466, 38059583, 81673],\n        [338, 28064615, 83031],\n        [158, 12854702, 81359],\n        [75, 6233574, 83114],\n        [13, 1159232, 89172],\n        [1, 233333, 233333],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [2989, 215252653, 72015]\n    },\n    {\n      \"page\": 43,\n      \"title\": \"TABLE I-9 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 438695, 25806],\n        [401, 15460334, 38554],\n        [1235, 55874699, 45243],\n        [1451, 73787337, 50853],\n        [1452, 78882361, 54327],\n        [1462, 83595668, 57179],\n        [1615, 96245223, 59595],\n        [1642, 95515718, 58170],\n        [1416, 77859342, 54985],\n        [789, 42533349, 53908],\n        [245, 13306161, 54311],\n        [76, 3186678, 41930],\n        [18, 865376, 48076],\n        [8, 391096, 48887],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [11828, 638020376, 53942]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"1-20\",\n        \"21-25\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"1-20\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"21-25\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Target requires Average Salary by Age and Service. The document provides 'Distribution of Active Participants' Earnings by Age' (Tables I-1 to I-9) and 'by Length of Service' (Tables II-1 to II-9), but NO table provides the cross-tabulation of Age x Service. The provided Age tables have no service dimension, and the Service tables have no age dimension. Therefore, the specific target grid (Age x Service) is unavailable. The source tables transcribed are the best available evidence (Age distributions and Service distributions separately) but cannot be combined to form the requested 2D grid without assumptions. Note: The 'weights_table' references in the maps above point to the first table (index 0) as a placeholder, but since the data structure is fundamentally missing the cross-tabulation, the extraction is effectively unavailable for the requested grid.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 133464,
+          "completion_tokens": 5293,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 133464,
+        "completion_tokens": 5293,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 20,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0] ('<25'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[1] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[2] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[3] ('39'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[4] ('44'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[5] ('49'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[6] ('54'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[7] ('59'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[8] ('64'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[9] ('70'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[0] ('4'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[1] ('9'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[2] ('14'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[3] ('19'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[4] ('24'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[5] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[6] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[7] ('40'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map references 15 source label(s) that do NOT exist in source_tables[0]: ['1-20', '21-25', '26-30', '31-35', '36-40', '41-45'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed COLUMN labels of source_tables[0] are: ['NO', 'TOTAL', 'AVERAGE']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] holds values up to 1,070,061 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-aa0cc9b337da49b4",
+        "object": "chat.completion",
+        "created": 1785371944,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 59,\n      \"title\": \"DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO GENERAL GOVERNMENT COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\"\n      ],\n      \"cells\": [\n        [17, 0, 0, 0, 0, 0, 0, 0],\n        [263, 12, 0, 0, 0, 0, 0, 0],\n        [681, 117, 6, 0, 0, 0, 0, 0],\n        [580, 244, 101, 11, 0, 0, 0, 0],\n        [443, 237, 232, 117, 7, 0, 0, 0],\n        [356, 183, 196, 189, 81, 7, 0, 0],\n        [316, 183, 200, 187, 164, 83, 16, 0],\n        [286, 175, 188, 227, 168, 126, 115, 19],\n        [218, 164, 157, 208, 185, 113, 134, 79],\n        [130, 89, 115, 138, 89, 62, 40, 51],\n        [56, 62, 57, 61, 36, 18, 16, 28]\n      ],\n      \"printed_row_totals\": [17, 275, 804, 936, 1036, 1012, 1149, 1304, 1258, 714, 334],\n      \"printed_col_totals\": [3346, 1466, 1252, 1138, 730, 409, 321, 177]\n    },\n    {\n      \"page\": 59,\n      \"title\": \"DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO GENERAL GOVERNMENT COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\"\n      ],\n      \"cells\": [\n        [25805, 0, 0, 0, 0, 0, 0, 0],\n        [32121, 44127, 0, 0, 0, 0, 0, 0],\n        [37333, 43010, 49582, 0, 0, 0, 0, 0],\n        [40594, 47071, 47175, 47508, 0, 0, 0, 0],\n        [42530, 48160, 55710, 56492, 56620, 0, 0, 0],\n        [39239, 48092, 51514, 57462, 56509, 59057, 0, 0],\n        [39393, 43318, 50482, 56901, 64505, 63583, 76046, 0],\n        [38794, 41880, 49164, 55486, 55885, 66194, 71796, 63300],\n        [40748, 40365, 48711, 48760, 55295, 64489, 66257, 67292],\n        [37903, 49031, 43514, 53369, 58912, 57021, 58642, 68921],\n        [30618, 37585, 46170, 50443, 55766, 62377, 74051, 84503]\n      ],\n      \"printed_row_totals\": [25805, 32645, 38251, 43074, 48442, 48139, 50640, 51726, 51673, 50839, 49206],\n      \"printed_col_totals\": [38773, 44906, 50085, 54316, 58112, 63512, 68168, 70056]\n    },\n    {\n      \"page\": 60,\n      \"title\": \"DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO FIRE AND POLICE COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\"\n      ],\n      \"cells\": [\n        [0, 0, 0, 0, 0, 0, 0, 0],\n        [125, 1, 0, 0, 0, 0, 0, 0],\n        [330, 100, 1, 0, 0, 0, 0, 0],\n        [166, 260, 88, 1, 0, 0, 0, 0],\n        [71, 140, 163, 41, 1, 0, 0, 0],\n        [35, 69, 92, 154, 97, 3, 0, 0],\n        [17, 50, 59, 106, 174, 59, 1, 0],\n        [13, 19, 28, 37, 82, 96, 62, 1],\n        [3, 6, 12, 11, 31, 36, 52, 7],\n        [1, 2, 3, 4, 8, 12, 27, 18],\n        [1, 0, 0, 2, 0, 2, 1, 8]\n      ],\n      \"printed_row_totals\": [0, 126, 431, 515, 416, 450, 466, 338, 158, 75, 14],\n      \"printed_col_totals\": [762, 647, 446, 356, 393, 208, 143, 34]\n    },\n    {\n      \"page\": 60,\n      \"title\": \"DISTRIBUTION OF SERVICE GROUPS BY AGE GROUPS ACTIVE LIVES METRO FIRE AND POLICE COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-UP\"\n      ],\n      \"col_labels\": [\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-UP\"\n      ],\n      \"cells\": [\n        [0, 0, 0, 0, 0, 0, 0, 0],\n        [51478, 48115, 0, 0, 0, 0, 0, 0],\n        [55894, 66017, 74061, 0, 0, 0, 0, 0],\n        [55988, 68201, 72332, 78090, 0, 0, 0, 0],\n        [54946, 67475, 74829, 74857, 82303, 0, 0, 0],\n        [56388, 66205, 75159, 82715, 86503, 97379, 0, 0],\n        [58175, 67550, 75020, 82038, 84883, 97332, 58549, 0],\n        [54897, 61810, 69343, 76411, 86367, 89004, 92027, 75433],\n        [55333, 53868, 68687, 77769, 76415, 82441, 89567, 98782],\n        [57973, 68150, 57615, 79550, 65541, 79796, 89693, 91369],\n        [75684, 0, 0, 80991, 0, 77655, 78874, 115089]\n      ],\n      \"printed_row_totals\": [0, 51451, 58285, 64989, 68981, 77505, 81672, 83030, 81358, 83114, 99468],\n      \"printed_col_totals\": [55185, 67091, 73802, 80742, 84524, 89711, 90366, 98008]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"1-20\",\n        \"21-25\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"66-UP\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35-UP\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2,\n      3\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data is split into four tables (General Govt Count, General Govt Salary, Fire/Police Count, Fire/Police Salary) on pages 59-60. The target requires a single grid of average salary. The derivation sums the counts (tables 0 and 2) and sums the salaries (tables 1 and 3) cell-wise to create the total numerator and denominator, then the weighted_avg operation (with weights_table pointing to the summed count table) computes the average. Note: The source tables use '35-UP' for the last service column, which maps to target '40' via 'copy' as requested. The last age row '66-UP' maps to target '70' via 'copy'.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 132529,
+          "completion_tokens": 4358,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 132529,
+        "completion_tokens": 4358,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 34,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0] ('<25'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[1] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[2] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[3] ('39'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[4] ('44'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[5] ('49'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[6] ('54'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[7] ('59'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[8] ('64'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[9] ('70'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[0] ('4'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[1] ('9'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[2] ('14'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[3] ('19'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[4] ('24'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[5] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[6] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[0]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[1]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[2]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[3]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[4]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[5]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[6]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[7]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[8]: weighted_avg is not allowed in sum mode - use additive maps",
+        "row_map[9]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[0]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[1]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[2]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[3]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[4]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[5]: weighted_avg is not allowed in sum mode - use additive maps",
+        "col_map[6]: weighted_avg is not allowed in sum mode - use additive maps"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-8dfce206619406d4",
+        "object": "chat.completion",
+        "created": 1785371979,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 37,\n      \"title\": \"TABLE I-3 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL DIVISION A\",\n      \"row_labels\": [\"1-20\", \"21-25\", \"26-30\", \"31-35\", \"36-40\", \"41-45\", \"46-50\", \"51-55\", \"56-60\", \"61-65\", \"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 68039, 68039],\n        [3, 181053, 60351],\n        [13, 856502, 65885],\n        [11, 648653, 58968],\n        [17, 1070061, 62945],\n        [8, 397422, 49678],\n        [1, 25915, 25915],\n        [1, 30391, 30391],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 40,\n      \"title\": \"TABLE I-4 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO GENERAL GOVERNMENT DIVISION B\",\n      \"row_labels\": [\"1-20\", \"21-25\", \"26-30\", \"31-35\", \"36-40\", \"41-45\", \"46-50\", \"51-55\", \"56-60\", \"61-65\", \"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [17, 438695, 25805],\n        [275, 8977386, 32645],\n        [804, 30753844, 38251],\n        [936, 40317522, 43074],\n        [1036, 50185967, 48442],\n        [1011, 48691716, 48161],\n        [1138, 57498683, 50526],\n        [1295, 66963624, 51709],\n        [1248, 64498051, 51681],\n        [707, 35992618, 50908],\n        [231, 12121014, 52471],\n        [74, 2922954, 39499],\n        [18, 865376, 48076],\n        [8, 391096, 48887],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 39,\n      \"title\": \"TABLE I-5 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO FIRE AND POLICE DIVISION B\",\n      \"row_labels\": [\"1-20\", \"21-25\", \"26-30\", \"31-35\", \"36-40\", \"41-45\", \"46-50\", \"51-55\", \"56-60\", \"61-65\", \"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [0, 0, 0],\n        [126, 6482948, 51451],\n        [431, 25120855, 58285],\n        [515, 33469815, 64989],\n        [415, 28628355, 68983],\n        [448, 34722899, 77506],\n        [464, 37890038, 81659],\n        [336, 27903441, 83045],\n        [151, 12291230, 81398],\n        [74, 6143309, 83017],\n        [13, 1159232, 89171],\n        [1, 233333, 233333],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 35,\n      \"title\": \"TABLE I-1 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO GENERAL GOVERNMENT DIVISION A\",\n      \"row_labels\": [\"1-20\", \"21-25\", \"26-30\", \"31-35\", \"36-40\", \"41-45\", \"46-50\", \"51-55\", \"56-60\", \"61-65\", \"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 26350, 26350],\n        [11, 686957, 62450],\n        [9, 487479, 54164],\n        [10, 506589, 50658],\n        [7, 307157, 43879],\n        [1, 25915, 25915],\n        [1, 30391, 30391],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 36,\n      \"title\": \"TABLE I-2 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO FIRE AND POLICE DIVISION A\",\n      \"row_labels\": [\"1-20\", \"21-25\", \"26-30\", \"31-35\", \"36-40\", \"41-45\", \"46-50\", \"51-55\", \"56-60\", \"61-65\", \"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 68039, 68039],\n        [2, 154703, 77351],\n        [2, 169545, 84772],\n        [2, 161174, 80587],\n        [7, 563472, 80496],\n        [1, 90265, 90265],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\"1-20\", \"21-25\"],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\"26-30\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\"31-35\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\"36-40\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\"41-45\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\"46-50\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"51-55\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"56-60\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"61-65\"],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document provides Active Member Average Salary by Age (Tables I-1 through I-9) but does NOT provide a corresponding table of Average Salary by Years of Service. The target grid requires a cross-tabulation of Age x Service. Since the Service dimension is missing from the salary data, the target grid cannot be populated for the Service columns. The source tables transcribed (I-1 to I-5) provide the Age dimension data (Total Division A, General Govt Div B, Fire & Police Div B, and their components) which are combined to form the total plan average by age, but no Service breakdown exists. The row_map combines age bins as requested, but the col_map has empty sources because no service-based salary data is published. The document does publish counts by service (Tables II-1 to II-9), but without salary totals by service, an average salary by service cannot be derived.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 131466,
+          "completion_tokens": 3295,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 131466,
+        "completion_tokens": 3295,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0] ('<25'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[9] ('70'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "source_tables[0] holds values up to 1,070,061 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-b10e2d9e14b67975",
+        "object": "chat.completion",
+        "created": 1785372008,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 43,\n      \"title\": \"TABLE I-9 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL COMBINED\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [7, 218381, 31197],\n        [218, 9427183, 43244],\n        [657, 33203938, 50539],\n        [804, 46537717, 57883],\n        [776, 47312170, 60969],\n        [798, 54100522, 67795],\n        [869, 60986766, 70180],\n        [778, 53830792, 69191],\n        [634, 42618485, 67222],\n        [312, 21217482, 68005],\n        [112, 7250484, 64736],\n        [29, 1648034, 56829],\n        [7, 430313, 61473],\n        [2, 95975, 47988],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [6004, 378956581, 63117]\n    },\n    {\n      \"page\": 54,\n      \"title\": \"TABLE II-9 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE METRO TOTALS COMBINED\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [243, 9124821, 37551],\n        [423, 20022894, 47335],\n        [414, 20885530, 50448],\n        [373, 19102232, 51212],\n        [299, 16424985, 54933],\n        [1752, 85560462, 48836],\n        [1172, 68991162, 58866],\n        [895, 58349106, 65195],\n        [770, 53646056, 69670],\n        [619, 48329990, 78078],\n        [356, 28884788, 81137],\n        [295, 23768840, 80572],\n        [94, 6993836, 74403],\n        [46, 3957595, 86035],\n        [5, 474746, 94949]\n      ],\n      \"printed_row_totals\": [6004, 378956581, 63117]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"1-20\",\n        \"21-25\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 1\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source tables transcribed from Page 43 (Age distribution of earnings) and Page 54 (Service distribution of earnings) for Metro Total Combined. Target requires average salary by Age x Service. The document does not provide a single table with both Age and Service dimensions simultaneously. It provides separate distributions by Age (Table I-9) and by Service (Table II-9). The requested target grid (Age x Service) cannot be derived from these marginal distributions without assuming independence or having the joint distribution. However, the prompt asks to extract if available. Since the joint distribution is not available, and the target is a 2D grid, this is technically unavailable in the strict sense of a direct 2D table. However, the instructions say 'If the ENTIRE target... is not published... set unavailable: true'. The document does not publish the 2D grid. But wait, the prompt asks to 'Transcribe the source table(s)... and transcribe them EXACTLY'. The target is 'Age_Serv_Wage'. The document has 'Age_Wage' and 'Serv_Wage'. It does NOT have 'Age_Serv_Wage'. Therefore, the target is unavailable. I will set unavailable to true and transcribe the closest related tables (the marginals) as evidence.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 130627,
+          "completion_tokens": 2456,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 130627,
+        "completion_tokens": 2456,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 10,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0] ('4'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[1] ('9'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[2] ('14'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[3] ('19'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[4] ('24'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[5] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[6] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[7] ('40'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map references 10 source label(s) that do NOT exist in source_tables[0]: ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed COLUMN labels of source_tables[0] are: ['NO', 'TOTAL', 'AVERAGE']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] holds values up to 60,986,766 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-b52e853df78ff9a2",
+        "object": "chat.completion",
+        "created": 1785372030,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 39,\n      \"title\": \"TABLE I-3 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL DIVISION A\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 68039, 68039],\n        [3, 181053, 60351],\n        [13, 856502, 65885],\n        [11, 648653, 58968],\n        [17, 1070061, 62945],\n        [8, 397422, 49678],\n        [1, 25915, 25915],\n        [1, 30391, 30391],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 40,\n      \"title\": \"TABLE I-4 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO GENERAL GOVERNMENT DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 438695, 25805],\n        [275, 8977386, 32645],\n        [804, 30753844, 38251],\n        [936, 40317522, 43074],\n        [1036, 50185967, 48442],\n        [1011, 48691716, 48161],\n        [1138, 57498683, 50526],\n        [1295, 66963624, 51709],\n        [1248, 64498051, 51681],\n        [707, 35992618, 50908],\n        [231, 12121014, 52471],\n        [74, 2922954, 39499],\n        [18, 865376, 48076],\n        [8, 391096, 48887],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 41,\n      \"title\": \"TABLE I-5 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE METRO FIRE AND POLICE DIVISION B\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [126, 6482948, 51451],\n        [431, 25120855, 58285],\n        [515, 33469815, 64989],\n        [415, 28628355, 68983],\n        [448, 34722899, 77506],\n        [464, 37890038, 81659],\n        [336, 27903441, 83045],\n        [151, 12291230, 81398],\n        [74, 6143309, 83017],\n        [13, 1159232, 89171],\n        [1, 233333, 233333],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 46,\n      \"title\": \"TABLE II-1 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE METRO GENERAL GOVERNMENT DIVISION A\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 30391, 30391],\n        [0, 0, 0],\n        [0, 0, 0],\n        [6, 237688, 39614],\n        [23, 1337364, 58146],\n        [5, 265774, 53154],\n        [4, 157086, 39271],\n        [1, 42535, 42535],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 47,\n      \"title\": \"TABLE II-2 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE METRO FIRE AND POLICE DIVISION A\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [1, 68039, 68039],\n        [0, 0, 0],\n        [3, 241090, 80363],\n        [1, 75615, 75615],\n        [6, 485398, 80899],\n        [2, 160530, 80265],\n        [0, 0, 0],\n        [2, 176526, 88263],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 49,\n      \"title\": \"TABLE II-4 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE METRO GENERAL GOVERNMENT DIVISION B\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [617, 20513870, 33247],\n        [904, 35878362, 39688],\n        [664, 25282581, 38076],\n        [649, 27056434, 41689],\n        [512, 21003239, 41021],\n        [3346, 129734486, 38773],\n        [1465, 65802326, 44916],\n        [1252, 62706926, 50085],\n        [1138, 61812727, 54316],\n        [724, 42184058, 58265],\n        [386, 24639519, 63832],\n        [316, 21616522, 68406],\n        [114, 7856057, 68912],\n        [50, 3698314, 73966],\n        [8, 645950, 80743]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 50,\n      \"title\": \"TABLE II-5 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE METRO FIRE AND POLICE DIVISION B\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"0-4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [91, 3625907, 39845],\n        [186, 9559959, 51397],\n        [206, 11797688, 57270],\n        [149, 8901458, 59741],\n        [130, 8166033, 62815],\n        [762, 42051045, 55185],\n        [646, 43340455, 67090],\n        [446, 32916042, 73802],\n        [353, 28503164, 80745],\n        [392, 33142589, 84547],\n        [202, 18174598, 89973],\n        [141, 12761814, 90509],\n        [17, 1588429, 93437],\n        [15, 1567319, 104487],\n        [0, 0, 0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"1-20\",\n        \"21-25\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"26-30\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"31-35\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"36-40\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"41-45\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"46-50\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35-39\",\n        \"40-44\",\n        \"45-49\"\n      ],\n      \"op\": \"weighted_avg\",\n      \"weights_table\": 0\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Target requires Average Salary by Age and Service. The document provides separate tables for Age (Tables I-1 to I-9) and Service (Tables II-1 to II-9). No single table exists with both dimensions. The target grid requires a cross-tabulation that is not published. The provided source tables only allow calculating marginal averages (by age OR by service), not the joint distribution required for the target grid. Therefore, the specific target 'Age_Serv_Wage' is unavailable in the document. The transcribed tables are archived as the closest related evidence (Age distributions and Service distributions).\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 132927,
+          "completion_tokens": 4756,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 132927,
+        "completion_tokens": 4756,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 20,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map[0] ('<25'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[1] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[2] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[3] ('39'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[4] ('44'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[5] ('49'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[6] ('54'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[7] ('59'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[8] ('64'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "row_map[9] ('70'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[0] ('4'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[1] ('9'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[2] ('14'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[3] ('19'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[4] ('24'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[5] ('29'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[6] ('34'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map[7] ('40'): weighted_avg weights_table is 0 (the MAIN values table) - you are weighting the values by themselves. Put the AVERAGES/values table at source_tables[0] and the member-COUNTS table at a later index, then set weights_table to that counts index.",
+        "col_map references 10 source label(s) that do NOT exist in source_tables[0]: ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed COLUMN labels of source_tables[0] are: ['NO', 'TOTAL', 'AVERAGE']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] holds values up to 1,070,061 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-8b886e915bc096db",
+        "object": "chat.completion",
+        "created": 1785372068,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 43,\n      \"title\": \"TABLE I-9 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY AGE TOTAL COMBINED\",\n      \"row_labels\": [\"1-20\", \"21-25\", \"26-30\", \"31-35\", \"36-40\", \"41-45\", \"46-50\", \"51-55\", \"56-60\", \"61-65\", \"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [7, 218381, 31197],\n        [218, 9427183, 43244],\n        [657, 33203938, 50539],\n        [804, 46537717, 57883],\n        [776, 47312170, 60969],\n        [798, 54100522, 67795],\n        [869, 60986766, 70180],\n        [778, 53830792, 69191],\n        [634, 42618485, 67222],\n        [312, 21217482, 68005],\n        [112, 7250484, 64736],\n        [29, 1648034, 56829],\n        [7, 430313, 61473],\n        [2, 95975, 47988],\n        [1, 78339, 78339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [6004, 378956581, 63117]\n    },\n    {\n      \"page\": 54,\n      \"title\": \"TABLE II-9 DISTRIBUTION OF ACTIVE PARTICIPANTS' EARNINGS BY LENGTH OF SERVICE METRO TOTALS COMBINED\",\n      \"row_labels\": [\"0\", \"1\", \"2\", \"3\", \"4\", \"0-4\", \"5-9\", \"10-14\", \"15-19\", \"20-24\", \"25-29\", \"30-34\", \"35-39\", \"40-44\", \"45-49\"],\n      \"col_labels\": [\"NO\", \"TOTAL\", \"AVERAGE\"],\n      \"cells\": [\n        [243, 9124821, 37551],\n        [423, 20022894, 47335],\n        [414, 20885530, 50448],\n        [373, 19102232, 51212],\n        [299, 16424985, 54933],\n        [1752, 85560462, 48836],\n        [1172, 68991162, 58866],\n        [895, 58349106, 65195],\n        [770, 53646056, 69670],\n        [619, 48329990, 78078],\n        [356, 28884788, 81137],\n        [295, 23768840, 80572],\n        [94, 6993836, 74403],\n        [46, 3957595, 86035],\n        [5, 474746, 94949]\n      ],\n      \"printed_row_totals\": [6004, 378956581, 63117]\n    }\n  ],\n  \"row_map\": [\n    {\"target\": \"<25\", \"sources\": [\"1-20\", \"21-25\"], \"op\": \"weighted_avg\", \"weights_table\": 1},\n    {\"target\": \"29\", \"sources\": [\"26-30\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"34\", \"sources\": [\"31-35\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"39\", \"sources\": [\"36-40\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"44\", \"sources\": [\"41-45\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"49\", \"sources\": [\"46-50\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"54\", \"sources\": [\"51-55\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"59\", \"sources\": [\"56-60\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"64\", \"sources\": [\"61-65\"], \"op\": \"copy\", \"weights_table\": null},\n    {\"target\": \"70\", \"sources\": [\"66-70\", \"71-75\", \"76-80\", \"81-85\", \"86+\"], \"op\": \"weighted_avg\", \"weights_table\": 1}\n  ],\n  \"col_map\": [\n    {\"target\": \"4\", \"sources\": [\"0-4\"], \"op\": \"copy\"},\n    {\"target\": \"9\", \"sources\": [\"5-9\"], \"op\": \"copy\"},\n    {\"target\": \"14\", \"sources\": [\"10-14\"], \"op\": \"copy\"},\n    {\"target\": \"19\", \"sources\": [\"15-19\"], \"op\": \"copy\"},\n    {\"target\": \"24\", \"sources\": [\"20-24\"], \"op\": \"copy\"},\n    {\"target\": \"29\", \"sources\": [\"25-29\"], \"op\": \"copy\"},\n    {\"target\": \"34\", \"sources\": [\"30-34\"], \"op\": \"copy\"},\n    {\"target\": \"40\", \"sources\": [\"35-39\", \"40-44\", \"45-49\"], \"op\": \"weighted_avg\", \"weights_table\": 1}\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Target requires Average Salary by Age and Service. Source Table I-9 (Page 43) provides Average Salary by Age. Source Table II-9 (Page 54) provides Average Salary by Service. Since the document does not provide a single table with both Age and Service dimensions, and the target grid is a cross-tabulation of Age x Service, the data is unavailable in the required format. The provided tables only give marginal distributions (Average by Age OR Average by Service), not the joint distribution (Average by Age AND Service). Therefore, the specific cell values for the target grid cannot be derived. The tables are transcribed as archived evidence of the marginal distributions.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128171,
+          "total_tokens": 130021,
+          "completion_tokens": 1850,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128171,
+        "total_tokens": 130021,
+        "completion_tokens": 1850,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 10 source label(s) that do NOT exist in source_tables[0]: ['0-4', '5-9', '10-14', '15-19', '20-24', '25-29'] .... Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed COLUMN labels of source_tables[0] are: ['NO', 'TOTAL', 'AVERAGE']. Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] holds values up to 60,986,766 - a per-person average can't exceed 1,000,000, so this is a salary-TOTALS table, not an averages exhibit. Transcribe the member-COUNTS table too and declare derive={'op':'ratio','numerator_table':<totals index>,'denominator_table':<counts index>} with additive maps (sum/copy) - code computes average = total/count. Do NOT emit the totals as if they were averages."
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

@@ -1,0 +1,51 @@
+{
+  "source_tables": [
+    {
+      "page": 46,
+      "title": "MEMBERSHIP DATA",
+      "row_labels": [
+        "3. Service retirees",
+        "4. Disabled retirees",
+        "5. Beneficiaries and spouses"
+      ],
+      "col_labels": [
+        "Number",
+        "Total annual benefits",
+        "Average annual benefit",
+        "Average age"
+      ],
+      "cells": [
+        [
+          3512,
+          190276099,
+          54179,
+          65.5
+        ],
+        [
+          175,
+          8123143,
+          46418,
+          56.7
+        ],
+        [
+          807,
+          35727748,
+          44272,
+          69.9
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a distribution of Service Retirees by 5-year age band. Table 19 (Page 46) provides only aggregate counts and average ages for Service Retirees (3,512 members, avg age 65.5), Disabled Retirees, and Beneficiaries. No breakdown by attained age (e.g., 50-54, 55-59) is available for any pay-status group. Tables 20a-d (Pages 47-50) provide age distributions but only for ACTIVE members (including DROP), not retirees. Consequently, the target grid cannot be populated.",
+  "broadcast": null
+}

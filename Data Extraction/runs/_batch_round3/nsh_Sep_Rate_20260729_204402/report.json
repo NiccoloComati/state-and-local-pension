@@ -1,0 +1,32 @@
+{
+  "shape_truth": [
+    11,
+    11
+  ],
+  "shape_cand": [
+    10,
+    11
+  ],
+  "label_mismatches": [
+    "row_labels[0]: truth='20' cand='25'",
+    "row_labels[1]: truth='25' cand='30'",
+    "row_labels[2]: truth='30' cand='35'",
+    "row_labels[3]: truth='35' cand='40'",
+    "row_labels[4]: truth='40' cand='45'",
+    "row_labels[5]: truth='45' cand='50'",
+    "row_labels[6]: truth='50' cand='55'",
+    "row_labels[7]: truth='55' cand='60'",
+    "row_labels[8]: truth='60' cand='65'",
+    "row_labels[9]: truth='65' cand='70'",
+    "row_labels[10]: truth='70' cand='(none)'"
+  ],
+  "exact": 121,
+  "close": 0,
+  "wrong": 0,
+  "missing_in_cand": 0,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [],
+  "truth_filled_cells": 121,
+  "accuracy": 1.0
+}

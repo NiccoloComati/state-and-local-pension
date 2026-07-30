@@ -1,0 +1,248 @@
+{
+  "source_tables": [
+    {
+      "page": 87,
+      "title": "Table A-26 Age Distribution of Retired Members as of July 1, 2019",
+      "row_labels": [
+        "Under 40",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "Over 84"
+      ],
+      "col_labels": [
+        "Municipal Count",
+        "Municipal Annual Pensions",
+        "Police Count",
+        "Police Annual Pensions",
+        "Fire Count",
+        "Fire Annual Pensions"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          2,
+          30563,
+          2,
+          19123
+        ],
+        [
+          1,
+          9206,
+          39,
+          1233614,
+          4,
+          66195
+        ],
+        [
+          24,
+          483946,
+          157,
+          5008637,
+          27,
+          735812
+        ],
+        [
+          498,
+          14400802,
+          417,
+          14742531,
+          96,
+          3508700
+        ],
+        [
+          2299,
+          71368888,
+          846,
+          32032961,
+          240,
+          9450285
+        ],
+        [
+          3469,
+          96365863,
+          1107,
+          37424149,
+          473,
+          20232962
+        ],
+        [
+          3417,
+          85461725,
+          1187,
+          34561169,
+          567,
+          20302589
+        ],
+        [
+          2165,
+          47882806,
+          934,
+          23383240,
+          334,
+          10283222
+        ],
+        [
+          1469,
+          28183088,
+          473,
+          10278888,
+          164,
+          4586016
+        ],
+        [
+          1474,
+          21574473,
+          276,
+          5624301,
+          80,
+          1675376
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        14816,
+        365730797,
+        5438,
+        164320053,
+        1987,
+        70860280
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70-74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75-79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80-84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "Over 84"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "Over 84"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "Over 84"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "Over 84"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Municipal Count",
+        "Police Count",
+        "Fire Count"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Municipal Annual Pensions",
+        "Police Annual Pensions",
+        "Fire Annual Pensions",
+        "Municipal Count",
+        "Police Count",
+        "Fire Count"
+      ],
+      "op": "ratio",
+      "numerator_sources": [
+        "Municipal Annual Pensions",
+        "Police Annual Pensions",
+        "Fire Annual Pensions"
+      ],
+      "denominator_sources": [
+        "Municipal Count",
+        "Police Count",
+        "Fire Count"
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source Table A-26 provides counts and total annual pensions for Retired Members (Service Retirees) by age group. Disabled retirees and beneficiaries are excluded as per target definition. The 'Over 84' bucket (covering ages 85+) is mapped to target rows 85-89, 90-94, 95-99, and 100 & over using 'share_even' to split the counts and total dollars evenly, preserving the average benefit per row. The 'AverageBenefit' column is derived as a ratio of the sum of total annual pensions to the sum of counts across the three employee groups (Municipal, Police, Fire).",
+  "unavailable": false,
+  "broadcast": null
+}

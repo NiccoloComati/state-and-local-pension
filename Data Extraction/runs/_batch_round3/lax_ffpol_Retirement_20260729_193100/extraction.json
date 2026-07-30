@@ -1,0 +1,51 @@
+{
+  "source_tables": [
+    {
+      "page": 22,
+      "title": "Distribution of Retired Members and Beneficiaries as of June 30, 2019 - BY TYPE AND AGE",
+      "row_labels": [
+        "Service",
+        "Disability",
+        "Beneficiaries"
+      ],
+      "col_labels": [
+        "Type",
+        "Count",
+        "Average Age",
+        "Average Monthly Benefit"
+      ],
+      "cells": [
+        [
+          "Service",
+          8811,
+          69.9,
+          6758
+        ],
+        [
+          "Disability",
+          1821,
+          71.9,
+          5141
+        ],
+        [
+          "Beneficiaries",
+          2465,
+          76.6,
+          4646
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document does not publish a distribution of retired members by 5-year age band. It only provides aggregate counts and average ages/benefits for three broad categories: Service Retirees, Disability Retirees, and Beneficiaries. The target grid requires specific age bands (50-54, 55-59, etc.) which are not present in the text. The closest available data is the aggregate table on page 22, which is transcribed as evidence but cannot be mapped to the target rows.",
+  "broadcast": null
+}

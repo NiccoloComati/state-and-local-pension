@@ -1,0 +1,243 @@
+{
+  "source_tables": [
+    {
+      "page": 61,
+      "title": "Table XI-2 Active Termination Rates",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19"
+      ],
+      "col_labels": [
+        "Probability of Termination"
+      ],
+      "cells": [
+        [
+          "3.000%"
+        ],
+        [
+          "2.250%"
+        ],
+        [
+          "1.500%"
+        ],
+        [
+          "1.500%"
+        ],
+        [
+          "1.500%"
+        ],
+        [
+          "1.500%"
+        ],
+        [
+          "1.350%"
+        ],
+        [
+          "1.200%"
+        ],
+        [
+          "1.050%"
+        ],
+        [
+          "0.900%"
+        ],
+        [
+          "0.750%"
+        ],
+        [
+          "0.600%"
+        ],
+        [
+          "0.450%"
+        ],
+        [
+          "0.380%"
+        ],
+        [
+          "0.300%"
+        ],
+        [
+          "0.230%"
+        ],
+        [
+          "0.150%"
+        ],
+        [
+          "0.150%"
+        ],
+        [
+          "0.150%"
+        ],
+        [
+          "0.150%"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "1"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "2"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "3"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "6"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "8"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "10"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "11"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "12"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "19"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Probability of Termination"
+    ],
+    "series_op": "copy"
+  },
+  "values_unit": "percent",
+  "notes": "Source Table XI-2 provides termination rates by Years of Service only. The document assumes termination depends on service, not age, so rates are broadcast across all target ages. Service bins 30 and 40 map to the source's '19' year bin (labeled as 19, representing 19+ or the final defined bin before N/A at 20). Source labels '0' through '19' are used as row keys for mapping.",
+  "unavailable": false
+}

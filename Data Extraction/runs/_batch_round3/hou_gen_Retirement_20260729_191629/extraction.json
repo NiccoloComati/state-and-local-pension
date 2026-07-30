@@ -1,0 +1,114 @@
+{
+  "source_tables": [
+    {
+      "page": 47,
+      "title": "Membership Data",
+      "row_labels": [
+        "Service retirees",
+        "Disabled retirees",
+        "Beneficiaries and spouses"
+      ],
+      "col_labels": [
+        "Number",
+        "Total annual benefits",
+        "Average annual benefit"
+      ],
+      "cells": [
+        [
+          8853,
+          225931390,
+          25520
+        ],
+        [
+          289,
+          3322286,
+          11496
+        ],
+        [
+          1968,
+          33043788,
+          16791
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "55-59",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "60-64",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "65-69",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "70-74",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "75-79",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "80-84",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "85-89",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "90-94",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [],
+      "op": "share_even"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document does not provide a distribution of service retirees by 5-year age band. Table 17 (page 47) provides only aggregate counts and average annual benefits for the entire 'Service retirees' group (8,853 members, $25,520 average) and lists a single average age of 69.5. No breakdown by age (e.g., 50-54, 55-59) exists in the report. Consequently, the target grid cannot be populated with specific data for each age band. The source table is transcribed as archived evidence of the aggregate data. The row_map and col_map use 'share_even' with empty sources to indicate that the single aggregate value would be split across all target rows if forced, but no actual data exists for the specific bins. The 'Average annual benefit' in the source is already annual.",
+  "unavailable": false,
+  "broadcast": null
+}

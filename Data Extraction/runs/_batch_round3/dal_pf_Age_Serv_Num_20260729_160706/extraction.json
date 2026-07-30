@@ -1,0 +1,332 @@
+{
+  "source_tables": [
+    {
+      "page": 38,
+      "title": "Exhibit B-1: Total Members in Active Service as of December 31, 2019 by Age, Years of Service, and Average Pay",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "Total",
+        "0 - 4",
+        "5 - 9",
+        "10 - 14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          265,
+          265,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          719,
+          608,
+          111,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          915,
+          373,
+          375,
+          167,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          827,
+          133,
+          216,
+          414,
+          64,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          749,
+          38,
+          100,
+          265,
+          263,
+          83,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          699,
+          10,
+          28,
+          138,
+          210,
+          258,
+          83,
+          null,
+          null,
+          null
+        ],
+        [
+          554,
+          1,
+          13,
+          36,
+          95,
+          118,
+          258,
+          55,
+          null,
+          null
+        ],
+        [
+          319,
+          2,
+          4,
+          16,
+          37,
+          28,
+          95,
+          117,
+          20,
+          null
+        ],
+        [
+          53,
+          null,
+          2,
+          1,
+          7,
+          5,
+          11,
+          11,
+          13,
+          3
+        ],
+        [
+          17,
+          null,
+          null,
+          6,
+          null,
+          null,
+          1,
+          1,
+          3,
+          6
+        ],
+        [
+          4,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          4
+        ]
+      ],
+      "printed_row_totals": [
+        265,
+        719,
+        915,
+        827,
+        749,
+        699,
+        554,
+        319,
+        53,
+        17,
+        4
+      ],
+      "printed_col_totals": [
+        5121,
+        1430,
+        849,
+        1043,
+        676,
+        492,
+        398,
+        184,
+        36,
+        13
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0 - 4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 - 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 - 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 - 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 - 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 - 39",
+        "40 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is Exhibit B-1 on page 38. Target row '70' sums source rows '65 - 69' and '70 & over'. Target column '40' sums source columns '35 - 39' and '40 & over'. All other rows and columns map directly via copy. Interleaved average pay rows are excluded as this target is for counts only.",
+  "unavailable": false,
+  "broadcast": null
+}

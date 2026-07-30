@@ -1,0 +1,365 @@
+{
+  "source_tables": [
+    {
+      "page": 21,
+      "title": "AGE AND SERVICE DISTRIBUTION",
+      "row_labels": [
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65+"
+      ],
+      "col_labels": [
+        "0",
+        "2",
+        "3",
+        "4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30+",
+        "Total"
+      ],
+      "cells": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          5,
+          5
+        ],
+        [
+          18,
+          17,
+          0,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          22,
+          74
+        ],
+        [
+          38,
+          24,
+          0,
+          49,
+          19,
+          25,
+          4,
+          0,
+          0,
+          4,
+          163
+        ],
+        [
+          23,
+          15,
+          0,
+          21,
+          41,
+          64,
+          35,
+          14,
+          0,
+          0,
+          213
+        ],
+        [
+          0,
+          0,
+          0,
+          5,
+          17,
+          36,
+          66,
+          58,
+          12,
+          0,
+          194
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5,
+          12,
+          47,
+          63,
+          75,
+          3,
+          205
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3,
+          22,
+          59,
+          56,
+          140
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          43,
+          47
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          4,
+          4
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "printed_row_totals": [
+        0,
+        5,
+        74,
+        163,
+        213,
+        194,
+        205,
+        140,
+        47,
+        4,
+        0
+      ],
+      "printed_col_totals": [
+        101,
+        61,
+        0,
+        92,
+        81,
+        138,
+        155,
+        157,
+        150,
+        79,
+        1045
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "15-19",
+        "20-24"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65+"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0",
+        "2",
+        "3",
+        "4"
+      ],
+      "op": "sum",
+      "weights_table": null
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30+"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30+"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "The document provides the 'AGE AND SERVICE DISTRIBUTION' table (Page 21) containing active member counts by age and service. However, the document does NOT contain an 'Average Salary' or 'Average Compensation' table by age and service. The only salary data available is a single 'Average Annual Salary' of $89,026 for all actives (Page 20). Therefore, the target grid for 'Active member AVERAGE SALARY by age x years of credited service' is unavailable. The maps above describe the binning of the available COUNT data only. The transcription has been corrected to align with the printed row and column totals.",
+  "unavailable": false,
+  "broadcast": null
+}

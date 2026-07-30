@@ -1,0 +1,211 @@
+{
+  "source_tables": [
+    {
+      "page": 84,
+      "title": "Distribution of Pension Benefits by Cause and Age as of June 30, 2018 - SERVICE RETIREMENT",
+      "row_labels": [
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "70 TO 74",
+        "75 TO 79",
+        "80 TO 84",
+        "85 TO 89",
+        "TOTAL",
+        "90 & UP"
+      ],
+      "col_labels": [
+        "NUMBER",
+        "BENEFITS",
+        "AVERAGE"
+      ],
+      "cells": [
+        [
+          242,
+          13676596,
+          56515
+        ],
+        [
+          3146,
+          194711420,
+          61892
+        ],
+        [
+          6568,
+          395989968,
+          60291
+        ],
+        [
+          7520,
+          395049514,
+          52533
+        ],
+        [
+          4362,
+          216538135,
+          49642
+        ],
+        [
+          2412,
+          109436340,
+          45372
+        ],
+        [
+          2905,
+          118896218,
+          40928
+        ],
+        [
+          3291,
+          119002975,
+          36160
+        ],
+        [
+          1605,
+          50445651,
+          31430
+        ],
+        [
+          869,
+          24705664,
+          28430
+        ],
+        [
+          33416,
+          1651650194,
+          49427
+        ],
+        [
+          496,
+          13197713,
+          26608
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "printed_col_totals": [
+        null,
+        null,
+        null
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50 TO 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55 TO 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 TO 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 TO 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 TO 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 TO 79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80 TO 84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85 TO 89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 & UP"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "90 & UP"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "90 & UP"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "NUMBER"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "AVERAGE"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table is 'Distribution of Pension Benefits by Cause and Age as of June 30, 2018' (Page 84). Only the 'SERVICE RETIREMENT' section is used as per target definition (exclude disabled/beneficiaries). The source provides Average Annual Benefit directly, so no ratio calculation is needed. The '90 & UP' bucket (496 members) is mapped to target rows 90-94, 95-99, and 100 & over using 'share_even' to split the count and average evenly across the three bins. Rows 40-44 and 45-49 are excluded as they fall outside the target grid. The 'TOTAL' row in the source is excluded from mapping.",
+  "unavailable": false,
+  "broadcast": null
+}

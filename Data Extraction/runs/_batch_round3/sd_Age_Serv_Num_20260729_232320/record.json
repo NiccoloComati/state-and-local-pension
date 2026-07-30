@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-83f6263ba9e3c22d",
+        "object": "chat.completion",
+        "created": 1785381800,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 44,\n      \"title\": \"Distribution of Active Members as of June 30, 2019 - Total City\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 64\",\n        \"65 to 69\",\n        \"70 and up\"\n      ],\n      \"col_labels\": [\n        \"Under 1\",\n        \"1 to 4\",\n        \"5 to 9\",\n        \"10 to 14\",\n        \"15 to 19\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 and up\"\n      ],\n      \"cells\": [\n        [45, 15, null, null, null, null, null, null, null, null],\n        [79, 221, 67, null, null, null, null, null, null, null],\n        [25, 164, 231, 123, 2, null, null, null, null, null],\n        [10, 84, 203, 362, 84, 2, null, null, null, null],\n        [2, 36, 135, 313, 284, 82, 3, null, null, null],\n        [4, 31, 98, 160, 315, 331, 89, 6, null, null],\n        [1, 30, 83, 119, 261, 313, 240, 123, 12, 1],\n        [4, 17, 53, 101, 159, 122, 82, 58, 6, null],\n        [null, 11, 35, 72, 81, 42, 22, 15, 2, null],\n        [null, 7, 17, 22, 10, 9, 2, 1, 1, null],\n        [1, null, 6, 8, 1, null, null, null, null, 1]\n      ],\n      \"printed_row_totals\": [\n        60,\n        367,\n        545,\n        745,\n        855,\n        1034,\n        1183,\n        602,\n        280,\n        69,\n        17\n      ],\n      \"printed_col_totals\": [\n        171,\n        616,\n        928,\n        1280,\n        1197,\n        901,\n        438,\n        203,\n        21,\n        2\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 25\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 to 39\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 to 44\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 to 49\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 to 54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 to 59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 to 64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 to 69\",\n        \"70 and up\"\n      ],\n      \"op\": \"sum\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1 to 4\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 to 9\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 to 14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 to 19\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 to 24\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 to 29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 to 34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 to 39\",\n        \"40 and up\"\n      ],\n      \"op\": \"sum\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table A-7 on page 44 provides the distribution of active members by age and service for the Total City. Row labels 'Under 25' maps directly to target '<25'. Row labels '65 to 69' and '70 and up' are summed to target '70'. Column labels 'Under 1' and '1 to 4' are summed to target '4'. Column labels '35 to 39' and '40 and up' are summed to target '40'. All other rows and columns map directly via copy.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 73915,
+          "total_tokens": 75679,
+          "completion_tokens": 1764,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 73915,
+        "total_tokens": 75679,
+        "completion_tokens": 1764,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

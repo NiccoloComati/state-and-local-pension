@@ -1,0 +1,816 @@
+{
+  "source_tables": [
+    {
+      "page": 47,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND BY YEARS OF SERVICE - ACTIVE MEMBERS SWORN PRIOR TO OCTOBER 9, 2004 AND NOT CURRENTLY IN DROP",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          19,
+          null,
+          null,
+          null,
+          null,
+          19
+        ],
+        [
+          null,
+          null,
+          null,
+          228,
+          null,
+          null,
+          null,
+          null,
+          228
+        ],
+        [
+          null,
+          null,
+          null,
+          183,
+          5,
+          null,
+          null,
+          null,
+          188
+        ],
+        [
+          null,
+          null,
+          null,
+          62,
+          3,
+          null,
+          null,
+          null,
+          65
+        ],
+        [
+          null,
+          null,
+          null,
+          9,
+          1,
+          null,
+          null,
+          null,
+          10
+        ],
+        [
+          null,
+          null,
+          null,
+          1,
+          null,
+          null,
+          1,
+          null,
+          2
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        null,
+        null,
+        19,
+        228,
+        188,
+        65,
+        10,
+        2,
+        null
+      ],
+      "printed_col_totals": [
+        null,
+        null,
+        null,
+        502,
+        9,
+        null,
+        1,
+        null,
+        512
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 48,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND BY YEARS OF SERVICE - ACTIVE MEMBERS SWORN AFTER OCTOBER 9, 2004",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          111,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          111
+        ],
+        [
+          591,
+          89,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          680
+        ],
+        [
+          358,
+          380,
+          85,
+          null,
+          null,
+          null,
+          null,
+          null,
+          823
+        ],
+        [
+          123,
+          216,
+          400,
+          null,
+          null,
+          null,
+          null,
+          null,
+          739
+        ],
+        [
+          47,
+          88,
+          232,
+          null,
+          null,
+          null,
+          null,
+          null,
+          367
+        ],
+        [
+          17,
+          66,
+          133,
+          null,
+          1,
+          null,
+          null,
+          null,
+          217
+        ],
+        [
+          1,
+          25,
+          47,
+          null,
+          2,
+          null,
+          null,
+          null,
+          75
+        ],
+        [
+          1,
+          null,
+          8,
+          null,
+          null,
+          null,
+          null,
+          null,
+          9
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": [
+        111,
+        680,
+        823,
+        739,
+        367,
+        217,
+        75,
+        9,
+        null,
+        null
+      ],
+      "printed_col_totals": [
+        1249,
+        864,
+        905,
+        null,
+        3,
+        null,
+        null,
+        null,
+        3021
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 49,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND BY YEARS OF SERVICE - CURRENT DROP MEMBERSHIP",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          31,
+          null,
+          null,
+          null,
+          null,
+          31
+        ],
+        [
+          null,
+          null,
+          null,
+          359,
+          65,
+          null,
+          null,
+          null,
+          424
+        ],
+        [
+          null,
+          null,
+          null,
+          302,
+          425,
+          27,
+          null,
+          null,
+          754
+        ],
+        [
+          null,
+          null,
+          null,
+          73,
+          128,
+          119,
+          73,
+          null,
+          393
+        ],
+        [
+          null,
+          null,
+          null,
+          9,
+          27,
+          30,
+          61,
+          null,
+          127
+        ],
+        [
+          null,
+          null,
+          null,
+          3,
+          3,
+          3,
+          11,
+          null,
+          20
+        ]
+      ],
+      "printed_row_totals": [
+        null,
+        null,
+        null,
+        null,
+        31,
+        424,
+        754,
+        393,
+        127,
+        20
+      ],
+      "printed_col_totals": [
+        null,
+        null,
+        null,
+        777,
+        648,
+        179,
+        145,
+        null,
+        1749
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 50,
+      "title": "DISTRIBUTION OF ACTIVE MEMBERS BY AGE AND BY YEARS OF SERVICE - TOTAL ACTIVE AND DROP MEMBERS",
+      "row_labels": [
+        "Under 25",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40-44",
+        "45-49",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65 & Over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35 & Over",
+        "Total"
+      ],
+      "cells": [
+        [
+          111,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          111
+        ],
+        [
+          591,
+          89,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          680
+        ],
+        [
+          358,
+          380,
+          85,
+          null,
+          null,
+          null,
+          null,
+          null,
+          823
+        ],
+        [
+          123,
+          216,
+          400,
+          19,
+          null,
+          null,
+          null,
+          null,
+          758
+        ],
+        [
+          47,
+          88,
+          232,
+          228,
+          31,
+          null,
+          null,
+          null,
+          626
+        ],
+        [
+          17,
+          66,
+          133,
+          183,
+          365,
+          65,
+          null,
+          null,
+          829
+        ],
+        [
+          1,
+          25,
+          47,
+          62,
+          307,
+          425,
+          27,
+          null,
+          894
+        ],
+        [
+          1,
+          null,
+          8,
+          9,
+          74,
+          128,
+          119,
+          73,
+          412
+        ],
+        [
+          null,
+          null,
+          null,
+          1,
+          9,
+          27,
+          31,
+          61,
+          129
+        ],
+        [
+          null,
+          null,
+          null,
+          3,
+          3,
+          3,
+          11,
+          null,
+          20
+        ]
+      ],
+      "printed_row_totals": [
+        111,
+        680,
+        823,
+        758,
+        626,
+        829,
+        894,
+        412,
+        129,
+        20
+      ],
+      "printed_col_totals": [
+        1249,
+        864,
+        905,
+        502,
+        789,
+        648,
+        180,
+        145,
+        5282
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35-39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40-44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45-49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 & Over"
+      ],
+      "op": "copy",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 & Over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1,
+      2
+    ]
+  },
+  "transpose": false,
+  "notes": "Source data is split across three tables (Tables 20a, 20b, 20c) representing different member groups (Pre-2004 non-DROP, Post-2004, and DROP). Table 20d is the pre-calculated sum and was not transcribed to avoid redundancy, but the derive operation sums tables 0, 1, and 2 to reconstruct the total distribution. Row labels in source match target bins exactly. Column labels in source match target bins exactly, with '35 & Over' mapping to target '40' (35-40+). The 'Total' row and column from the printed tables were excluded from cells and placed in printed_row_totals/printed_col_totals.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-b5236cd42db0b2d4",
+        "object": "chat.completion",
+        "created": 1785351492,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 32,\n      \"title\": \"Exhibit B.1 All Members in Active Service as of December 31, 2019 By Age, Years of Service, and Total Salary\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 \u2013 39\",\n        \"40 \u2013 44\",\n        \"45 \u2013 49\",\n        \"50 \u2013 54\",\n        \"55 \u2013 59\",\n        \"60 \u2013 64\",\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Total\",\n        \"Under 1\",\n        \"1 \u2013 4\",\n        \"5 \u2013 9\",\n        \"10 \u2013 14\",\n        \"15 \u2013 19\",\n        \"20 \u2013 24\",\n        \"25 \u2013 29\",\n        \"30 \u2013 34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [55, 37, 18, null, null, null, null, null, null, null],\n        [1081, 428, 639, 14, null, null, null, null, null, null],\n        [2884, 609, 1886, 383, 6, null, null, null, null, null],\n        [3489, 431, 1874, 960, 199, 25, null, null, null, null],\n        [3557, 362, 1550, 899, 475, 224, 47, null, null, null],\n        [3626, 262, 1268, 764, 491, 495, 305, 41, null, null],\n        [4178, 257, 1010, 753, 553, 586, 698, 294, 27, null],\n        [4357, 162, 825, 582, 507, 681, 787, 611, 199, 3],\n        [4275, 119, 575, 472, 515, 739, 859, 604, 322, 70],\n        [3060, 64, 324, 320, 323, 509, 570, 490, 334, 126],\n        [1146, 21, 77, 98, 149, 183, 215, 197, 133, 73],\n        [454, 7, 37, 38, 44, 65, 88, 69, 50, 56]\n      ],\n      \"printed_row_totals\": [\n        55,\n        1081,\n        2884,\n        3489,\n        3557,\n        3626,\n        4178,\n        4357,\n        4275,\n        3060,\n        1146,\n        454\n      ],\n      \"printed_col_totals\": [\n        32162,\n        2759,\n        10083,\n        5283,\n        3262,\n        3507,\n        3569,\n        2306,\n        1065,\n        328\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 20\",\n        \"20 \u2013 24\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 \u2013 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 \u2013 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35 \u2013 39\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40 \u2013 44\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45 \u2013 49\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50 \u2013 54\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55 \u2013 59\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60 \u2013 64\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 \u2013 69\",\n        \"70 & Over\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"Under 1\",\n        \"1 \u2013 4\"\n      ],\n      \"op\": \"sum\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5 \u2013 9\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10 \u2013 14\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15 \u2013 19\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20 \u2013 24\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25 \u2013 29\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30 \u2013 34\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 & Over\"\n      ],\n      \"op\": \"copy\",\n      \"weights_table\": null\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table is Exhibit B.1 on page 32. Target row '<25' sums 'Under 20' and '20-24'. Target row '70' sums '65-69' and '70 & Over'. Target col '4' sums 'Under 1' and '1-4'. Target col '40' maps from '35 & Over' (open-ended bin). All other rows/cols are direct copies.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 101855,
+          "total_tokens": 103912,
+          "completion_tokens": 2057,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 101855,
+        "total_tokens": 103912,
+        "completion_tokens": 2057,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

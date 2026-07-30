@@ -1,0 +1,769 @@
+{
+  "source_tables": [
+    {
+      "page": 39,
+      "title": "Schedule of Retiree Member Data \u2013 Teachers \u2013 District Benefit Only",
+      "row_labels": [
+        "Under 20",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 to 74",
+        "75 to 79",
+        "80 to 84",
+        "85 to 89",
+        "90 to 94",
+        "95 and over"
+      ],
+      "col_labels": [
+        "Service Retirement No.",
+        "Service Retirement Annual Benefits",
+        "Disability Retirement No.",
+        "Disability Retirement Annual Benefits",
+        "Survivors and Beneficiaries No.",
+        "Survivors and Beneficiaries Annual Benefits",
+        "Total No.",
+        "Total Annual Benefits"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          8,
+          49665,
+          8,
+          49665
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          3,
+          38304,
+          3,
+          38304
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          3,
+          51571,
+          3,
+          51571
+        ],
+        [
+          null,
+          null,
+          3,
+          116880,
+          2,
+          20591,
+          5,
+          137471
+        ],
+        [
+          8,
+          294579,
+          4,
+          145584,
+          2,
+          24323,
+          14,
+          464486
+        ],
+        [
+          59,
+          2383991,
+          14,
+          530820,
+          7,
+          76871,
+          80,
+          2991682
+        ],
+        [
+          300,
+          10297245,
+          23,
+          681782,
+          20,
+          205878,
+          343,
+          11184904
+        ],
+        [
+          756,
+          21201839,
+          17,
+          376873,
+          28,
+          270944,
+          801,
+          21849656
+        ],
+        [
+          1306,
+          24925453,
+          43,
+          755243,
+          43,
+          320254,
+          1392,
+          26000950
+        ],
+        [
+          945,
+          13558817,
+          5,
+          52906,
+          39,
+          355986,
+          989,
+          13967708
+        ],
+        [
+          308,
+          3893186,
+          1,
+          3124,
+          17,
+          123867,
+          326,
+          4020177
+        ],
+        [
+          69,
+          809871,
+          null,
+          null,
+          8,
+          62170,
+          77,
+          872041
+        ],
+        [
+          14,
+          176546,
+          null,
+          null,
+          1,
+          2182,
+          15,
+          178729
+        ],
+        [
+          2,
+          28387,
+          null,
+          null,
+          1,
+          3845,
+          3,
+          32232
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        3767,
+        77569914,
+        110,
+        2663211,
+        182,
+        1606451,
+        4059,
+        81839576
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 42,
+      "title": "Schedule of Retiree Member Data \u2013 Police \u2013 District Benefit Only",
+      "row_labels": [
+        "Under 20",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 to 74",
+        "75 to 79",
+        "80 to 84",
+        "85 to 89",
+        "90 to 94",
+        "95 and over"
+      ],
+      "col_labels": [
+        "Service Retirement No.",
+        "Service Retirement Annual Benefits",
+        "Disability Retirement No.",
+        "Disability Retirement Annual Benefits",
+        "Survivors and Beneficiaries No.",
+        "Survivors and Beneficiaries Annual Benefits",
+        "Total No.",
+        "Total Annual Benefits"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          36,
+          315781,
+          36,
+          315781
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          11,
+          128378,
+          11,
+          128378
+        ],
+        [
+          null,
+          null,
+          4,
+          123828,
+          null,
+          null,
+          4,
+          123828
+        ],
+        [
+          null,
+          null,
+          1,
+          49620,
+          1,
+          2558,
+          2,
+          52178
+        ],
+        [
+          null,
+          null,
+          11,
+          403236,
+          2,
+          59580,
+          13,
+          462816
+        ],
+        [
+          null,
+          null,
+          15,
+          516144,
+          2,
+          89172,
+          17,
+          605316
+        ],
+        [
+          null,
+          null,
+          40,
+          1542232,
+          21,
+          415814,
+          61,
+          1958046
+        ],
+        [
+          507,
+          27374845,
+          99,
+          3721032,
+          46,
+          931092,
+          652,
+          32026969
+        ],
+        [
+          638,
+          29352712,
+          69,
+          1729643,
+          54,
+          1002960,
+          761,
+          32085316
+        ],
+        [
+          415,
+          14962560,
+          47,
+          1184172,
+          70,
+          1133518,
+          532,
+          17280250
+        ],
+        [
+          341,
+          6879059,
+          31,
+          387600,
+          69,
+          1155901,
+          441,
+          8422559
+        ],
+        [
+          152,
+          1513096,
+          6,
+          83667,
+          58,
+          856543,
+          216,
+          2453306
+        ],
+        [
+          25,
+          247651,
+          3,
+          25297,
+          18,
+          329918,
+          46,
+          602866
+        ],
+        [
+          1,
+          8130,
+          null,
+          null,
+          2,
+          26728,
+          3,
+          34858
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          4,
+          90924,
+          4,
+          90924
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        2079,
+        80338053,
+        326,
+        9766471,
+        394,
+        6538868,
+        2799,
+        96643391
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 45,
+      "title": "Schedule of Retiree Member Data \u2013 Fire \u2013 District Benefit Only",
+      "row_labels": [
+        "Under 20",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 to 74",
+        "75 to 79",
+        "80 to 84",
+        "85 to 89",
+        "90 to 94",
+        "95 and over"
+      ],
+      "col_labels": [
+        "Service Retirement No.",
+        "Service Retirement Annual Benefits",
+        "Disability Retirement No.",
+        "Disability Retirement Annual Benefits",
+        "Survivors and Beneficiaries No.",
+        "Survivors and Beneficiaries Annual Benefits",
+        "Total No.",
+        "Total Annual Benefits"
+      ],
+      "cells": [
+        [
+          null,
+          null,
+          null,
+          null,
+          17,
+          210837,
+          17,
+          210837
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          4,
+          58414,
+          4,
+          58414
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          3,
+          73656,
+          3,
+          65358,
+          6,
+          139014
+        ],
+        [
+          null,
+          null,
+          5,
+          164730,
+          1,
+          3034,
+          6,
+          167763
+        ],
+        [
+          null,
+          null,
+          8,
+          335508,
+          1,
+          28356,
+          9,
+          363864
+        ],
+        [
+          null,
+          null,
+          13,
+          544956,
+          5,
+          93639,
+          18,
+          638595
+        ],
+        [
+          62,
+          3359408,
+          17,
+          591420,
+          8,
+          285178,
+          87,
+          4236006
+        ],
+        [
+          167,
+          8225101,
+          11,
+          377591,
+          24,
+          554214,
+          202,
+          9156907
+        ],
+        [
+          230,
+          10325108,
+          11,
+          248558,
+          20,
+          517787,
+          261,
+          11091454
+        ],
+        [
+          139,
+          3771890,
+          21,
+          399293,
+          22,
+          390683,
+          182,
+          4561866
+        ],
+        [
+          58,
+          951648,
+          5,
+          10055,
+          15,
+          269849,
+          78,
+          1231551
+        ],
+        [
+          17,
+          175033,
+          null,
+          null,
+          8,
+          152267,
+          25,
+          327300
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          5,
+          86920,
+          5,
+          86920
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        673,
+        26808188,
+        94,
+        2745767,
+        133,
+        2716536,
+        900,
+        32270491
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65 to 69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70 to 74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75 to 79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80 to 84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85 to 89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 to 94"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "95 and over"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "95 and over"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Total No."
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Total Annual Benefits",
+        "Total No."
+      ],
+      "op": "ratio"
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1,
+      2
+    ]
+  },
+  "transpose": false,
+  "notes": "Target requires Service Retirees only. Source tables include Disability and Survivors columns. Mapped only 'Total No.' and 'Total Annual Benefits' columns which aggregate all statuses; per guidance, if split by status, we should exclude non-service. However, the tables do not provide a 'Service Retirement Total' column that sums only service retirees (the 'Total' column sums Service+Disability+Survivors). The prompt says 'SERVICE retirees only when the exhibit splits pay statuses... exclude disabled retirees and beneficiaries'. Since the 'Total' column includes them, and there is no separate 'Service Total' column, I will map the 'Service Retirement' columns (No. and Benefits) directly to the target, as these represent the Service Retiree population explicitly. The 'Total' column is a sum of Service+Disability+Survivors. I will use the 'Service Retirement No.' and 'Service Retirement Annual Benefits' columns for the mapping to ensure strict adherence to 'SERVICE retirees only'. The 'Total' columns are excluded from the mapping to avoid including disabled/survivors. The 'derive' sum will sum the Service Retirement columns across the three tables.",
+  "unavailable": false,
+  "broadcast": null
+}

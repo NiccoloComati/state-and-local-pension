@@ -1,0 +1,440 @@
+{
+  "source_tables": [
+    {
+      "page": 76,
+      "title": "TABLE V-4 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION A METRO TOTALS - RETIRED LIVES",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-70",
+        "71-75",
+        "76-80",
+        "81-85",
+        "86+"
+      ],
+      "col_labels": [
+        "NO",
+        "TOTAL",
+        "AVERAGE"
+      ],
+      "cells": [
+        [
+          2,
+          33797,
+          16899
+        ],
+        [
+          1,
+          10373,
+          10373
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          4276,
+          2138
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          11125,
+          11125
+        ],
+        [
+          1,
+          10145,
+          10145
+        ],
+        [
+          17,
+          241939,
+          14232
+        ],
+        [
+          41,
+          584174,
+          14248
+        ],
+        [
+          84,
+          1266690,
+          15080
+        ],
+        [
+          188,
+          2748749,
+          14621
+        ],
+        [
+          173,
+          2332903,
+          13485
+        ],
+        [
+          166,
+          1670112,
+          10061
+        ],
+        [
+          146,
+          1212206,
+          8303
+        ],
+        [
+          312,
+          1948568,
+          6245
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        1134,
+        12075057,
+        10648
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 82,
+      "title": "TABLE V-8 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION B METRO TOTALS - RETIRED LIVES",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-70",
+        "71-75",
+        "76-80",
+        "81-85",
+        "86+"
+      ],
+      "col_labels": [
+        "NO",
+        "TOTAL",
+        "AVERAGE"
+      ],
+      "cells": [
+        [
+          15,
+          134530,
+          8969
+        ],
+        [
+          6,
+          69894,
+          11649
+        ],
+        [
+          3,
+          40167,
+          13389
+        ],
+        [
+          5,
+          92200,
+          18440
+        ],
+        [
+          29,
+          589196,
+          20317
+        ],
+        [
+          51,
+          934142,
+          18317
+        ],
+        [
+          121,
+          2385515,
+          19715
+        ],
+        [
+          356,
+          7357372,
+          20667
+        ],
+        [
+          756,
+          15189200,
+          20092
+        ],
+        [
+          1620,
+          31859326,
+          19666
+        ],
+        [
+          2060,
+          35894846,
+          17425
+        ],
+        [
+          1449,
+          23778008,
+          16410
+        ],
+        [
+          1012,
+          15118296,
+          14939
+        ],
+        [
+          548,
+          7145821,
+          13040
+        ],
+        [
+          198,
+          2394463,
+          12093
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        8229,
+        142982976,
+        17375
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 84,
+      "title": "TABLE V-12 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS COMBINED METRO TOTALS - RETIRED LIVES",
+      "row_labels": [
+        "1-20",
+        "21-25",
+        "26-30",
+        "31-35",
+        "36-40",
+        "41-45",
+        "46-50",
+        "51-55",
+        "56-60",
+        "61-65",
+        "66-70",
+        "71-75",
+        "76-80",
+        "81-85",
+        "86+"
+      ],
+      "col_labels": [
+        "NO",
+        "TOTAL",
+        "AVERAGE"
+      ],
+      "cells": [
+        [
+          17,
+          168327,
+          25867
+        ],
+        [
+          7,
+          80267,
+          22022
+        ],
+        [
+          3,
+          40167,
+          13389
+        ],
+        [
+          7,
+          96476,
+          20578
+        ],
+        [
+          29,
+          589196,
+          20317
+        ],
+        [
+          52,
+          945267,
+          29442
+        ],
+        [
+          122,
+          2395660,
+          29860
+        ],
+        [
+          373,
+          7599311,
+          34898
+        ],
+        [
+          797,
+          15773374,
+          34340
+        ],
+        [
+          1704,
+          33126016,
+          34746
+        ],
+        [
+          2248,
+          38643595,
+          32046
+        ],
+        [
+          1622,
+          26110911,
+          29895
+        ],
+        [
+          1178,
+          16788408,
+          25000
+        ],
+        [
+          694,
+          8358027,
+          21343
+        ],
+        [
+          510,
+          4343031,
+          18339
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        9363,
+        155058033,
+        16561
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "51-55",
+        "56-60"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "61-65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "66-70"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "71-75"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "76-80"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "81-85"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "86+"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "NO"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "TOTAL",
+        "NO"
+      ],
+      "op": "ratio"
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1
+    ]
+  },
+  "transpose": false,
+  "notes": "Source data combines Division A (Table V-4) and Division B (Table V-8) via derive sum to form the Combined population (matching Table V-12). Target rows 50-54 and 90+ have no direct source bins; 50-54 is approximated by splitting the '51-55' bin (share_even) as it is the closest available lower bound, and 90+ rows are empty as the source '86+' bin does not extend to 90. The 'Number' column is the sum of counts from both divisions. The 'AverageBenefit' is derived as the ratio of summed Total Benefits to summed Number. No monthly conversion needed as values are annual.",
+  "unavailable": false,
+  "broadcast": null
+}

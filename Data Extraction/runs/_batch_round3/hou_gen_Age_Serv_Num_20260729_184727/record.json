@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-94c7c9ff4fce679a",
+        "object": "chat.completion",
+        "created": 1785365247,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 48,\n      \"title\": \"Distribution of All Active Members by Age and by Years of Service\",\n      \"row_labels\": [\n        \"Under 25\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\",\n        \"65 & Over\"\n      ],\n      \"col_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5-9\",\n        \"10-14\",\n        \"15-19\",\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35 & Over\"\n      ],\n      \"cells\": [\n        [87, 37, 24, 14, 7, 7, null, null, null, null, null, null],\n        [171, 135, 99, 85, 57, 107, 5, null, null, null, null, null],\n        [175, 140, 125, 148, 106, 243, 111, null, null, null, null, null],\n        [151, 119, 99, 106, 107, 281, 358, 58, 1, null, null, null],\n        [131, 90, 90, 82, 87, 203, 360, 133, 68, 2, null, null],\n        [112, 68, 81, 91, 93, 215, 359, 167, 180, 85, 2, null],\n        [105, 74, 73, 80, 78, 198, 384, 212, 257, 251, 75, null],\n        [50, 55, 57, 79, 62, 219, 393, 228, 236, 224, 130, 52],\n        [36, 39, 41, 46, 50, 155, 307, 149, 188, 167, 90, 68],\n        [7, 13, 14, 13, 28, 95, 201, 104, 99, 94, 47, 22]\n      ],\n      \"printed_row_totals\": [176, 659, 1048, 1280, 1246, 1453, 1787, 1785, 1336, 737],\n      \"printed_col_totals\": [1025, 770, 703, 744, 675, 1723, 2478, 1051, 1029, 823, 344, 142]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"<25\",\n      \"sources\": [\n        \"Under 25\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"39\",\n      \"sources\": [\n        \"35-39\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"44\",\n      \"sources\": [\n        \"40-44\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"49\",\n      \"sources\": [\n        \"45-49\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"50-54\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"55-59\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"60-64\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"65 & Over\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"9\",\n      \"sources\": [\n        \"5-9\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"14\",\n      \"sources\": [\n        \"10-14\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"19\",\n      \"sources\": [\n        \"15-19\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"24\",\n      \"sources\": [\n        \"20-24\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"29\",\n      \"sources\": [\n        \"25-29\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"34\",\n      \"sources\": [\n        \"30-34\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"35 & Over\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"Source table is Table 18 on page 48. Target rows map 1:1 to source age rows. Target column '4' (0-4 years) is the sum of source columns '0', '1', '2', '3', '4'. Target column '40' (35-40) maps to source column '35 & Over' (35+), assuming the target upper bound 40 is a label for the open-ended 35+ bin in this context or the target grid implies 35+.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 51031,
+          "total_tokens": 52813,
+          "completion_tokens": 1782,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 51031,
+        "total_tokens": 52813,
+        "completion_tokens": 1782,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

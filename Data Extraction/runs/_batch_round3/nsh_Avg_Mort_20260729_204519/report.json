@@ -1,0 +1,50 @@
+{
+  "shape_truth": [
+    100,
+    3
+  ],
+  "shape_cand": [
+    100,
+    1
+  ],
+  "label_mismatches": [
+    "col_labels[0]: truth='Male (per 1000)' cand='Death_Prob'",
+    "col_labels[1]: truth='Female (per 1000)' cand='(none)'",
+    "col_labels[2]: truth='Death_Prob' cand='(none)'"
+  ],
+  "exact": 0,
+  "close": 0,
+  "wrong": 75,
+  "missing_in_cand": 225,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 20 x svc Male (per 1000)] truth=0.41 cand=0.000285",
+    "[age 20 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 20 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 21 x svc Male (per 1000)] truth=0.41 cand=0.00028500000000000004",
+    "[age 21 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 21 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 22 x svc Male (per 1000)] truth=0.41 cand=0.00028500000000000004",
+    "[age 22 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 22 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 23 x svc Male (per 1000)] truth=0.41 cand=0.00028500000000000004",
+    "[age 23 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 23 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 24 x svc Male (per 1000)] truth=0.41 cand=0.00028500000000000004",
+    "[age 24 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 24 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 25 x svc Male (per 1000)] truth=0.41 cand=None",
+    "[age 25 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 25 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 26 x svc Male (per 1000)] truth=0.41 cand=None",
+    "[age 26 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 26 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 27 x svc Male (per 1000)] truth=0.41 cand=None",
+    "[age 27 x svc Female (per 1000)] truth=0.16 cand=None",
+    "[age 27 x svc Death_Prob] truth=0.000285 cand=None",
+    "[age 28 x svc Male (per 1000)] truth=0.41 cand=None"
+  ],
+  "truth_filled_cells": 300,
+  "accuracy": 0.0
+}

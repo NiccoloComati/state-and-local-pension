@@ -1,0 +1,178 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-a40b780436bac2f3",
+        "object": "chat.completion",
+        "created": 1785372818,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 74,\n      \"title\": \"TABLE V-2 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION A METRO GENERAL GOVERNMENT RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [2, 4276, 2138],\n        [0, 0, 0],\n        [1, 11125, 11125],\n        [1, 10145, 10145],\n        [5, 47325, 9465],\n        [6, 23299, 7539],\n        [26, 248924, 32997],\n        [107, 1194344, 31695],\n        [90, 946170, 30662],\n        [111, 957351, 23794],\n        [110, 756548, 20351],\n        [288, 1765603, 19264]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [747, 5965110, 7985]\n    },\n    {\n      \"page\": 77,\n      \"title\": \"TABLE V-3 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION A METRO FIRE AND POLICE RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [1, 19703, 19703],\n        [1, 10373, 10373],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [3, 67840, 40731],\n        [4, 71312, 35656],\n        [28, 636310, 69536],\n        [60, 1330681, 65035],\n        [66, 1207272, 55830],\n        [40, 577630, 39236],\n        [20, 272013, 42537],\n        [11, 97706, 28885]\n      ],\n      \"printed_row_totals\": [234, 4290840, 18337]\n    },\n    {\n      \"page\": 78,\n      \"title\": \"TABLE V-8 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION B METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [15, 134530, 8969],\n        [6, 69894, 11649],\n        [3, 40167, 13389],\n        [5, 92200, 18440],\n        [29, 589196, 20317],\n        [51, 934142, 18317],\n        [121, 2385515, 19715],\n        [356, 7357372, 20667],\n        [756, 15189200, 20092],\n        [1620, 31859326, 19666],\n        [2060, 35894846, 17425],\n        [1449, 23778008, 16410],\n        [1012, 15118296, 14939],\n        [548, 7145821, 13040],\n        [198, 2394463, 12093]\n      ],\n      \"printed_row_totals\": [8229, 142982976, 17375]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"TABLE V-12 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS COMBINED METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 168327, 25867],\n        [7, 80267, 22022],\n        [3, 40167, 13389],\n        [7, 96476, 20578],\n        [29, 589196, 20317],\n        [52, 945267, 29442],\n        [122, 2395660, 29860],\n        [373, 7599311, 34898],\n        [797, 15773374, 34340],\n        [1704, 33126016, 34746],\n        [2248, 38643595, 32046],\n        [1622, 26110911, 29895],\n        [1178, 16788408, 25000],\n        [694, 8358027, 21343],\n        [510, 4343031, 18339]\n      ],\n      \"printed_row_totals\": [9363, 155058033, 16561]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"66-70\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"71-75\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"76-80\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"81-85\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"86+\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"NO\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"TOTAL\",\n        \"NO\"\n      ],\n      \"op\": \"ratio\"\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Target requires Service retirees only. The document provides 'METRO TOTALS - RETIRED LIVES' tables (V-4, V-8, V-12) which combine Service and Disabled retirees. Tables V-1 (Disabled Div A), V-5 (Disabled Div B), and V-9 (Disabled Combined) are available to subtract disabled counts and totals from the combined totals to isolate Service retirees, but the extraction instructions prioritize transcribing the top-level tables that partition the whole plan once. Since no single 'Service Retirees Only' table exists, and deriving by subtraction (Total - Disabled) is not explicitly supported by the 'derive' ops (which support sum, ratio, group_weighted, but not subtraction), the 'METRO TOTALS - RETIRED LIVES' (Table V-12) is transcribed as the primary source. The notes indicate that the resulting 'Number' and 'AverageBenefit' include Disabled retirees. The age bins in the source (e.g., 51-55, 56-60) are mapped to the target 5-year bands (50-54, 55-59) using 'share_even' as the bins are offset by 1 year but cover the same span width. The '86+' bin is mapped to '85-89' via 'share_even' (assuming the open-ended bin is treated as the next 5-year block for the purpose of the target grid, or noting that 90+ is missing). The target rows 90-94, 95-99, 100+ have no source data as the source stops at 86+. The 'AverageBenefit' is calculated as Total/Count. The source values are Annual Base Benefits (as per table title 'Distribution of Base Benefits'), so no annualization is needed.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128362,
+          "total_tokens": 131602,
+          "completion_tokens": 3240,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128362,
+        "total_tokens": 131602,
+        "completion_tokens": 3240,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 6,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row '21-25': cells sum to 10374 but printed total is 4290840 (diff -4280466)",
+        "source_tables[1] row '26-30': cells sum to 0 but printed total is 18337 (diff -18337)",
+        "source_tables[2] row '21-25': cells sum to 11655 but printed total is 142982976 (diff -142971321)",
+        "source_tables[2] row '26-30': cells sum to 13392 but printed total is 17375 (diff -3983)",
+        "source_tables[3] row '21-25': cells sum to 22029 but printed total is 155058033 (diff -155036004)",
+        "source_tables[3] row '26-30': cells sum to 13392 but printed total is 16561 (diff -3169)"
+      ]
+    },
+    {
+      "tag": "retry-totals",
+      "response": {
+        "id": "chatcmpl-ab8b119f0fe781fb",
+        "object": "chat.completion",
+        "created": 1785372844,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 74,\n      \"title\": \"TABLE V-2 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION A METRO GENERAL GOVERNMENT RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [2, 4276, 2138],\n        [0, 0, 0],\n        [1, 11125, 11125],\n        [1, 10145, 10145],\n        [5, 47325, 9465],\n        [6, 23299, 7539],\n        [26, 248924, 32997],\n        [107, 1194344, 31695],\n        [90, 946170, 30662],\n        [111, 957351, 23794],\n        [110, 756548, 20351],\n        [288, 1765603, 19264]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [747, 5965110, 7985]\n    },\n    {\n      \"page\": 77,\n      \"title\": \"TABLE V-3 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION A METRO FIRE AND POLICE RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [1, 19703, 19703],\n        [1, 10373, 10373],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [0, 0, 0],\n        [3, 67840, 40731],\n        [4, 71312, 35656],\n        [28, 636310, 69536],\n        [60, 1330681, 65035],\n        [66, 1207272, 55830],\n        [40, 577630, 39236],\n        [20, 272013, 42537],\n        [11, 97706, 28885]\n      ],\n      \"printed_row_totals\": [234, 4290840, 18337]\n    },\n    {\n      \"page\": 78,\n      \"title\": \"TABLE V-8 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION B METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [15, 134530, 8969],\n        [6, 69894, 11649],\n        [3, 40167, 13389],\n        [5, 92200, 18440],\n        [29, 589196, 20317],\n        [51, 934142, 18317],\n        [121, 2385515, 19715],\n        [356, 7357372, 20667],\n        [756, 15189200, 20092],\n        [1620, 31859326, 19666],\n        [2060, 35894846, 17425],\n        [1449, 23778008, 16410],\n        [1012, 15118296, 14939],\n        [548, 7145821, 13040],\n        [198, 2394463, 12093]\n      ],\n      \"printed_row_totals\": [8229, 142982976, 17375]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"TABLE V-12 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS COMBINED METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 168327, 25867],\n        [7, 80267, 22022],\n        [3, 40167, 13389],\n        [7, 96476, 20578],\n        [29, 589196, 20317],\n        [52, 945267, 29442],\n        [122, 2395660, 29860],\n        [373, 7599311, 34898],\n        [797, 15773374, 34340],\n        [1704, 33126016, 34746],\n        [2248, 38643595, 32046],\n        [1622, 26110911, 29895],\n        [1178, 16788408, 25000],\n        [694, 8358027, 21343],\n        [510, 4343031, 18339]\n      ],\n      \"printed_row_totals\": [9363, 155058033, 16561]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [\n        \"51-55\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"56-60\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"66-70\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"71-75\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"76-80\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"81-85\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"86+\"\n      ],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"NO\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"TOTAL\",\n        \"NO\"\n      ],\n      \"op\": \"ratio\"\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1,\n      2\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Target requires Service retirees only. The document provides 'METRO TOTALS - RETIRED LIVES' tables (V-4, V-8, V-12) which combine Service and Disabled retirees. Tables V-1 (Disabled Div A), V-5 (Disabled Div B), and V-9 (Disabled Combined) are available to subtract disabled counts and totals from the combined totals to isolate Service retirees, but the extraction instructions prioritize transcribing the top-level tables that partition the whole plan once. Since no single 'Service Retirees Only' table exists, and deriving by subtraction (Total - Disabled) is not explicitly supported by the 'derive' ops (which support sum, ratio, group_weighted, but not subtraction), the 'METRO TOTALS - RETIRED LIVES' (Table V-12) is transcribed as the primary source. The notes indicate that the resulting 'Number' and 'AverageBenefit' include Disabled retirees. The age bins in the source (e.g., 51-55, 56-60) are mapped to the target 5-year bands (50-54, 55-59) using 'share_even' as the bins are offset by 1 year but cover the same span width. The '86+' bin is mapped to '85-89' via 'share_even' (assuming the open-ended bin is treated as the next 5-year block for the purpose of the target grid, or noting that 90+ is missing). The target rows 90-94, 95-99, 100+ have no source data as the source stops at 86+. The 'AverageBenefit' is calculated as Total/Count. The source values are Annual Base Benefits (as per table title 'Distribution of Base Benefits'), so no annualization is needed.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 132134,
+          "total_tokens": 135374,
+          "completion_tokens": 3240,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 132134,
+        "total_tokens": 135374,
+        "completion_tokens": 3240,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 6,
+      "reconcile_err": 0.0,
+      "truncated": false,
+      "totals_problems": [
+        "source_tables[1] row '21-25': cells sum to 10374 but printed total is 4290840 (diff -4280466)",
+        "source_tables[1] row '26-30': cells sum to 0 but printed total is 18337 (diff -18337)",
+        "source_tables[2] row '21-25': cells sum to 11655 but printed total is 142982976 (diff -142971321)",
+        "source_tables[2] row '26-30': cells sum to 13392 but printed total is 17375 (diff -3983)",
+        "source_tables[3] row '21-25': cells sum to 22029 but printed total is 155058033 (diff -155036004)",
+        "source_tables[3] row '26-30': cells sum to 13392 but printed total is 16561 (diff -3169)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-bc203a0774a02759",
+        "object": "chat.completion",
+        "created": 1785372872,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 76,\n      \"title\": \"TABLE V-4 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION A METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [2, 33797, 16899],\n        [1, 10373, 10373],\n        [0, 0, 0],\n        [2, 4276, 2138],\n        [0, 0, 0],\n        [1, 11125, 11125],\n        [1, 10145, 10145],\n        [17, 241939, 14232],\n        [41, 584174, 14248],\n        [84, 1266690, 15080],\n        [188, 2748749, 14621],\n        [173, 2332903, 13485],\n        [166, 1670112, 10061],\n        [146, 1212206, 8303],\n        [312, 1948568, 6245]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [1134, 12075057, 10648]\n    },\n    {\n      \"page\": 82,\n      \"title\": \"TABLE V-8 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS DIVISION B METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [15, 134530, 8969],\n        [6, 69894, 11649],\n        [3, 40167, 13389],\n        [5, 92200, 18440],\n        [29, 589196, 20317],\n        [51, 934142, 18317],\n        [121, 2385515, 19715],\n        [356, 7357372, 20667],\n        [756, 15189200, 20092],\n        [1620, 31859326, 19666],\n        [2060, 35894846, 17425],\n        [1449, 23778008, 16410],\n        [1012, 15118296, 14939],\n        [548, 7145821, 13040],\n        [198, 2394463, 12093]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [8229, 142982976, 17375]\n    },\n    {\n      \"page\": 84,\n      \"title\": \"TABLE V-12 DISTRIBUTION OF BASE BENEFITS BY AGE GROUPS COMBINED METRO TOTALS - RETIRED LIVES\",\n      \"row_labels\": [\n        \"1-20\",\n        \"21-25\",\n        \"26-30\",\n        \"31-35\",\n        \"36-40\",\n        \"41-45\",\n        \"46-50\",\n        \"51-55\",\n        \"56-60\",\n        \"61-65\",\n        \"66-70\",\n        \"71-75\",\n        \"76-80\",\n        \"81-85\",\n        \"86+\"\n      ],\n      \"col_labels\": [\n        \"NO\",\n        \"TOTAL\",\n        \"AVERAGE\"\n      ],\n      \"cells\": [\n        [17, 168327, 25867],\n        [7, 80267, 22022],\n        [3, 40167, 13389],\n        [7, 96476, 20578],\n        [29, 589196, 20317],\n        [52, 945267, 29442],\n        [122, 2395660, 29860],\n        [373, 7599311, 34898],\n        [797, 15773374, 34340],\n        [1704, 33126016, 34746],\n        [2248, 38643595, 32046],\n        [1622, 26110911, 29895],\n        [1178, 16788408, 25000],\n        [694, 8358027, 21343],\n        [510, 4343031, 18339]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [9363, 155058033, 16561]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [\n        \"51-55\",\n        \"56-60\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [\n        \"61-65\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [\n        \"66-70\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [\n        \"71-75\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [\n        \"76-80\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [\n        \"81-85\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [\n        \"86+\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"NO\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"TOTAL\",\n        \"NO\"\n      ],\n      \"op\": \"ratio\"\n    }\n  ],\n  \"derive\": {\n    \"op\": \"sum\",\n    \"tables\": [\n      0,\n      1\n    ]\n  },\n  \"transpose\": false,\n  \"notes\": \"Source data combines Division A (Table V-4) and Division B (Table V-8) via derive sum to form the Combined population (matching Table V-12). Target rows 50-54 and 90+ have no direct source bins; 50-54 is approximated by splitting the '51-55' bin (share_even) as it is the closest available lower bound, and 90+ rows are empty as the source '86+' bin does not extend to 90. The 'Number' column is the sum of counts from both divisions. The 'AverageBenefit' is derived as the ratio of summed Total Benefits to summed Number. No monthly conversion needed as values are annual.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 128362,
+          "total_tokens": 130884,
+          "completion_tokens": 2522,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 128362,
+        "total_tokens": 130884,
+        "completion_tokens": 2522,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

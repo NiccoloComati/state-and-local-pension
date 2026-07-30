@@ -1,0 +1,446 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-84717f8debda9d3f",
+        "object": "chat.completion",
+        "created": 1785349224,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [6156, 18475, 105, 364, 1180, 2037, 7441, 20876]\n    },\n    {\n      \"page\": 45,\n      \"title\": \"Table 15 \u2014 History of Retirees and Beneficiaries Added to Rolls During Fiscal Year Ended June 30, 2019\",\n      \"row_labels\": [\n        \"2010\",\n        \"2011\",\n        \"2012\",\n        \"2013\",\n        \"2014\",\n        \"2015\",\n        \"2016\",\n        \"2017\",\n        \"2018\",\n        \"2019\"\n      ],\n      \"col_labels\": [\n        \"Added to Rolls No.\",\n        \"Added to Rolls Annual Allowance\",\n        \"Removed from Rolls No.\",\n        \"Removed from Rolls Annual Allowance\",\n        \"Rolls - End of Year No.\",\n        \"Rolls - End of Year Annual Allowance\",\n        \"Average Annual Allowances\",\n        \"Increase in Avg. Annual Allowances\"\n      ],\n      \"cells\": [\n        [1080, 67630266, 698, 21855794, 24600, 988162843, 40169, 3.23],\n        [1394, 86404558, 795, 26694342, 25199, 1047873059, 41584, 3.52],\n        [1579, 96719811, 852, 28511983, 25926, 1116080887, 43049, 3.52],\n        [2129, 130553477, 615, 21764846, 27440, 1224869518, 44638, 3.69],\n        [1006, 70963134, 724, 26376522, 27722, 1269456130, 45792, 2.59],\n        [1302, 85087053, 910, 34678799, 28114, 1319864384, 46947, 2.52],\n        [1101, 78909433, 917, 36891261, 28298, 1361882556, 48126, 2.51],\n        [1072, 79434960, 931, 37328244, 28439, 1403989272, 49368, 2.58],\n        [1025, 79219962, 915, 39123440, 28549, 1444085794, 50583, 2.46],\n        [708, 67514478, 940, 42557730, 28317, 1469042542, 51878, 2.56]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [],\n      \"denominator_sources\": [],\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not publish a distribution of retirees by attained age. Table 16 (Page 46) classifies annuitants by monthly benefit amount, not age. Table 15 (Page 45) provides aggregate counts and average annual benefits for the entire retiree population but lacks age breakdowns. Graph 8 (Page 40) displays a histogram of retiree distribution by age but does not provide the numerical data required to populate the target grid. Consequently, the target rows have no source data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 84691,
+          "completion_tokens": 2752,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 84691,
+        "completion_tokens": 2752,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): ratio SPLIT form needs numerator_sources = a NON-EMPTY list of source column labels (both sides required)",
+        "col_map[1] ('AverageBenefit'): ratio SPLIT form needs denominator_sources = a NON-EMPTY list of source column labels (both sides required)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-bc43225b9d013fee",
+        "object": "chat.completion",
+        "created": 1785349245,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [6156, 18475, 105, 364, 1180, 2037, 7441, 20876]\n    },\n    {\n      \"page\": 45,\n      \"title\": \"Table 15 \u2014 History of Retirees and Beneficiaries Added to Rolls During Fiscal Year Ended June 30, 2019\",\n      \"row_labels\": [\n        \"2010\",\n        \"2011\",\n        \"2012\",\n        \"2013\",\n        \"2014\",\n        \"2015\",\n        \"2016\",\n        \"2017\",\n        \"2018\",\n        \"2019\"\n      ],\n      \"col_labels\": [\n        \"Added to Rolls No.\",\n        \"Added to Rolls Annual Allowance\",\n        \"Removed from Rolls No.\",\n        \"Removed from Rolls Annual Allowance\",\n        \"Rolls - End of Year No.\",\n        \"Rolls - End of Year Annual Allowance\",\n        \"Average Annual Allowances\",\n        \"Increase in Avg. Annual Allowances\"\n      ],\n      \"cells\": [\n        [1080, 67630266, 698, 21855794, 24600, 988162843, 40169, 3.23],\n        [1394, 86404558, 795, 26694342, 25199, 1047873059, 41584, 3.52],\n        [1579, 96719811, 852, 28511983, 25926, 1116080887, 43049, 3.52],\n        [2129, 130553477, 615, 21764846, 27440, 1224869518, 44638, 3.69],\n        [1006, 70963134, 724, 26376522, 27722, 1269456130, 45792, 2.59],\n        [1302, 85087053, 910, 34678799, 28114, 1319864384, 46947, 2.52],\n        [1101, 78909433, 917, 36891261, 28298, 1361882556, 48126, 2.51],\n        [1072, 79434960, 931, 37328244, 28439, 1403989272, 49368, 2.58],\n        [1025, 79219962, 915, 39123440, 28549, 1444085794, 50583, 2.46],\n        [708, 67514478, 940, 42557730, 28317, 1469042542, 51878, 2.56]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [],\n      \"denominator_sources\": [],\n      \"annualize_monthly\": true\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not publish a distribution of retirees by attained age. Table 16 (Page 46) classifies annuitants by monthly benefit amount, not age. Table 15 (Page 45) provides aggregate counts and average annual benefits for the entire retiree population but lacks age breakdowns. Graph 8 (Page 40) displays a histogram of retiree distribution by age but does not provide the numerical data required to populate the target grid. Consequently, the target rows have no source data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 87112,
+          "total_tokens": 89864,
+          "completion_tokens": 2752,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 87112,
+        "total_tokens": 89864,
+        "completion_tokens": 2752,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): ratio SPLIT form needs numerator_sources = a NON-EMPTY list of source column labels (both sides required)",
+        "col_map[1] ('AverageBenefit'): ratio SPLIT form needs denominator_sources = a NON-EMPTY list of source column labels (both sides required)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-852a6d4186a03032",
+        "object": "chat.completion",
+        "created": 1785349267,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [7441, 20876, 105, 364, 1180, 2037, 7441, 20876]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [],\n      \"op\": \"ratio\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a table of retiree counts by attained age (e.g., 'Retirees Classified by Age' or 'Annuitants by Age'). Table 16 (Page 46) classifies annuitants by MONTHLY benefit amount, not by age. Table 11 (Page 41) provides aggregate counts and average age for retirees but no distribution by age band. Graph 8 (Page 40) visualizes the distribution but does not provide transcribable numerical data. Consequently, the target grid for 'Retirement' by age band is unavailable in the provided text. The source table (Table 16) is transcribed as archived evidence of the data that exists, but no mapping to the requested age rows is possible.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 83800,
+          "completion_tokens": 1861,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 83800,
+        "completion_tokens": 1861,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): ratio takes exactly TWO sources [numerator, denominator] (e.g. the total-dollars column then the count column). If the document prints the dollars AND the counts once per GROUP (per sex, per tier) with no printed Total column, use the SPLIT form instead: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every COUNT column], and \"sources\" = all of them. Code sums each side, then divides"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-8beeb9db60314931",
+        "object": "chat.completion",
+        "created": 1785349282,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 58,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [7441, 20876, 105, 364, 1180, 2037, 7441, 20876]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [],\n      \"op\": \"ratio\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not contain a table classifying retired members (or any annuitants) by attained age. Table 16 (Page 58) classifies annuitants by monthly benefit amount, not age. Graph 8 (Page 52) shows a distribution of retirees by age but provides no numerical data, only a visual chart. Consequently, the target grid for 'Retirement' by age band cannot be populated from the provided text. The source table transcribed is archived as evidence of the available data structure (Benefit Amount vs Count), but no mapping to age rows is possible.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 83764,
+          "completion_tokens": 1825,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 83764,
+        "completion_tokens": 1825,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): ratio takes exactly TWO sources [numerator, denominator] (e.g. the total-dollars column then the count column). If the document prints the dollars AND the counts once per GROUP (per sex, per tier) with no printed Total column, use the SPLIT form instead: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every COUNT column], and \"sources\" = all of them. Code sums each side, then divides"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-9ef88bb16e5b8047",
+        "object": "chat.completion",
+        "created": 1785349298,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\",\n        \"Totals\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, null, 1, 308, 1125],\n        [206, 487, 1, 1, null, null, 207, 488],\n        [174, 257, 2, 1, null, null, 176, 258],\n        [95, 209, null, 1, null, null, 95, 210],\n        [95, 207, 1, null, null, null, 96, 207],\n        [75, 149, null, null, null, null, 75, 149],\n        [265, 511, null, null, null, 1, 265, 512],\n        [6156, 18475, 105, 364, 1180, 2037, 7441, 20876]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Table 11 \u2014 Summary of Fund Membership\",\n      \"row_labels\": [\n        \"Retirees\",\n        \"Disabled Retirees\",\n        \"Beneficiaries (Including Children)\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Average Annual Benefit\"\n      ],\n      \"cells\": [\n        [24631, 55761],\n        [469, 38717],\n        [3217, 24067]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not publish a distribution of retirees by 5-year age band. Table 16 classifies annuitants by monthly benefit amount, not age. Table 11 provides only aggregate counts and average annual benefits for the entire retiree population (Average Age 74.6), disabled retirees, and beneficiaries. No source data exists to map to the target age rows (50-54 through 100+). The target is unavailable.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 83470,
+          "completion_tokens": 1531,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 83470,
+        "completion_tokens": 1531,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-8f4953dd08d6c8dc",
+        "object": "chat.completion",
+        "created": 1785349311,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 58,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [7441, 20876, 105, 364, 1180, 2037, 7441, 20876]\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Table 11 \u2014 Summary of Fund Membership\",\n      \"row_labels\": [\n        \"Retirees\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Average Annual Benefit\"\n      ],\n      \"cells\": [\n        [24631, 55761]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [],\n      \"op\": \"ratio\",\n      \"numerator_sources\": [],\n      \"denominator_sources\": []\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not provide a distribution of retirees by attained age. Table 16 (Page 58) classifies annuitants by monthly benefit amount, not age. Table 11 (Page 53) provides only the total count (24,631) and average annual benefit ($55,761) for all retirees combined. Graph 8 (Page 52) shows a distribution of retirees by age but does not provide the specific counts or benefit amounts required for the target grid. Consequently, the target grid cannot be populated with the requested data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 83901,
+          "completion_tokens": 1962,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 83901,
+        "completion_tokens": 1962,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): ratio SPLIT form needs numerator_sources = a NON-EMPTY list of source column labels (both sides required)",
+        "col_map[1] ('AverageBenefit'): ratio SPLIT form needs denominator_sources = a NON-EMPTY list of source column labels (both sides required)"
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-9dbb811f30ab8041",
+        "object": "chat.completion",
+        "created": 1785349328,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\",\n        \"Totals\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512],\n        [6156, 18475, 105, 364, 1180, 2037, 7441, 20876]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document provides Table 16 (Page 46) which classifies Annuitants by Monthly Benefit Amount and Type (Retirees, Disabled Retirees, Beneficiaries). It does NOT provide a distribution of retirees by Age. The target grid requires 'Retirees' by 'Age' (50-54, 55-59, etc.) and 'Average Annual Benefit'. The source table lacks age data entirely. Additionally, the source provides counts by Benefit Amount, not Age. No other table in the document provides the required Age distribution for retirees. Graph 8 (Page 40) is titled 'Retirees Classified by Benefit Amount and Age' but only displays a chart with no transcribable numerical grid for Age bands. Therefore, the specific target data (Retiree count and Average Benefit by Age) is unavailable.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 83412,
+          "completion_tokens": 1473,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 83412,
+        "completion_tokens": 1473,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "row_map must be a non-empty list",
+        "col_map must be a non-empty list"
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-a0566f8a9ef2a564",
+        "object": "chat.completion",
+        "created": 1785349341,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 46,\n      \"title\": \"Table 16 \u2014 Number of Annuitants Classified by Benefit Type and Amount as of June 30, 2019\",\n      \"row_labels\": [\n        \"$ 1 - 500\",\n        \"501 - 1000\",\n        \"1,001-1,500\",\n        \"1,501-2,000\",\n        \"2,001-2,500\",\n        \"2,501-3,000\",\n        \"3,001-3,500\",\n        \"3,501-4,000\",\n        \"4,001-4,500\",\n        \"4,501-5,000\",\n        \"5,001-5,500\",\n        \"5,501-6,000\",\n        \"6,001-6,500\",\n        \"6,501-7,000\",\n        \"7,001-7,500\",\n        \"7,501-8,000\",\n        \"8,001-8,500\",\n        \"8,501-9,000\",\n        \"9,001-9,500\",\n        \"Over $9,500\",\n        \"Totals\"\n      ],\n      \"col_labels\": [\n        \"Retirees Male\",\n        \"Retirees Female\",\n        \"Disabled Retirees Male\",\n        \"Disabled Retirees Female\",\n        \"Beneficiaries Male\",\n        \"Beneficiaries Female\",\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"cells\": [\n        [374, 985, 1, 1, 156, 244, 531, 1230],\n        [367, 851, 4, 10, 189, 339, 560, 1200],\n        [307, 679, 12, 29, 149, 176, 468, 884],\n        [225, 588, 7, 39, 156, 208, 388, 835],\n        [220, 639, 13, 45, 149, 241, 382, 925],\n        [248, 802, 8, 53, 210, 325, 466, 1180],\n        [262, 946, 14, 44, 108, 252, 384, 1242],\n        [301, 1171, 11, 35, 25, 96, 337, 1302],\n        [302, 1280, 12, 37, 13, 64, 327, 1381],\n        [328, 1232, 8, 37, 11, 47, 347, 1316],\n        [513, 1609, 5, 19, 7, 23, 525, 1651],\n        [764, 2481, 4, 5, 5, 15, 773, 2501],\n        [728, 2269, 1, 6, 2, 5, 731, 2280],\n        [307, 1123, 1, 1, 0, 1, 308, 1125],\n        [206, 487, 1, 1, 0, 0, 207, 488],\n        [174, 257, 2, 1, 0, 0, 176, 258],\n        [95, 209, 0, 1, 0, 0, 95, 210],\n        [95, 207, 1, 0, 0, 0, 96, 207],\n        [75, 149, 0, 0, 0, 0, 75, 149],\n        [265, 511, 0, 0, 0, 1, 265, 512],\n        [6156, 18475, 105, 364, 1180, 2037, 7441, 20876]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Table 11 \u2014 Summary of Fund Membership\",\n      \"row_labels\": [\n        \"Retirees\"\n      ],\n      \"col_labels\": [\n        \"Number\",\n        \"Average Annual Benefit\",\n        \"Total Annual Benefit\"\n      ],\n      \"cells\": [\n        [24631, 55761, 1373459588]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"50-54\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"55-59\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"60-64\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"65-69\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"70-74\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"75-79\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"80-84\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"85-89\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"90-94\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"95-99\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    },\n    {\n      \"target\": \"100 & over\",\n      \"sources\": [],\n      \"op\": \"share_even\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"Number\",\n      \"sources\": [\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"op\": \"sum\"\n    },\n    {\n      \"target\": \"AverageBenefit\",\n      \"sources\": [\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"numerator_sources\": [\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"denominator_sources\": [\n        \"Total Male\",\n        \"Total Female\"\n      ],\n      \"op\": \"ratio\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The document does not provide a distribution of retirees by age. Table 16 (Page 46) provides counts by monthly benefit amount, and Table 11 (Page 53) provides a single aggregate average annual benefit ($55,761) for all 24,631 retirees. No age-specific counts or benefits exist. The row_map targets are all empty, and the col_map targets are empty, rendering the target grid unavailable. The source tables are transcribed as archived evidence of the available data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 81939,
+          "total_tokens": 83978,
+          "completion_tokens": 2039,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 81939,
+        "total_tokens": 83978,
+        "completion_tokens": 2039,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[1] ('AverageBenefit'): the declared ratio ['Total Male', 'Total Female'] / ['Total Male', 'Total Female'] implies an average of 1.00 - far below 5,000, so the DENOMINATOR is not a member count. Dividing one dollar column by another dollar column is not an average. The denominator must be the COUNT column(s). If the exhibit prints dollars and counts once per GROUP (per sex, per tier) and has no printed Total column, use the SPLIT form: \"numerator_sources\": [every dollar column], \"denominator_sources\": [every count column], \"sources\": all of them - code sums each side, then divides."
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

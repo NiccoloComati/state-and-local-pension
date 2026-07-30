@@ -1,0 +1,207 @@
+{
+  "source_tables": [
+    {
+      "page": 41,
+      "title": "Exhibit F.6 Summary of Members in Pay Status",
+      "row_labels": [
+        "<55",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90 & Up"
+      ],
+      "col_labels": [
+        "Service Retirees Number of Members",
+        "Service Retirees Annual Benefit",
+        "Disabled Retirees Number of Members",
+        "Disabled Retirees Annual Benefit",
+        "Beneficiaries/QDROs Number of Members",
+        "Beneficiaries/QDROs Annual Benefit"
+      ],
+      "cells": [
+        [
+          168,
+          8337522,
+          39,
+          739093,
+          73,
+          1027035
+        ],
+        [
+          594,
+          27975555,
+          39,
+          675211,
+          44,
+          1012484
+        ],
+        [
+          1178,
+          46738047,
+          53,
+          806213,
+          58,
+          1556275
+        ],
+        [
+          1499,
+          51740803,
+          53,
+          895837,
+          122,
+          2576634
+        ],
+        [
+          1193,
+          38560397,
+          24,
+          330842,
+          134,
+          3254087
+        ],
+        [
+          689,
+          20062055,
+          14,
+          179002,
+          148,
+          3534062
+        ],
+        [
+          390,
+          10139844,
+          15,
+          230576,
+          139,
+          2817916
+        ],
+        [
+          186,
+          4771025,
+          7,
+          85018,
+          141,
+          2532783
+        ],
+        [
+          116,
+          2381925,
+          1,
+          21434,
+          78,
+          1359130
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "<55"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70-74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75-79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80-84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85-89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 & Up"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "90 & Up"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "90 & Up"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Service Retirees Number of Members"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Service Retirees Annual Benefit",
+        "Service Retirees Number of Members"
+      ],
+      "op": "ratio"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table Exhibit F.6 provides counts and total annual benefits for Service Retirees, Disabled Retirees, and Beneficiaries/QDROs. Only the Service Retirees columns are mapped to the target. The source row '<55' is split evenly across target rows '50-54' (assuming no retirees under 50 in this context) and the source row '90 & Up' is split evenly across '90-94', '95-99', and '100 & over'. The source 'Annual Benefit' column represents total dollars, so the AverageBenefit is derived as a ratio of Total Dollars / Count. Values are already annual.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,124 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-835c971a8826624f",
+        "object": "chat.completion",
+        "created": 1785346969,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 12,\n      \"title\": \"Termination Rates\",\n      \"row_labels\": [\n        \"0-4\",\n        \"5-13\",\n        \"14+\"\n      ],\n      \"col_labels\": [\n        \"Termination Probability\"\n      ],\n      \"cells\": [\n        [\n          \"1.0%\"\n        ],\n        [\n          \"0.5\"\n        ],\n        [\n          \"0\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [\n          0,\n          4\n        ],\n        [\n          5,\n          13\n        ],\n        [\n          14,\n          null\n        ]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          0,\n          4\n        ]\n      ]\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          0,\n          4\n        ]\n      ]\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          0,\n          4\n        ]\n      ]\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          0,\n          4\n        ]\n      ]\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          5,\n          13\n        ]\n      ]\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          5,\n          13\n        ]\n      ]\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          5,\n          13\n        ]\n      ]\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          5,\n          13\n        ]\n      ]\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          5,\n          13\n        ]\n      ]\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"14+\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          14,\n          null\n        ]\n      ]\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"14+\"\n      ],\n      \"op\": \"copy\",\n      \"source_spans\": [\n        [\n          14,\n          null\n        ]\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Termination Probability\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 12 provides termination rates by Years of Service only (0-4, 5-13, 14+). No age breakdown is provided. The target grid requires rates by Age x Service. Per instructions, the service-based rates are broadcast across all target ages (axis='age'). The source values are percentages (1.0%, 0.5, 0) and are transcribed as printed; the code will convert to decimal probability. Target service bins 1-4 map to source '0-4'; bins 6-12 map to source '5-13'; bins 30-40 map to source '14+'. Target ages 25-70 have no specific source rows and are filled by the broadcast operation.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49374,
+          "total_tokens": 50844,
+          "completion_tokens": 1470,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49374,
+        "total_tokens": 50844,
+        "completion_tokens": 1470,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 11,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0] ('1'): source_spans only belongs on overlap_weighted entries",
+        "col_map[1] ('2'): source_spans only belongs on overlap_weighted entries",
+        "col_map[2] ('3'): source_spans only belongs on overlap_weighted entries",
+        "col_map[3] ('4'): source_spans only belongs on overlap_weighted entries",
+        "col_map[4] ('6'): source_spans only belongs on overlap_weighted entries",
+        "col_map[5] ('8'): source_spans only belongs on overlap_weighted entries",
+        "col_map[6] ('10'): source_spans only belongs on overlap_weighted entries",
+        "col_map[7] ('11'): source_spans only belongs on overlap_weighted entries",
+        "col_map[8] ('12'): source_spans only belongs on overlap_weighted entries",
+        "col_map[9] ('30'): source_spans only belongs on overlap_weighted entries",
+        "col_map[10] ('40'): source_spans only belongs on overlap_weighted entries"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8007ef3b86300744",
+        "object": "chat.completion",
+        "created": 1785346980,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 12,\n      \"title\": \"Termination Rates\",\n      \"row_labels\": [\n        \"0-4\",\n        \"5-13\",\n        \"14+\"\n      ],\n      \"col_labels\": [\n        \"Termination Probability\"\n      ],\n      \"cells\": [\n        [\n          \"1.0%\"\n        ],\n        [\n          \"0.5\"\n        ],\n        [\n          \"0\"\n        ]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [\n          0,\n          4\n        ],\n        [\n          5,\n          13\n        ],\n        [\n          14,\n          null\n        ]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"25\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"45\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"1\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"2\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"3\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"4\",\n      \"sources\": [\n        \"0-4\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"6\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"8\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"10\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"11\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12\",\n      \"sources\": [\n        \"5-13\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [\n        \"14+\"\n      ],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [\n        \"14+\"\n      ],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": false,\n  \"broadcast\": {\n    \"axis\": \"age\",\n    \"series_sources\": [\n      \"Termination Probability\"\n    ],\n    \"series_op\": \"copy\"\n  },\n  \"notes\": \"Source table on page 12 provides termination rates by Years of Service only (0-4, 5-13, 14+). No age breakdown is provided. The target grid requires rates by Age x Service. Per instructions, the service-based rates are broadcast across all target ages (axis='age'). The source values are percentages (1.0%, 0.5, 0) and are transcribed as printed; the code will convert to decimal probability. Target service bins 1-4 map to source '0-4'; bins 6-12 map to source '5-13'; bins 30-40 map to source '14+'. Target ages 25-70 have no specific source rows and are filled by the broadcast operation.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 53423,
+          "total_tokens": 54602,
+          "completion_tokens": 1179,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 53423,
+        "total_tokens": 54602,
+        "completion_tokens": 1179,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

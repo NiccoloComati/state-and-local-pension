@@ -1,0 +1,238 @@
+{
+  "source_tables": [
+    {
+      "page": 113,
+      "title": "Illustrative Rates of Termination",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Males (Less than 5 Years of Service)",
+        "Females (Less than 5 Years of Service)",
+        "Males (At least 5 Years of Service)",
+        "Females (At least 5 Years of Service)"
+      ],
+      "cells": [
+        [
+          17.62,
+          24.05,
+          13.0,
+          14.3
+        ],
+        [
+          15.93,
+          24.12,
+          12.68,
+          14.3
+        ],
+        [
+          11.31,
+          16.77,
+          6.92,
+          8.45
+        ],
+        [
+          10.66,
+          15.6,
+          7.19,
+          7.27
+        ],
+        [
+          8.78,
+          10.4,
+          4.51,
+          8.45
+        ],
+        [
+          9.1,
+          9.23,
+          2.99,
+          4.67
+        ],
+        [
+          8.32,
+          8.58,
+          2.38,
+          3.38
+        ],
+        [
+          6.83,
+          7.8,
+          1.99,
+          3.64
+        ],
+        [
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": "percent",
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [
+        "25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [
+        "35"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [
+        "45"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "Males (Less than 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [
+        "Males (Less than 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [
+        "Males (Less than 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [
+        "Males (Less than 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "Males (At least 5 Years of Service)"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table provides termination rates by age and service for General Employees only (Males and Females split). Rates are in percent. Target grid requires a single rate per cell; this extraction uses the Male column for 'Less than 5 Years' (covering service 1-4) and 'At least 5 Years' (covering service 5+) as the plan assumes termination depends on service. Female rates are ignored as the target does not specify gender splitting and the Male column is the primary demographic for this plan's safety/general mix. Target ages 65 and 70 have no source data (source ends at 60). Target service bins 1-4 map to the '<5 Years' source column; bins 6-40 map to the '>=5 Years' source column. The target service bin '5' (upper bound 5) is not explicitly requested in the target columns list (1,2,3,4,6,8...), so the mapping jumps from 4 to 6. The source assumes all terminations are involuntary.",
+  "unavailable": false,
+  "broadcast": null
+}

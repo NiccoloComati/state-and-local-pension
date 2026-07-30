@@ -1,0 +1,487 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-be2ba3a302baedb4",
+        "object": "chat.completion",
+        "created": 1785345786,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 47) provides retirement rates by Age (rows) and Gender (columns). The target requires rates by Service (rows) and Age (columns). The document does not provide retirement rates by Service; it only provides rates by Age. Therefore, the target grid (Service x Age) cannot be populated as the Service dimension is missing from the source. The row_map sources are empty for all target service rows because no service-based rates exist. The col_map uses group_weighted to blend Male/Female rates, but since the row dimension (Service) is missing, the resulting table would be empty or invalid for the target specification. The 'transpose' flag is set to true to reflect the intended orientation change if data were available, but the data is fundamentally missing for the target's row dimension.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 52930,
+          "completion_tokens": 2992,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 52930,
+        "completion_tokens": 2992,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 2 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-aee96a2153f08e6c",
+        "object": "chat.completion",
+        "created": 1785345806,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ],\n      \"col_spans\": [\n        [null, null],\n        [null, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 47) provides retirement rates by Age (rows) and Gender (columns). The target requires rates by Service (rows) and Age (columns). The document does not provide retirement rates by Service; it only provides rates by Age. Therefore, the target grid (Service x Age) cannot be populated as the Service dimension is missing from the source. The row_map sources are empty for all target service rows because no service-based rates exist. The col_map uses group_weighted to blend Male/Female rates, but since the row dimension (Service) is missing, the resulting table would be empty or invalid for the target specification. The 'transpose' flag is set to true to reflect the intended orientation change if data were available, but the data is fundamentally missing for the target's row dimension.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 55519,
+          "total_tokens": 58536,
+          "completion_tokens": 3017,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 55519,
+        "total_tokens": 58536,
+        "completion_tokens": 3017,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-a6b8c1e8b8b14491",
+        "object": "chat.completion",
+        "created": 1785345827,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"50\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[50, 50]]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"51\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[51, 51]]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"52\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[52, 52]]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"53\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[53, 53]]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"54\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[54, 54]]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[55, 55]]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"56\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[56, 56]]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"57\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[57, 57]]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[58, 58]]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"59\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[59, 59]]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"60\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[60, 60]]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"61\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[61, 61]]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"62\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[62, 62]]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[63, 63]]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[64, 64]]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[65, 65]]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"66\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[66, 66]]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"67\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[67, 67]]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"68\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[68, 68]]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"69\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[69, 69]]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"70\"],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": [[70, 70]]\n    }\n  ],\n  \"derive\": {\n    \"op\": \"group_weighted\",\n    \"sources\": [\n      \"Males\",\n      \"Females\"\n    ],\n    \"weights_tables\": [\n      0,\n      0\n    ]\n  },\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 47) provides retirement rates by Attained Age (rows) and Gender (columns). The target grid requires rates by Service Year (rows) and Age (columns). Since the document provides rates dependent on Age but not Service (rates are constant across service years for a given age), a broadcast is required for the service dimension. However, the target grid's row_map requires specific service bins. The document does not provide service-specific retirement rates; it only provides age-specific rates. Therefore, the rates for all service bins are identical for a given age. The 'row_map' entries for service bins have empty sources because the rate is broadcast from the age dimension. The 'col_map' maps target ages to source age rows using overlap_weighted (though here it is a direct copy as bins align). The 'derive' uses group_weighted to blend Male and Female rates. Since no headcount table by age is provided in the text to weight the blend, and the prompt instructions for 'group_weighted' require weights_tables, I have referenced the source table itself as a placeholder for the weights in the JSON structure, but in practice, without a headcount table, a simple mean or assumption of equal weighting might be used by the code if weights are missing. However, strictly following the 'group_weighted' requirement with the available data, I reference the source table. The 'values_unit' is 'percent' as the source prints percentages. The 'transpose' is true because the source has Age as rows and the target has Age as columns.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 52709,
+          "completion_tokens": 2771,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 52709,
+        "completion_tokens": 2771,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "derive.op 'group_weighted' must be 'ratio' or 'sum'"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-970807d9431f895d",
+        "object": "chat.completion",
+        "created": 1785345846,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates (adopted effective December 31, 2019)\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Table on page 47) provides retirement rates by single age (rows) for Males and Females (columns), but does NOT provide rates by years of service (columns). The target grid requires rates by service-year buckets (rows) x single age (columns). Since the source lacks the service dimension entirely, the target grid cannot be populated with the required service-based probabilities. The 'group_weighted' operation in col_map attempts to blend Males/Females, but the row_map has no sources because the source table has no service bins to map to the target service rows. The document does not publish a two-dimensional retirement rate table (Age x Service) as requested by the target grid. The rates provided are only by Age. Without a service-based rate table, the target is effectively unavailable in the requested format. However, per instructions to transcribe the closest related table, I have transcribed the Age-based rates. The row_map sources are empty because no service bins exist in the source. The col_map attempts to blend genders but without a service dimension, the result is a single rate per age, not a matrix. This extraction highlights that the specific target (Service x Age matrix) is not present in the document; only Age-based rates are available.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 53038,
+          "completion_tokens": 3100,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 53038,
+        "completion_tokens": 3100,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 2 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-b5c4bc1f7bf3acc6",
+        "object": "chat.completion",
+        "created": 1785345868,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table on page 47 provides retirement rates by age (rows) and sex (columns). The target requires rates by service (rows) and age (columns). Since the source rates are defined solely by age and do not vary by service, the service dimension in the target grid is not covered by the data. The row_map entries have empty sources to indicate that no service-specific rate exists in the document. The col_map uses group_weighted to blend Male and Female rates for each target age, but without a provided headcount table to weight by, the code will likely default to a simple mean or require external weights not present in the source. The 'transpose' flag is set to true to align the source's age-rows/columns with the target's age-columns/rows.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 52835,
+          "completion_tokens": 2897,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 52835,
+        "completion_tokens": 2897,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 2 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-b65ec7a638f420e8",
+        "object": "chat.completion",
+        "created": 1785345889,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 47) provides retirement rates by Age (rows) only, with no service dimension. The target requires a grid by Service (rows) x Age (columns). Since the source lacks service variation, the rates are constant across all service years for a given age. The row_map sources are empty because the target service bins cannot be derived from the source. The col_map uses 'mean' of Male and Female rates as a single blended rate per age. The 'values_unit' is percent, so code will convert to decimal. The 'transpose' flag is set to true to align the source's age-rows with the target's age-columns.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 52460,
+          "completion_tokens": 2522,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 52460,
+        "completion_tokens": 2522,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 22,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[1].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[2].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[3].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[4].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[5].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[6].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[7].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[8].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[9].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[10].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[11].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[12].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[13].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[14].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[15].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[16].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[17].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[18].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[19].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[20].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-976eab5f8941373e",
+        "object": "chat.completion",
+        "created": 1785345907,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"mean\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table on page 47 provides Retirement Rates by Age (rows) for Males and Females (columns). The target requires rates by Service (rows) and Age (columns). The document does not provide retirement rates by years of service; it only provides them by attained age. Therefore, the target grid (which requires service-year buckets as rows) cannot be populated with the correct data from the document. The row_map sources are empty for all target rows because the source table lacks the service dimension. The col_map uses 'mean' to average Male and Female rates for each single age, as the document does not provide a combined rate table. The 'transpose' is set to true because the source orientation (Age x Gender) is effectively reversed relative to the target's (Service x Age) if one were to attempt a mapping, but fundamentally the data is missing. The values are transcribed as percentages.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 52191,
+          "completion_tokens": 2253,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 52191,
+        "completion_tokens": 2253,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 22,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map[0].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[1].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[2].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[3].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[4].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[5].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[6].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[7].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[8].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[9].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[10].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[11].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[12].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[13].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[14].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[15].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[16].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[17].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[18].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[19].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map[20].op 'mean' not in ['copy', 'group_weighted', 'overlap_weighted', 'ratio', 'share_even', 'sum', 'weighted_avg']",
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-a652c0fc22aef4a3",
+        "object": "chat.completion",
+        "created": 1785345923,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 47,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"44 & under\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74 & older\"\n      ],\n      \"col_labels\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"cells\": [\n        [22.0, 25.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [20.0, 20.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [21.0, 26.0],\n        [22.0, 21.0],\n        [22.0, 21.0],\n        [27.0, 24.0],\n        [18.0, 16.0],\n        [18.0, 16.0],\n        [18.0, 24.0],\n        [30.0, 24.0],\n        [30.0, 26.0],\n        [22.0, 26.0],\n        [22.0, 26.0],\n        [30.0, 26.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [22.0, 24.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [null, 44],\n        [45, 45],\n        [46, 46],\n        [47, 47],\n        [48, 48],\n        [49, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\n        \"Males\",\n        \"Females\"\n      ],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [\n        0,\n        0\n      ]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 47) provides retirement rates by attained age (rows) and gender (columns), but does not provide rates by years of service. The target grid requires rates by service-year buckets (rows) and single age (columns). Since the source data lacks the service dimension entirely, the target cannot be populated. The row_map sources are empty for all service buckets. The col_map uses group_weighted to blend Males and Females, but without service-specific rates, the values are undefined. The document does not publish retirement rates by service and age simultaneously.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 49938,
+          "total_tokens": 52882,
+          "completion_tokens": 2944,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 49938,
+        "total_tokens": 52882,
+        "completion_tokens": 2944,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 2 source label(s) that do NOT exist in source_tables[0]: ['Males', 'Females']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['44 & under', '45', '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print.",
+        "source_tables[0] is used as group_weighted weights and has 2 col_labels but no col_spans: declare the numeric [lo, hi] span of every printed bin label (null = open end)"
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

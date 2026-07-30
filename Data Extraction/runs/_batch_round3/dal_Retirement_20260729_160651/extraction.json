@@ -1,0 +1,186 @@
+{
+  "source_tables": [
+    {
+      "page": 38,
+      "title": "Distribution of Benefit Recipients",
+      "row_labels": [
+        "Under 50",
+        "50-54",
+        "55-59",
+        "60-64",
+        "65-69",
+        "70-74",
+        "75-79",
+        "80-84",
+        "85-89",
+        "90 & Over"
+      ],
+      "col_labels": [
+        "Number",
+        "Annual Benefit*",
+        "Annual Average Benefit*"
+      ],
+      "cells": [
+        [
+          45,
+          741627,
+          16481
+        ],
+        [
+          197,
+          8598939,
+          43649
+        ],
+        [
+          657,
+          30317521,
+          46145
+        ],
+        [
+          1303,
+          50806210,
+          38992
+        ],
+        [
+          1724,
+          64763938,
+          37566
+        ],
+        [
+          1523,
+          58046066,
+          38113
+        ],
+        [
+          886,
+          27848855,
+          31432
+        ],
+        [
+          547,
+          15658193,
+          28626
+        ],
+        [
+          316,
+          7801810,
+          24689
+        ],
+        [
+          207,
+          4679946,
+          22608
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": [
+        7405,
+        269263106,
+        36362
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "50-54",
+      "sources": [
+        "50-54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55-59",
+      "sources": [
+        "55-59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60-64",
+      "sources": [
+        "60-64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65-69",
+      "sources": [
+        "65-69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70-74",
+      "sources": [
+        "70-74"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "75-79",
+      "sources": [
+        "75-79"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "80-84",
+      "sources": [
+        "80-84"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "85-89",
+      "sources": [
+        "85-89"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "90-94",
+      "sources": [
+        "90 & Over"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "95-99",
+      "sources": [
+        "90 & Over"
+      ],
+      "op": "share_even"
+    },
+    {
+      "target": "100 & over",
+      "sources": [
+        "90 & Over"
+      ],
+      "op": "share_even"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "Number",
+      "sources": [
+        "Number"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "AverageBenefit",
+      "sources": [
+        "Annual Average Benefit*"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table 'Distribution of Benefit Recipients' (Page 38) provides counts and average annual benefits. The '90 & Over' bucket is split evenly across target rows 90-94, 95-99, and 100 & over. The source includes all benefit recipients (retirees, survivors, disabled) as no separate service-retiree-only table is provided; the 'Annual Average Benefit' column is used directly as it is already annual. The 'Under 50' row is excluded as it falls outside the target grid's minimum age of 50.",
+  "unavailable": false,
+  "broadcast": null
+}

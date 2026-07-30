@@ -1,0 +1,207 @@
+{
+  "source_tables": [
+    {
+      "page": 12,
+      "title": "Termination Rates",
+      "row_labels": [
+        "0-4",
+        "5-13",
+        "14+"
+      ],
+      "col_labels": [
+        "Termination Probability"
+      ],
+      "cells": [
+        [
+          "1.0%"
+        ],
+        [
+          "0.5"
+        ],
+        [
+          "0"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 12,
+      "title": "Retirement Rates",
+      "row_labels": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18"
+      ],
+      "col_labels": [
+        "Probability of Retirement"
+      ],
+      "cells": [
+        [
+          "2.0%"
+        ],
+        [
+          "2.0"
+        ],
+        [
+          "2.0"
+        ],
+        [
+          "2.0"
+        ],
+        [
+          "2.0"
+        ],
+        [
+          "5.0"
+        ],
+        [
+          "7.5"
+        ],
+        [
+          "7.5"
+        ],
+        [
+          "10.0"
+        ],
+        [
+          "16.7"
+        ],
+        [
+          "16.7"
+        ],
+        [
+          "16.7"
+        ],
+        [
+          "20.0"
+        ],
+        [
+          "20.0"
+        ],
+        [
+          "30.0"
+        ],
+        [
+          "40.0"
+        ],
+        [
+          "50.0"
+        ],
+        [
+          "75.0"
+        ],
+        [
+          "100.0"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 13,
+      "title": "Disability Rates",
+      "row_labels": [
+        "20",
+        "25",
+        "30",
+        "35",
+        "40",
+        "45",
+        "50",
+        "55",
+        "60"
+      ],
+      "col_labels": [
+        "Probability of Disablement"
+      ],
+      "cells": [
+        [
+          "0.014%"
+        ],
+        [
+          "0.019"
+        ],
+        [
+          "0.031"
+        ],
+        [
+          "0.052"
+        ],
+        [
+          "0.092"
+        ],
+        [
+          "0.209"
+        ],
+        [
+          "0.379"
+        ],
+        [
+          "0.490"
+        ],
+        [
+          "0.911"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 11,
+      "title": "Mortality Rates Assumption",
+      "row_labels": [
+        "Healthy Lives",
+        "Disabled Lives"
+      ],
+      "col_labels": [
+        "Description"
+      ],
+      "cells": [
+        [
+          "RP2000 (Fully Generational using Scale AA) set back two years for males and females- Sex Distinct."
+        ],
+        [
+          "RP2000 Disability Mortality Table"
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "Target Avg_Mort (annual probability of death by single attained age) is unavailable. The document does not publish sample mortality rates (e.g., 'Sample Probability of Death' or 'Rates of Mortality' by age). It only references the 'RP2000' table by name (Page 11) and provides sample rates for Termination (Page 12), Retirement (Page 12), and Disability (Page 13), but no mortality rates by age. Without the specific mortality rates or a table of sample probabilities, the target grid cannot be constructed.",
+  "broadcast": null
+}

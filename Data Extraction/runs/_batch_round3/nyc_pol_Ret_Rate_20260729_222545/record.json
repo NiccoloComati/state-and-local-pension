@@ -1,0 +1,116 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-9c7c0e3b22e3bb0f",
+        "object": "chat.completion",
+        "created": 1785378346,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 59,\n      \"title\": \"Service Retirement, Unreduced with Full COLA/Escalation\",\n      \"row_labels\": [\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40\",\n        \"41\",\n        \"42\",\n        \"43\",\n        \"44\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\"\n      ],\n      \"col_labels\": [\n        \"Year 1\",\n        \"Ultimate\"\n      ],\n      \"cells\": [\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [45.0, 0.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 11.0],\n        [45.0, 12.0],\n        [45.0, 13.0],\n        [45.0, 14.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 20.0],\n        [45.0, 30.0],\n        [45.0, 50.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The document provides retirement probabilities by Years of Service (rows) and two time horizons (Year 1, Ultimate) in Table XI-1a. It does not provide retirement rates by attained age. The target grid requires rates by service-year buckets (rows) and single attained ages (columns). Since the source lacks the 'attained age' dimension entirely, the target grid cannot be populated. The source table is transcribed as evidence, but the mapping is empty because the required data (age-specific rates) is unavailable. The 'Year 1' and 'Ultimate' columns do not correspond to specific ages, and the 'Ultimate' column is a long-term probability, not an annual rate by age.\",\n  \"unavailable\": true\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 79219,
+          "total_tokens": 81576,
+          "completion_tokens": 2357,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 79219,
+        "total_tokens": 81576,
+        "completion_tokens": 2357,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "unavailable=true requires row_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "unavailable=true requires col_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "source_tables[0] holds values up to 100.0 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-86b64281feb26a1a",
+        "object": "chat.completion",
+        "created": 1785378363,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 59,\n      \"title\": \"Service Retirement, Unreduced with Full COLA/Escalation\",\n      \"row_labels\": [\n        \"19\",\n        \"20\",\n        \"21\",\n        \"22\",\n        \"23\",\n        \"24\",\n        \"25\",\n        \"26\",\n        \"27\",\n        \"28\",\n        \"29\",\n        \"30\",\n        \"31\",\n        \"32\",\n        \"33\",\n        \"34\",\n        \"35\",\n        \"36\",\n        \"37\",\n        \"38\",\n        \"39\",\n        \"40\",\n        \"41\",\n        \"42\",\n        \"43\",\n        \"44\",\n        \"45\",\n        \"46\",\n        \"47\",\n        \"48\",\n        \"49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\"\n      ],\n      \"col_labels\": [\n        \"Year 1\",\n        \"Ultimate\"\n      ],\n      \"cells\": [\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [0.0, 0.0],\n        [45.0, 0.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 10.0],\n        [45.0, 11.0],\n        [45.0, 12.0],\n        [45.0, 13.0],\n        [45.0, 14.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 15.0],\n        [45.0, 20.0],\n        [45.0, 30.0],\n        [45.0, 50.0],\n        [100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"The target requires retirement probabilities by service-year bucket (rows) and attained age (columns). The source table (Table XI-1a) provides probabilities by service-year (rows) but only by time horizon ('Year 1', 'Ultimate') rather than attained age. The document does not contain a table with retirement rates cross-classified by both service and age. Therefore, the target grid cannot be populated. The source table is transcribed as evidence of the available data, but the mapping is empty.\",\n  \"unavailable\": true\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 84059,
+          "total_tokens": 85187,
+          "completion_tokens": 1128,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 84059,
+        "total_tokens": 85187,
+        "completion_tokens": 1128,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

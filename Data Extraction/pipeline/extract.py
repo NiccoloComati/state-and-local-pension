@@ -763,6 +763,18 @@ def validate(result, target_spec=None):
                          "source. To MERGE bins use 'sum' (additive quantities) or "
                          "'weighted_avg' with weights_table = the counts table "
                          "(averages - never sum/share_even them)")
+            # ...and share_even with NO source is equally illegal: there is
+            # nothing to split. `copy` with an empty list IS legal (it declares
+            # "the document publishes no data for this target"), which is why
+            # only share_even is checked for emptiness here. The executor raised
+            # on this and killed 3 cells of the round-3 sweep; catching it here
+            # puts it in the retry loop instead.
+            if srcs is not None and op == "share_even" and not srcs:
+                p.append(f"{name}[{i}] ({e.get('target')!r}): 'share_even' needs "
+                         "exactly one source - the printed bucket being split "
+                         "across several target bins. If the document publishes "
+                         "nothing for this target, use op 'copy' with an empty "
+                         "sources list instead.")
             n_s, d_s = e.get("numerator_sources"), e.get("denominator_sources")
             split = n_s is not None or d_s is not None
             if op != "ratio" and split:
@@ -924,6 +936,37 @@ def validate(result, target_spec=None):
                     "publish that dimension at all - give those targets an EMPTY "
                     "sources list and explain in notes. Do NOT invent a label "
                     "for a bin the document does not print.")
+
+    # AN AXIS WITH NO SOURCES AT ALL cannot derive anything - the grid comes out
+    # entirely null, which reads as data rather than failure. This is the same
+    # class the label-existence guard closed, wearing a different disguise:
+    # instead of citing labels that do not exist, the model cites NO labels.
+    # phx Ret_Rate did exactly this in round 3 (correct table transcribed from
+    # p.50, then every row_map entry given `sources: []` and `source_spans: []`)
+    # and fell 0.8624 -> 0.00. A broadcast legitimately has ONE empty axis - the
+    # one it fills identically - so that axis is exempt.
+    if not unavailable and tables:
+        bcast_axis = (result.get("broadcast") or {}).get("axis")
+        exempt = {"age": "row_map", "service": "col_map"}.get(bcast_axis)
+        for name in ("row_map", "col_map"):
+            if name == exempt:
+                continue
+            entries = result.get(name)
+            if not isinstance(entries, list) or not entries:
+                continue
+            if not any(isinstance(e, dict) and (e.get("sources") or
+                                                e.get("numerator_sources") or
+                                                e.get("denominator_sources"))
+                       for e in entries):
+                p.append(
+                    f"{name}: NOT ONE of the {len(entries)} entries names a "
+                    "source, so every cell would be null and the derived grid "
+                    "would be empty. Map each target to the printed bin(s) it "
+                    "comes from (op copy, or overlap_weighted with "
+                    "source_spans when the bins do not line up). If the "
+                    "document genuinely does not publish this target at all, "
+                    'declare "unavailable": true instead; if it publishes the '
+                    "rate along only ONE dimension, declare broadcast.")
 
     # span consistency: the same source bin must mean the same span everywhere
     # (the executor pools spans across entries to compute overlap sets)
@@ -1362,7 +1405,12 @@ def _evaluate(text, target_spec):
     try:
         result = _parse(text)
     except (ValueError, json.JSONDecodeError) as e:
-        return None, [f"response is not parseable JSON: {e}"], 0, \
+        # totals must be a LIST like every other return path: the caller does
+        # len(totals) to rank candidates. Returning 0 here killed 12 cells of
+        # the round-3 sweep with "object of type 'int' has no len()" - an
+        # unparseable response is exactly the case the retry loop exists for,
+        # and instead it aborted the whole cell.
+        return None, [f"response is not parseable JSON: {e}"], [], \
                [f"response is not parseable JSON: {e}"]
     fatal = validate(result, target_spec)
     totals = []

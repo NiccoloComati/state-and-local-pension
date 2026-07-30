@@ -1,0 +1,469 @@
+{
+  "source_tables": [
+    {
+      "page": 49,
+      "title": "Exhibit A: Participants in Active Service as of December 31, 2019 \u2013 BRS excluding Teachers by Age, Years of Service, and Average Payroll",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          382,
+          2,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1203,
+          133,
+          3,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1000,
+          581,
+          134,
+          5,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          592,
+          454,
+          510,
+          101,
+          6,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          398,
+          271,
+          397,
+          341,
+          112,
+          8,
+          null,
+          null,
+          null
+        ],
+        [
+          369,
+          212,
+          244,
+          339,
+          433,
+          106,
+          26,
+          null,
+          null
+        ],
+        [
+          329,
+          219,
+          218,
+          291,
+          352,
+          263,
+          289,
+          16,
+          null
+        ],
+        [
+          260,
+          169,
+          199,
+          248,
+          274,
+          202,
+          492,
+          129,
+          11
+        ],
+        [
+          138,
+          134,
+          182,
+          218,
+          222,
+          141,
+          264,
+          137,
+          55
+        ],
+        [
+          63,
+          53,
+          87,
+          96,
+          96,
+          58,
+          49,
+          15,
+          29
+        ],
+        [
+          46,
+          22,
+          31,
+          47,
+          43,
+          24,
+          25,
+          7,
+          19
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 51,
+      "title": "Exhibit C: Participants in Active Service as of December 31, 2019 \u2013 Teachers by Age, Years of Service, and Average Payroll",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "0-4",
+        "5-9",
+        "10-14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          98,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          677,
+          104,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          486,
+          454,
+          64,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          215,
+          328,
+          391,
+          35,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          113,
+          179,
+          306,
+          292,
+          35,
+          1,
+          null,
+          null,
+          null
+        ],
+        [
+          87,
+          108,
+          136,
+          199,
+          169,
+          35,
+          2,
+          null,
+          null
+        ],
+        [
+          59,
+          67,
+          97,
+          129,
+          148,
+          114,
+          35,
+          2,
+          null
+        ],
+        [
+          50,
+          49,
+          71,
+          97,
+          86,
+          80,
+          79,
+          6,
+          1
+        ],
+        [
+          21,
+          28,
+          44,
+          62,
+          59,
+          52,
+          44,
+          16,
+          2
+        ],
+        [
+          3,
+          7,
+          20,
+          20,
+          30,
+          11,
+          6,
+          5,
+          8
+        ],
+        [
+          null,
+          5,
+          4,
+          3,
+          3,
+          2,
+          4,
+          1,
+          3
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & over"
+      ],
+      "op": "sum",
+      "weights_table": null
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0-4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 - 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 - 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 - 39",
+        "40 & over"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": {
+    "op": "sum",
+    "tables": [
+      0,
+      1
+    ]
+  },
+  "transpose": false,
+  "notes": "Target grid requires summing BRS excluding Teachers (Exhibit A, page 49) and Teachers (Exhibit C, page 51) to get total active member counts. Both tables have been transcribed with identical row and column labels to satisfy the derive=sum requirement. Row '70' combines source rows '65 - 69' and '70 & over'. Column '40' combines source columns '35 - 39' and '40 & over'. The 'Unknown' row from Exhibit A is excluded as it does not map to a target age bin. The 'Total' columns from both exhibits are excluded.",
+  "unavailable": false,
+  "broadcast": null
+}

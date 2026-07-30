@@ -1,0 +1,441 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-813d396050f52f21",
+        "object": "chat.completion",
+        "created": 1785354636,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy (Postretirement Mortality Sample)\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [48.58, 53.31],\n        [43.31, 47.98],\n        [38.11, 42.69],\n        [32.99, 37.45],\n        [27.98, 32.33],\n        [23.2, 27.45],\n        [18.76, 22.81],\n        [14.69, 18.41],\n        [11.02, 14.33]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ],\n      \"values_unit\": \"years\",\n      \"notes\": \"Table shows Future Life Expectancy, not mortality rates. Mortality rates are defined by Pub-2010 tables with scaling factors (119% Male, 102% Female) and MP-2018 improvement, but no sample rate table is printed.\"\n    },\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Total\"\n      ],\n      \"cells\": [\n        [0],\n        [510],\n        [1544],\n        [1589],\n        [1946],\n        [2054],\n        [2377],\n        [2220],\n        [867],\n        [246]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [13353],\n      \"row_spans\": [\n        [null, 19],\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 63]\n      ]\n    },\n    {\n      \"page\": 49,\n      \"title\": \"Exhibit E Showing Statistics on Service Retirement Annuities Classified by Age\",\n      \"row_labels\": [\n        \"UNDER 50\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74\",\n        \"75\",\n        \"76\",\n        \"77\",\n        \"78\",\n        \"79\",\n        \"80\",\n        \"81\",\n        \"82\",\n        \"83\",\n        \"84\",\n        \"85 to 89\",\n        \"90 to 94\",\n        \"95 to 99\",\n        \"100+\"\n      ],\n      \"col_labels\": [\n        \"No.\"\n      ],\n      \"cells\": [\n        [8],\n        [42],\n        [46],\n        [72],\n        [59],\n        [93],\n        [207],\n        [250],\n        [240],\n        [262],\n        [292],\n        [261],\n        [253],\n        [292],\n        [313],\n        [299],\n        [325],\n        [337],\n        [366],\n        [465],\n        [504],\n        [500],\n        [563],\n        [578],\n        [521],\n        [334],\n        [339],\n        [354],\n        [301],\n        [259],\n        [202],\n        [167],\n        [172],\n        [123],\n        [99],\n        [92],\n        [333],\n        [129],\n        [26],\n        [0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [10078],\n      \"row_spans\": [\n        [null, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, 74],\n        [75, 75],\n        [76, 76],\n        [77, 77],\n        [78, 78],\n        [79, 79],\n        [80, 80],\n        [81, 81],\n        [82, 82],\n        [83, 83],\n        [84, 84],\n        [85, 89],\n        [90, 94],\n        [95, 99],\n        [100, null]\n      ]\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a table of sample mortality rates (probability of death) by age. Appendix 4 (Page 70-71) states that mortality is based on Pub-2010 tables with scaling factors (119% Male, 102% Female) and MP-2018 improvement, but it only provides a table of 'Future Life Expectancy' (Page 71) as a sample, not the rates themselves. Without the explicit rate table, the target 'Avg_Mort' (annual probability of death) cannot be extracted or constructed. The counts tables (Exhibit C Part III and Exhibit E) are transcribed as evidence of the population distribution but cannot be used to derive rates without the source rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 88206,
+          "completion_tokens": 2076,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 88206,
+        "completion_tokens": 2076,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].values_unit must be 'percent', 'per_1000', or null (a printed rate scaled as % or per-1,000; else null)"
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-a2649241acabe9af",
+        "object": "chat.completion",
+        "created": 1785354652,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy (Postretirement Mortality Sample)\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [48.58, 53.31],\n        [43.31, 47.98],\n        [38.11, 42.69],\n        [32.99, 37.45],\n        [27.98, 32.33],\n        [23.2, 27.45],\n        [18.76, 22.81],\n        [14.69, 18.41],\n        [11.02, 14.33]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ],\n      \"values_unit\": null\n    },\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Total\"\n      ],\n      \"cells\": [\n        [0],\n        [510],\n        [1544],\n        [1589],\n        [1946],\n        [2054],\n        [2377],\n        [2220],\n        [867],\n        [246]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [13353],\n      \"row_spans\": [\n        [null, 19],\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 63]\n      ]\n    },\n    {\n      \"page\": 49,\n      \"title\": \"Exhibit E Showing Statistics on Service Retirement Annuities Classified by Age\",\n      \"row_labels\": [\n        \"UNDER 50\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74\",\n        \"75\",\n        \"76\",\n        \"77\",\n        \"78\",\n        \"79\",\n        \"80\",\n        \"81\",\n        \"82\",\n        \"83\",\n        \"84\",\n        \"85 to 89\",\n        \"90 to 94\",\n        \"95 to 99\",\n        \"100+\"\n      ],\n      \"col_labels\": [\n        \"No.\"\n      ],\n      \"cells\": [\n        [8],\n        [42],\n        [46],\n        [72],\n        [59],\n        [93],\n        [207],\n        [250],\n        [240],\n        [262],\n        [292],\n        [261],\n        [253],\n        [292],\n        [313],\n        [299],\n        [325],\n        [337],\n        [366],\n        [465],\n        [504],\n        [500],\n        [563],\n        [578],\n        [521],\n        [334],\n        [339],\n        [354],\n        [301],\n        [259],\n        [202],\n        [167],\n        [172],\n        [123],\n        [99],\n        [92],\n        [333],\n        [129],\n        [26],\n        [0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [10078],\n      \"row_spans\": [\n        [null, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, 74],\n        [75, 75],\n        [76, 76],\n        [77, 77],\n        [78, 78],\n        [79, 79],\n        [80, 80],\n        [81, 81],\n        [82, 82],\n        [83, 83],\n        [84, 84],\n        [85, 89],\n        [90, 94],\n        [95, 99],\n        [100, null]\n      ]\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a table of sample mortality rates (probability of death) by age. Appendix 4 (Page 70-71) states that mortality is based on Pub-2010 tables with scaling factors (119% Male, 102% Female) and MP-2018 improvement, but it only provides a table of 'Future Life Expectancy' (Page 71) as a sample, not the rates themselves. Without the explicit rate table, the target 'Avg_Mort' (annual probability of death) cannot be extracted or constructed. The counts tables (Exhibit C Part III and Exhibit E) are transcribed as evidence of the population distribution but cannot be used to derive rates without the source rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 90602,
+          "total_tokens": 92612,
+          "completion_tokens": 2010,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 90602,
+        "total_tokens": 92612,
+        "completion_tokens": 2010,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0] holds values up to 53.31 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-b1b28c9607fd387d",
+        "object": "chat.completion",
+        "created": 1785354669,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy Postretirement (years) in 2019 and 2030\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Future Life Expectancy (years) in 2019 Male\",\n        \"Future Life Expectancy (years) in 2019 Female\",\n        \"Future Life Expectancy (years) in 2030 Male\",\n        \"Future Life Expectancy (years) in 2030 Female\"\n      ],\n      \"cells\": [\n        [48.58, 53.31, 49.63, 54.33],\n        [43.31, 47.98, 44.34, 49.0],\n        [38.11, 42.69, 39.12, 43.69],\n        [32.99, 37.45, 33.97, 38.44],\n        [27.98, 32.33, 28.95, 33.31],\n        [23.2, 27.45, 24.12, 28.37],\n        [18.76, 22.81, 19.59, 23.66],\n        [14.69, 18.41, 15.41, 19.19],\n        [11.02, 14.33, 11.65, 15.06]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"years\",\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ]\n    },\n    {\n      \"page\": 46,\n      \"title\": \"Exhibit C \u2013 Part III Total Lives and Annual Salaries of All Active Participants Classified by Age and Years of Service as of December 31, 2019\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Total\"\n      ],\n      \"cells\": [\n        [0],\n        [510],\n        [1544],\n        [1589],\n        [1946],\n        [2054],\n        [2377],\n        [2220],\n        [867],\n        [246]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [13353],\n      \"row_spans\": [\n        [null, 19],\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 63]\n      ]\n    },\n    {\n      \"page\": 49,\n      \"title\": \"Exhibit E Showing Statistics on Service Retirement Annuities Classified by Age as of December 31, 2019\",\n      \"row_labels\": [\n        \"UNDER 50\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\",\n        \"71\",\n        \"72\",\n        \"73\",\n        \"74\",\n        \"75\",\n        \"76\",\n        \"77\",\n        \"78\",\n        \"79\",\n        \"80\",\n        \"81\",\n        \"82\",\n        \"83\",\n        \"84\",\n        \"85 to 89\",\n        \"90 to 94\",\n        \"95 to 99\",\n        \"100+\"\n      ],\n      \"col_labels\": [\n        \"No.\"\n      ],\n      \"cells\": [\n        [8],\n        [42],\n        [46],\n        [72],\n        [59],\n        [93],\n        [207],\n        [250],\n        [240],\n        [262],\n        [292],\n        [261],\n        [253],\n        [292],\n        [313],\n        [299],\n        [325],\n        [337],\n        [366],\n        [465],\n        [504],\n        [500],\n        [563],\n        [578],\n        [521],\n        [334],\n        [339],\n        [354],\n        [301],\n        [259],\n        [202],\n        [167],\n        [172],\n        [123],\n        [99],\n        [92],\n        [333],\n        [129],\n        [26],\n        [0]\n      ],\n      \"printed_row_totals\": [10078],\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, 70],\n        [71, 71],\n        [72, 72],\n        [73, 73],\n        [74, 74],\n        [75, 75],\n        [76, 76],\n        [77, 77],\n        [78, 78],\n        [79, 79],\n        [80, 80],\n        [81, 81],\n        [82, 82],\n        [83, 83],\n        [84, 84],\n        [85, 89],\n        [90, 94],\n        [95, 99],\n        [100, null]\n      ]\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a table of sample mortality rates (probability of death). Page 71 provides 'Future Life Expectancy' (years) for post-retirement males and females at 5-year intervals, but not the underlying q_x rates. Page 70 describes the mortality assumptions as 'Pub-2010 Amount-weighted Safety Healthy Retiree mortality tables' with scaling factors and MP-2018 improvement scales, but does not print the sample rates themselves. Without the source rates, the target column 'Death_Prob' cannot be constructed. The counts tables (Exhibit C Part III and Exhibit E) are transcribed as evidence of the population distribution but cannot be used to derive the rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 88362,
+          "completion_tokens": 2232,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 88362,
+        "completion_tokens": 2232,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].values_unit must be 'percent', 'per_1000', or null (a printed rate scaled as % or per-1,000; else null)"
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-b2a792504052e049",
+        "object": "chat.completion",
+        "created": 1785354688,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy (Sample Mortality Rates implied by Pub-2010)\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [48.58, 53.31],\n        [43.31, 47.98],\n        [38.11, 42.69],\n        [32.99, 37.45],\n        [27.98, 32.33],\n        [23.2, 27.45],\n        [18.76, 22.81],\n        [14.69, 18.41],\n        [11.02, 14.33]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ],\n      \"values_unit\": \"years\",\n      \"notes\": \"Table prints Future Life Expectancy (years), not death probabilities. No sample mortality rate table (e.g., 'Rates of Mortality' or 'Probability of Death') is present in the document. The document references Pub-2010 tables with scaling factors (119% male, 102% female for retirees; 100% for actives) but does not print the resulting rates or probabilities.\"\n    },\n    {\n      \"page\": 70,\n      \"title\": \"Actuarial Methods and Assumptions - Mortality Scaling Factors\",\n      \"row_labels\": [\n        \"Post-Retirement Male\",\n        \"Post-Retirement Female\",\n        \"Disabled Male\",\n        \"Disabled Female\",\n        \"Pre-Retirement Male\",\n        \"Pre-Retirement Female\"\n      ],\n      \"col_labels\": [\n        \"Scaling Factor\"\n      ],\n      \"cells\": [\n        [119],\n        [102],\n        [129],\n        [112],\n        [100],\n        [100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"notes\": \"TARGET UNAVAILABLE: The document does not contain a table of sample mortality rates (probabilities of death) by age. Page 71 presents a table of 'Future Life Expectancy' (in years), which is an aggregate statistic derived from the mortality table, not the rates themselves. Page 70 describes the base tables (Pub-2010) and scaling factors (e.g., 119% for male retirees) but does not print the resulting probability values. Without the source rates, the target 'Avg_Mort' (average annual probability of death) cannot be constructed or derived.\",\n  \"unavailable\": true\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 86983,
+          "completion_tokens": 853,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 86983,
+        "completion_tokens": 853,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].values_unit must be 'percent', 'per_1000', or null (a printed rate scaled as % or per-1,000; else null)"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-92e3dc1a765861e1",
+        "object": "chat.completion",
+        "created": 1785354697,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy (Sample Mortality Rates implied)\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Male Postretirement 2019\",\n        \"Female Postretirement 2019\",\n        \"Male Postretirement 2030\",\n        \"Female Postretirement 2030\"\n      ],\n      \"cells\": [\n        [48.58, 53.31, 49.63, 54.33],\n        [43.31, 47.98, 44.34, 49.0],\n        [38.11, 42.69, 39.12, 43.69],\n        [32.99, 37.45, 33.97, 38.44],\n        [27.98, 32.33, 28.95, 33.31],\n        [23.2, 27.45, 24.12, 28.37],\n        [18.76, 22.81, 19.59, 23.66],\n        [14.69, 18.41, 15.41, 19.19],\n        [11.02, 14.33, 11.65, 15.06]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"notes\": \"Table contains Life Expectancy, not mortality rates. Mortality rates are not explicitly tabulated.\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document describes the mortality assumptions (Pub-2010 tables with scaling factors and MP-2018 improvement) on pages 70-71 but does not publish a table of sample mortality rates (probabilities of death). Page 71 only publishes 'Future Life Expectancy' values. Without explicit rate tables or a lookup mechanism for the specific rates at each single age, the target grid of annual probabilities of death cannot be constructed.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 86757,
+          "completion_tokens": 627,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 86757,
+        "completion_tokens": 627,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0] holds values up to 54.33 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-8c6431a522021341",
+        "object": "chat.completion",
+        "created": 1785354705,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy (Mortality Assumptions)\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Male Postretirement 2019\",\n        \"Female Postretirement 2019\",\n        \"Male Postretirement 2030\",\n        \"Female Postretirement 2030\"\n      ],\n      \"cells\": [\n        [48.58, 53.31, 49.63, 54.33],\n        [43.31, 47.98, 44.34, 49.0],\n        [38.11, 42.69, 39.12, 43.69],\n        [32.99, 37.45, 33.97, 38.44],\n        [27.98, 32.33, 28.95, 33.31],\n        [23.2, 27.45, 24.12, 28.37],\n        [18.76, 22.81, 19.59, 23.66],\n        [14.69, 18.41, 15.41, 19.19],\n        [11.02, 14.33, 11.65, 15.06]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ],\n      \"values_unit\": \"years\",\n      \"notes\": \"Table displays Future Life Expectancy, not mortality rates. Mortality rates are defined by scaling factors applied to Pub-2010 tables (Page 70) but no sample rate table is printed.\"\n    },\n    {\n      \"page\": 70,\n      \"title\": \"Mortality Assumptions Scaling Factors\",\n      \"row_labels\": [\n        \"Post-Retirement Males\",\n        \"Post-Retirement Females\",\n        \"Disabled Males\",\n        \"Disabled Females\",\n        \"Pre-Retirement Males\",\n        \"Pre-Retirement Females\"\n      ],\n      \"col_labels\": [\n        \"Scaling Factor\"\n      ],\n      \"cells\": [\n        [119],\n        [102],\n        [129],\n        [112],\n        [100],\n        [100]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"notes\": \"Scaling factors applied to Pub-2010 base tables. No sample mortality rates are printed in this document.\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document does not contain a printed table of sample mortality rates (probability of death) by age. Appendix 4 (Pages 70-71) describes the mortality assumptions as Pub-2010 tables scaled by specific percentages (e.g., 119% for male retirees) and provides a table of 'Future Life Expectancy' (years), but no explicit 'Rate of Mortality' or 'Probability of Death' table is published. Therefore, the target grid of annual death probabilities cannot be constructed from the provided text without external lookup of the Pub-2010 tables, which is outside the scope of extraction.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 87135,
+          "completion_tokens": 1005,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 87135,
+        "completion_tokens": 1005,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].values_unit must be 'percent', 'per_1000', or null (a printed rate scaled as % or per-1,000; else null)"
+      ]
+    },
+    {
+      "tag": "sample4",
+      "response": {
+        "id": "chatcmpl-a7e3f0e0ba43a4f8",
+        "object": "chat.completion",
+        "created": 1785354715,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 70,\n      \"title\": \"Future Life Expectancy Postretirement (Sample Mortality Rates implied)\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Male\",\n        \"Female\"\n      ],\n      \"cells\": [\n        [48.58, 53.31],\n        [43.31, 47.98],\n        [38.11, 42.69],\n        [32.99, 37.45],\n        [27.98, 32.33],\n        [23.2, 27.45],\n        [18.76, 22.81],\n        [14.69, 18.41],\n        [11.02, 14.33]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ],\n      \"values_unit\": \"years\",\n      \"notes\": \"This table provides Life Expectancy, not death probabilities. It is transcribed as archived evidence but cannot be used to derive the target 'Death_Prob' column directly without a full mortality table which is not printed. The document references 'Pub-2010 Amount-weighted Safety Healthy Retiree mortality tables' and 'Pub-2010 headcount-weighted Safety Employee mortality tables' with scaling factors, but does not print the rates themselves.\"\n    },\n    {\n      \"page\": 33,\n      \"title\": \"Total Lives and Annual Salaries of Active Male Participants\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Total\"\n      ],\n      \"cells\": [\n        [0],\n        [408],\n        [1184],\n        [1194],\n        [1442],\n        [1607],\n        [1836],\n        [1746],\n        [649],\n        [175]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [10241],\n      \"row_spans\": [\n        [null, 19],\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 63]\n      ]\n    },\n    {\n      \"page\": 34,\n      \"title\": \"Total Lives and Annual Salaries of Active Female Participants\",\n      \"row_labels\": [\n        \"Under 20\",\n        \"20 to 24\",\n        \"25 to 29\",\n        \"30 to 34\",\n        \"35 to 39\",\n        \"40 to 44\",\n        \"45 to 49\",\n        \"50 to 54\",\n        \"55 to 59\",\n        \"60 to 63\"\n      ],\n      \"col_labels\": [\n        \"Total\"\n      ],\n      \"cells\": [\n        [0],\n        [102],\n        [360],\n        [395],\n        [504],\n        [447],\n        [541],\n        [474],\n        [218],\n        [71]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": [3112],\n      \"row_spans\": [\n        [null, 19],\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 63]\n      ]\n    },\n    {\n      \"page\": 49,\n      \"title\": \"Retirees and Beneficiaries by Type of Benefit\",\n      \"row_labels\": [\n        \"1990\",\n        \"1991\",\n        \"1992\",\n        \"1993\",\n        \"1994\",\n        \"1995\",\n        \"1996\",\n        \"1997\",\n        \"1998\",\n        \"1999\",\n        \"2000\",\n        \"2001\",\n        \"2002\",\n        \"2003\",\n        \"2004\",\n        \"2005\",\n        \"2006\",\n        \"2007\",\n        \"2008\",\n        \"2009\",\n        \"2010\",\n        \"2011\",\n        \"2012\",\n        \"2013\",\n        \"2014\",\n        \"2015\",\n        \"2016\",\n        \"2017\",\n        \"2018\",\n        \"2019\"\n      ],\n      \"col_labels\": [\n        \"Employee\",\n        \"Spouse\",\n        \"Child\",\n        \"Ordinary\",\n        \"Duty\",\n        \"Occup.\",\n        \"Child2\",\n        \"Comp.\",\n        \"Total\"\n      ],\n      \"cells\": [\n        [4936, 3214, 335, 51, 187, null, 66, null, 8789],\n        [5033, 3137, 329, 75, 192, null, 68, null, 8834],\n        [5109, 3129, 310, 83, 204, null, 66, null, 8901],\n        [5195, 3151, 294, 59, 211, null, 160, 66, 9136],\n        [5309, 3123, 281, 51, 221, null, 159, 64, 9208],\n        [5510, 3133, 254, 51, 231, 1, 144, 60, 9384],\n        [5714, 3120, 252, 67, 256, 12, 158, 59, 9638],\n        [5945, 3104, 240, 59, 270, 36, 130, 59, 9843],\n        [6241, 3093, 228, 56, 279, 57, 150, 57, 10161],\n        [6520, 3118, 249, 57, 291, 76, 150, 58, 10519],\n        [6876, 3107, 267, 48, 274, 87, 149, 59, 10867],\n        [7192, 3114, 255, 52, 265, 95, 143, 59, 11175],\n        [7392, 3092, 235, 38, 289, 103, 150, 59, 11358],\n        [7498, 3083, 247, 29, 285, 97, 139, 63, 11441],\n        [7815, 3133, 249, 44, 287, 85, 130, 65, 11808],\n        [8026, 3107, 247, 35, 298, 82, 139, 65, 11999],\n        [8083, 3093, 255, 39, 291, 69, 132, 64, 12026],\n        [8155, 3137, 242, 52, 284, 65, 136, 64, 12135],\n        [8210, 3148, 237, 39, 286, 58, 139, 66, 12183],\n        [8227, 3111, 232, 44, 284, 52, 138, 66, 12154],\n        [8495, 3079, 222, 37, 284, 40, 155, 69, 12381],\n        [8763, 3091, 214, 43, 270, 36, 176, 70, 12663],\n        [9035, 3122, 214, 47, 263, 36, 180, 69, 12966],\n        [9194, 3130, 206, 46, 269, 35, 213, 66, 13159],\n        [9311, 3109, 197, 48, 259, 36, 204, 66, 13230],\n        [9385, 3078, 198, 41, 230, 35, 178, 65, 13210],\n        [9603, 3102, 186, 40, 202, 33, 164, 64, 13394],\n        [9899, 3059, 185, 40, 197, 31, 154, 63, 13628],\n        [9930, 3054, 190, 36, 182, 29, 147, 63, 13631],\n        [10078, 3070, 201, 40, 167, 25, 125, 65, 13771]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The target 'Avg_Mort' (average annual probability of death by single attained age) is unavailable. The document references 'Pub-2010' mortality tables with scaling factors (Page 70) and provides a 'Future Life Expectancy' table (Page 70) but does not print the actual sample mortality rates (q_x) required to construct the target grid. The available tables (Exhibits C, E, F, M) provide member counts and benefit statistics, not mortality rates. Without the printed rates, the target cannot be derived.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 89316,
+          "completion_tokens": 3186,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 89316,
+        "completion_tokens": 3186,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0].values_unit must be 'percent', 'per_1000', or null (a printed rate scaled as % or per-1,000; else null)"
+      ]
+    },
+    {
+      "tag": "sample5",
+      "response": {
+        "id": "chatcmpl-be2c4909050268f1",
+        "object": "chat.completion",
+        "created": 1785354740,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 71,\n      \"title\": \"Future Life Expectancy\",\n      \"row_labels\": [\n        \"35\",\n        \"40\",\n        \"45\",\n        \"50\",\n        \"55\",\n        \"60\",\n        \"65\",\n        \"70\",\n        \"75\"\n      ],\n      \"col_labels\": [\n        \"Future Life Expectancy (years) in 2019 - Male\",\n        \"Future Life Expectancy (years) in 2019 - Female\",\n        \"Future Life Expectancy (years) in 2030 - Male\",\n        \"Future Life Expectancy (years) in 2030 - Female\"\n      ],\n      \"cells\": [\n        [48.58, 53.31, 49.63, 54.33],\n        [43.31, 47.98, 44.34, 49.00],\n        [38.11, 42.69, 39.12, 43.69],\n        [32.99, 37.45, 33.97, 38.44],\n        [27.98, 32.33, 28.95, 33.31],\n        [23.2, 27.45, 24.12, 28.37],\n        [18.76, 22.81, 19.59, 23.66],\n        [14.69, 18.41, 15.41, 19.19],\n        [11.02, 14.33, 11.65, 15.06]\n      ],\n      \"row_spans\": [\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64],\n        [65, 69],\n        [70, 74],\n        [75, 79]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": null,\n      \"notes\": \"Table provides Life Expectancy, not mortality rates. Mortality rates are described textually as Pub-2010 tables with scaling factors but no sample rates are printed.\"\n    },\n    {\n      \"page\": 60,\n      \"title\": \"Rate of Termination\",\n      \"row_labels\": [\n        \"0\",\n        \"1\",\n        \"2\",\n        \"3\",\n        \"4\",\n        \"5\",\n        \"6\",\n        \"7\",\n        \"8\",\n        \"9\",\n        \"10\",\n        \"11\",\n        \"12\",\n        \"13\",\n        \"14 +\"\n      ],\n      \"col_labels\": [\n        \"Rate\"\n      ],\n      \"cells\": [\n        [0.03],\n        [0.025],\n        [0.017],\n        [0.015],\n        [0.014],\n        [0.014],\n        [0.013],\n        [0.01],\n        [0.009],\n        [0.009],\n        [0.009],\n        [0.008],\n        [0.007],\n        [0.006],\n        [0.006]\n      ],\n      \"row_spans\": [\n        [0, 0],\n        [1, 1],\n        [2, 2],\n        [3, 3],\n        [4, 4],\n        [5, 5],\n        [6, 6],\n        [7, 7],\n        [8, 8],\n        [9, 9],\n        [10, 10],\n        [11, 11],\n        [12, 12],\n        [13, 13],\n        [14, null]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": null,\n      \"notes\": \"Termination rates by service, not mortality rates.\"\n    },\n    {\n      \"page\": 61,\n      \"title\": \"Rate of Disability\",\n      \"row_labels\": [\n        \"20-24\",\n        \"25-29\",\n        \"30-34\",\n        \"35-39\",\n        \"40-44\",\n        \"45-49\",\n        \"50-54\",\n        \"55-59\",\n        \"60-64\"\n      ],\n      \"col_labels\": [\n        \"Rates\"\n      ],\n      \"cells\": [\n        [0.0002],\n        [0.0004],\n        [0.0007],\n        [0.0015],\n        [0.0026],\n        [0.0032],\n        [0.0042],\n        [0.0042],\n        [0.0043]\n      ],\n      \"row_spans\": [\n        [20, 24],\n        [25, 29],\n        [30, 34],\n        [35, 39],\n        [40, 44],\n        [45, 49],\n        [50, 54],\n        [55, 59],\n        [60, 64]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": null,\n      \"notes\": \"Disability rates by age, not mortality rates.\"\n    }\n  ],\n  \"row_map\": [],\n  \"col_map\": [],\n  \"derive\": null,\n  \"transpose\": false,\n  \"unavailable\": true,\n  \"notes\": \"The document describes the mortality assumptions textually (Pub-2010 tables with scaling factors and MP-2018 improvement) but does not print a table of sample mortality rates (probability of death) by age. The only tables provided are Future Life Expectancy (Page 71), Termination Rates (Page 60), and Disability Rates (Page 61). Without printed sample rates, the target grid of annual probability of death cannot be constructed.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 86130,
+          "total_tokens": 87731,
+          "completion_tokens": 1601,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 86130,
+        "total_tokens": 87731,
+        "completion_tokens": 1601,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "source_tables[0] holds values up to 54.33 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

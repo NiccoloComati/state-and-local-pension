@@ -1,0 +1,346 @@
+{
+  "source_tables": [
+    {
+      "page": 53,
+      "title": "Distribution of Active Members as of July 1, 2019 - Count By Age/Service - Total System",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 and up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 and up",
+        "Total"
+      ],
+      "cells": [
+        [
+          147,
+          133,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          280
+        ],
+        [
+          435,
+          1272,
+          129,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1836
+        ],
+        [
+          520,
+          2206,
+          976,
+          131,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          3833
+        ],
+        [
+          397,
+          1959,
+          1281,
+          731,
+          81,
+          2,
+          0,
+          0,
+          0,
+          0,
+          4451
+        ],
+        [
+          291,
+          1383,
+          1094,
+          907,
+          508,
+          91,
+          1,
+          0,
+          0,
+          0,
+          4275
+        ],
+        [
+          241,
+          1129,
+          891,
+          931,
+          898,
+          591,
+          61,
+          0,
+          0,
+          0,
+          4742
+        ],
+        [
+          207,
+          940,
+          758,
+          797,
+          970,
+          905,
+          457,
+          75,
+          2,
+          0,
+          5111
+        ],
+        [
+          133,
+          751,
+          672,
+          734,
+          908,
+          800,
+          594,
+          306,
+          106,
+          0,
+          5004
+        ],
+        [
+          63,
+          383,
+          455,
+          517,
+          611,
+          491,
+          337,
+          261,
+          115,
+          8,
+          3241
+        ],
+        [
+          22,
+          115,
+          166,
+          189,
+          217,
+          155,
+          88,
+          77,
+          48,
+          22,
+          1099
+        ],
+        [
+          7,
+          25,
+          43,
+          51,
+          58,
+          55,
+          33,
+          29,
+          16,
+          13,
+          330
+        ]
+      ],
+      "printed_row_totals": [
+        280,
+        1836,
+        3833,
+        4451,
+        4275,
+        4742,
+        5111,
+        5004,
+        3241,
+        1099,
+        330
+      ],
+      "printed_col_totals": [
+        2463,
+        10296,
+        6465,
+        4988,
+        4251,
+        3090,
+        1571,
+        748,
+        287,
+        43,
+        34202
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 to 69",
+        "70 and up"
+      ],
+      "op": "sum"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "Under 1",
+        "1 to 4"
+      ],
+      "op": "sum"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35 to 39",
+        "40 and up"
+      ],
+      "op": "sum"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table A-8 on page 53 provides the active member counts by age and service for the Total System. Row labels 'Under 25' map directly to target '<25'. Rows '65 to 69' and '70 and up' are summed to form target '70'. Column 'Under 1' and '1 to 4' are summed to form target '4'. Columns '35 to 39' and '40 and up' are summed to form target '40'. All other rows and columns map directly via copy.",
+  "unavailable": false,
+  "broadcast": null
+}

@@ -1,0 +1,541 @@
+{
+  "source_tables": [
+    {
+      "page": 18,
+      "title": "Summary of Active Participants as of July 1, 2020",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 & up",
+        "Total"
+      ],
+      "cells": [
+        [
+          null,
+          47454,
+          50806,
+          61799,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          50584
+        ],
+        [
+          null,
+          46582,
+          51908,
+          62180,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          54971
+        ],
+        [
+          null,
+          45407,
+          52076,
+          61675,
+          68664,
+          null,
+          null,
+          null,
+          null,
+          null,
+          58933
+        ],
+        [
+          null,
+          null,
+          53062,
+          60324,
+          68086,
+          72323,
+          null,
+          null,
+          null,
+          null,
+          64556
+        ],
+        [
+          null,
+          null,
+          53793,
+          62642,
+          66139,
+          71681,
+          78865,
+          null,
+          null,
+          null,
+          69852
+        ],
+        [
+          null,
+          null,
+          null,
+          60596,
+          66616,
+          71247,
+          80122,
+          99494,
+          null,
+          null,
+          72396
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          75526,
+          71181,
+          76621,
+          98078,
+          95939,
+          null,
+          73231
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          71898,
+          73153,
+          null,
+          null,
+          null,
+          72839
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 18,
+      "title": "Summary of Active Participants as of July 1, 2020 (Counts)",
+      "row_labels": [
+        "Under 25",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 to 44",
+        "45 to 49",
+        "50 to 54",
+        "55 to 59",
+        "60 to 64",
+        "65 to 69",
+        "70 & up"
+      ],
+      "col_labels": [
+        "Under 1",
+        "1 to 4",
+        "5 to 9",
+        "10 to 14",
+        "15 to 19",
+        "20 to 24",
+        "25 to 29",
+        "30 to 34",
+        "35 to 39",
+        "40 & up",
+        "Total"
+      ],
+      "cells": [
+        [
+          5,
+          20,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          26
+        ],
+        [
+          7,
+          162,
+          7,
+          7,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          246
+        ],
+        [
+          3,
+          192,
+          314,
+          5,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          560
+        ],
+        [
+          null,
+          80,
+          229,
+          249,
+          130,
+          null,
+          null,
+          null,
+          null,
+          null,
+          688
+        ],
+        [
+          null,
+          8,
+          56,
+          152,
+          511,
+          1,
+          8,
+          null,
+          null,
+          null,
+          745
+        ],
+        [
+          null,
+          null,
+          5,
+          61,
+          358,
+          103,
+          1,
+          null,
+          null,
+          null,
+          528
+        ],
+        [
+          null,
+          null,
+          null,
+          1,
+          150,
+          7,
+          6,
+          1,
+          1,
+          null,
+          229
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          4,
+          12,
+          null,
+          null,
+          null,
+          null,
+          16
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ]
+      ],
+      "printed_row_totals": [
+        26,
+        246,
+        560,
+        688,
+        745,
+        528,
+        229,
+        16,
+        0,
+        0,
+        0
+      ],
+      "printed_col_totals": [
+        15,
+        462,
+        682,
+        514,
+        1153,
+        209,
+        2,
+        1,
+        1,
+        0,
+        3038
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 to 39"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 to 44"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 to 49"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 to 54"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 to 59"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 to 64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70 & up"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "1 to 4"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 to 9"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 to 14"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 to 19"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 to 24"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 to 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 to 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40 & up"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source table on page 18 provides average salary by age and service for active participants. Counts table (index 1) used as weights for weighted average operations where bins are merged (not needed here as bins align 1:1 with targets). Target bins <25, 29, 34, 39, 44, 49, 54, 59, 64, 70 correspond to source age rows Under 25, 25 to 29, 30 to 34, 35 to 39, 40 to 44, 45 to 49, 50 to 54, 55 to 59, 60 to 64, 70 & up. Target service bins 4, 9, 14, 19, 24, 29, 34, 40 correspond to source columns 1 to 4, 5 to 9, 10 to 14, 15 to 19, 20 to 24, 25 to 29, 30 to 34, 40 & up. Some cells are null due to insufficient data or empty intersections.",
+  "unavailable": false,
+  "broadcast": null
+}

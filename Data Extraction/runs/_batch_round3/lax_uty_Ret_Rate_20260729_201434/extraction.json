@@ -1,0 +1,590 @@
+{
+  "source_tables": [
+    {
+      "page": 64,
+      "title": "Retirement Rates (%)",
+      "row_labels": [
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58",
+        "59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70",
+        "71",
+        "72",
+        "73",
+        "74",
+        "75 & Over"
+      ],
+      "col_labels": [
+        "Under 30 Years of Service",
+        "30 or More Years of Service"
+      ],
+      "cells": [
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          4.25,
+          27.0,
+          0.0,
+          25.0
+        ],
+        [
+          2.0,
+          20.0,
+          0.0,
+          14.0
+        ],
+        [
+          2.5,
+          17.5,
+          0.0,
+          13.0
+        ],
+        [
+          3.5,
+          17.5,
+          0.0,
+          13.0
+        ],
+        [
+          3.5,
+          17.5,
+          0.0,
+          13.0
+        ],
+        [
+          5.5,
+          22.0,
+          5.5,
+          17.5
+        ],
+        [
+          6.5,
+          22.0,
+          3.5,
+          10.0
+        ],
+        [
+          7.0,
+          22.0,
+          2.5,
+          10.0
+        ],
+        [
+          8.0,
+          25.0,
+          20.0,
+          25.0
+        ],
+        [
+          8.5,
+          27.0,
+          12.0,
+          25.0
+        ],
+        [
+          11.5,
+          30.0,
+          11.0,
+          28.0
+        ],
+        [
+          12.0,
+          30.0,
+          11.0,
+          28.0
+        ],
+        [
+          12.5,
+          30.0,
+          12.0,
+          28.0
+        ],
+        [
+          13.0,
+          30.0,
+          12.5,
+          28.0
+        ],
+        [
+          17.0,
+          30.0,
+          15.0,
+          28.0
+        ],
+        [
+          22.0,
+          25.0,
+          50.0,
+          50.0
+        ],
+        [
+          22.0,
+          25.0,
+          50.0,
+          50.0
+        ],
+        [
+          22.0,
+          25.0,
+          50.0,
+          50.0
+        ],
+        [
+          22.0,
+          25.0,
+          50.0,
+          50.0
+        ],
+        [
+          22.0,
+          25.0,
+          50.0,
+          50.0
+        ],
+        [
+          100.0,
+          100.0,
+          100.0,
+          100.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          58
+        ],
+        [
+          59,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          70
+        ],
+        [
+          71,
+          71
+        ],
+        [
+          72,
+          72
+        ],
+        [
+          73,
+          73
+        ],
+        [
+          74,
+          74
+        ],
+        [
+          75,
+          null
+        ]
+      ],
+      "col_spans": [
+        [
+          null,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ],
+      "values_unit": "percent"
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [
+        "Under 30 Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "12-19",
+      "sources": [
+        "Under 30 Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "20-24",
+      "sources": [
+        "Under 30 Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "25-29",
+      "sources": [
+        "Under 30 Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          null,
+          29
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "30 or More Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "31-32",
+      "sources": [
+        "30 or More Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "33-34",
+      "sources": [
+        "30 or More Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "35-39",
+      "sources": [
+        "30 or More Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "30 or More Years of Service"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [
+        "50"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [
+        "51"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [
+        "52"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [
+        "53"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [
+        "54"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [
+        "55"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [
+        "56"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [
+        "57"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [
+        "58"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [
+        "59"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [
+        "60"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [
+        "61"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [
+        "62"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [
+        "63"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [
+        "64"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [
+        "65"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [
+        "66"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [
+        "67"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [
+        "68"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [
+        "69"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [
+        "70"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "Source table on page 64 provides retirement rates by Age (rows) and Years of Service (columns). Target requires Service (rows) x Age (columns), so transpose=true. Source rates are in percent; values_unit='percent' ensures conversion to decimal. Source service bins are 'Under 30' ([null, 29]) and '30 or More' ([30, null]). Target service bins map via overlap_weighted: '5-11' through '25-29' fall entirely within 'Under 30', so they copy that rate. '30' through '40' fall entirely within '30 or More', so they copy that rate. Target age columns 50-69 map directly to source rows. Target age '70' (70+) maps to source row '70' via copy. Although the source has rows for 71-75+, the target grid defines '70' as '70 and over'. Since the source rates for 70, 71, 72, 73, 74, and 75+ are identical (22.0/25.0/50.0/50.0 depending on service), copying the '70' row value is mathematically equivalent to the weighted average of the 70+ block. Using 'copy' avoids the 'share_even' constraint violation for multiple sources.",
+  "unavailable": false,
+  "broadcast": null
+}

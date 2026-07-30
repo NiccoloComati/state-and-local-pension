@@ -1,0 +1,552 @@
+{
+  "source_tables": [
+    {
+      "page": 69,
+      "title": "Termination Rates",
+      "row_labels": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "col_labels": [
+        "Rate (%)"
+      ],
+      "cells": [
+        [
+          2.0
+        ],
+        [
+          0.8
+        ],
+        [
+          0.6
+        ],
+        [
+          0.5
+        ],
+        [
+          0.4
+        ],
+        [
+          0.0
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ],
+      "values_unit": "percent",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "2",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "3",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "4",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "6",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "8",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "10",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "11",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "12",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "30",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    },
+    {
+      "target": "40",
+      "sources": [
+        "0 - 0.99",
+        "1 - 1.99",
+        "2 - 8.99",
+        "9 - 13.99",
+        "14 - 29.99",
+        "30 and over"
+      ],
+      "op": "overlap_weighted",
+      "source_spans": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          14,
+          29
+        ],
+        [
+          30,
+          null
+        ]
+      ]
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "age",
+    "series_sources": [
+      "Rate (%)"
+    ],
+    "series_op": "copy"
+  },
+  "notes": "Source table on page 69 provides termination rates by years of service only, with no age breakdown. Rates are printed as percentages. The target grid requires rates by age and service. Per instructions, the service-based rates are broadcast across all target age rows (axis='age'). Target service bins (1, 2, 3, 4, 6, 8, 10, 11, 12, 30, 40) are mapped from the source service bins using overlap_weighted with declared source spans. Source spans: 0-0.99 -> [0,0], 1-1.99 -> [1,1], 2-8.99 -> [2,8], 9-13.99 -> [9,13], 14-29.99 -> [14,29], 30+ -> [30, null].",
+  "unavailable": false
+}

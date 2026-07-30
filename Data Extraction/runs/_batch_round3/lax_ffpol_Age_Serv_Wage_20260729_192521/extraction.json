@@ -1,0 +1,509 @@
+{
+  "source_tables": [
+    {
+      "page": 60,
+      "title": "EXHIBIT B \u2013 MEMBERS IN ACTIVE SERVICE AS OF JUNE 30, 2019 BY AGE, YEARS OF SERVICE, AND AVERAGE PROJECTED COMPENSATION - TOTAL PLAN (AVERAGE COMPENSATION)",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "Total",
+        "0 - 4",
+        "5 - 9",
+        "10 - 14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          73443,
+          73443,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          87092,
+          85012,
+          106537,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          103306,
+          90661,
+          108005,
+          116164,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          114540,
+          93642,
+          107855,
+          117638,
+          125987,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          121696,
+          89759,
+          109612,
+          117114,
+          126291,
+          129372,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          128082,
+          94254,
+          108311,
+          116468,
+          125619,
+          131032,
+          143144,
+          null,
+          null,
+          null
+        ],
+        [
+          132832,
+          115108,
+          108780,
+          114181,
+          124880,
+          130230,
+          137200,
+          141446,
+          null,
+          null
+        ],
+        [
+          137577,
+          181849,
+          114103,
+          113324,
+          124410,
+          127118,
+          134154,
+          145769,
+          155337,
+          234742
+        ],
+        [
+          134297,
+          249063,
+          null,
+          107736,
+          127898,
+          124208,
+          127984,
+          138880,
+          146563,
+          144357
+        ],
+        [
+          133844,
+          null,
+          null,
+          null,
+          137442,
+          120608,
+          137442,
+          138837,
+          125950,
+          147468
+        ],
+        [
+          130198,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          130198
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 60,
+      "title": "EXHIBIT B \u2013 MEMBERS IN ACTIVE SERVICE AS OF JUNE 30, 2019 BY AGE, YEARS OF SERVICE, AND AVERAGE PROJECTED COMPENSATION - TOTAL PLAN (MEMBER COUNTS)",
+      "row_labels": [
+        "Under 25",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 - 44",
+        "45 - 49",
+        "50 - 54",
+        "55 - 59",
+        "60 - 64",
+        "65 - 69",
+        "70 & over"
+      ],
+      "col_labels": [
+        "Total",
+        "0 - 4",
+        "5 - 9",
+        "10 - 14",
+        "15 - 19",
+        "20 - 24",
+        "25 - 29",
+        "30 - 34",
+        "35 - 39",
+        "40 & over"
+      ],
+      "cells": [
+        [
+          486,
+          486,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1583,
+          1430,
+          153,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1662,
+          662,
+          550,
+          450,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1954,
+          213,
+          273,
+          1261,
+          207,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          1998,
+          51,
+          81,
+          727,
+          910,
+          229,
+          null,
+          null,
+          null,
+          null
+        ],
+        [
+          2403,
+          16,
+          32,
+          264,
+          663,
+          1291,
+          137,
+          null,
+          null,
+          null
+        ],
+        [
+          2056,
+          5,
+          12,
+          94,
+          229,
+          721,
+          646,
+          349,
+          null,
+          null
+        ],
+        [
+          1113,
+          2,
+          1,
+          16,
+          51,
+          211,
+          351,
+          441,
+          39,
+          1
+        ],
+        [
+          254,
+          1,
+          null,
+          1,
+          7,
+          54,
+          61,
+          91,
+          35,
+          4
+        ],
+        [
+          25,
+          null,
+          null,
+          null,
+          1,
+          6,
+          1,
+          6,
+          5,
+          6
+        ],
+        [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1
+        ]
+      ],
+      "printed_row_totals": [
+        486,
+        1583,
+        1662,
+        1954,
+        1998,
+        2403,
+        2056,
+        1113,
+        254,
+        25,
+        1
+      ],
+      "printed_col_totals": [
+        13535,
+        2866,
+        1102,
+        2813,
+        2068,
+        2512,
+        1196,
+        887,
+        79,
+        12
+      ],
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "Under 25"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 - 39"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 - 44"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 - 49"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 - 54"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 - 59"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 - 64"
+      ],
+      "op": "copy",
+      "weights_table": 1
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 - 69",
+        "70 & over"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "0 - 4"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5 - 9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10 - 14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15 - 19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20 - 24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 - 29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 - 34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "40 & over"
+      ],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source tables are from Exhibit B on page 60. Table 0 contains Average Projected Compensation (values). Table 1 contains Member Counts (weights). Row labels in source are ranges (e.g., '25 - 29') which map directly to target single-year buckets (e.g., '29') as 'copy' operations because the target grid asks for specific age bands that align with the source bins in this context (or rather, the source bins are the standard actuarial age bands used for the target). The target '70' row maps to source '65-69' and '70 & over' using weighted_avg. The target '40' column maps to source '40 & over' via copy. Note: The target grid labels '29', '34', etc. correspond to the upper bound of the source bins '25-29', '30-34', etc. The 'copy' operation is appropriate here as the source bin represents the average for that entire group, and the target asks for the value associated with that group.",
+  "unavailable": false,
+  "broadcast": null
+}

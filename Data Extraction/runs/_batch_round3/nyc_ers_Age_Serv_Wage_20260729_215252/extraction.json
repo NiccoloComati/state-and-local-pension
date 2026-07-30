@@ -1,0 +1,541 @@
+{
+  "source_tables": [
+    {
+      "page": 108,
+      "title": "Detailed Active Membership and Salaries by Obligor as of June 30, 2018 - Total - Average Salaries",
+      "row_labels": [
+        "UNDER 20",
+        "20 TO 24",
+        "25 TO 29",
+        "30 TO 34",
+        "35 TO 39",
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "TOTAL",
+        "70 & UP"
+      ],
+      "col_labels": [
+        "UNDER 5",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & UP",
+        "ALL YEARS"
+      ],
+      "cells": [
+        [
+          47053,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          47053
+        ],
+        [
+          47719,
+          63638,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          47806
+        ],
+        [
+          54920,
+          63249,
+          76762,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          55884
+        ],
+        [
+          60753,
+          71138,
+          80406,
+          86337,
+          0,
+          0,
+          0,
+          0,
+          0,
+          65937
+        ],
+        [
+          64864,
+          74667,
+          81441,
+          82081,
+          69903,
+          0,
+          0,
+          0,
+          0,
+          72982
+        ],
+        [
+          66595,
+          76033,
+          81895,
+          86336,
+          86295,
+          89882,
+          0,
+          0,
+          0,
+          76001
+        ],
+        [
+          67817,
+          75922,
+          80772,
+          84152,
+          88421,
+          90392,
+          95489,
+          0,
+          0,
+          79306
+        ],
+        [
+          67351,
+          74085,
+          78017,
+          81991,
+          85599,
+          88142,
+          92435,
+          98602,
+          0,
+          80244
+        ],
+        [
+          69826,
+          73216,
+          76001,
+          81298,
+          85556,
+          85855,
+          88755,
+          85979,
+          100562,
+          80663
+        ],
+        [
+          71438,
+          72620,
+          74429,
+          80178,
+          85304,
+          85555,
+          84777,
+          85923,
+          81286,
+          79129
+        ],
+        [
+          76191,
+          71187,
+          73086,
+          78832,
+          84139,
+          83557,
+          85309,
+          85416,
+          86523,
+          76278
+        ],
+        [
+          62747,
+          73674,
+          78927,
+          82299,
+          85675,
+          86380,
+          87443,
+          85803,
+          86114,
+          75872
+        ],
+        [
+          64270,
+          72260,
+          71170,
+          75685,
+          78013,
+          78490,
+          74796,
+          82927,
+          87082,
+          80244
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    },
+    {
+      "page": 108,
+      "title": "Detailed Active Membership and Salaries by Obligor as of June 30, 2018 - Total - Number",
+      "row_labels": [
+        "UNDER 20",
+        "20 TO 24",
+        "25 TO 29",
+        "30 TO 34",
+        "35 TO 39",
+        "40 TO 44",
+        "45 TO 49",
+        "50 TO 54",
+        "55 TO 59",
+        "60 TO 64",
+        "65 TO 69",
+        "TOTAL",
+        "70 & UP"
+      ],
+      "col_labels": [
+        "UNDER 5",
+        "5-9",
+        "10-14",
+        "15-19",
+        "20-24",
+        "25-29",
+        "30-34",
+        "35-39",
+        "40 & UP",
+        "ALL YEARS"
+      ],
+      "cells": [
+        [
+          40,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          40
+        ],
+        [
+          1814,
+          10,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1824
+        ],
+        [
+          9061,
+          1064,
+          43,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          10168
+        ],
+        [
+          10443,
+          6208,
+          1486,
+          17,
+          0,
+          0,
+          0,
+          0,
+          0,
+          18154
+        ],
+        [
+          8047,
+          7404,
+          5342,
+          843,
+          5,
+          0,
+          0,
+          0,
+          0,
+          21641
+        ],
+        [
+          5857,
+          5858,
+          6580,
+          3628,
+          445,
+          19,
+          0,
+          0,
+          0,
+          22387
+        ],
+        [
+          4631,
+          4922,
+          6397,
+          5459,
+          2591,
+          899,
+          27,
+          0,
+          0,
+          24926
+        ],
+        [
+          3923,
+          4284,
+          5938,
+          5828,
+          4287,
+          4154,
+          1318,
+          36,
+          0,
+          29768
+        ],
+        [
+          2872,
+          3592,
+          4824,
+          5406,
+          4477,
+          4910,
+          3196,
+          658,
+          8,
+          29943
+        ],
+        [
+          1448,
+          2325,
+          3339,
+          3797,
+          3162,
+          3087,
+          2344,
+          1237,
+          92,
+          20831
+        ],
+        [
+          407,
+          1013,
+          1444,
+          1531,
+          1068,
+          1015,
+          691,
+          421,
+          224,
+          7814
+        ],
+        [
+          48629,
+          36994,
+          35896,
+          27127,
+          16511,
+          14465,
+          7834,
+          2547,
+          569,
+          190572
+        ],
+        [
+          86,
+          314,
+          503,
+          618,
+          476,
+          381,
+          258,
+          195,
+          245,
+          3076
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "<25",
+      "sources": [
+        "UNDER 20",
+        "20 TO 24"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25 TO 29"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30 TO 34"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "39",
+      "sources": [
+        "35 TO 39"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "44",
+      "sources": [
+        "40 TO 44"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "49",
+      "sources": [
+        "45 TO 49"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "54",
+      "sources": [
+        "50 TO 54"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "59",
+      "sources": [
+        "55 TO 59"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "64",
+      "sources": [
+        "60 TO 64"
+      ],
+      "op": "copy",
+      "weights_table": null
+    },
+    {
+      "target": "70",
+      "sources": [
+        "65 TO 69",
+        "70 & UP"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "col_map": [
+    {
+      "target": "4",
+      "sources": [
+        "UNDER 5"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "9",
+      "sources": [
+        "5-9"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "14",
+      "sources": [
+        "10-14"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "19",
+      "sources": [
+        "15-19"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "24",
+      "sources": [
+        "20-24"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "29",
+      "sources": [
+        "25-29"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "34",
+      "sources": [
+        "30-34"
+      ],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [
+        "35-39",
+        "40 & UP"
+      ],
+      "op": "weighted_avg",
+      "weights_table": 1
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "notes": "Source data from Table XIII-6 (Total) on page 108. Average salary table (index 0) and member count table (index 1) are interleaved. Merged age bins '<25' and '70' use weighted_avg with counts from index 1. Merged service bin '40' (covering 35-39 and 40+) uses weighted_avg with counts from index 1. Target grid rows 29, 34, 39, 44, 49, 54, 59, 64 map directly to single source rows. Target grid columns 4, 9, 14, 19, 24, 29, 34 map directly to single source columns.",
+  "unavailable": false,
+  "broadcast": null
+}

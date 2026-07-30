@@ -1,0 +1,566 @@
+{
+  "source_tables": [
+    {
+      "page": 52,
+      "title": "Retirement Rates (Tier A)",
+      "row_labels": [
+        "48-49",
+        "50",
+        "51",
+        "52",
+        "53",
+        "54",
+        "55",
+        "56",
+        "57",
+        "58-59",
+        "60",
+        "61",
+        "62",
+        "63",
+        "64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Male First Year Eligible",
+        "Male Thereafter",
+        "Female First Year Eligible",
+        "Female Thereafter"
+      ],
+      "cells": [
+        [
+          100,
+          100,
+          100,
+          100
+        ],
+        [
+          550,
+          550,
+          450,
+          350
+        ],
+        [
+          500,
+          450,
+          400,
+          350
+        ],
+        [
+          500,
+          300,
+          400,
+          300
+        ],
+        [
+          400,
+          300,
+          350,
+          300
+        ],
+        [
+          350,
+          250,
+          350,
+          200
+        ],
+        [
+          300,
+          250,
+          350,
+          250
+        ],
+        [
+          300,
+          250,
+          350,
+          250
+        ],
+        [
+          300,
+          250,
+          350,
+          250
+        ],
+        [
+          300,
+          250,
+          250,
+          200
+        ],
+        [
+          80,
+          230,
+          90,
+          200
+        ],
+        [
+          90,
+          230,
+          90,
+          180
+        ],
+        [
+          100,
+          230,
+          90,
+          200
+        ],
+        [
+          100,
+          230,
+          150,
+          150
+        ],
+        [
+          150,
+          230,
+          120,
+          130
+        ],
+        [
+          150,
+          230,
+          120,
+          300
+        ],
+        [
+          200,
+          230,
+          150,
+          300
+        ],
+        [
+          200,
+          230,
+          250,
+          300
+        ],
+        [
+          200,
+          230,
+          150,
+          300
+        ],
+        [
+          200,
+          230,
+          150,
+          300
+        ],
+        [
+          1000,
+          1000,
+          1000,
+          300
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          48,
+          49
+        ],
+        [
+          50,
+          50
+        ],
+        [
+          51,
+          51
+        ],
+        [
+          52,
+          52
+        ],
+        [
+          53,
+          53
+        ],
+        [
+          54,
+          54
+        ],
+        [
+          55,
+          55
+        ],
+        [
+          56,
+          56
+        ],
+        [
+          57,
+          57
+        ],
+        [
+          58,
+          59
+        ],
+        [
+          60,
+          60
+        ],
+        [
+          61,
+          61
+        ],
+        [
+          62,
+          62
+        ],
+        [
+          63,
+          63
+        ],
+        [
+          64,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "values_unit": "per_1000",
+      "col_spans": null
+    },
+    {
+      "page": 53,
+      "title": "Retirement Rates (Tier B)",
+      "row_labels": [
+        "<55",
+        "55-56",
+        "57-58",
+        "59-60",
+        "61-62",
+        "63-64",
+        "65",
+        "66",
+        "67",
+        "68",
+        "69",
+        "70"
+      ],
+      "col_labels": [
+        "Male Service < 40 yrs.",
+        "Male Service 40 yrs. +",
+        "Female Service < 40 yrs.",
+        "Female Service 40 yrs. +"
+      ],
+      "cells": [
+        [
+          10,
+          350,
+          10,
+          350
+        ],
+        [
+          20,
+          350,
+          20,
+          350
+        ],
+        [
+          30,
+          350,
+          30,
+          350
+        ],
+        [
+          40,
+          350,
+          40,
+          350
+        ],
+        [
+          50,
+          350,
+          50,
+          350
+        ],
+        [
+          60,
+          350,
+          60,
+          350
+        ],
+        [
+          180,
+          600,
+          200,
+          450
+        ],
+        [
+          200,
+          250,
+          250,
+          250
+        ],
+        [
+          200,
+          250,
+          250,
+          250
+        ],
+        [
+          200,
+          250,
+          150,
+          250
+        ],
+        [
+          200,
+          250,
+          150,
+          250
+        ],
+        [
+          1000,
+          1000,
+          1000,
+          1000
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          54
+        ],
+        [
+          55,
+          56
+        ],
+        [
+          57,
+          58
+        ],
+        [
+          59,
+          60
+        ],
+        [
+          61,
+          62
+        ],
+        [
+          63,
+          64
+        ],
+        [
+          65,
+          65
+        ],
+        [
+          66,
+          66
+        ],
+        [
+          67,
+          67
+        ],
+        [
+          68,
+          68
+        ],
+        [
+          69,
+          69
+        ],
+        [
+          70,
+          null
+        ]
+      ],
+      "values_unit": "per_1000",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "5-11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12-19",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "20-24",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "25-29",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "31-32",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "33-34",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35-39",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "51",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "52",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "53",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "54",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "56",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "57",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "58",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "59",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "61",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "62",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "63",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "64",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "66",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "67",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "68",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "69",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": true,
+  "notes": "The document provides retirement rates by Age (rows) and Service (columns) for Tier A and Tier B members separately. The target grid requires rates by Service (rows) and Age (columns). The source tables do not provide rates for service years 5-49; they only provide rates for ages 48+ (Tier A) and <55+ (Tier B) with specific service conditions (e.g., 'First Year Eligible', 'Thereafter', 'Service < 40 yrs', 'Service 40 yrs +'). The target service buckets (5-11, 12-19, etc.) do not align with the source service conditions, and the source does not provide a full matrix of rates for all service years and ages. Specifically, the source rates are conditional on eligibility and service length in a way that cannot be mapped to the target's simple service buckets without making assumptions about the distribution of members within those buckets or the specific eligibility rules for each age/service combination. Furthermore, the target asks for a single probability per cell, but the source provides different rates for 'First Year Eligible' vs 'Thereafter' and for different service thresholds. Since the document does not publish a single retirement rate matrix by Age and Service that covers the target grid's dimensions (specifically the low service years 5-49 and the specific service buckets), and the provided tables are conditional/segmented, the target data is unavailable in the required format. The transcribed tables are archived as evidence of the available data.",
+  "unavailable": false,
+  "broadcast": null
+}

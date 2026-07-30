@@ -59,7 +59,7 @@ def _finding(out, sev, code, msg):
 
 
 # ---------------------------------------------------------------- generic ---
-def check_generic(grid, out):
+def check_generic(grid, out, broadcast=None):
     cells = grid.get("cells") or []
     total = sum(len(r) for r in cells if isinstance(r, list))
     nums = _vals(grid)
@@ -80,12 +80,19 @@ def check_generic(grid, out):
     # EXCLUDED: on a rate sheet a column of zeros is the impossibility
     # convention and a column of ones is "everyone retires by this age",
     # both legitimate - flagging them buried the real hits in noise.
-    for j, lab in enumerate(grid.get("col_labels") or []):
-        col = [v for v in _col(grid, j) if _num(v)]
-        if len(col) >= 3 and len(set(col)) == 1 and col[0] not in (0, 1):
-            _finding(out, 2, "constant-column",
-                     f"column {lab!r} is {col[0]!r} in all {len(col)} populated "
-                     "rows - a ratio of a column by itself looks like this")
+    # A `broadcast` grid is CONSTANT BY DESIGN along the axis the document does
+    # not measure: axis="age" repeats one service-based rate down every age row,
+    # so every column is identical and this check fires on all of them. Round 3
+    # produced 57 such false positives on Sep_Rate alone, burying the real hits.
+    # Only skip the axis the broadcast actually fills.
+    bcast_axis = (broadcast or {}).get("axis")
+    if bcast_axis != "age":
+        for j, lab in enumerate(grid.get("col_labels") or []):
+            col = [v for v in _col(grid, j) if _num(v)]
+            if len(col) >= 3 and len(set(col)) == 1 and col[0] not in (0, 1):
+                _finding(out, 2, "constant-column",
+                         f"column {lab!r} is {col[0]!r} in all {len(col)} populated "
+                         "rows - a ratio of a column by itself looks like this")
 
     if any(v < 0 for v in nums):
         neg = [v for v in nums if v < 0]
@@ -274,14 +281,15 @@ def main():
         # target, not a failure. Count them, do not flag them.
         try:
             with open(os.path.join(run, "extraction.json"), encoding="utf-8") as fh:
-                unavailable = bool(json.load(fh).get("unavailable"))
+                extraction = json.load(fh)
+            unavailable = bool(extraction.get("unavailable"))
         except Exception:
-            unavailable = False
+            extraction, unavailable = {}, False
         if unavailable:
             n_unavail += 1
             continue
         out = []
-        check_generic(grid, out)
+        check_generic(grid, out, broadcast=extraction.get("broadcast"))
         fn = CHECKS.get(tgt)
         zero_imp = bool((targets.get(tgt) or {}).get("zero_impossible_cells"))
         if fn and not any(c == "empty-grid" for _, c, _ in out):

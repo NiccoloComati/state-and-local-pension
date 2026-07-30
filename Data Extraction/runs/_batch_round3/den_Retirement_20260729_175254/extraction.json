@@ -1,0 +1,65 @@
+{
+  "source_tables": [
+    {
+      "page": 55,
+      "title": "Valuation Data Comparison - Inactives",
+      "row_labels": [
+        "Retirees",
+        "QDROs",
+        "Disabled Members",
+        "Beneficiaries",
+        "Children"
+      ],
+      "col_labels": [
+        "Count",
+        "Average Age",
+        "Total Annual Benefits",
+        "Average Annual Benefits"
+      ],
+      "cells": [
+        [
+          8554,
+          70.2,
+          197794296,
+          23123
+        ],
+        [
+          60,
+          64.3,
+          572738,
+          9546
+        ],
+        [
+          285,
+          66.7,
+          4699969,
+          16491
+        ],
+        [
+          1227,
+          70.6,
+          17003908,
+          13858
+        ],
+        [
+          27,
+          16.1,
+          182823,
+          6771
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document provides aggregate statistics for 'Members in Pay Status' (Retirees, QDROs, Disabled, Beneficiaries, Children) but does not publish a distribution of these members by attained age (e.g., 50-54, 55-59). The target grid requires headcount and average benefit by 5-year age bands. Since no age-distributed data exists in the report, the target is unavailable. The transcribed table (Table on page 55) is archived as evidence of the available aggregate data.",
+  "broadcast": null
+}

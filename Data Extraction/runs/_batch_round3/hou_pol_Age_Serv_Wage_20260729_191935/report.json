@@ -1,0 +1,46 @@
+{
+  "shape_truth": [
+    10,
+    8
+  ],
+  "shape_cand": [
+    10,
+    8
+  ],
+  "label_mismatches": [],
+  "exact": 0,
+  "close": 0,
+  "wrong": 44,
+  "missing_in_cand": 0,
+  "extra_in_cand": 1,
+  "star_ok": 0,
+  "mismatches": [
+    "[age <25 x svc 4] truth=52555.0 cand=111",
+    "[age 29 x svc 4] truth=62744.0 cand=591",
+    "[age 29 x svc 9] truth=72170.0 cand=89",
+    "[age 34 x svc 4] truth=64304.0 cand=358",
+    "[age 34 x svc 9] truth=77242.0 cand=380",
+    "[age 34 x svc 14] truth=86526.0 cand=85",
+    "[age 39 x svc 4] truth=65581.0 cand=123",
+    "[age 39 x svc 9] truth=77962.0 cand=216",
+    "[age 39 x svc 14] truth=89126.0 cand=400",
+    "[age 39 x svc 19] truth=98780.0 cand=19",
+    "[age 44 x svc 4] truth=66692.0 cand=47",
+    "[age 44 x svc 9] truth=79898.0 cand=88",
+    "[age 44 x svc 14] truth=89185.0 cand=232",
+    "[age 44 x svc 19] truth=101981.0 cand=228",
+    "[age 44 x svc 24] truth=103827.0 cand=31",
+    "[age 49 x svc 4] truth=68655.0 cand=17",
+    "[age 49 x svc 9] truth=79401.0 cand=66",
+    "[age 49 x svc 14] truth=88790.0 cand=133",
+    "[age 49 x svc 19] truth=98494.0 cand=183",
+    "[age 49 x svc 24] truth=102192.0 cand=365",
+    "[age 49 x svc 29] truth=105644.0 cand=65",
+    "[age 54 x svc 4] truth=80555.0 cand=1",
+    "[age 54 x svc 9] truth=77506.0 cand=25",
+    "[age 54 x svc 14] truth=87231.0 cand=47",
+    "[age 54 x svc 19] truth=97315.0 cand=62"
+  ],
+  "truth_filled_cells": 44,
+  "accuracy": 0.0
+}

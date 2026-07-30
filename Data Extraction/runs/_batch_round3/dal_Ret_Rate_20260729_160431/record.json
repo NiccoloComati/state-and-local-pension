@@ -1,0 +1,60 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-adc3efeb43538575",
+        "object": "chat.completion",
+        "created": 1785355471,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 52,\n      \"title\": \"Retirement Rates (Tier A)\",\n      \"row_labels\": [\n        \"48-49\",\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58-59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"Male First Year Eligible\",\n        \"Male Thereafter\",\n        \"Female First Year Eligible\",\n        \"Female Thereafter\"\n      ],\n      \"cells\": [\n        [100, 100, 100, 100],\n        [550, 550, 450, 350],\n        [500, 450, 400, 350],\n        [500, 300, 400, 300],\n        [400, 300, 350, 300],\n        [350, 250, 350, 200],\n        [300, 250, 350, 250],\n        [300, 250, 350, 250],\n        [300, 250, 350, 250],\n        [300, 250, 250, 200],\n        [80, 230, 90, 200],\n        [90, 230, 90, 180],\n        [100, 230, 90, 200],\n        [100, 230, 150, 150],\n        [150, 230, 120, 130],\n        [150, 230, 120, 300],\n        [200, 230, 150, 300],\n        [200, 230, 250, 300],\n        [200, 230, 150, 300],\n        [200, 230, 150, 300],\n        [1000, 1000, 1000, 300]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [48, 49],\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    },\n    {\n      \"page\": 53,\n      \"title\": \"Retirement Rates (Tier B)\",\n      \"row_labels\": [\n        \"<55\",\n        \"55-56\",\n        \"57-58\",\n        \"59-60\",\n        \"61-62\",\n        \"63-64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70\"\n      ],\n      \"col_labels\": [\n        \"Male Service < 40 yrs.\",\n        \"Male Service 40 yrs. +\",\n        \"Female Service < 40 yrs.\",\n        \"Female Service 40 yrs. +\"\n      ],\n      \"cells\": [\n        [10, 350, 10, 350],\n        [20, 350, 20, 350],\n        [30, 350, 30, 350],\n        [40, 350, 40, 350],\n        [50, 350, 50, 350],\n        [60, 350, 60, 350],\n        [180, 600, 200, 450],\n        [200, 250, 250, 250],\n        [200, 250, 250, 250],\n        [200, 250, 150, 250],\n        [200, 250, 150, 250],\n        [1000, 1000, 1000, 1000]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [null, 54],\n        [55, 56],\n        [57, 58],\n        [59, 60],\n        [61, 62],\n        [63, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"values_unit\": \"per_1000\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The document provides retirement rates by Age (rows) and Service (columns) for Tier A and Tier B members separately. The target grid requires rates by Service (rows) and Age (columns). The source tables do not provide rates for service years 5-49; they only provide rates for ages 48+ (Tier A) and <55+ (Tier B) with specific service conditions (e.g., 'First Year Eligible', 'Thereafter', 'Service < 40 yrs', 'Service 40 yrs +'). The target service buckets (5-11, 12-19, etc.) do not align with the source service conditions, and the source does not provide a full matrix of rates for all service years and ages. Specifically, the source rates are conditional on eligibility and service length in a way that cannot be mapped to the target's simple service buckets without making assumptions about the distribution of members within those buckets or the specific eligibility rules for each age/service combination. Furthermore, the target asks for a single probability per cell, but the source provides different rates for 'First Year Eligible' vs 'Thereafter' and for different service thresholds. Since the document does not publish a single retirement rate matrix by Age and Service that covers the target grid's dimensions (specifically the low service years 5-49 and the specific service buckets), and the provided tables are conditional/segmented, the target data is unavailable in the required format. The transcribed tables are archived as evidence of the available data.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 45261,
+          "total_tokens": 48057,
+          "completion_tokens": 2796,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 45261,
+        "total_tokens": 48057,
+        "completion_tokens": 2796,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}

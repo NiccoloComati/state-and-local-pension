@@ -1,0 +1,233 @@
+{
+  "source_tables": [
+    {
+      "page": 121,
+      "title": "SUMMARY OF ACTUARIAL ASSUMPTIONS (Sample Values per 1,000 Lives) - Withdrawal Rates",
+      "row_labels": [
+        "First Year",
+        "Second Year",
+        "Ultimate"
+      ],
+      "col_labels": [
+        "Age 20",
+        "Age 35",
+        "Age 50",
+        "Age 60"
+      ],
+      "cells": [
+        [
+          210.0,
+          180.0,
+          120.0,
+          null
+        ],
+        [
+          190.0,
+          150.0,
+          100.0,
+          null
+        ],
+        [
+          219.0,
+          89.0,
+          4.0,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      "values_unit": "per_1000",
+      "col_spans": null
+    },
+    {
+      "page": 121,
+      "title": "SUMMARY OF ACTUARIAL ASSUMPTIONS (Sample Values per 1,000 Lives) - Withdrawal Rates (Fire and Police)",
+      "row_labels": [
+        "First Year",
+        "Second Year",
+        "Ultimate"
+      ],
+      "col_labels": [
+        "Age 20",
+        "Age 35",
+        "Age 50",
+        "Age 60"
+      ],
+      "cells": [
+        [
+          60.0,
+          40.0,
+          0.0,
+          null
+        ],
+        [
+          40.0,
+          28.0,
+          20.0,
+          null
+        ],
+        [
+          71.0,
+          36.0,
+          4.0,
+          null
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "row_spans": [
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ],
+        [
+          null,
+          null
+        ]
+      ],
+      "values_unit": "per_1000",
+      "col_spans": null
+    }
+  ],
+  "row_map": [
+    {
+      "target": "25",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "35",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "45",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "50",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "55",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "60",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "65",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "70",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "col_map": [
+    {
+      "target": "1",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "2",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "3",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "4",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "6",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "8",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "10",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "11",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "12",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "30",
+      "sources": [],
+      "op": "copy"
+    },
+    {
+      "target": "40",
+      "sources": [],
+      "op": "copy"
+    }
+  ],
+  "derive": null,
+  "transpose": false,
+  "broadcast": {
+    "axis": "service",
+    "series_sources": [
+      "Age 20",
+      "Age 35",
+      "Age 50",
+      "Age 60"
+    ],
+    "series_op": "mean"
+  },
+  "notes": "The document provides withdrawal rates by attained age only (General Government and Fire/Police groups separately) with no breakdown by years of service. The rates are presented as 'per 1,000 lives' for specific ages (20, 35, 50, 60) and service categories ('First Year', 'Second Year', 'Ultimate'). To map to the target grid of service columns, the 'Ultimate' rates are used as the primary source for all service years beyond the first two, as no specific service-based rates are provided. The 'First Year' and 'Second Year' labels are treated as service bins 1 and 2 respectively. Since the target requires a single rate per cell and the document splits rates by employee group (General vs Fire/Police) without a headcount table to weight them, the 'mean' operation is used to average the two group rates for each age column. The target service columns (1, 2, 3...) are mapped to the source categories: Service 1 -> 'First Year', Service 2 -> 'Second Year', Service 3+ -> 'Ultimate'. The target age rows are mapped to the source age columns using overlap_weighted logic where applicable, but since the source is age-only, the broadcast mechanism repeats the derived rate across all service columns for each age. Note: The source 'Age 60' column has null values for First/Second year in the printed table, implying 0 or not applicable, handled as null in transcription.",
+  "unavailable": false
+}

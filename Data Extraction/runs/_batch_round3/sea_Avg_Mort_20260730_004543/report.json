@@ -1,0 +1,46 @@
+{
+  "shape_truth": [
+    100,
+    1
+  ],
+  "shape_cand": [
+    100,
+    1
+  ],
+  "label_mismatches": [],
+  "exact": 5,
+  "close": 0,
+  "wrong": 68,
+  "missing_in_cand": 27,
+  "extra_in_cand": 0,
+  "star_ok": 0,
+  "mismatches": [
+    "[age 20 x svc Death_Prob] truth=0.0002 cand=None",
+    "[age 21 x svc Death_Prob] truth=0.0002 cand=None",
+    "[age 22 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 23 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 24 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 25 x svc Death_Prob] truth=0.0002 cand=0.00024999999999999995",
+    "[age 26 x svc Death_Prob] truth=0.0002 cand=0.00024999999999999995",
+    "[age 27 x svc Death_Prob] truth=0.0002 cand=0.00024999999999999995",
+    "[age 28 x svc Death_Prob] truth=0.0002 cand=0.00024999999999999995",
+    "[age 29 x svc Death_Prob] truth=0.0002 cand=0.00024999999999999995",
+    "[age 30 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 31 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 32 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 33 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 34 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 35 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 36 x svc Death_Prob] truth=0.0002 cand=0.00025",
+    "[age 37 x svc Death_Prob] truth=0.0002 cand=0.0003",
+    "[age 38 x svc Death_Prob] truth=0.0002 cand=0.0003",
+    "[age 39 x svc Death_Prob] truth=0.0002 cand=0.0003",
+    "[age 40 x svc Death_Prob] truth=0.00045 cand=0.0003",
+    "[age 41 x svc Death_Prob] truth=0.00045 cand=0.0003",
+    "[age 47 x svc Death_Prob] truth=0.00045 cand=0.0007500000000000001",
+    "[age 48 x svc Death_Prob] truth=0.00045 cand=0.0007500000000000001",
+    "[age 49 x svc Death_Prob] truth=0.00045 cand=0.0007500000000000001"
+  ],
+  "truth_filled_cells": 100,
+  "accuracy": 0.05
+}

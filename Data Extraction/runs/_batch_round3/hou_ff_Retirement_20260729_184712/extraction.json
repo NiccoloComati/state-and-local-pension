@@ -1,0 +1,53 @@
+{
+  "source_tables": [
+    {
+      "page": 21,
+      "title": "Summary of Inactive Participants as of July 1, 2020",
+      "row_labels": [
+        "Retirees",
+        "Beneficiaries",
+        "Disabled Participants",
+        "Total"
+      ],
+      "col_labels": [
+        "Number",
+        "Annual Benefits ($000)",
+        "Average Annual Benefits"
+      ],
+      "cells": [
+        [
+          2468,
+          133757,
+          54197
+        ],
+        [
+          643,
+          29397,
+          45718
+        ],
+        [
+          299,
+          15896,
+          53165
+        ],
+        [
+          3410,
+          179050,
+          52508
+        ]
+      ],
+      "printed_row_totals": null,
+      "printed_col_totals": null,
+      "values_unit": null,
+      "row_spans": null,
+      "col_spans": null
+    }
+  ],
+  "row_map": [],
+  "col_map": [],
+  "derive": null,
+  "transpose": false,
+  "unavailable": true,
+  "notes": "The document provides only aggregate totals for Retirees, Beneficiaries, and Disabled Participants without any age breakdown. No table exists with 'Retirees by Age' or similar distribution. Consequently, the target grid (which requires 5-year age bands) cannot be populated. The source table transcribed above is archived as evidence of the available data, but the target is unavailable.",
+  "broadcast": null
+}

@@ -1,0 +1,334 @@
+{
+  "attempts": [
+    {
+      "tag": "greedy",
+      "response": {
+        "id": "chatcmpl-8ef99f911ee8c5c5",
+        "object": "chat.completion",
+        "created": 1785368017,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Tier 1 Non-55/30\",\n        \"Tier 1 55/30\",\n        \"Tier 1 Enhanced Non-55/30\",\n        \"Tier 1 Enhanced 55/30\",\n        \"Tier 3 Non-55/30\",\n        \"Tier 3 55/30\"\n      ],\n      \"cells\": [\n        [6.0, 0.0, 7.0, 0.0, 6.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [17.0, 0.0, 18.0, 0.0, 16.0, 0.0],\n        [6.0, 24.0, 7.0, 25.0, 0.0, 23.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Tier 1 Non-55/30\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table on page 72 provides retirement rates by Age (rows) and Tier/Condition (columns). The target requires rates by Service (rows) and Age (columns). The source table does not contain service-year buckets; it only provides rates for ages 50-70+ assuming eligibility (which implies specific service requirements like 10 or 30 years). The target grid asks for rates by service buckets (5-11, 12-19, etc.) which are not explicitly published as a matrix in the document. The source table 'Retirement Rates' lists rates for specific ages (50-70) but does not vary by service year in the columns (columns are Tier/Condition, not service). Therefore, the target grid (Service x Age) cannot be fully populated from this source as the service dimension is missing in the source's rate definition (rates are conditional on age and tier, not a function of service year in the table structure). However, the target asks for 'Probability of retirement by service-year bucket x single age'. The source table provides rates by Age. The service dimension is implicit in the eligibility (e.g., 55/30 means age 55 with 30 years service). Since the source does not provide a rate for every service bucket (e.g., 5-11 years service), and the target grid requires these specific service buckets, the data for most target rows (5-11, 12-19, etc.) is effectively unavailable or zero (as retirement is not assumed for those service levels in the table). The mapping above maps the available Age dimension to the target Age columns, but the Service rows in the target have no corresponding source data (empty sources). The 'transpose' is set to true to align the Age rows of the source with the Age columns of the target. The 'row_map' has empty sources for all target service rows because the source table does not provide rates broken down by service year buckets (it only provides rates for ages, assuming eligibility). Thus, the target grid is largely unavailable in the document's explicit form.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 130037,
+          "total_tokens": 132909,
+          "completion_tokens": 2872,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 130037,
+        "total_tokens": 132909,
+        "completion_tokens": 2872,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 1 source label(s) that do NOT exist in source_tables[0]: ['Tier 1 Non-55/30']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "retry",
+      "response": {
+        "id": "chatcmpl-8bb6880ac5a68ff5",
+        "object": "chat.completion",
+        "created": 1785368042,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Tier 1 Non-55/30\",\n        \"Tier 1 55/30\",\n        \"Tier 1 Enhanced Non-55/30\",\n        \"Tier 1 Enhanced 55/30\",\n        \"Tier 3 Non-55/30\",\n        \"Tier 3 55/30\"\n      ],\n      \"cells\": [\n        [6.0, 0.0, 7.0, 0.0, 6.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [17.0, 0.0, 18.0, 0.0, 16.0, 0.0],\n        [6.0, 24.0, 7.0, 25.0, 0.0, 23.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"unavailable\": true,\n  \"notes\": \"The target requires a matrix of retirement probabilities by Service Year (rows) and Age (columns). The source table on page 72 ('Retirement Rates') provides rates by Age (rows) and Tier/Condition (columns). It does not provide rates broken down by Service Year buckets (e.g., 5-11, 12-19). The columns represent eligibility conditions (e.g., 'Tier 1 Non-55/30' implies age 50-54 with <30 years service, but does not give a specific rate for each service year within that range). Since the document does not publish a rate for every service-year bucket x age combination, the target grid cannot be populated. The source table is transcribed as evidence, but the target is marked unavailable because the service dimension is missing from the rate definition in the source.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 135454,
+          "total_tokens": 137842,
+          "completion_tokens": 2388,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 135454,
+        "total_tokens": 137842,
+        "completion_tokens": 2388,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "unavailable=true requires row_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "unavailable=true requires col_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)"
+      ]
+    },
+    {
+      "tag": "sample0",
+      "response": {
+        "id": "chatcmpl-9388d4145c055a8c",
+        "object": "chat.completion",
+        "created": 1785368064,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Tier 1 Non-55/30\",\n        \"Tier 1 55/30\",\n        \"Tier 1 Enhanced Non-55/30\",\n        \"Tier 1 Enhanced 55/30\",\n        \"Tier 3 Non-55/30\",\n        \"Tier 3 55/30\"\n      ],\n      \"cells\": [\n        [6.0, 0.0, 7.0, 0.0, 6.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [17.0, 0.0, 18.0, 0.0, 16.0, 0.0],\n        [6.0, 24.0, 7.0, 25.0, 0.0, 23.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"col_spans\": [\n        [0, null],\n        [0, null],\n        [0, null],\n        [0, null],\n        [0, null],\n        [0, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"Tier 1 Non-55/30\", \"Tier 1 Enhanced Non-55/30\", \"Tier 3 Non-55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"Tier 1 Non-55/30\", \"Tier 1 Enhanced Non-55/30\", \"Tier 3 Non-55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"Tier 1 Non-55/30\", \"Tier 1 Enhanced Non-55/30\", \"Tier 3 Non-55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"Tier 1 Non-55/30\", \"Tier 1 Enhanced Non-55/30\", \"Tier 3 Non-55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"Tier 1 Non-55/30\", \"Tier 1 Enhanced Non-55/30\", \"Tier 3 Non-55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"Tier 1 55/30\", \"Tier 1 Enhanced 55/30\", \"Tier 3 55/30\"],\n      \"op\": \"group_weighted\",\n      \"weights_tables\": [0, 0, 0]\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table (Page 72) provides retirement rates by Age (rows) and Tier/Service eligibility (columns). The target requires rates by Service (rows) and Age (columns), so transpose=true is used. The source table does not have a 'Service' dimension (columns are Tier types, not service years), so the target service rows (5-11, 12-19, etc.) cannot be mapped from the source. The source rates are conditional on age and tier, not service. Therefore, the target grid is unavailable as the document does not publish retirement probabilities by service-year buckets. The source table is transcribed as evidence of the available age-based rates.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 130037,
+          "total_tokens": 133587,
+          "completion_tokens": 3550,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 130037,
+        "total_tokens": 133587,
+        "completion_tokens": 3550,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 1,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "col_map references 6 source label(s) that do NOT exist in source_tables[0]: ['Tier 1 Non-55/30', 'Tier 1 Enhanced Non-55/30', 'Tier 3 Non-55/30', 'Tier 1 55/30', 'Tier 1 Enhanced 55/30', 'Tier 3 55/30']. Code matches these EXACTLY against the table's own labels and silently yields an empty cell when there is no match, so the whole grid comes out null. The printed ROW labels of source_tables[0] are: ['50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60', '61', '62', '63'] .... Either use those labels VERBATIM (same dashes and spacing as you transcribed them), or - if the exhibit genuinely does not publish that dimension at all - give those targets an EMPTY sources list and explain in notes. Do NOT invent a label for a bin the document does not print."
+      ]
+    },
+    {
+      "tag": "sample1",
+      "response": {
+        "id": "chatcmpl-98fb3a55ef97ec3b",
+        "object": "chat.completion",
+        "created": 1785368094,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Tier 1 Non-55/30\",\n        \"Tier 1 55/30\",\n        \"Tier 1 Enhanced Non-55/30\",\n        \"Tier 1 Enhanced 55/30\",\n        \"Tier 3 Non-55/30\",\n        \"Tier 3 55/30\"\n      ],\n      \"cells\": [\n        [6.0, 0.0, 7.0, 0.0, 6.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [17.0, 0.0, 18.0, 0.0, 16.0, 0.0],\n        [6.0, 24.0, 7.0, 25.0, 0.0, 23.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"50\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"51\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"52\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"53\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"54\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"56\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"57\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"59\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"60\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"61\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"62\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"66\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"67\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"68\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"70 & Over\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table on page 72 provides retirement rates by Age (rows) and Tier/Condition (columns). The target requires rates by Service (rows) and Age (columns). Since the source does not contain service-year bins (it only has age bins and tier types), the target rows (service buckets) cannot be populated from this source. The row_map sources are empty for all service targets. The col_map correctly maps the single-age source rows to the single-age target columns. Values are percentages in the source; code will convert to decimals. The target grid asks for service-year buckets, but the document only provides age-based retirement rates, not service-based rates. Therefore, the target is effectively unavailable for the service dimension, but the age dimension can be mapped if the service dimension were present. Given the strict requirement to map target rows, and the absence of service data, the rows remain empty sources. The 'transpose' flag is set to true to align the age dimension from source rows to target columns, but without service data in the source, the row mapping is empty.\",\n  \"unavailable\": true,\n  \"values_unit\": \"percent\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 130037,
+          "total_tokens": 132399,
+          "completion_tokens": 2362,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 130037,
+        "total_tokens": 132399,
+        "completion_tokens": 2362,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 3,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "unavailable=true requires row_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "unavailable=true requires col_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "source_tables[0] holds values up to 100.0 for a target whose unit is a probability (max 1): the table prints a scaled rate - set its values_unit to 'percent' so code rescales it (transcribe the numbers as printed either way)"
+      ]
+    },
+    {
+      "tag": "sample2",
+      "response": {
+        "id": "chatcmpl-96998cd2a7f07e32",
+        "object": "chat.completion",
+        "created": 1785368116,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Tier 1 Non-55/30\",\n        \"Tier 1 55/30\",\n        \"Tier 1 Enhanced Non-55/30\",\n        \"Tier 1 Enhanced 55/30\",\n        \"Tier 3 Non-55/30\",\n        \"Tier 3 55/30\"\n      ],\n      \"cells\": [\n        [6.0, 0.0, 7.0, 0.0, 6.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [17.0, 0.0, 18.0, 0.0, 16.0, 0.0],\n        [6.0, 24.0, 7.0, 25.0, 0.0, 23.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"values_unit\": \"percent\",\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ]\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"copy\"\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"50\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"51\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"52\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"53\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"54\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"56\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"57\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"59\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"60\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"61\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"62\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"66\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"67\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"68\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"70 & Over\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"Source table provides retirement rates by Age (rows) and Tier/Service conditions (columns). The target requires rates by Service (rows) and Age (columns). The document does not provide a single retirement rate table indexed by Service and Age simultaneously; instead, it provides separate columns for specific service eligibility conditions (e.g., '55/30' implies 55 years old with 30 years service). The target grid asks for a generic 'Ret_Rate' by service bucket x single age. Since the source rates are conditional on specific service thresholds (e.g., 30 years) and not a continuous function of service years for every age, and the target rows are service buckets (5-11, 12-19, etc.) which do not align with the specific service conditions in the source columns (which are implicit in the column headers like '55/30' or 'Non-55/30'), a direct mapping is not possible without making assumptions about the service distribution within the age rows. However, the prompt instructions for 'broadcast' allow handling rates measured along one dimension. Here, the source measures rates along Age (rows) for specific service conditions (columns). The target wants rates by Service (rows) x Age (cols). This is a transpose of the source structure, but the content (Service conditions) is not a continuous axis of service years but specific eligibility criteria. The target rows (5-11, 12-19...) represent years of service. The source columns represent specific service/age combinations (e.g., 55/30). There is no source column that represents a generic 'service bucket' rate. The source table effectively says 'At age 55, if you have 30 years service, rate is X'. It does not say 'At age 55, if you have 10 years service, rate is Y' (unless 'Non-55/30' covers it, which is a catch-all for non-eligible). The target grid asks for a rate for '5-11' service years. The source 'Non-55/30' column applies to those not meeting the 55/30 criteria. This is a complex mapping. However, looking at the target rows (5-11, 12-19... 40+), these are service buckets. The source table has NO rows for service. It has columns for service conditions. The target wants a matrix of Service x Age. The source provides Age x Service-Condition. The 'Service-Condition' columns are not continuous service years. For example, 'Tier 1 55/30' is a specific point (Age 55, Service 30). 'Tier 1 Non-55/30' is everything else. The target asks for a rate for '5-11' service years. This implies an average or specific rate for someone with 5-11 years service. The source does not provide a rate for '5-11' service years specifically; it provides a rate for 'Non-55/30' which includes 5-11 years service but also 12-29, 31-54, etc. Therefore, the target grid (Service x Age) cannot be populated directly from this source table without significant assumptions or averaging across the 'Non-55/30' column which mixes many service years. The instructions say 'If the ENTIRE target (or a whole dimension of its grid) is not published in any derivable form, set unavailable: true'. The source does not publish rates by Service Bucket x Age. It publishes rates by Age x Service Condition. The Service Condition is not a Service Bucket. Thus, the target is unavailable. I will set unavailable to true and transcribe the source table as evidence.\",\n  \"unavailable\": true\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 130037,
+          "total_tokens": 133121,
+          "completion_tokens": 3084,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 130037,
+        "total_tokens": 133121,
+        "completion_tokens": 3084,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 2,
+      "n_totals": 0,
+      "reconcile_err": 10.0,
+      "truncated": false,
+      "format_problems": [
+        "unavailable=true requires row_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)",
+        "unavailable=true requires col_map to be an EMPTY list - either the target is derivable (then map it fully) or it is not (then declare no mappings)"
+      ]
+    },
+    {
+      "tag": "sample3",
+      "response": {
+        "id": "chatcmpl-b3c2a87e12ebfa5f",
+        "object": "chat.completion",
+        "created": 1785368143,
+        "model": "qwen35-122b-fp8",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"source_tables\": [\n    {\n      \"page\": 72,\n      \"title\": \"Retirement Rates\",\n      \"row_labels\": [\n        \"50\",\n        \"51\",\n        \"52\",\n        \"53\",\n        \"54\",\n        \"55\",\n        \"56\",\n        \"57\",\n        \"58\",\n        \"59\",\n        \"60\",\n        \"61\",\n        \"62\",\n        \"63\",\n        \"64\",\n        \"65\",\n        \"66\",\n        \"67\",\n        \"68\",\n        \"69\",\n        \"70 & Over\"\n      ],\n      \"col_labels\": [\n        \"Tier 1 Non-55/30\",\n        \"Tier 1 55/30\",\n        \"Tier 1 Enhanced Non-55/30\",\n        \"Tier 1 Enhanced 55/30\",\n        \"Tier 3 Non-55/30\",\n        \"Tier 3 55/30\"\n      ],\n      \"cells\": [\n        [6.0, 0.0, 7.0, 0.0, 6.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [3.0, 0.0, 4.0, 0.0, 3.0, 0.0],\n        [17.0, 0.0, 18.0, 0.0, 16.0, 0.0],\n        [6.0, 24.0, 7.0, 25.0, 0.0, 23.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [6.0, 16.0, 7.0, 17.0, 0.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [7.0, 16.0, 8.0, 17.0, 6.0, 15.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [13.0, 20.0, 14.0, 21.0, 12.0, 19.0],\n        [100.0, 100.0, 100.0, 100.0, 100.0, 100.0]\n      ],\n      \"printed_row_totals\": null,\n      \"printed_col_totals\": null,\n      \"row_spans\": [\n        [50, 50],\n        [51, 51],\n        [52, 52],\n        [53, 53],\n        [54, 54],\n        [55, 55],\n        [56, 56],\n        [57, 57],\n        [58, 58],\n        [59, 59],\n        [60, 60],\n        [61, 61],\n        [62, 62],\n        [63, 63],\n        [64, 64],\n        [65, 65],\n        [66, 66],\n        [67, 67],\n        [68, 68],\n        [69, 69],\n        [70, null]\n      ],\n      \"values_unit\": \"percent\"\n    }\n  ],\n  \"row_map\": [\n    {\n      \"target\": \"5-11\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"12-19\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"20-24\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"25-29\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"30\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"31-32\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"33-34\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"35-39\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    },\n    {\n      \"target\": \"40\",\n      \"sources\": [],\n      \"op\": \"overlap_weighted\",\n      \"source_spans\": []\n    }\n  ],\n  \"col_map\": [\n    {\n      \"target\": \"50\",\n      \"sources\": [\"50\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"51\",\n      \"sources\": [\"51\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"52\",\n      \"sources\": [\"52\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"53\",\n      \"sources\": [\"53\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"54\",\n      \"sources\": [\"54\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"55\",\n      \"sources\": [\"55\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"56\",\n      \"sources\": [\"56\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"57\",\n      \"sources\": [\"57\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"58\",\n      \"sources\": [\"58\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"59\",\n      \"sources\": [\"59\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"60\",\n      \"sources\": [\"60\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"61\",\n      \"sources\": [\"61\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"62\",\n      \"sources\": [\"62\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"63\",\n      \"sources\": [\"63\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"64\",\n      \"sources\": [\"64\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"65\",\n      \"sources\": [\"65\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"66\",\n      \"sources\": [\"66\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"67\",\n      \"sources\": [\"67\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"68\",\n      \"sources\": [\"68\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"69\",\n      \"sources\": [\"69\"],\n      \"op\": \"copy\"\n    },\n    {\n      \"target\": \"70\",\n      \"sources\": [\"70 & Over\"],\n      \"op\": \"copy\"\n    }\n  ],\n  \"derive\": null,\n  \"transpose\": true,\n  \"notes\": \"The source table (Page 72) provides retirement rates by Age (rows) and Tier/Service Condition (columns). The target requires rates by Service (rows) and Age (columns). Since the source table does not contain any data for service years 5-40 (the rows are empty for these service buckets in the source's implied structure, or rather the source defines rates by Age and specific service conditions like 'Non-55/30' and '55/30' which are not granular service buckets), the target grid for service years 5-40 cannot be populated from this single rate table. The source table essentially defines rates for specific eligibility conditions (e.g., Age 50 with <30 years service vs Age 55 with 30+ years). The target asks for a general probability by service bucket. The document does not provide a general 'Retirement Rate by Service' table. The provided table is 'Retirement Rates' by Age and Tier/Condition. Therefore, the target is effectively unavailable in the requested format (Service x Age) because the source is Age x Condition, and 'Condition' is not a simple service bucket but a complex eligibility rule (e.g. 55/30). However, following the instruction to map what exists: The source has Age rows. The target has Age columns. Transpose is true. The source columns are conditions, not service buckets. The target rows are service buckets. There is no direct mapping for service buckets 5-40. The only service-related info is in the column labels (e.g. '55/30' implies 30 years service). The target rows 5-40 do not match the column logic. Thus, the row_map sources are empty for all target rows because no source row (Age) corresponds to a target row (Service) directly, and no source column corresponds to a target row. The document does not publish a 'Retirement Rate by Service' table. It publishes 'Retirement Rates' by Age and Tier/Condition. The target is unavailable in the specific Service x Age grid requested because the source is Age x Condition. I will declare the target as unavailable for the service dimension as the source does not provide rates for arbitrary service buckets (e.g. 10 years, 20 years) but only for specific eligibility thresholds (e.g. 30 years). The '55/30' column implies a rate for those with 30 years service at age 55, but not for 20 years service at age 55. The target requires a rate for '20-24' service years. This data is not present. I will set unavailable to true for the service rows. Wait, the prompt says 'If the ENTIRE target... is not published... set unavailable: true'. The target is a grid of Service x Age. The source is Age x Condition. The source does not provide the full grid. I will set unavailable: true. The source table is transcribed as evidence but the mapping is empty.\"\n}",
+              "refusal": null,
+              "annotations": null,
+              "audio": null,
+              "function_call": null,
+              "reasoning": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop",
+            "stop_reason": null,
+            "token_ids": null,
+            "routed_experts": null
+          }
+        ],
+        "service_tier": null,
+        "system_fingerprint": "vllm-0.25.1-tp2-aff507a6",
+        "usage": {
+          "prompt_tokens": 130037,
+          "total_tokens": 133034,
+          "completion_tokens": 2997,
+          "prompt_tokens_details": null
+        },
+        "prompt_logprobs": null,
+        "prompt_token_ids": null,
+        "prompt_text": null,
+        "kv_transfer_params": null,
+        "metrics": null
+      },
+      "usage": {
+        "prompt_tokens": 130037,
+        "total_tokens": 133034,
+        "completion_tokens": 2997,
+        "prompt_tokens_details": null
+      },
+      "n_fatal": 0,
+      "n_totals": 0,
+      "reconcile_err": 0.0,
+      "truncated": false
+    }
+  ],
+  "model": "qwen35-122b-fp8",
+  "backend": "openai-compatible",
+  "base_url": "http://127.0.0.1:53463/v1",
+  "samples": 6,
+  "temperature": 0.6
+}
