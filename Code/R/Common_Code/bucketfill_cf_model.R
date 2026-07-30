@@ -1,6 +1,33 @@
 #This function takes a bucketed matrix and expands the buckets
 #The matrix is filled in  with a linear function
-LinearFill <- function(Collapased,Slope = 1,retirement=F){
+# ============================================================================
+# SUPERSEDED 2026-07-30 - renamed from LinearFill to LinearFill_incorrect.
+#
+# This is the weight the project inherited. It is wrong. It is kept here,
+# unchanged, and `cluster_code_2022/*.R` still calls it ON PURPOSE so that
+# lineage keeps reproducing exactly the results it always produced.
+# `cluster_code_2022_072026/*.R` calls the corrected LinearFill below.
+#
+# The weight was   Share[k,L] <- GroupCount/(N*M) + Slope*(rowmin + k-1)
+# Three defects:
+#  1. It subtracts an AGE IN YEARS from a HEADCOUNT PER CELL. Different
+#     quantities; the difference has no meaning.
+#  2. GroupCount sits inside the weight, so the size of the tilt depends on how
+#     big the plan is - a band of 20,000 came out 0.1% tilted, a band of 500 at
+#     17%. A plan's age profile must not depend on its size.
+#  3. The weights are centred on (GroupCount/N - mean age) instead of on 1, so
+#     they straddle zero. Their sum - used as the normaliser - equals
+#     GroupCount minus the sum of the ages in the band. It VANISHES when a band
+#     holds about that many people, and flips sign either side of that point.
+#
+# Measured over the 40 state plans: three produced NEGATIVE retiree headcounts.
+# OK134's 75-79 band held 385.004 people against an age-sum of 385, so the
+# normaliser was 0.004 and the band filled with about +/-200,000 people in a
+# plan with 4,242 retirees. Band totals still reconciled because the positives
+# and negatives cancel, which is why it went unnoticed; a one-person PPD
+# revision then moved that plan's liability by 56%.
+# ============================================================================
+LinearFill_incorrect <- function(Collapased,Slope = 1,retirement=F){
   
   
   if(retirement){
@@ -742,3 +769,84 @@ CreateTiers <- function(active, inactive, num_tiers){
   
   
 
+
+# ============================================================================
+# LinearFill - CORRECTED 2026-07-30. Mirrors Code/python/bucketfill_cf_model.py.
+#
+# The weight is now a perturbation around 1, driven only by POSITION in the
+# band. Every weight is strictly positive, so no cell can go negative, and the
+# weights sum to exactly N, so the normaliser is a constant and can never
+# approach zero.
+#
+# The size of the tilt is taken from the DATA, not set by hand: the neighbouring
+# bands already say how fast the population is changing. Where it falls the
+# slope inside the band falls; where it still rises (the young retiree bands)
+# the slope rises. Two independent readings agree no single constant is right -
+# the original formula was effectively assuming +0.0009 population-weighted
+# (an even split) while individual bands ranged -0.95 to +1.38, and the data
+# implies -0.010 population-weighted with a real spread across bands.
+#
+# `Slope` is kept in the signature for compatibility but no longer sets the
+# direction of the tilt; the data does.
+# ============================================================================
+TILT_CAP <- 0.9   # keeps every weight strictly positive
+
+band_tilt <- function(Collapased, i, j, cap = TILT_CAP) {
+  cc <- Collapased[, j]
+  if (!is.finite(cc[i]) || cc[i] <= 0) return(0)
+  ratios <- c()
+  if (i + 1 <= length(cc) && is.finite(cc[i+1]) && cc[i+1] > 0) ratios <- c(ratios, cc[i+1]/cc[i])
+  if (i - 1 >= 1        && is.finite(cc[i-1]) && cc[i-1] > 0) ratios <- c(ratios, cc[i]/cc[i-1])
+  if (length(ratios) == 0) return(0)
+  r <- exp(mean(log(ratios)))
+  q <- r^0.8                       # (N-1)/N with N = 5
+  s <- (1 - q)/(1 + q)
+  max(-cap, min(cap, s))
+}
+
+LinearFill <- function(Collapased, Slope = 1, retirement = F) {
+
+  if (retirement) {
+    all_age_max <- 120; all_age_min <- 40
+    all_serv_max <- 1;  all_serv_min <- 1
+    rowmins <- c(40,45,50,55,60,65,70,75,80,85,90,95,100,105,110,115)
+    colmins <- c(1); colmaxs <- c(1)
+  } else {
+    all_age_max <- 74; all_age_min <- 20
+    all_serv_max <- 54; all_serv_min <- 0
+    rowmins <- c(20,25,30,35,40,45,50,55,60,65,70)
+    colmins <- c(0,5,10,15,20,25,30,35,40,45,50); colmaxs <- colmins + 4
+  }
+  rowmaxs <- rowmins + 4
+  Expanded <- matrix(0, nrow = all_age_max-all_age_min+1, ncol = all_serv_max-all_serv_min+1)
+
+  for (i in c(1:nrow(Collapased))) {
+    rowmin <- rowmins[i]; rowmax <- rowmaxs[i]
+    for (j in c(1:ncol(Collapased))) {
+      columnmin <- colmins[j]; columnmax <- colmaxs[j]
+      N <- rowmax - rowmin + 1
+      M <- columnmax - columnmin + 1
+      GroupCount <- Collapased[i,j]
+      s_band <- band_tilt(Collapased, i, j)
+
+      Share <- matrix(0, nrow = N, ncol = M)
+      sharesum <- 0
+      for (k in c(1:N)) {
+        svcmax <- rowmin + k - all_age_min
+        u <- if (N == 1) 0 else (k - 1)/(N - 1)
+        w_age <- 1 + s_band * (1 - 2*u)
+        for (L in c(1:M)) {
+          if ((columnmin + L - 1) > svcmax) { Share[k,L] <- 0 } else { Share[k,L] <- w_age }
+          sharesum <- sharesum + Share[k,L]
+        }
+      }
+      if (sharesum != 0) {
+        Expanded[((rowmin+1-all_age_min):(rowmax+1-all_age_min)),
+                 ((columnmin+1-all_serv_min):(columnmax+1-all_serv_min))] <- Share * GroupCount/sharesum
+      }
+    }
+  }
+  Expanded[is.nan(Expanded)] <- 0
+  Expanded[is.na(Expanded)]  <- 0
+  Expanded
+}

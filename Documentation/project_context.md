@@ -350,11 +350,11 @@ Treating any of the three as a permanent exclusion is not established. See `work
   from the R implementation mixed units, made the tilt depend on plan size, and
   centred the weights on zero so the normaliser could vanish — producing negative
   headcounts for 3 of 40 plans and, for OK134, cells of +/-200,000 people. Replaced
-  by a weight normalised around 1 (`LINEARFILL_TILT = 0.10`). Applied in
-  `Code/python/bucketfill_cf_model.py` and, on the R side, only in the new
-  `Common_Code/bucketfill_cf_model_072026.R` used by `cluster_code_2022_072026`;
-  the original file and `cluster_code_2022` are untouched. Originals are commented
-  out in place, not deleted. Full account: `states_track_context.md`.
+  by a weight normalised around 1 whose tilt is **derived per band from the
+  neighbouring bands**, so there is no hand-set constant. The inherited version is
+  kept in both languages as `LinearFill_incorrect`; `Code/R/cluster_code_2022/*.R`
+  calls it deliberately so that lineage still reproduces its original results.
+  Full account: `states_track_context.md`.
   **All results before this date, including `062026` and `072026`, use the
   defective version.**
 

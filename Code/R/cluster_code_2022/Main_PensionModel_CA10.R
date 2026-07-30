@@ -310,7 +310,7 @@ asy_employee <- as.matrix(read_excel(paste0(planFolder,fileName),
 #The slope for how to linearly fill the buckets
 # The column to use to fill the matrix
 
-active <- LinearFill(asy_employee,Slope=1)
+active <- LinearFill_incorrect(asy_employee,Slope=1)
 
 
 
@@ -460,7 +460,7 @@ if(availableData[[2]]){
 
 
 #Slope is negative because there should be less people as age increases
-RetirementNumber <- LinearFill(ret_num,Slope=-1,retirement=T)
+RetirementNumber <- LinearFill_incorrect(ret_num,Slope=-1,retirement=T)
 
 RetirementBenefit <- ConstantFill(ret_ben,retirement=T)
 

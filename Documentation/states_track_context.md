@@ -302,58 +302,87 @@ applied there.
 A perturbation around 1, driven only by position in the band:
 
 ```
-u = (k-1)/(N-1)                     position, 0 -> 1 across the band
-w = 1 + Slope * s * (2u - 1)        s = LINEARFILL_TILT = 0.10
+u = (k-1)/(N-1)                position, 0 -> 1 across the band
+w = 1 + s * (1 - 2u)           s > 0 declines with age, s < 0 rises
 ```
 
-Retirees (`Slope=-1`) run from `1+s` at the youngest age to `1-s` at the oldest —
-declining, as intended. Actives (`Slope=+1`) run the other way. All weights are
-strictly positive for `s < 1`, so no cell can go negative, and they sum to exactly
-`N`, so the normaliser is a constant that can never approach zero. `s = 0` is an
-exact even split, and `s` shifts a band's mean age by exactly `s` years, which
-makes it an interpretable knob rather than a magic number.
+All weights strictly positive, so no cell can go negative, and they sum to
+exactly `N`, so the normaliser is a constant that can never approach zero.
 
-### Verification, before implementing
+**`s` is taken from the data, not set by hand.** The neighbouring bands already
+say how fast the population is changing: if the 75-79 band holds 385 people and
+80-84 holds 223, the population is falling by a factor 0.58 per band, and the
+slope inside the band should be consistent with that. Where the population is
+still *rising* — the young retiree bands, as people retire into them — the slope
+inside the band rises too.
 
-Run across all 40 plans at both call sites:
+```
+r = geometric mean of the available neighbour ratios
+q = r ** ((N-1)/N)             the first-to-last ratio implied inside the band
+s = (1-q)/(1+q)                clipped to +/-0.9 so weights stay positive
+```
 
-| | Current | Corrected |
+Edge bands use their single neighbour; isolated or empty bands get `s = 0`, an
+even split. `Slope` stays in the signature for compatibility but no longer sets
+the direction — the data does.
+
+### Why not a fixed constant
+
+Three readings were compared before choosing, and all three say no single
+constant is right:
+
+| Reading | Population-weighted tilt |
+|---|---|
+| What the ORIGINAL formula was effectively assuming | **+0.0009** (i.e. an even split), while individual bands ranged **-0.95 to +1.38** |
+| What the DATA implies | **-0.010** (also ~even), unweighted median +0.098, IQR -0.25 to +0.18 |
+| A hand-set constant (the first attempt used 0.10) | arbitrary — nothing supports it |
+
+So the old formula was, in aggregate, doing an even split — but erratically, with
+sign flips and blow-ups band to band. And the data has real structure that a
+single constant cannot represent: bands below the population peak should rise,
+bands above it should fall. A fixed positive tilt gets the young bands backwards.
+
+Deriving it per band costs nothing, needs no parameter, and is the honest version
+of what "linear fill" was always trying to do.
+
+### Verification, all 40 plans, both call sites
+
+| | Inherited | Corrected |
 |---|---|---|
-| Plans with negative retiree headcounts | 3 | **0** |
-| Most negative cell | -8,778 | **0** |
-| Retiree band totals preserved | 36/40 | 36/40 |
-| Active plans with negatives | 0 | 0 |
+| Plans with negative retiree headcounts | **3** | **0** |
+| Plans with negative active headcounts | 0 | 0 |
+| Totals preserved vs the inherited version | — | **40/40** |
 
-Change in mean retiree age, which is what drives liability: **median 0.099 years,
-90th percentile 0.100 years** — and **10.5 years for OK134**, the broken one. So
-39 of 40 plans barely move and the fix is surgical. Mean active age moves about
-0.09 years across the board.
+Mean retiree age change: **median 0.011 years**, 90th percentile 0.031, and
+**10.4 years for OK134** — the broken one. Mean active age change: median 0.029
+years, max 0.082.
 
-Python and R produce identical output (retiree band of 1,000 -> 220, 210, 200, 190,
-180 in both).
+Note how small that is. Because the derived tilt reproduces what the old formula
+was *effectively* doing for healthy plans, the 39 sound plans move about a
+hundredth of a year — roughly ten times less than the hand-set 0.10 would have
+moved them. The correction is almost entirely confined to the plan that was
+broken.
 
-One thing worth recording: the first version of the corrected weight had the tilt
-direction reversed on both sides. Every headline check still passed — negatives
-gone, totals preserved — and it was only caught by varying `s` and noticing mean
-retiree age moving the wrong way. Sign errors here are invisible to the obvious
-tests.
+R and Python produce identical output (declining bands 234.1255, 217.0628,
+200.0000, 182.9372, 165.8745 in both; rising bands 64.6562 ... 95.3438).
 
 ### Where it is applied
 
-| File | Status |
+Both languages keep the inherited version under the name `LinearFill_incorrect`,
+unchanged, with the explanation attached — nothing deleted.
+
+| File | What happened |
 |---|---|
-| `Code/python/bucketfill_cf_model.py` | **corrected**, original left commented out with the reasoning |
-| `Code/R/Common_Code/bucketfill_cf_model_072026.R` | **new file**, corrected, same comments |
-| `Code/R/cluster_code_2022_072026/*.R` (38) | repointed to source the corrected file |
-| `Code/R/Common_Code/bucketfill_cf_model.R` | **untouched** |
-| `Code/R/cluster_code_2022/*.R` (38) | **untouched**, still source the original |
+| `Code/python/bucketfill_cf_model.py` | `LinearFill_incorrect` added (inherited weight), `LinearFill` corrected |
+| `Code/R/Common_Code/bucketfill_cf_model.R` | same, in the one shared file |
+| `Code/R/cluster_code_2022/*.R` (38) | call sites changed to `LinearFill_incorrect` — **behaviour unchanged**, this lineage still reproduces exactly what it always produced |
+| `Code/R/cluster_code_2022_072026/*.R` (38) | unchanged; they call `LinearFill`, which is now the corrected one |
 
-The frozen R lineage is deliberately left alone so it keeps reproducing exactly
-what it always produced. The corrected R lives in a separate file rather than an
-edit, because `Common_Code` is shared by both lineages.
-
-In both languages the original line is commented out in place, not deleted, with
-the reasons alongside it.
+Both lineages source the same shared file, so isolating the two versions means
+two functions in one file rather than two files. An earlier attempt used a second
+file plus 38 repointed `source()` lines; that was replaced with this, which is
+cleaner and leaves the reproduction path explicit in the code rather than in a
+folder name.
 
 ### Consequence for existing results
 

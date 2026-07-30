@@ -1,14 +1,84 @@
 import numpy as np
 import g
 
-# Strength of the within-band tilt used by LinearFill (added 2026-07-30 with the
-# weight correction documented inside that function). Weights run from (1 + s) to
-# (1 - s) across a band, so s = 0 is an exact even split and s shifts the band's
-# mean age by exactly s years. Must stay below 1 or weights could turn negative.
-LINEARFILL_TILT = 0.10
+# ---------------------------------------------------------------------------
+# Within-band tilt, taken from the data (2026-07-30).
+#
+# LinearFill splits a 5-year band into single years. How the count should slope
+# inside a band is not a free choice - the neighbouring bands already say it. If
+# the 75-79 band holds 385 people and 80-84 holds 223, the population is falling
+# by a factor 0.58 per band, and the slope inside the band should be consistent
+# with that. Where the population is still RISING (the young retiree bands, as
+# people retire into them) the slope inside the band rises too.
+#
+# This replaces a hand-set constant. Checked against two independent readings and
+# both agree there is no single right constant:
+#   - the ORIGINAL formula was, population-weighted, effectively assuming a tilt
+#     of +0.0009 (an even split) while individual bands ranged -0.95 to +1.38;
+#   - the DATA implies a population-weighted tilt of -0.010 (also ~even), with a
+#     genuine spread across bands (unweighted median +0.098, IQR -0.25 to +0.18).
+# A fixed constant would impose one slope everywhere and get the young bands
+# backwards. Deriving it per band costs nothing and needs no parameter.
+# ---------------------------------------------------------------------------
+TILT_CAP = 0.9          # keeps every weight strictly positive
 
 
-def LinearFill(Collapsed, Slope=1, retirement=False):
+def _band_tilt(Collapsed, i, j, cap=TILT_CAP):
+    """Tilt for band (i, j), from how fast the count changes to its neighbours.
+
+    r = geometric mean of the available neighbour ratios along the age axis
+    q = r ** ((N-1)/N)    the first-to-last ratio that implies INSIDE the band
+    s = (1-q)/(1+q)       the tilt reproducing it; s>0 declines, s<0 rises
+    Edge bands use their one neighbour; an isolated or empty band gets s = 0,
+    i.e. an even split.
+    """
+    c = Collapsed[:, j]
+    if not np.isfinite(c[i]) or c[i] <= 0:
+        return 0.0
+    ratios = []
+    if i + 1 < len(c) and np.isfinite(c[i+1]) and c[i+1] > 0:
+        ratios.append(c[i+1] / c[i])
+    if i - 1 >= 0 and np.isfinite(c[i-1]) and c[i-1] > 0:
+        ratios.append(c[i] / c[i-1])
+    if not ratios:
+        return 0.0
+    r = float(np.exp(np.mean(np.log(ratios))))
+    q = r ** 0.8                      # (N-1)/N with N = 5
+    s = (1.0 - q) / (1.0 + q)
+    return float(np.clip(s, -cap, cap))
+
+
+def LinearFill_incorrect(Collapsed, Slope=1, retirement=False):
+    """SUPERSEDED 2026-07-30. Kept, unchanged, so earlier results stay reproducible.
+
+    This is the weight inherited from the original R implementation. It is wrong,
+    and `Code/R/cluster_code_2022/*.R` still calls the R twin of this function on
+    purpose so that lineage keeps producing exactly what it always produced.
+
+    The weight was  Share = GroupCount/(N*M) + Slope*age , which
+      1. subtracts an AGE IN YEARS from a HEADCOUNT PER CELL - different
+         quantities, so the difference means nothing;
+      2. puts GroupCount inside the weight, so the size of the tilt depends on how
+         big the plan is (a band of 20,000 came out 0.1% tilted, a band of 500 at
+         17%);
+      3. centres the weights on (GroupCount/N - mean age) rather than on 1, so
+         they straddle zero. Their sum - the normaliser - is
+         GroupCount - (sum of the ages in the band), which VANISHES when a band
+         holds about that many people, and changes sign either side of it.
+
+    Measured over the 40 state plans: 3 produced NEGATIVE retiree headcounts.
+    OK134's 75-79 band held 385.004 people against an age-sum of 385, giving a
+    normaliser of 0.004 and cells of about +/-200,000 in a plan with 4,242
+    retirees. Band totals still reconciled because the signs cancel, which is why
+    it went unseen for years; a one-person PPD revision moved that plan's
+    liability by 56%.
+
+    Use `LinearFill` instead.
+    """
+    return _linear_fill_core(Collapsed, Slope, retirement, legacy=True)
+
+
+def _linear_fill_core(Collapsed, Slope=1, retirement=False, legacy=False):
     if retirement:
         all_age_max, all_age_min = 120, 40
         all_serv_max, all_serv_min = 1, 1
@@ -35,53 +105,23 @@ def LinearFill(Collapsed, Slope=1, retirement=False):
             N = rowmax - rowmin + 1
             M = columnmax - columnmin + 1
             GroupCount = Collapsed[i - 1, j - 1]
+            s_band = 0.0 if legacy else _band_tilt(Collapsed, i - 1, j - 1)
             Share = np.zeros((N, M))
             sharesum = 0.0
             for k in range(1, N + 1):                   # R: for k in 1:N
                 svcmax = rowmin + k - all_age_min
 
-                # ---------------------------------------------------------------
-                # ORIGINAL WEIGHT (inherited from Common_Code/bucketfill_cf_model.R).
-                # CORRECTED 2026-07-30 — kept here because it produced every result
-                # up to and including the 072026 run, and must stay legible.
-                #
-                #     Share[k - 1, L - 1] = GroupCount / (N * M) + Slope * (rowmin + k - 1)
-                #
-                # Three defects:
-                #  1. It subtracts an AGE IN YEARS from a HEADCOUNT PER CELL. Those are
-                #     different quantities and the difference has no meaning.
-                #  2. Because GroupCount sits inside the weight, the size of the tilt
-                #     depends on how big the plan is: a band holding 20,000 people came
-                #     out almost flat (0.1% tilt) while a band holding 500 came out at
-                #     17%. A plan's age profile must not depend on its size.
-                #  3. The weights are centred on (GroupCount/N - mean age) instead of on
-                #     1, so they straddle zero. Their sum, used as the normaliser below,
-                #     equals GroupCount - (sum of the ages in the band). When a band
-                #     happens to hold about that many people the normaliser approaches
-                #     zero and the division explodes; on either side of that point the
-                #     tilt silently REVERSES direction.
-                #
-                # Measured effect: 3 of 40 plans produced NEGATIVE retiree headcounts.
-                # OK134's 75-79 band held 385.004 people against an age-sum of 385, so
-                # the normaliser was 0.004 and the band was filled with +/-200,000 people
-                # in a plan with 4,242 retirees. Band totals still reconciled, because
-                # the huge positives and negatives cancel, which is why it went unseen.
-                # A one-person data revision moved that plan's liability by 56%.
-                #
-                # CORRECTED WEIGHT: a perturbation around 1, driven only by POSITION in
-                # the band, never by the headcount and never by the absolute age.
-                #   u  runs 0 -> 1 across the band
-                #   w  runs (1 + s) -> (1 - s) for Slope = -1  (retirees, declining)
-                #      and (1 - s) -> (1 + s) for Slope = +1  (actives, rising)
-                # Every weight is strictly positive for s < 1, so no cell can go
-                # negative; and the weights sum to exactly N, so the normaliser is a
-                # constant and can never approach zero. s = 0 gives an even split.
-                # Verified on all 40 plans: negatives 3 -> 0, totals still preserved,
-                # and mean age moves by ~0.1 years for 39 plans (OK134, the broken one,
-                # moves 10.5 years). See Documentation/states_track_context.md.
-                # ---------------------------------------------------------------
-                u = 0.0 if N == 1 else (k - 1) / (N - 1)
-                w_age = 1.0 + Slope * LINEARFILL_TILT * (2.0 * u - 1.0)
+                if legacy:
+                    # the superseded weight - see LinearFill_incorrect for why
+                    w_age = GroupCount / (N * M) + Slope * (rowmin + k - 1)
+                else:
+                    # a perturbation around 1, driven only by POSITION in the band.
+                    # Every weight is strictly positive, so no cell can go negative,
+                    # and the weights sum to exactly N, so the normaliser is a
+                    # constant and can never approach zero. The tilt comes from the
+                    # neighbouring bands (see _band_tilt), not from a hand-set value.
+                    u = 0.0 if N == 1 else (k - 1) / (N - 1)
+                    w_age = 1.0 + s_band * (1.0 - 2.0 * u)
 
                 for L in range(1, M + 1):               # R: for L in 1:M
                     if (columnmin + L - 1) > svcmax:
@@ -325,3 +365,14 @@ def CreateTiers(active, inactive, num_tiers):
         g.inactive_t4 = _zero_outside(inactive, ts[4], ts[3])
         g.inactive_t5 = _zero_outside(inactive, ts[5], ts[4])
         g.inactive_t6 = _zero_outside(inactive, 0, ts[5])
+
+
+def LinearFill(Collapsed, Slope=1, retirement=False):
+    """Spread bucketed counts over single ages, with the slope taken from the data.
+
+    Replaces the inherited weight (kept as `LinearFill_incorrect`) 2026-07-30.
+    `Slope` is retained for call-signature compatibility but no longer sets the
+    direction of the tilt - the neighbouring bands do, so a band whose population
+    is still rising now tilts upward instead of being forced to decline.
+    """
+    return _linear_fill_core(Collapsed, Slope, retirement, legacy=False)
