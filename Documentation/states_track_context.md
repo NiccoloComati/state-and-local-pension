@@ -366,6 +366,69 @@ broken.
 R and Python produce identical output (declining bands 234.1255, 217.0628,
 200.0000, 182.9372, 165.8745 in both; rising bands 64.6562 ... 95.3438).
 
+### DECISION 2026-07-30 — direction of the within-band slope comes from the data
+
+**Flagged for the coauthor discussion. This is the one point where the correction
+deliberately departs from what the inherited code intended, so it should be raised
+explicitly rather than presented as a bug fix.**
+
+**What the original intended.** Decoded from the code: the base term
+`GroupCount/(N*M)` is exactly an even split, and the function is named `LinearFill`
+against a sibling `ConstantFill`. So the intent was *an even split plus a linear
+adjustment in age*, with the direction fixed by the caller — `Slope = +1` for
+actives (rising with age), `Slope = -1` for retirees (declining). That intent is
+sound and the correction keeps it. The only structural change is that the
+adjustment now **multiplies** the even share instead of being **added** to it as an
+absolute number of years, which is what removes the unit mismatch, the dependence
+on plan size, and the vanishing normaliser.
+
+**Where we depart.** The original hardcoded the direction: every retiree band
+declines with age, in every plan, always. We take the direction from the
+neighbouring bands instead. Measured across all 40 plans:
+
+| | |
+|---|---|
+| Populated retiree bands | 438 |
+| Bands where the data agrees they decline | 242 |
+| **Bands that actually rise** | **196 — 44.7%** |
+| Plans with at least one rising band | **40 of 40** |
+| Median share of a plan's retirees in a rising band | **47.7%** |
+
+This is structural, not noise. A retiree population climbs from about age 50 to a
+peak near 65-70 as members retire into it, then falls as they die. Forcing a
+decline everywhere gets the whole pre-peak half backwards — for OK134 the tilt is
+negative for every band below 65-69 and positive above it, and 65-69 is exactly
+where its population peaks.
+
+**The consequence Niccolo identified, confirmed empirically.** Forcing a decline
+inside every band while the band *totals* are rising produces a sawtooth: the
+profile falls across a band, then jumps up at the boundary into the larger next
+band, then falls again. Measuring the age-to-age step, within bands versus across
+band boundaries:
+
+| Plan | Version | Within-band step | Step at a boundary | Ratio |
+|---|---|---|---|---|
+| CA10 | inherited | 0.02% | 66.6% | **4,200x** |
+| CA10 | corrected | 13.1% | 24.6% | 1.9x |
+| TX108 | inherited | 0.02% | 59.4% | **2,940x** |
+| TX108 | corrected | 14.9% | 22.2% | 1.5x |
+| FL26 | inherited | 0.01% | 49.2% | **6,240x** |
+| FL26 | corrected | 8.8% | 19.1% | 2.2x |
+| OK134 | inherited | 1.5% | 64.0% | 42x |
+| OK134 | corrected | 11.1% | 11.1% | **1.0x** |
+
+The inherited version was effectively a **staircase** — almost perfectly flat
+inside each band (0.01-0.02% steps) with cliffs of 50-67% between them. The
+corrected version spreads that change across the band, so the boundary step becomes
+comparable to an ordinary within-band step. For OK134 it is indistinguishable.
+
+**What to raise with the coauthor.** That we now let the data set the direction of
+the within-band slope rather than asserting a universal decline; that this is the
+only intentional departure from the inherited method; and that the alternative —
+keeping the fixed direction and taking only the magnitude from the data — was
+considered and rejected because it reintroduces the sawtooth for roughly half the
+retiree population. It is a one-line change if the decision goes the other way.
+
 ### Where it is applied
 
 Both languages keep the inherited version under the name `LinearFill_incorrect`,
