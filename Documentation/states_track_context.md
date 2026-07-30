@@ -728,6 +728,75 @@ the risk ranking.
 
 ---
 
+## DECISIONS 2026-07-30 (evening): state money, MI53 salary, and the payroll question
+
+### DECIDED — state contributions stay excluded, and MA51's employer rate is zero
+
+10 of 40 plans receive money recorded in `contrib_ER_state`. The engine has always
+dropped it and **that behaviour is kept deliberately.** The distinction being drawn
+is between a contribution owed under the employment contract and an appropriation a
+legislature makes to keep a fund solvent; the second is not part of the fund's own
+dynamics, which is what this study is about.
+
+Recorded honestly as an **assumption, not a discovery**: nothing in the PPD or in
+any project document states the original intent, the original R simply reads the
+two fields, and the PPD codebook labels these variables by *who paid*
+(`contrib_ER_state` = "State Employer Contributions", a sub-item of employer
+contributions) rather than by *why*. Establishing the economic character of each
+plan's state money would mean reading its funding statute, which has not been done.
+
+**The fallback added earlier today is removed.** It fired for MA51 alone and handed
+it $2.1bn of Commonwealth appropriation — exactly the money every other plan has
+excluded. MA51's `contrib_ER_regular` is empty because its *entire* employer
+contribution is a state appropriation, so under this rule **its employer
+contribution rate is zero.** It still runs. That makes MA51 a plan sustained
+entirely by state money, which is a result rather than an error, and its risk will
+rise sharply from the 0.005 it showed while receiving that money.
+
+### DECIDED — MI53's 2022 average salary is overridden
+
+Published as 5.32 (thousands). Its own `ActiveSalaries / actives_tot` gives 54.32,
+and those two agree to two decimals in every other year (2021: 51.16 / 51.15;
+2023: 56.23 / 56.24). Replaced with 54.32, printed at run time, revertible by
+deleting one block.
+
+**Effect, measured:** MI53's liability moves from $68.16bn to **$86.51bn**, and its
+gap against the reported figure from **-30.5% to -11.9%** — no longer the worst
+negative outlier in the study.
+
+### The payroll-denominator question, decomposed
+
+The engine measures the contribution rate against the PPD's **covered payroll** and
+then charges it against **its own projected payroll**. Splitting that gap into its
+two possible sources settles what is actually fixable:
+
+| Comparison | What it tests | Result |
+|---|---|---|
+| model payroll / (actives x avg salary) | does the engine's own wage machinery preserve total payroll? | **median 1.0000; only 5 of 40 outside 1%** |
+| covered payroll / (actives x avg salary) | do the two PPD fields describe the same population? | median 1.0008 but **12 of 40 outside 5%**, range 0.84 to 1.60 |
+
+**So the gap is overwhelmingly a PPD definitional matter, not a model artifact.**
+For 35 of 40 plans the engine builds exactly the payroll implied by headcount and
+average salary.
+
+**What is unambiguously fixable (model side):** two plans lose payroll in the
+engine's own construction — **NY78 at -9.4%** and **ND82 at -2.6%** — because their
+wage-relativity matrix does not average to 1 across the active distribution.
+Normalising that matrix is a small, self-contained correction with no data-source
+question attached.
+
+**What is a choice, not a bug (PPD side):** for the other 12 plans covered payroll
+genuinely spans a different population from the valuation actives — FL26 at 1.60x
+is the clearest, with 32,150 DROP members reported separately. Two defensible
+positions: leave the rate measured on covered payroll (today's behaviour, so
+first-year contributions are wrong by that ratio), or measure it against the
+engine's own payroll (first-year contributions then equal what the plan actually
+received, and scale with the projected workforce thereafter). The second is
+self-consistent and gives a testable anchor; the first stays closer to the plan's
+published contribution basis. **Neither is implemented.**
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a

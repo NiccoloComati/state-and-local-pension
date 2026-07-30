@@ -205,19 +205,35 @@ def _check_benefit_relativity(rel, share, plan):
     return out.reshape(np.asarray(rel).shape)
 
 
-def _employer_contrib(planinfo):
-    """Employer contribution, falling back to the total when 'regular' is absent.
+def _employer_contrib(planinfo, plan):
+    """Employer contribution in PPD thousands, EXCLUDING state contributions.
 
-    Added 2026-07-29. MA51 (Massachusetts Teachers) is funded by a Commonwealth
-    appropriation rather than a payroll-rate employer contribution, so PPD's
-    `contrib_ER_regular` has been empty for it since 1999 while `contrib_ER_state`
-    / `contrib_ER_tot` carry the money. Verified against MA51's 2017 valuation
-    report: PPD FY2018 contrib_ER_state = $1.315bn vs the report's stated FY18
-    appropriation of $1.303bn (0.9%). To revert, use `contrib_ER_regular` alone.
+    The engine has always read `contrib_ER_regular` only, so money a state pays
+    into a plan on behalf of other employers (`contrib_ER_state`) never enters the
+    projection. 10 of the 40 plans have such money; it is dropped for all of them.
+    Decision 2026-07-30: keep that behaviour. The distinction being drawn is between
+    a contribution owed under the employment contract and an appropriation the
+    legislature makes to keep a fund solvent, and the second is not part of the
+    fund's own dynamics. Recorded as an assumption, not a discovery — nothing in the
+    PPD or in any project document states the original intent, and the PPD's own
+    taxonomy splits these fields by who paid rather than by why.
+
+    A brief fallback to `contrib_ER_tot` was added earlier on 2026-07-30 and is
+    REMOVED here: it fired for MA51 alone and handed it $2.1bn of Commonwealth
+    appropriation, which is precisely the money every other plan has excluded.
+
+    MA51 therefore has an employer contribution of zero, because its entire employer
+    contribution is a state appropriation. That is the consistent reading, and it
+    makes MA51 a plan sustained entirely by state money — which is a result, not an
+    error. To revert, return `contrib_ER_regular` and let NaN propagate.
     """
     v = _s(planinfo, 'contrib_ER_regular')
-    if not np.isnan(v):
-        return v
+    if np.isnan(v):
+        print(f"  NOTE: {plan} has no contrib_ER_regular. Its employer contribution is "
+              f"entirely a state appropriation, which this model excludes by design, "
+              f"so the employer contribution rate is set to ZERO.")
+        return 0.0
+    return v
     for alt in ('contrib_ER_tot', 'contrib_ER_state'):
         if alt in planinfo.columns:
             a = _s(planinfo, alt)
@@ -249,7 +265,7 @@ if args.discount_override is not None:
     print(f"discount override: {args.discount_override} (plan GASB rate was {discountrate})")
     discountrate = args.discount_override
 EmployeeContributionRate = _s(planinfo, 'contrib_EE_regular') / _s(planinfo, 'payroll')
-EmployerContributionRate = _employer_contrib(planinfo) / _s(planinfo, 'payroll')
+EmployerContributionRate = _employer_contrib(planinfo, plan) / _s(planinfo, 'payroll')
 Inflation                = get_inflation_assumption(plan, planinfo)
 rf                       = 0.01 + Inflation
 PopulationGrowth         = 0.01
@@ -331,8 +347,26 @@ else:
         os.path.join(common_dir, 'default_assumptions.xlsx'),
         sheet_name='wagerel', usecols='B:L', skiprows=1, nrows=11,
         header=None).to_numpy(dtype=float)
+# --- source-data override, added 2026-07-30 -------------------------------
+# MI53's PPD `ActiveSalary_avg` for fy2022 reads 5.32 ($000s). Its own
+# `ActiveSalaries / actives_tot` gives 54.32, and every other year those two agree
+# to two decimals (2021: 51.16 vs 51.15; 2023: 56.23 vs 56.24). 2022 is the only
+# year out of line, and it is the year this model runs. Treated as a data-entry
+# error in the source and replaced with the plan's own components.
+# To revert, delete this block; the run then uses the published 5.32.
+SALARY_OVERRIDE = {("MI53", 2022): "ActiveSalaries/actives_tot"}
+if (plan, plan_year) in SALARY_OVERRIDE:
+    _pub = _s(planinfo, 'ActiveSalary_avg')
+    _fix = _s(planinfo, 'ActiveSalaries') / _s(planinfo, 'actives_tot')
+    print(f"  NOTE: {plan} fy{plan_year} ActiveSalary_avg published as {_pub:,.2f} "
+          f"(thousands); replaced with {_fix:,.2f} from ActiveSalaries/actives_tot, "
+          f"consistent with every neighbouring year.")
+    _salary_avg = _fix
+else:
+    _salary_avg = _s(planinfo, 'ActiveSalary_avg')
+# --------------------------------------------------------------------------
 asy_wage    = _pad_rows(asy_wage, 11, f"{plan} wagerel B2:L12")
-asy_wage    = asy_wage * _s(planinfo, 'ActiveSalary_avg') * 1000
+asy_wage    = asy_wage * _salary_avg * 1000
 BaseWage_2d = ConstantFill(asy_wage)
 
 if plan in CONTRIB_RATE_NA_CHECK:
