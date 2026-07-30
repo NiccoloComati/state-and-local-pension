@@ -252,6 +252,76 @@ deliberately (see Decisions taken). Nothing has been re-run.
 
 ---
 
+## 2026-07-30 — the 072026 run completed, and it exposed a real bug in LinearFill
+
+**Run status: complete and clean.** 40/40 liability outputs, 40/40 asset outputs,
+40/40 parquet bundles, `plan_year=2022`, `num_sim=10000`, market seed 123, common
+shocks on for every plan, zero NaNs in any Assets matrix, and no errors in any of
+the 80 logs. All three input guards fired on exactly the plans they were meant to
+and on no others.
+
+This session's fixes did what they were meant to. MA51 moved from -79.8% to -21.9%
+against its reported liability once the benefit-relativity column was rebuilt; MA50
+sits at +4.3% and MO64 at +24.0%. 21 of the 37 plans common to both runs are
+bit-identical to `062026`; the 16 that moved did so because of the July PPD's
+restated values.
+
+### The bug: `LinearFill` can produce negative retiree headcounts
+
+**What raised it.** OK134's modelled liability fell from $6.87bn to $3.04bn between
+the two runs — from +134.5% against reported to +3.7%. Chasing that down: the two
+runs are exactly reproducible, running current code against the old PPD reproduces
+$6.87bn exactly, and **every derived scalar is identical between the two files
+except `beneficiaries_tot`, which changed from 4,242 to 4,241.** One retiree.
+
+A one-person change cannot move a liability by 56%, so this is not data.
+
+**The mechanism.** `LinearFill` (`Code/python/bucketfill_cf_model.py`) distributes a
+bucketed count across single ages using
+
+```
+Share  = GroupCount / (N*M) + Slope * age
+sharesum = sum(Share)                       # = GroupCount - sum(ages in the band)
+Expanded = Share * GroupCount / sharesum
+```
+
+On the retirement path `Slope = -1`, so the formula **subtracts an age from a
+headcount** — two different units — and `sharesum` is `GroupCount` minus the sum of
+the five ages in the band. When a band's headcount happens to land near that sum,
+`sharesum` approaches zero and the division explodes.
+
+OK134's 75-79 band is almost exactly on it. Sum of ages 75..79 = 385:
+
+| `beneficiaries_tot` | band headcount | sharesum | resulting age cells |
+|---|---|---|---|
+| 4,242 | 385.004 | **+0.004** | -201,115 to +201,269 |
+| 4,241 | 384.913 | **-0.087** | -8,778 to +8,932 |
+
+In a plan with about 4,200 retirees, the model was placing ±200,000 people in
+individual age cells, with large positives and negatives that nearly cancel. The
+band totals still come out right because of the renormalisation, so nothing looks
+wrong at the aggregate level — but the age *distribution* inside the band is
+meaningless, and the liability is computed off that distribution.
+
+**Blast radius, measured across all 40 plans at fiscal 2022:** three produce
+negative retiree headcounts — **OK134** (most negative cell -8,778, severe),
+**LA163** (-30) and **SC99** (-30, both mild). The other 37 are clean, though
+several sit close enough to the boundary to be one data revision away from it
+(ND82, NJ71, CA98, AZ127, MA50 all have a band within about 35 of zero).
+
+**Consequences to be clear about.** OK134's long-standing +134.5% gap was this bug,
+not its data. Its new +3.7% is **not** a fix — it is the same bug landing at a less
+extreme point on the same discontinuity, and its number is still built on a broken
+age distribution. Any result for OK134 should be treated as unusable until this is
+resolved. LA163 and SC99 are mildly affected.
+
+**Not fixed, deliberately.** `LinearFill` is shared by every plan and is a faithful
+translation of the R reference implementation, so the same behaviour exists in R.
+Changing it alters retiree distributions for all 40 plans, which is a model-equation
+change and needs an explicit decision rather than a quiet patch.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a
