@@ -16,7 +16,10 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 
-DEFAULT_RUN_TAG = "062026"
+# No default run tag. Defaulting to a real run tag meant a forgotten --run-tag
+# silently overwrote it; 062026 sat here for months. If --run-tag is omitted the
+# runner now mints the next free YYYYMMDD_N instead (see next_run_tag).
+DEFAULT_RUN_TAG = None
 DEFAULT_PLAN_YEAR = 2022
 DEFAULT_TIER_FILE = "planchanges_main_2022_clean.xlsx"
 
@@ -61,6 +64,22 @@ def engine_known_plans() -> set[str]:
             if isinstance(node.value, ast.Dict):
                 return {k.value for k in node.value.keys if isinstance(k, ast.Constant)}
     return set()
+
+
+def next_run_tag(root: "Path", when=None) -> str:
+    """Next free run tag in the YYYYMMDD_N convention (adopted 2026-07-30).
+
+    Folder names identify a run; they deliberately do NOT describe it, because a
+    descriptive label stops meaning anything after a few weeks. What a run IS
+    lives in Results/Runs/README.md.
+    """
+    from datetime import date as _date
+    day = (when or _date.today()).strftime("%Y%m%d")
+    runs = Path(root) / "Results" / "Runs"
+    n = 1
+    while (runs / f"{day}_{n}").exists():
+        n += 1
+    return f"{day}_{n}"
 
 
 def default_plan_file(run_tag: str) -> Path:
@@ -226,6 +245,9 @@ def main() -> int:
     if args.parallel < 1:
         raise ValueError("--parallel must be >= 1")
 
+    if args.run_tag is None:
+        args.run_tag = next_run_tag(ROOT)
+        print(f"no --run-tag given; using {args.run_tag}")
     plan_file = Path(args.plan_file) if args.plan_file else default_plan_file(args.run_tag)
     plans = parse_plans(args.plans, plan_file)
     # A hard MA50 block used to sit here (2026-07-30: removed). It dated from the
@@ -240,6 +262,12 @@ def main() -> int:
         )
 
     run_dir = ROOT / "Results" / "Runs" / args.run_tag
+    if run_dir.exists() and any(run_dir.iterdir()) and not (
+            args.overwrite or args.skip_existing_detal or args.skip_existing_asset):
+        raise SystemExit(
+            f"Run folder {args.run_tag} already exists and is not empty.\n"
+            f"Pick a new --run-tag, or pass --overwrite / --skip-existing-detal / "
+            f"--skip-existing-asset if you really mean to write into it.")
     log_dir = run_dir / "_logs"
     run_dir.mkdir(parents=True, exist_ok=True)
     log_dir.mkdir(parents=True, exist_ok=True)

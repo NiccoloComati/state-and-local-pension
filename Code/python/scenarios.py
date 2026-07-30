@@ -30,7 +30,10 @@ import pandas as pd
 SCRIPT_DIR = Path(__file__).resolve().parent                  # Code/python/
 ROOT = SCRIPT_DIR.parent.parent                               # project root
 RUNS = ROOT / "Results" / "Runs"
-BASELINE_RUN_TAG = "062026"
+# The baseline scenarios derive their deterministic inputs from. Was pinned to
+# 062026, which silently went two generations stale. Set this deliberately when
+# running scenarios; None means "use the newest run".
+BASELINE_RUN_TAG = None
 BASELINE_SEED = 123
 PYTHON = sys.executable
 

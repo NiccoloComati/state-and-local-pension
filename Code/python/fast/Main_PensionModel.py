@@ -83,7 +83,7 @@ AVAILABLE_DATA = {
 CONTRIB_RATE_NA_CHECK = {'AZ127', 'CA144', 'CA98', 'IL32', 'IN37', 'LA130', 'LA44'}
 RETDIST_SKIPROWS      = {'MI53': 1}
 
-DEFAULT_RUN_TAG  = "062026"
+DEFAULT_RUN_TAG  = None   # must be passed explicitly; see run_simulation.py
 DEFAULT_PLAN_YEAR = 2022
 DEFAULT_TIER_FILE = "planchanges_main_2022_clean.xlsx"
 
@@ -116,6 +116,9 @@ script_dir  = os.path.dirname(os.path.abspath(__file__))         # Python Code/f
 code_dir    = os.path.normpath(os.path.join(script_dir, '..', '..'))  # Code/
 root_dir    = os.path.dirname(code_dir)                               # project root
 common_dir  = os.path.join(root_dir, 'Data', 'Common', 'states')
+if args.run_tag is None:
+    raise SystemExit("--run-tag is required (convention: YYYYMMDD_N). "
+                     "Normally you would go through run_simulation.py.")
 run_tag     = args.run_tag
 plan_folder = os.path.normpath(os.path.join(root_dir, 'Data', 'Plans', 'States', plan))
 run_folder  = os.path.normpath(os.path.join(root_dir, 'Results', 'Runs', run_tag, plan))

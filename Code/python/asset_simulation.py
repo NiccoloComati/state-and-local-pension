@@ -53,7 +53,7 @@ import numpy as np
 import pandas as pd
 
 
-DEFAULT_RUN_TAG = "062026"
+DEFAULT_RUN_TAG = None   # must be passed explicitly; see run_simulation.py
 PY_MANIFEST = "_manifest.csv"
 
 

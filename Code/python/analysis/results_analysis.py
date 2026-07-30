@@ -24,7 +24,10 @@ except ImportError:  # pragma: no cover - optional dependency
     pyreadr = None
 
 
-DEFAULT_RUN_TAG = "062026"
+# Pinning a specific run here goes stale the moment a new one is produced.
+# `latest_run_tag()` picks the newest YYYYMMDD_N folder instead; pass an explicit
+# tag to any function to override.
+DEFAULT_RUN_TAG = None
 DEFAULT_PLAN_YEAR = 2022
 ANALYSIS_EXPORT_SUFFIX = "_analysis.RData"
 PARQUET_EXPORT_SUFFIX = "_parquet"
@@ -962,3 +965,24 @@ def plot_cashflow_dynamics(
     ax.set_ylabel("Dollars")
     ax.legend()
     return fig, ax
+
+
+def latest_run_tag(root=None) -> str:
+    """Newest run folder following the YYYYMMDD_N convention (adopted 2026-07-30).
+
+    Falls back to the newest folder by modification time if none match, so older
+    runs named under the previous MMYYYY convention still resolve.
+    """
+    import re as _re
+    runs = Path(root or find_project_root()) / "Results" / "Runs"
+    if not runs.exists():
+        raise FileNotFoundError(f"No Results/Runs under {runs.parent}")
+    dated = sorted(d.name for d in runs.iterdir()
+                   if d.is_dir() and _re.fullmatch(r"\d{8}_\d+", d.name))
+    if dated:
+        return dated[-1]
+    others = sorted((d for d in runs.iterdir() if d.is_dir() and not d.name.startswith("_")),
+                    key=lambda d: d.stat().st_mtime)
+    if not others:
+        raise FileNotFoundError(f"No run folders in {runs}")
+    return others[-1].name
