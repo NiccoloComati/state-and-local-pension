@@ -2735,3 +2735,36 @@ auto-resolve via a new `results_analysis.latest_run_tag()`.
 
 Historical entries above keep the old tags on purpose — they describe what the
 folders were called at the time.
+
+## 2026-07-30 (cont.): 20260730_2 — first run with the corrected LinearFill
+
+Complete and clean: 40/40 liability, asset and parquet outputs, `plan_year=2022`,
+`num_sim=10000`, market seed 123, common shocks on, zero NaNs, no errors in 80
+logs. All three input guards fired on exactly the intended plans.
+
+It differs from `20260730_1` only by the `LinearFill` correction — same plans, same
+PPD file, same seed — so the comparison isolates that change exactly:
+
+- **one** plan moved more than 1% (OK134, +5.9%); 33 moved more than 0.1%; median
+  move 0.22%; largest exhaustion-probability change 0.015.
+- The two plans with mild negative-headcount exposure barely moved: LA163 -0.23%,
+  SC99 -0.08%.
+- Model-vs-reported liability within +/-10% for 26 of 40, unchanged.
+
+**OK134 across the three runs** — the reason this was worth chasing:
+
+| Run | Liability | vs reported | P(exhaust by 2056) |
+|---|---|---|---|
+| `20260610_1` | $6.87bn | +134.5% | 0.858 |
+| `20260730_1` | $3.04bn | +3.7% | 0.382 |
+| `20260730_2` | $3.22bn | +9.8% | 0.397 |
+
+Most of the shift came from the July PPD restatement, the remainder from the
+correction. Its +3.7% in `20260730_1` was the defective formula landing at a
+flattering point rather than a fix, which is why it was worth not taking at face
+value. In the long-standing canonical run OK134 was the fourth-riskiest plan of
+37; on corrected inputs it is not.
+
+`20260730_2` is the first run whose inputs are all in the state agreed this
+session. Nothing has been interpreted beyond verifying the run and measuring the
+correction.
