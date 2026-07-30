@@ -632,43 +632,76 @@ an extreme.
 
 ## 2026-07-30 — follow-up on the three input findings
 
-### Finding 1: is excluding state contributions a deliberate no-subsidy design?
+### Finding 1 (REFRAMED): state contributions are not the same as employer contributions
 
-Niccolo's hypothesis: state appropriations are taxpayer subsidies, and a model of
-unsubsidised fund dynamics might exclude them on purpose. Tested, and the evidence
-says **no — it is inherited, not designed.**
+An earlier version of this note treated the two as interchangeable and concluded
+from TX108 that the exclusion was an artifact. **That conclusion was wrong**, and it
+was wrong because of the conflation. Correct distinction:
 
-- **The original R reads the identical two fields.**
-  `EmployeeContributionRate <- planinfo$contrib_EE_regular/planinfo$payroll` and
-  the same for `contrib_ER_regular`. Python copied R; nobody chose it in Python.
-- **No documentation states any such intent.** The only related statement is "if
-  assets hit zero, they stay at zero (no bailout assumption)" — that is about
-  refusing rescue *after* exhaustion, a different mechanism from excluding ongoing
-  contribution income.
-- **The decisive point: `contrib_ER_regular` is already government money.** OH88
-  Ohio Teachers contributes $1.78bn through it with nothing in `ER_state`; CA43 is
-  LA County. So taxpayer money is already included for 28 of 40 plans. The current
-  behaviour excludes subsidies for some plans and includes them for others,
-  depending on which accounting bucket that plan happens to use.
-- **TX108 settles it.** Texas Teachers has **both** fields populated — `ER_regular`
-  $1.91bn and `ER_state` $2.16bn. Same plan, same kind of money, and the model
-  takes one and drops the other. The split is administrative (what employing
-  districts remit directly versus what the state appropriates on their behalf),
-  not economic.
+- **Employer contribution** — the entity that employs the members paying for their
+  pensions. A labour cost, not a subsidy, even when that employer is a government.
+- **State contribution** (`contrib_ER_state`) — a state paying into a plan whose
+  employers are *other* entities, typically school districts. That is an external
+  transfer, and excluding it is exactly what a study of unsubsidised fund dynamics
+  would want.
 
-So the current state is an artifact. **Excluding subsidies remains a legitimate
-modelling choice** — it is just not what is happening now, and implementing it
-would mean excluding employer contributions *consistently*, which would change all
-40 plans rather than 12.
+**10 of 40 plans receive a state contribution**, and the composition matters:
 
-### Finding 2: MI53 is not a double division — the PPD value is MONTHLY
+| Plan | State share of all contributions | Who employs the members |
+|---|---|---|
+| IN37 Indiana Teachers | 87.9% | school districts — **external subsidy** |
+| IL34 Illinois Teachers | 83.1% | school districts — **external subsidy** |
+| NJ73 New Jersey Teachers | 82.1% | school districts — **external subsidy** |
+| AZ127 AZ State Corrections Officers | 69.7% | **the state itself — employer money** |
+| MA51 Massachusetts Teachers | 64.3% | school districts — **external subsidy** |
+| OK134 Oklahoma Police | 34.6% | municipalities — **external subsidy** |
+| CA10 California Teachers | 28.8% | school districts — **external subsidy** |
+| ME47 Maine State and Teacher | 27.5% | mixed |
+| TX108 Texas Teachers | 24.1% | school districts — **external subsidy** |
+| MA50 Massachusetts SRS | 3.1% | **the state itself — employer money** |
 
-`ActiveSalary_avg` = $5,318. Multiply by 12: **$63,816**, against $64,181 implied by
-its own payroll over its own headcount — **0.6% apart**. MI53 reports a monthly
-salary where every other plan reports annual, and the engine treats it as annual.
+So the current exclusion is **defensible for 7 or 8 of the 10** and questionable for
+**AZ127** and **MA50**, where the state is the employer and the money is a labour
+cost rather than a transfer. TX108 does not settle anything against the principle —
+Texas Teachers are employed by districts, so excluding the state share there is
+consistent with it.
 
-Checked across all 40: the implied-over-stated ratio has a median of 1.001 and MI53
-is the only plan anywhere near 12. Nothing in our code divides twice.
+Whether it was *intended* is still unrecorded: the original R reads the two fields
+with no comment, and no document states a rationale. But the effect lines up with
+the principle for most affected plans.
+
+**The consequence for the risk ranking flips.** If excluding state money is
+deliberate, then NJ73, IN37 and IL34 topping the ranking is not an artifact — it is
+the finding that those three plans cannot survive on employer and employee
+contributions alone and depend on continuing state subsidy. That is a substantive
+result, not a bug.
+
+### Finding 2 (CORRECTED TWICE): MI53's 2022 average salary has a dropped digit
+
+Two earlier readings of this were wrong and are recorded so the reasoning is
+traceable: first "wrong by a factor of twelve", then "the value is monthly". The
+time series settles it.
+
+`ActiveSalary_avg` normally equals `ActiveSalaries / actives_tot` exactly. For MI53:
+
+| Year | stated `ActiveSalary_avg` | `ActiveSalaries / actives_tot` |
+|---|---|---|
+| 2019 | 46.15 | 46.15 |
+| 2020 | 48.35 | 48.35 |
+| 2021 | 51.16 | 51.15 |
+| **2022** | **5.32** | **54.32** |
+| 2023 | 56.23 | 56.24 |
+| 2024 | 59.02 | 59.02 |
+
+Every year agrees to the second decimal except 2022, where **54.32 is recorded as
+5.32** — a dropped leading digit, in the one year we run. It is not a monthly
+figure: monthly would be 63.82, and the surrounding years progress smoothly through
+54.32. The earlier "monthly" reading only looked plausible because 5.318 x 12 lands
+near `payroll / actives_tot`, which is the wrong comparison — `payroll` is a
+different field (see Finding 3).
+
+**Correct value: 54.32**, from `ActiveSalaries / actives_tot`, consistent with every
+neighbouring year. Not yet applied.
 
 ### Finding 3: FL26 is a denominator mismatch, and it affects six plans
 
