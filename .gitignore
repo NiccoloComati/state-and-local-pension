@@ -87,3 +87,10 @@ _ARCHIVE/
 
 # Nested/external clones should be added as proper submodules if needed.
 Github/
+
+# PPD full-database downloads. Third-party dumps, redownloadable from
+# publicplansdata.org, ~9 MB. The .xlsx form is already covered above; this
+# catches the .csv form. The small hand-curated PPD_planlevel_main*.csv files
+# are model inputs and stay tracked.
+Data/**/ppd-data-latest.csv
+Data/**/ppd-data-*.csv
