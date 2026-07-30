@@ -213,6 +213,84 @@ reports rather than assuming the switches were simply neglected.
   option rather than a plan. The one part of §3 still live is whether to adopt the
   corrected 2022 figures from the newer PPD file.
 
+## Assumption and limitation register — state track
+
+**One place for everything embedded in the state model that is a choice, a
+substitution, a known gap, or a structural limit.** Anything here can be revisited;
+each row says how. Started 2026-07-30, consolidating findings previously scattered
+across this file, `model_input_dictionary.md` and `project_context.md`. The city
+track's equivalent is `Data Extraction/assumption_register.md`.
+
+### A. Places the engine alters or substitutes an input at load time
+
+| # | What happens | Which plans | Why | How to undo |
+|---|---|---|---|---|
+| A1 | The retiree benefit-relativity column is checked, and rebuilt as `col F / col B` when its headcount-weighted mean falls outside 0.75–1.35 | MA51 only (39 of 40 untouched) | MA51's column holds shares of total benefit dollars, not ratios to the average benefit, scaling its retiree benefits to about an eighth of true size | Return `rel` unchanged in `_check_benefit_relativity()`. Full description: `model_input_dictionary.md` §1.1 |
+| A2 | A salary-by-age-and-service grid shorter than 11 age rows is padded with zero rows | MA50, MA51 | Their sheets stop at age 70; every full-length plan carries zeros in that row. R padded with "not available", which would spread through the wage matrix | Remove the `_pad_rows()` call |
+| A3 | Employer contribution falls back to `contrib_ER_tot` / `contrib_ER_state` when `contrib_ER_regular` is empty | MA51 | Massachusetts Teachers is funded by a Commonwealth appropriation, not a payroll rate. Verified: PPD FY2018 $1.315bn against the report's stated FY18 appropriation of $1.303bn | Read `contrib_ER_regular` alone in `_employer_contrib()` |
+
+All three print to run output when they fire, so a run log shows which plans were touched.
+
+### B. Inputs we hold but deliberately do not use
+
+| # | Input | Scale | What we use instead | Decided |
+|---|---|---|---|---|
+| B1 | The `wagegrowth` sheet | 37 plans hold plan-specific data | The PPD scalar chain (payroll growth, then wage inflation, then 2017, then inflation) | 2026-07-29, keep as is |
+| B2 | The `disability` sheet | 3 plans hold real data | A flat 2.5% of payroll for every plan | 2026-07-29, keep as is |
+| B3 | Plan-specific retirement rates | 19 plans | The shared default table | Switches stay off — see E1/E2 |
+| B4 | Plan-specific mortality | 9 plans | The shared default table | As above |
+| B5 | Plan-specific turnover | 3 plans (GA27, IL32, OH88) | The shared default table | As above |
+| B6 | Plan-specific refund rates | 2 plans (FL26, IL34) | The shared default table | As above |
+
+B3 to B6 total 33 sheet-instances, matching the count already in `project_context.md`.
+Nothing here blocks a run; every one has a working fallback.
+
+Also: IN37, ME47 and OR91 are switched to use their own mortality, but their sheets
+contain the shared default table cell for cell. Same numbers either way, but the
+record misstates provenance.
+
+### C. Data older than the label it carries
+
+| # | What | Label | Actual vintage |
+|---|---|---|---|
+| C1 | All nine distribution sheets | used in a 2022 run | FY2017 — the workbook filename is hard-coded `[PLAN]_2017.xlsx` |
+| C2 | Percent male, percent married, survivor reduction, inactive scaling | `[PLAN]_2022` | FY2017 values, identical to the 2017 file for all 37 plans; relabelled, not recollected |
+| C3 | Tier and benefit rules | `[PLAN]_2022` | Latest tier start date anywhere in the file is **2018-07-01**; nothing enacted since is represented |
+
+Full per-input decomposition: `project_context.md` §3.1.
+
+### D. Per-plan open items
+
+| # | Plan | Item | Status |
+|---|---|---|---|
+| D1 | MA51 | Inactive scaling set to **0.0**, so the plan has no inactive members at all. Recorded identically in both `PPD_planlevel_main_updated.csv` and `inactive_supplement_2022.csv`, so it is a deliberate entry rather than a typo in one place — but no reason is recorded. A common-assumption substitute exists: the all-plan median inactive-to-active ratio is **0.116**, giving MA51 about 11,455 inactive members. This was **not** the cause of its bad liability — that was A1 | OPEN — decide once A1 is reflected in a run |
+| D2 | CA97 | Early-retirement ages `er4`, `er5`, `er6` are empty in the tier file | OPEN — record or source |
+| D3 | NY78 | No reported inactive-member count in any recent PPD year, so it silently uses the 2017 figure | Works as designed; recorded so it is visible |
+| D4 | NJ71 | No inflation assumption at FY2022, so it falls back to the 2017 value of **3.5%**, noticeably above the 2–3% other plans use. Present at FY2023–24, so a year change would resolve it | Recorded; no action while we stay on 2022 |
+| D5 | MO175, NM74 | No equity share at FY2023–24, needed to split assets between stocks and bonds | Only matters if the year changes |
+| D6 | MA51 | The A1 repair has been checked for internal consistency only, **not** against MA51's valuation report | OPEN |
+
+### E. Structural model limitations
+
+| # | Limitation | Where the evidence is |
+|---|---|---|
+| E1 | **The engine holds one retirement grid per plan, and the source documents do not publish one.** 8 of the 14 affected plans checked; all 8 split their rates by tier, member class, sex, hire date, or across up to eight separate tables. Any single grid is a lossy collapse | The FLAG section below. Same issue as entry 1 of the city register |
+| E2 | **Separately, ME47's collapse is systematically low** — it drops published age-45 and age-50 rates to zero and applies the lowest published rate flat across ages 55–64. Only ME47 has been examined this closely | As above |
+| E3 | Workforce growth fixed at **1% a year for every plan**, no data source | `model_input_dictionary.md` §6 |
+| E4 | Disability payout fixed at 2.5% of payroll; risk-free rate at inflation plus 1%; stock premium 7.5% with 20% volatility; horizon 35 years | As above |
+| E5 | Tier-specific contribution rates exist in the tier workbook (`eecont` / `ercont`) but are **not consumed** — one plan-level rate is used | As above §4 |
+
+### F. Provenance gaps
+
+| # | Gap |
+|---|---|
+| F1 | **DC20 and GA28**: the valuation report in the plan folder contains no retirement-rate table, so those workbooks' retirement sheets came from a document we do not hold and which is recorded nowhere. Established by a full page scan, not a keyword search |
+| F2 | Six of the 14 switched-off retirement sheets remain unchecked: CA111, DC20, GA28, IL33, NM74, NY83 |
+| F3 | No reason is recorded anywhere for the 2022 decision to switch off 14 plans' retirement sheets. E1 is an inference from the source documents, not a recovered rationale |
+| F4 | `inactive_supplement_2022.csv` duplicates the `inactive_adj` column of `PPD_planlevel_main_updated.csv` for all 40 plans. The engine reads the latter; the supplement appears unused. Confirm before editing either |
+
+---
+
 ## Open work on the inputs
 
 **Everything in §1–§5 is OPEN. Nothing has been executed.**
