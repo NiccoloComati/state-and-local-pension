@@ -129,7 +129,7 @@ plan_start = date(plan_year, 1, 1)
 plan_id   = f"{plan}_{plan_year}"
 
 planinfo_all = pd.read_excel(
-    os.path.join(common_dir, 'ppd-data-latest.xlsx'),
+    os.path.join(common_dir, 'ppd-data-latest_072026.xlsx'),
     sheet_name='ppd-data-latest', header=0)
 planinfo = planinfo_all[
     (planinfo_all['ppd_id'] == ppid) & (planinfo_all['fy'] == plan_year)

@@ -213,6 +213,41 @@ reports rather than assuming the switches were simply neglected.
   option rather than a plan. The one part of §3 still live is whether to adopt the
   corrected 2022 figures from the newer PPD file.
 
+## DONE 2026-07-30 — the PPD file is now dated, and the July download is live
+
+The engine had been reading a file called `ppd-data-latest.xlsx`, a name that says
+nothing about which download it is. Both vintages now carry their date, and every
+reference points at one of them explicitly.
+
+| File | Coverage | Who reads it |
+|---|---|---|
+| `ppd-data-latest_052026.xlsx` | fiscal years to **2023**, 228 plans/year | `Code/R/cluster_code_2022/` (38 scripts) — the frozen path that reproduces the validated run |
+| `ppd-data-latest_072026.xlsx` | fiscal years to **2024**, 253 plans/year | the Python engine, the analysis module, `Code/R/cluster_code_2022_072026/` (38 scripts), and the four PPD-reading helpers in `Code/R/Common_Code/` |
+
+The July download arrived as a CSV in a non-standard text encoding. It was converted
+once to the workbook form the engine expects, keeping the sheet name
+`ppd-data-latest` so no sheet references had to change. **Conversion verified:** all
+26 fields the engine reads are identical after the round trip, 7,325 rows x 272
+columns preserved, and all 40 modelled plans present at fiscal 2022. The CSV is kept
+alongside and is gitignored.
+
+The R side was handled by copying the cluster folder rather than editing it in
+place, so `cluster_code_2022/` still points at the May file and still reproduces
+what was validated, while `cluster_code_2022_072026/` is the current-data twin.
+
+**Note on the dates in the filenames.** `072026` is the download date, which we
+know. `052026` is the local file timestamp and may reflect a OneDrive sync rather
+than a true export date — several unrelated files carry the same timestamp. The
+reliable distinction is coverage: to fiscal 2023 versus to fiscal 2024.
+
+**This changes results.** The July file restates 24 of the fiscal-2022 values the
+model consumes, almost all retiree counts and average benefits — ME47 -16.4% on
+retiree count with +19.6% on average benefit, MO175 -14.5%/+17.0%, and smaller
+moves for CA144, FL26, LA163, MO64, LA130. These are CRR revisions and were adopted
+deliberately (see Decisions taken). Nothing has been re-run.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a

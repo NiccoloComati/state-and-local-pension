@@ -43,17 +43,17 @@ copy for provenance work.**
 
 | Layer | What it provides | Form | Heterogeneity | Update cadence |
 |---|---|---|---|---|
-| **1. PPD database** (Boston College CRR, `ppd-data-latest.xlsx`) | Plan-level annual variables: assets, GASB liabilities, discount/inflation assumptions, payroll, membership counts, contributions, asset allocation | One standardized machine-readable panel, ~200 largest US plans, fy 2001–2023 | **None** — uniform columns across all plans | Annual, free |
+| **1. PPD database** (Boston College CRR, `ppd-data-latest_072026.xlsx`) | Plan-level annual variables: assets, GASB liabilities, discount/inflation assumptions, payroll, membership counts, contributions, asset allocation | One standardized machine-readable panel, ~200 largest US plans, fy 2001–2023 | **None** — uniform columns across all plans | Annual, free |
 | **2. Per-plan AVs + CAFRs/ACFRs** | Distribution tables: age×service actives matrix, retiree age distribution, mortality/separation/retirement rate tables, refund counts, inactive members; tier provisions | PDFs, one or more per plan-year (PPD hosts a download repository for both states and cities) | **Very high** — see §3 | Annual PDFs, but extraction is manual |
 | **3. Plan/city websites** | Gap-filler for what AV/CAFR lack | Ad hoc | Total | Ad hoc |
 
 The model consumes layer 1 directly (`planinfo` via `ppd_id`) and layer 2 only after a **manual extraction step** into the standardized 7–9-sheet workbook (`[PLAN]_2017.xlsx` for states; `{city}_data19_{type}.xlsx` for cities). **All the pain, all the assumptions, and all the documentation needs live in that extraction step.**
 
-**Key coverage fact (verified 2026-06-11):** all **87** municipal plan `ppd_id`s in the project's city universe tracker are present in `ppd-data-latest.xlsx` (fy 2001–2023). Layer 1 works for cities exactly as it does for states, including annual updates.
+**Key coverage fact (verified 2026-06-11):** all **87** municipal plan `ppd_id`s in the project's city universe tracker are present in `ppd-data-latest_072026.xlsx` (fy 2001–2023). Layer 1 works for cities exactly as it does for states, including annual updates.
 
 ### 1.1 What each source actually IS (not just what it provides)
 
-**Layer 1 — the PPD database (`ppd-data-latest.xlsx`).** Maintained by the Center
+**Layer 1 — the PPD database (`ppd-data-latest_072026.xlsx`).** Maintained by the Center
 for Retirement Research at Boston College. It is itself a **secondary digest**: CRR
 staff read each plan's AV/CAFR and transcribe a fixed set of **summary scalars**
 into one uniform table — one row per plan per fiscal year, ~200 plans, free. It

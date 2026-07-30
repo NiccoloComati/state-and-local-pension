@@ -58,7 +58,7 @@ plan_year <- 2017
 
 
 #Get plan info
-planinfo <- read_excel("../../Data/Common/states/ppd-data-latest.xlsx", sheet = "ppd-data-latest", col_names=TRUE)
+planinfo <- read_excel("../../Data/Common/states/ppd-data-latest_072026.xlsx", sheet = "ppd-data-latest", col_names=TRUE)
 
 planinfo <- planinfo[planinfo$ppd_id==ppid & planinfo$fy == plan_year,]
 

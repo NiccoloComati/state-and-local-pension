@@ -629,9 +629,9 @@ def load_ppd(
     """Load the PPD workbook used for historical actual funded ratios."""
 
     root_path = find_project_root(root)
-    candidate = root_path / "Data" / "Common" / "states" / "ppd-data-latest.xlsx"
+    candidate = root_path / "Data" / "Common" / "states" / "ppd-data-latest_072026.xlsx"
     if not candidate.exists():
-        candidate = root_path / source / "Common_Data" / "ppd-data-latest.xlsx"
+        candidate = root_path / source / "Common_Data" / "ppd-data-latest_072026.xlsx"
     return pd.read_excel(candidate, sheet_name=sheet_name)
 
 

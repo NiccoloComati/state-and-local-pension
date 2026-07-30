@@ -10,7 +10,7 @@
 |---|---|---|
 | `plan_workbook` | `Data/Plans/States/[PLAN]/[PLAN]_2017.xlsx` | Brookings extraction from AVs (FY2017) |
 | `default_assumptions` | `Data/Common/states/default_assumptions.xlsx` | Brookings-inherited generic actuarial tables |
-| `ppd_panel` | `Data/Common/states/ppd-data-latest.xlsx` (row `ppd_id` × `fy`) | CRR Boston College digest of AV/CAFRs |
+| `ppd_panel` | `Data/Common/states/ppd-data-latest_072026.xlsx` (row `ppd_id` × `fy`) | CRR Boston College digest of AV/CAFRs |
 | `legacy_ppd_csv` | `Data/Common/states/PPD_planlevel_main.csv` (`planid=[PLAN]_2017`) and `PPD_planlevel_main_updated.csv` (`planid=[PLAN]_2022`) | Brookings-era per-plan scalar files |
 | `planchanges` | `Data/Common/states/planchanges_main_2022_clean.xlsx`, sheet `in`, key `[PLAN]_[year]` | hand-curated tier rules (2022 update, 2024) |
 | `constant` | hard-coded in the engine | model assumption |
@@ -87,7 +87,7 @@ These come from `PPD_planlevel_main_updated.csv` keyed `[PLAN]_2022`, which **on
 
 ## 3. PPD-panel scalars and their fallback chains
 
-Read from the `ppd_id` × `fy=plan_year` row of `ppd-data-latest.xlsx`:
+Read from the `ppd_id` × `fy=plan_year` row of `ppd-data-latest_072026.xlsx`:
 
 | Model variable | Source expression | Fallback chain (from `functions_cf_model.py` helpers) |
 |---|---|---|
