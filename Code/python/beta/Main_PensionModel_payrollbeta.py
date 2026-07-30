@@ -1,14 +1,36 @@
 """
-Fast generic pension model runner — optimized version of Main_PensionModel.py.
+BETA — DO NOT USE FOR PRODUCTION RUNS.
 
-Differences vs Main_PensionModel.py:
-  - No g module: all state in PlanParams dataclass.
-  - Vectorized inner loops (UpdateEmployeeCount, DeathPay, ComputeAnnuity).
-  - Parallel PVNC_Calc (ThreadPoolExecutor across 55 starting ages).
-  - Parallel TotalLiabilities_Current (2 paths in parallel).
-  - Identical data loading, identical pkl output format.
+A copy of Code/python/fast/Main_PensionModel.py with ONE change, to test a single
+open question. Everything else is byte-identical; `check_beta_drift.py` in this
+folder verifies that and will fail if the two ever diverge beyond the intended
+lines.
 
-Usage:  python "Python Code/fast/Main_PensionModel.py" <PLAN_ID>
+THE ONE CHANGE — the denominator of the contribution rate
+---------------------------------------------------------
+Production computes    rate = contributions / PPD `payroll`   ("covered payroll")
+and then charges that rate against the payroll the engine builds for itself,
+sum(headcount x wage) across the age/service grid.
+
+Those two payrolls are not the same number for 12 of the 40 plans, ranging from
+0.84x to 1.60x, in BOTH directions. Nobody has been able to attribute why from the
+PPD alone, so neither number is demonstrably "right".
+
+This beta computes  rate = contributions / the engine's OWN payroll  instead, so
+first-year contributions come out equal to what the plan actually reported
+receiving. That is an anchor to an observed quantity, not a claim about which
+payroll is correct.
+
+It also makes the CONTRIB_RATE_NA_CHECK special case redundant — that path already
+does exactly this for seven plans when the PPD rate comes out missing.
+
+WHAT THIS DOES NOT DO
+  - It does not change benefits, liabilities, decrements or the asset model.
+  - It does not change which contributions are counted. State appropriations stay
+    excluded here exactly as in production.
+
+Created 2026-07-30. If the test settles the question, fold the change into
+production and delete this file rather than leaving two engines alive.
 """
 import argparse
 import os
@@ -264,8 +286,11 @@ discountrate             = _s(planinfo, 'InvestmentReturnAssumption_GASB')
 if args.discount_override is not None:
     print(f"discount override: {args.discount_override} (plan GASB rate was {discountrate})")
     discountrate = args.discount_override
-EmployeeContributionRate = _s(planinfo, 'contrib_EE_regular') / _s(planinfo, 'payroll')
-EmployerContributionRate = _employer_contrib(planinfo, plan) / _s(planinfo, 'payroll')
+# BETA: rates are computed further down, once the engine's own payroll exists.
+_ee_dollars = _s(planinfo, 'contrib_EE_regular') * 1000.0
+_er_dollars = _employer_contrib(planinfo, plan) * 1000.0
+EmployeeContributionRate = np.nan   # set after BaseWage_2d is built
+EmployerContributionRate = np.nan
 Inflation                = get_inflation_assumption(plan, planinfo)
 rf                       = 0.01 + Inflation
 PopulationGrowth         = 0.01
@@ -369,7 +394,20 @@ asy_wage    = _pad_rows(asy_wage, 11, f"{plan} wagerel B2:L12")
 asy_wage    = asy_wage * _salary_avg * 1000
 BaseWage_2d = ConstantFill(asy_wage)
 
-if plan in CONTRIB_RATE_NA_CHECK:
+# --- BETA CHANGE -----------------------------------------------------------
+# The engine's own payroll: every simulated member's wage, summed. This is the
+# base the contribution rate is actually charged against in core.py, so measuring
+# the rate against it makes first-year contributions equal the reported amount.
+_model_payroll = float((active * BaseWage_2d).sum())
+EmployeeContributionRate = _ee_dollars / _model_payroll
+EmployerContributionRate = _er_dollars / _model_payroll
+print(f"  BETA: contribution rates measured against the model's own payroll "
+      f"({_model_payroll:,.0f}) rather than PPD covered payroll "
+      f"({_s(planinfo, 'payroll') * 1000:,.0f}); "
+      f"EE {EmployeeContributionRate:.4f}, ER {EmployerContributionRate:.4f}")
+# ---------------------------------------------------------------------------
+
+if False:   # BETA: redundant - the general formula above already does this
     if np.isnan(EmployeeContributionRate):
         EmployeeContributionRate = (_s(planinfo, 'contrib_EE_regular') * 1000.0
                                     / float((active * BaseWage_2d).sum()))
