@@ -1,0 +1,46 @@
+# All 40 state plans. Created 2026-07-30.
+# Supersedes plans_38.txt, which omitted MA51 and MO64 (it was derived from the
+# 38 R 2022-cluster scripts) and was used together with a hard-coded MA50
+# exclusion in run_simulation.py. All three now run; see
+# Documentation/states_track_context.md for the evidence behind admitting them.
+# plans_38.txt is kept so the earlier 37-plan selection can still be reproduced.
+AZ06
+AZ127
+CA10
+CA111
+CA144
+CA43
+CA97
+CA98
+DC20
+FL26
+GA27
+GA28
+IL32
+IL33
+IL34
+IN37
+LA130
+LA163
+LA44
+MA50
+MA51
+ME47
+MI53
+MO175
+MO64
+ND82
+NJ71
+NJ73
+NM74
+NY78
+NY83
+OH88
+OK134
+OR91
+PA92
+PA93
+RI96
+SC100
+SC99
+TX108

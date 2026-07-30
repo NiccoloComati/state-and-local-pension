@@ -42,18 +42,46 @@ def read_canonical_plans(plan_file: Path) -> list[str]:
     return plans
 
 
+def engine_known_plans() -> set[str]:
+    """Plan ids the fast engine accepts, read from its AVAILABLE_DATA table.
+
+    Parsed from the source rather than imported, because the runner module executes
+    argparse at import time. Returns an empty set if it cannot be read, in which
+    case the caller skips the pre-flight check and the engine reports per plan.
+    """
+    import ast
+    try:
+        tree = ast.parse((SCRIPT_DIR / "fast" / "Main_PensionModel.py").read_text(encoding="utf-8"))
+    except Exception:
+        return set()
+    for node in tree.body:
+        if isinstance(node, ast.Assign) and any(
+            isinstance(t, ast.Name) and t.id == "AVAILABLE_DATA" for t in node.targets
+        ):
+            if isinstance(node.value, ast.Dict):
+                return {k.value for k in node.value.keys if isinstance(k, ast.Constant)}
+    return set()
+
+
 def default_plan_file(run_tag: str) -> Path:
-    current_canonical = SCRIPT_DIR / "config" / "plans_38.txt"
-    if current_canonical.exists():
-        return current_canonical
+    # plans_40.txt (2026-07-30) supersedes plans_38.txt: MA51 and MO64 were never
+    # in the older list, and MA50 used to be filtered out below. All three now run.
+    for name in ("plans_40.txt", "plans_38.txt"):
+        candidate = SCRIPT_DIR / "config" / name
+        if candidate.exists():
+            return candidate
     raise FileNotFoundError(
         "No plan list found. Pass --plan-file explicitly."
     )
 
 
 def parse_plans(value: str, plan_file: Path) -> list[str]:
+    # The hard-coded `plan != "MA50"` exclusion was removed 2026-07-30. MA50 runs
+    # normally now (its liability lands 4.3% from reported); see
+    # Documentation/states_track_context.md. To reproduce the earlier 37-plan
+    # selection, pass --plan-file config/plans_38.txt and drop MA50 explicitly.
     if value.lower() == "all":
-        return [plan for plan in read_canonical_plans(plan_file) if plan != "MA50"]
+        return read_canonical_plans(plan_file)
     return [part.strip() for part in value.split(",") if part.strip()]
 
 
@@ -200,8 +228,16 @@ def main() -> int:
 
     plan_file = Path(args.plan_file) if args.plan_file else default_plan_file(args.run_tag)
     plans = parse_plans(args.plans, plan_file)
-    if "MA50" in plans:
-        raise ValueError("MA50 is excluded from the generic Python runner.")
+    # A hard MA50 block used to sit here (2026-07-30: removed). It dated from the
+    # old R script's idiosyncrasies, most of which turned out not to survive
+    # checking; MA50 runs normally through the generic runner now.
+    known = engine_known_plans()
+    unknown = [p for p in plans if known and p not in known]
+    if unknown:
+        raise ValueError(
+            f"Plans not in the engine's AVAILABLE_DATA table: {', '.join(unknown)}. "
+            f"Add a 9-boolean row in Code/python/fast/Main_PensionModel.py first."
+        )
 
     run_dir = ROOT / "Results" / "Runs" / args.run_tag
     log_dir = run_dir / "_logs"
