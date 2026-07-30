@@ -133,11 +133,26 @@ or an extraction error is not recorded anywhere. Either way the resulting sheet
 understates retirement in the band where most retirement happens, which is why
 using the shared default table instead is defensible.
 
-**Not yet confirmed:** GA28's 2017 PDF is a summary valuation that does not appear
-to carry assumption tables at all (so its retirement sheet came from somewhere
-else), and OH88 needs a more targeted search. 11 of the 14 remain unchecked; the
-three checked all show Problem 1, and only ME47 has been examined closely enough
-to show Problem 2.
+**Sample as of 2026-07-30: 4 of the 14 confirmed**, all showing Problem 1.
+Added since:
+
+- **CA43 (LA County)** — retirement rates live in *Tables A-6 through A-13*, eight
+  tables, one per benefit plan (General A-E, Safety A-C).
+- **SC100 (South Carolina RS)** — the most extreme found. Three tables (Class Two
+  age-based, Class Two service-based, Class Three), each split by General Employees
+  vs Teachers, by Reduced vs Normal retirement, and by sex, plus a separate
+  "Rule of 90" column. That is at least 24 distinct rate series to be squashed into
+  one age x service grid. Its withdrawal rates are likewise split by sex and
+  employee group.
+
+**A separate observation worth following up:** several of these plan folders hold a
+*summary* valuation rather than a full one — GA28, DC20, CA111 and IL33 do not
+appear to carry assumption tables at all. If the document in the folder has no rate
+tables, the workbook's retirement sheet was built from some other source that is
+not recorded. That is a provenance gap distinct from Problems 1 and 2.
+
+Only ME47 has been examined closely enough to demonstrate Problem 2; whether the
+other collapses are also systematically low is unknown.
 
 ### CORRECTION (2026-07-30) — MA51's bad liability is NOT the inactive factor
 
@@ -166,9 +181,23 @@ That scales MA51's retiree benefits to roughly an eighth of their true size, whi
 accounts for the -79.8% liability gap. The inactive-scaling factor of 0.0 is a
 separate open question (§4) and is not the cause here.
 
-**Not yet fixed** — the options are to correct the workbook sheet, or to add an
-engine guard that checks this column's weighted mean and either warns or
-renormalises. A guard would catch the whole class of error for any future plan.
+**FIXED 2026-07-30 — engine guard, approved route.** `_check_benefit_relativity()`
+in `Code/python/fast/Main_PensionModel.py` now runs for **every** plan: it computes
+the headcount-weighted mean of the relativity column, warns loudly whenever that
+mean falls outside 0.75-1.35, and rebuilds the column as (column F / column B) only
+when doing so demonstrably lands back near 1.0 — otherwise it warns and leaves the
+published column alone. Empty tail bands carry the last populated value forward.
+Workbooks are untouched. To disable, return `rel` unchanged at the top of the
+function.
+
+Verified on the data for all 40 plans without running any simulation: **39 plans
+pass silently with their column bit-for-bit unchanged, and MA51 alone is rebuilt**
+(0.1188 -> 0.9696, with the printed warning explaining what was wrong). Because the
+other 39 arrays are untouched, no existing plan's inputs move.
+
+MA51 has not been re-simulated — that is not a step to take here. Its inactive
+scaling factor of 0.0 (§4) remains a separate open question, and should be judged
+only after this fix is reflected in a run.
 
 ### ACCEPTED (2026-07-30) — MA50 and MO64 are in
 

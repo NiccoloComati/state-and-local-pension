@@ -149,6 +149,59 @@ def _pad_rows(mat, n_rows, what):
     return np.vstack([mat, np.zeros((pad, mat.shape[1]))])
 
 
+def _check_benefit_relativity(rel, share, plan):
+    """Validate (and if needed rebuild) the retiree benefit-relativity column.
+
+    Added 2026-07-30. `retdist` column F must hold each retiree age band's average
+    benefit DIVIDED BY the plan's overall average benefit, because the engine
+    multiplies it by `BeneficiaryBenefit_avg`. A correct column therefore averages
+    1.0 when weighted by the headcount shares in column B.
+
+    Checked across all 40 state plans: 38 fall between 0.78 and 1.04 (nearly all
+    exactly 1.000). MA51 alone sits at 0.1188 because its column holds each band's
+    SHARE OF TOTAL BENEFIT DOLLARS instead — a different quantity. Dividing by the
+    headcount share recovers a proper relativity (MA51: 0.9696).
+
+    Warns loudly whenever the mean is off, and rebuilds the column only when the
+    dollar-share reading demonstrably fixes it. To disable, return `rel` unchanged.
+    """
+    LO, HI = 0.75, 1.35
+    r = np.asarray(rel, dtype=float).ravel()
+    w = np.asarray(share, dtype=float).ravel()
+    ok = (w > 0) & np.isfinite(r)
+    if not ok.any() or w[ok].sum() == 0:
+        return rel
+    mean = float((r[ok] * w[ok]).sum() / w[ok].sum())
+    if LO <= mean <= HI:
+        return rel
+
+    print(f"  WARNING: {plan} retdist benefit-relativity column averages {mean:.4f} "
+          f"(headcount-weighted); a correct column averages 1.0.")
+    with np.errstate(divide='ignore', invalid='ignore'):
+        cand = np.where(w > 0, r / np.where(w > 0, w, np.nan), np.nan)
+    if not np.isfinite(cand[ok]).all():
+        print(f"           Could not rebuild it; leaving the column as published.")
+        return rel
+    cand_mean = float((cand[ok] * w[ok]).sum() / w[ok].sum())
+    if not (LO <= cand_mean <= HI):
+        print(f"           Dividing by the headcount share gives {cand_mean:.4f}, "
+              f"still wrong; leaving the column as published.")
+        return rel
+    # carry the last populated band forward into the empty tail bands
+    out = cand.copy()
+    last = np.nan
+    for i in range(len(out)):
+        if np.isfinite(out[i]):
+            last = out[i]
+        else:
+            out[i] = last if np.isfinite(last) else 0.0
+    print(f"           The column holds SHARES OF TOTAL BENEFIT DOLLARS, not ratios "
+          f"to the average benefit.")
+    print(f"           Rebuilt as (column F / column B); it now averages "
+          f"{cand_mean:.4f}. Empty tail bands carry the last populated value.")
+    return out.reshape(np.asarray(rel).shape)
+
+
 def _employer_contrib(planinfo):
     """Employer contribution, falling back to the total when 'regular' is absent.
 
@@ -345,21 +398,25 @@ MortalityTable = mort_table_fast(mort_table, pctmale, employee_start=20)
 
 if availableData[1]:
     retdist_skip = RETDIST_SKIPROWS.get(plan, 0)
-    ret_num = (pd.read_excel(os.path.join(plan_folder, file_name), sheet_name='retdist',
-                              usecols='B:B', skiprows=retdist_skip, nrows=16, header=0)
-               .to_numpy(dtype=float) * _s(planinfo, 'beneficiaries_tot'))
-    ret_ben = (pd.read_excel(os.path.join(plan_folder, file_name), sheet_name='retdist',
-                              usecols='F:F', skiprows=retdist_skip, nrows=16, header=0)
-               .to_numpy(dtype=float) * _s(planinfo, 'BeneficiaryBenefit_avg') * 1000)
+    _num_share = pd.read_excel(os.path.join(plan_folder, file_name), sheet_name='retdist',
+                                usecols='B:B', skiprows=retdist_skip, nrows=16,
+                                header=0).to_numpy(dtype=float)
+    _ben_rel   = pd.read_excel(os.path.join(plan_folder, file_name), sheet_name='retdist',
+                                usecols='F:F', skiprows=retdist_skip, nrows=16,
+                                header=0).to_numpy(dtype=float)
 else:
-    ret_num = (pd.read_excel(
+    _num_share = pd.read_excel(
         os.path.join(common_dir, 'default_assumptions.xlsx'),
-        sheet_name='retdist', usecols='B:B', skiprows=0, nrows=16, header=0)
-               .to_numpy(dtype=float) * _s(planinfo, 'beneficiaries_tot'))
-    ret_ben = (pd.read_excel(
+        sheet_name='retdist', usecols='B:B', skiprows=0, nrows=16,
+        header=0).to_numpy(dtype=float)
+    _ben_rel   = pd.read_excel(
         os.path.join(common_dir, 'default_assumptions.xlsx'),
-        sheet_name='retdist', usecols='F:F', skiprows=0, nrows=16, header=0)
-               .to_numpy(dtype=float) * _s(planinfo, 'BeneficiaryBenefit_avg') * 1000)
+        sheet_name='retdist', usecols='F:F', skiprows=0, nrows=16,
+        header=0).to_numpy(dtype=float)
+
+_ben_rel = _check_benefit_relativity(_ben_rel, _num_share, plan)
+ret_num  = _num_share * _s(planinfo, 'beneficiaries_tot')
+ret_ben  = _ben_rel   * _s(planinfo, 'BeneficiaryBenefit_avg') * 1000
 
 RetirementNumber  = LinearFill(ret_num, Slope=-1, retirement=True)
 RetirementBenefit = ConstantFill(ret_ben, retirement=True)
