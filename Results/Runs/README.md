@@ -5,12 +5,14 @@ for that day. Folder names *identify* a run; they deliberately do not *describe*
 it, because a descriptive label ("linearfill", "newppd") stops meaning anything a
 few weeks later. What a run is belongs in this table.
 
-Scenario runs take the tag of the baseline they derive from, plus `_scn_<lever>`.
+Scenario runs are named the same way — they are runs, produced on a date. Which
+baseline they reuse and which lever they move is metadata, and metadata goes in the
+table, not the folder name.
 
 | Run | Date | Plans | PPD file | Engine notes |
 |---|---|---|---|---|
 | `20260610_1` | 2026-06-10 | 37 | fy2023 copy (then named `ppd-data-latest.xlsx`) | Long-standing canonical run. MA50/MA51/MO64 absent. Inherited `LinearFill` — see below. |
-| `20260610_1_scn_contrib2pp` | 2026-06-10 | 2 (AZ06, NJ73) | as above | Scenario demo for the launcher notebook: employer contribution +2pp of payroll, applied even when overfunded, from year 0. Reuses `20260610_1` liabilities; asset stage only, so no detAL files. |
+| `20260610_2` | 2026-06-10 | 2 (AZ06, NJ73) | as above | **Scenario run.** Demo for the launcher notebook: employer contribution +2pp of payroll, applied even when overfunded, from year 0. Reuses `20260610_1`'s liabilities, so it is asset-stage only and has no detAL files. |
 | `20260730_1` | 2026-07-30 | 40 | `ppd-data-latest_072026.xlsx` | First run with all 40 plans. Adds MA50/MA51/MO64, the three input guards, and the July PPD (24 restated fiscal-2022 values). Still the inherited `LinearFill`. |
 
 ## Two things to know before comparing runs

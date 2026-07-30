@@ -2718,7 +2718,7 @@ and the `_manifest.csv` tag/path columns — verified zero stale names remain):
 |---|---|
 | `062026` | `20260610_1` (37 plans) |
 | `072026` | `20260730_1` (40 plans — created 2026-07-30, so it owns today's first slot) |
-| `scn_demo_c2s0` | `20260610_1_scn_contrib2pp` |
+| `scn_demo_c2s0` | `20260610_2` |
 
 The `run_tag` field stored *inside* each pickle still shows the original tag.
 Nothing reads it (checked against `results_analysis.py` and `scenarios.py`) and
