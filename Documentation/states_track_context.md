@@ -95,7 +95,17 @@ same pattern until someone shows otherwise.
 Also resolved: **LA44's `-100` values are "not eligible" markers**, and the engine
 already converts negatives to zero. Not a defect.
 
-### FLAG (2026-07-30) — the retirement-rate sheets have TWO separate problems
+### FLAG (2026-07-30) — the retirement-rate sheets have THREE separate problems
+
+**STATUS: PARKED WITH REASON. No action pending.** The switches stay off, which is
+the right call — those sheets were redirected to the shared default tables for a
+reason, and 8 of 14 plans checked confirm it. Nothing here is a to-do. All three
+problems below are recorded so they can be picked up deliberately later, and so
+they appear in any writeup describing how retirement is modelled. The natural
+moment to revisit is if the engine ever gains per-tier decrements — see
+`Data Extraction/assumption_register.md` entry 1, which is the same issue on the
+city track.
+
 
 Sample enlarged to 3 of the 14 plans whose retirement switch was turned off in
 2022. **Switches stay OFF for now.** Both problems below must be carried into any
@@ -157,6 +167,9 @@ systematic page scan shows only two.* `DC20` (61 pages) and `GA28` (43 pages)
 contain no locatable retirement-rate table, although both carry other assumption
 tables. `CA111` and `IL33` **do** have retirement-rate pages — the first keyword
 search simply missed them; they are unchecked, not missing.
+
+**STATUS: DOCUMENTED, NO ACTION.** Nothing to do now; obtaining the two full
+valuation reports is only worth it if we ever decide to verify those sheets.
 
 Where the document in the plan folder holds no rate table, that workbook's
 retirement sheet must have been built from a document we do not hold and which is
