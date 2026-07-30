@@ -1,6 +1,6 @@
 """Scenario definition and launch layer over the simulation pipeline.
 
-Used by launcher.ipynb. A Scenario is a declarative parameter set; this module
+Used by scenario_launcher.ipynb. A Scenario is a declarative parameter set; this module
 turns it into the exact run_simulation.py / asset_simulation.py commands,
 launches them, and reports status. It does not implement model equations.
 

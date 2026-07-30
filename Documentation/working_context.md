@@ -1659,7 +1659,7 @@ bit-identical after the refactor, max|diff| = 0.0 on AZ06 at 10000 sims):**
   (`contribution_grid`, `equity_grid`), `build_commands`, `preview`,
   `launch(dry_run=...)` (sequential, logs to `Results/Runs/[tag]/_logs/`),
   `inventory`, `exhaustion_summary`, `compare_exhaustion`.
-- `launcher.ipynb` â€” control-panel notebook: define SCENARIOS â†’ preview â†’
+- `scenario_launcher.ipynb` â€” control-panel notebook: define SCENARIOS â†’ preview â†’
   launch (dry-run default) â†’ inventory/compare. Worked examples for the
   contribution grid, equity grid, glidepath, AAA override, and no-reform
   tier-file scenarios (the last needs the counterfactual workbook first).
@@ -1769,7 +1769,7 @@ Resume here when that is settled. The agreed execution sequence:
 0. Add `--compact` output option to `asset_simulation.py` for scenario runs
    (save only stochastic Assets + scenario provenance; full payloads are
    ~0.5-1 GB/scenario Ã— 24 grid runs on OneDrive â€” compact cuts to ~100 MB).
-1. Launch the 24-run contribution grid from `launcher.ipynb` (~1 hour).
+1. Launch the 24-run contribution grid from `scenario_launcher.ipynb` (~1 hour).
 2. Build the generic inversion framework in a new
    `analysis/scenario_analysis.ipynb`: lever grid â†’ per-plan risk curve â†’
    interpolated minimum lever value per risk target â†’ cost-of-waiting.
@@ -2802,6 +2802,6 @@ standing trap. `run_simulation.py` updated; it is still reachable without `--fas
 
 **Added `Code/python/README.md`** — what every remaining file is, the live path
 versus the reference lineage, and the standing run command with why each flag is
-what it is. It also records that `launcher.ipynb` is **not** an alternative way to
+what it is. It also records that `scenario_launcher.ipynb` is **not** an alternative way to
 launch a baseline run: it drives the parked scenario layer. Baselines go through
 `run_simulation.py` from the terminal, which is what we have been doing correctly.

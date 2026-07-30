@@ -36,7 +36,7 @@ against the previous run; the maximum difference must be 0.0.
 
 `scenarios.py` defines scenario variants (contribution policy, equity share and
 glidepath, return assumptions, discount rate, benefit rules) and builds the
-corresponding `run_simulation.py` commands. `launcher.ipynb` is a notebook control
+corresponding `run_simulation.py` commands. `scenario_scenario_launcher.ipynb` is a notebook control
 panel over it.
 
 **This is not an alternative way to launch a baseline run.** Baseline runs go

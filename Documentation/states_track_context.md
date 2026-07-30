@@ -542,6 +542,94 @@ change and needs an explicit decision rather than a quiet patch.
 
 ---
 
+## 2026-07-30 — input-sanity sweep on 20260730_2: two real problems found
+
+Asked whether anything in the results makes us suspicious of the inputs. Method:
+compare the model's FIRST projected year against what the PPD says each plan
+actually paid and received in 2022. Those actuals are independent of the model's
+machinery, so a large gap points at an input rather than at the projection.
+
+### Finding 1 — the model misses state contributions, and it hits the three riskiest plans
+
+The engine builds contributions from `contrib_EE_regular + contrib_ER_regular`.
+Plans funded by a state appropriation record that money in `contrib_ER_state`
+instead, and the engine never sees it. Share of each plan's ACTUAL total
+contributions currently captured:
+
+| | |
+|---|---|
+| Captures more than 95% | 28 of 40 |
+| Captures less than 95% | **12 of 40** |
+| Captures less than 50% | **5 of 40** |
+
+**The overlap with the risk ranking is the problem.** The three riskiest plans in
+the run are exactly three of the worst-captured:
+
+| Plan | P(exhaust by 2056) | Contributions captured | Missing per year |
+|---|---|---|---|
+| **NJ73** New Jersey Teachers | **0.978** (riskiest) | 17.9% | $4.19bn |
+| **IN37** Indiana Teachers | **0.961** | 12.1% | $1.55bn |
+| **IL34** Illinois Teachers | **0.941** | 16.9% | $5.87bn |
+
+Between them **$11.6bn a year of state contributions is invisible to the model.**
+Their position at the top of the risk ranking is very likely an artifact of that,
+not a finding about those plans.
+
+Also affected: MA51 27%, AZ127 30%, RI96 59%, OK134 65%, TX108 68%, CA10 71%,
+ME47 73%, LA130 85%, MA50 90%.
+
+**Proposed fix, tested:** read `contrib_ER_tot` instead of `contrib_ER_regular`.
+It is the sum of regular, state and other, and never exceeds `contrib_tot`, so
+there is no double-counting risk.
+
+| | Median capture | Below 95% | Below 50% |
+|---|---|---|---|
+| Now (`ER_regular`) | 0.983 | 12 | 5 |
+| With `ER_tot` | **0.999** | **5** | **0** |
+
+Residual after the change: RI96 at 0.59 and LA130 at 0.85, whose shortfall is on
+the employee or "other" side and needs a separate look. **Not implemented — this
+materially lowers risk for the three headline plans and is a decision to take
+deliberately.** Note the existing MA51 fallback does not catch these, because it
+only fires when `contrib_ER_regular` is *empty*; NJ73, IN37 and IL34 have small
+but non-zero values there.
+
+### Finding 2 — MI53's average salary is wrong in the PPD by a factor of about twelve
+
+`ActiveSalary_avg` for Michigan Public Schools is **$5,318**. Its own `payroll`
+divided by its own `actives_tot` gives **$64,181**. Every other plan sits between
+$52,000 and $90,000, and for most of them the stated and implied figures agree to
+within a few percent.
+
+It cannot be the headcount instead: at $5,318 average salary, MI53's $9.96bn
+payroll would need 1.87 million active members against the 155,229 reported.
+
+This explains MI53's standing as the **worst negative liability gap in the study**
+(-30.5% against reported): the model scales every active member's wage off that
+figure, so its whole active liability is built on salaries a twelfth of their true
+size. It also explains its funded-ratio gap of +28pp.
+
+**Not fixed** — needs a decision on whether to override the PPD value with
+`payroll / actives_tot`, and whether to apply that rule generally.
+
+### Finding 3 — FL26's payroll and average salary disagree with each other
+
+Stated `ActiveSalary_avg` $54,709; `payroll / actives_tot` implies $87,360. An
+internal inconsistency in the PPD row rather than an error we introduced, but the
+model uses the stated figure, so FL26's payroll comes out at 63% of its reported
+payroll. Worth a look, lower priority than the two above.
+
+### What came back clean
+
+The model's first-year benefit outflow runs a median 9% above what plans actually
+paid in 2022, range 0.82x to 1.49x. That is the expected direction, since the
+model's outflow includes refunds and death benefits alongside retiree payments.
+No plan looks wrong on this measure. Discount rates, inflation, exhaustion
+probabilities and asset shapes all sit in plausible ranges with nothing pinned at
+an extreme.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a
