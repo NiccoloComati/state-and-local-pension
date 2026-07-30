@@ -263,8 +263,8 @@ Full per-input decomposition: `project_context.md` §3.1.
 
 | # | Plan | Item | Status |
 |---|---|---|---|
-| D1 | MA51 | Inactive scaling set to **0.0**, so the plan has no inactive members at all. Recorded identically in both `PPD_planlevel_main_updated.csv` and `inactive_supplement_2022.csv`, so it is a deliberate entry rather than a typo in one place — but no reason is recorded. A common-assumption substitute exists: the all-plan median inactive-to-active ratio is **0.116**, giving MA51 about 11,455 inactive members. This was **not** the cause of its bad liability — that was A1 | OPEN — decide once A1 is reflected in a run |
-| D2 | CA97 | Early-retirement ages `er4`, `er5`, `er6` are empty in the tier file | OPEN — record or source |
+| D1 | MA51 | Inactive scaling set to **0.0**, so the plan has no inactive members at all. Recorded identically in both `PPD_planlevel_main_updated.csv` and `inactive_supplement_2022.csv`, so it is a deliberate entry rather than a typo in one place — but no reason is recorded. A common-assumption substitute exists: the all-plan median inactive-to-active ratio is **0.116**, giving MA51 about 11,455 inactive members. This was **not** the cause of its bad liability — that was A1 | **DECIDED 2026-07-30: leave at 0.0.** It was entered deliberately in two places, the reason simply was not written down, and the impact is small. Recorded here as an assumption to revisit rather than a defect to fix |
+| D2 | CA97 | Early-retirement ages `er4`, `er5`, `er6` are empty in the tier file | **RESOLVED 2026-07-30: not a problem.** The engine never consumes the early-retirement age at all — the per-tier loop sets benefit factor, salary-averaging years, COLA, benefit cap, vesting and *normal* retirement age, and `er` is read into the tier frame but never assigned. CA97's blanks are also in tiers 4-6, which are identical rows that collapse to one tier. See E6 |
 | D3 | NY78 | No reported inactive-member count in any recent PPD year, so it silently uses the 2017 figure | Works as designed; recorded so it is visible |
 | D4 | NJ71 | No inflation assumption at FY2022, so it falls back to the 2017 value of **3.5%**, noticeably above the 2–3% other plans use. Present at FY2023–24, so a year change would resolve it | Recorded; no action while we stay on 2022 |
 | D5 | MO175, NM74 | No equity share at FY2023–24, needed to split assets between stocks and bonds | Only matters if the year changes |
@@ -279,6 +279,7 @@ Full per-input decomposition: `project_context.md` §3.1.
 | E3 | Workforce growth fixed at **1% a year for every plan**, no data source | `model_input_dictionary.md` §6 |
 | E4 | Disability payout fixed at 2.5% of payroll; risk-free rate at inflation plus 1%; stock premium 7.5% with 20% volatility; horizon 35 years | As above |
 | E5 | Tier-specific contribution rates exist in the tier workbook (`eecont` / `ercont`) but are **not consumed** — one plan-level rate is used | As above §4 |
+| E6 | The **early-retirement age** (`er1`..`er6`) is read from the tier workbook but never used. Only the *normal* retirement age drives the projection, so no plan can retire early in the model | `fast/Main_PensionModel.py`, per-tier loop |
 
 ### F. Provenance gaps
 
@@ -287,7 +288,7 @@ Full per-input decomposition: `project_context.md` §3.1.
 | F1 | **DC20 and GA28**: the valuation report in the plan folder contains no retirement-rate table, so those workbooks' retirement sheets came from a document we do not hold and which is recorded nowhere. Established by a full page scan, not a keyword search |
 | F2 | Six of the 14 switched-off retirement sheets remain unchecked: CA111, DC20, GA28, IL33, NM74, NY83 |
 | F3 | No reason is recorded anywhere for the 2022 decision to switch off 14 plans' retirement sheets. E1 is an inference from the source documents, not a recovered rationale |
-| F4 | `inactive_supplement_2022.csv` duplicates the `inactive_adj` column of `PPD_planlevel_main_updated.csv` for all 40 plans. The engine reads the latter; the supplement appears unused. Confirm before editing either |
+| F4 | **CONFIRMED DEAD 2026-07-30.** `inactive_supplement_2022.csv` is an *exact* duplicate of the `inactive_adj` column of `PPD_planlevel_main_updated.csv` — all 40 rows agree, zero disagreements — and it is referenced by **no code anywhere** in `Code/`. Nothing to fix numerically. It can be moved to `_ARCHIVE/` whenever convenient; left in place for now since it is harmless and tracked in git |
 
 ---
 
