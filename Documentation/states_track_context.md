@@ -95,6 +95,88 @@ same pattern until someone shows otherwise.
 Also resolved: **LA44's `-100` values are "not eligible" markers**, and the engine
 already converts negatives to zero. Not a defect.
 
+### FLAG (2026-07-30) — the retirement-rate sheets have TWO separate problems
+
+Sample enlarged to 3 of the 14 plans whose retirement switch was turned off in
+2022. **Switches stay OFF for now.** Both problems below must be carried into any
+writeup; they are different in kind and neither substitutes for the other.
+
+**Problem 1 — a model limitation. The engine holds one retirement grid per plan,
+and the source documents do not publish one.**
+
+| Plan | What its valuation report actually publishes |
+|---|---|
+| ME47 (Maine) | three separate rate sets, one per tier. At age 60: Tier 1 25%, Tier 2 7.5%, Tier 3 4% |
+| SC99 (SC Police) | two tables (age-based and service-based, applying to different members), each split by Class Two / Class Three **and** by sex |
+| CA43 (LA County) | **eight** rate tables, Tables A-6 to A-13, one per benefit plan (General A-E, Safety A-C) |
+
+Anything put in a single age x service grid is therefore a lossy collapse of a
+richer structure — unavoidable given the current engine. This is the same issue as
+entry 1 in `Data Extraction/assumption_register.md` (tier-specific retirement rates
+cannot be represented). Carrying per-tier decrements would be a genuine model
+extension, and it is worth considering later.
+
+**Problem 2 — separately, the collapse that was chosen looks wrong in ways the
+limitation does not force.** Taking ME47, where the published rates are per 1,000:
+
+- The report gives **13 per 1,000 at age 45** and **29 at age 50**. The workbook
+  puts **zero** in both. That is not a collapsing decision — those are published
+  values that were dropped.
+- The report's age 55-64 rates run from 40 to 250 per 1,000 depending on tier and
+  age. The workbook puts a **flat 4%** across the whole band, i.e. the single
+  lowest number in the range, applied everywhere. A headcount-weighted blend of
+  the three tiers would have been available and would sit far higher.
+
+So the collapse is not merely lossy, it is **systematically low**, and it discards
+published data at the young ages. Whether that was a deliberate conservative choice
+or an extraction error is not recorded anywhere. Either way the resulting sheet
+understates retirement in the band where most retirement happens, which is why
+using the shared default table instead is defensible.
+
+**Not yet confirmed:** GA28's 2017 PDF is a summary valuation that does not appear
+to carry assumption tables at all (so its retirement sheet came from somewhere
+else), and OH88 needs a more targeted search. 11 of the 14 remain unchecked; the
+three checked all show Problem 1, and only ME47 has been examined closely enough
+to show Problem 2.
+
+### CORRECTION (2026-07-30) — MA51's bad liability is NOT the inactive factor
+
+Earlier suspicion was wrong. The cause is a units error in MA51's `retdist` sheet.
+
+Column F of that sheet is supposed to hold a **benefit relativity**: each retiree
+age band's average benefit divided by the plan's overall average benefit. The model
+multiplies it by the reported average benefit, so a correct column must average
+1.0 when weighted by headcount.
+
+Checked across all 40 plans, and MA51 is the **only** one out of range:
+
+| | headcount-weighted mean of column F |
+|---|---|
+| 38 plans | between 0.78 and 1.04, nearly all exactly 1.000 |
+| **MA51** | **0.1188** |
+| MI53 | not readable at the default offset (it uses `RETDIST_SKIPROWS = 1`; not a defect) |
+
+MA51's column holds each band's **share of total benefit dollars**, not a ratio to
+the average benefit — a different quantity entirely. Dividing column F by column B
+(the share of retirees) recovers a proper relativity whose headcount-weighted mean
+is **0.9696**, i.e. the correct column is derivable from the sheet itself without
+opening the PDF.
+
+That scales MA51's retiree benefits to roughly an eighth of their true size, which
+accounts for the -79.8% liability gap. The inactive-scaling factor of 0.0 is a
+separate open question (§4) and is not the cause here.
+
+**Not yet fixed** — the options are to correct the workbook sheet, or to add an
+engine guard that checks this column's weighted mean and either warns or
+renormalises. A guard would catch the whole class of error for any future plan.
+
+### ACCEPTED (2026-07-30) — MA50 and MO64 are in
+
+Their gaps against reported liability (+4.3% and +24.0%) are not treated as
+problems. The model uses its own consistent method and assumptions across all
+plans; reported actuarial figures embed each plan's own choices. A difference is
+expected and is not evidence that our inputs are wrong.
+
 ### Key finding on the skipped sheets (2026-07-29)
 
 The switches were **deliberately changed between script generations**, not left
