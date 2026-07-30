@@ -221,7 +221,7 @@ reference points at one of them explicitly.
 
 | File | Coverage | Who reads it |
 |---|---|---|
-| `ppd-data-latest_052026.xlsx` | fiscal years to **2023**, 228 plans/year | `Code/R/cluster_code_2022/` (38 scripts) — the frozen path that reproduces the validated run |
+| `ppd-data-latest_fy2023.xlsx` | fiscal years to **2023**, 228 plans/year | `Code/R/cluster_code_2022/` (38 scripts) — the frozen path that reproduces the validated run |
 | `ppd-data-latest_072026.xlsx` | fiscal years to **2024**, 253 plans/year | the Python engine, the analysis module, `Code/R/cluster_code_2022_072026/` (38 scripts), and the four PPD-reading helpers in `Code/R/Common_Code/` |
 
 The July download arrived as a CSV in a non-standard text encoding. It was converted
@@ -235,10 +235,14 @@ The R side was handled by copying the cluster folder rather than editing it in
 place, so `cluster_code_2022/` still points at the May file and still reproduces
 what was validated, while `cluster_code_2022_072026/` is the current-data twin.
 
-**Note on the dates in the filenames.** `072026` is the download date, which we
-know. `052026` is the local file timestamp and may reflect a OneDrive sync rather
-than a true export date — several unrelated files carry the same timestamp. The
-reliable distinction is coverage: to fiscal 2023 versus to fiscal 2024.
+**Note on the two naming conventions.** They are deliberately different, because we
+know different things about the two files. `072026` on the newer one is its actual
+download date. **The older file's download date is not known** — Niccolo recalls it
+being around 2023, and the local file timestamp is a OneDrive sync artefact (several
+unrelated files carry the identical timestamp), so it is not evidence of anything.
+It is therefore named by the one property that can be verified from the file itself:
+the last fiscal year it covers. Do not infer a download date from `fy2023` — it
+describes coverage, not vintage.
 
 **This changes results.** The July file restates 24 of the fiscal-2022 values the
 model consumes, almost all retiree counts and average benefits — ME47 -16.4% on
