@@ -221,7 +221,7 @@ reference points at one of them explicitly.
 
 | File | Coverage | Who reads it |
 |---|---|---|
-| `ppd-data-latest_fy2023.xlsx` | fiscal years to **2023**, 228 plans/year | `Code/R/cluster_code_2022/` (38 scripts) — the frozen path that reproduces the validated run |
+| `ppd-data-latest_2023.xlsx` | fiscal years to **2023**, 228 plans/year | `Code/R/cluster_code_2022/` (38 scripts) — the frozen path that reproduces the validated run |
 | `ppd-data-latest_072026.xlsx` | fiscal years to **2024**, 253 plans/year | the Python engine, the analysis module, `Code/R/cluster_code_2022_072026/` (38 scripts), and the four PPD-reading helpers in `Code/R/Common_Code/` |
 
 The July download arrived as a CSV in a non-standard text encoding. It was converted
@@ -240,9 +240,9 @@ know different things about the two files. `072026` on the newer one is its actu
 download date. **The older file's download date is not known** — Niccolo recalls it
 being around 2023, and the local file timestamp is a OneDrive sync artefact (several
 unrelated files carry the identical timestamp), so it is not evidence of anything.
-It is therefore named by the one property that can be verified from the file itself:
-the last fiscal year it covers. Do not infer a download date from `fy2023` — it
-describes coverage, not vintage.
+It is therefore named `2023`, after the last fiscal year it covers — the one
+property verifiable from the file itself. Read that as coverage, not as a download
+date.
 
 **This changes results.** The July file restates 24 of the fiscal-2022 values the
 model consumes, almost all retiree counts and average benefits — ME47 -16.4% on
