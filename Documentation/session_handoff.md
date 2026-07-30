@@ -230,13 +230,13 @@ in your new memory directory** (the old one was keyed to the dissolved
 
 - **Bit-identity is the gold standard** for refactors/relocations of the
   engine: rerun fast detal OK134 (~27s) with a scratch run tag and compare all
-  37 arrays to `Results/Runs/062026/OK134/OK134_detAL_062026.pkl`; max diff
+  37 arrays to `Results/Runs/20260610_1/OK134/OK134_detAL_062026.pkl`; max diff
   must be 0.0. Scratch tags go to `_ARCHIVE/snapshots/` afterward (Remove-Item
   is sandbox-blocked; always Move instead of delete).
 - Market seed **123** = the canonical common-shock seed; all scenarios reuse it
   so runs are path-by-path comparable. Never give plans different seeds (that
   was deliberately removed).
-- `062026` = the canonical run (Python fast outputs only, 37 plans, MA50
+- `20260610_1` = the canonical run (Python fast outputs only, 37 plans, MA50
   excluded, num_sim=10000).
 
 ## Performance expectations (so you don't misdiagnose)

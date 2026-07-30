@@ -73,7 +73,7 @@ Common patterns: most plans `T,T,T,T,T,T,F,F,F`; IL32 lacks withdrawal (`[6]=F`)
 | `plan_id` | String label, `"[PLAN]_[YEAR]"` e.g. `"AZ06_2022"` |
 | `plan_year` | Base year of the valuation data used for model inputs (canonical run: 2022 scalars layered on FY2017 distributions — the documented "hybrid") |
 | `plan_start` | Date of the first day of the base year (anchors tier-service arithmetic) |
-| `run_tag` | Output label selecting the folder under `Results/Runs/` (canonical: `062026`). Output naming, not model content |
+| `run_tag` | Output label selecting the folder under `Results/Runs/` (canonical: `20260610_1`). Output naming, not model content |
 
 ## II.B Simulation Configuration
 

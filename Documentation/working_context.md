@@ -2703,3 +2703,35 @@ where R pads NA and pandas silently zero-fills), B flag-vs-workbook mismatches
 `wagegrowth` and `disability` are never read at all despite 37 and 3 plans holding
 real data), C the PPD refresh, D clarifications, E the AAL gaps. Suggested order
 A → B → C → E with D alongside, and the reasoning for why E goes last.
+
+## 2026-07-30 (cont.): run naming convention, and the existing runs renamed
+
+Run folders now follow **`YYYYMMDD_N`** — the date produced plus a sequence number
+for that day. Names identify a run and deliberately do not describe it; a label
+like "linearfill" is meaningless within weeks. What each run *is* lives in the new
+`Results/Runs/README.md` index.
+
+Renamed (folders, every filename carrying the tag, parquet directories, log files,
+and the `_manifest.csv` tag/path columns — verified zero stale names remain):
+
+| Was | Now |
+|---|---|
+| `062026` | `20260610_1` (37 plans) |
+| `072026` | `20260730_1` (40 plans — created 2026-07-30, so it owns today's first slot) |
+| `scn_demo_c2s0` | `20260610_1_scn_contrib2pp` |
+
+The `run_tag` field stored *inside* each pickle still shows the original tag.
+Nothing reads it (checked against `results_analysis.py` and `scenarios.py`) and
+rewriting ~2 GB of pickles for a metadata string was not worth the risk; recorded
+in the index instead. OneDrive locked the `072026` folder rename mid-operation —
+the contents renamed but the folder did not; a PowerShell `Rename-Item` retry
+completed it. Worth remembering as the standard OneDrive symptom.
+
+Also fixed the reason this mattered: **`DEFAULT_RUN_TAG = "062026"` was hardcoded in
+five modules and the notebook**, so a forgotten `--run-tag` wrote into the June
+canonical run, silently. Writing paths now refuse to guess (auto-minted dated tag,
+plus a guard against writing into a non-empty run folder); reading paths
+auto-resolve via a new `results_analysis.latest_run_tag()`.
+
+Historical entries above keep the old tags on purpose — they describe what the
+folders were called at the time.

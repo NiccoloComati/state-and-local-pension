@@ -236,7 +236,7 @@ place, so `cluster_code_2022/` still points at the May file and still reproduces
 what was validated, while `cluster_code_2022_072026/` is the current-data twin.
 
 **Note on the two naming conventions.** They are deliberately different, because we
-know different things about the two files. `072026` on the newer one is its actual
+know different things about the two files. `20260730_1` on the newer one is its actual
 download date. **The older file's download date is not known** — Niccolo recalls it
 being around 2023, and the local file timestamp is a OneDrive sync artefact (several
 unrelated files carry the identical timestamp), so it is not evidence of anything.
@@ -256,8 +256,8 @@ deliberately (see Decisions taken). Nothing has been re-run.
 
 **This is a correction to inherited code, not a modelling assumption.** The
 formula came with the original R implementation and was taken to be right. It is
-not. Every result the project has produced to date, including `062026` and
-`072026`, was computed with the defective version.
+not. Every result the project has produced to date, including `20260610_1` and
+`20260730_1`, was computed with the defective version.
 
 ### What was wrong
 
@@ -449,7 +449,7 @@ folder name.
 
 ### Consequence for existing results
 
-`062026` and `072026` both carry the defective version. OK134's numbers in both are
+`20260610_1` and `20260730_1` both carry the defective version. OK134's numbers in both are
 unusable. LA163 and SC99 are mildly affected. The other 37 plans are affected only
 to the extent of the size-dependent tilt, which is worth about a tenth of a year of
 mean age.
@@ -483,7 +483,7 @@ and on no others.
 This session's fixes did what they were meant to. MA51 moved from -79.8% to -21.9%
 against its reported liability once the benefit-relativity column was rebuilt; MA50
 sits at +4.3% and MO64 at +24.0%. 21 of the 37 plans common to both runs are
-bit-identical to `062026`; the 16 that moved did so because of the July PPD's
+bit-identical to `20260610_1`; the 16 that moved did so because of the July PPD's
 restated values.
 
 ### The bug: `LinearFill` can produce negative retiree headcounts

@@ -9,7 +9,7 @@
 
 ## 1. Plans Covered
 
-40 state & local pension plans selected by Lenney et al. (2021) as highly representative of the universe of U.S. plans. The canonical `062026` run has **`plan_year = 2022`**: FY2022 PPD scalars layered on FY2017 demographic distributions. See §3.1 for the full per-input vintage decomposition.
+40 state & local pension plans selected by Lenney et al. (2021) as highly representative of the universe of U.S. plans. The canonical `20260610_1` run has **`plan_year = 2022`**: FY2022 PPD scalars layered on FY2017 demographic distributions. See §3.1 for the full per-input vintage decomposition.
 
 | Code   | Plan Name / State                              | # Tiers |
 |--------|------------------------------------------------|---------|
@@ -87,7 +87,7 @@ State and Local Pension/          <- PROJECT ROOT
 |   +-- Returns/                  # asset-class series (monthly_series, monthly_matrix incl. correlation_matrix.RData, bostonfed)
 |   +-- Sources/                  # brookings_package (replication data), airtable_export, collection_templates
 +-- Results/
-|   +-- Runs/062026/              # canonical run (Python fast outputs, 37 plans) + scenario run folders
+|   +-- Runs/20260610_1/              # canonical run (Python fast outputs, 37 plans) + scenario run folders
 |   +-- R Code/  Output/          # legacy post-processing + old outputs
 +-- Documentation/                # this file + working_context, session_handoff, city/provenance narrative docs,
 |   |                             #   guidebook copy, variable_glossary, media/ (incl. recorded code-walkthrough call)
@@ -135,7 +135,7 @@ Asset allocation weights come from PPD fields: `EQTotal_Actl`, `FITotal_Actl`, `
 
 ## 3.1 Data Vintage (verified 2026-07-29 from the production code and the saved run outputs)
 
-The model does not have one base year. Every demographic input enters as a **shape from one vintage** multiplied by a **scale from another**. In the canonical `062026` run the shapes are FY2017 and the scales are FY2022. Verification method: read `Code/python/fast/Main_PensionModel.py` and the `functions_cf_model.py` helpers, then check the 37 saved detAL pickles and the source workbooks against them.
+The model does not have one base year. Every demographic input enters as a **shape from one vintage** multiplied by a **scale from another**. In the canonical `20260610_1` run the shapes are FY2017 and the scales are FY2022. Verification method: read `Code/python/fast/Main_PensionModel.py` and the `functions_cf_model.py` helpers, then check the 37 saved detAL pickles and the source workbooks against them.
 
 **Set by `--plan-year` (canonical run: 2022).** All read from the `ppd_id` × `fy = plan_year` row of `ppd-data-latest_072026.xlsx`:
 
@@ -175,7 +175,7 @@ The model does not have one base year. Every demographic input enters as a **sha
 ## 4. Model Overview
 
 ### 4.1 Simulation Structure
-- **Base year:** set by `--plan-year`; the canonical `062026` run uses **2022**, so the projection covers 2022–2056 (the final year carries a zero-AAL placeholder row and is dropped in analysis, leaving 2022–2055). The demographic distributions in that run are FY2017 — see §3.1.
+- **Base year:** set by `--plan-year`; the canonical `20260610_1` run uses **2022**, so the projection covers 2022–2056 (the final year carries a zero-AAL placeholder row and is dropped in analysis, leaving 2022–2055). The demographic distributions in that run are FY2017 — see §3.1.
 - **Horizon:** 35 years forward (`Nyear = 35`)
 - **Monte Carlo:** 10,000 asset return simulations (`num_sim = 10000`; each plan script runs `NMonte = 10` for quick testing)
 - **Seed:** `set.seed(54848631)` for replicability
@@ -255,10 +255,10 @@ Observed code locations and file conventions:
 - **Top-level plan scripts (`[PLAN]/Main_PensionModel_[PLAN].R`)** exist for all 40 plan folders. Some top-level plan scripts contain asset loops after `save.image()`; inspect save order before assuming a saved `*_Compare*.RData` contains projected asset paths.
 - **`Cluster Code/cluster_code/`** contains 38 cluster plan scripts. This local set excludes `MA51` and `MO64`. These scripts are configured with `/data/smithafe/Pension_CF_Model/`, commonly use `date_run <- "03062024_Adj"` and `NMonte <- 1`, and save compare-style files such as `[PLAN]/[PLAN]_Compare_03062024_Adj.RData`.
 - **`Cluster Code/cluster_082024/cluster_code_2022/`** contains 38 plan scripts with `plan_year <- 2022`, `date_run <- "2022_July2024"`, and `plan_start <- as.Date("2022-01-01")`. These scripts use 2022-specific common data files such as `planchanges_main_2022_clean.xlsx`.
-- **`Cluster Code/cluster_062026/cluster_code_2022/`** is the active local working copy for the 062026 2022 run. Its deterministic A/L scripts save to `Results/Runs/062026/[PLAN]/[PLAN]_detAL_2022_062026.RData`. These scripts now centralize wage-growth, inflation, and inactive-scaling fallback behavior through common helpers in `Cluster Code/cluster_062026/Common_Code/functions_cf_model.R`.
+- **`Cluster Code/cluster_062026/cluster_code_2022/`** is the active local working copy for the 062026 2022 run. Its deterministic A/L scripts save to `Results/Runs/20260610_1/[PLAN]/[PLAN]_detAL_2022_062026.RData`. These scripts now centralize wage-growth, inflation, and inactive-scaling fallback behavior through common helpers in `Cluster Code/cluster_062026/Common_Code/functions_cf_model.R`.
 - **`Cluster Code/cluster_082024/Common_Code/asset_simulation_all.R`** is a batch asset simulation script. It loads `[PLAN]/[PLAN]_Compare_02152024_best.RData`, sets `num_sim <- 10000`, uses a 2-asset nominal return model, and saves `[PLAN]/[PLAN]_AssetSim05312024_best.RData`.
 - **`Cluster Code/cluster_082024/Common_Code/asset_simulation_all_new.R`** is a batch asset simulation script using five asset classes and correlated real returns. It loads `[PLAN]/[PLAN]June2024.RData`, reads plan inflation and asset allocation from `ppd-data-latest_072026.xlsx`, requires `Returns/correlation_matrix.RData`, and saves `[PLAN]/[PLAN]_AssetSimJune2024.RData`. `NJ71` is explicitly omitted in this script.
-- **`Cluster Code/cluster_062026/Common_Code/asset_simulation_all_2022_062026.R`** is the active local dated 2-asset asset simulation script for the 062026 workflow. It auto-discovers `Results/Runs/062026/[PLAN]/[PLAN]_detAL_2022_062026.RData`, computes 2-asset allocation from saved `planinfo` when `AssetShare` is absent, writes `Results/Runs/062026/[PLAN]/[PLAN]_AssetSim_2022_2asset_062026.RData`, and updates `Results/Runs/062026/_manifest.csv`. It currently has `num_sim <- 10000`.
+- **`Cluster Code/cluster_062026/Common_Code/asset_simulation_all_2022_062026.R`** is the active local dated 2-asset asset simulation script for the 062026 workflow. It auto-discovers `Results/Runs/20260610_1/[PLAN]/[PLAN]_detAL_2022_062026.RData`, computes 2-asset allocation from saved `planinfo` when `AssetShare` is absent, writes `Results/Runs/20260610_1/[PLAN]/[PLAN]_AssetSim_2022_2asset_062026.RData`, and updates `Results/Runs/20260610_1/_manifest.csv`. It currently has `num_sim <- 10000`.
 - **`Results/R Code/errors_all_plans.R`** loads compare files and writes validation error summaries. **`Results/R Code/fr_graph_all.R`** and **`Results/R Code/fr_graph_all_each.R`** load `AssetSim` files and generate funding-ratio forecast plots.
 - **`Cluster Code/cluster_062026/Python Code/analysis/results_analysis.py`** is the Python analysis module for canonical run outputs. It uses clean `*_analysis.RData` companion files when available so Python can load results directly with `pyreadr`, and falls back to Rscript for full `save.image()` workspaces. It also discovers parquet bundles via `available_parquet_outputs()` and loads them via `load_plan_result_parquet()`. **`Cluster Code/cluster_062026/Python Code/analysis/results.ipynb`** is the single analysis notebook (the former rdata/parquet twin notebooks were merged 2026-06-10, then moved into `analysis/` and renamed). Cell 1 sets `RUN_TAG` and `RESULT_SOURCE = "auto"`, which detects R `.RData` vs Python parquet outputs from the run-folder contents via `results_analysis.detect_result_source()`; set it to `"rdata"` or `"parquet"` explicitly to override (auto prefers parquet when a folder contains both). The notebook imports `results_analysis.py` from its own directory (`Path.cwd()`), so run it with the working directory set to `analysis/` (Jupyter's default when opening the notebook). Rebuilt 2026-06-10 in stochastic-first order: Part 1 risk metrics (liability-weighted exhaustion timing, exhaustion-year CDFs, mean-years-insolvent severity, threshold-risk-over-time, funding-ratio distributions at two horizons, P(FR<0.4) distress heatmap, exhaustion-risk scatters), Part 2 aggregate dynamics (per-path aggregate funded-ratio and unfunded-AAL fans — valid because of common market shocks, equal-plan average forecast, GDP-normalized unfunded-AAL fan), Part 3 per-plan detail (forecast fans, cash flows, long-format export), Part 4 baseline/descriptive (summary statistics, historical funded ratios, AAA cash-flow PV funded ratios, model-vs-CAFR validation; the descriptive reform/tier-rule section was removed 2026-06-10 pending a rework as a pre-change vs post-change tier comparison). FRED-dependent sections (GDP, AAA) skip gracefully without `FRED_API_KEY`. The load cell verifies the `common_market_shocks` flag and warns if aggregate bands would understate risk.
 - The former **`Pipeline/062026/`** R-track run-control workflow (38-plan list, local PowerShell runner, Engaging Slurm scripts, remote wrapper, assumption audit) was archived in the 2026-06-11 reorg to `_ARCHIVE/State Pension Model/Pipeline/062026/`; its standalone doc (`062026_run_pipeline.md`) was deleted. Current run control is the Python side: `run_simulation.py` / `launcher.ipynb` / `sim_commands.html`.
@@ -266,7 +266,7 @@ Observed code locations and file conventions:
 062026 output status should be treated as runtime state, not durable project
 context:
 
-- Canonical 062026 outputs are organized under `Results/Runs/062026/`, with one subfolder per plan and run metadata in `_manifest.csv`.
+- Canonical 062026 outputs are organized under `Results/Runs/20260610_1/`, with one subfolder per plan and run metadata in `_manifest.csv`.
 - As of 2026-06-10 the folder contains Python `fast/` outputs only:
   `[PLAN]_detAL_062026.pkl`, `[PLAN]_AssetSim_2asset_062026.pkl`,
   `[PLAN]_AssetSim_2asset_062026_parquet/`, and the Python `_manifest.csv`
@@ -275,7 +275,7 @@ context:
   `[PLAN]_AssetSim_2022_2asset_062026.RData`, and analysis companions
   `[PLAN]_AssetSim_2022_2asset_062026_analysis.RData` into the same folder.
 - Do not hardcode current detAL/AssetSim/analysis counts in this file. Reruns can change them without documentation edits.
-- Check current local status by inventorying `Results/Runs/062026/`; for remote (Engaging) status use the Python wrapper `Code/python/engaging/remote_python_run.ps1 -Action inventory` (note: the engaging scripts are stale post-reorg — rework before next cluster use).
+- Check current local status by inventorying `Results/Runs/20260610_1/`; for remote (Engaging) status use the Python wrapper `Code/python/engaging/remote_python_run.ps1 -Action inventory` (note: the engaging scripts are stale post-reorg — rework before next cluster use).
 - `MA50` is excluded from the Python runner (structural outlier); on the R side, `asset_simulation_all_2022_062026.R` only requires `NormalCost` and `discountrate` when `Amortize <- TRUE`.
 
 ---
@@ -283,7 +283,7 @@ context:
 
 ### 6.2 Python Translation
 
-A Python translation track exists under `Cluster Code/cluster_062026/Python Code/`. The deterministic A/L functions were translated line-by-line from R. As of the 2026-06-08 buildout, Python can run both the deterministic A/L stage and the 2-asset stochastic simulation end-to-end for the standard 37 plans (MA50 excluded), writing `.pkl` detAL outputs and `.pkl`/`.parquet` asset outputs rather than R `.RData` files. **As of 2026-06-10, the Python `fast/` package is the production engine**: it was verified bit-identical to the original Python translation (which was itself verified against R at floating-point precision), then optimized to ~10× the original Python speed (full 37-plan detal+asset batch in ~8 minutes locally at 19-way parallelism), and the canonical `Results/Runs/062026/` outputs were regenerated with it at num_sim=10000. The R code remains in place as the verified reference implementation but no longer has canonical outputs. All 37 standard plans (MA50 excluded) have been verified against R outputs as of 2026-06-09. All simulation matrices (tier AAL, aggregate AAL, cash flows, NormalCost) agree at floating-point precision (max_rel ~1e-15) across both the deterministic A/L stage and the liability components of the asset stage. Cosmetic metadata mismatches (`run_tag` for all plans; `Percent_difference` for 17 plans due to sign/denominator convention difference between R and Python) are not simulation bugs. LA130 and LA163 have Python asset outputs but no R asset simulation counterpart.
+A Python translation track exists under `Cluster Code/cluster_062026/Python Code/`. The deterministic A/L functions were translated line-by-line from R. As of the 2026-06-08 buildout, Python can run both the deterministic A/L stage and the 2-asset stochastic simulation end-to-end for the standard 37 plans (MA50 excluded), writing `.pkl` detAL outputs and `.pkl`/`.parquet` asset outputs rather than R `.RData` files. **As of 2026-06-10, the Python `fast/` package is the production engine**: it was verified bit-identical to the original Python translation (which was itself verified against R at floating-point precision), then optimized to ~10× the original Python speed (full 37-plan detal+asset batch in ~8 minutes locally at 19-way parallelism), and the canonical `Results/Runs/20260610_1/` outputs were regenerated with it at num_sim=10000. The R code remains in place as the verified reference implementation but no longer has canonical outputs. All 37 standard plans (MA50 excluded) have been verified against R outputs as of 2026-06-09. All simulation matrices (tier AAL, aggregate AAL, cash flows, NormalCost) agree at floating-point precision (max_rel ~1e-15) across both the deterministic A/L stage and the liability components of the asset stage. Cosmetic metadata mismatches (`run_tag` for all plans; `Percent_difference` for 17 plans due to sign/denominator convention difference between R and Python) are not simulation bugs. LA130 and LA163 have Python asset outputs but no R asset simulation counterpart.
 
 **Files (`Cluster Code/cluster_062026/Python Code/`):**
 - `g.py` — shared global state module (R global environment → Python module-level variables). **Legacy**: used only by the original Python scripts (`Main_PensionModel.py`, `liability_cf_model.py`, etc.); the `fast/` package replaces it with `PlanParams`. Keep until `fast/` fully supersedes the original.
@@ -313,7 +313,7 @@ A Python translation track exists under `Cluster Code/cluster_062026/Python Code
 - `slurm_detal_array.sh` / `slurm_asset_array.sh` — Slurm array scripts (one plan per task). Derive `CLUSTER_DIR` from exported `PROJECT_ROOT`, not `BASH_SOURCE` (which points to the spool dir in Slurm). Log via `exec >> "${LOG_FILE}" 2>&1` (process substitution unavailable on Engaging).
 - `engaging_python_env.sh` — Python env activation helper; auto-installs `openpyxl` and `pyarrow` if missing.
 
-**Canonical run tag:** `062026`. As of 2026-06-10, `Results/Runs/062026/` contains Python `fast/` outputs only (37 plans, detal pkl + asset pkl + parquet bundles, num_sim=10000); the earlier R `.RData` outputs and the `062026_py`/`062026_fast` folders were deleted after Python was verified equivalent. The old `062026`=R / `062026_*`=Python tag convention is retired.
+**Canonical run tag:** `20260610_1`. As of 2026-06-10, `Results/Runs/20260610_1/` contains Python `fast/` outputs only (37 plans, detal pkl + asset pkl + parquet bundles, num_sim=10000); the earlier R `.RData` outputs and the `062026_py`/`062026_fast` folders were deleted after Python was verified equivalent. The old `20260610_1`=R / `062026_*`=Python tag convention is retired.
 
 **Python output naming:** detAL: `[PLAN]_detAL_[run_tag].pkl`; asset: `[PLAN]_AssetSim_2asset_[run_tag].pkl`. No `_2022_` separator (unlike R).
 
@@ -355,7 +355,7 @@ Treating any of the three as a permanent exclusion is not established. See `work
   kept in both languages as `LinearFill_incorrect`; `Code/R/cluster_code_2022/*.R`
   calls it deliberately so that lineage still reproduces its original results.
   Full account: `states_track_context.md`.
-  **All results before this date, including `062026` and `072026`, use the
+  **All results before this date, including `20260610_1` and `20260730_1`, use the
   defective version.**
 
 - **Retiree benefit-relativity guard (2026-07-30).** The engine checks `retdist`
