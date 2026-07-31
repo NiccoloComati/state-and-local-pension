@@ -749,9 +749,11 @@ plan's state money would mean reading its funding statute, which has not been do
 it $2.1bn of Commonwealth appropriation — exactly the money every other plan has
 excluded. MA51's `contrib_ER_regular` is empty because its *entire* employer
 contribution is a state appropriation, so under this rule **its employer
-contribution rate is zero.** It still runs. That makes MA51 a plan sustained
-entirely by state money, which is a result rather than an error, and its risk will
-rise sharply from the 0.005 it showed while receiving that money.
+contribution rate is zero.** It still runs. MA51 keeps its **employee** contributions, which are 27.3% of its total
+contributions and 11.6% of payroll; it loses only the employer side. So it is not
+left with nothing — it becomes a plan whose entire *employer* contribution is a
+state appropriation. Its risk should rise from the 0.005 it showed while receiving
+that money, but by how much is a matter for the run, not for assertion here.
 
 ### DECIDED — MI53's 2022 average salary is overridden
 
@@ -794,6 +796,62 @@ engine's own payroll (first-year contributions then equal what the plan actually
 received, and scale with the projected workforce thereafter). The second is
 self-consistent and gives a testable anchor; the first stays closer to the plan's
 published contribution basis. **Neither is implemented.**
+
+---
+
+## 2026-07-30 — the payroll-denominator beta was TESTED. Recommendation: do not adopt.
+
+Two full 40-plan runs, identical except for the denominator:
+`20260730_3` production, `20260730_4` beta (`Code/python/beta/`, drift-checked).
+Both clean: 40/40 outputs, no errors, all 40 confirmed running the intended engine.
+
+Judged on metrics that do **not** rely on closeness to reported actuarial liability.
+
+| Metric | Production | Beta |
+|---|---|---|
+| **1.** First-year contributions vs what the plan actually received | median 0.9997, within 5% for 27/40 | 1.0000, 38/40 |
+| **2.** Implied contribution rate vs the plan's **own stated actuarial rate** | median gap **3.88pp**, mean 7.64pp, within 3pp for **17/38** | median gap **3.80pp**, mean **7.75pp**, within 3pp for **16/38** |
+| **3.** First-year net cash flow (contributions − benefits) vs actual | median gap **25.8%**, within 10% for 8/40 | median gap **28.4%**, within 10% for 8/40 |
+| **4.** Exhaustion probability | — | median change **−0.0001**; only **1 of 40** moves more than 0.05 |
+
+**Metric 1 proves nothing** — beta is 1.000 by construction. It confirms the wiring.
+
+**Metric 2 is the discriminating one and it does not discriminate.** Beta is
+marginally better on the median, marginally *worse* on the mean, and worse on the
+count within 3pp. Plan by plan it helps some and hurts others: FL26 improves from
+6.3pp off to 1.5pp, CA10 from 7.4 to 4.4 — but MI53 worsens from 7.2 to 15.0,
+CA111, OR91 and NY78 all worsen. No net gain.
+
+**Metric 3 is slightly worse under beta.** Making contributions match actual does
+not improve net cash flow, because the benefit side carries its own gap.
+
+**So: do not adopt as a blanket change.** The evidence does not show the beta
+denominator is more correct; it shows it is a different arbitrary choice that
+happens to anchor one quantity.
+
+### Two things the test did settle
+
+**The refund channel is real but negligible.** The employee contribution rate does
+feed `refund()` and therefore liabilities, as flagged — but measured, the AAL moves
+by a median of 0.004% and at most 0.09%. Not a reason to avoid the change, and my
+earlier concern about it was overstated.
+
+**FL26 is a genuine single-plan case.** It is the only plan whose outcome moves
+materially (exhaustion 0.380 -> 0.240) and the only one where beta is clearly
+better on the independent metric (1.5pp off its stated rate versus 6.3pp). Its
+covered payroll is 1.60x its active salaries and its production contribution rate
+of 13.0% sits well below its own stated actuarial rate of 19.3%. Worth handling as
+a plan-specific question rather than a global rule.
+
+### A separate open question this surfaced
+
+**Net cash flow is off by a median 25% in BOTH runs**, with only 8 of 40 within
+10%. That is not about the denominator — it is present either way. The benefit side
+runs about 9% above what plans actually paid and the contribution side has its own
+definitional gaps. Worth a look on its own terms.
+
+The beta is left in place, drift-checked, so this can be re-tested if the inputs
+change. Nothing in production was altered.
 
 ---
 
