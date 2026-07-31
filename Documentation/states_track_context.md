@@ -8,7 +8,7 @@ framing are decided with Niccolo and are not recorded here in advance.
 Written to be read without the code open: each item says what the input is and
 what it drives before saying what is wrong with it.
 
-## WHERE THIS STANDS — read this first (2026-07-30, end of session)
+## WHERE THIS STANDS — read this first (2026-07-31)
 
 **The inputs are settled.** Everything below in this file is the evidence trail. If
 you are picking this up cold, read this section, then `## Decisions taken`, then the
@@ -21,8 +21,8 @@ The model runs all **40** state plans (was 37). The engine has been corrected in
 several places, the per-plan decisions are consolidated in
 `Code/python/settings/plan_settings.py`, and `Code/python/` was restructured so
 `engine/` is the model and `reference/` is the older verified lineage. The current
-results run is **`20260730_3`**. Analysis has **not** started — that was the next
-thing, deliberately held until the inputs were trustworthy.
+results run is **`20260731_1`**, produced 2026-07-31 and the first run to reflect
+the current code. Analysis is the live work.
 
 ### What changed this session, in order
 
@@ -39,28 +39,40 @@ thing, deliberately held until the inputs were trustworthy.
 
 `20260610_1` (37 plans, old engine) · `20260610_2` (scenario demo) ·
 `20260730_1` (40 plans, pre-correction) · `20260730_2` (LinearFill corrected) ·
-**`20260730_3` — current** · `20260730_4` (rejected experiment).
+`20260730_3` (superseded) · `20260730_4` (rejected experiment) ·
+**`20260731_1` — current**.
 What each contains: `Results/Runs/README.md`.
+
+### The run that made `20260731_1` current (2026-07-31)
+
+Produced with the standard command, at `--parallel 6` rather than 20 — the machine
+used was a 12-logical-core laptop with about 2.7 GB of memory free, not the desktop
+the 20-process figure was set for. Parallelism does not affect results; the seed and
+simulation count are what matter, and both were unchanged.
+
+**Verified against `20260730_3` across every parquet array of all 40 plans: 39 plans
+bit-identical at maximum absolute difference exactly 0.0, FL26 alone changed** — so
+the pair isolates FL26's contribution-rate exception exactly, as predicted. FL26's
+exhaustion probability moves **0.3801 -> 0.2399**, matching the figure measured in
+the archived denominator experiment, and its year-0 liability moves **-0.057%**,
+which is the refund channel and inside its documented range. Run is structurally
+complete: 40/40 plan folders, 80 pickles, 320 parquet files, 80 logs.
 
 ### THE IMMEDIATE NEXT STEP
 
-**A fresh run, then start the analysis.** `20260730_3` predates the FL26 exception,
-which is the only behavioural change since (everything else verified bit-identical).
-So a new run would differ from it **for FL26 only**.
+**The analysis**, which lives in **`Analysis/results.ipynb`** and opens on the newest
+run automatically.
 
 ```powershell
 cd "...\Code\python"
-python run_simulation.py --plans all --stage both --fast --num-sim 10000 --run-tag YYYYMMDD_N --parallel 20 --workers 1 --seed 123
+python run_simulation.py --plans all --stage both --fast --num-sim 10000 --run-tag YYYYMMDD_N --parallel <cores> --workers 1 --seed 123
 ```
-
-Then analysis, which lives in **`Analysis/results.ipynb`** and has not been touched
-this session. It opens on the newest run automatically.
 
 ### What is open, in rough priority order
 
 | # | Item | State |
 |---|---|---|
-| 1 | **Analysis has not started.** The paper's exhibits, what it argues, which figures carry the thesis | Deliberately not begun. Niccolo decides this together, not by proposal. |
+| 1 | **The analysis.** The paper's exhibits, what it argues, which figures carry the thesis | Live work from 2026-07-31, on `20260731_1`. Decided with Niccolo, not by proposal. |
 | 2 | **The 13 plans whose modelled liability is >10% from reported** | MI53 and OK134 largely explained. The rest unexamined. Note Niccolo does not treat closeness to actuarial figures as a goodness measure. |
 | 3 | **Disability term** — currently ON, evidence says it double-counts for 34 of 40 | One flag flips it: `--disability-rate 0`. Worth running both as a stated sensitivity. |
 | 4 | **11 of the 14 switched-off retirement sheets** unchecked against their valuation reports | Switches stay off; 3 checked, all confirm the structural reason. |

@@ -2843,7 +2843,28 @@ top-level `Analysis/`. Run folders renamed to `YYYYMMDD_N` with an index at
 error raised, through a hardcoded relative path that returned NaN when it failed.
 Found only by bit-identity against a previous run.
 
-**Runs:** `20260730_3` is current. `20260730_4` is the rejected experiment.
+**Runs:** `20260730_4` is the rejected experiment.
 
-**Not started:** the analysis. Held deliberately until the inputs were trustworthy.
+---
+
+## 2026-07-31 — `20260731_1` produced and verified; analysis begins
+
+The fresh 40-plan run picking up FL26's contribution-rate exception. Verified against
+`20260730_3` across every parquet array of all 40 plans: **39 bit-identical at maximum
+absolute difference exactly 0.0, FL26 alone changed**, so the pair isolates that one
+exception. FL26 exhaustion **0.3801 -> 0.2399** (matching the archived experiment's
+measurement), year-0 liability **-0.057%** via the refund channel. `20260731_1` is now
+the current run.
+
+Run on the laptop rather than the desktop, at `--parallel 6`: 12 logical cores on a
+15 W chip with ~2.7 GB memory free, so the 20-process figure did not apply.
+Parallelism does not affect results. Running it on MIT Engaging was considered and
+dropped as not worth it for a single run — the engine needs only ~24 MB of input and
+imports only numpy and pandas with no hardcoded paths, but the Slurm scripts in
+`_ARCHIVE/superseded_2026-07-30/engaging_stale_paths/` are two reorganisations stale
+and a different numpy/BLAS may not reproduce bit-identity, which would need deciding
+before it could be a trusted path. The case for doing it is the parked scenario grid,
+not baseline runs.
+
+**Now live:** the analysis, in `Analysis/results.ipynb`.
 

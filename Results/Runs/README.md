@@ -15,8 +15,9 @@ table, not the folder name.
 | `20260610_2` | 2026-06-10 | 2 (AZ06, NJ73) | as above | **Scenario run.** Launcher demo: employer contribution +2pp of payroll, applied even when overfunded, from year 0. Reuses `20260610_1`'s liabilities, so asset-stage only, no detAL files. |
 | `20260730_1` | 2026-07-30 | 40 | `ppd-data-latest_072026.xlsx` | First run with all 40 plans. Adds MA50/MA51/MO64, the three input guards, and the July PPD (24 restated fiscal-2022 values). Still the inherited `LinearFill`. |
 | `20260730_2` | 2026-07-30 | 40 | `_072026` | **First run with the corrected `LinearFill`.** Otherwise identical to `20260730_1`, so the pair isolates that correction exactly. |
-| **`20260730_3`** | 2026-07-30 | 40 | `_072026` | **THE CURRENT RUN.** Adds MI53's corrected 2022 salary and MA51's employer rate set to zero. This is the one to analyse. |
+| `20260730_3` | 2026-07-30 | 40 | `_072026` | Adds MI53's corrected 2022 salary and MA51's employer rate set to zero. Superseded by `20260731_1`, which differs from it for FL26 only. |
 | `20260730_4` | 2026-07-30 | 40 | `_072026` | **Rejected experiment**, kept for the record. Identical to `20260730_3` except contribution rates measured against the model's own payroll. Tested and not adopted — see `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`. |
+| **`20260731_1`** | 2026-07-31 | 40 | `_072026` | **THE CURRENT RUN.** Adds FL26's contribution-rate exception. This is the one to analyse. |
 
 ## Two things to know before comparing runs
 
@@ -26,9 +27,16 @@ inherited from the R implementation produced negative retiree headcounts for 3 o
 `Documentation/states_track_context.md`. **OK134's numbers are unusable in the three runs that predate the correction**, and
 LA163 and SC99 are mildly affected there.
 
-**No run yet reflects the current code.** Since `20260730_3` the only behavioural
-change is FL26's contribution-rate exception; everything else has been verified
-bit-identical. So a fresh run would differ from `20260730_3` **for FL26 only**.
+**`20260731_1` reflects the current code, and the `20260730_3` -> `20260731_1` pair
+isolates FL26's contribution-rate exception exactly.** Verified across every parquet
+array of all 40 plans: **39 plans bit-identical, maximum absolute difference exactly
+0.0**, no shape, NaN-pattern or missing-file differences anywhere, and FL26 alone
+changed. FL26's exhaustion probability moves **0.3801 -> 0.2399**, reproducing the
+figure measured in the archived denominator experiment; its year-0 liability moves
+**-0.057%** ($208.874bn -> $208.755bn), which is the employee contribution rate
+feeding `refund()` and sits inside the documented range for that channel (median
+0.004%, maximum 0.09%). The 13 `RuntimeWarning` lines in the logs are the same 13
+plans at the same line as in `20260730_3` — pre-existing, not introduced.
 
 Measured effect of the correction, `20260730_1` -> `20260730_2` (identical apart
 from it): one plan moved more than 1% (OK134, +5.9%), 33 moved more than 0.1%,
