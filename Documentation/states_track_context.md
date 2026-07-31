@@ -1045,6 +1045,70 @@ the term shifts every plan's outflows by 2-11%, so it stays a deliberate choice.
 
 ---
 
+## 2026-07-30 — disability: per-plan switch built, and can the 6 unknowns be settled?
+
+### The switch
+
+`APPLY_DISABILITY_TERM` in `fast/Main_PensionModel.py`, sitting alongside
+`CONTRIB_RATE_NA_CHECK` and `RETDIST_SKIPROWS` — the same per-plan-override pattern
+already used elsewhere, so it lives where someone would look for it rather than
+only on the command line.
+
+**All entries are `True`, so behaviour is unchanged** (verified: OK134 bit-identical
+to `20260730_3`, max difference 0.0). Setting a plan `False` drops its disability
+term; verified this works (OK134 outflow -5.32%).
+
+Two levers now, deliberately different in kind:
+- `APPLY_DISABILITY_TERM[plan] = False` — a **statement about that plan**.
+- `--disability-rate 0` — a **global sensitivity**, everything off at once.
+
+Worth recording: `availableData` position 9 is nominally the disability slot, but it
+has never been wired to anything — the disability *sheet* is read for no plan. This
+switch governs the flat term, which is what actually runs.
+
+### Can the six unverified plans be settled? Partly, and no runs are needed
+
+The test: compare first-year outflow against what the plan actually paid, with and
+without the term. If removing it moves a plan toward 1.00, the retiree stream was
+already covering disability. This is computable from the existing run — the term is
+just 0.025 x model payroll — so it needs no simulation.
+
+| Group | Median with term | Median without | Closer without |
+|---|---|---|---|
+| 34 confirmed from the PPD breakdown | 1.0647 | **1.0062** | 22/34 |
+| 6 unverified | 1.0540 | **0.9971** | 4/6 |
+
+Per plan among the six:
+
+| Plan | With | Without | Behaves like the confirmed group? |
+|---|---|---|---|
+| FL26 | 1.0804 | 1.0299 | yes |
+| IL32 | 1.0896 | 1.0193 | yes |
+| NY78 | 1.0574 | 0.9982 | yes |
+| OR91 | 1.0506 | 0.9960 | yes |
+| **LA130** | 1.0095 | 0.9705 | **no** — already near 1 with the term |
+| **PA93** | 0.9237 | 0.8824 | **no** — already below 1, removing makes it worse |
+
+**PA93 fails both tests independently** — it is also the one plan whose PPD
+membership components do not sum to 1. Two unrelated signals agreeing is worth
+noting.
+
+**But the honest limit:** even among the 34 plans where we *know* disability sits
+inside `beneficiaries_tot`, removing the term only improves the individual match for
+22. The median moves decisively; individual plans are noisy, because benefit levels
+and timing differ from actual for other reasons. **So this test has real power in
+aggregate and weak power per plan.** It supports treating FL26, IL32, NY78 and OR91
+like the rest, and flags LA130 and PA93 as different — but it cannot settle any
+single plan on its own.
+
+### The pending decision
+
+Flipping the 34 confirmed plans to `False` is a real change: it lowers their
+first-year outflows by 2-11% and therefore lowers exhaustion risk across the board.
+The mechanism is built and the evidence is recorded; the flip itself is not made.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a

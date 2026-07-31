@@ -80,6 +80,34 @@ AVAILABLE_DATA = {
     'MA51':  [True,  True,  True,  True,  True,  True,  False, False, False],
     'MO64':  [True,  True,  True,  True,  True,  True,  True,  False, False],
 }
+# ---------------------------------------------------------------------------
+# Per-plan switch: does this plan get the separate disability term?
+#
+# The engine adds `DisabilityPayoutRate` x active payroll to outflows every year
+# (core.py `dis`). Evidence gathered 2026-07-30 says the retiree stream is ALREADY
+# paying disability retirees, because `beneficiaries_tot` contains them and
+# `BeneficiaryBenefit_avg` averages over the whole group — so for most plans this
+# term is additive on top of people already being paid.
+#
+# Note there is a disability slot in `availableData` (position 9) but it has never
+# been wired to anything: the disability SHEET is never read for any plan. This
+# switch controls the flat term instead, which is the thing that actually runs.
+#
+# EVIDENCE, per plan (see Documentation/states_track_context.md):
+#   - 34 of the 35 plans publishing a membership breakdown have service +
+#     disability + survivor retirees summing to 1.000 of `beneficiaries_tot`.
+#     PA93 is the single exception.
+#   - Six plans could not be checked that way (FL26, IL32, LA130, NY78, OR91) plus
+#     PA93. Comparing first-year outflow against what those plans actually paid,
+#     four of the six look like the confirmed group (removing the term moves them
+#     toward 1.00) while LA130 and PA93 do not.
+#
+# ALL True for now, so behaviour is unchanged. Setting a plan False drops its
+# disability term. `--disability-rate 0` switches it off for every plan at once,
+# which is the sensitivity lever; a False here is a per-plan statement instead.
+# ---------------------------------------------------------------------------
+APPLY_DISABILITY_TERM = {plan: True for plan in AVAILABLE_DATA}
+
 CONTRIB_RATE_NA_CHECK = {'AZ127', 'CA144', 'CA98', 'IL32', 'IN37', 'LA130', 'LA44'}
 RETDIST_SKIPROWS      = {'MI53': 1}
 
@@ -528,7 +556,8 @@ base_params = PlanParams(
     # sensitivity. Note the term bears no relation to a plan's actual disability
     # population: it ranges from 2.3% to 11.1% of outflow across the 40 plans while
     # actual disability retirees range from 0.4% to 10.4% of beneficiaries, uncorrelated.
-    DisabilityPayoutRate=args.disability_rate,
+    DisabilityPayoutRate=(args.disability_rate
+                          if APPLY_DISABILITY_TERM.get(plan, True) else 0.0),
     refundReturn=rf,
     pct_mrg=pct_mrg, widow_reduct=wid_red,
     MortAdujst=1.0, pctmale=pctmale,
