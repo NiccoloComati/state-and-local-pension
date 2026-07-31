@@ -1,129 +1,84 @@
-# Checking automated pension-data extraction against the source documents
+# Verifying automated pension-data extraction — working guide
 
-**Your worksheet:** `ra_worklist_round3.csv` (101 rows). Every row is a job for
-you. Nothing in it belongs to anyone else.
+**Your worksheet:** `ra_worklist_round3.csv` — 100 rows, every one a job for you. Nothing in it belongs to anyone else.
 
 ---
 
-## 1. What this project is doing, in plain terms
+## What the project is doing
 
-We model the long-run finances of US public pension plans (cities like Phoenix,
-Chicago, Los Angeles). To do that the model needs detailed tables about each
-plan's members — how many active employees there are at each age and length of
-service, what they earn, how likely they are to quit, retire, or die, and how
-many retirees there are at each age.
+We model the long-run finances of US public pension plans — cities like Phoenix, Chicago, Los Angeles, New York. The model needs detailed tables about each plan's membership: how many active employees at each age and length of service, what they earn, how likely they are to leave, retire or die, and how many retirees there are at each age.
 
-Those tables exist only inside **actuarial valuation reports**: long PDFs, one
-per plan per year, written by actuarial firms. Reading one out by hand takes
-hours per plan.
+Those tables exist only inside **actuarial valuation reports** — long PDFs, one per plan per year, each actuarial firm using its own layout. Reading one out by hand takes hours.
 
-We have built software that does it automatically: a language model reads the
-whole PDF, finds the right table, copies it out exactly as printed, and states
-which arithmetic should be applied to reshape it into the format our model
-needs. Separate, ordinary code then does that arithmetic.
+We built software that does it automatically: a language model reads the whole PDF, finds the relevant table, copies it out exactly as printed, and declares which arithmetic should reshape it into the format our model needs. Ordinary code then performs that arithmetic. Your job is to check the result against the original PDF.
 
-**Your job is to check its work against the original PDFs.** The software can be
-confidently wrong, and only a person looking at the source document can tell.
+## The one rule
 
-## 2. The single most important rule
+**The source PDF is the reference. Always.** Whether a number is right is settled by opening the actuarial valuation and reading the printed table. There is nothing else to compare against.
 
-**The source PDF is the reference. Always. There is nothing else to compare
-against.** Your judgement of whether a number is right comes from opening the
-actuarial valuation and reading the printed table.
+## Why a human is needed at all
 
-## 3. What you are checking
+The software fails in ways automated checks cannot catch, because the output usually looks entirely reasonable. The worst case we found: two plans print their tables as **images**. The text layer carries the exhibit title but no numbers at all. The software found the title and produced a full table of plausible, smoothly-declining rates — which passed every automated check we have. Those numbers were invented. We caught it only by opening the PDF.
 
-Open the row's `artifacts_folder`. It contains:
+So "the values look sensible" is never sufficient. Only a person with the document can confirm a number was actually read.
 
-- **`extraction.json`** — the raw table exactly as the software read it off the
-  page, the transformation it chose, and a plain-English `notes` field where it
-  explains what it thought it was doing. **Read the notes first.**
-- **`derived.json`** — the final table after the arithmetic.
+## What each row gives you
 
-The row also tells you the `source_pdf` and, in `model_says_it_used`, the page
-numbers and table titles the software claims it read. Start there.
-
-Check **two separate things**, and record them separately, because they fail
-independently:
-
-**(a) Transcription** — do the numbers in `extraction.json` match the PDF, digit
-for digit? A table can be perfectly transcribed and still be useless if the next
-step was wrong, and it can look plausible while hiding a misread digit.
-
-**(b) Transformation** — was the right operation chosen for what the document
-actually prints? Adding up numbers that should have been averaged, dividing
-dollars by dollars instead of by a headcount, mapping a bin to the wrong column
-— all produce clean-looking output that is wrong.
-
-## 4. Mistakes we have actually seen — look for these
-
-- An entire table copied **one column late**, so every value is correct but sits
-  under the wrong heading. Caused by the PDF's text layer splitting a number
-  ("2 ,625" is one number, 2625).
-- A printed **"Total" line** treated as if it were another age group.
-- **Monthly** dollar amounts reported as annual (out by a factor of 12).
-- An exhibit that prints **two lines per age band** — a headcount line and a
-  dollar line — flattened into one table.
-- **Two tables printed side by side** on one page, read as a single table.
-- Numbers taken from the **wrong population** — e.g. the disability mortality
-  table instead of the healthy one.
-
-## 5. Priorities
-
-Work down the `priority` column.
-
-All three checks behind these priorities are done WITHOUT any reference
-document — they compare the extraction against itself or against an independent
-membership database — so when one of them complains, something is genuinely off.
-
-- **1-HIGH (20 rows)** — an automated check already disagrees. The `why_flagged`
-  column says which: the table's own printed totals do not add up from the cells
-  it copied, or the headcount contradicts an independent database, or the output
-  audit judges the values implausible (a mortality rate that falls with age, an
-  "average salary" of a million dollars). These almost always mean a real
-  mistake. Spend your time here.
-- **2-MED (25 rows)** — nobody has ever checked these at all. Confirm against
-  the PDF.
-- **3-LOW (56 rows)** — no automated check complained. A spot-check of a few
-  cells against the printed table is enough.
-
-## 6. When a row is not simply right or wrong
-
-Record which of these it is, and move on:
-
-- **Image, not text** — the table is a picture, so our text-reading software
-  physically cannot see it. Say so explicitly. This is NOT the same as "not in
-  the document", and we need an exact count of these, because they need a
-  different kind of software. (At least one plan, Philadelphia, is like this.)
-- **Genuinely not in the document** — the plan simply does not publish it.
-- **Needs a judgement call about method** — e.g. the document gives rates by age
-  only and something must be assumed to fill in years of service, or it is
-  unclear which group of retirees counts. **Do not decide these.** Record the
-  question and move on; they are Niccolo's to settle.
-- **A real extraction or arithmetic error** — record the PDF page and the
-  correct value.
-
-## 7. What to write
-
-Fill in the last five columns of your row:
-
-| column | what to put |
+| column | meaning |
 |---|---|
-| `VERDICT` | `correct` / `wrong` / `needs-decision` / `image-only` / `not-in-document` |
-| `LAYER` | `transcription` / `transformation` / `assumption` / `image` |
-| `PDF_PAGE_CHECKED` | the page and exhibit you looked at — **always, even when correct** |
-| `CORRECT_VALUE_IF_WRONG` | what the PDF actually prints |
-| `NOTES` | anything that does not fit above |
+| `priority` | work order — see below |
+| `plan_code`, `fund_name` | which pension fund |
+| `sheet`, `what_this_sheet_is` | which table, in plain words |
+| `why_flagged` | why this row needs attention |
+| `source_pdf` | the document to open |
+| `model_says_it_used` | the page and exhibit title the software claims it read |
+| `page_to_open` | **the page where the numbers actually are** — use this one |
 
-A verdict of "correct" with no page reference cannot be re-checked by anyone
-else, so it is not usable. Always give the page.
+On `page_to_open`: actuarial reports are numbered by their *printed* page, which is offset from the PDF's own page count. The software reports the printed number, so on 18 rows the page it names is not the page you need. We located the real page automatically and put it here. Where it says "only some values located automatically", be extra careful — that can itself indicate a bad extraction.
 
-## 8. How to work
+The `artifacts_folder` column points at the software's working files. `extraction.json` holds the raw table as it read it, the transformation it chose, and a plain-English `notes` field explaining what it thought it was doing — **read the notes first**. `derived.json` holds the final table after the arithmetic.
 
-Do a chunk, then review it with Niccolo before continuing — it is a loop, not a
-single pass. Rows may re-open after we fix something and re-run; that is normal
-and not wasted work. If a whole plan looks broken in the same way, stop and say
-so rather than filling in fifty rows.
+## What to check — two separate things
 
-Ask when something is ambiguous. "I don't know which of these two tables it
-should have used" is a useful answer.
+**Transcription.** Do the numbers in `extraction.json` match the PDF, digit for digit? These PDFs mangle easily: a text layer can split "77" into "7 7", or "2,625" into "2 ,625", and the software sometimes copies the split version.
+
+**Transformation.** Was the right operation chosen for what the document prints? Adding figures that should have been averaged, dividing dollars by dollars instead of by a headcount, mapping a bin to the wrong column — each produces clean-looking output that is wrong.
+
+Record these separately. They fail independently: a table can be transcribed perfectly and ruined by the next step, or look right while hiding a misread digit.
+
+## Failure modes we have actually seen
+
+- A whole table copied **one column late** — every value correct, every one under the wrong heading.
+- A printed **"Total" line** treated as another age band.
+- **Monthly** dollar amounts reported as annual — out by a factor of twelve.
+- An exhibit printing **two lines per age band** (a count line and a dollar line) flattened into one table.
+- **Two tables printed side by side** read as a single table.
+- The **wrong population** — a disability mortality table instead of the healthy-lives one.
+- **Invented numbers** where the page is an image (above).
+
+## Priorities
+
+Every check behind these priorities runs *without* any reference document — it compares the extraction against itself, or against an independent membership database — so when one complains, something is genuinely off.
+
+**1-HIGH (19 rows).** An automated check already disagrees: the table's own printed totals do not add up from the cells copied, or the headcount contradicts an independent database, or the values are implausible. These are usually real errors. Start here.
+
+**2-MED (25 rows).** Nobody has ever checked these. Confirm against the PDF.
+
+**3-LOW (56 rows).** Nothing complained — spot-check a handful of cells. Note that the fabricated-table case above would have sat in this tier, so do actually open the PDF.
+
+## When a row is not simply right or wrong
+
+- **Image, not text** — the table is a picture, so our software cannot read it. Say so explicitly; this is *not* the same as "not in the document", and we need an exact count because those need different software.
+- **Genuinely not in the document** — the plan does not publish it.
+- **Needs a methodology decision** — e.g. the document gives rates by age only and something must be assumed to fill in years of service, or it is unclear which group of retirees counts. **Do not decide these.** Record the question and move on; they are Niccolo's.
+- **A real error** — record the page and the correct value.
+
+## What to write
+
+Fill in the last five columns: `VERDICT` (`correct` / `wrong` / `needs-decision` / `image-only` / `not-in-document`), `LAYER` (`transcription` / `transformation` / `assumption` / `image`), `PDF_PAGE_CHECKED`, `CORRECT_VALUE_IF_WRONG`, `NOTES`.
+
+Give the page for **every** judgement, including "correct" — a verdict nobody can re-check is not usable.
+
+## How to work
+
+Do a chunk, then review with Niccolo before continuing; this is a loop, not a single pass. Rows may re-open after we fix something and re-run — that is normal, not wasted work. If an entire plan looks broken the same way, stop and say so rather than filling in fifty rows. Ask when something is ambiguous: "I can't tell which of these two tables it should have used" is a useful answer.
