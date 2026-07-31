@@ -82,9 +82,8 @@ membership database — so when one of them complains, something is genuinely of
   audit judges the values implausible (a mortality rate that falls with age, an
   "average salary" of a million dollars). These almost always mean a real
   mistake. Spend your time here.
-- **2-MED (25 rows)** — nobody has ever checked these, including the rows where
-  the software claims **the table is not in the document at all**. Confirm
-  against the PDF, and see §6.
+- **2-MED (25 rows)** — nobody has ever checked these at all. Confirm against
+  the PDF.
 - **3-LOW (56 rows)** — no automated check complained. A spot-check of a few
   cells against the printed table is enough.
 
