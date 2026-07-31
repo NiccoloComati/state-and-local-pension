@@ -121,7 +121,7 @@ The former empty `State Pension Model/` root tombstone is gone; the pre-reorg SP
 
 ### Plan-Specific Data ([PLAN]/[PLAN]_2017.xlsx)
 Each Excel file has up to 9 sheets:
-1. **ageservice** — Age Ãƒâ€” service bucketed matrix of active employee counts
+1. **ageservice** — Age x service bucketed matrix of active employee counts
 2. **retdist** — Age distribution of current retirees
 3. **wagerel** — Relative wage by age and service (salary relativities)
 4. **mortality** — Mortality rates by age (and sometimes gender)
@@ -196,7 +196,7 @@ Liabilities evolve deterministically year-by-year:
 
 ### 4.3 Asset Simulation (Stochastic)
 - Asset returns modeled as a weighted portfolio of stocks (expected return 7.5% + inflation, SD 20%) and bonds (risk-free rate, SD 0%).
-- Each year: `Assets[t+1] = Assets[t] Ãƒâ€” (1 + AnnualReturn) Ã¢Ë†â€™ CashOutflows[t] + Contributions[t]`
+- Each year: `Assets[t+1] = Assets[t] x (1 + AnnualReturn) - CashOutflows[t] + Contributions[t]`
 - Contribution rule: if funded, contribute scheduled amount; if underfunded, contribute cash inflows or amortized UAAL payment.
 - If assets hit zero, they stay at zero (no bailout assumption).
 
@@ -242,7 +242,7 @@ Each `Main_PensionModel_[PLAN].R` script follows this sequence:
 4. **Load** tier parameters (`planchanges_main.xlsx`)
 5. **Set** simulation parameters (Nyear, NMonte, economic assumptions, discount rate)
 6. **Expand** data: run `LinearFill()`, `ConstantFill()`, `MortTable()` to build full matrices
-7. **Partition** active employees across tiers (active_t1 Ã¢â‚¬Â¦ active_t6)
+7. **Partition** active employees across tiers (active_t1 ... active_t6)
 8. **Run** `Main_Current()` for each tier Ã¢â€ â€™ produces (AAL, CashOutflow, CashInflow, PVFB, NormalCost)
 9. **Run** `Main_Ret()` for already-retired members Ã¢â€ â€™ produces (AAL, CashOutflow)
 10. **Aggregate** across tiers
