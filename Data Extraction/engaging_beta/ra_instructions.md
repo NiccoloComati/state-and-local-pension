@@ -1,6 +1,6 @@
 # Verifying automated pension-data extraction — working guide
 
-**Your worksheet:** `ra_worklist_round3.csv` — 100 rows, every one a job for you. Nothing in it belongs to anyone else.
+**Your worksheet:** `model_output_verif_worklist.xlsx` — 100 rows, every one a job for you. Nothing in it belongs to anyone else.
 
 ---
 
@@ -26,17 +26,18 @@ So "the values look sensible" is never sufficient. Only a person with the docume
 
 | column | meaning |
 |---|---|
-| `priority` | work order — see below |
-| `plan_code`, `fund_name` | which pension fund |
-| `sheet`, `what_this_sheet_is` | which table, in plain words |
-| `why_flagged` | why this row needs attention |
-| `source_pdf` | the document to open |
-| `model_says_it_used` | the page and exhibit title the software claims it read |
-| `page_to_open` | **the page where the numbers actually are** — use this one |
+| `Priority` | work order — see below |
+| `Plan`, `Fund` | which pension fund |
+| `Table`, `Table contents` | which of the six data tables, in plain words |
+| `Issue` | why this row needs attention |
+| `PDF` | the document to open |
+| `Model cited` | the page and exhibit title the software *claims* it read |
+| `Page` | **the page where the numbers actually are** — use this one |
+| `Folder` | the software's working files (see below) |
 
-On `page_to_open`: actuarial reports are numbered by their *printed* page, which is offset from the PDF's own page count. The software reports the printed number, so on 18 rows the page it names is not the page you need. We located the real page automatically and put it here. Where it says "only some values located automatically", be extra careful — that can itself indicate a bad extraction.
+On `Page`: actuarial reports are numbered by their *printed* page, which is offset from the PDF's own page count. The software reports the printed number, so on 18 rows the page it names is not the page you need. We located the real page automatically and put it here. Where it says "only some values located automatically", be extra careful — that can itself indicate a bad extraction.
 
-The `artifacts_folder` column points at the software's working files. `extraction.json` holds the raw table as it read it, the transformation it chose, and a plain-English `notes` field explaining what it thought it was doing — **read the notes first**. `derived.json` holds the final table after the arithmetic.
+The `Folder` column points at the software's working files. `extraction.json` holds the raw table as it read it, the transformation it chose, and a plain-English `notes` field explaining what it thought it was doing — **read the notes first**. `derived.json` holds the final table after the arithmetic.
 
 ## What to check — two separate things
 
@@ -75,9 +76,24 @@ Every check behind these priorities runs *without* any reference document — it
 
 ## What to write
 
-Fill in the last five columns: `VERDICT` (`correct` / `wrong` / `needs-decision` / `image-only` / `not-in-document`), `LAYER` (`transcription` / `transformation` / `assumption` / `image`), `PDF_PAGE_CHECKED`, `CORRECT_VALUE_IF_WRONG`, `NOTES`.
+Four columns at the end, all of them short.
 
-Give the page for **every** judgement, including "correct" — a verdict nobody can re-check is not usable.
+**`Result`** — pick one from the dropdown:
+
+| option | means |
+|---|---|
+| `OK` | matches the PDF |
+| `Wrong numbers` | a digit or cell was misread |
+| `Wrong method` | numbers are right, the calculation applied to them is wrong |
+| `Image` | the table is a picture, so it cannot be read at all |
+| `Not in PDF` | the plan genuinely does not publish this table |
+| `Question` | needs a methodology decision — record it, don't decide it |
+
+**`Page seen`** — the page and exhibit you actually looked at. Fill this in for **every** row, including the `OK` ones: a verdict nobody can re-check is not usable.
+
+**`Should be`** — for `Wrong numbers` / `Wrong method`, what the PDF actually prints. One example cell is enough if the whole table is shifted the same way; say so in Notes.
+
+**`Notes`** — anything that doesn't fit above. For `Question`, write the question here.
 
 ## How to work
 
