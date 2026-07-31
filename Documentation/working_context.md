@@ -2868,3 +2868,43 @@ not baseline runs.
 
 **Now live:** the analysis, in `Analysis/results.ipynb`.
 
+### Notebook reviewed, six defects fixed, three sections added (2026-07-31)
+
+**Fixed.** Horizon labels are now fiscal years throughout, because the old
+`prob_exhaust_35` could never bind — exhaustion offsets only run to 34, so it
+silently equalled `prob_exhaust_34` for all 40 plans. The two horizons are now
+stated in the notebook rather than left implicit (see `project_context.md` §7).
+The Table 1 row "projected active member growth" was removed: it was the model's
+own 1%-a-year workforce assumption, identical for every plan, sitting in a table
+of measured quantities with a standard deviation of exactly zero. `aggregate_matrix`
+now raises on NaN instead of `nansum`-ing it into a silent zero (audited: no NaN
+anywhere in `20260731_1`, so this is a guard, not a repair). The historical
+funded-ratio chart takes its upper year from the data instead of a hardcoded 2023.
+The per-plan section defaults to the largest plan rather than the alphabetically
+first. The 13.6-million-row long-form export was deleted — nothing consumed it.
+FRED failures are now announced loudly, because `FRED_API_KEY` is set on the
+desktop and not on the laptop, so two whole sections silently produce nothing on
+one machine and not the other. Saved outputs are cleared before commit.
+
+**A claimed defect that was not one.** An earlier note in this session reported
+mojibake in the notebook markdown. There is none: the file holds 11 proper em
+dashes and one proper minus sign, and the `?` characters came from the cp1252
+console failing to render them — the quirk already recorded under environment
+notes. No fix was applied.
+
+**Added, all from existing runs, no re-run needed.**
+
+- **Conditional severity** — how large the hole is, given that it opens: accrued
+  liability outstanding at exhaustion, and the pay-as-you-go shortfall in every
+  year a plan holds zero assets, undiscounted and discounted at the plan's own
+  rate. Plotted as probability against conditional severity, which separates
+  plans that fail rarely and expensively from plans that fail often and cheaply.
+- **Joint failure** — how many plans fail together within one market path,
+  against an exact Poisson-binomial benchmark of what independence would imply.
+- **Cohort (per-tier) decomposition** — reads the deterministic pickles for the
+  per-tier structure the parquet bundle drops. Deterministic only: assets are
+  simulated at plan level, so attributing outcomes to tiers needs an allocation
+  rule that has not been decided. Tiers are hire-date groups, not birth cohorts.
+
+Verified by executing all 24 code cells against `20260731_1`: no errors.
+
