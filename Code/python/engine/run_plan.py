@@ -1,14 +1,17 @@
 """
-Fast generic pension model runner — optimized version of Main_PensionModel.py.
+THE PRODUCTION ENGINE. Projects one plan's liabilities and cash flows.
 
-Differences vs Main_PensionModel.py:
+Called per plan by ../run_simulation.py; not usually run by hand. Every per-plan
+decision lives in ../settings/plan_settings.py, not here.
+
+Differences vs reference/run_plan_original.py, the verified lineage it replaced:
   - No g module: all state in PlanParams dataclass.
   - Vectorized inner loops (UpdateEmployeeCount, DeathPay, ComputeAnnuity).
   - Parallel PVNC_Calc (ThreadPoolExecutor across 55 starting ages).
   - Parallel TotalLiabilities_Current (2 paths in parallel).
   - Identical data loading, identical pkl output format.
 
-Usage:  python "Python Code/fast/Main_PensionModel.py" <PLAN_ID>
+Usage:  python engine/run_plan.py <PLAN_ID> --run-tag YYYYMMDD_N
 """
 import argparse
 import os
@@ -23,93 +26,24 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from bucketfill_cf_model import LinearFill, ConstantFill, ConstantFill_SepRate
-from functions_cf_model   import (get_wage_growth_assumption, get_inflation_assumption,
+from engine.bucketfill import LinearFill, ConstantFill, ConstantFill_SepRate
+from engine.functions   import (get_wage_growth_assumption, get_inflation_assumption,
                                    scale_inactive_members)
-from fast.sim_params import PlanParams
-from fast.core       import (mort_table_fast, calc_inactive_fast, create_tiers_fast,
+from engine.params import PlanParams
+from settings.plan_settings import (AVAILABLE_DATA, APPLY_DISABILITY_TERM,
+                                    CONTRIB_RATE_NA_CHECK, RETDIST_SKIPROWS,
+                                    SALARY_OVERRIDE, CONTRIB_RATE_MODEL_PAYROLL)
+from engine.core       import (mort_table_fast, calc_inactive_fast, create_tiers_fast,
                               compute_annuity, main_current_fast, main_ret_fast)
 
 # ---------------------------------------------------------------------------
-# Plan lookup tables (identical to Main_PensionModel.py)
+# Per-plan settings come from settings/plan_settings.py - see that file
 # ---------------------------------------------------------------------------
-AVAILABLE_DATA = {
-    'AZ06':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'AZ127': [True,  True,  True,  False, True,  True,  False, False, False],
-    'CA10':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'CA111': [True,  True,  True,  True,  True,  True,  False, False, False],
-    'CA144': [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'CA43':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'CA97':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'CA98':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'DC20':  [True,  True,  True,  False, True,  True,  False, False, False],
-    'FL26':  [True,  True,  True,  False, True,  True,  False, False, False],
-    'GA27':  [True,  True,  True,  False, True,  False, False, False, False],
-    'GA28':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'IL32':  [True,  True,  True,  True,  True,  False, True,  False, False],
-    'IL33':  [True,  True,  True,  False, True,  True,  True,  False, False],
-    'IL34':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'IN37':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'LA44':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'LA130': [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'LA163': [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'ME47':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'MI53':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'MO175': [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'ND82':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'NJ71':  [True,  True,  True,  False, True,  True,  False, False, False],
-    'NJ73':  [True,  True,  True,  False, True,  True,  False, False, False],
-    'NM74':  [True,  True,  True,  False, True,  True,  False, False, False],
-    'NY78':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'NY83':  [True,  True,  True,  False, True,  True,  False, False, False],
-    'OH88':  [True,  True,  True,  True,  True,  False, False, False, False],
-    'OK134': [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'OR91':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'PA92':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'PA93':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'RI96':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-    'SC99':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'SC100': [True,  True,  True,  True,  True,  True,  False, False, False],
-    'TX108': [True,  True,  True,  True,  True,  True,  True,  False, False],
-    # --- Added 2026-07-29. Previously absent, which excluded these three plans
-    # from every run (the dict was ported from the 38 R 2022-cluster scripts,
-    # which omit MA51/MO64). Vectors taken from each plan's own R script; see
-    # Documentation/states_track_context.md 1a-1c for the evidence. To revert,
-    # delete these three rows.
-    'MA50':  [True,  True,  True,  True,  True,  False, False, False, False],
-    'MA51':  [True,  True,  True,  True,  True,  True,  False, False, False],
-    'MO64':  [True,  True,  True,  True,  True,  True,  True,  False, False],
-}
-# ---------------------------------------------------------------------------
-# Per-plan switch: does this plan get the separate disability term?
-#
-# The engine adds `DisabilityPayoutRate` x active payroll to outflows every year
-# (core.py `dis`). Evidence gathered 2026-07-30 says the retiree stream is ALREADY
-# paying disability retirees, because `beneficiaries_tot` contains them and
-# `BeneficiaryBenefit_avg` averages over the whole group — so for most plans this
-# term is additive on top of people already being paid.
-#
-# Note there is a disability slot in `availableData` (position 9) but it has never
-# been wired to anything: the disability SHEET is never read for any plan. This
-# switch controls the flat term instead, which is the thing that actually runs.
-#
-# EVIDENCE, per plan (see Documentation/states_track_context.md):
-#   - 34 of the 35 plans publishing a membership breakdown have service +
-#     disability + survivor retirees summing to 1.000 of `beneficiaries_tot`.
-#     PA93 is the single exception.
-#   - Six plans could not be checked that way (FL26, IL32, LA130, NY78, OR91) plus
-#     PA93. Comparing first-year outflow against what those plans actually paid,
-#     four of the six look like the confirmed group (removing the term moves them
-#     toward 1.00) while LA130 and PA93 do not.
-#
-# ALL True for now, so behaviour is unchanged. Setting a plan False drops its
-# disability term. `--disability-rate 0` switches it off for every plan at once,
-# which is the sensitivity lever; a False here is a per-plan statement instead.
-# ---------------------------------------------------------------------------
-APPLY_DISABILITY_TERM = {plan: True for plan in AVAILABLE_DATA}
 
-CONTRIB_RATE_NA_CHECK = {'AZ127', 'CA144', 'CA98', 'IL32', 'IN37', 'LA130', 'LA44'}
-RETDIST_SKIPROWS      = {'MI53': 1}
+
+
+
+
 
 DEFAULT_RUN_TAG  = None   # must be passed explicitly; see run_simulation.py
 DEFAULT_PLAN_YEAR = 2022
@@ -145,7 +79,7 @@ if plan not in AVAILABLE_DATA:
 
 availableData = AVAILABLE_DATA[plan]
 
-script_dir  = os.path.dirname(os.path.abspath(__file__))         # Python Code/fast/
+script_dir  = os.path.dirname(os.path.abspath(__file__))         # Code/python/engine/
 code_dir    = os.path.normpath(os.path.join(script_dir, '..', '..'))  # Code/
 root_dir    = os.path.dirname(code_dir)                               # project root
 common_dir  = os.path.join(root_dir, 'Data', 'Common', 'states')
@@ -380,14 +314,7 @@ else:
         os.path.join(common_dir, 'default_assumptions.xlsx'),
         sheet_name='wagerel', usecols='B:L', skiprows=1, nrows=11,
         header=None).to_numpy(dtype=float)
-# --- source-data override, added 2026-07-30 -------------------------------
-# MI53's PPD `ActiveSalary_avg` for fy2022 reads 5.32 ($000s). Its own
-# `ActiveSalaries / actives_tot` gives 54.32, and every other year those two agree
-# to two decimals (2021: 51.16 vs 51.15; 2023: 56.23 vs 56.24). 2022 is the only
-# year out of line, and it is the year this model runs. Treated as a data-entry
-# error in the source and replaced with the plan's own components.
-# To revert, delete this block; the run then uses the published 5.32.
-SALARY_OVERRIDE = {("MI53", 2022): "ActiveSalaries/actives_tot"}
+
 if (plan, plan_year) in SALARY_OVERRIDE:
     _pub = _s(planinfo, 'ActiveSalary_avg')
     _fix = _s(planinfo, 'ActiveSalaries') / _s(planinfo, 'actives_tot')
@@ -402,38 +329,7 @@ asy_wage    = _pad_rows(asy_wage, 11, f"{plan} wagerel B2:L12")
 asy_wage    = asy_wage * _salary_avg * 1000
 BaseWage_2d = ConstantFill(asy_wage)
 
-# --- per-plan exception, added 2026-07-30 ----------------------------------
-# FL26 (Florida RS) sets its contribution rates on a WIDER payroll than the
-# population this model represents, so applying those rates to our workforce
-# under-collects. Its own FY2017 valuation report says so directly:
-#
-#   p.6  "This report presents the results of our July 1, 2017 actuarial
-#         valuation of the defined benefit Florida Retirement System (FRS)
-#         Pension Plan. ... The Pension Plan-specific rates developed in this
-#         valuation report are then combined with contribution rates from the
-#         defined contribution FRS Investment Plan to create blended proposed
-#         statutory employer contribution rates."
-#
-#   p.9  "the payroll on which UAL Cost rates are determined is higher, and
-#         includes the payroll of DROP"   [quoted against a payroll figure for
-#         "non-DROP active Pension Plan members"]
-#
-# So the rate base spans DROP participants (32,150 reported separately) and is
-# blended with the Investment Plan, a defined-contribution scheme whose members
-# are not in this model at all. Measured effect of applying the published rate to
-# our narrower workforce: FL26 collects 63% of the contributions it actually
-# received, and its implied total rate reads 13.0% against its own stated
-# actuarial rate of 19.3%.
-#
-# Measuring against the model's own payroll instead puts it at 20.8% (1.5pp from
-# stated, against 6.3pp) and moves its exhaustion probability 0.380 -> 0.240.
-#
-# THIS IS DELIBERATELY PER-PLAN. The same change applied to all 40 was tested over
-# two full runs and REJECTED — it helped FL26 and CA10 but hurt MI53, CA111, OR91
-# and NY78, with no net gain on the independent metric. See
-# _ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md.
-# To revert, delete this block.
-CONTRIB_RATE_MODEL_PAYROLL = {'FL26'}
+
 if plan in CONTRIB_RATE_MODEL_PAYROLL:
     _mp = float((active * BaseWage_2d).sum())
     _ee_new = _s(planinfo, 'contrib_EE_regular') * 1000.0 / _mp
@@ -635,7 +531,7 @@ print(f"Model AAL : {Model_AAL:,.0f}")
 print(f"CAFR  AAL : {CAFR_AAL:,.0f}")
 print(f"Pct diff  : {Percent_difference:.4%}")
 
-# ---- Save (identical structure to Main_PensionModel.py) ----
+# ---- Save (identical structure to the reference runner) ----
 os.makedirs(run_folder, exist_ok=True)
 save_path = os.path.join(run_folder, f"{plan}_detAL_{run_tag}.pkl")
 with open(save_path, 'wb') as fh:

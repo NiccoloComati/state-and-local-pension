@@ -1,5 +1,5 @@
 """
-Fast simulation core — replaces functions_cf_model.py and liability_cf_model.py.
+Optimised simulation core — replaces engine/functions.py and engine/liability.py.
 
 Changes vs original:
   - No g module: all parameters passed via PlanParams.
@@ -17,7 +17,7 @@ import warnings
 import numpy as np
 from concurrent.futures import ThreadPoolExecutor
 
-from .sim_params import PlanParams
+from engine.params import PlanParams
 
 
 # ---------------------------------------------------------------------------
@@ -261,7 +261,7 @@ def compute_annuity(COLA, p: PlanParams) -> np.ndarray:
 # ---------------------------------------------------------------------------
 
 def mort_table_fast(collapsed_mort, pct_male, employee_start: int = 20) -> np.ndarray:
-    """Replaces MortTable from bucketfill_cf_model.py — takes employee_start explicitly."""
+    """Replaces MortTable from engine/bucketfill.py — takes employee_start explicitly."""
     ages_range = range(employee_start, 120)
     result = np.zeros((len(ages_range), 2))
     for count, i in enumerate(ages_range):

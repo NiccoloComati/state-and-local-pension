@@ -1,5 +1,5 @@
 import numpy as np
-import g
+from engine import state as g
 
 # ---------------------------------------------------------------------------
 # Within-band tilt, taken from the data (2026-07-30).
@@ -249,7 +249,7 @@ def MortTable(collapsed_mort, pct_male):
 
 
 def Calc_Inactive(active, withdrawal, refund, MortalityTable_f, RetirementStart_f, NyearFullBenefit_f):
-    from functions_cf_model import UpdateEmployeeCount, UpdateInactiveCount
+    from engine.functions import UpdateEmployeeCount, UpdateInactiveCount
     g.RetirementStart  = int(RetirementStart_f)   # R: RetirementStart <<- RetirementStart_f
     g.NyearFullBenefit = int(NyearFullBenefit_f)  # R: NyearFullBenefit <<- NyearFullBenefit_f
 

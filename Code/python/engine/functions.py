@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-import g
+from engine import state as g
 
 
 # ---------------------------------------------------------------------------
@@ -23,13 +23,40 @@ def first_nonmissing_numeric(*values):
     return float('nan')
 
 
+def _project_root():
+    """Walk up until the folder holding Data/ is found.
+
+    Was a hardcoded '..','..' relative to this file, which broke silently when this
+    module moved from Code/python/ into Code/python/engine/ on 2026-07-30: the path
+    resolved to Code/Data/... , the file was not there, and the caller below
+    returned NaN. Every fallback that reaches the legacy PPD then failed quietly and
+    the chain fell through to a different assumption. MA51's wage growth went from
+    0.040 to 0.025 that way, changing its liability by 0.7% with no error raised.
+    Walking up removes the dependence on how deep this file sits.
+    """
+    import os
+    here = os.path.dirname(os.path.abspath(__file__))
+    while True:
+        if os.path.isdir(os.path.join(here, 'Data', 'Common', 'states')):
+            return here
+        parent = os.path.dirname(here)
+        if parent == here:
+            raise FileNotFoundError(
+                "Could not locate the project root (a folder containing "
+                "Data/Common/states) above " + os.path.abspath(__file__))
+        here = parent
+
+
 def get_legacy_ppd_value(plan, column, fiscal_year=2017):
     import os
-    legacy_file = os.path.normpath(os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), '..', '..',
-        'Data', 'Common', 'states', 'PPD_planlevel_main.csv'))
+    legacy_file = os.path.join(_project_root(), 'Data', 'Common', 'states',
+                               'PPD_planlevel_main.csv')
     if not os.path.exists(legacy_file):
-        return float('nan')
+        # Deliberately loud. This used to return NaN, which made a broken path
+        # indistinguishable from a plan legitimately absent from the legacy file.
+        raise FileNotFoundError(
+            f"Legacy PPD file missing: {legacy_file}. Fallback chains for wage "
+            f"growth, inflation and inactive counts depend on it.")
     legacy_ppd = pd.read_csv(legacy_file)
     if column not in legacy_ppd.columns:
         return float('nan')
@@ -312,7 +339,7 @@ def ComputeAnnuity(COLA):
 
 def Main_Current(ActiveNumber, InactiveNumber, COLA_f, WageYears_f, BenefitCap_f,
                  BenefitFactor_f, RetirementStart_f, NyearFullBenefit_f, CurrentTier=True):
-    from liability_cf_model import PVNC_Calc, TotalLiabilities_Current
+    from engine.liability import PVNC_Calc, TotalLiabilities_Current
 
     # R: <<- assignments
     g.COLA             = COLA_f
@@ -419,7 +446,7 @@ def Main_Current(ActiveNumber, InactiveNumber, COLA_f, WageYears_f, BenefitCap_f
 
 
 def Main_Ret(RetirementNumber, RetirementBenefit):
-    from liability_cf_model import TotalLiabilities_Ret
+    from engine.liability import TotalLiabilities_Ret
 
     Nyear  = g.Nyear
     NMonte = g.NMonte

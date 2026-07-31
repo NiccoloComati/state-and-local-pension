@@ -1,6 +1,6 @@
 import numpy as np
-import g
-from functions_cf_model import (Refund, DeathPay, UpdateInactiveCount, UpdateInactiveBenefits,
+from engine import state as g
+from engine.functions   import (Refund, DeathPay, UpdateInactiveCount, UpdateInactiveBenefits,
                                   UpdateRetirementNumber, UpdateRetirementBenefit,
                                   L_UpdateEmployeeCount, PastWages)
 

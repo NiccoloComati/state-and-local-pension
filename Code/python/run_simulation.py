@@ -31,8 +31,8 @@ def project_root() -> Path:
 
 ROOT = project_root()
 SCRIPT_DIR   = Path(__file__).resolve().parent
-DETAL_SCRIPT      = SCRIPT_DIR / "Main_PensionModel_original.py"
-DETAL_SCRIPT_FAST = SCRIPT_DIR / "fast" / "Main_PensionModel.py"
+DETAL_SCRIPT      = SCRIPT_DIR / "reference" / "run_plan_original.py"
+DETAL_SCRIPT_FAST = SCRIPT_DIR / "engine" / "run_plan.py"
 ASSET_SCRIPT = SCRIPT_DIR / "asset_simulation.py"
 
 
@@ -54,7 +54,7 @@ def engine_known_plans() -> set[str]:
     """
     import ast
     try:
-        tree = ast.parse((SCRIPT_DIR / "fast" / "Main_PensionModel.py").read_text(encoding="utf-8"))
+        tree = ast.parse((SCRIPT_DIR / "settings" / "plan_settings.py").read_text(encoding="utf-8"))
     except Exception:
         return set()
     for node in tree.body:
@@ -86,7 +86,7 @@ def default_plan_file(run_tag: str) -> Path:
     # plans_40.txt (2026-07-30) supersedes plans_38.txt: MA51 and MO64 were never
     # in the older list, and MA50 used to be filtered out below. All three now run.
     for name in ("plans_40.txt", "plans_38.txt"):
-        candidate = SCRIPT_DIR / "config" / name
+        candidate = SCRIPT_DIR / "settings" / name
         if candidate.exists():
             return candidate
     raise FileNotFoundError(
@@ -98,7 +98,7 @@ def parse_plans(value: str, plan_file: Path) -> list[str]:
     # The hard-coded `plan != "MA50"` exclusion was removed 2026-07-30. MA50 runs
     # normally now (its liability lands 4.3% from reported); see
     # Documentation/states_track_context.md. To reproduce the earlier 37-plan
-    # selection, pass --plan-file config/plans_38.txt and drop MA50 explicitly.
+    # selection, pass --plan-file settings/plans_38.txt and drop MA50 explicitly.
     if value.lower() == "all":
         return read_canonical_plans(plan_file)
     return [part.strip() for part in value.split(",") if part.strip()]
@@ -238,7 +238,7 @@ def main() -> int:
     parser.add_argument("--skip-existing-asset", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--fast", action="store_true",
-                        help="Use optimized Main_PensionModel_fast.py for detal stage")
+                        help="Use the production engine (engine/run_plan.py) for the liability stage")
     parser.add_argument("--workers", type=int, default=None,
                         help="PVNC thread-pool workers (fast mode only)")
     parser.add_argument("--disability-rate", type=float, default=None,
@@ -264,7 +264,7 @@ def main() -> int:
     if unknown:
         raise ValueError(
             f"Plans not in the engine's AVAILABLE_DATA table: {', '.join(unknown)}. "
-            f"Add a 9-boolean row in Code/python/fast/Main_PensionModel.py first."
+            f"Add a 9-boolean row in Code/python/settings/plan_settings.py first."
         )
 
     run_dir = ROOT / "Results" / "Runs" / args.run_tag

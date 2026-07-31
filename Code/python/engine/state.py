@@ -1,5 +1,6 @@
 # Shared global state — mirrors R's global environment.
-# Set by Main_PensionModel_AZ06.py; updated via <<- equivalents in functions.
+# Module-level state, the Python stand-in for R's global environment.
+# Used heavily by engine/bucketfill.py and engine/functions.py.
 
 EmployeeStart = 20
 EmployeeEnd   = 74

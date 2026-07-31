@@ -1109,6 +1109,71 @@ The mechanism is built and the evidence is recorded; the flip itself is not made
 
 ---
 
+## 2026-07-30 — Python folder restructured, and a silent path bug it exposed
+
+### The restructure
+
+| Was | Now |
+|---|---|
+| `fast/Main_PensionModel.py` | `engine/run_plan.py` |
+| `fast/core.py`, `fast/sim_params.py` | `engine/core.py`, `engine/params.py` |
+| `bucketfill_cf_model.py`, `functions_cf_model.py`, `liability_cf_model.py`, `g.py` | `engine/bucketfill.py`, `engine/functions.py`, `engine/liability.py`, `engine/state.py` |
+| `Main_PensionModel_original.py` | `reference/run_plan_original.py` |
+| `config/plans_*.txt` | `settings/plans_*.txt` |
+| six per-plan dicts scattered through a 658-line file | **`settings/plan_settings.py`** |
+
+`fast/` was a misleading name — it stopped being "the fast option" when it became the
+engine, while the loose modules beside it were equally part of the model.
+`Main_PensionModel.py` suggested a main program, which it is not; `run_simulation.py`
+is. `run_plan.py` says what it does.
+
+`settings/plan_settings.py` now holds every per-plan decision in six commented
+sections, each non-default entry carrying its reason. The nine-sheet availability
+matrix inherited from R is written out with the sheet names above the columns and a
+TTTF summary per row. Values were extracted programmatically from the engine and
+asserted equal, not retyped.
+
+### The bug this exposed — and how nearly it was missed
+
+MA51's liability moved 0.7% after the restructure. Everything checked identical:
+statement-level diffs of every moved file showed only import lines, `PlanParams`
+fields and defaults matched, all core function sources matched, and hashing every
+array entering the simulation — active matrix, wages, inactive, tier partitions, all
+four decrement tables, annuity vector — showed **no difference at all**.
+
+The cause was one line in what is now `engine/functions.py`:
+
+```python
+legacy_file = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                           '..', '..', 'Data', 'Common', 'states',
+                           'PPD_planlevel_main.csv')
+if not os.path.exists(legacy_file):
+    return float('nan')          # <- silent
+```
+
+Correct at `Code/python/`, wrong one level deeper at `Code/python/engine/`, where it
+resolved to `Code/Data/...`. The file was not there, so **the function returned NaN
+and every fallback chain that reaches the legacy PPD failed quietly.** MA51's wage
+growth fell through from the legacy 0.040 to `InflationAssumption_GASB` 0.025.
+
+No error, no warning, a 0.7% liability change, and it would have been invisible
+without a bit-identity check against a previous run.
+
+**Fixed two ways:** the path now walks up until it finds a folder containing
+`Data/Common/states`, so it no longer depends on how deep the file sits; and a
+missing file now **raises** instead of returning NaN, because a broken path and a
+plan legitimately absent from the legacy file should never look the same.
+
+**Verified bit-identical to `20260730_3`** for MA51 and for every other plan whose
+fallbacks reach that file — NJ71, NY78, PA92, LA130 — max absolute difference 0.0
+across AAL, cash flows and normal cost.
+
+**The lesson worth keeping:** moving a file can change results without changing a
+line of logic, and a fallback that returns a quiet default will hide it. Any future
+move of engine code should be followed by a bit-identity check, not a code review.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a

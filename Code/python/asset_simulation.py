@@ -1,7 +1,7 @@
 """
 Python second-stage two-asset asset simulation with common market shocks.
 
-Loads deterministic A/L outputs written by Main_PensionModel.py, expands
+Loads deterministic A/L outputs written by engine/run_plan.py, expands
 deterministic matrices to ``num_sim`` columns, runs the two-asset
 nominal-return loop, and writes Python-native pickle plus parquet outputs.
 

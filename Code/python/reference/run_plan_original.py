@@ -1,7 +1,10 @@
 """
 Generic pension model runner.
-Usage:  python "Python Code/Main_PensionModel.py" <PLAN_ID>
-Example: python "Python Code/Main_PensionModel.py" AZ06
+Usage:  python reference/run_plan_original.py <PLAN_ID> --run-tag YYYYMMDD_N
+
+  REFERENCE LINEAGE - not production. engine/run_plan.py was verified
+  bit-identical against this before replacing it. Kept so that verification
+  can be repeated; do not use for runs.
 
 Covers all 37 standard plans.  MA50 is a structural outlier and excluded.
 """
@@ -14,12 +17,12 @@ import numpy as np
 import pandas as pd
 from datetime import date
 
-sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-import g
-from bucketfill_cf_model import (LinearFill, ConstantFill, ConstantFill_SepRate,
+from engine import state as g
+from engine.bucketfill import (LinearFill, ConstantFill, ConstantFill_SepRate,
                                    MortTable, Calc_Inactive, CreateTiers)
-from functions_cf_model import (get_wage_growth_assumption, get_inflation_assumption,
+from engine.functions   import (get_wage_growth_assumption, get_inflation_assumption,
                                   scale_inactive_members, ComputeAnnuity,
                                   Main_Current, Main_Ret)
 
@@ -106,7 +109,7 @@ availableData = AVAILABLE_DATA[plan]
 
 # ---- Paths ----
 script_dir  = os.path.dirname(os.path.abspath(__file__))
-current_dir = os.path.normpath(os.path.join(script_dir, '..'))   # Code/
+current_dir = os.path.normpath(os.path.join(script_dir, '..', '..'))   # Code/
 root_dir    = os.path.dirname(current_dir)                        # project root
 common_dir  = os.path.join(root_dir, 'Data', 'Common', 'states')
 if args.run_tag is None:
