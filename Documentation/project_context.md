@@ -243,8 +243,8 @@ Each `Main_PensionModel_[PLAN].R` script follows this sequence:
 5. **Set** simulation parameters (Nyear, NMonte, economic assumptions, discount rate)
 6. **Expand** data: run `LinearFill()`, `ConstantFill()`, `MortTable()` to build full matrices
 7. **Partition** active employees across tiers (active_t1 ... active_t6)
-8. **Run** `Main_Current()` for each tier Ã¢â€ â€™ produces (AAL, CashOutflow, CashInflow, PVFB, NormalCost)
-9. **Run** `Main_Ret()` for already-retired members Ã¢â€ â€™ produces (AAL, CashOutflow)
+8. **Run** `Main_Current()` for each tier ->™ produces (AAL, CashOutflow, CashInflow, PVFB, NormalCost)
+9. **Run** `Main_Ret()` for already-retired members ->™ produces (AAL, CashOutflow)
 10. **Aggregate** across tiers
 11. **Save** liability/cash-flow comparison output as a `.RData` file in the plan folder
 12. **Optionally run** an embedded quick asset loop in some top-level plan scripts (`NMonte` is usually 10, sometimes 1 or 100)
