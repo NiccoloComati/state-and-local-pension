@@ -16,7 +16,7 @@ We built software that does it automatically: a language model reads the whole P
 
 **The source PDF is the reference. Always.** Whether a number is right is settled by opening the actuarial valuation and reading the printed table. There is nothing else to compare against.
 
-## Why a human is needed at all
+## Why verification is needed at all
 
 The software fails in ways automated checks cannot catch, because the output usually looks entirely reasonable. The worst case we found: two plans print their tables as **images**. The text layer carries the exhibit title but no numbers at all. The software found the title and produced a full table of plausible, smoothly-declining rates — which passed every automated check we have. Those numbers were invented. We caught it only by opening the PDF.
 
@@ -65,14 +65,14 @@ Every check behind these priorities runs *without* any reference document — it
 
 **2-MED (25 rows).** Nobody has ever checked these. Confirm against the PDF.
 
-**3-LOW (56 rows).** Nothing complained — spot-check a handful of cells. Note that the fabricated-table case above would have sat in this tier, so do actually open the PDF.
+**3-LOW (56 rows).** Nothing explicit complained. Note that the fabricated-table case above would have sat in this tier, so do actually open the PDF.
 
 ## When a row is not simply right or wrong
 
 - **Image, not text** — the table is a picture, so our software cannot read it. Say so explicitly; this is *not* the same as "not in the document", and we need an exact count because those need different software.
 - **Genuinely not in the document** — the plan does not publish it.
 - **Needs a methodology decision** — e.g. the document gives rates by age only and something must be assumed to fill in years of service, or it is unclear which group of retirees counts. **Do not decide these.** Record the question and move on; they are Niccolo's.
-- **A real error** — say what it is and give the page.
+- **A real error** — say what it is and possibly give the page.
 
 ## What to write
 
@@ -85,15 +85,11 @@ Three columns at the end.
 | `Correct` | matches the PDF |
 | `Wrong numbers` | a value was misread |
 | `Wrong table` | it used the wrong exhibit |
-| `Wrong method` | values right, the calculation applied to them is wrong |
+| `Wrong method` | values transcribed right, the calculation applied to them is wrong |
 | `Image` | the table is a picture, so it cannot be read at all |
 | `Not in PDF` | the plan genuinely does not publish this |
 | `Question` | needs a methodology decision — record it, don't decide it |
 
-**`Why`** — one line saying what you saw and where. Name the page and exhibit, even when the answer is `Correct` ("matches Exhibit F.3, p.38"), because a verdict nobody can re-check is not usable. When it's wrong, say how — "every value one column to the right", "these are monthly, not annual", "read 7 and 7 where the page prints 77".
+**`Why`** — one line saying what you saw and where. Name the page and exhibit, even when the answer is `Correct` ("matches Exhibit F.3, p.38"), because a verdict nobody can re-check is not usable. When it's wrong, say roughly how — "every value one column to the right", "these are monthly, not annual", "read 7 and 7 where the page prints 77" etc.
 
 **`Correct source`** — only when it used the wrong exhibit or claims the data is missing: where the right table actually is (page and exhibit name). Leave blank otherwise.
-
-## How to work
-
-Do a chunk, then review with Niccolo before continuing; this is a loop, not a single pass. Rows may re-open after we fix something and re-run — that is normal, not wasted work. If an entire plan looks broken the same way, stop and say so rather than filling in fifty rows. Ask when something is ambiguous: "I can't tell which of these two tables it should have used" is a useful answer.
