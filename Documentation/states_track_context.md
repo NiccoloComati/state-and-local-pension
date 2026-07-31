@@ -855,6 +855,59 @@ change. Nothing in production was altered.
 
 ---
 
+## 2026-07-30 — the net-cash-flow gap traced: disability is being counted twice
+
+The 25% net-cash-flow gap was **not** a second problem, and digging took about
+twenty minutes rather than a session.
+
+**Step 1 — the net gap is the outflow gap, magnified.** Contributions already match
+what plans received (median ratio 0.9997). So the net gap in *dollars* is just the
+outflow gap in dollars; expressing it over the much smaller net inflates the
+percentage. Median outflow gap $210m, median net gap $162m, correlated 0.70. One
+question, not two.
+
+**Step 2 — the outflow gap is almost entirely the flat disability assumption.**
+The engine adds `DisabilityPayoutRate = 0.025` of payroll to outflows every year.
+
+| Model year-1 outflow vs what plans actually paid out | Median ratio |
+|---|---|
+| as the engine runs today | **1.0619** |
+| with the disability term removed | **1.0006** |
+
+Removing it takes the outflow from 6% high to **six hundredths of one percent** off.
+The disability term accounts for a median 65% of the excess.
+
+**Step 3 — why that is double counting.** The retiree population is scaled by
+`beneficiaries_tot` and priced at `BeneficiaryBenefit_avg`. Checked across the 35
+plans that publish the breakdown: **service + disability + survivor retirees sum to
+exactly 1.0000 of `beneficiaries_tot`** (median), with disability retirees a median
+3.3% of the total. So disability retirees are *already inside* the retiree stream
+and are already being paid through it — and the engine then adds a further 2.5% of
+payroll on top.
+
+That the outflow lands within 0.06% of actual once the term is removed is
+independent confirmation.
+
+**Status: not changed.** Removing the term is a model-equation change affecting all
+40 plans and needs an explicit decision. Worth noting it would *lower* outflows by
+about 6% across the board, which lowers exhaustion risk everywhere — a level shift,
+not a re-ranking.
+
+Recorded as limitation **E4** territory: the 2.5% constant was always documented as
+an assumption; what is new is the evidence that it is additive on top of an outflow
+that is already correct.
+
+### The denominator test is archived
+
+`Code/python/beta/` is gone. It now lives at
+`_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/` with an
+`OUTCOME.md` recording that it was rejected and why, so the question is not
+reopened from scratch. `run_simulation.py` is back to two engines, production and
+the original reference. Verified: `--fast` selects production, no `beta` references
+remain.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a

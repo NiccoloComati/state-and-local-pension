@@ -33,8 +33,6 @@ ROOT = project_root()
 SCRIPT_DIR   = Path(__file__).resolve().parent
 DETAL_SCRIPT      = SCRIPT_DIR / "Main_PensionModel_original.py"
 DETAL_SCRIPT_FAST = SCRIPT_DIR / "fast" / "Main_PensionModel.py"
-# Experimental variant, see Code/python/beta/README.md. Never the default.
-DETAL_SCRIPT_BETA = SCRIPT_DIR / "beta" / "Main_PensionModel_payrollbeta.py"
 ASSET_SCRIPT = SCRIPT_DIR / "asset_simulation.py"
 
 
@@ -144,7 +142,6 @@ def run_stage(
     skip_existing_asset: bool,
     dry_run: bool,
     fast: bool = False,
-    beta_payroll: bool = False,
     workers: int | None = None,
     discount_override: float | None = None,
 ) -> int:
@@ -166,8 +163,7 @@ def run_stage(
             if skip_existing_detal and output_file.exists():
                 print(f"[skip]  detal {plan}: existing {output_file}")
                 continue
-            detal_script = (DETAL_SCRIPT_BETA if beta_payroll else
-                            DETAL_SCRIPT_FAST if fast else DETAL_SCRIPT)
+            detal_script = DETAL_SCRIPT_FAST if fast else DETAL_SCRIPT
             command = [
                 sys.executable, str(detal_script), plan,
                 "--run-tag", run_tag,
@@ -238,10 +234,6 @@ def main() -> int:
     parser.add_argument("--skip-existing-detal", action="store_true")
     parser.add_argument("--skip-existing-asset", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
-    parser.add_argument("--beta-payroll", action="store_true",
-                        help="BETA: measure contribution rates against the model's own "
-                             "payroll instead of PPD covered payroll. Implies --fast. "
-                             "See Code/python/beta/README.md.")
     parser.add_argument("--fast", action="store_true",
                         help="Use optimized Main_PensionModel_fast.py for detal stage")
     parser.add_argument("--workers", type=int, default=None,
@@ -286,8 +278,7 @@ def main() -> int:
             run_dir, log_dir, args.run_tag,
             args.plan_year, args.tier_file, args.date_run,
             args.overwrite, args.skip_existing_detal, args.skip_existing_asset,
-            args.dry_run, fast=args.fast or args.beta_payroll,
-            beta_payroll=args.beta_payroll, workers=args.workers,
+            args.dry_run, fast=args.fast, workers=args.workers,
             discount_override=args.discount_override,
         )
         if code != 0:
