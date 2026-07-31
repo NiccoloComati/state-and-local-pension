@@ -160,7 +160,7 @@ done plans and extracting the remaining gaps by hand.
 
 ### 6.1 Engine-integration steps (what makes a city run identically to a state)
 
-Verified against `Code/python/fast/Main_PensionModel.py` (2026-06-11). **The engine
+Verified against `Code/python/engine/run_plan.py` (2026-06-11; then at `fast/Main_PensionModel.py`). **The engine
 math is already plan-type-agnostic; everything state-specific is shallow data
 plumbing.** The barriers and the work:
 
@@ -190,7 +190,7 @@ plumbing.** The barriers and the work:
    city rows (from the AV) or default them.
 5. **Per-plan `availableData` flags** — set directly from the §3.1 signature
    verdict (which sheets are real vs default per plan).
-6. **Generalize 4 hard-coded spots** in `fast/Main_PensionModel.py`:
+6. **Generalize 4 hard-coded spots** in `engine/run_plan.py`:
    `AVAILABLE_DATA` dict, `plan_folder = Data/Plans/States/{plan}` +
    `file_name = {plan}_2017.xlsx`, the demographic-CSV lookup, and the tier-file
    key — to accept a city via the registry. ~a day of code.

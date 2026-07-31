@@ -1,9 +1,9 @@
 ﻿# Project Context: State & Local Pension Sustainability Model
 
 **Created:** 2026-05-27 
-**Last Updated:** 2026-06-09 (session 2)
+**Last Updated:** 2026-07-30
 **Author**: Niccolo Comati
-**Working Directory:** `...\Research and Education\Projects\State and Local Pension\State Pension Model\`
+**Working Directory:** `...\Research and Education\Projects\State and Local Pension\` (the `State Pension Model\` subfolder was dissolved into it on 2026-06-11)
 
 ---
 
@@ -42,13 +42,13 @@
 | NJ71   | New Jersey (plan 71)                           | ?       |
 | NJ73   | New Jersey (plan 73)                           | ?       |
 | NM74   | New Mexico (plan 74)                           | ?       |
-| NY78   | New York (plan 78) Ã¢â‚¬â€ template plan in XX.R     | 6       |
+| NY78   | New York (plan 78) — template plan in XX.R     | 6       |
 | NY83   | New York (plan 83)                             | ?       |
 | OH88   | Ohio (plan 88)                                 | 6       |
 | OK134  | Oklahoma (plan 134)                            | ?       |
 | OR91   | Oregon (plan 91)                               | ?       |
 | PA92   | Pennsylvania (plan 92)                         | ?       |
-| PA93   | Pennsylvania (plan 93) Ã¢â‚¬â€ has OneTier variant   | ?       |
+| PA93   | Pennsylvania (plan 93) — has OneTier variant   | ?       |
 | RI96   | Rhode Island (plan 96)                         | ?       |
 | SC99   | South Carolina (plan 99)                       | ?       |
 | SC100  | South Carolina (plan 100)                      | ?       |
@@ -65,13 +65,15 @@ Plan IDs correspond to the Public Plans Database (PPD) identifier (`ppid`).
 ```
 State and Local Pension/          <- PROJECT ROOT
 +-- Code/
-|   +-- python/                   # THE production engine
-|   |   +-- fast/                 # THE production engine (PlanParams, vectorized core)
+|   +-- python/                   # THE production engine (RESTRUCTURED 2026-07-30)
+|   |   +-- engine/               # the model: run_plan.py, core.py, params.py,
+|   |   |                         #   bucketfill.py, functions.py, liability.py, state.py
+|   |   +-- settings/             # plan_settings.py - EVERY per-plan decision, one place
+|   |   |                         #   + plans_40.txt (current) and plans_38.txt (old 37-plan set)
+|   |   +-- reference/            # run_plan_original.py - older verified lineage, never run
 |   |   +-- validation/           # compare_r_python.py, compare_fast_vs_orig.py
-|   |   +-- config/               # plans_40.txt (current) + plans_38.txt (reproduces the old 37-plan set)
 |   |   +-- README.md             # what every file here is - read this first
-|   |   +-- run_simulation.py, asset_simulation.py, bucketfill/functions/liability_cf_model.py, g.py
-|   |   +-- Main_PensionModel_original.py   # reference lineage, never run
+|   |   +-- run_simulation.py, asset_simulation.py
 |   |   +-- scenarios.py, scenario_launcher.ipynb    # scenario layer, built and parked
 |   +-- R/                        # Verified reference implementation
 |       +-- cluster_code_2022/    # 38 plan scripts (paths updated for new tree)
@@ -87,7 +89,8 @@ State and Local Pension/          <- PROJECT ROOT
 |   +-- Returns/                  # asset-class series (monthly_series, monthly_matrix incl. correlation_matrix.RData, bostonfed)
 |   +-- Sources/                  # brookings_package (replication data), airtable_export, collection_templates
 +-- Results/
-|   +-- Runs/20260610_1/              # canonical run (Python fast outputs, 37 plans) + scenario run folders
+|   +-- Runs/                     # one folder per run, tagged YYYYMMDD_N; README.md says what each is
+|   |                             #   CURRENT: 20260730_3 (40 plans)
 |   +-- R Code/  Output/          # legacy post-processing + old outputs
 +-- Documentation/                # this file + working_context, session_handoff, city/provenance narrative docs,
 |   |                             #   guidebook copy, variable_glossary, media/ (incl. recorded code-walkthrough call)
@@ -112,21 +115,21 @@ The former empty `State Pension Model/` root tombstone is gone; the pre-reorg SP
 **Provenance catalogue (2026-06-11):** what each input IS and where every piece comes from is catalogued in `Documentation/model_input_dictionary.md` (schema: input → source channel → fallback chain → constants) and `Documentation/provenance/provenance_register.csv` (instance: 804 rows, plan × element, both tracks, with specificity/evidence/confidence; regenerate via `Documentation/provenance/provenance_scan.py`). Source-document landscape: `Documentation/data_sources_map.md`. Notable engine facts recorded there: the `wagegrowth` and `disability` workbook sheets are never read (wage growth comes from a PPD scalar fallback chain; disability is a constant), and 33 plan-sheets contain plan-specific data that `availableData=False` causes the engine to ignore (verify layout before flipping flags).
 
 ### Plan-Level Data (Common_Data/)
-- **Public Plans Database (PPD):** `ppd-data-latest_072026.xlsx` Ã¢â‚¬â€ comprehensive annual data on ~200 U.S. S&L plans, covering assets, liabilities, demographics, contribution rates, and benefit parameters. The model uses only the 40 selected plans.
-- **Tier Parameter File:** `planchanges_main.xlsx` Ã¢â‚¬â€ hand-curated benefit parameters for up to 6 tiers per plan (benefit factors, COLA, vesting, retirement ages, salary averaging rules).
-- **Default Assumptions:** `default_assumptions.xlsx` Ã¢â‚¬â€ actuarial tables used when plan-specific data is unavailable (mortality, separation, retirement, wage growth, etc.).
+- **Public Plans Database (PPD):** `ppd-data-latest_072026.xlsx` — comprehensive annual data on ~200 U.S. S&L plans, covering assets, liabilities, demographics, contribution rates, and benefit parameters. The model uses only the 40 selected plans.
+- **Tier Parameter File:** `planchanges_main.xlsx` — hand-curated benefit parameters for up to 6 tiers per plan (benefit factors, COLA, vesting, retirement ages, salary averaging rules).
+- **Default Assumptions:** `default_assumptions.xlsx` — actuarial tables used when plan-specific data is unavailable (mortality, separation, retirement, wage growth, etc.).
 
 ### Plan-Specific Data ([PLAN]/[PLAN]_2017.xlsx)
 Each Excel file has up to 9 sheets:
-1. **ageservice** Ã¢â‚¬â€ Age Ãƒâ€” service bucketed matrix of active employee counts
-2. **retdist** Ã¢â‚¬â€ Age distribution of current retirees
-3. **wagerel** Ã¢â‚¬â€ Relative wage by age and service (salary relativities)
-4. **mortality** Ã¢â‚¬â€ Mortality rates by age (and sometimes gender)
-5. **wagegrowth** Ã¢â‚¬â€ Wage growth assumptions
-6. **withdrawal** Ã¢â‚¬â€ Separation/turnover rates by age and service
-7. **retirement** Ã¢â‚¬â€ Retirement propensity rates by age and service
-8. **refund** Ã¢â‚¬â€ Refund rates upon separation
-9. **disability** Ã¢â‚¬â€ Disability benefit rates (rarely available; code uses a default rate)
+1. **ageservice** — Age Ãƒâ€” service bucketed matrix of active employee counts
+2. **retdist** — Age distribution of current retirees
+3. **wagerel** — Relative wage by age and service (salary relativities)
+4. **mortality** — Mortality rates by age (and sometimes gender)
+5. **wagegrowth** — Wage growth assumptions
+6. **withdrawal** — Separation/turnover rates by age and service
+7. **retirement** — Retirement propensity rates by age and service
+8. **refund** — Refund rates upon separation
+9. **disability** — Disability benefit rates (rarely available; code uses a default rate)
 
 Data availability varies by plan. Each script has an `availableData` vector (9 booleans) flagging which sheets are populated. When `availableData[i] = FALSE`, the corresponding sheet from `default_assumptions.xlsx` is used.
 
@@ -198,7 +201,7 @@ Liabilities evolve deterministically year-by-year:
 - If assets hit zero, they stay at zero (no bailout assumption).
 
 ### 4.4 Multi-Tier Handling
-Most plans have 2Ã¢â‚¬â€œ6 tiers reflecting legislative changes in benefit generosity over time. Each tier has its own:
+Most plans have 2—œ6 tiers reflecting legislative changes in benefit generosity over time. Each tier has its own:
 - Benefit factor, COLA, vesting period, normal retirement age, early retirement age, salary-averaging window, and benefit cap.
 - Service years since tier start are computed from `tier_service = round(difftime(plan_start, tier_startdate, unit="weeks")/52.25)`.
 - The active employee matrix is partitioned across tiers; each tier runs through `Main_Current()` independently; results are summed.
@@ -287,15 +290,16 @@ context:
 
 A Python translation track exists under `Cluster Code/cluster_062026/Python Code/`. The deterministic A/L functions were translated line-by-line from R. As of the 2026-06-08 buildout, Python can run both the deterministic A/L stage and the 2-asset stochastic simulation end-to-end for the standard 37 plans (MA50 excluded), writing `.pkl` detAL outputs and `.pkl`/`.parquet` asset outputs rather than R `.RData` files. **As of 2026-06-10, the Python `fast/` package is the production engine**: it was verified bit-identical to the original Python translation (which was itself verified against R at floating-point precision), then optimized to ~10× the original Python speed (full 37-plan detal+asset batch in ~8 minutes locally at 19-way parallelism), and the canonical `Results/Runs/20260610_1/` outputs were regenerated with it at num_sim=10000. The R code remains in place as the verified reference implementation but no longer has canonical outputs. All 37 standard plans (MA50 excluded) have been verified against R outputs as of 2026-06-09. All simulation matrices (tier AAL, aggregate AAL, cash flows, NormalCost) agree at floating-point precision (max_rel ~1e-15) across both the deterministic A/L stage and the liability components of the asset stage. Cosmetic metadata mismatches (`run_tag` for all plans; `Percent_difference` for 17 plans due to sign/denominator convention difference between R and Python) are not simulation bugs. LA130 and LA163 have Python asset outputs but no R asset simulation counterpart.
 
-**Files (`Cluster Code/cluster_062026/Python Code/`):**
-- `g.py` — shared global state module (R global environment → Python module-level variables). **Legacy**: used only by the original Python scripts (`Main_PensionModel.py`, `liability_cf_model.py`, etc.); the `fast/` package replaces it with `PlanParams`. Keep until `fast/` fully supersedes the original.
-- `bucketfill_cf_model.py` — Python translation of `Common_Code/bucketfill_cf_model.R`
-- `functions_cf_model.py` — Python translation of `Common_Code/functions_cf_model.R`
-- `liability_cf_model.py` — Python translation of `Common_Code/liability_cf_model.R`
-- `Main_PensionModel.py` — generic Python deterministic A/L runner for 37 standard plans (MA50 excluded). Call: `python "Python Code/Main_PensionModel.py" <PLAN_ID>`
+**Files (`Code/python/`, paths as of the 2026-07-30 restructure):**
+- `engine/state.py` (imported as `g`) — shared global state module (R global environment → Python module-level variables). **Legacy**: used only by the reference lineage (`reference/run_plan_original.py`, `engine/liability.py`); the fast engine replaces it with `PlanParams`.
+- `engine/bucketfill.py` — Python translation of `Common_Code/bucketfill_cf_model.R`
+- `engine/functions.py` — Python translation of `Common_Code/functions_cf_model.R`
+- `engine/liability.py` — Python translation of `Common_Code/liability_cf_model.R`
+- `engine/run_plan.py` — **the production engine**: deterministic A/L runner for one plan. Call: `python engine/run_plan.py <PLAN_ID>`. Reads its per-plan decisions from `settings/plan_settings.py`.
 - `asset_simulation.py` — Python 2-asset asset simulation with **common market shocks** (2026-06-10): all plans share one standardized shock matrix `Z` from a single market seed (`--seed`); plan p's stock return is `(0.075 + Inflation_p) + 0.20*Z[t,n]`, so simulation column n is the same market history for every plan and aggregate cross-plan distributions are meaningful. Per-plan marginals are unchanged; this intentionally differs from the R script (independent per-plan draws). The Monte Carlo loop is vectorized across simulations (~4s/plan at num_sim=10000). Payloads store `market_seed` and `common_market_shocks`. Loads Python detAL `.pkl` outputs, writes `.pkl` asset outputs and parquet bundles. `run_tag` is the output label; `plan_year` is model data selection only.
-- `run_simulation.py` — launcher/orchestrator: plan selection, detal/asset/both stage, `--parallel` ceiling (single `ThreadPoolExecutor` pool, not rigid batches), `--fast` flag (uses `fast/Main_PensionModel.py`), `--workers` (PVNC thread-pool, fast only), `--discount-override` pass-through, dry-run, skip-existing. Does not implement model equations.
+- `run_simulation.py` — launcher/orchestrator: plan selection, detal/asset/both stage, `--parallel` ceiling (single `ThreadPoolExecutor` pool, not rigid batches), `--fast` flag (uses `engine/run_plan.py`), `--workers` (PVNC thread-pool, fast only), `--discount-override` pass-through, dry-run, skip-existing. Does not implement model equations.
 - `scenarios.py` — scenario layer (2026-06-10): `Scenario` dataclass whose defaults reproduce the baseline; levers for contribution policy (`contrib_add` pp of payroll, `policy_start`, `contrib_always`), investment strategy (`equity_share`, `derisk_to`/`derisk_years` glidepath), return assumptions (`stock_premium`, `stock_vol`), liability valuation (`discount_override`), and benefit rules (`tier_file`). Grid helpers (`contribution_grid`, `equity_grid`), `preview`, `launch(dry_run=...)`, `inventory`, `compare_exhaustion`. Asset-only scenarios read baseline detAL inputs via `--detal-run-tag` and write under their own run tag; all scenarios share market seed 123 by default for path-by-path comparability. Scenario provenance is stored in output pkls (`scenario`) and `_manifest.csv`.
+- `settings/plan_settings.py` — **every per-plan decision in one place** (added 2026-07-30): the nine-sheet availability matrix, contribution-rate exceptions, the disability switch, source-data overrides, workbook read quirks. Each entry carries its reason inline.
 - `scenario_launcher.ipynb` — notebook control panel over `scenarios.py`: define scenarios declaratively, preview exact commands, launch (dry-run by default), inventory outputs, quick cross-scenario exhaustion comparison. Preferred way to run sensitivities/scenarios instead of the terminal.
 - `sim_commands.html` — browser-based command reference for all local and Engaging run variants. Includes `--fast` and `--workers` parameter documentation.
 
@@ -378,7 +382,7 @@ touched.
 
 - **Disability data:** Sheet 9 is almost never populated (`availableData[9] = F`). The model uses a fixed `DisabilityPayoutRate = 0.025` (2.5% of payroll) as default; some plans compute it from actual data (e.g., MA50: ratio of disability payroll to total payroll).
 - **Retirement and refund rates:** Sheets 7 and 8 are often missing (`availableData[7:8] = F`). The code falls back to `default_assumptions.xlsx`.
-- **Withdrawal data (IL32):** `availableData[6] = F` for Illinois plans Ã¢â‚¬â€ no plan-specific separation rates.
+- **Withdrawal data (IL32):** `availableData[6] = F` for Illinois plans — no plan-specific separation rates.
 - **Inactive member scaling:** Some plans (e.g., MA50) scale the inactive member matrix differently: `inactive * planinfo$InactiveVestedMembers` rather than `PPD$inactive`.
 - **Discount rate source varies:** Most plans use `PPD$discount`; some (e.g., MA50) use `planinfo$InvestmentReturnAssumption_GASB` directly.
 - **PA93** has a special `PA93_OneTier_PensionModel.R` variant.
@@ -390,5 +394,5 @@ touched.
 
 ## 8. External References
 
-- **Lenney et al. (2021):** Brookings paper Ã¢â‚¬â€ source of the 40-plan selection and a data reference, files in `Brookings_Data/`. Methodologically it is **the paper this project critiques**: its sustainability analysis reasons in means/deterministic terms, and this project's thesis is that pension sustainability must be assessed through stochastic outcome distributions (exhaustion probabilities, tail risk, distribution fans). Where the analysis notebook reproduces Lenney-style figures/tables, the intent is to redo them "the correct way" — distributionally — not to emulate their framing.
+- **Lenney et al. (2021):** Brookings paper — source of the 40-plan selection and a data reference, files in `Brookings_Data/`. Methodologically it is **the paper this project critiques**: its sustainability analysis reasons in means/deterministic terms, and this project's thesis is that pension sustainability must be assessed through stochastic outcome distributions (exhaustion probabilities, tail risk, distribution fans). Where the analysis notebook reproduces Lenney-style figures/tables, the intent is to redo them "the correct way" — distributionally — not to emulate their framing.
 - **PPD (Public Plans Database):** Maintained by Boston College Center for Retirement Research. Annual data on ~200 U.S. public pension plans.

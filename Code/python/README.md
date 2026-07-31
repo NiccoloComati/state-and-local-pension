@@ -1,43 +1,74 @@
 # Code/python — what each file is
 
 The simulation engine. Analysis of the results lives in `Analysis/` at the project
-root, and shares no code with anything here.
+root and shares no code with anything here.
 
-## The live path — every run touches these
+Four folders, and the split is meant to be readable from the names alone:
+`engine/` is the model, `settings/` is every decision that applies to one plan
+rather than all of them, `reference/` is the older implementation kept for
+verification, `validation/` is the scripts that do the comparing.
+
+## `engine/` — the model
 
 | File | Role |
 |---|---|
-| `run_simulation.py` | The orchestrator you call. Plan selection, parallelism, run tags, stage control. Launches the files below as subprocesses; contains no model equations. |
-| `fast/Main_PensionModel.py` | **The production engine.** Deterministic liability and cash-flow projection for one plan. |
-| `fast/core.py` | Vectorised simulation functions. |
-| `fast/sim_params.py` | `PlanParams`, the per-plan parameter object. |
-| `bucketfill_cf_model.py` | `LinearFill` / `ConstantFill` — spreading bucketed data over single ages and service years. |
-| `functions_cf_model.py` | Shared helpers: fallback chains, workforce updates, benefit calculations. |
-| `g.py` | Module-level global state. **Not optional** — `bucketfill_cf_model` and `functions_cf_model` reference it heavily, so the fast engine pulls it in. |
-| `asset_simulation.py` | The stochastic stage. One shared market shock matrix across all plans. |
-| `config/plans_40.txt` | The plan list used by `--plans all`. |
-| `config/plans_38.txt` | Kept so the earlier 37-plan selection can be reproduced. |
+| `run_plan.py` | **The production engine.** Deterministic liability and cash-flow projection for one plan: reads that plan's workbook, builds its population and benefit structure, projects 35 years. |
+| `core.py` | The vectorised year-by-year simulation functions `run_plan.py` calls. |
+| `params.py` | `PlanParams`, the per-plan parameter object handed to `core.py`. |
+| `bucketfill.py` | `LinearFill` / `ConstantFill` — expanding data published in age and service BANDS into a full single-age × single-service-year matrix. **`LinearFill` was corrected 2026-07-30**; the inherited version is kept alongside as `LinearFill_incorrect` because `Code/R/cluster_code_2022/` still calls it. |
+| `functions.py` | Shared helpers: the PPD fallback chains, workforce updates, benefit calculations. |
+| `liability.py` | Liability functions used by the reference lineage, imported lazily from `functions.py`. |
+| `state.py` | Module-level global state. **Not optional** — `bucketfill.py` and `functions.py` reference it heavily. Imported as `g` throughout, which is what it was called before. |
 
-## Reference lineage — never run
+`asset_simulation.py` (one level up) is the stochastic stage: it takes the
+deterministic cash flows and simulates asset returns, with **one shared market
+shock matrix across all plans** so cross-plan aggregate distributions mean
+something.
 
-| File | Why it is here |
-|---|---|
-| `Main_PensionModel_original.py` | The pre-optimisation runner. `fast/` was verified bit-identical against it, and it was verified against R. Renamed from `Main_PensionModel.py` on 2026-07-30 because sharing a filename with the engine was confusing. Still reachable via `run_simulation.py` without `--fast`. |
-| `liability_cf_model.py` | Liability functions used by that original lineage, imported lazily inside `functions_cf_model`. |
+## `settings/` — every per-plan decision, in one place
 
-## Checking a change did not break anything
+`plan_settings.py` holds all six of them, each entry carrying its reason inline:
 
-`validation/compare_fast_vs_orig.py` and `validation/compare_r_python.py` compare
-saved outputs between implementations. The standing bar for any engine change is
-bit-identity: rerun one plan under a scratch run tag and compare every array
-against the previous run; the maximum difference must be 0.0.
+1. `AVAILABLE_DATA` — nine booleans per plan choosing, sheet by sheet, between the
+   plan's own workbook data and the shared `default_assumptions.xlsx`.
+2. `CONTRIB_RATE_NA_CHECK` — plans whose PPD contribution rate comes out missing.
+3. `CONTRIB_RATE_MODEL_PAYROLL` — plans measured against the model's own payroll
+   rather than PPD covered payroll. FL26 only, on documentary evidence.
+4. `APPLY_DISABILITY_TERM` — the per-plan disability switch. All `True`.
+5. `SALARY_OVERRIDE` — published values we replace, keyed by (plan, fiscal year).
+   MI53's 2022 average salary only.
+6. `RETDIST_SKIPROWS` — workbook read quirks.
+
+These used to be scattered through the engine file, two of them buried mid-way
+through executable code. **If you are adding a plan-specific rule, it goes here.**
+
+`plans_40.txt` is the plan list behind `--plans all`; `plans_38.txt` is kept so the
+earlier 37-plan selection can be reproduced.
+
+## `reference/` — never run in production
+
+`run_plan_original.py` is the pre-optimisation runner. The fast engine was verified
+bit-identical against it, and it was verified against the R implementation. Still
+reachable through `run_simulation.py` without `--fast`.
+
+## `validation/` — checking a change did not break anything
+
+`compare_fast_vs_orig.py` and `compare_r_python.py` compare saved outputs between
+implementations.
+
+**The standing bar for any engine change is bit-identity:** rerun one plan under a
+scratch run tag and compare every array against the previous run; the maximum
+difference must be 0.0. This applies to pure relocations too, and not as a
+formality — moving files one level deeper on 2026-07-30 silently shifted MA51's
+liability by 0.7% through a hardcoded relative path that returned NaN when it
+failed, with no error raised anywhere.
 
 ## The scenario layer — built, parked
 
 `scenarios.py` defines scenario variants (contribution policy, equity share and
 glidepath, return assumptions, discount rate, benefit rules) and builds the
-corresponding `run_simulation.py` commands. `scenario_scenario_launcher.ipynb` is a notebook control
-panel over it.
+corresponding `run_simulation.py` commands. `scenario_launcher.ipynb` is a notebook
+control panel over it.
 
 **This is not an alternative way to launch a baseline run.** Baseline runs go
 through `run_simulation.py` from the terminal. The launcher is for defining and
@@ -56,4 +87,6 @@ python run_simulation.py --plans all --stage both --fast --num-sim 10000 --run-t
   the run down.
 - `--seed 123` is the canonical market seed. Every plan in a run must share one
   seed or cross-plan aggregates become meaningless.
+- `--disability-rate 0` switches the disability term off for every plan at once,
+  which is the sensitivity lever. It defaults to 0.025.
 - What each existing run contains: `Results/Runs/README.md`.
