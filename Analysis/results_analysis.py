@@ -6,6 +6,7 @@ return pandas tables or matplotlib figures. They do not save plots.
 
 from __future__ import annotations
 
+import os
 import shutil
 import subprocess
 import tempfile
@@ -198,6 +199,51 @@ def find_project_root(start: str | Path | None = None) -> Path:
         ):
             return path
     raise FileNotFoundError("Could not find project root containing Results/ and data folders.")
+
+
+def read_env_file(root: str | Path | None = None) -> dict[str, str]:
+    """Read the untracked `.env` settings file at the project root.
+
+    Plain `NAME=value` lines. Blank lines and lines starting with `#` are
+    ignored, and surrounding quotes on the value are stripped. Returns an empty
+    dictionary if the file does not exist, so nothing here is required.
+
+    `.env` is listed in `.gitignore`, so anything put in it stays on this
+    machine and is never committed. Note it does live inside the OneDrive-synced
+    project folder, so it syncs between your machines like any other file.
+    """
+    try:
+        path = Path(root or find_project_root()) / ".env"
+    except FileNotFoundError:
+        return {}
+    if not path.exists():
+        return {}
+    settings: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        name, _, value = line.partition("=")
+        settings[name.strip()] = value.strip().strip('"').strip("'")
+    return settings
+
+
+def local_setting(name: str, default: str = "", root: str | Path | None = None) -> str:
+    """Look up a machine-local setting such as an API key.
+
+    Checks, in order:
+
+    1. the process environment, so a machine that already exports the variable
+       keeps working exactly as before;
+    2. the `.env` file at the project root, which is gitignored.
+
+    Environment wins, so setting the variable is still a valid way to override
+    the file for one session without editing anything.
+    """
+    from_env = os.environ.get(name, "")
+    if from_env:
+        return from_env
+    return read_env_file(root).get(name, default)
 
 
 def find_rscript() -> Path:

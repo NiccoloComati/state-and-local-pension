@@ -2908,3 +2908,38 @@ notes. No fix was applied.
 
 Verified by executing all 24 code cells against `20260731_1`: no errors.
 
+### Machine-local settings file, and runs made self-describing (2026-07-31)
+
+**A `.env` file at the project root now holds machine-local settings**, read by
+`local_setting()` in `Analysis/results_analysis.py`. The environment is checked
+first, so the desktop's existing exported `FRED_API_KEY` keeps working unchanged;
+`.env` is the fallback and is gitignored, so a key put there never reaches
+GitHub. `.env.example` is committed as documentation of the format. This replaces
+having to set an environment variable and restart the editor on every machine.
+
+**Runs now record the settings that are choices rather than plan data.**
+`PopulationGrowth` and `DisabilityPayoutRate` are saved in the detAL payload and
+echoed to the run log. The disability rate mattered most: it is a command-line
+lever, and it was previously recorded nowhere at all, so the paired sensitivity
+run would have produced two runs that could not be told apart from their own
+outputs. The notebook now reads population growth from the run instead of
+carrying a hand-typed `MODEL_POPULATION_GROWTH = 0.01` that would silently stop
+matching if the engine's value ever changed.
+
+**PENDING — the bit-identity check has NOT been run.** The change adds keys to a
+saved dictionary and hoists one inline expression into a named variable, so it
+should not move a single number, but that is an argument, not evidence, and the
+standing bar for any engine change is a rerun against a previous run with a
+maximum absolute difference of 0.0. Deferred to the desktop at Niccolo's
+instruction because this laptop is slow. **Do this before trusting any run made
+with the current code:**
+
+```powershell
+cd "...\Code\python"
+python run_simulation.py --plans OK134 --stage both --fast --num-sim 10000 --run-tag scratch_bitcheck --parallel 1 --workers 1 --seed 123
+```
+
+then compare every array against `Results/Runs/20260731_1/OK134/`; the maximum
+absolute difference must be exactly 0.0. Move the scratch tag to
+`_ARCHIVE/snapshots/` afterwards.
+

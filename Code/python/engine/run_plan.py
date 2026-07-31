@@ -432,6 +432,16 @@ ret_ben  = _ben_rel   * _s(planinfo, 'BeneficiaryBenefit_avg') * 1000
 RetirementNumber  = LinearFill(ret_num, Slope=-1, retirement=True)
 RetirementBenefit = ConstantFill(ret_ben, retirement=True)
 
+# ---- Settings that are choices rather than plan data ----
+# Hoisted out of the PlanParams call below so the values that actually ran can be
+# saved with the results. Before 2026-07-31 the disability rate was computed
+# inline and never recorded anywhere: not in the saved payload, not in the run
+# log. Two runs differing only in `--disability-rate` were therefore
+# indistinguishable from their outputs, which is exactly the comparison the
+# sensitivity is meant to support.
+apply_disability_term = APPLY_DISABILITY_TERM.get(plan, True)
+DisabilityPayoutRate = args.disability_rate if apply_disability_term else 0.0
+
 # ---- Build base PlanParams ----
 base_params = PlanParams(
     Nyear=Nyear, NMonte=NMonte,
@@ -452,8 +462,7 @@ base_params = PlanParams(
     # sensitivity. Note the term bears no relation to a plan's actual disability
     # population: it ranges from 2.3% to 11.1% of outflow across the 40 plans while
     # actual disability retirees range from 0.4% to 10.4% of beneficiaries, uncorrelated.
-    DisabilityPayoutRate=(args.disability_rate
-                          if APPLY_DISABILITY_TERM.get(plan, True) else 0.0),
+    DisabilityPayoutRate=DisabilityPayoutRate,
     refundReturn=rf,
     pct_mrg=pct_mrg, widow_reduct=wid_red,
     MortAdujst=1.0, pctmale=pctmale,
@@ -529,6 +538,11 @@ Compare_Result = pd.DataFrame({'type': ['EAN'], 'model': [Model_AAL],
 
 print(f"Model AAL : {Model_AAL:,.0f}")
 print(f"CAFR  AAL : {CAFR_AAL:,.0f}")
+# Echo the settings that are choices rather than data, so the log says what ran.
+print(f"Settings  : PopulationGrowth={PopulationGrowth}, "
+      f"DisabilityPayoutRate={DisabilityPayoutRate}"
+      + ("" if apply_disability_term
+         else f" (per-plan switch OFF; --disability-rate was {args.disability_rate})"))
 print(f"Pct diff  : {Percent_difference:.4%}")
 
 # ---- Save (identical structure to the reference runner) ----
@@ -543,6 +557,16 @@ with open(save_path, 'wb') as fh:
         'MainRes': MainRes, 'RetRes': RetRes,
         'Inflation': Inflation, 'rf': rf, 'discountrate': discountrate,
         'discount_override': args.discount_override,
+        # Settings that are model choices, saved so a run describes itself.
+        # These flow onward automatically: the asset stage starts its payload
+        # from this dict, and write_parquet_bundle promotes any scalar into
+        # scalars.parquet, so they reach the analysis layer without further
+        # plumbing. `stock_premium` and `stock_vol` are already recorded inside
+        # `scenario_json` and are not duplicated here.
+        'PopulationGrowth': PopulationGrowth,
+        'DisabilityPayoutRate': DisabilityPayoutRate,
+        'disability_rate_requested': args.disability_rate,
+        'apply_disability_term': apply_disability_term,
         'EmployeeContributionRate': EmployeeContributionRate,
         'EmployerContributionRate': EmployerContributionRate,
         'planinfo': planinfo,
