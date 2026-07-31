@@ -94,6 +94,20 @@ def check_generic(grid, out, broadcast=None):
                          f"column {lab!r} is {col[0]!r} in all {len(col)} populated "
                          "rows - a ratio of a column by itself looks like this")
 
+    # A derived cell that is still a STRING means the executor never turned the
+    # model's transcription into a number - it silently flowed through mapping
+    # and lands in the model input as text. Round 3: aus_ff and nyc_pol Sep_Rate
+    # shipped '1.0%' / '0.450%' because to_number stripped '$' and ',' but not
+    # '%'. Nothing else caught it: the value checks only look at numerics, so a
+    # grid full of strings looked "clean".
+    strs = sorted({v for row in (grid.get("cells") or []) for v in row
+                   if isinstance(v, str) and v != "*"})
+    if strs:
+        _finding(out, 3, "non-numeric-cell",
+                 f"{len(strs)} distinct non-numeric value(s) left as text in the "
+                 f"derived grid, e.g. {strs[:4]} - these are not usable as model "
+                 "input and were never scaled by values_unit")
+
     if any(v < 0 for v in nums):
         neg = [v for v in nums if v < 0]
         _finding(out, 3, "negative",

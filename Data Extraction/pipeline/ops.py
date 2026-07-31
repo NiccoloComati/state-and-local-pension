@@ -118,16 +118,24 @@ import re as _re
 # a cell the model transcribed with currency/thousands formatting verbatim:
 # '$91,130', '91,130', '$1,234.50', '-5'. NOT labels ('25-29' has an interior
 # '-'), NOT '*' (no digit), NOT dashes.
-_NUMERIC_STR = _re.compile(r"^\$?\s*-?[\d,]+(\.\d+)?\s*$")
+_NUMERIC_STR = _re.compile(r"^\$?\s*-?[\d,]+(\.\d+)?\s*%?\s*$")
 
 
 def to_number(v):
-    """Currency/comma-formatted numeric string -> float; everything else
-    unchanged. AVs print '$91,130' and the model sometimes carries the
-    formatting through; without this the value stays a string, breaks
-    aggregation (treated as non-numeric), and crashes float() in scoring."""
+    """Currency/comma/percent-formatted numeric string -> float; everything
+    else unchanged. AVs print '$91,130' and '1.0%' and the model sometimes
+    carries the formatting through; without this the value stays a string,
+    breaks aggregation (treated as non-numeric), and crashes float() in
+    scoring.
+
+    The '%' SIGN is stripped but NOT divided out: scale is declared per table
+    via values_unit ('percent' -> code divides by 100), and a rate table where
+    only the first row carries a printed '%' must not be scaled differently
+    from its own other rows. aus_ff Sep_Rate, round 3: the source prints
+    '1.0%', '0.5', '0' and the model transcribed the first WITH the sign, so
+    four columns of the derived grid held the string '1.0%' instead of 0.01."""
     if isinstance(v, str) and _NUMERIC_STR.match(v.strip()):
-        return float(v.replace("$", "").replace(",", "").strip())
+        return float(v.replace("$", "").replace(",", "").replace("%", "").strip())
     return v
 
 

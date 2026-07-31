@@ -1,6 +1,6 @@
 # Checking automated pension-data extraction against the source documents
 
-**Your worksheet:** `ra_worklist_round3.csv` (119 rows). Every row is a job for
+**Your worksheet:** `ra_worklist_round3.csv` (101 rows). Every row is a job for
 you. Nothing in it belongs to anyone else.
 
 ---
@@ -76,16 +76,16 @@ All three checks behind these priorities are done WITHOUT any reference
 document — they compare the extraction against itself or against an independent
 membership database — so when one of them complains, something is genuinely off.
 
-- **1-HIGH (35 rows)** — an automated check already disagrees. The `why_flagged`
+- **1-HIGH (20 rows)** — an automated check already disagrees. The `why_flagged`
   column says which: the table's own printed totals do not add up from the cells
   it copied, or the headcount contradicts an independent database, or the output
   audit judges the values implausible (a mortality rate that falls with age, an
   "average salary" of a million dollars). These almost always mean a real
   mistake. Spend your time here.
-- **2-MED (40 rows)** — nobody has ever checked these, including the rows where
+- **2-MED (25 rows)** — nobody has ever checked these, including the rows where
   the software claims **the table is not in the document at all**. Confirm
   against the PDF, and see §6.
-- **3-LOW (44 rows)** — no automated check complained. A spot-check of a few
+- **3-LOW (56 rows)** — no automated check complained. A spot-check of a few
   cells against the printed table is enough.
 
 ## 6. When a row is not simply right or wrong
