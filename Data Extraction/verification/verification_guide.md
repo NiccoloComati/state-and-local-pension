@@ -72,28 +72,27 @@ Every check behind these priorities runs *without* any reference document — it
 - **Image, not text** — the table is a picture, so our software cannot read it. Say so explicitly; this is *not* the same as "not in the document", and we need an exact count because those need different software.
 - **Genuinely not in the document** — the plan does not publish it.
 - **Needs a methodology decision** — e.g. the document gives rates by age only and something must be assumed to fill in years of service, or it is unclear which group of retirees counts. **Do not decide these.** Record the question and move on; they are Niccolo's.
-- **A real error** — record the page and the correct value.
+- **A real error** — say what it is and give the page.
 
 ## What to write
 
-Four columns at the end, all of them short.
+Three columns at the end.
 
-**`Result`** — pick one from the dropdown:
+**`Result`** — pick from the dropdown:
 
 | option | means |
 |---|---|
-| `OK` | matches the PDF |
-| `Wrong numbers` | a digit or cell was misread |
-| `Wrong method` | numbers are right, the calculation applied to them is wrong |
+| `Correct` | matches the PDF |
+| `Wrong numbers` | a value was misread |
+| `Wrong table` | it used the wrong exhibit |
+| `Wrong method` | values right, the calculation applied to them is wrong |
 | `Image` | the table is a picture, so it cannot be read at all |
-| `Not in PDF` | the plan genuinely does not publish this table |
+| `Not in PDF` | the plan genuinely does not publish this |
 | `Question` | needs a methodology decision — record it, don't decide it |
 
-**`Page seen`** — the page and exhibit you actually looked at. Fill this in for **every** row, including the `OK` ones: a verdict nobody can re-check is not usable.
+**`Why`** — one line saying what you saw and where. Name the page and exhibit, even when the answer is `Correct` ("matches Exhibit F.3, p.38"), because a verdict nobody can re-check is not usable. When it's wrong, say how — "every value one column to the right", "these are monthly, not annual", "read 7 and 7 where the page prints 77".
 
-**`Should be`** — for `Wrong numbers` / `Wrong method`, what the PDF actually prints. One example cell is enough if the whole table is shifted the same way; say so in Notes.
-
-**`Notes`** — anything that doesn't fit above. For `Question`, write the question here.
+**`Correct source`** — only when it used the wrong exhibit or claims the data is missing: where the right table actually is (page and exhibit name). Leave blank otherwise.
 
 ## How to work
 
