@@ -908,6 +908,86 @@ remain.
 
 ---
 
+## 2026-07-30 — FL26: cause established from the plan's own valuation report
+
+FL26's covered payroll is 1.60x its active salaries, and its modelled contribution
+rate (13.0%) sits far below its own stated actuarial rate (19.3%). The FY2017 FRS
+valuation report explains why, in its own words.
+
+**Page 6:** the report values *"the defined benefit Florida Retirement System (FRS)
+Pension Plan"*, and its rates *"are then combined with contribution rates from the
+defined contribution FRS Investment Plan to create blended proposed statutory
+employer contribution rates."* So FRS is two plans, and the statutory contribution
+rates are blended across both.
+
+**Page 9, decisive:** *"the payroll on which UAL Cost rates are determined is
+higher, and includes the payroll of D[ROP]"* — and the payroll figure it quotes is
+for *"non-DROP active Pension Plan members"*.
+
+So FRS deliberately sets contribution rates on a **broader payroll base** than the
+Pension Plan's active members: it adds DROP participants (32,150 reported
+separately) and blends with the Investment Plan. Our model represents only the
+Pension Plan's active members, so applying a rate calculated on the wider base to
+the narrower population under-collects — which is exactly the 63% we measured.
+
+**This is documented plan structure, not a data error**, and it is specific to
+FL26 among the 40. It is the one plan where the archived denominator experiment was
+clearly better on the independent metric: its implied rate lands at 20.8% against a
+stated 19.3% (1.5pp off), versus 13.0% under production (6.3pp off), and its
+exhaustion probability moves 0.380 -> 0.240.
+
+**Proposed handling, not yet applied:** measure FL26's contribution rate against the
+model's own payroll, as a documented per-plan exception with this evidence
+attached — the same mechanism the archived experiment applied globally and which
+the evidence rejected globally.
+
+## 2026-07-30 — where the disability double count actually happens, line by line
+
+`core.py` builds each year's outflow as **four** separate terms (lines 605-611):
+
+```
+COutflow = (RN x RB)  +  ref  +  dth  +  dis
+            retirees     refunds  death   disability
+```
+
+**The first counting is inside `RN x RB`.** Those two come from
+`Main_PensionModel.py` lines 455-456:
+
+```
+ret_num = retdist_col_B x beneficiaries_tot          -> RetirementNumber (RN)
+ret_ben = retdist_col_F x BeneficiaryBenefit_avg     -> RetirementBenefit (RB)
+```
+
+`beneficiaries_tot` is **every** beneficiary the plan pays. Verified across the 35
+plans publishing a breakdown: service + disability + survivor retirees sum to
+exactly 1.0000 of it, disability retirees being a median 3.3%. And
+`BeneficiaryBenefit_avg` is the average benefit across that same whole group. So
+`RN x RB` already pays every disability retiree on the books.
+
+**The second counting is the `dis` term**, line 608:
+
+```
+dis = (active payroll) x DisabilityPayoutRate      # 0.025
+```
+
+2.5% of the active payroll, added on top, every year.
+
+**A nuance worth keeping.** The `dis` term may have been intended for a different
+population — members who become disabled *in future*, who never enter `RN` because
+the engine only moves actives into retirement via `RetirementRate`, never into a
+disability stock. On that reading it is a crude stand-in for future disabilitants
+rather than pure duplication.
+
+But in the first projected year it is unambiguously additive on top of an outflow
+that is already right: removing it moves the model from 6.2% above actual to 0.06%
+above. Whatever it was meant to represent, at 2.5% of payroll it is roughly six
+times the size of the gap it could legitimately fill.
+
+**Not changed.** Any fix affects all 40 plans and would lower outflows about 6%
+across the board.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a
