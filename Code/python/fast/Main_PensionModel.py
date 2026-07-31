@@ -97,6 +97,11 @@ def parse_args():
     p.add_argument("--date-run",  default=None)
     p.add_argument("--workers",   type=int, default=None,
                    help="Thread-pool workers for PVNC parallel (default: cpu_count)")
+    p.add_argument("--disability-rate", type=float, default=0.025,
+                   help="Disability payout as a share of active payroll (default 0.025). "
+                        "Set 0 to switch the term off. See the note at DisabilityPayoutRate "
+                        "below: the retiree stream already pays disability retirees, so this "
+                        "term is additive on top of them. Provided as a sensitivity lever.")
     p.add_argument("--discount-override", type=float, default=None,
                    help="Replace the plan's GASB discount rate in AAL/PVNC computations "
                         "(e.g. an AAA yield for market-value liability scenarios)")
@@ -369,6 +374,51 @@ asy_wage    = _pad_rows(asy_wage, 11, f"{plan} wagerel B2:L12")
 asy_wage    = asy_wage * _salary_avg * 1000
 BaseWage_2d = ConstantFill(asy_wage)
 
+# --- per-plan exception, added 2026-07-30 ----------------------------------
+# FL26 (Florida RS) sets its contribution rates on a WIDER payroll than the
+# population this model represents, so applying those rates to our workforce
+# under-collects. Its own FY2017 valuation report says so directly:
+#
+#   p.6  "This report presents the results of our July 1, 2017 actuarial
+#         valuation of the defined benefit Florida Retirement System (FRS)
+#         Pension Plan. ... The Pension Plan-specific rates developed in this
+#         valuation report are then combined with contribution rates from the
+#         defined contribution FRS Investment Plan to create blended proposed
+#         statutory employer contribution rates."
+#
+#   p.9  "the payroll on which UAL Cost rates are determined is higher, and
+#         includes the payroll of DROP"   [quoted against a payroll figure for
+#         "non-DROP active Pension Plan members"]
+#
+# So the rate base spans DROP participants (32,150 reported separately) and is
+# blended with the Investment Plan, a defined-contribution scheme whose members
+# are not in this model at all. Measured effect of applying the published rate to
+# our narrower workforce: FL26 collects 63% of the contributions it actually
+# received, and its implied total rate reads 13.0% against its own stated
+# actuarial rate of 19.3%.
+#
+# Measuring against the model's own payroll instead puts it at 20.8% (1.5pp from
+# stated, against 6.3pp) and moves its exhaustion probability 0.380 -> 0.240.
+#
+# THIS IS DELIBERATELY PER-PLAN. The same change applied to all 40 was tested over
+# two full runs and REJECTED — it helped FL26 and CA10 but hurt MI53, CA111, OR91
+# and NY78, with no net gain on the independent metric. See
+# _ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md.
+# To revert, delete this block.
+CONTRIB_RATE_MODEL_PAYROLL = {'FL26'}
+if plan in CONTRIB_RATE_MODEL_PAYROLL:
+    _mp = float((active * BaseWage_2d).sum())
+    _ee_new = _s(planinfo, 'contrib_EE_regular') * 1000.0 / _mp
+    _er_new = _employer_contrib(planinfo, plan) * 1000.0 / _mp
+    print(f"  NOTE: {plan} contribution rates measured against the model's own payroll "
+          f"({_mp:,.0f}) rather than PPD covered payroll "
+          f"({_s(planinfo, 'payroll') * 1000:,.0f}), because this plan sets its rates on a "
+          f"wider base (DROP + the DC Investment Plan) that this model does not represent. "
+          f"EE {EmployeeContributionRate:.4f}->{_ee_new:.4f}, "
+          f"ER {EmployerContributionRate:.4f}->{_er_new:.4f}")
+    EmployeeContributionRate, EmployerContributionRate = _ee_new, _er_new
+# ---------------------------------------------------------------------------
+
 if plan in CONTRIB_RATE_NA_CHECK:
     if np.isnan(EmployeeContributionRate):
         EmployeeContributionRate = (_s(planinfo, 'contrib_EE_regular') * 1000.0
@@ -467,7 +517,18 @@ base_params = PlanParams(
     annuity_dr=rf,
     EmployeeContributionRate=EmployeeContributionRate,
     EmployerContributionRate=EmployerContributionRate,
-    DisabilityPayoutRate=0.025,
+    # Disability payout, as a share of ACTIVE payroll, added to outflows every year
+    # (core.py `dis` term). Evidence recorded 2026-07-30: the retiree stream already
+    # pays disability retirees — `beneficiaries_tot` provably contains them (service +
+    # disability + survivors sum to exactly 1.0000 of it across the 34 of 35 plans
+    # publishing a breakdown) and `BeneficiaryBenefit_avg` averages over that whole
+    # group. Removing this term moves first-year outflows from 6.2% above what plans
+    # actually paid to 0.06% above.
+    # Kept at 0.025 so behaviour is unchanged; `--disability-rate 0` runs the
+    # sensitivity. Note the term bears no relation to a plan's actual disability
+    # population: it ranges from 2.3% to 11.1% of outflow across the 40 plans while
+    # actual disability retirees range from 0.4% to 10.4% of beneficiaries, uncorrelated.
+    DisabilityPayoutRate=args.disability_rate,
     refundReturn=rf,
     pct_mrg=pct_mrg, widow_reduct=wid_red,
     MortAdujst=1.0, pctmale=pctmale,

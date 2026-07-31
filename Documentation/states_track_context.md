@@ -988,6 +988,63 @@ across the board.
 
 ---
 
+## APPLIED 2026-07-30 — FL26 exception, and disability made a switchable lever
+
+### FL26 contribution rates now measured against the model's own payroll
+
+Applied as a **per-plan exception**, with FRS's own words quoted in the code beside
+it. The same change applied to all 40 was tested and rejected; this one rests on
+documentary evidence specific to FL26.
+
+Effect: EE rate 0.0197 -> 0.0315, ER 0.1103 -> 0.1760. Implied total rate moves from
+13.0% to 20.8% against FL26's own stated actuarial rate of 19.3%. Exhaustion
+probability moves 0.380 -> 0.240 (measured in the archived experiment).
+
+**Verified no spillover:** OK134 rerun is bit-identical to `20260730_3`, max
+absolute difference 0.0 across AAL, cash flows and normal cost.
+
+### Disability: answers to the two open questions
+
+**Does it affect all plans the same way? No — and not in the way you would expect.**
+
+*Is disability inside `beneficiaries_tot` everywhere?* 35 of 40 plans publish the
+breakdown. **34 of those 35 have service + disability + survivors summing to 1.000**
+of `beneficiaries_tot`, so the retiree stream is paying disability retirees.
+**PA93 is the one exception** — its components do not sum to 1, so the argument is
+not established for it. Five plans publish no breakdown at all and cannot be checked
+directly: **FL26, IL32, LA130, NY78, OR91**.
+
+*How big is the term, plan by plan?* It varies by nearly five-fold:
+
+| | Share of first-year outflow |
+|---|---|
+| median | **5.1%** |
+| range | **2.3% (CA144) to 11.1% (DC20)** |
+
+Most affected: DC20 11.1%, TX108 9.0%, RI96 7.9%, CA111 7.9%, IN37 7.1%.
+Least: CA144 2.3%, LA163 3.0%, LA44 3.3%, IL34 3.6%, CA97 3.6%.
+
+**And it bears no relation to a plan's actual disability population.** Disability
+retirees range from 0.4% to 10.4% of beneficiaries, and that is uncorrelated with
+how hard the 2.5% term hits: IN37 has 0.4% disability retirees and a 7.1% outflow
+impact, while CA144 has 10.4% and a 2.3% impact. The term scales with *payroll*, so
+it lands hardest on plans with many actives relative to retirees — an artefact of
+plan maturity, not of disability incidence.
+
+### It is now a lever, not a hardcoded constant
+
+`--disability-rate` on both the engine and `run_simulation.py`, default **0.025** so
+behaviour is unchanged. `--disability-rate 0` switches the term off for a
+sensitivity. No need to edit anything per plan.
+
+Verified on OK134: year-one outflow falls 5.32% with the term off (159.5m -> 151.0m),
+and its liability moves too, since outflows feed the liability calculation.
+
+**Nothing is changed by default.** The double-count evidence is strong but removing
+the term shifts every plan's outflows by 2-11%, so it stays a deliberate choice.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a

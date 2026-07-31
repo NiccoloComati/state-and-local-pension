@@ -144,6 +144,7 @@ def run_stage(
     fast: bool = False,
     workers: int | None = None,
     discount_override: float | None = None,
+    disability_rate: float | None = None,
 ) -> int:
     failures: list[tuple[str, int]] = []
     # Asset stage: ALL plans must share one market seed so simulation column n
@@ -176,6 +177,8 @@ def run_stage(
                 command.extend(["--workers", str(workers)])
             if fast and discount_override is not None:
                 command.extend(["--discount-override", str(discount_override)])
+            if fast and disability_rate is not None:
+                command.extend(["--disability-rate", str(disability_rate)])
             log_path = log_dir / f"python_detal_{plan}_{run_tag}.log"
             tasks.append((f"detal {plan}", command, log_path))
         else:
@@ -238,6 +241,9 @@ def main() -> int:
                         help="Use optimized Main_PensionModel_fast.py for detal stage")
     parser.add_argument("--workers", type=int, default=None,
                         help="PVNC thread-pool workers (fast mode only)")
+    parser.add_argument("--disability-rate", type=float, default=None,
+                        help="Sensitivity lever: disability payout as a share of active "
+                             "payroll (engine default 0.025; pass 0 to switch it off).")
     parser.add_argument("--discount-override", type=float, default=None,
                         help="Forwarded to the fast detal runner: replace the plan GASB discount rate")
     args = parser.parse_args()
@@ -280,6 +286,7 @@ def main() -> int:
             args.overwrite, args.skip_existing_detal, args.skip_existing_asset,
             args.dry_run, fast=args.fast, workers=args.workers,
             discount_override=args.discount_override,
+            disability_rate=args.disability_rate,
         )
         if code != 0:
             return code
