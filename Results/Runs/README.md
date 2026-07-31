@@ -11,18 +11,24 @@ table, not the folder name.
 
 | Run | Date | Plans | PPD file | Engine notes |
 |---|---|---|---|---|
-| `20260610_1` | 2026-06-10 | 37 | fy2023 copy (then named `ppd-data-latest.xlsx`) | Long-standing canonical run. MA50/MA51/MO64 absent. Inherited `LinearFill` — see below. |
-| `20260610_2` | 2026-06-10 | 2 (AZ06, NJ73) | as above | **Scenario run.** Demo for the launcher notebook: employer contribution +2pp of payroll, applied even when overfunded, from year 0. Reuses `20260610_1`'s liabilities, so it is asset-stage only and has no detAL files. |
-| `20260730_2` | 2026-07-30 | 40 | `ppd-data-latest_072026.xlsx` | **First run with the corrected `LinearFill`.** Otherwise identical to `20260730_1` — same plans, same PPD, same seed — so the difference between the two isolates that correction exactly. |
+| `20260610_1` | 2026-06-10 | 37 | fy2023 copy (then named `ppd-data-latest.xlsx`) | Long-standing canonical run. MA50/MA51/MO64 absent. Inherited `LinearFill`. |
+| `20260610_2` | 2026-06-10 | 2 (AZ06, NJ73) | as above | **Scenario run.** Launcher demo: employer contribution +2pp of payroll, applied even when overfunded, from year 0. Reuses `20260610_1`'s liabilities, so asset-stage only, no detAL files. |
 | `20260730_1` | 2026-07-30 | 40 | `ppd-data-latest_072026.xlsx` | First run with all 40 plans. Adds MA50/MA51/MO64, the three input guards, and the July PPD (24 restated fiscal-2022 values). Still the inherited `LinearFill`. |
+| `20260730_2` | 2026-07-30 | 40 | `_072026` | **First run with the corrected `LinearFill`.** Otherwise identical to `20260730_1`, so the pair isolates that correction exactly. |
+| **`20260730_3`** | 2026-07-30 | 40 | `_072026` | **THE CURRENT RUN.** Adds MI53's corrected 2022 salary and MA51's employer rate set to zero. This is the one to analyse. |
+| `20260730_4` | 2026-07-30 | 40 | `_072026` | **Rejected experiment**, kept for the record. Identical to `20260730_3` except contribution rates measured against the model's own payroll. Tested and not adopted — see `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`. |
 
 ## Two things to know before comparing runs
 
-**Every run above EXCEPT `20260730_2` uses the defective `LinearFill`.** The within-band weight
+**`20260610_1`, `20260610_2` and `20260730_1` use the defective `LinearFill`.** `20260730_2`, `_3` and `_4` carry the correction. The within-band weight
 inherited from the R implementation produced negative retiree headcounts for 3 of
 40 plans, catastrophically for OK134. Corrected 2026-07-30 — see
-`Documentation/states_track_context.md`. **OK134's numbers are unusable in every run except `20260730_2`**, and LA163 and
-SC99 are mildly affected in those runs.
+`Documentation/states_track_context.md`. **OK134's numbers are unusable in the three runs that predate the correction**, and
+LA163 and SC99 are mildly affected there.
+
+**No run yet reflects the current code.** Since `20260730_3` the only behavioural
+change is FL26's contribution-rate exception; everything else has been verified
+bit-identical. So a fresh run would differ from `20260730_3` **for FL26 only**.
 
 Measured effect of the correction, `20260730_1` -> `20260730_2` (identical apart
 from it): one plan moved more than 1% (OK134, +5.9%), 33 moved more than 0.1%,

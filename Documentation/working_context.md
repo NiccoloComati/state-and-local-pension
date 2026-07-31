@@ -2805,3 +2805,45 @@ versus the reference lineage, and the standing run command with why each flag is
 what it is. It also records that `scenario_launcher.ipynb` is **not** an alternative way to
 launch a baseline run: it drives the parked scenario layer. Baselines go through
 `run_simulation.py` from the terminal, which is what we have been doing correctly.
+
+## 2026-07-30 SESSION END — states track: inputs settled, analysis not started
+
+35 commits. Full evidence trail in `Documentation/states_track_context.md`; its top
+section is the state of play and the next step. Short form:
+
+**Coverage** went from 37 plans to **40** (MA50, MA51, MO64 admitted).
+
+**Engine corrections.** `LinearFill`'s within-band weight was wrong in three ways
+and produced negative retiree headcounts for three plans, catastrophically for
+OK134 — corrected, with the inherited version kept as `LinearFill_incorrect` and
+still used by the frozen R lineage. MI53's published 2022 average salary (5.32
+against a true 54.32) overridden. MA51's employer rate set to zero, consistent with
+excluding state appropriations everywhere. FL26 given a contribution-rate exception
+on documentary evidence from its own valuation report.
+
+**Data.** PPD refreshed to the July 2026 download; base year stays 2022. Files now
+carry their vintage in the name.
+
+**A double count established but left in place.** The flat 2.5%-of-payroll
+disability term is additive on top of retirees already being paid — removing it
+moves first-year outflows from 6.5% above actual to 0.6% above. Left ON because
+turning it off means no member ever becomes disabled across 35 years. Switchable per
+plan or globally.
+
+**An experiment run and rejected.** Measuring contribution rates against the model's
+own payroll: two full 40-plan runs, no net gain on the independent metric. Archived
+with its outcome recorded so it is not reopened.
+
+**Structure.** `Code/python/` reorganised — `engine/` is the model, `settings/` holds
+every per-plan decision, `reference/` the older verified lineage. Analysis moved to a
+top-level `Analysis/`. Run folders renamed to `YYYYMMDD_N` with an index at
+`Results/Runs/README.md`.
+
+**The bug worth remembering.** The restructure shifted MA51's liability 0.7% with no
+error raised, through a hardcoded relative path that returned NaN when it failed.
+Found only by bit-identity against a previous run.
+
+**Runs:** `20260730_3` is current. `20260730_4` is the rejected experiment.
+
+**Not started:** the analysis. Held deliberately until the inputs were trustworthy.
+

@@ -269,26 +269,51 @@ in your new memory directory** (the old one was keyed to the dissolved
   `_ARCHIVE/superseded_2026-07-30/`, along with the stale `engaging/` Slurm
   scripts and `sim_commands.html`.
 
-## STATES track / working paper (opened 2026-07-29, separate chat)
+## STATES track / working paper — ACTIVE, and where a new session should start
 
-Scoped to the 40 state plans and driving them to a working paper; the municipal
-extraction pipeline is deliberately out of scope there. Two things to carry:
+**Read `Documentation/states_track_context.md` first, its top section.** That file
+is the track's living context: state of play, decisions taken, an assumption and
+limitation register, and a dated evidence trail. Everything below is the short form.
 
-- **There is no single base year.** The canonical run is FY2017 shapes scaled by
-  FY2022 PPD totals. Full decomposition in `project_context.md` §3.1, the
-  input-by-input vintage table in `model_input_dictionary.md`, and the
-  PPD-refresh assessment in `working_context.md` (2026-07-29). Do not repeat the
-  old "base year 2017" claim — it was wrong and has been corrected.
-- **Two investigation priorities, both aimed at inclusion rather than
-  exclusion:** getting MA50/MA51/MO64 into the modeled set (MO64 has no visible
-  data obstacle at all), and diagnosing the 13 plans whose modeled AAL is more
-  than 10% off the reported AAL (OK134 worst at +134.5%).
+**Status 2026-07-30.** Inputs are settled; analysis has not started. The model runs
+all 40 plans. The current results run is `20260730_3`. The immediate next step is a
+fresh run (to pick up FL26's exception, the only behavioural change since) and then
+the analysis in `Analysis/results.ipynb`.
 
-Working-style note from that session: do not frame the Brookings-provided data
-as a limitation or caveat — it is good data they published on, and re-verifying
-it is optional future work, not a standing disclaimer. And do not run ahead into
-results interpretation, figure selection, or what the paper argues; those get
-worked out with Niccolo, not proposed unilaterally.
+**Things that will bite if you do not know them:**
+
+- **There is no single base year.** FY2017 demographic shapes scaled by FY2022 PPD
+  totals. `project_context.md` §3.1 has the full decomposition. The old "base year
+  2017" claim was wrong and is corrected.
+- **`LinearFill` was corrected this session** and the inherited version is kept as
+  `LinearFill_incorrect`, still called by `Code/R/cluster_code_2022/`. Runs before
+  `20260730_2` carry the defective version; OK134 is unusable in those.
+- **Per-plan decisions live in `Code/python/settings/plan_settings.py`**, nowhere
+  else. Six sections, each entry carrying its reason.
+- **Moving engine code can change results without changing logic.** A relative path
+  in `functions.py` broke silently when the file moved one level deeper and shifted
+  MA51's liability 0.7% with no error. **Always follow a move with a bit-identity
+  check against a previous run**, never a code review alone.
+- **Run tags are `YYYYMMDD_N`.** Names identify, they do not describe; what a run IS
+  lives in `Results/Runs/README.md`. The runner refuses to overwrite an existing run
+  and mints the next free tag if `--run-tag` is omitted.
+
+**Working style, learned the hard way this session:**
+
+- **Do not state findings with more confidence than the evidence carries.** Several
+  claims this session were asserted and then reversed — MI53 was diagnosed three
+  times before the right answer. State the evidence and the confidence level, then
+  let Niccolo decide.
+- **A keyword search finding nothing is not evidence of absence.** It produced an
+  overstated claim about four plan folders that a systematic scan cut to two.
+- **The inherited Brookings data is good data**, not a caveat to attach to results.
+- **Exclusions are open diagnoses**, not settled facts, and the goal is inclusion.
+- **Analysis, figures, and what the paper argues are decided with Niccolo**, not
+  proposed unilaterally. Verify code and data facts freely; stop before
+  interpretation.
+- Niccolo wants a plan before big changes, then autonomous execution. He reads the
+  documentation, so it must be legible without the code open: say what a thing IS
+  before saying what is wrong with it, and avoid bare variable names.
 
 ## State of the two open work streams (details in working_context)
 

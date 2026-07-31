@@ -8,6 +8,68 @@ framing are decided with Niccolo and are not recorded here in advance.
 Written to be read without the code open: each item says what the input is and
 what it drives before saying what is wrong with it.
 
+## WHERE THIS STANDS — read this first (2026-07-30, end of session)
+
+**The inputs are settled.** Everything below in this file is the evidence trail. If
+you are picking this up cold, read this section, then `## Decisions taken`, then the
+`## Assumption and limitation register`. The dated sections are the working record
+and can be read on demand.
+
+### The state in one paragraph
+
+The model runs all **40** state plans (was 37). The engine has been corrected in
+several places, the per-plan decisions are consolidated in
+`Code/python/settings/plan_settings.py`, and `Code/python/` was restructured so
+`engine/` is the model and `reference/` is the older verified lineage. The current
+results run is **`20260730_3`**. Analysis has **not** started — that was the next
+thing, deliberately held until the inputs were trustworthy.
+
+### What changed this session, in order
+
+1. **Three plans admitted** — MA50, MA51, MO64 — taking coverage from 37 to 40.
+2. **PPD refreshed** to the July 2026 download, files renamed `ppd-data-latest_2023.xlsx` (older) and `ppd-data-latest_072026.xlsx` (current). Base year stays **2022**.
+3. **`LinearFill` corrected.** The inherited within-band weight mixed units, made the tilt depend on plan size, and could divide by ~zero — it produced negative retiree headcounts for 3 plans and cells of ±200,000 people for OK134. Replaced with a weight normalised around 1 whose tilt is derived per band from the neighbouring bands. The old version is kept as `LinearFill_incorrect`, which `Code/R/cluster_code_2022/` still calls so that lineage reproduces its original results.
+4. **MI53's 2022 average salary** corrected (published 5.32, should be 54.32) — its liability gap moved from -30.5% to -11.9%.
+5. **MA51's employer rate set to zero**, consistently with excluding state appropriations everywhere.
+6. **FL26 contribution-rate exception** applied, on documentary evidence from its own valuation report.
+7. **Disability double-count established** and made switchable, but **left ON**.
+8. **Code restructured**, which exposed a silent path bug that had changed MA51's liability by 0.7% with no error.
+
+### Runs on disk
+
+`20260610_1` (37 plans, old engine) · `20260610_2` (scenario demo) ·
+`20260730_1` (40 plans, pre-correction) · `20260730_2` (LinearFill corrected) ·
+**`20260730_3` — current** · `20260730_4` (rejected experiment).
+What each contains: `Results/Runs/README.md`.
+
+### THE IMMEDIATE NEXT STEP
+
+**A fresh run, then start the analysis.** `20260730_3` predates the FL26 exception,
+which is the only behavioural change since (everything else verified bit-identical).
+So a new run would differ from it **for FL26 only**.
+
+```powershell
+cd "...\Code\python"
+python run_simulation.py --plans all --stage both --fast --num-sim 10000 --run-tag YYYYMMDD_N --parallel 20 --workers 1 --seed 123
+```
+
+Then analysis, which lives in **`Analysis/results.ipynb`** and has not been touched
+this session. It opens on the newest run automatically.
+
+### What is open, in rough priority order
+
+| # | Item | State |
+|---|---|---|
+| 1 | **Analysis has not started.** The paper's exhibits, what it argues, which figures carry the thesis | Deliberately not begun. Niccolo decides this together, not by proposal. |
+| 2 | **The 13 plans whose modelled liability is >10% from reported** | MI53 and OK134 largely explained. The rest unexamined. Note Niccolo does not treat closeness to actuarial figures as a goodness measure. |
+| 3 | **Disability term** — currently ON, evidence says it double-counts for 34 of 40 | One flag flips it: `--disability-rate 0`. Worth running both as a stated sensitivity. |
+| 4 | **11 of the 14 switched-off retirement sheets** unchecked against their valuation reports | Switches stay off; 3 checked, all confirm the structural reason. |
+| 5 | **PA93 and LA130** — the disability evidence does not hold for them | Unexplained. |
+| 6 | **NY78 and ND82** wage relativities average 0.906 and 0.974 rather than 1 | Property of the source workbooks, not our code. Unresolved. |
+| 7 | **Scenario layer** — built, parked, never run at scale | `scenarios.py` + `scenario_launcher.ipynb`. Step 0 is a `--compact` output mode; payloads are 0.5-1 GB each. |
+
+---
+
 ## Decisions taken
 
 - **2026-07-29 — Base year stays 2022.** Adopt the corrected 2022 figures from the
