@@ -855,6 +855,12 @@ two possible sources settles what is actually fixable:
 For 35 of 40 plans the engine builds exactly the payroll implied by headcount and
 average salary.
 
+**SUPERSEDED 2026-08-04 — see the entry "The wage-relativity grids that do not
+average to 1" below.** The count of two was wrong (there are seven), the direction
+was wrong (four plans GAIN payroll, they do not all lose it), and "unambiguously
+fixable" was wrong (for NY78 the workbook is right and the mismatch is a real
+property of the source data). The original text follows for the record.
+
 **What is unambiguously fixable (model side):** two plans lose payroll in the
 engine's own construction — **NY78 at -9.4%** and **ND82 at -2.6%** — because their
 wage-relativity matrix does not average to 1 across the active distribution.
@@ -1245,6 +1251,102 @@ across AAL, cash flows and normal cost.
 **The lesson worth keeping:** moving a file can change results without changing a
 line of logic, and a fallback that returns a quiet default will hide it. Any future
 move of engine code should be followed by a bit-identity check, not a code review.
+
+---
+
+## The wage-relativity grids that do not average to 1 (established 2026-08-04)
+
+**Recorded, deliberately not fixed.** The evidence says the collectors did their job
+and that at least two different things are going on, so a blanket correction would
+paper over both. Nothing here is a to-do; it is written down so it is not
+rediscovered as a surprise and so it appears in any writeup describing how payroll
+is built.
+
+### What the input is, and what "averaging to 1" means
+
+The `wagerel` sheet gives each age × service cell's salary **as a ratio to the
+plan's average salary**. The engine multiplies that ratio by the PPD's
+`ActiveSalary_avg` to get a dollar salary per cell, then builds payroll as the sum
+over cells of headcount × cell salary.
+
+Because it is a ratio to the plan's own average, the **headcount-weighted mean of
+the grid should come out at exactly 1** — otherwise the payroll the engine builds
+does not equal `actives_tot × ActiveSalary_avg`, which is what the PPD says the
+payroll is. This matters because the whole model is built on shapes from the
+workbooks scaled by totals from the PPD; a grid that does not average to 1 lets the
+workbook set part of the *level*, which is supposed to come from the PPD alone.
+
+### Measured across all 40 plans
+
+29 of 40 are within 0.1% of 1. Seven are off by more than 1%, in both directions:
+
+| Plan | Weighted mean | Payroll effect | Direction |
+|---|---|---|---|
+| **NY78** | 0.906 | **−$1.97bn a year** | builds 9.4% too little |
+| ND82 | 0.974 | −$0.02bn | 2.6% too little |
+| OK134 | 0.988 | −$0.004bn | 1.2% too little |
+| GA27 | 1.012 | +$0.03bn | 1.2% too much |
+| ME47 | 1.013 | +$0.03bn | 1.3% too much |
+| **NJ71** | 1.082 | **+$1.00bn a year** | 8.2% too much |
+| **NJ73** | 1.086 | **+$1.13bn a year** | 8.6% too much |
+
+Net across all 40 it is $0.20bn on a $384bn base, so in aggregate it is nothing;
+the two large cases sit in opposite directions and nearly cancel.
+
+**Why it does not wash out within a plan.** Contributions are payroll × rate, so
+they carry the error directly. Retiree benefits — the dominant outflow for a mature
+plan — come from `BeneficiaryBenefit_avg`, not the wage grid, and are unaffected.
+So the error passes almost undiluted into net cash flow. **NJ73 is the riskiest
+plan in the study and is currently credited with 8.6% more contribution income than
+its own headcount and average salary imply.**
+
+*(MI53 appears to be off by 921% on this test. It is not: the engine uses its
+corrected salary of 54.32 while `planinfo` still carries the published 5.32, and
+54.32 / 5.32 = 10.21. A measurement artefact, not a data problem.)*
+
+### Two distinct causes, established from the workbooks themselves
+
+**NY78 — the workbook is right, and the mismatch is real.** Its `wagerel` sheet
+carries the collector's own working block and, at cell M15, the note **"note
+average salaries are only for full time/full-year"**. The relativity is built as
+cell salary ÷ M28, where M28 = 80,951 is the plan's reported overall average. The
+collector also computed, at B29, the headcount-weighted average implied by the
+salary cells: `=SUMPRODUCT(B17:L27, ageservice!B2:L12)` = 73,374.88. And
+**73,374.88 / 80,951 = 0.9064**, exactly the discrepancy measured from the run
+outputs. A whole column of per-age-band differences sits beside it, from +16 at
+ages 20–24 to −19,606 at age 70+, largest where part-time and short-service members
+concentrate. So the salary table covers full-time, full-year employees while the
+headcount table covers every active member. Two source tables, two populations,
+measured and left visible at collection time.
+
+**NJ71 and NJ73 — the workbook is internally consistent, so the gap arises
+downstream.** Their relativity denominators *are* the weighted average:
+`=B32/$B$43` for NJ73 where B43 is itself the SUMPRODUCT, and `=E44/$L$55` for
+NJ71. By construction those grids average to exactly 1.0000 against their own
+headcount weights. CA10, which passes cleanly, is built the same way. So their +8%
+appears **after** the workbook, in the engine's own expansion of the 11 × 11 band
+grids to 55 × 55 — most plausibly because `LinearFill` (headcounts) and
+`ConstantFill` (wages) apply service-limit masking differently, so cells carrying
+headcount in one grid are zeroed in the other and the effective weights shift.
+**That mechanism is a hypothesis, not established.**
+
+**The remaining four are unexplained.** ME47 has 94 SUMPRODUCT cells in a different
+and messier arrangement; ND82's relativity points straight at the `ageservice`
+sheet; OK134 and GA27 carry no self-check at all, GA27's values being hardcoded
+with no formulas.
+
+### Why nothing was changed
+
+Normalising every grid to average 1 would make the engine internally consistent in
+one line. It was rejected because it would treat opposite situations identically:
+for NY78 it would overwrite a documented property of the source data, and for
+NJ71/NJ73 it would hide what may be a defect in our own expansion code. The honest
+position is that the collectors recorded what their sources said, and that at least
+one of the seven cases points at us rather than at them.
+
+**If this is ever picked up**, the order is: establish the `LinearFill` /
+`ConstantFill` masking question first, because it is the one that could be ours and
+could affect more than payroll; only then decide what to do about the rest.
 
 ---
 
