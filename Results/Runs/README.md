@@ -17,7 +17,8 @@ table, not the folder name.
 | `20260730_2` | 2026-07-30 | 40 | `_072026` | **First run with the corrected `LinearFill`.** Otherwise identical to `20260730_1`, so the pair isolates that correction exactly. |
 | `20260730_3` | 2026-07-30 | 40 | `_072026` | Adds MI53's corrected 2022 salary and MA51's employer rate set to zero. Superseded by `20260731_1`, which differs from it for FL26 only. |
 | `20260730_4` | 2026-07-30 | 40 | `_072026` | **Rejected experiment**, kept for the record. Identical to `20260730_3` except contribution rates measured against the model's own payroll. Tested and not adopted — see `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`. |
-| **`20260731_1`** | 2026-07-31 | 40 | `_072026` | **THE CURRENT RUN.** Adds FL26's contribution-rate exception. This is the one to analyse. |
+| `20260731_1` | 2026-07-31 | 40 | `_072026` | Adds FL26's contribution-rate exception. Superseded by `20260804_1`. Last run on the old 35-row horizon. |
+| **`20260804_1`** | 2026-08-04 | 40 | `_072026` | **THE CURRENT RUN.** First run covering **2022–2057** (base year plus 35 full projected years) on both the liability and asset sides, and the first with the normal-cost rate applied by entry age. This is the one to analyse. |
 
 ## A break in comparability: 2026-08-04
 
@@ -30,9 +31,21 @@ end that, so runs produced from then on are not directly comparable to these:
   and then advanced, was restructured so it fills every row instead of leaving the
   last one at zero. Previously liabilities ran to 2055 and assets to 2056.
 - **The normal-cost rate is applied by entry age**, current age minus service,
-  rather than by current age. Measured on OK134: year-0 accrued liability
-  **-1.7%**, normal cost **+51%**, median accrued-liability change across years
-  **-6.0%**. Cash inflows and outflows are untouched.
+  rather than by current age.
+
+**Measured across all 40 plans** (`20260731_1` -> `20260804_1`, rows 0-33 where the
+horizon change cannot reach, so this isolates the normal-cost change):
+
+| | |
+|---|---|
+| Year-0 accrued liability | median **+2.47%**; **36 plans rose, 4 fell**; range -1.9% (LA130) to +11.0% (MA51) |
+| Year-0 normal cost | median **-14.4%**, range -35.5% to +96.4% |
+| Cash inflows and outflows | **bit-identical for all 40 plans**, as they must be |
+
+The single-plan test on OK134 was **not representative** — it showed liability
+-1.7% and normal cost +51%, both against the majority direction. The sign of the
+change depends on how a plan's age-and-service mix sits against the rate schedule,
+so it varies plan by plan.
 
 Years 2022-2055 remain comparable in kind across the break; the two appended years
 are new. `Analysis/results.ipynb` detects which convention a run uses from its data

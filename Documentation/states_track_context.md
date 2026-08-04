@@ -21,8 +21,9 @@ The model runs all **40** state plans (was 37). The engine has been corrected in
 several places, the per-plan decisions are consolidated in
 `Code/python/settings/plan_settings.py`, and `Code/python/` was restructured so
 `engine/` is the model and `reference/` is the older verified lineage. The current
-results run is **`20260731_1`**, produced 2026-07-31 and the first run to reflect
-the current code. Analysis is the live work.
+results run is **`20260804_1`**, the first covering **2022–2057** (base year plus 35
+full projected years) on both sides and the first pricing normal cost by entry age.
+Analysis is the live work.
 
 ### What changed this session, in order
 
