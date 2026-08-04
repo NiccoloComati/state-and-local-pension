@@ -20,6 +20,7 @@ import pickle
 import subprocess
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass, field, fields
 from datetime import datetime
 from pathlib import Path
@@ -190,8 +191,45 @@ def preview(scenarios: list[Scenario]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _plan_list(plans_arg: str) -> list[str]:
+    """Resolve the --plans argument to explicit plan ids."""
+    if plans_arg.strip().lower() != "all":
+        return [p.strip() for p in plans_arg.split(",") if p.strip()]
+    plan_file = SCRIPT_DIR / "settings" / "plans_40.txt"
+    return [ln.strip() for ln in plan_file.read_text().splitlines()
+            if ln.strip() and not ln.startswith("#")]
+
+
+def _split_by_plan(cmd: list[str], plans_arg: str) -> list[tuple[str, list[str]]]:
+    """Turn one all-plans asset command into one command per plan.
+
+    `asset_simulation.py` contains NO parallelism of its own - no pool, no
+    subprocesses - so invoking it once with `--plans all` walks 40 plans
+    sequentially at roughly 30 seconds each, about 21 minutes a scenario. The
+    baseline path does the same work in about 4 minutes because
+    `run_simulation.py` fans the per-plan invocations out across a thread pool.
+    This reproduces that here, which was the only reason scenario runs were
+    five times slower than they needed to be.
+
+    The market seed is passed unchanged to every plan, which is what preserves
+    the common shock matrix - each invocation regenerates the same draws from
+    the same seed. That is exactly how `run_simulation.py` does it, so splitting
+    by plan cannot desynchronise the shocks.
+    """
+    out = []
+    for plan in _plan_list(plans_arg):
+        per = list(cmd)
+        per[per.index("--plans") + 1] = plan
+        out.append((plan, per))
+    return out
+
+
 def launch(scenarios: list[Scenario], dry_run: bool = True, stop_on_error: bool = True) -> pd.DataFrame:
-    """Run scenarios sequentially. dry_run=True (default) only prints commands."""
+    """Run scenarios in order. dry_run=True (default) only prints commands.
+
+    Within a scenario the asset stage is fanned out across `Scenario.parallel`
+    worker slots; the detal stage already parallelises inside run_simulation.py.
+    """
     rows = []
     for s in scenarios:
         for label, cmd in build_commands(s):
@@ -203,20 +241,54 @@ def launch(scenarios: list[Scenario], dry_run: bool = True, stop_on_error: bool 
 
             log_dir = RUNS / s.run_tag / "_logs"
             log_dir.mkdir(parents=True, exist_ok=True)
-            log_path = log_dir / f"launcher_{label.replace(':', '_')}_{datetime.now():%Y%m%d_%H%M%S}.log"
-            print(f"[start] {label} -> {log_path.name}")
+            stamp = f"{datetime.now():%Y%m%d_%H%M%S}"
             t0 = time.perf_counter()
-            with log_path.open("w", encoding="utf-8") as log:
-                proc = subprocess.run(cmd, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, text=True)
+
+            # The detal step is already parallel inside run_simulation.py; the
+            # asset step is not, so fan it out per plan here.
+            if label.endswith(":asset"):
+                tasks = _split_by_plan(cmd, s.plans)
+                print(f"[start] {label}: {len(tasks)} plan(s), max parallel={s.parallel}")
+                failed = []
+                with ThreadPoolExecutor(max_workers=max(1, s.parallel)) as pool:
+                    futures = {}
+                    for plan, per_cmd in tasks:
+                        lp = log_dir / f"launcher_asset_{plan}_{stamp}.log"
+                        futures[pool.submit(_run_logged, per_cmd, lp)] = (plan, lp)
+                    for fut in as_completed(futures):
+                        plan, lp = futures[fut]
+                        code = fut.result()
+                        if code != 0:
+                            failed.append(plan)
+                            print(f"  [FAILED] asset {plan} (exit {code}) -> {lp.name}")
+                elapsed = time.perf_counter() - t0
+                status = "ok" if not failed else f"FAILED ({len(failed)} plan(s): {failed[:5]})"
+                print(f"[done]  {label}: {status}  ({elapsed:.0f}s)")
+                rows.append({"scenario": s.name, "step": label, "status": status,
+                             "elapsed_s": round(elapsed, 1), "log": str(log_dir)})
+                if failed and stop_on_error:
+                    print("[stop]  aborting remaining scenarios (stop_on_error=True)")
+                    return pd.DataFrame(rows)
+                continue
+
+            log_path = log_dir / f"launcher_{label.replace(':', '_')}_{stamp}.log"
+            print(f"[start] {label} -> {log_path.name}")
+            code = _run_logged(cmd, log_path)
             elapsed = time.perf_counter() - t0
-            status = "ok" if proc.returncode == 0 else f"FAILED (exit {proc.returncode})"
+            status = "ok" if code == 0 else f"FAILED (exit {code})"
             print(f"[done]  {label}: {status}  ({elapsed:.0f}s)")
             rows.append({"scenario": s.name, "step": label, "status": status,
                          "elapsed_s": round(elapsed, 1), "log": str(log_path)})
-            if proc.returncode != 0 and stop_on_error:
+            if code != 0 and stop_on_error:
                 print("[stop]  aborting remaining scenarios (stop_on_error=True)")
                 return pd.DataFrame(rows)
     return pd.DataFrame(rows)
+
+
+def _run_logged(cmd: list[str], log_path: Path) -> int:
+    with log_path.open("w", encoding="utf-8") as log:
+        proc = subprocess.run(cmd, cwd=ROOT, stdout=log, stderr=subprocess.STDOUT, text=True)
+    return proc.returncode
 
 
 def inventory(run_tags: list[str] | None = None) -> pd.DataFrame:
