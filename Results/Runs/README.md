@@ -19,6 +19,25 @@ table, not the folder name.
 | `20260730_4` | 2026-07-30 | 40 | `_072026` | **Rejected experiment**, kept for the record. Identical to `20260730_3` except contribution rates measured against the model's own payroll. Tested and not adopted — see `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`. |
 | **`20260731_1`** | 2026-07-31 | 40 | `_072026` | **THE CURRENT RUN.** Adds FL26's contribution-rate exception. This is the one to analyse. |
 
+## A break in comparability: 2026-08-04
+
+**Every run in the table above was produced with a 35-row projection whose
+liability side filled only 34 of those rows.** Two engine changes on 2026-08-04
+end that, so runs produced from then on are not directly comparable to these:
+
+- **The horizon is now the base year plus 35 projected years, 2022-2057**, on both
+  sides. `Nyear` went 35 -> 36 and the liability loop, which evaluated row `t-1`
+  and then advanced, was restructured so it fills every row instead of leaving the
+  last one at zero. Previously liabilities ran to 2055 and assets to 2056.
+- **The normal-cost rate is applied by entry age**, current age minus service,
+  rather than by current age. Measured on OK134: year-0 accrued liability
+  **-1.7%**, normal cost **+51%**, median accrued-liability change across years
+  **-6.0%**. Cash inflows and outflows are untouched.
+
+Years 2022-2055 remain comparable in kind across the break; the two appended years
+are new. `Analysis/results.ipynb` detects which convention a run uses from its data
+and handles both, so older runs still analyse correctly.
+
 ## Two things to know before comparing runs
 
 **`20260610_1`, `20260610_2` and `20260730_1` use the defective `LinearFill`.** `20260730_2`, `_3` and `_4` carry the correction. The within-band weight

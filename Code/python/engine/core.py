@@ -243,6 +243,27 @@ def update_retirement_benefit(RetBen, RetNum, Wage, cola, MortTable,
     return result
 
 
+def _entry_age_rate(NCxs: np.ndarray, n_age: int, n_svc: int) -> np.ndarray:
+    """Spread an entry-age normal-cost schedule onto the (age, service) grid.
+
+    `NCxs` is indexed by ENTRY age: `NCxs[k]` is the level percentage of pay that
+    funds a member hired at age index `k`, computed in `pvnc_calc_fast` as
+    PV(all their benefits) / PV(all their salary).
+
+    A member sitting at age index `i` with service index `j` has service `j + 1`
+    years, so they were hired at age index `i - j`. This returns the (n_age,
+    n_svc) array whose entry `[i, j]` is `NCxs[i - j]`, i.e. the rate fixed when
+    that member was hired rather than the rate for entering at their current age.
+
+    Cells with `j > i` are impossible (more service than age above 20) and are
+    masked out of every consumer, but they are filled with `NCxs[0]` rather than
+    left undefined so the array carries no NaN into an einsum.
+    """
+    entry_idx = np.arange(n_age)[:, None] - np.arange(n_svc)[None, :]
+    np.clip(entry_idx, 0, n_age - 1, out=entry_idx)
+    return NCxs[entry_idx]
+
+
 def compute_annuity(COLA, p: PlanParams) -> np.ndarray:
     """Vectorized inner loop via cumprod: replaces ComputeAnnuity."""
     n         = p.EmployeeEnd - p.EmployeeStart + 1
@@ -585,17 +606,35 @@ def main_current_fast(ActiveNumber, InactiveNumber, BaseWage_0, p: PlanParams,
         BW[:, :, 1:] = 0.0;  IB[:, :, 1:] = 0.0
         RN[:, :, 1:] = 0.0;  RB[:, :, 1:] = 0.0
 
-        for t in range(1, Nyear):
+        # Corrected 2026-08-04, item A1. The loop used to be `range(1, Nyear)`,
+        # which evaluates index t-1 and then advances the state to index t. It
+        # therefore filled rows 0..Nyear-2 and left the FINAL row unwritten at zero
+        # for every plan, even though the state needed to fill it was already
+        # there. The evaluation now runs for every row and only the state advance
+        # is skipped on the last pass. Inherited from R, where the same loop is
+        # written `for (t in 1:(Nyear-1))`; the R side is unchanged for now.
+        for t in range(1, Nyear + 1):
             if PVFB[t-1, :].sum() == 0.0:
                 PVFB[t-1, :] = total_liabilities_current_fast(
                     AN, IN, IB, BW, 80, t, p.discountrate, p)
 
                 PVFS     = PVNC_Values[1] * (1.0 + p.Inflation)**(t - 1)
                 NCxs     = PVNC_Values[0] * (1.0 + p.Inflation)**(t - 1)
-                PVNC_arr[t-1, 0] = float(np.einsum('ij,i,ij->',
-                                                     AN[:, :, t-1], NCxs, PVFS))
-                NC[t-1, 0]       = float(np.einsum('ij,i,ij->',
-                                                     AN[:, :, t-1], NCxs,
+                # Corrected 2026-08-04, item A2. NCxs is a schedule of normal-cost
+                # rates indexed by the age at which a member is HIRED: entry x is
+                # priced as PV(their whole benefit) / PV(their whole salary), which
+                # is what makes the method "entry-age" normal. It used to be
+                # contracted against the age axis of the active matrix ('ij,i,ij->'),
+                # so a member aged 50 with 20 years of service was charged the rate
+                # for entering at 50 rather than at 30, and their rate moved every
+                # year as they aged. `_entry_age_rate` spreads the schedule onto the
+                # (age, service) grid at entry age = current age - service, so each
+                # member keeps the rate set when they were hired.
+                NC_entry = _entry_age_rate(NCxs, AN.shape[0], AN.shape[1])
+                PVNC_arr[t-1, 0] = float(np.einsum('ij,ij,ij->',
+                                                     AN[:, :, t-1], NC_entry, PVFS))
+                NC[t-1, 0]       = float(np.einsum('ij,ij,ij->',
+                                                     AN[:, :, t-1], NC_entry,
                                                      np.where(_nc_mask, BW[:, :, t-1], 0.0)))
                 PVFS_vec[t-1, 0] = float(PVFS.sum())
 
@@ -611,6 +650,9 @@ def main_current_fast(ActiveNumber, InactiveNumber, BaseWage_0, p: PlanParams,
                                    + ref + dth + dis)
             CInflow[t-1, n-1]  = (float((BW[:, :, t-1] * AN[:, :, t-1]).sum())
                                    * (p.EmployeeContributionRate + p.EmployerContributionRate))
+
+            if t == Nyear:
+                break          # nothing left to advance into; state index t would overflow
 
             TotalEmp    = float(AN[:, :, t-1].sum()) * (1.0 + p.PopulationGrowth)
             BW[:, :, t] = BW[:, :, t-1] * (1.0 + p.WageGrowth)
@@ -655,12 +697,21 @@ def main_ret_fast(RetirementNumber, RetirementBenefit, p: PlanParams):
     for n in range(1, NMonte + 1):
         RN[:, :, 1:] = 0.0;  RB[:, :, 1:] = 0.0
 
-        for t in range(1, Nyear):
+        # Corrected 2026-08-04. The loop used to be `range(1, Nyear)`, which
+        # evaluates index t-1 and then advances the state to index t. It therefore
+        # filled rows 0..Nyear-2 and left the FINAL row unwritten at zero, even
+        # though the state it needed was sitting there. Now the evaluation runs for
+        # every row and only the state advance is skipped on the last pass. See the
+        # matching note in main_current_fast.
+        for t in range(1, Nyear + 1):
             if PVFB[t-1, :].sum() == 0.0:
                 PVFB[t-1, 0] = total_liabilities_ret_fast(RN, RB, 80, t, p.discountrate, p)
 
             AAL[t-1, n-1]      = PVFB[t-1, 0]
             COutflow[t-1, n-1] = float((RN[:, :, t-1] * RB[:, :, t-1]).sum())
+
+            if t == Nyear:
+                break          # nothing left to advance into; state index t would overflow
 
             RN[:, :, t] = update_retirement_number(RN, AN_z, IN_z, p.RetirementRate,
                                                     p.MortalityTable, t, p)

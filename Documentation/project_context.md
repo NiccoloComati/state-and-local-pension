@@ -188,7 +188,7 @@ The model does not have one base year. Every demographic input enters as a **sha
 ### 4.2 Liability Projection (Deterministic)
 Liabilities evolve deterministically year-by-year:
 1. The age-service matrix of active employees is updated: workers age +1 year, accumulate +1 year service; some separate (withdrawal rates), some retire (retirement rates), some die (mortality); new hires refill to maintain workforce size.
-2. Inactive (vested, not yet retired) members age and eventually draw benefits at `InactiveRetirement = 65`.
+2. Inactive (vested, not yet retired) members age and are removed by death or by retiring. **Corrected 2026-08-04:** an earlier version of this line said they "draw benefits at `InactiveRetirement = 65`". They do not. Inactive members retire through **the same age × service retirement-rate grid as actives** (`engine/core.py:185-193` draws new retirees from the active *and* inactive populations), with their service frozen at whatever it was when they separated. `InactiveRetirement <- 65` exists in the R lineage at `Main_PensionModel_XX.R:199` as a definition that is **referenced nowhere in R either**, so there is nothing functional that Python failed to translate — porting it would only add a dead constant. Whether deferred members *should* retire on the actives' grid is a live question, recorded in the open-items list.
 3. Retirees age and die; their benefits grow by COLA.
 4. Cash outflows = retirement benefits + refunds to separators + death benefits + disability payments.
 5. Cash inflows = employee contributions + employer contributions.

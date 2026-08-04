@@ -17,7 +17,7 @@ class PlanParams:
     EmployeeEnd: int = 74
     ServiceStart: int = 1
     ServiceEnd: int = 55
-    Nyear: int = 35
+    Nyear: int = 36   # base year + 35 projected years; see the note in run_plan.py
     NMonte: int = 1
 
     # Economic assumptions

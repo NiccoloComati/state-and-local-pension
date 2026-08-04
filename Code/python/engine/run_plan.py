@@ -283,7 +283,17 @@ for i in range(1, 7):
         RetirementStart_t[i]  = float(tier_info2['nr'].iloc[i - 1])
 
 # ---- Demographic data ----
-Nyear  = 35
+# Height of every projection array: the base year plus 35 projected years, so the
+# projection covers plan_year .. plan_year + 35 (2022-2057 at the default).
+#
+# Raised from 35 on 2026-08-04 (item A1). At 35 the liability loop filled only 34
+# rows and the asset loop 35, so the two sides ran to different years and the
+# horizon was one year shorter than the "35 years" it was described as everywhere.
+# Both were corrected together: the loop bound in engine/core.py now fills every
+# row, and this value now means what it appears to mean. The R lineage still uses
+# 35 with the old loop, so R and Python outputs are no longer directly comparable
+# until the same change is made there.
+Nyear  = 36
 NMonte = 1
 
 Assets       = np.zeros((Nyear, NMonte))
