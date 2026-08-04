@@ -13,12 +13,47 @@ table, not the folder name.
 |---|---|---|---|---|
 | `20260610_1` | 2026-06-10 | 37 | fy2023 copy (then named `ppd-data-latest.xlsx`) | Long-standing canonical run. MA50/MA51/MO64 absent. Inherited `LinearFill`. |
 | `20260610_2` | 2026-06-10 | 2 (AZ06, NJ73) | as above | **Scenario run.** Launcher demo: employer contribution +2pp of payroll, applied even when overfunded, from year 0. Reuses `20260610_1`'s liabilities, so asset-stage only, no detAL files. |
-| `20260730_1` | 2026-07-30 | 40 | `ppd-data-latest_072026.xlsx` | First run with all 40 plans. Adds MA50/MA51/MO64, the three input guards, and the July PPD (24 restated fiscal-2022 values). Still the inherited `LinearFill`. |
-| `20260730_2` | 2026-07-30 | 40 | `_072026` | **First run with the corrected `LinearFill`.** Otherwise identical to `20260730_1`, so the pair isolates that correction exactly. |
-| `20260730_3` | 2026-07-30 | 40 | `_072026` | Adds MI53's corrected 2022 salary and MA51's employer rate set to zero. Superseded by `20260731_1`, which differs from it for FL26 only. |
-| `20260730_4` | 2026-07-30 | 40 | `_072026` | **Rejected experiment**, kept for the record. Identical to `20260730_3` except contribution rates measured against the model's own payroll. Tested and not adopted — see `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`. |
+| ~~`20260730_1`~~ | 2026-07-30 | 40 | `ppd-data-latest_072026.xlsx` | **DELETED 2026-08-04.** First run with all 40 plans. Added MA50/MA51/MO64, the three input guards, and the July PPD. Carried the inherited defective `LinearFill`. |
+| ~~`20260730_2`~~ | 2026-07-30 | 40 | `_072026` | **DELETED 2026-08-04.** First run with the corrected `LinearFill`; the `_1`/`_2` pair isolated that correction. |
+| ~~`20260730_3`~~ | 2026-07-30 | 40 | `_072026` | **DELETED 2026-08-04.** Added MI53's corrected 2022 salary and MA51's employer rate set to zero. |
+| ~~`20260730_4`~~ | 2026-07-30 | 40 | `_072026` | **DELETED 2026-08-04.** The rejected denominator experiment. Its conclusion and evidence survive in `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`, which is what mattered. |
 | `20260731_1` | 2026-07-31 | 40 | `_072026` | Adds FL26's contribution-rate exception. Superseded by `20260804_1`. Last run on the old 35-row horizon. |
 | **`20260804_1`** | 2026-08-04 | 40 | `_072026` | **THE CURRENT RUN.** First run covering **2022–2057** (base year plus 35 full projected years) on both the liability and asset sides, and the first with the normal-cost rate applied by entry age. This is the one to analyse. |
+
+## Scenario runs: the contribution grid
+
+Scenario runs carry a `scn_` prefix and reuse a baseline run's liabilities through
+`--detal-run-tag`, so they contain asset-stage output only. All of them below reuse
+**`20260804_1`**, share market seed **123**, and apply the increase from year 0.
+
+| Run | Added contribution | Notes |
+|---|---|---|
+| `scn_c2p5s0` | +2.5pp of payroll | |
+| `scn_c5s0` | +5.0pp | Produced 2026-08-04 in the first, unevenly spaced grid; it is the same scenario as the evenly spaced one, so it was kept rather than rerun |
+| `scn_c7p5s0` | +7.5pp | |
+| `scn_c10s0` | +10.0pp | |
+| `scn_c12p5s0` | +12.5pp | |
+| `scn_c15s0` | +15.0pp | |
+
+**A first, unevenly spaced grid (+0.5, 1, 2, 3, 4, 5pp) was produced and then
+discarded** in favour of even 2.5pp spacing, because these contributions compound
+and wide gaps at the top of the range are the hardest place to interpolate across.
+Its five superseded run folders were deleted on 2026-08-04, but **the result they
+produced is preserved** in `contribution_grid_exhaustion_20260804.csv` beside this
+file: exhaustion probability for all 40 plans at 0, 0.5, 1, 2, 3, 4 and 5pp. The
+2.2 GB payloads are gone; the 40 numbers each of them produced are not.
+
+That first grid also established that the 5pp range is far too narrow for the
+targets that matter: at +5pp, 37 of 40 plans still do not reach a 1% exhaustion
+probability.
+
+## Deleted 2026-08-04
+
+Nine run folders totalling 19.4 GB were deleted: the five superseded scenario runs
+above, and `20260730_1` through `20260730_4`. All were superseded, and in each case
+what they established is recorded either in this file or in the archived write-up
+named in the table. `20260731_1` was **kept** as the last run on the old 35-row
+horizon, in case anything needs comparing across the break described below.
 
 ## A break in comparability: 2026-08-04
 
