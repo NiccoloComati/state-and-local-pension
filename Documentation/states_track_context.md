@@ -1351,6 +1351,53 @@ could affect more than payroll; only then decide what to do about the rest.
 
 ---
 
+## IL33 recovers after running out of assets — correct arithmetic, heavily qualified (2026-08-05)
+
+**Do not repeat this as a clean result.** It is arithmetically right and it rests on
+an assumption doing most of the work.
+
+**What happens.** In run `20260804_1`, IL33 (Illinois SERS) is the only plan of the
+40 whose assets return to positive after reaching zero, and it does so on **all
+1,851 of the paths where it runs out**. Every other plan stays at zero. This did not
+occur in `20260731_1`, where there were zero recoveries across 132,127 exhausting
+plan-paths.
+
+**Why it happens.** Assets at zero return positive in any year where contributions
+exceed benefit payments. IL33's contributions exceed its outflows in exactly **two
+of thirty-six years: 2056 and 2057**. It reaches zero between 2033 and 2056 (median
+2045), sits there, and climbs out at the end as projected payroll grows while its
+opening retiree cohort dies off. **Those two years are the ones the horizon
+correction added**, which is the whole reason the previous run showed nothing.
+
+**The input is real, and was checked rather than assumed.** IL33 contributes 55.5%
+of payroll, second highest of the 40 behind CA144. It is not special-cased anywhere
+in `settings/plan_settings.py`, and goes through the same
+`contrib_ER_regular / payroll` as every plan. Three independent PPD fields
+corroborate it: `ReqContRate_ER` = 0.583 (what its actuaries require),
+`ReqContAmount_ER` = $2.995bn against an actual $2.666bn, and `PercentReqContPaid`
+= 0.892, which the two dollar figures reproduce at 89.0%. So Illinois SERS is
+*required* to contribute 58.3% of payroll, actually contributes 55.5%, and the model
+uses what it received rather than what it owed — consistent with the project's
+choice of observed flows over stated rates everywhere else.
+
+**The qualification, which matters more than the finding.** That crossover requires
+IL33 to still be contributing 55.5% of payroll in 2056 and 2057, thirty-five years
+after the observed value. **A catch-up contribution of that size is, by its nature,
+a schedule** — and the plan's own history shows the rate moving, from 43.9% in 2016
+up to 55.5% in 2022 and back down to 50.6% by 2024. The model takes the 2022 peak
+and holds it flat forever (limitation E7). **We hold no document stating Illinois's
+funding law**, so whether the schedule steps down at a funding threshold, ends on a
+date, or continues is unknown here. If it ends or steps down before the mid-2050s,
+the crossover never happens and the recovery is an artefact of the constant-rate
+assumption rather than a property of the plan.
+
+**Consequence for the analysis.** "Has reached zero by year *t*" and "is at zero in
+year *t*" are no longer the same series, and the notebook markdown asserting they are
+has been corrected. Any statement that exhaustion is absorbing is now false as
+written.
+
+---
+
 ## Assumption and limitation register — state track
 
 **One place for everything embedded in the state model that is a choice, a
@@ -1417,6 +1464,7 @@ Full per-input decomposition: `project_context.md` §3.1.
 | E3 | Workforce growth fixed at **1% a year for every plan**, no data source | `model_input_dictionary.md` §6 |
 | E4 | Disability payout fixed at 2.5% of payroll; risk-free rate at inflation plus 1%; stock premium 7.5% with 20% volatility; horizon 35 years | As above |
 | E5 | Tier-specific contribution rates exist in the tier workbook (`eecont` / `ercont`) but are **not consumed** — one plan-level rate is used | As above §4 |
+| E7 | **Contribution rates are held constant for the whole projection, for every plan.** `EmployerContributionRate` and `EmployeeContributionRate` are scalars computed once from the base year and applied to projected payroll in every year (`engine/core.py:612-613`). There is no schedule, no funding-ratio trigger, no end date. **This bites hardest where the observed rate is large and visibly schedule-driven**: IL33 at 55.5% of payroll, CA144 at 97.4%, CA97 at 54.9%, AZ127 at 52.4%, against a median across the 40 plans of 28.5%. Near the median it is nearly harmless. Partially, and only partially, covered by the contribution-sensitivity grid: that grid explores what happens when contributions are *higher*, so a plan whose rate drifts *down* over time is not represented by it. The PPD carries `ReqContRate_ER` by fiscal year, so a time-varying rate is buildable from data already held — but what the rate should be beyond the last observed year is a modelling choice, not a lookup, and it was judged not worth the added complexity for now (2026-08-05) | `engine/core.py:612-613`; `engine/run_plan.py:234-235` |
 | E6 | **CORRECTED 2026-08-04. No retirement age is used at all.** Both `er1`..`er6` (early) and `nr1`..`nr6` (normal) are read from the tier workbook into the parameter object and **never read back** — verified across every Python file, and in R the one line that would have used `RetirementStart` is commented out (`functions_cf_model.R:857`), so this was never a translation loss. Retirement is driven entirely by the age × service retirement-rate grid, which spreads retirement across ages, so the earlier claim that "no plan can retire early" was wrong. **What is actually missing is the benefit reduction**: the formula is `min(BenefitFactor × service, BenefitCap) × final average salary` at all five places it appears, with no age term, so a member the grid retires at 52 receives the same unreduced benefit as one retiring at 67. The *timing* of early retirement is representable through the grid; the reduction that should accompany it is not. Overstates liabilities by an unmeasured amount | `engine/core.py:80, 162, 234, 236, 565`; `engine/run_plan.py:255, 283` |
 
 ### F. Provenance gaps
