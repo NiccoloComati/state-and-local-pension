@@ -16,6 +16,7 @@ Conventions:
 from __future__ import annotations
 
 import json
+import os
 import pickle
 import subprocess
 import sys
@@ -40,6 +41,23 @@ PYTHON = sys.executable
 
 RUN_SIMULATION = SCRIPT_DIR / "run_simulation.py"
 ASSET_SIMULATION = SCRIPT_DIR / "asset_simulation.py"
+
+
+def _default_parallel() -> int:
+    """How many plan processes to run at once, derived from THIS machine.
+
+    Governs both stages: the detal ceiling passed to run_simulation.py, and the
+    asset-stage pool in launch().
+
+    It used to be hardcoded at 19, with a comment describing it as the detal
+    ceiling. That number came from the 37-plan desktop era, and on 2026-08-04 it
+    launched 19 concurrent asset processes on a 12-thread laptop with about 3 GB
+    of memory free. A constant tuned for one machine does not belong in shared
+    code, so it is now half the logical cores: 6 on that laptop, which is the
+    figure the baseline runs were measured at, and proportionally more on a
+    bigger machine. Override per scenario with `parallel=N` when you know better.
+    """
+    return max(1, (os.cpu_count() or 4) // 2)
 
 
 @dataclass
@@ -68,7 +86,7 @@ class Scenario:
     tier_file: str | None = None           # e.g. no-reform counterfactual workbook
     plan_year: int = 2022
     # --- execution ---
-    parallel: int = 19                     # detal-stage process ceiling
+    parallel: int = field(default_factory=lambda: _default_parallel())
     workers: int = 1                       # PVNC threads per detal process
     overwrite: bool = True
     notes: str = ""
