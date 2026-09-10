@@ -1,7 +1,7 @@
 ﻿# Project Context: State & Local Pension Sustainability Model
 
 **Created:** 2026-05-27 
-**Last Updated:** 2026-07-30
+**Last Updated:** 2026-09-10
 **Author**: Niccolo Comati
 **Working Directory:** `...\Research and Education\Projects\State and Local Pension\` (the `State Pension Model\` subfolder was dissolved into it on 2026-06-11)
 
@@ -194,6 +194,26 @@ Liabilities evolve deterministically year-by-year:
 5. Cash inflows = employee contributions + employer contributions.
 6. AAL = discounted present value of future benefit payments attributable to past service.
 
+**The benefit formula, and the early-retirement reduction (added 2026-09-08).** The
+accrued benefit is `min(BenefitFactor x service, BenefitCap) x final average salary` at
+every place it appears. It has no age term and never has had one. Separately, each tier
+carries a threshold age: a member the retirement-rate grid retires below that threshold
+should collect only a fraction of the accrued amount. Until 2026-09-08 the engine did
+neither half. It read the threshold from the tier workbook's `nr` column into
+`RetirementStart` and never used it, and applied no reduction, so someone retired at 52
+collected the same unreduced benefit as someone retired at 67.
+
+`update_retirement_benefit` in `engine/core.py` now multiplies the new-retiree benefit by
+`max(0, 1 - rate/100 x (threshold - age))`, on both the active and the inactive branch.
+The accrual formula is unchanged: this governs how much of the accrued benefit is paid,
+not how it accrues. Per plan-tier rates live in
+`Data/Common/states/early_retirement_reduction.csv`.
+
+**This is the baseline specification**, decided 2026-09-08. The flag is inverted
+accordingly: no flag applies the reduction, `--no-early-retirement-reduction` switches it
+off and reproduces pre-2026-09-08 runs bit-identically. Every run made before that date
+is the cliff-off specification.
+
 ### 4.3 Asset Simulation (Stochastic)
 - Asset returns modeled as a weighted portfolio of stocks (expected return 7.5% + inflation, SD 20%) and bonds (risk-free rate, SD 0%).
 - Each year: `Assets[t+1] = Assets[t] x (1 + AnnualReturn) - CashOutflows[t] + Contributions[t]`
@@ -319,7 +339,16 @@ A Python translation track exists under `Cluster Code/cluster_062026/Python Code
 - `slurm_detal_array.sh` / `slurm_asset_array.sh` — Slurm array scripts (one plan per task). Derive `CLUSTER_DIR` from exported `PROJECT_ROOT`, not `BASH_SOURCE` (which points to the spool dir in Slurm). Log via `exec >> "${LOG_FILE}" 2>&1` (process substitution unavailable on Engaging).
 - `engaging_python_env.sh` — Python env activation helper; auto-installs `openpyxl` and `pyarrow` if missing.
 
-**Canonical run tag:** `20260610_1`. As of 2026-06-10, `Results/Runs/20260610_1/` contains Python `fast/` outputs only (37 plans, detal pkl + asset pkl + parquet bundles, num_sim=10000); the earlier R `.RData` outputs and the `062026_py`/`062026_fast` folders were deleted after Python was verified equivalent. The old `20260610_1`=R / `062026_*`=Python tag convention is retired.
+**Current baseline run: `20260908_1`** (40 plans, cliff on, the extended saved series).
+`20260804_1` is kept as the reference, because `--no-early-retirement-reduction`
+reproduces it bit-identically and that is the standing regression check.
+`20260910_1/_2/_3` are counterfactual runs (no post-2007 reforms; COLA zero; COLA at
+inflation), each produced with `--tier-file` and a workbook built by
+`Code/python/settings/build_counterfactual_tier_files.py`. Two 16-run contribution grids
+sit on top: `scn_c*` on the baseline, `scn_nr_c*` on the no-reform run. What each run is:
+`Results/Runs/README.md`.
+
+**Canonical run tag (historical):** `20260610_1`. As of 2026-06-10, `Results/Runs/20260610_1/` contains Python `fast/` outputs only (37 plans, detal pkl + asset pkl + parquet bundles, num_sim=10000); the earlier R `.RData` outputs and the `062026_py`/`062026_fast` folders were deleted after Python was verified equivalent. The old `20260610_1`=R / `062026_*`=Python tag convention is retired.
 
 **Python output naming:** detAL: `[PLAN]_detAL_[run_tag].pkl`; asset: `[PLAN]_AssetSim_2asset_[run_tag].pkl`. No `_2022_` separator (unlike R).
 
@@ -383,6 +412,25 @@ touched.
 - **The saved matrices are all 35 rows tall but are not all filled to 35** (verified 2026-07-31 from the code and from all 40 plans of `20260731_1`). The liability loop in `engine/core.py` runs `for t in range(1, Nyear)` and writes to index `t-1`, so **`AAL`, `cash_inflows`, `cash_outflows` and `NormalCost` hold 34 real values** (base year plus 33 projected years, 2022–2055) and their final row is never written — it is exactly zero for 40 of 40 plans. The asset loop in `asset_simulation.py` is separate: it writes `assets[t+1]` for `t = 0..33`, so **`Assets` holds 35 real values** (2022–2056), one year further out. The final asset row is non-zero for 40 of 40 plans and is a genuine projected value computed from valid inputs. Consequence: any measure built on assets alone (asset exhaustion) can run one year longer than any measure needing the liability (funding ratio). Measured effect of aligning the two: exhaustion probabilities fall by a median 0.017, at most 0.027, 13 plans move more than 0.02 and 9 change rank, largest rank move 3 places. `Nyear = 35` is the array height, not the number of projected liability years.
 - **Which model settings a run records, and from when.** Until 2026-07-31 a run saved `Inflation`, `rf`, `discountrate`, `Nyear`, `market_seed`, the two contribution rates and the scenario JSON — but **not** `PopulationGrowth` and **not** `DisabilityPayoutRate`. The disability rate is a command-line lever (`--disability-rate`), so two runs differing only in it were indistinguishable from their outputs, and it was not printed in the run log either. Both are now saved in the detAL payload and echoed to the log; because the asset stage builds its payload from the detAL pickle and `write_parquet_bundle` promotes any scalar, they reach `scalars.parquet` automatically. `stock_premium` and `stock_vol` were already recorded inside `scenario_json` and are not duplicated. **Runs up to and including `20260731_1` predate this and do not carry the two fields**; the analysis notebook falls back to the engine value for those and says so.
 - **Per-tier paths are saved in the deterministic result files and are absent from the parquet bundle** (verified 2026-07-31). Each `[PLAN]_detAL_[TAG].pkl` carries `MainRes`, a dict keyed 1–6 by tier holding `[AAL, cash_outflows, cash_inflows, PVFB, NormalCost]` as `(35, 1)` arrays, plus `RetRes` holding `[AAL, cash_outflows]` for members already retired at the base year. The components sum back to the saved total AAL exactly. The parquet bundle written alongside contains only plan-level matrices, so anything wanting a tier breakdown must read the pickle.
+
+- **What a run saves (extended 2026-09-08).** Alongside `AAL`, `Assets`, `cash_inflows`,
+  `cash_outflows` and `NormalCost`, the deterministic stage now records
+  `active_members`, `inactive_members`, `beneficiaries`, `benefit_payments`, `refunds`,
+  `death_benefits` and `disability_payments`. These were computed every projected year
+  and discarded; only the outflow total survived. The runner asserts that the four
+  outflow components reconstruct `cash_outflows`. Adding them was verified bit-identical
+  on OK134. Population counts are what a beneficiary-to-worker ratio needs, and the
+  outflow split separates benefit payments from refunds, death benefits and the flat
+  disability term.
+
+- **Deterministic arrays are compacted on save (2026-09-08).** `AAL`, `cash_inflows`,
+  `cash_outflows` and `NormalCost` do not vary across simulations, but the asset stage
+  widens them to `(Nyear, num_sim)` for its arithmetic and used to save them that way, so
+  a scenario run was 2.2 GB against roughly 350 MB of real content. They are now
+  collapsed back to a single column before saving, and only when every column really is
+  identical, so anything that does vary stays full width. `Assets` is never collapsed. A
+  scenario run went from 2.2 GB and 25 seconds to about 435 MB and 8 seconds. Runs made
+  before this date keep the old shape and still load.
 
 - **Disability data:** Sheet 9 is almost never populated (`availableData[9] = F`). The model uses a fixed `DisabilityPayoutRate = 0.025` (2.5% of payroll) as default; some plans compute it from actual data (e.g., MA50: ratio of disability payroll to total payroll).
 - **Retirement and refund rates:** Sheets 7 and 8 are often missing (`availableData[7:8] = F`). The code falls back to `default_assumptions.xlsx`.

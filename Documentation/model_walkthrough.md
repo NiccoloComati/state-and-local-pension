@@ -429,13 +429,19 @@ than conceptual — see §8, where the 34-versus-35 question is answered properl
 
 ### What the model cannot represent, structurally
 
-- **No retirement age is used at all.** Both `nr` and `er` are loaded and never read.
-  Retirement happens purely through the rate grid, which does spread retirement
-  across ages exactly as you supposed. **What is missing is not the timing but the
-  benefit distinction**: real plans pay a *reduced* benefit to someone retiring
-  early, and this model has one benefit formula per tier applied at whatever age the
-  grid retires you. So a plan cannot represent "you may go at 50, but at a penalty".
-  My original phrasing, "nobody retires early", was wrong and misleading.
+- **SUPERSEDED 2026-09-08. The threshold is now used, and the reduction applied.**
+  This bullet used to say that no retirement age was used at all, that `nr` and `er`
+  were loaded and never read, and that what was missing was the reduced benefit for
+  retiring early. That was true when written. Since 2026-09-08 the engine reads each
+  tier's threshold and multiplies the new-retiree benefit by
+  `max(0, 1 - rate/100 x (threshold - age))`, with per-plan-per-tier rates in
+  `Data/Common/states/early_retirement_reduction.csv`. It is ON by default and is the
+  baseline specification; `--no-early-retirement-reduction` restores the behaviour
+  described here. Retirement *timing* still comes entirely from the rate grid, which
+  was always the case. The accrual formula is still
+  `min(BenefitFactor x service, BenefitCap) x final average salary`, with no age term,
+  which is correct: the threshold governs how much of the accrued benefit is paid, not
+  how it accrues.
 - **No disability state.** Members leave active service by quitting, retiring or
   dying, and that is all. The 2.5% payroll term is attached to no population.
 - **One retirement-rate grid per plan.** Of the plans examined against their own
@@ -757,9 +763,11 @@ stops.
    will pay and receive. Different questions on purpose.
 3. **Only the newest tier hires.** Older tiers wind down.
 4. **The workforce grows at exactly 1% a year in every plan**, with no data source.
-5. **No retirement age is used.** `nr` and `er` are both read and never applied;
-   retirement comes entirely from the rate grid. What is missing is the *reduced
-   benefit* for early retirement, not the timing.
+5. **The threshold is used as of 2026-09-08, and it was not before.** Retirement
+   timing comes entirely from the rate grid, which has always been so. What changed is
+   that clearing the tier's threshold age now decides whether the accrued benefit is
+   paid in full or reduced. Runs before that date pay everyone in full whatever age
+   they retire at.
 6. **There is no disability state**, and the 2.5% payroll term is attached to no
    population.
 7. **Overfunded plans stop contributing entirely** and no rule ever restarts them,
