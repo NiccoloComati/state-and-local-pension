@@ -15,6 +15,18 @@ you are picking this up cold, read this section, then `## Decisions taken`, then
 `## Assumption and limitation register`. The dated sections are the working record
 and can be read on demand.
 
+### Newer than the section below (2026-09-10)
+
+The paragraph beneath this one describes the state as of 2026-07-31 and is kept for the
+trail. What has changed since: the **early-retirement reduction is implemented and is the
+baseline specification**, the engine **saves population counts and the outflow split**,
+deterministic arrays are **compacted** on save, and the current baseline run is
+**`20260908_1`**, not `20260804_1`. Three counterfactual runs exist (`20260910_1` no
+reform, `_2` COLA zero, `_3` COLA at inflation) with a contribution grid on the no-reform
+one. `Analysis/results.ipynb` implements the V6 exhibit list and executes clean. The
+chronological account is the 2026-09-08/10 entry in `working_context.md`; the run index
+is `Results/Runs/README.md`.
+
 ### The state in one paragraph
 
 The model runs all **40** state plans (was 37). The engine has been corrected in
@@ -97,6 +109,25 @@ python run_simulation.py --plans all --stage both --fast --num-sim 10000 --run-t
   switch settings. Every change is to be recorded so it can be reversed.
 - **2026-07-29 — Match the original R behaviour** on the short salary sheet, unless
   R's behaviour is itself unusable. See §1d for how that resolved.
+
+- **2026-09-08 — the early-retirement reduction is ON by default, and is the baseline
+  specification.** Paying an unreduced accrued benefit at any retirement age is known to
+  be wrong, so the cliff is the baseline rather than a scenario. The engine flag was
+  inverted to match: no flag gives the cliff, `--no-early-retirement-reduction` switches
+  it off and reproduces runs made before this date bit-identically (verified on ME47,
+  max absolute difference 0.0). **Consequence: every run currently on disk is the
+  cliff-off specification and is superseded** — `20260804_1`, the six `scn_*` runs, and
+  both `contribution_grid_exhaustion_*.csv` files. Rates come from
+  `Data/Common/states/early_retirement_reduction.csv`, where 97 of 128 plan-tier rows are
+  the assumed 6% default; that assumption is carried knowingly, and the `source` column
+  marks which rows are extracted.
+- **2026-09-08 — the contribution grid is capped at +20pp of payroll.** Extrapolation put
+  the increase needed to reach a sub-1% 20-year exhaustion probability at ~127pp for IL34
+  and ~45pp for LA163, which are not policies. Plans that do not reach the target inside
+  0 to 20pp are reported as not reachable, which is the finding. Grid: 0, 2.5, 5, 7.5,
+  10, 12.5, 15, 17.5, 20.
+- **2026-09-08 — `--parallel 20`, not 19.** The 19 was half of the old 38-plan set; the
+  set is 40.
 
 ### DONE 2026-07-29 — the three plans are admitted; the switches are NOT being flipped
 
@@ -1465,7 +1496,7 @@ Full per-input decomposition: `project_context.md` §3.1.
 | E4 | Disability payout fixed at 2.5% of payroll; risk-free rate at inflation plus 1%; stock premium 7.5% with 20% volatility; horizon 35 years | As above |
 | E5 | Tier-specific contribution rates exist in the tier workbook (`eecont` / `ercont`) but are **not consumed** — one plan-level rate is used | As above §4 |
 | E7 | **Contribution rates are held constant for the whole projection, for every plan.** `EmployerContributionRate` and `EmployeeContributionRate` are scalars computed once from the base year and applied to projected payroll in every year (`engine/core.py:612-613`). There is no schedule, no funding-ratio trigger, no end date. **This bites hardest where the observed rate is large and visibly schedule-driven**: IL33 at 55.5% of payroll, CA144 at 97.4%, CA97 at 54.9%, AZ127 at 52.4%, against a median across the 40 plans of 28.5%. Near the median it is nearly harmless. Partially, and only partially, covered by the contribution-sensitivity grid: that grid explores what happens when contributions are *higher*, so a plan whose rate drifts *down* over time is not represented by it. The PPD carries `ReqContRate_ER` by fiscal year, so a time-varying rate is buildable from data already held — but what the rate should be beyond the last observed year is a modelling choice, not a lookup, and it was judged not worth the added complexity for now (2026-08-05) | `engine/core.py:612-613`; `engine/run_plan.py:234-235` |
-| E6 | **CORRECTED 2026-08-04. No retirement age is used at all.** Both `er1`..`er6` (early) and `nr1`..`nr6` (normal) are read from the tier workbook into the parameter object and **never read back** — verified across every Python file, and in R the one line that would have used `RetirementStart` is commented out (`functions_cf_model.R:857`), so this was never a translation loss. Retirement is driven entirely by the age × service retirement-rate grid, which spreads retirement across ages, so the earlier claim that "no plan can retire early" was wrong. **What is actually missing is the benefit reduction**: the formula is `min(BenefitFactor × service, BenefitCap) × final average salary` at all five places it appears, with no age term, so a member the grid retires at 52 receives the same unreduced benefit as one retiring at 67. The *timing* of early retirement is representable through the grid; the reduction that should accompany it is not. Overstates liabilities by an unmeasured amount | `engine/core.py:80, 162, 234, 236, 565`; `engine/run_plan.py:255, 283` |
+| E6 | **CORRECTED 2026-08-04. No retirement age is used at all.** Both `er1`..`er6` (early) and `nr1`..`nr6` (normal) are read from the tier workbook into the parameter object and **never read back** — verified across every Python file, and in R the one line that would have used `RetirementStart` is commented out (`functions_cf_model.R:857`), so this was never a translation loss. Retirement is driven entirely by the age × service retirement-rate grid, which spreads retirement across ages, so the earlier claim that "no plan can retire early" was wrong. **What is actually missing is the benefit reduction**: the formula is `min(BenefitFactor × service, BenefitCap) × final average salary` at all five places it appears, with no age term, so a member the grid retires at 52 receives the same unreduced benefit as one retiring at 67. The *timing* of early retirement is representable through the grid; the reduction that should accompany it is not. Overstates liabilities by an unmeasured amount. **Quantified 2026-09-08 — see "The early-retirement reduction" below** | `engine/core.py:80, 162, 234, 236, 565`; `engine/run_plan.py:255, 283` |
 
 ### F. Provenance gaps
 
@@ -1475,6 +1506,94 @@ Full per-input decomposition: `project_context.md` §3.1.
 | F2 | Six of the 14 switched-off retirement sheets remain unchecked: CA111, DC20, GA28, IL33, NM74, NY83 |
 | F3 | No reason is recorded anywhere for the 2022 decision to switch off 14 plans' retirement sheets. E1 is an inference from the source documents, not a recovered rationale |
 | F4 | **CONFIRMED DEAD 2026-07-30.** `inactive_supplement_2022.csv` is an *exact* duplicate of the `inactive_adj` column of `PPD_planlevel_main_updated.csv` — all 40 rows agree, zero disagreements — and it is referenced by **no code anywhere** in `Code/`. Nothing to fix numerically. It can be moved to `_ARCHIVE/` whenever convenient; left in place for now since it is harmless and tracked in git |
+
+---
+
+## The early-retirement reduction (established 2026-09-08)
+
+**The mechanism.** Retirement age is drawn from the plan's age x service retirement-rate
+grid. Separately, each tier carries a threshold: retire at or above it and you receive
+your full accrued benefit, retire below it and you receive a fraction of it. The
+threshold does not change how the benefit accrues, only how much of the accrued amount
+is paid.
+
+**The engine implements neither half.** The threshold is loaded per tier from the tier
+workbook's `nr` column into `RetirementStart` and is never read again. No multiplier is
+applied anywhere. Everyone collects the full accrued amount at whatever age the grid
+retires them. The place it would go is `update_retirement_benefit` in `engine/core.py`,
+whose loop already has the retirement age in hand as its outer index.
+
+**Why it matters for the reform question.** Raising the threshold was the commonest
+post-2007 reform in this sample. Counting distinct tiers in
+`planchanges_main_2022_clean.xlsx`, **22 of 40 plans raise the threshold across their
+tiers, and for 21 the rise is dated after 2007**: CA97 60 -> 70, NJ71 and NJ73 55 -> 65,
+IL32/IL33/IL34 60 -> 67 (Illinois Tier 2, 2011), OR91 58 -> 65, CA111 60 -> 65, FL26
+65 -> 68, PA92 62 -> 65, PA93 60 -> 65, MI53 55 -> 60, and others. A no-reform
+counterfactual built by swapping tier characteristics scores every one of those changes
+at exactly zero, silently, because nothing reads the threshold.
+
+**The reduction rate is not held as data anywhere.** Checked and all negative: the tier
+workbook (ours and the original Brookings `planchanges_main.xlsx` have identical columns,
+neither with a reduction field), the PPD, `default_assumptions.xlsx`, the notes sheets
+inside all 39 readable plan workbooks, the harvested collector notes, and both the Python
+and R code. The only `reduct` in the codebase is the survivor/widow factor, a different
+quantity. So Lenney et al. did not carry it either.
+
+**It is in the source documents.** A scan of all 186 plan PDFs across the 40 folders:
+**38 of 40 contain reduction language and 34 state an explicit percentage** (NY83 and
+OK134 have neither; no PDF was unreadable). Examples, verbatim: ME47 "reduced by 6% for
+each year retirement age is less than age 62"; FL26 "reduced by 5 percent for each year
+remaining before you would reach your normal retirement age"; IL33 "reduced by one-half
+of 1 percent for each month the member is under age 60"; DC20 "reduced by 1/6% per month
+(or 2% per year) that date of retirement precedes age 55"; GA27 "the lesser of (i) 7% for
+each year by which his age is less than 60, and (ii) 7% for each year by which his
+creditable service at retirement is less than 30".
+
+**The rates, where machine-readable.** Filtering to hits whose context is retiring before
+a threshold age, and converting per-month rates to annual, a rate could be extracted for
+**17 of the 40 plans**, giving 22 distinct plan-tier values:
+
+| | |
+|---|---|
+| Range | **1% to 12% per year** |
+| Median / mean | **5.5% / 5.4%** |
+| Most common value | **6%** (5 of 22) |
+| By plan | CA144 2, 3.5 · DC20 2 · FL26 2, 5 · GA27 7 · GA28 7 · IL33 6, 12 · IL34 6 · IN37 12 · LA163 3 · ME47 6 · MI53 6 · ND82 6, 8 · NJ71 1 · NY78 6.5 · SC100 4, 5 · SC99 4 · TX108 5 |
+
+Three cautions on those numbers. Plans carry **different rates per tier**, so a single
+figure per plan is wrong for at least six of the seventeen. The 23 plans without an
+extracted rate are not plans without a reduction: several say only "actuarially reduced",
+which is a table rather than a rate, and others simply did not parse. And the 12% values
+(IN37, IL33) are steep enough to warrant reading before use.
+
+**On adopting a flat 6%.** Defensible as a simplification: it is the modal value and sits
+close to both the median (5.5) and the mean (5.4). It would misstate the low end (NJ71 at
+1%, DC20 and CA144 at 2%) and the high end (GA27/GA28 at 7%, IN37 at 12%). Worth noting
+that a flat rate still preserves most of the reform signal, because the reform mostly
+moved the **threshold** rather than the rate, and a fixed penalty applied over more years
+still bites harder. Extracting the real per-tier rates is the `Data Extraction/` pipeline's
+job and the documents are already on disk.
+
+**IMPLEMENTED 2026-09-08, and it is now the baseline.** `PlanParams.EarlyRetReduction`
+carries the per-tier rate; `update_retirement_benefit` in `engine/core.py` scales the
+new-retiree benefit by `max(0, 1 - rate/100 x (threshold - age))`, applied to both the
+active and the inactive branch. The accrual formula is untouched: this changes how much of
+the accrued benefit is paid, not how it accrues. The rate comes from
+`Data/Common/states/early_retirement_reduction.csv`, one row per plan-tier, where 16 rows
+are an unambiguous extracted rate, 15 a weaker plan-level one and 97 the assumed 6%
+default; the `source` column says which is which.
+
+**Niccolo made the cliff the baseline** on 2026-09-08, on the grounds that paying an
+unreduced benefit at any retirement age is known to be wrong. The flag is therefore
+inverted: no flag gives the cliff, `--no-early-retirement-reduction` switches it off and
+reproduces pre-2026-09-08 runs bit-identically (verified on ME47, max absolute difference
+0.0). Every run made before that date is the cliff-off specification.
+
+**One measured caution.** On ME47 the cliff moved year-0 liability by only -0.21%, because
+ME47 is one of the 19 plans using the shared default retirement table, whose mass sits
+entirely at age 65 and above, so almost nobody retires below its thresholds. The lever will
+do little for those 19 plans whatever rate is used. That is a property of the switched-off
+retirement sheets (register B3, E1/E2), not of the cliff.
 
 ---
 

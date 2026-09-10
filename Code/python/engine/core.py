@@ -221,6 +221,20 @@ def update_retirement_benefit(RetBen, RetNum, Wage, cola, MortTable,
     for i in range(20, Employees.shape[0] + 1):
         NewBenefit = 0.0
         rowIndex2  = i - 20
+
+        # Early-retirement reduction, added 2026-09-08. The accrual formula is
+        # untouched: this scales how much of the accrued benefit is actually paid,
+        # by how far the retirement age falls below this tier's threshold.
+        # `i` indexes the active matrix, whose first row is age EmployeeStart, so
+        # the member's age here is EmployeeStart + i - 1.
+        # `red` is 1.0 whenever EarlyRetReduction is 0.0, so with the lever off this
+        # loop is arithmetically identical to what it was before.
+        red = 1.0
+        if p.EarlyRetReduction:
+            years_short = p.RetirementStart - (p.EmployeeStart + i - 1)
+            if years_short > 0:
+                red = max(0.0, 1.0 - (p.EarlyRetReduction / 100.0) * years_short)
+
         for j in range(nfb, min(i, Employees.shape[1]) + 1):
             prob = RetRate[i-1, j-1]
             if prob == 0.0:
@@ -228,13 +242,13 @@ def update_retirement_benefit(RetBen, RetNum, Wage, cola, MortTable,
             NewRetireActive   = Employees[i-1, j-1, year-1] * prob
             NewRetireInactive = Inactive[i-1, j-1, year-1]  * prob
             if NewRetireInactive != 0.0:
-                NewBenefit += NewRetireInactive * InactiveBen[i-1, j-1, year-1]
+                NewBenefit += NewRetireInactive * InactiveBen[i-1, j-1, year-1] * red
             if NewRetireActive != 0.0:
                 if year < WageYrs:
-                    NewBenefit += min(BenFactor * j, BenCap) * Wage[i-1, j-1, year-1] * NewRetireActive
+                    NewBenefit += min(BenFactor * j, BenCap) * Wage[i-1, j-1, year-1] * NewRetireActive * red
                 else:
                     NewBenefit += (min(BenFactor * j, BenCap)
-                                   * past_wages_mean(Wage, i, j, year, WageYrs) * NewRetireActive)
+                                   * past_wages_mean(Wage, i, j, year, WageYrs) * NewRetireActive * red)
         TRB[rowIndex2, 0, 1] += NewBenefit
 
     with np.errstate(invalid='ignore', divide='ignore'):
@@ -598,6 +612,19 @@ def main_current_fast(ActiveNumber, InactiveNumber, BaseWage_0, p: PlanParams,
     NC       = np.zeros((Nyear, 1))
     PVFS_vec = np.zeros((Nyear, 1))
 
+    # Added 2026-09-08. Headcounts and the four outflow components were already
+    # being computed every year and then discarded; only their total survived in
+    # COutflow. Recording them costs nothing and is what a beneficiary-to-worker
+    # ratio or a benefit-payments series needs. Nothing here feeds back into the
+    # simulation - these are observations of state, so results are unchanged.
+    ActiveN   = np.zeros((Nyear, NMonte))
+    InactiveN = np.zeros((Nyear, NMonte))
+    RetireeN  = np.zeros((Nyear, NMonte))
+    BenPaid   = np.zeros((Nyear, NMonte))
+    Refunds   = np.zeros((Nyear, NMonte))
+    DeathBen  = np.zeros((Nyear, NMonte))
+    DisabPay  = np.zeros((Nyear, NMonte))
+
     PVNC_Values = pvnc_calc_fast(AN, IN, IB, RN, RB, BW, 80, 1,
                                   p.discountrate, p, n_workers=n_workers)
 
@@ -646,10 +673,19 @@ def main_current_fast(ActiveNumber, InactiveNumber, BaseWage_0, p: PlanParams,
                             BW[:, :, t-1], p.MortalityTable, p)
             dis = float((BW[:, :, t-1] * AN[:, :, t-1]).sum()) * p.DisabilityPayoutRate
 
-            COutflow[t-1, n-1] = (float((RN[:, :, t-1] * RB[:, :, t-1]).sum())
-                                   + ref + dth + dis)
+            benefits = float((RN[:, :, t-1] * RB[:, :, t-1]).sum())
+
+            COutflow[t-1, n-1] = benefits + ref + dth + dis
             CInflow[t-1, n-1]  = (float((BW[:, :, t-1] * AN[:, :, t-1]).sum())
                                    * (p.EmployeeContributionRate + p.EmployerContributionRate))
+
+            ActiveN[t-1, n-1]   = float(AN[:, :, t-1].sum())
+            InactiveN[t-1, n-1] = float(IN[:, :, t-1].sum())
+            RetireeN[t-1, n-1]  = float(RN[:, :, t-1].sum())
+            BenPaid[t-1, n-1]   = benefits
+            Refunds[t-1, n-1]   = ref
+            DeathBen[t-1, n-1]  = dth
+            DisabPay[t-1, n-1]  = dis
 
             if t == Nyear:
                 break          # nothing left to advance into; state index t would overflow
@@ -673,7 +709,10 @@ def main_current_fast(ActiveNumber, InactiveNumber, BaseWage_0, p: PlanParams,
                                                      IN, IB, AN, p.RetirementRate,
                                                      p.BenefitFactor, t, p)
 
-    return [AAL, COutflow, CInflow, PVFB, NC]
+    # Indices 0-4 are unchanged and every existing caller indexes them positionally;
+    # the observation series are appended so nothing downstream has to move.
+    return [AAL, COutflow, CInflow, PVFB, NC,
+            ActiveN, InactiveN, RetireeN, BenPaid, Refunds, DeathBen, DisabPay]
 
 
 def main_ret_fast(RetirementNumber, RetirementBenefit, p: PlanParams):
@@ -693,6 +732,7 @@ def main_ret_fast(RetirementNumber, RetirementBenefit, p: PlanParams):
     AAL      = np.zeros((Nyear, NMonte))
     COutflow = np.zeros((Nyear, NMonte))
     PVFB     = np.zeros((Nyear, 1))
+    RetireeN = np.zeros((Nyear, NMonte))   # added 2026-09-08, see main_current_fast
 
     for n in range(1, NMonte + 1):
         RN[:, :, 1:] = 0.0;  RB[:, :, 1:] = 0.0
@@ -709,6 +749,7 @@ def main_ret_fast(RetirementNumber, RetirementBenefit, p: PlanParams):
 
             AAL[t-1, n-1]      = PVFB[t-1, 0]
             COutflow[t-1, n-1] = float((RN[:, :, t-1] * RB[:, :, t-1]).sum())
+            RetireeN[t-1, n-1] = float(RN[:, :, t-1].sum())
 
             if t == Nyear:
                 break          # nothing left to advance into; state index t would overflow
@@ -719,4 +760,4 @@ def main_ret_fast(RetirementNumber, RetirementBenefit, p: PlanParams):
                                                      IN_z, IB_z, AN_z, p.RetirementRate,
                                                      p.BenefitFactor, t, p)
 
-    return [AAL, COutflow]
+    return [AAL, COutflow, RetireeN]

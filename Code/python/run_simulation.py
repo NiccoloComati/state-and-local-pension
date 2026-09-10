@@ -145,6 +145,7 @@ def run_stage(
     workers: int | None = None,
     discount_override: float | None = None,
     disability_rate: float | None = None,
+    no_early_retirement_reduction: bool = False,
 ) -> int:
     failures: list[tuple[str, int]] = []
     # Asset stage: ALL plans must share one market seed so simulation column n
@@ -179,6 +180,8 @@ def run_stage(
                 command.extend(["--discount-override", str(discount_override)])
             if fast and disability_rate is not None:
                 command.extend(["--disability-rate", str(disability_rate)])
+            if fast and no_early_retirement_reduction:
+                command.append("--no-early-retirement-reduction")
             log_path = log_dir / f"python_detal_{plan}_{run_tag}.log"
             tasks.append((f"detal {plan}", command, log_path))
         else:
@@ -241,6 +244,10 @@ def main() -> int:
                         help="Use the production engine (engine/run_plan.py) for the liability stage")
     parser.add_argument("--workers", type=int, default=None,
                         help="PVNC thread-pool workers (fast mode only)")
+    parser.add_argument("--no-early-retirement-reduction", action="store_true",
+                        help="Switch OFF the early-retirement reduction, which is ON by "
+                             "default as the baseline specification. Pass this to reproduce "
+                             "runs made before 2026-09-08.")
     parser.add_argument("--disability-rate", type=float, default=None,
                         help="Sensitivity lever: disability payout as a share of active "
                              "payroll (engine default 0.025; pass 0 to switch it off).")
@@ -287,6 +294,7 @@ def main() -> int:
             args.dry_run, fast=args.fast, workers=args.workers,
             discount_override=args.discount_override,
             disability_rate=args.disability_rate,
+            no_early_retirement_reduction=args.no_early_retirement_reduction,
         )
         if code != 0:
             return code

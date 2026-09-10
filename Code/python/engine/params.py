@@ -15,6 +15,11 @@ class PlanParams:
     # Grid dimensions
     EmployeeStart: int = 20
     EmployeeEnd: int = 74
+
+    # Early-retirement reduction, percentage points of the accrued benefit lost per
+    # year of retiring below this tier's threshold (the threshold is RetirementStart).
+    # 0.0 means no cliff, which reproduces every run made before 2026-09-08.
+    EarlyRetReduction: float = 0.0
     ServiceStart: int = 1
     ServiceEnd: int = 55
     Nyear: int = 36   # base year + 35 projected years; see the note in run_plan.py

@@ -2943,3 +2943,93 @@ then compare every array against `Results/Runs/20260731_1/OK134/`; the maximum
 absolute difference must be exactly 0.0. Move the scratch tag to
 `_ARCHIVE/snapshots/` afterwards.
 
+
+---
+
+## 2026-09-08 — which Lenney exhibits the V6 draft actually refers to
+
+The V6 draft closes with a list of Lenney, Lutz, Schüle and Sheiner figures and
+tables to reproduce in our stochastic setting. Its numbers did not match the only
+version of the paper we held, so which exhibit each item meant was ambiguous.
+
+**Resolved.** The list is numbered against the **published BPEA Spring 2021
+article**, which we did not have; the folder held the 25 March 2021 conference
+draft and the September 2019 working paper. Against the conference draft every
+figure reference is off by exactly two, because the published version moved two
+motivation charts to the online appendix. All nine figure references and both
+table references were checked one at a time against all three versions; the
+published titles match the draft's wording, in one case down to the axis range.
+
+**Added to the tree** (nothing existing was changed): the published article, the
+online appendix and the published comments to `Papers/Brookings papers/`, and
+their Data & Programs package, extracted, to
+`Data/Sources/brookings_bpea2021_replication/`. Their per-plan results are keyed
+by the same 40 plan codes our engine uses, verified set against set, so their
+exhaustion dates, liabilities and reform decomposition join to ours directly.
+Note `Data/Sources/brookings_package/` is a different and older thing: source
+documents they collected, not results.
+
+**The mapping itself belongs in `Analysis/results.ipynb`, not in a documentation
+file** (Niccolo, this session). It is being folded into the notebook as part of
+the restructuring that makes the Lenney-derived exhibits the spine and moves
+everything without a counterpart into an archive section at the bottom. Until
+that lands, the working copy is in the session scratchpad only.
+
+---
+
+## 2026-09-08/10 — the cliff, the saved series, compaction, and the exhibits
+
+Four things landed, in this order.
+
+**The engine now saves what it was already computing.** Population counts and the split
+of the cash outflow were calculated every year and discarded; only their total survived.
+`active_members`, `inactive_members`, `beneficiaries`, `benefit_payments`, `refunds`,
+`death_benefits` and `disability_payments` are now saved, with an assertion that the four
+outflow components reconstruct the total. Verified bit-identical on OK134. This is what
+made Lenney figures 2 and 3 possible at all: without headcounts there is no
+beneficiary-to-worker ratio.
+
+**The early-retirement reduction is implemented and is now the baseline.** Retirement age
+comes from the rate grid; separately each tier carries a threshold, and retiring below it
+should pay a fraction of the accrued benefit. The engine did neither: it loaded the
+threshold into `RetirementStart` and never read it, and applied no multiplier. Now
+`update_retirement_benefit` scales the new-retiree benefit by
+`1 - rate x years short`, with per-plan per-tier rates in
+`Data/Common/states/early_retirement_reduction.csv`. **Niccolo made the cliff the
+baseline on 2026-09-08**, so the flag is inverted: no flag gives the cliff,
+`--no-early-retirement-reduction` switches it off and reproduces earlier runs
+bit-identically. Full evidence, including the rate survey across all 186 plan PDFs, is in
+`states_track_context.md` under "The early-retirement reduction".
+
+**Compaction.** `AAL`, `cash_inflows`, `cash_outflows` and `NormalCost` were saved at
+(Nyear, 10000) with every column identical, making a scenario run 2.2 GB against roughly
+350 MB of real content. That filled the disk mid-grid on 2026-09-08. They are now
+collapsed to one column when the columns really are identical. A scenario run went from
+2.2 GB and 25 seconds to 435 MB and 8 seconds. One consequence had to be handled:
+`funding_ratio()` divided Assets by AAL as a pandas operation, which aligns on column
+labels rather than broadcasting, so a compacted AAL would have returned all-NaN silently.
+It now divides through numpy.
+
+**The exhibits are built.** `Analysis/results.ipynb` now implements the V6 list against
+the published Lenney numbering, with the mapping itself in the notebook. Ten items: table
+1, table 2, figures 1, 2, 3, 6, 7, 8, 9, 10. Figures 11, 12 and 4 have their runs and
+their cells. The notebook executes clean end to end, 41 code cells, zero errors.
+
+**Runs added.** `20260908_1` is the current baseline (cliff on). `20260804_1` is kept as
+the reference, because the opt-out flag reproduces it bit-identically. `20260910_1` is the
+no-reform counterfactual, `_2` and `_3` the two COLA counterfactuals. Two 16-run
+contribution grids sit on top: `scn_c*` on the baseline and `scn_nr_c*` on the no-reform
+run, so the pair can be differenced. What each run is: `Results/Runs/README.md`.
+
+**Things that will bite if you do not know them.**
+
+- `RUN_TAG` in the notebook is now **pinned** to `20260908_1`. `latest_run_tag()` would
+  return `20260910_3`, a COLA counterfactual, and analyse it as the baseline with no
+  error.
+- The exhibit inputs are cached to `Analysis/output/exhibit_cache.pkl`, because reducing
+  every scenario's Assets matrix takes about 25 minutes. Delete it to rebuild after a new
+  run, or the notebook will silently analyse the old grid.
+- The counterfactual tier workbooks must be written with the sheet named `in`. The engine
+  reads `sheet_name='in'`; the first build used pandas' default and all 120 plan-runs
+  failed at load.
+

@@ -39,6 +39,16 @@ RDATA_MATRIX_OBJECTS = (
     "cash_inflows",
     "cash_outflows",
     "NormalCost",
+    # Population counts and the outflow split by kind, saved by the engine from
+    # 2026-09-08. Runs made before that date do not have them; the loaders skip
+    # any name whose file is absent, so older runs still load.
+    "active_members",
+    "inactive_members",
+    "beneficiaries",
+    "benefit_payments",
+    "refunds",
+    "death_benefits",
+    "disability_payments",
 )
 RDATA_SCALAR_OBJECTS = (
     "ppid",
@@ -181,8 +191,18 @@ class PlanResult:
         return self.matrices[name]
 
     def funding_ratio(self) -> pd.DataFrame:
-        aal = self.matrix("AAL").replace(0, np.nan)
-        return self.matrix("Assets") / aal
+        """Assets / AAL, per year and per simulation.
+
+        Divided through numpy rather than pandas. AAL is deterministic, so from
+        2026-09-08 it is stored as (Nyear, 1) instead of (Nyear, num_sim); a pandas
+        DataFrame divide aligns on column labels rather than broadcasting, so that
+        shape pairing would silently return all-NaN except column 0. numpy broadcasts,
+        and older full-width runs are unaffected because the shapes already match.
+        """
+        aal = self.matrix("AAL").replace(0, np.nan).to_numpy(dtype=float)
+        assets = self.matrix("Assets").to_numpy(dtype=float)
+        with np.errstate(invalid="ignore", divide="ignore"):
+            return pd.DataFrame(assets / aal)
 
 
 def find_project_root(start: str | Path | None = None) -> Path:

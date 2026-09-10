@@ -94,3 +94,17 @@ Github/
 # are model inputs and stay tracked.
 Data/**/ppd-data-latest.csv
 Data/**/ppd-data-*.csv
+
+# Derived analysis cache. Reduces every scenario run to per-plan exhaustion curves
+# so the notebook opens in seconds instead of ~25 minutes. Regenerable from the runs
+# themselves; delete it after a new run to force a rebuild.
+Analysis/output/exhibit_cache.pkl
+
+# Brookings BPEA 2021 replication package (their Data & Programs zip, extracted).
+# Third-party data, ~11 MB, re-downloadable from the article page:
+#   brookings.edu/articles/the-sustainability-of-state-and-local-government-pensions-...
+# Ignored for two reasons: it is data, which this repo does not track, and its nested
+# paths exceed the Windows path limit under the OneDrive folder name, so git cannot
+# index them at all. Where to get it and what is in it: Documentation + the crosswalk
+# cell at the top of Analysis/results.ipynb.
+Data/Sources/brookings_bpea2021_replication/

@@ -18,34 +18,49 @@ table, not the folder name.
 | ~~`20260730_3`~~ | 2026-07-30 | 40 | `_072026` | **DELETED 2026-08-04.** Added MI53's corrected 2022 salary and MA51's employer rate set to zero. |
 | ~~`20260730_4`~~ | 2026-07-30 | 40 | `_072026` | **DELETED 2026-08-04.** The rejected denominator experiment. Its conclusion and evidence survive in `_ARCHIVE/superseded_2026-07-30/contribution_rate_denominator_test/OUTCOME.md`, which is what mattered. |
 | `20260731_1` | 2026-07-31 | 40 | `_072026` | Adds FL26's contribution-rate exception. Superseded by `20260804_1`. Last run on the old 35-row horizon. |
-| **`20260804_1`** | 2026-08-04 | 40 | `_072026` | **THE CURRENT RUN.** First run covering **2022–2057** (base year plus 35 full projected years) on both the liability and asset sides, and the first with the normal-cost rate applied by entry age. This is the one to analyse. |
+| `20260804_1` | 2026-08-04 | 40 | `_072026` | First run covering **2022–2057** on both sides, and the first pricing normal cost by entry age. **Kept as the reference run**: it is the last run made before the early-retirement reduction, and `--no-early-retirement-reduction` reproduces it bit-identically, which is the regression check that the engine still behaves. |
+| **`20260908_1`** | 2026-09-08 | 40 | `_072026` | **THE CURRENT BASELINE.** First run with the early-retirement reduction on, which is now the baseline specification. Also the first to save population counts and the outflow split (`active_members`, `inactive_members`, `beneficiaries`, `benefit_payments`, `refunds`, `death_benefits`, `disability_payments`). Analyse this one. |
+| `20260910_1` | 2026-09-10 | 40 | `_072026` | **Counterfactual.** No post-2007 reforms: every tier starting after 2007-01-01 takes the benefit rules of the newest pre-2007 tier, via `--tier-file planchanges_noreform2007_2022_clean.xlsx`. Start dates untouched, so the same members sit in the same tiers. Feeds Lenney figures 11 and 12. |
+| `20260910_2` | 2026-09-10 | 40 | `_072026` | **Counterfactual.** COLA set to zero for every tier (`planchanges_cola0_2022_clean.xlsx`). Feeds Lenney figure 4. |
+| `20260910_3` | 2026-09-10 | 40 | `_072026` | **Counterfactual.** COLA set to each plan's own inflation assumption (`planchanges_colainflation_2022_clean.xlsx`). Feeds Lenney figure 4. |
 
-## Scenario runs: the contribution grid
+## Scenario runs: the contribution grids
 
-Scenario runs carry a `scn_` prefix and reuse a baseline run's liabilities through
-`--detal-run-tag`, so they contain asset-stage output only. All of them below reuse
-**`20260804_1`**, share market seed **123**, and apply the increase from year 0.
+Scenario runs carry a prefix and reuse a baseline's liabilities through
+`--detal-run-tag`, so they contain asset-stage output only. Two grids exist, identical
+in shape, differing only in which baseline they sit on.
 
-| Run | Added contribution | Notes |
+| Prefix | Baseline | Purpose |
 |---|---|---|
-| `scn_c2p5s0` | +2.5pp of payroll | |
-| `scn_c5s0` | +5.0pp | Produced 2026-08-04 in the first, unevenly spaced grid; it is the same scenario as the evenly spaced one, so it was kept rather than rerun |
-| `scn_c7p5s0` | +7.5pp | |
-| `scn_c10s0` | +10.0pp | |
-| `scn_c12p5s0` | +12.5pp | |
-| `scn_c15s0` | +15.0pp | |
+| `scn_c<delta>s<start>` | `20260908_1` | The baseline grid. Lenney table 2, figures 9 and 10 |
+| `scn_nr_c<delta>s<start>` | `20260910_1` | The same grid on no-reform liabilities, so the two can be differenced. Lenney figures 11 and 12 |
 
-**A first, unevenly spaced grid (+0.5, 1, 2, 3, 4, 5pp) was produced and then
-discarded** in favour of even 2.5pp spacing, because these contributions compound
-and wide gaps at the top of the range are the hardest place to interpolate across.
-Its five superseded run folders were deleted on 2026-08-04, but **the result they
-produced is preserved** in `contribution_grid_exhaustion_20260804.csv` beside this
-file: exhaustion probability for all 40 plans at 0, 0.5, 1, 2, 3, 4 and 5pp. The
-2.2 GB payloads are gone; the 40 numbers each of them produced are not.
+Each grid is **4 increases x 4 start years = 16 runs**: `+2.5, 5, 10, 17.5` percentage
+points of payroll, beginning in year `0, 5, 10, 20`. All share market seed **123** and
+pay the add-on even when a plan is overfunded.
 
-That first grid also established that the 5pp range is far too narrow for the
-targets that matter: at +5pp, 37 of 40 plans still do not reach a 1% exhaustion
-probability.
+**Why the grid stops at +20pp.** Extrapolating the curves, holding a plan's 20-year
+exhaustion probability below 1% would need roughly +127pp of payroll for IL34 and +45pp
+for LA163. Those are not policies. Plans that do not reach a target inside the grid are
+reported as not reachable, which is the result rather than a gap. Five plans are in that
+position at the 1% target: IL34, IN37, LA163, MA51, NJ73.
+
+**An earlier, wider grid was discarded.** A 7 x 5 grid (deltas to 17.5, starts to 20) ran
+on 2026-09-08 and filled the disk, because each scenario was then 2.2 GB. It was deleted
+and replaced by the 4 x 4 grid above once compaction landed.
+
+## Output size: compaction, 2026-09-08
+
+`AAL`, `cash_inflows`, `cash_outflows` and `NormalCost` are deterministic: every one of
+the 10,000 simulation columns holds the same value. Until 2026-09-08 they were stored at
+full width anyway, in both the pickle and the parquet bundle, which made a scenario run
+2.2 GB when about 350 MB was real content, and filled the disk mid-grid. They are now
+collapsed to a single column before saving, checked rather than assumed, so anything that
+does vary by simulation stays full width. `Assets` is never collapsed.
+
+Effect: a scenario run went from 2.2 GB to about 435 MB and from 25 seconds to 8. Runs
+made before that date keep the old shape and still load; `PlanResult.funding_ratio()`
+divides through numpy so both widths work.
 
 ## Deleted 2026-08-04
 

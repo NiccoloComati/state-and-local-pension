@@ -209,12 +209,46 @@ def scalar(value: object) -> float:
     return float(arr.reshape(-1)[0])
 
 
+# Arrays that are deterministic by construction: they come from the detAL stage as
+# (Nyear, 1) and are only widened to (Nyear, num_sim) so the simulation loop can do
+# elementwise arithmetic against Assets. Saving the widened copies stored the same
+# number 10,000 times over and made a scenario run 2.2 GB instead of ~350 MB, which
+# filled the disk on 2026-09-08. They are collapsed back before saving.
+DETERMINISTIC_KEYS = ("AAL", "cash_inflows", "cash_outflows", "NormalCost")
+
+
+def compact_deterministic(payload: dict) -> dict:
+    """Collapse (Nyear, num_sim) arrays whose columns are all identical to (Nyear, 1).
+
+    Only collapses when every column really is identical, checked rather than assumed,
+    so anything that turned out to vary by simulation is left at full width. Assets is
+    never a candidate: it is the stochastic output.
+    """
+    for key in DETERMINISTIC_KEYS:
+        if key not in payload:
+            continue
+        arr = np.asarray(payload[key])
+        if arr.ndim != 2 or arr.shape[1] <= 1:
+            continue
+        first = arr[:, :1]
+        if np.array_equal(arr, np.broadcast_to(first, arr.shape)):
+            payload[key] = first.copy()
+    return payload
+
+
 def write_parquet_bundle(output_dir: Path, payload: dict[str, object]) -> None:
     if output_dir.exists():
         shutil.rmtree(output_dir, ignore_errors=True)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    matrix_names = ["Assets", "AAL", "cash_inflows", "cash_outflows", "NormalCost"]
+    # The population and outflow-split series were added 2026-09-08. They are
+    # listed explicitly rather than detected by type because the scalar loop below
+    # skips arrays silently, so anything omitted here would vanish from the bundle
+    # without an error. Missing keys are skipped, so older detAL payloads still work.
+    matrix_names = ["Assets", "AAL", "cash_inflows", "cash_outflows", "NormalCost",
+                    "active_members", "inactive_members", "beneficiaries",
+                    "benefit_payments", "refunds", "death_benefits",
+                    "disability_payments"]
     for name in matrix_names:
         if name in payload:
             pd.DataFrame(np.asarray(payload[name])).to_parquet(output_dir / f"{name}.parquet")
@@ -448,6 +482,8 @@ def run_asset_simulation(
     })
     if normal_cost is not None:
         payload["NormalCost"] = normal_cost
+
+    payload = compact_deterministic(payload)
 
     output_file.parent.mkdir(parents=True, exist_ok=True)
     with output_file.open("wb") as handle:

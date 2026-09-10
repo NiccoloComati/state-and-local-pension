@@ -64,6 +64,22 @@ def parse_args():
                         "Set 0 to switch the term off. See the note at DisabilityPayoutRate "
                         "below: the retiree stream already pays disability retirees, so this "
                         "term is additive on top of them. Provided as a sensitivity lever.")
+    p.add_argument("--no-early-retirement-reduction", action="store_true",
+                   help="Switch OFF the early-retirement reduction. It is ON by default: "
+                        "Niccolo made the cliff the baseline specification on 2026-09-08, "
+                        "on the grounds that paying an unreduced benefit at any retirement "
+                        "age is known to be wrong. A member retiring below their tier's "
+                        "threshold age receives the accrued benefit scaled by "
+                        "(1 - rate x years short), with the per-plan, per-tier rate read "
+                        "from Data/Common/states/early_retirement_reduction.csv. The "
+                        "accrual formula is unchanged either way. Pass this flag to "
+                        "reproduce runs made before 2026-09-08.")
+    p.add_argument("--perturb-active-age-tilt", type=float, default=None,
+                   help="DIAGNOSTIC. Tilt the starting active age distribution by this "
+                        "amount while holding total headcount fixed, so a run differs "
+                        "from the baseline in composition alone. Positive shifts weight "
+                        "to older ages. Measures how much the FY2017 age-and-service "
+                        "shape drives results. No effect unless passed.")
     p.add_argument("--discount-override", type=float, default=None,
                    help="Replace the plan's GASB discount rate in AAL/PVNC computations "
                         "(e.g. an AAA yield for market-value liability scenarios)")
@@ -312,6 +328,27 @@ else:
         os.path.join(common_dir, 'default_assumptions.xlsx'),
         sheet_name='ageservice', usecols='B:L', skiprows=1, nrows=11,
         header=None).to_numpy(dtype=float)
+if args.perturb_active_age_tilt is not None:
+    # Diagnostic only, opt-in, no effect unless the flag is passed. Tilts the
+    # active age distribution while holding total headcount fixed, so the run
+    # differs from the baseline in COMPOSITION alone. Answers how much the
+    # FY2017 age-and-service shape drives results, given that shape and scale
+    # come from different vintages and no burn-in precedes the projection.
+    _tilt = float(args.perturb_active_age_tilt)
+    _n = asy_employee.shape[0]
+    _u = np.arange(_n, dtype=float) / (_n - 1)          # 0 at the youngest band
+    _w = 1.0 + _tilt * (2.0 * _u - 1.0)                 # tilt > 0 shifts weight older
+    _ages = 25.0 + 5.0 * np.arange(_n)                  # band mid-points
+    _before_total = float(asy_employee.sum())
+    _mean_before = float((asy_employee.sum(axis=1) * _ages).sum() / _before_total)
+    asy_employee = asy_employee * _w[:, None]
+    asy_employee = asy_employee * (_before_total / float(asy_employee.sum()))
+    _mean_after = float((asy_employee.sum(axis=1) * _ages).sum() / float(asy_employee.sum()))
+    print(f"  PERTURBATION: active age tilt {_tilt:+.3f}; headcount share preserved "
+          f"({_before_total:.6f} -> {float(asy_employee.sum()):.6f}); "
+          f"mean age {_mean_before:.2f} -> {_mean_after:.2f} "
+          f"({_mean_after - _mean_before:+.2f} years)")
+
 asy_employee = asy_employee * _s(planinfo, 'actives_tot')
 active = LinearFill(asy_employee, Slope=1)
 
@@ -503,6 +540,26 @@ def _fmt(s: float) -> str:
 
 # ---- Main simulation ----
 _t0 = time.perf_counter()
+# Early-retirement reduction rates, one per plan-tier. Loaded only when the lever is
+# on, so a run without it neither reads the file nor needs it to exist.
+apply_early_ret_reduction = not args.no_early_retirement_reduction
+EarlyRetRed_t = {i: 0.0 for i in range(1, 7)}
+if apply_early_ret_reduction:
+    _err_path = os.path.join(common_dir, 'early_retirement_reduction.csv')
+    if not os.path.exists(_err_path):
+        raise FileNotFoundError(
+            f"the early-retirement reduction is on by default and needs {_err_path}, "
+            f"which is missing; pass --no-early-retirement-reduction to run without it")
+    _err = pd.read_csv(_err_path)
+    _mine = _err[_err['plan'] == plan]
+    if _mine.empty:
+        raise ValueError(f"no early-retirement reduction rows for {plan} in {_err_path}")
+    for _, _r in _mine.iterrows():
+        EarlyRetRed_t[int(_r['tier'])] = float(_r['reduction_pct_per_year'])
+    _shown = ", ".join(f"t{int(r.tier)}={r.reduction_pct_per_year}%@{int(r.threshold_age)}"
+                       for r in _mine.itertuples())
+    print(f"  EARLY-RETIREMENT REDUCTION ON: {_shown}")
+
 MainRes        = {}
 setCurrentTier = False
 for i in range(1, 7):
@@ -515,6 +572,7 @@ for i in range(1, 7):
                              BenefitCap=BenefitCap_t[i],
                              BenefitFactor=BenefitFactor_t[i],
                              RetirementStart=int(RetirementStart_t[i]),
+                             EarlyRetReduction=EarlyRetRed_t[i],
                              NyearFullBenefit=int(NyearFullBenefit_t[i]))
         act_i, inact_i = tier_pairs[i - 1]
         _ti = time.perf_counter()
@@ -523,7 +581,9 @@ for i in range(1, 7):
                                         n_workers=args.workers)
         print(f"  tier {i}/{num_tiers} done  ({_fmt(time.perf_counter() - _ti)})")
     else:
-        MainRes[i] = [np.zeros(MainRes[1][k].shape) for k in range(5)]
+        # Length taken from tier 1 rather than hardcoded, so appending series to
+        # main_current_fast's return does not silently leave unused tiers short.
+        MainRes[i] = [np.zeros(MainRes[1][k].shape) for k in range(len(MainRes[1]))]
 
 _ti = time.perf_counter()
 RetRes = main_ret_fast(RetirementNumber, RetirementBenefit,
@@ -538,6 +598,31 @@ cash_outflows = sum(MainRes[i][1] for i in range(1, 7)) + RetRes[1]
 cash_inflows  = sum(MainRes[i][2] for i in range(1, 7))
 NormalCost    = sum(MainRes[i][4] for i in range(1, 7))
 AAL           = sum(MainRes[i][0] for i in range(1, 7)) + RetRes[0]
+
+# Added 2026-09-08. Population counts and the split of the outflow, aggregated the
+# same way as the totals above. `beneficiaries` and `benefit_payments` add RetRes
+# because members already retired in the base year are projected by main_ret_fast,
+# not by the tier loop; the other series have no RetRes counterpart by construction
+# (that cohort has no actives, no inactives, no refunds, deaths or disability).
+active_members      = sum(MainRes[i][5] for i in range(1, 7))
+inactive_members    = sum(MainRes[i][6] for i in range(1, 7))
+beneficiaries       = sum(MainRes[i][7] for i in range(1, 7)) + RetRes[2]
+benefit_payments    = sum(MainRes[i][8] for i in range(1, 7)) + RetRes[1]
+refunds             = sum(MainRes[i][9] for i in range(1, 7))
+death_benefits      = sum(MainRes[i][10] for i in range(1, 7))
+disability_payments = sum(MainRes[i][11] for i in range(1, 7))
+
+# The split must reconstruct the total; if it does not, a component is being counted
+# twice or not at all. The tolerance is RELATIVE: these are dollar amounts running to
+# 1e11, where float64 rounding alone is a few times 1e-6 in absolute terms, so an
+# absolute bound fails on large plans for no reason (it did, on 2026-09-08). 1e-9
+# relative is still ~1e7 times tighter than any real miscount would be.
+_split_gap = float(np.abs(cash_outflows - (benefit_payments + refunds
+                                            + death_benefits + disability_payments)).max())
+_split_ref = max(float(np.abs(cash_outflows).max()), 1.0)
+assert _split_gap <= 1e-9 * _split_ref, (
+    f"outflow components do not sum to cash_outflows: max gap {_split_gap} "
+    f"against a scale of {_split_ref} (relative {_split_gap / _split_ref:.2e})")
 
 Model_AAL          = float(AAL[0, 0])
 CAFR_AAL           = _s(planinfo, 'ActLiabilities_GASB') * 1000
@@ -564,6 +649,17 @@ with open(save_path, 'wb') as fh:
         'run_tag': run_tag, 'Nyear': Nyear, 'NMonte': NMonte,
         'Assets': Assets, 'AAL': AAL, 'NormalCost': NormalCost,
         'cash_outflows': cash_outflows, 'cash_inflows': cash_inflows,
+        # Added 2026-09-08. Population counts by projection year, and the outflow
+        # split by kind. Plan-level matrices, so write_parquet_bundle picks them up
+        # and they reach the analysis layer without further plumbing. The per-tier
+        # versions stay inside MainRes.
+        'active_members': active_members,
+        'inactive_members': inactive_members,
+        'beneficiaries': beneficiaries,
+        'benefit_payments': benefit_payments,
+        'refunds': refunds,
+        'death_benefits': death_benefits,
+        'disability_payments': disability_payments,
         'MainRes': MainRes, 'RetRes': RetRes,
         'Inflation': Inflation, 'rf': rf, 'discountrate': discountrate,
         'discount_override': args.discount_override,
@@ -577,6 +673,7 @@ with open(save_path, 'wb') as fh:
         'DisabilityPayoutRate': DisabilityPayoutRate,
         'disability_rate_requested': args.disability_rate,
         'apply_disability_term': apply_disability_term,
+        'early_retirement_reduction': bool(apply_early_ret_reduction),
         'EmployeeContributionRate': EmployeeContributionRate,
         'EmployerContributionRate': EmployerContributionRate,
         'planinfo': planinfo,
